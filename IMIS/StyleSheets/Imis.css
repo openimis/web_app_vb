@@ -1,0 +1,944 @@
+﻿*
+{
+    padding: 0;
+    margin: 0;
+}
+
+body, html
+{
+    font: 11px Tahoma;
+    background-color: #F7F7E9;
+}
+
+-moz::selection
+{
+    background:#a43f3f;
+    color:white;
+}
+::selection
+{
+    background:#a43f3f;
+    color:white;
+
+}
+#version
+{
+    padding: 10px 0px;
+    font-weight: bold;
+    color: #555;
+    font-size: 90%;
+    float: right;
+    margin-right: 6px;
+}
+
+Select
+{
+    width: 150px;
+    direction: ltr;
+}
+
+.dateButton
+{
+    width: 18px !important;
+    height: 18px !important;
+    padding-bottom: 3px !important;
+}
+
+h1
+{
+    font: bold 32px Times;
+    color: #666;
+    text-align: left;
+    padding: 20px 0;
+}
+
+#container
+{
+    width: 700px;
+    margin: 10px auto;
+}
+
+input[type="text"], input[type="password"], select, textarea
+{
+    border: 1px solid #999999!important;
+    outline-width: 0px!important;
+}
+
+input[type="checkbox"]
+{
+    margin-right: 4px;
+}
+
+#SelectPic
+{
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    vertical-align: bottom;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1001;
+    background-color: Gray;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    display: none;
+    vertical-align: top;
+}
+
+#Progress
+{
+    z-index: 1500;
+    background-color: White;
+    position: absolute;
+    top: 0pt;
+    left: 0pt;
+    border: solid 1px black;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    font-size: 18px;
+    color: Blue;
+    vertical-align: middle;
+}
+
+
+
+.HideButton
+{
+    Display: none;
+}
+
+.HideTable
+{
+    Display: none;
+}
+
+.mGrid
+{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+    direction: ltr;
+}
+
+    .mGrid td
+    {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+    }
+
+    .mGrid th
+    {
+        padding: 4px 2px;
+        color: #FFFFFF;
+        background: #424242 url(grd_head.png) repeat-x top;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .mGrid .alt
+    {
+        background: #fcfcfc url(grd_alt.png) repeat-x top;
+    }
+
+    .mGrid .cmb
+    {
+        font-size: small;
+        width: 100%;
+        border: none;
+        height: 17px;
+    }
+
+    .mGrid .cmbb
+    {
+        font-size: 11px;
+        width: 100%;
+        border: none #c1c1c1;
+        color: #525252;
+    }
+
+    .mGrid .pgr
+    {
+        background: #424242 url(grd_pgr.png) repeat-x top;
+    }
+
+        .mGrid .pgr table
+        {
+            margin: 5px 0;
+        }
+
+        .mGrid .pgr td
+        {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: normal;
+            color: #fff;
+            line-height: 10px;
+        }
+
+        .mGrid .pgr a
+        {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .mGrid .pgr span
+        {
+            color: Orange;
+            font-weight: bold;
+        }
+
+    .mGrid .srs
+    {
+        background: #99CCFF;
+        color: black;
+        text-decoration: none;
+    }
+
+    .mGrid .hidecol
+    {
+        Display: none;
+    }
+
+    .mGrid tr.alt:hover, .mGrid tr.normal:hover
+    {
+        background: #FFFF00;
+        color: black;
+    }
+
+.Hover
+{
+    background: #FFFF00;
+    color: black;
+}
+
+.catlabel
+{
+    border: 1px solid Gray;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    min-width: 250px;
+    height: 31px;
+    margin: 1px 1px 1px 1px;
+    background: rgb(30,87,153); /* Old browsers */
+    background:-moz-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 50%, rgba(32, 124, 202, 1) 51%, rgba(125, 185, 232, 1) 100%)
+}
+
+.GridHeader
+{
+    margin: 0px;
+}
+
+.backentry
+{
+    width: 994px;
+    padding: 2px 3px 0px 3px;
+    /*height: 670px;*/
+    background: #85add3;/* Old browsers */
+    background:linear-gradient(top left, #85add3, #fff, #85add3);
+    background:-moz-linear-gradient(top left, #85add3, #fff, #85add3);
+    background:-webkit-linear-gradient(top left, #85add3, #fff, #85add3);
+    background:-o-linear-gradient(top left, #85add3, #fff, #85add3);
+    text-align: left;
+    margin-top: 4px;
+    padding-bottom: 5px;
+}
+
+
+
+.footer
+{
+    /*top: 642px;*/
+    /*position: absolute;*/
+    width: 974px;
+    margin: 5px 0px 0px 5px;
+    min-height: 20px;
+    text-align: left;
+    background: #CCCCFF;
+    color: Blue;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.divBody
+{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    /*overflow-x:auto;*/
+}
+
+.panel
+{
+    border: 1px solid Gray;
+    margin: 3px 3px 1px 3px;
+    height: auto;
+    padding: 1px 5px 2px 5px;
+    top: 0px;
+    left: 0px; /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    /*background removed*/
+}
+
+.panelBody
+{
+    border: 1px solid Gray;
+    margin: 3px 3px 1px 3px;
+    /*height: 330px;*/
+    padding: 1px 5px 2px 5px;
+    top: 0px;
+    left: 0px; /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    /*background removed*/
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.panelTop
+{
+    border: 1px solid Gray;
+    margin: 3px 3px 1px 3px;
+    /*height: 138px;*/
+    padding: 0px 5px 8px 5px;
+    top: 0px;
+    left: 0px; /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    /*background removed*/
+}
+
+.panelbuttons
+{
+    border: 1px solid Gray;
+    margin: 3px 3px 1px 3px;
+    height: 28px;
+    padding: 0px 2px 2px 0px;
+    top: 0px;
+    left: 0px; /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    /*background removed*/
+}
+
+.gridview
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    width: 600px;
+}
+
+
+.DataEntry
+{
+    font-family: Arial, Helvetica, sans-serif;
+    /*min-width: 170px;*/
+    height: 27px;
+    direction: ltr;
+}
+
+.Validate
+{
+    white-space: pre-line;
+}
+
+.ReadOnlyText
+{
+    width: 170px;
+    height: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000080;
+    text-align: left;
+}
+
+
+
+
+
+.FormLabel
+{
+    height: 23px;
+    width: 150px;
+    text-align: right;
+    color: Blue;
+    font-weight: normal;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    padding-right: 1px;
+}
+
+.checkbox
+{
+    color: #0000FF;
+    font-weight: normal;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.style14
+{
+    width: 75%;
+    background: linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+    text-align: left;
+    height: inherit;
+}
+
+.style145
+{
+    width: 100%;
+}
+
+.style15
+{
+    width: 100%;
+}
+
+.style16
+{
+    width: 369px;
+}
+
+.MainMenu
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    width: 1000px;
+    height: 30px;
+    text-align: center;
+    /*background removed*/
+}
+
+.MainButton
+{
+    width: 15%;
+    border-right-style: solid;
+    border-color: #808080;
+    border-width: thin;
+    padding: 2px;
+    margin: 2px;
+    
+}
+
+    .MainButton:hover
+    {
+        border-top-color: #28597a;
+        background: rgb(125,126,125); /* Old browsers */
+        /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdkN2U3ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZTBlMGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        background: -moz-linear-gradient(top, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* IE10+ */
+        background: linear-gradient(top, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-8 */
+        color: #ccc;
+    }
+
+    .MainButton:active
+    {
+        border-top-color: #1b435e;
+        background: #1b435e;
+    }
+
+    .MainButton:leave
+    {
+        border-top-color: #1b435e;
+        background: #1b435e;
+    }
+
+.SubButton
+{
+    display: none;
+    width: 15%;
+    border-right-style: solid;
+    border-color: #808080;
+    border-width: thin;
+    padding: 2px;
+    margin: 2px;
+}
+
+.SubMenu
+{
+    border: 1px solid Gray;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    width: 1000px;
+    height: 25px;
+    text-align: center;
+    /*Removed background*/
+}
+
+.SubLabels
+{
+    width: 100px;
+    color: orange;
+}
+
+.ImageButton
+{
+    margin: 5px 5px 0px 5px;
+    Border-Color: White;
+    Border-Style: Solid;
+    Border-Width: 1px;
+}
+
+ImageButton:hover
+{
+    border-top-color: #28597a;
+    background: #28597a;
+    color: #ccc;
+}
+
+.FormButton
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    color: Navy;
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    border-top: 1px solid #96d1f8;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    padding: 3px 6px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 10px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    vertical-align: top;
+    background-color: #008000;
+}
+
+input[type="button"], input[type="submit"]
+{
+
+    border-top: 1px solid #96d1f8;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    padding: 3px 6px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 12px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    /*vertical-align: text-top;*/
+    width: 80px;
+    transition:0.2s;
+    -moz-transition:0.2s;
+    -webkit-transition:0.2s;
+    -o-transition:0.2s;
+    cursor:pointer;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover
+{
+    border:1px solid #008CBA;
+    background-color:white;
+    color:black;
+}
+input[type="text"], input[type="password"]
+{
+    width: 150px;
+}
+
+.button:active
+{
+    border-top-color: #1b435e;
+    background: #1b435e;
+}
+
+.Login
+{
+    border: 1px solid #96d1f8;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    width: 400px;
+    height: 200px;
+}
+
+    .Login .tdForgotPassword
+    {
+        text-align: right;
+        padding-right: 7px;
+        font-size: small;
+    }
+
+        .Login .tdForgotPassword a
+        {
+            text-decoration: none;
+        }
+
+            .Login .tdForgotPassword a:hover
+            {
+                color: maroon;
+                text-decoration: underline;
+            }
+
+#chk label
+{
+    padding: 5px;
+    margin-left: 3px;
+}
+
+.WaterMark
+{
+    vertical-align: top;
+    text-align: center;
+    /*width: 150px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	border-radius: 8px;*/
+    color: #666666;
+    font-style: italic;
+    font-size: small;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 1px;
+    z-index: 1;
+}
+
+#Search
+{
+    margin-top: 8px;
+    margin-right: 20px;
+    width: 150px;
+    float: right;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    width: 175px;
+}
+
+.InsureeByCHFID
+{
+    width: 530px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    border-radius: 15px;
+    border: solid 1px blue;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #C4C4FF;
+}
+
+.modalPopup
+{
+    width: 100%;
+    min-height: 150px;
+    background-color: white;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    padding: 10% 5% 0 5%;
+    text-align: center;
+    position: fixed;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+.modalPopupBG
+{
+    background-color: #666666;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+
+.SearchHeader
+{
+    Height: 50px;
+    font-family: Times New Roman;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    color: Maroon;
+    padding-bottom: 10px;
+    letter-spacing: 10px;
+}
+
+
+.SearchLabel
+{
+    height: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #336600;
+    text-align: left;
+    padding-left: 10px;
+    width: 70px;
+}
+
+.SearchDetails
+{
+    height: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000080;
+    text-align: left;
+}
+
+#Progress1
+{
+    padding: 3px;
+    border: solid 1px black;
+    background: white;
+    position: absolute;
+    color: black;
+    font-size: smaller;
+    font-weight: normal;
+}
+
+.DeleteCross
+{
+    opacity: 0.2;
+}
+
+    .DeleteCross:hover
+    {
+        opacity: 1;
+    }
+
+input[disabled]
+{
+    background-color: #F4FFFF;
+    border: solid 1px black;
+    color: #000000;
+    padding-left: 1px;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.AdvancedSearch
+{
+    float: left;
+    cursor: default;
+    overflow: hidden;
+}
+
+    .AdvancedSearch > div
+    {
+        position: absolute;
+        left: -85px;
+        top: 30px;
+        border: solid 1px #CCC;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        border-radius: 5px;
+        display: none;
+        width: 250px;
+    }
+
+        .AdvancedSearch > div > table
+        {
+            background-color: silver;
+        }
+
+div.sugDivPlaceHolder
+{
+    border-width: 0px;
+    width: 0px;
+    height: 0px;
+    overflow: visible;
+}
+
+div.AdvSearchSug
+{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    border: 1px solid #555555;
+    max-height: 300px;
+    overflow: auto;
+    overflow-x: hidden;
+    background: #FFFFFF;
+}
+
+span.sugItem, span.sugService
+{
+    display: block;
+    color: #000000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 4px 2px;
+    font-weight: normal;
+}
+
+    span.sugItem.selected, span.sugService.selected
+    {
+        background: #CCCCCC;
+    }
+
+    span.sugItem:hover, span.sugService:hover
+    {
+        background: #CCCCCC;
+    }
+
+table#tblInsureeServItm
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    table#tblInsureeServItm .Label
+    {
+        font-weight: bold;
+    }
+
+.ChangePassword
+{
+    margin: auto;
+}
+
+#footer_validationSummary ul
+{
+    list-style: none;
+}
+
+#ForgotPassword
+{
+    width: 35%;
+    border: 1px solid #96D1F8;
+    border-radius: 15px;
+    margin: auto;
+    top: 26%;
+    position: relative;
+}
+
+    #ForgotPassword .Heading
+    {
+        font-size: medium;
+        text-align: center;
+        color: white;
+        background-color: #28597a;
+        border: 1px solid #28597a;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 2em;
+        line-height: 2em;
+        margin-top: 1px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    #ForgotPassword .Summary
+    {
+        color: red;
+        font-size: small;
+        padding: 5px 16px;
+    }
+
+    #ForgotPassword .line
+    {
+        padding: 12px;
+        margin: 12px;
+    }
+
+        #ForgotPassword .line .lbl
+        {
+            width: 10%;
+            float: left;
+            font-size: small;
+            color: blue;
+        }
+
+        #ForgotPassword .line .cnt
+        {
+            width: 80%;
+        }
+
+    #ForgotPassword .btn
+    {
+        padding: 12px;
+        margin: 12px;
+        text-align: right;
+    }
+
+    #ForgotPassword .msg
+    {
+        padding: 12px;
+        margin: 12px;
+        text-align: center;
+        font-size: medium;
+        color: #f14040;
+        display: none;
+        font-weight: 500;
+    }
+
+
+    #ForgotPassword .btn a
+    {
+        float: left;
+        font-size: small;
+        text-decoration: none;
+    }
+
+        #ForgotPassword .btn a:hover
+        {
+            color: maroon;
+            text-decoration: underline;
+        }
+
+
+#UserGreeting
+{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #132751;
+    font-style: italic;
+}
+
+input.requiedField, select.requiedField, textarea.requiedField
+{
+    border: 1px solid #f37575 !important;
+}
+
+.PriceListTD
+{
+    width: 75px !important;
+}
+
+.ExtractTd
+{
+    width: 50px !important;
+}

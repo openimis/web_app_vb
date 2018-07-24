@@ -1,0 +1,4 @@
+# ignore everything except needed libraries
+*
+!dummy.dmd
+!.gitignore

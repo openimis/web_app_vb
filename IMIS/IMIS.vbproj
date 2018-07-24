@@ -1,0 +1,879 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{E0D2FF4A-A742-4A05-BF65-BA4BD4C2EB14}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IMIS</RootNamespace>
+    <AssemblyName>IMIS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.5.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddFunding.aspx" />
+    <Content Include="ChangeFamily.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="Claim.aspx" />
+    <Content Include="ClaimAdministrator.aspx" />
+    <Content Include="ClaimFeedback.aspx" />
+    <Content Include="ClaimOverview.aspx" />
+    <Content Include="ClaimReview.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Download.aspx" />
+    <Content Include="EmailSettings.aspx" />
+    <Content Include="Error.htm" />
+    <Content Include="Family.aspx" />
+    <Content Include="FeedbackPrompt.aspx" />
+    <Content Include="FindClaimAdministrator.aspx" />
+    <Content Include="FindClaims.aspx" />
+    <Content Include="FindFamily.aspx" />
+    <Content Include="FindHealthFacility.aspx" />
+    <Content Include="FindInsuree.aspx" />
+    <Content Include="FindMedicalItem.aspx" />
+    <Content Include="FindMedicalService.aspx" />
+    <Content Include="FindOfficer.aspx" />
+    <Content Include="FindPayer.aspx" />
+    <Content Include="FindPolicy.aspx" />
+    <Content Include="FindPremium.aspx" />
+    <Content Include="FindPriceListMI.aspx" />
+    <Content Include="FindPriceListMS.aspx" />
+    <Content Include="FindProduct.aspx" />
+    <Content Include="FindUser.aspx" />
+    <Content Include="ForgotPassword.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="HealthFacility.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\Add.gif" />
+    <Content Include="Images\Erase.png" />
+    <Content Include="Images\GoLtr.bmp" />
+    <Content Include="Images\Help book.bmp" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Modify.png" />
+    <Content Include="Images\noimage.jpg" />
+    <Content Include="Images\no_javascript.gif" />
+    <Content Include="Images\progress.gif" />
+    <Content Include="Images\Renew.png" />
+    <Content Include="IMISExtracts.aspx" />
+    <Content Include="Insuree.aspx" />
+    <Content Include="Javascripts\Exact.js" />
+    <Content Include="Javascripts\ExactDropDown.js" />
+    <Content Include="Javascripts\jquery-1.8.2.min.js" />
+    <Content Include="Javascripts\jquery.cookie.js" />
+    <Content Include="Locations.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="MedicalItem.aspx" />
+    <Content Include="MedicalService.aspx" />
+    <Content Include="MoveLocation.aspx" />
+    <Content Include="nojs.htm" />
+    <Content Include="Officer.aspx" />
+    <Content Include="OverviewFamily.aspx" />
+    <Content Include="Payer.aspx" />
+    <Content Include="Policy.aspx" />
+    <Content Include="PolicyRenewal.aspx" />
+    <Content Include="Premium.aspx" />
+    <Content Include="PremiumCollection.aspx" />
+    <Content Include="PremiumDistribution.aspx" />
+    <Content Include="PriceListMI.aspx" />
+    <Content Include="PriceListMS.aspx" />
+    <Content Include="ProcessBatches.aspx" />
+    <Content Include="Product.aspx" />
+    <Content Include="Redirect.aspx" />
+    <Content Include="Redirected.htm" />
+    <Content Include="Registers.aspx" />
+    <Content Include="Report.aspx" />
+    <Content Include="Reports.aspx" />
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StyleSheets\grd_alt.png" />
+    <Content Include="StyleSheets\grd_head.png" />
+    <Content Include="StyleSheets\grd_pgr.png" />
+    <Content Include="StyleSheets\Imis.css" />
+    <Content Include="StyleSheets\MainMenu.css" />
+    <Content Include="Templates\FamilySMSBeforeExpiry.txt" />
+    <Content Include="Templates\ForgotPassword.html" />
+    <Content Include="Templates\OfflineExtract.html" />
+    <Content Include="Templates\PhoneExtract.html" />
+    <Content Include="User.aspx" />
+    <Content Include="Utilities.aspx" />
+    <Content Include="Manual\IMIS_manual.pdf" />
+    <Content Include="Extracts\OffLine\WorkFolder\dummy.dmd" />
+    <Content Include="Archive\dummy.dmd" />
+    <Content Include="Extracts\Phone\WorkFolder\dummy.dmd" />
+    <Content Include="FromPhone\Claim\Rejected\dummy.dmd" />
+    <Content Include="FromPhone\Enrollment\dummy.dmd" />
+    <Content Include="FromPhone\Feedback\Rejected\dummy.dmd" />
+    <Content Include="FromPhone\Renewal\Rejected\dummy.dmd" />
+    <None Include="My Project\PublishProfiles\IMIS.pubxml" />
+    <None Include="packages.config" />
+    <None Include="Web References\IMISService\ExactServices.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Workspace\dummy.dmd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddFunding.aspx.designer.vb">
+      <DependentUpon>AddFunding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddFunding.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>AddFunding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource1.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeFamily.aspx.designer.vb">
+      <DependentUpon>ChangeFamily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeFamily.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ChangeFamily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Claim.aspx.designer.vb">
+      <DependentUpon>Claim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Claim.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Claim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimAdministrator.aspx.designer.vb">
+      <DependentUpon>ClaimAdministrator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimAdministrator.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ClaimAdministrator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimFeedback.aspx.designer.vb">
+      <DependentUpon>ClaimFeedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimFeedback.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ClaimFeedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimOverview.aspx.designer.vb">
+      <DependentUpon>ClaimOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimOverview.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ClaimOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimReview.aspx.designer.vb">
+      <DependentUpon>ClaimReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimReview.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ClaimReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Download.aspx.designer.vb">
+      <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Download.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailSettings.aspx.designer.vb">
+      <DependentUpon>EmailSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailSettings.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>EmailSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Family.aspx.designer.vb">
+      <DependentUpon>Family.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Family.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Family.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackPrompt.aspx.designer.vb">
+      <DependentUpon>FeedbackPrompt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackPrompt.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FeedbackPrompt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindClaimAdministrator.aspx.designer.vb">
+      <DependentUpon>FindClaimAdministrator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindClaimAdministrator.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindClaimAdministrator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindClaims.aspx.designer.vb">
+      <DependentUpon>FindClaims.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindClaims.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindClaims.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindFamily.aspx.designer.vb">
+      <DependentUpon>FindFamily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindFamily.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindFamily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindHealthFacility.aspx.designer.vb">
+      <DependentUpon>FindHealthFacility.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindHealthFacility.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindHealthFacility.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindInsuree.aspx.designer.vb">
+      <DependentUpon>FindInsuree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindInsuree.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindInsuree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindMedicalItem.aspx.designer.vb">
+      <DependentUpon>FindMedicalItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindMedicalItem.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindMedicalItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindMedicalService.aspx.designer.vb">
+      <DependentUpon>FindMedicalService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindMedicalService.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindMedicalService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindOfficer.aspx.designer.vb">
+      <DependentUpon>FindOfficer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindOfficer.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindOfficer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPayer.aspx.designer.vb">
+      <DependentUpon>FindPayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPayer.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindPayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPolicy.aspx.designer.vb">
+      <DependentUpon>FindPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPolicy.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPremium.aspx.designer.vb">
+      <DependentUpon>FindPremium.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPremium.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindPremium.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPriceListMI.aspx.designer.vb">
+      <DependentUpon>FindPriceListMI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPriceListMI.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindPriceListMI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPriceListMS.aspx.designer.vb">
+      <DependentUpon>FindPriceListMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPriceListMS.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindPriceListMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindProduct.aspx.designer.vb">
+      <DependentUpon>FindProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindProduct.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindUser.aspx.designer.vb">
+      <DependentUpon>FindUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindUser.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FindUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.vb">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.vb">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="General.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HealthFacility.aspx.designer.vb">
+      <DependentUpon>HealthFacility.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HealthFacility.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>HealthFacility.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.designer.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IMIS.Master.designer.vb">
+      <DependentUpon>IMIS.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IMIS.Master.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>IMIS.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IMISExtracts.aspx.designer.vb">
+      <DependentUpon>IMISExtracts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IMISExtracts.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>IMISExtracts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IMIS_Gen.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Insuree.aspx.designer.vb">
+      <DependentUpon>Insuree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Insuree.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Insuree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Locations.aspx.designer.vb">
+      <DependentUpon>Locations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Locations.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Locations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.vb">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalItem.aspx.designer.vb">
+      <DependentUpon>MedicalItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalItem.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>MedicalItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalService.aspx.designer.vb">
+      <DependentUpon>MedicalService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalService.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>MedicalService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveLocation.aspx.designer.vb">
+      <DependentUpon>MoveLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveLocation.aspx.vb">
+      <DependentUpon>MoveLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Officer.aspx.designer.vb">
+      <DependentUpon>Officer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Officer.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Officer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OverviewFamily.aspx.designer.vb">
+      <DependentUpon>OverviewFamily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OverviewFamily.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>OverviewFamily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payer.aspx.designer.vb">
+      <DependentUpon>Payer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payer.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Payer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Policy.aspx.designer.vb">
+      <DependentUpon>Policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Policy.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyRenewal.aspx.designer.vb">
+      <DependentUpon>PolicyRenewal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyRenewal.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PolicyRenewal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Premium.aspx.designer.vb">
+      <DependentUpon>Premium.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Premium.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Premium.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PremiumCollection.aspx.designer.vb">
+      <DependentUpon>PremiumCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PremiumCollection.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PremiumCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PremiumDistribution.aspx.designer.vb">
+      <DependentUpon>PremiumDistribution.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PremiumDistribution.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PremiumDistribution.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PriceListMI.aspx.designer.vb">
+      <DependentUpon>PriceListMI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PriceListMI.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PriceListMI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PriceListMS.aspx.designer.vb">
+      <DependentUpon>PriceListMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PriceListMS.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PriceListMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessBatches.aspx.designer.vb">
+      <DependentUpon>ProcessBatches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessBatches.aspx.vb">
+      <DependentUpon>ProcessBatches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product.aspx.designer.vb">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Redirect.aspx.designer.vb">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Redirect.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registers.aspx.designer.vb">
+      <DependentUpon>Registers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registers.aspx.vb">
+      <DependentUpon>Registers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report.aspx.designer.vb">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.vb">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ds.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="User.aspx.designer.vb">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.aspx.designer.vb">
+      <DependentUpon>Utilities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Utilities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\IMISService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource1.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr.designer.vb</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Reports\rptClaim.rdlc" />
+    <Content Include="Reports\rptClaimOverview.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptDerivedIndicators.rdlc" />
+    <Content Include="Reports\rptFamilesInsureesOverview.rdlc" />
+    <Content Include="Reports\rptFeedbackPrompt.rdlc" />
+    <Content Include="Reports\rptHFProcessBatch.rdlc" />
+    <Content Include="Reports\rptHFProcessBatchWithClaims.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptInsureesWithoutPhotos.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptMatchingFunds.rdlc" />
+    <Content Include="Reports\rptPaymentCategoryOverview.rdlc" />
+    <Content Include="Reports\rptPendingInsurees.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptPercentageReferral.rdlc" />
+    <Content Include="Reports\rptPolicyRenewal.rdlc" />
+    <Content Include="Reports\rptPolicyRenewalJournal.rdlc" />
+    <Content Include="Reports\rptPolicyRenewalStatus.rdlc" />
+    <Content Include="Reports\rptRenewals.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptPremiumCollection.rdlc" />
+    <Content Include="Reports\rptPremiumDistribution.rdlc" />
+    <Content Include="Reports\rptPrimaryIndicators.rdlc" />
+    <Content Include="Reports\rptPrimaryIndicatorsClaims.rdlc" />
+    <Content Include="Reports\rptPrimaryIndicatorsPolicies.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptProdProcessBatch.rdlc" />
+    <Content Include="Reports\rptProductSales.rdlc" />
+    <Content Include="Reports\rptStatusofRegisters.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptUserActivityReport.rdlc" />
+    <Content Include="Reports\TemplateLandscape.rdlc" />
+    <Content Include="Reports\rptCapitationPayment.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IMIS.Master" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Reports\ds.xsc">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Reports\ds.xss">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Content>
+    <None Include="Web References\IMISService\ExactServices.wsdl" />
+    <None Include="Web References\IMISService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extracts\Export\Log\" />
+    <Folder Include="Images\Submitted\" />
+    <Folder Include="Images\Updated\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:52239/ExactServices.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\IMISService\</RelPath>
+      <UpdateFromURL>http://localhost:52239/ExactServices.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>IMIS_IMISService_Service1</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IMIS_BI\IMIS_BI.vbproj">
+      <Project>{9b6b33f6-7629-4eb7-9548-2d3f48963643}</Project>
+      <Name>IMIS_BI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IMIS_EN\IMIS_EN.vbproj">
+      <Project>{a57fc2fd-3b24-4f9e-9514-cf370e411401}</Project>
+      <Name>IMIS_EN</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57214</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49552/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,275 @@
+''Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
+''
+''The program users must agree to the following terms:
+''
+''Copyright notices
+''This program is free software: you can redistribute it and/or modify it under the terms of the GNU AGPL v3 License as published by the 
+''Free Software Foundation, version 3 of the License.
+''This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+''MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL v3 License for more details www.gnu.org.
+''
+''Disclaimer of Warranty
+''There is no warranty for the program, to the extent permitted by applicable law; except when otherwise stated in writing the copyright 
+''holders and/or other parties provide the program "as is" without warranty of any kind, either expressed or implied, including, but not 
+''limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and 
+''performance of the program is with you. Should the program prove defective, you assume the cost of all necessary servicing, repair or correction.
+''
+''Limitation of Liability 
+''In no event unless required by applicable law or agreed to in writing will any copyright holder, or any other party who modifies and/or 
+''conveys the program as permitted above, be liable to you for damages, including any general, special, incidental or consequential damages 
+''arising out of the use or inability to use the program (including but not limited to loss of data or data being rendered inaccurate or losses 
+''sustained by you or third parties or a failure of the program to operate with any other programs), even if such holder or other party has been 
+''advised of the possibility of such damages.
+''
+''In case of dispute arising out or in relation to the use of the program, it is subject to the public law of Switzerland. The place of jurisdiction is Berne.
+'
+' 
+'
+
+Partial Public Class User
+    Inherits System.Web.UI.Page
+    Private Users As New IMIS_BI.UserBI
+    Private eUsers As New IMIS_EN.tblUsers
+    Private imisgen As New IMIS_Gen
+    Private userBI As New IMIS_BI.UserBI
+   
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        RunPageSecurity()
+
+        Try
+            lblMsg.Text = ""
+
+
+            eUsers.UserID = HttpContext.Current.Request.QueryString("u")
+            If HttpContext.Current.Request.QueryString("r") = 1 Then
+                Panel2.Enabled = False
+                B_SAVE.Visible = False
+            End If
+
+            If IsPostBack = True Then Return
+            Dim load As New IMIS_BI.UserBI
+            ddlLanguage.DataSource = Users.GetLanguage
+            ddlLanguage.DataValueField = "LanguageCode"
+            ddlLanguage.DataTextField = "LanguageName"
+            ddlLanguage.DataBind()
+            ddlHFNAME.DataSource = Users.GetHFCodes(imisgen.getUserId(Session("User")), 0)
+            ddlHFNAME.DataValueField = "Hfid"
+            ddlHFNAME.DataTextField = "HFCode"
+            ddlHFNAME.DataBind()
+
+            Dim dtRegion As DataTable = Users.getRegions(eUsers.UserID)
+            gvRegion.DataSource = dtRegion
+            gvRegion.DataBind()
+
+            Assign(gvRegion)
+
+            If IMIS_Gen.offlineHF Then
+                gvDistrict.DataSource = Users.GetDistrictForHF(IMIS_Gen.HFID, eUsers.UserID)
+            Else
+                gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID)
+            End If
+            gvDistrict.DataBind()
+            Assign(gvDistrict)
+
+
+            If Not eUsers.UserID = 0 Then
+                Users.LoadUsers(eUsers)
+                ddlLanguage.SelectedValue = eUsers.LanguageID
+                txtLastName.Text = eUsers.LastName
+                txtOtherNames.Text = eUsers.OtherNames
+                txtPhone.Text = eUsers.Phone
+                txtEmail.Text = eUsers.EmailId
+                txtLoginName.Text = eUsers.LoginName
+                txtPassword.Attributes.Add("value", eUsers.DummyPwd)
+                txtConfirmPassword.Attributes.Add("value", eUsers.DummyPwd)
+                If HttpContext.Current.Request.QueryString("r") = 1 Or eUsers.ValidityTo.HasValue Then
+                    Panel2.Enabled = False
+                    B_SAVE.Visible = False
+                End If
+                ddlHFNAME.SelectedValue = eUsers.HFID.ToString
+            End If
+            Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
+            If RoleId = 524288 Then
+                gvRoles.DataSource = Users.GetRoles(525184)
+            ElseIf RoleId = 1048576 Or RoleId = 1048584 Then
+                gvRoles.DataSource = Users.GetRoles(1048584)
+            Else
+                gvRoles.DataSource = Users.GetRoles(1023)
+            End If
+            If IMIS_Gen.offlineHF Then
+                gvRoles.DataSource = Users.GetRoles(525184)
+            End If
+            gvRoles.DataBind()
+            Assign(gvRoles)
+
+            If IMIS_Gen.offlineHF Then
+                ddlHFNAME.SelectedValue = IMIS_Gen.HFID
+                ddlHFNAME.Enabled = False
+            End If
+        Catch ex As Exception
+            'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlDistrict, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+        End Try
+
+
+
+    End Sub
+
+    Private Sub RunPageSecurity()
+        Dim RefUrl = Request.Headers("Referer")
+        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.User, Page) Then
+            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddUser, RoleID)
+            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditUser, RoleID)
+
+            If Not Add And Not Edit Then
+                B_SAVE.Visible = False
+                Panel2.Enabled = False
+            End If
+        Else
+            Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.User.ToString & "&retUrl=" & RefUrl)
+        End If
+    End Sub
+
+
+    Public Sub Assign(ByVal grid As GridView)
+        Dim _checkedRole As Boolean = True
+        Dim _checkedDistrict As Boolean = True
+        Dim _checkedRegion As Boolean = True
+
+        For Each row In grid.Rows
+            Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
+            If grid.ID = gvRoles.ID Then
+                chkSelect.Checked = (eUsers.RoleID And CInt(grid.DataKeys(row.RowIndex)("Code")))
+                If chkSelect.Checked <> True Then
+                    _checkedRole = False
+                End If
+            ElseIf grid.ID = gvDistrict.ID Then
+                chkSelect.Checked = gvDistrict.DataKeys(row.RowIndex).Value
+                If chkSelect.Checked <> True Then
+                    _checkedDistrict = False
+                End If
+            ElseIf grid.ID = gvRegion.ID Then
+                chkSelect.Checked = gvRegion.DataKeys(row.RowIndex).Value
+                If chkSelect.Checked <> True Then
+                    _checkedRegion = False
+                End If
+            End If
+        Next
+
+        If grid.ID = gvRoles.ID Then
+            Checkbox1.Checked = _checkedRole
+        ElseIf grid.ID = gvDistrict.ID Then
+            CheckBox2.Checked = _checkedDistrict
+        ElseIf grid.ID = gvRegion.ID Then
+            chkCheckAllR.Checked = _checkedRegion
+        End If
+
+    End Sub
+    Public Function CheckDifferenceandSave(ByVal grid As GridView, ByVal RowIndex As Integer) As Boolean
+
+        Dim chkSelect As CheckBox = CType(grid.Rows(RowIndex).Cells(0).Controls(1), CheckBox)
+        If chkSelect.Checked <> CBool(grid.DataKeys(grid.Rows(RowIndex).RowIndex).Value) Then
+            Return True
+        Else
+            Return False
+        End If
+
+
+    End Function
+    Public Function GetRoles(ByVal grid As GridView) As Integer
+        Dim i As Integer = 0
+        For Each row In grid.Rows
+            Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
+            If chkSelect.Checked Then
+                i += CInt(gvRoles.DataKeys(row.RowIndex)("Code"))
+            End If
+        Next
+        Return i
+    End Function
+    Private Function checkChecked(ByVal gv As GridView) As Boolean
+        Dim checked As Boolean = False
+        For Each row In gv.Rows
+            Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
+            If chkSelect.Checked Then
+                checked = True
+                Exit For
+            End If
+        Next
+        Return checked
+    End Function
+    Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
+        If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
+            Try
+                'If Not IsValidPassword() Then
+                '    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
+                '    Exit Sub
+                'End If
+
+                If Not checkChecked(gvDistrict) Then
+                    lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
+                    Return
+                End If
+                If Not checkChecked(gvRoles) Then
+                    lblMsg.Text = imisgen.getMessage("V_SELECTROLE")
+                    Return
+                End If
+                eUsers.LastName = txtLastName.Text
+                eUsers.OtherNames = txtOtherNames.Text
+                eUsers.DummyPwd = txtPassword.Text
+                eUsers.Phone = txtPhone.Text
+                eUsers.EmailId = txtEmail.Text
+                eUsers.LoginName = txtLoginName.Text
+                eUsers.LanguageID = ddlLanguage.SelectedValue
+                eUsers.RoleID = GetRoles(gvRoles)
+                eUsers.AuditUserID = imisgen.getUserId(Session("User"))
+                If ddlHFNAME.SelectedIndex >= 0 Then
+                    eUsers.HFID = ddlHFNAME.SelectedValue
+                End If
+
+                Dim chk As Integer = Users.SaveUser(eUsers)
+                If Not chk = 1 Then
+                    For Each row In gvDistrict.Rows
+                        If CheckDifferenceandSave(gvDistrict, row.RowIndex) = True Then
+                            Dim eUsersDistricts As New IMIS_EN.tblUsersDistricts
+                            Dim eLocations As New IMIS_EN.tblLocations
+                            eLocations.LocationId = gvDistrict.DataKeys(row.RowIndex)("DistrictId")
+                            eUsersDistricts.tblUsers = eUsers
+                            eUsersDistricts.UserDistrictID = if(gvDistrict.DataKeys(row.RowIndex)("UserDistrictId") Is System.DBNull.Value, 0, gvDistrict.DataKeys(row.RowIndex)("UserDistrictId"))
+                            eUsersDistricts.AuditUserID = imisgen.getUserId(Session("User"))
+                            eUsersDistricts.tblLocations = eLocations
+                            Users.SaveUserDistricts(eUsersDistricts)
+                        End If
+                    Next
+                End If
+
+                If chk = 0 Then
+                    Session("msg") = eUsers.LoginName & imisgen.getMessage("M_Inserted")
+                ElseIf chk = 1 Then
+                    imisgen.Alert(eUsers.LoginName & imisgen.getMessage("M_Exists"), pnlButtons, alertPopupTitle:="IMIS")
+                    txtLoginName.Text = ""
+                    Return
+                Else
+                    Session("msg") = eUsers.LoginName & imisgen.getMessage("M_Updated")
+                End If
+            Catch ex As Exception
+                'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
+                imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlDistrict, alertPopupTitle:="IMIS")
+                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                Return
+            End Try
+        End If
+
+
+        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
+    End Sub
+    
+    Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
+        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
+    End Sub
+    'Private Function IsValidPassword() As Boolean
+    '    'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
+    '    'Return Parten
+    'End Function
+End Class
