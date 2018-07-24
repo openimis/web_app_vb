@@ -29,7 +29,7 @@ nuget restore
 ```
 
 Before running the application, you need to change the connection string to connect to the 
-database in the [Web.config](https://github.com/openimis/web_app_vb/blob/cfdaeac29f6717450072c5a0579d7286ebfd5617/IMIS/Web.config#L17) file within IMIS folder.
+database in the [Web.config](./IMIS/Web.config#L17) file within IMIS folder.
 
 ```
 <add name="CHF_CENTRALConnectionString" connectionString="Data Source=[DatabaseIPAdress];Initial Catalog=IMIS;User ID=[ImisUserId];Password=[ImisUserPassword]" providerName="System.Data.SqlClient"/>
