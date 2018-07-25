@@ -85,7 +85,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 -->
 
+## User Manual 
+
+The user manual can be read on [openimis.readthedocs.io](http://openimis.readthedocs.io/en/latest/user_manual.html).
+
 ## License
+
+Copyright (c) Swiss Agency for Development and Cooperation (SDC)
 
 This project is licensed under the GNU AGPL v3 License - see the [LICENSE.md](LICENSE.md) file for details.
 
