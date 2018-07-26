@@ -48,6 +48,13 @@ Partial Public Class Claim
         lblClaimAdminCode.Visible = Not (Adjustibility = "N")
         txtClaimAdminCode.Visible = Not (Adjustibility = "N")
 
+
+        'GuranteeNo
+        Adjustibility = General.getControlSetting("GuaranteeNo")
+        lblGurantee.Visible = Not (Adjustibility = "N")
+        txtGuaranteeId.Visible = Not (Adjustibility = "N")
+        rfGuranteeId.Enabled = (Adjustibility = "M")
+
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMsg.Text = ""

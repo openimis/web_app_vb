@@ -75,6 +75,20 @@ Public Class ExactSQL
         _SQLCommand.CommandType = cmdtype
         _SQLCommand.Connection = con 'Exact.Data.sql.SQLConn
     End Sub
+
+    Public Sub setSQLCommand(ByVal SQLCommand As SqlCommand, Optional ByVal ConString As String = "IMISConnectionString", Optional ByVal timeout As Integer = 60)
+        _SQLCommand = SQLCommand
+        'If ConString = "" Then
+        '    ConString = Web.Configuration.WebConfigurationManager.ConnectionStrings("IMISConnectionString").ConnectionString
+        'Else
+        ConString = Web.Configuration.WebConfigurationManager.ConnectionStrings(ConString).ConnectionString
+        'End If
+        Dim con As New SqlConnection(ConString)
+        _SQLCommand.CommandTimeout = timeout
+        _SQLCommand.Connection = con 'Exact.Data.sql.SQLConn
+
+    End Sub
+
     Public Function Filldata(Optional ByVal IdentityColumn As String = "", Optional ByVal TableName As String = "") As DataTable
         Try
             _TableName = TableName

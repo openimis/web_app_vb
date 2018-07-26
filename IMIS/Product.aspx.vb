@@ -540,10 +540,11 @@ Partial Public Class Product
             If eProduct.Sublevel3 IsNot Nothing Then ddlSubLevel3.SelectedValue = eProduct.Sublevel3
             If eProduct.Level4 IsNot Nothing Then ddlLevel4.SelectedValue = eProduct.Level4
             If eProduct.Sublevel4 IsNot Nothing Then ddlSubLevel4.SelectedValue = eProduct.Sublevel4
-            txtShareContribution.Text = If(eProduct.ShareContribution = 0, 100.0, eProduct.ShareContribution)
+
+            txtShareContribution.Text = eProduct.ShareContribution 'If(eProduct.ShareContribution = 0, 100.0, eProduct.ShareContribution)
             txtWaitOfPopulation.Text = eProduct.WeightPopulation
             txtNumberOfFamilies.Text = eProduct.WeightNumberFamilies
-            txtNoOfInsuredPopulation.Text = If(SumWeight = 0, 100.0, eProduct.WeightInsuredPopulation)
+            txtNoOfInsuredPopulation.Text = eProduct.WeightInsuredPopulation ' If(SumWeight = 0, 100.0, eProduct.WeightInsuredPopulation)
             txtNoOfInseredFamilies.Text = eProduct.WeightNumberInsuredFamilies
             txtNumberOfClaims.Text = eProduct.WeightNumberVisits
             txtAdjustedAmount.Text = eProduct.WeightAdjustedAmount

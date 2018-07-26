@@ -38,8 +38,8 @@ Public Class InsureeBI
         Insuree.LoadInsuree(eInsuree)
     End Sub
     Public Function GetGender() As DataTable
-        Dim Gender As New IMIS_BL.GeneralBL
-        Return Gender.GetGender()
+        Dim Gender As New IMIS_BL.GenderBL
+        Return Gender.GetGenders()
     End Function
     Public Function GetYesNO() As DataTable
         Dim Marital As New IMIS_BL.GeneralBL

@@ -122,7 +122,7 @@ Partial Public Class Login
         Catch ex As Exception
             If OK = False Then
                 lblMessage.Text = imisgen.getMessage("M_PASSWORDERROR")
-                EventLog.WriteEntry("IMIS", eLogin.LoginName & " : " & ex.Message, EventLogEntryType.Error, 999)
+                EventLog.WriteEntry("IMIS", eLogin.LoginName & " : " & ex.Message & "\n" & ex.StackTrace, EventLogEntryType.Error, 999)
                 Return
             End If
         End Try

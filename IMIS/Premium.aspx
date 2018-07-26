@@ -46,7 +46,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
         /* Initializing the popup object properties */
         popup.shadeBG_ID = "SelectPic";
         //popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
-        //popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True ) %>';
+        //popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True) %>';
+
+
 
         function categoryOnChange($ddl) {
             if ($ddl.val() == '')
@@ -58,7 +60,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         $("#<%=txtPremiumContribution.ClientID %>").val(PrevContribution);
                     //return false;
                 } else {
-                    if ($("#<%=txtPremiumPaid.ClientID %>").val() == '') $("#<%=txtPremiumPaid.ClientID %>").val(0);
+                    if ($("#<%=txtPremiumPaid.ClientID %>").val() == '')
+                    {
+                        if (parseFloat(PrevBalance.replace(",", "")) >= 0)
+                        {
+                            $("#<%=txtPremiumPaid.ClientID %>").val(parseFloat(PrevBalance.replace(",", "")));
+                        }
+                        else
+                            $("#<%=txtPremiumPaid.ClientID %>").val(0);
+                       
+                    } 
                     $("#<%=txtPremiumPaid.ClientID %>").trigger('change');
                 }
                 $("#<%=txtPremiumPaid.ClientID %>").removeAttr('readonly');
@@ -87,6 +98,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
             //popup.alert(format.numberWithCommas("2000896593555.46678898.67733333333333333333333"));
             $("#<%=B_SAVE.ClientID %>").click(function () {
 
+                premiumContributionSum = 0;
+                policyValue = 0;
+                policyStatus = "";
+                PayDate = "";
+                L = M = false;
+                P = 0;
+                Msg = "";
                 var isValid = validateControls();
                 if (isValid == false) return false;
 
@@ -119,7 +137,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                        
                     } else {
                         P = 2;
-                        Msg += ' <%=imisgen.getMessage("M_PREMIUMEXCEEDSPOLICY", True ) %>. ';
+                        Msg += ' <%=imisgen.getMessage("M_PREMIUMEXCEEDSPOLICY", True) %>. ';
                     }
                     if (Msg != "" )
                         reportPolicyPremiumContribution();
@@ -128,6 +146,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     return false;
                 }
             });
+
+           
 
             $("#<%=txtPremiumPaid.ClientID %>").change(function() { // on value change, recalculate policy details values..
                 if ($("#<%=ddlCategory.ClientID %>").val() == 'P') {
@@ -150,6 +170,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
             });
         });
 
+       
+
         function reportPolicyPremiumContribution() {
             var evArgs = new Array(); evArgs.push($("#<%=B_SAVE.ClientID %>"));
             var actionMsg = '<%=imisgen.getMessage("M_PLEASESELECTACTION", True)%>';             
@@ -158,41 +180,51 @@ In case of dispute arising out or in relation to the use of the program, it is s
                      evArgs.push(4);
                      evArgs.push("");
                      popup.acceptBTN_Text = '<%=imisgen.getMessage("L_OK", True)%>';
-                     popup.rejectBTN_Text = '<%=imisgen.getMessage("L_ENFORCE", True)%>';
+                     popup.middleBTN_Text = '<%=imisgen.getMessage("L_ENFORCE", True)%>';
+                     popup.rejectBTN_Text = '<%=imisgen.getMessage("L_CANCEL", True)%>';
                      Msg += "<br/>" + actionMsg;
-                     popup.confirm(Msg, "reDoPostBack", evArgs);
+                     popup.confirm(Msg, "reDoPostBack", evArgs,"", true);
                      break;
                         
                 case M == true || L == true :
-                        evArgs.push(5);
-                        evArgs.push("");
-                        popup.acceptBTN_Text = '<%=imisgen.getMessage("L_WAIT", True)%>';
-                        popup.middleBTN_Text = '<%=imisgen.getMessage("L_SUSPEND", True)%>';
-                        popup.rejectBTN_Text = '<%=imisgen.getMessage("L_ENFORCE", True ) %>';
-                        Msg += "<br/>" + actionMsg;
-                        popup.confirm(Msg, "reDoPostBack", evArgs, "", true);
-                        break;
+                    evArgs.push(5);
+                    evArgs.push("");
+                    popup.acceptBTN_Text = '<%=imisgen.getMessage("L_WAIT", True)%>';
+                    popup.middle1BTN_Text = '<%=imisgen.getMessage("L_SUSPEND", True)%>';
+                    popup.middle2BTN_Text = '<%=imisgen.getMessage("L_ENFORCE", True) %>';
+                    popup.rejectBTN_Text = '<%=imisgen.getMessage("L_CANCEL", True)%>';
+                    Msg += "<br/>" + actionMsg;
+                    popup.confirm(Msg, "reDoPostBack", evArgs, "", false, true);
+                    break;
 
               case M == false && L == false && P != 0:
-                        evArgs.push(6);
-                        evArgs.push("ActivateInsuree");
-                        popup.acceptBTN_Text = '<%=imisgen.getMessage("L_OK", True)%>';
-                        popup.alert(Msg, "reDoPostBack", evArgs, "", true);
+                    evArgs.push(6);
+                    evArgs.push("ActivateInsuree");
+                    popup.acceptBTN_Text = '<%=imisgen.getMessage("L_OK", True)%>';
+                    popup.rejectBTN_Text = '<%=imisgen.getMessage("L_CANCEL", True)%>';
+                    popup.confirm(Msg, "reDoPostBack", evArgs, false);
+                  
+
+
              }
              
 }
 
-            function reDoPostBack(popupBtnSource, evArgs,popupBtnText) {
+        function reDoPostBack(popupBtnSource, evArgs, popupBtnText) {
+            if (popupBtnSource != "cancel")
+            {
                 if (!validateControls())
                     return;
-                if( evArgs[1] === 4 || evArgs[1] === 5)
+                if (evArgs[1] === 4 || evArgs[1] === 5)
                     theForm.__EVENTARGUMENT.value = popupBtnText;
                 else
                     theForm.__EVENTARGUMENT.value = evArgs[2];
-                    
+
                 theForm.__EVENTARGUMENT_PREMIUM.value = evArgs[1];
                 theForm.__EVENTTARGET.value = evArgs[0].attr("id");
                 theForm.submit();
+            }
+                
             }
 
             function validateControls() {
@@ -500,7 +532,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         
                          <td align="left" >
                         
-                               <asp:Button 
+                               <asp:Button
                             
                             ID="B_SAVE" 
                             runat="server" 

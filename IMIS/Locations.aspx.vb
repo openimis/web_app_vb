@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Web.Script.Serialization
+
 Partial Public Class Locations
     Inherits System.Web.UI.Page
     Protected imisgen As New IMIS_Gen
@@ -39,11 +41,14 @@ Partial Public Class Locations
     Private _bClick As Boolean = True
     Private userBI As New IMIS_BI.UserBI
     Private eRegions As New IMIS_EN.tblLocations
+    Private Gender As New IMIS_BI.GenderBI
+    Public isOtherGenderUsed As Boolean
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         RunPageSecurity()
-
+        isOtherGenderUsed = Gender.IsOtherGenderUSed()
+        OtherGenderUsed()
         Try
             If IsPostBack = True Then
                 If Request.Form("__EVENTARGUMENT").ToString = "Delete" Then
@@ -76,6 +81,12 @@ Partial Public Class Locations
         End Try
     End Sub
 
+    Private Sub hideOtherField()
+        isOtherGenderUsed = Gender.IsOtherGenderUSed()
+        txtOthers.Visible = isOtherGenderUsed
+        lblOthers.Visible = isOtherGenderUsed
+        gvVillages.Columns(4).Visible = isOtherGenderUsed
+    End Sub
 
     Private Sub RunPageSecurity(Optional ByVal OnButtonEvent As Boolean = False, Optional ByVal cmd As String = "none")
         Dim RefUrl = Request.Headers("Referer")
@@ -187,44 +198,18 @@ Partial Public Class Locations
 
 
             Case 1
-                    Dim dtDistricts As DataTable = Locations.GetDistricts(imisgen.getUserId(Session("User")), RegionId:=ViewState("SelectedRegion"))
-                    ViewState("dtDistricts") = dtDistricts
+                Dim dtDistricts As DataTable = Locations.GetDistricts(imisgen.getUserId(Session("User")), RegionId:=ViewState("SelectedRegion"))
+                ViewState("dtDistricts") = dtDistricts
 
-                    gvDistricts.DataSource = dtDistricts
-                    gvDistricts.SelectedIndex = 0
-                    gvDistricts.DataBind()
+                gvDistricts.DataSource = dtDistricts
+                gvDistricts.SelectedIndex = 0
+                gvDistricts.DataBind()
 
-                    If dtDistricts.Rows.Count > 0 Then
+                If dtDistricts.Rows.Count > 0 Then
 
-                        L_DISTRICT.Text = Format(dtDistricts.Rows.Count, "#,###") & " " & imisgen.getMessage("L_DISTRICT") & "(s)"
+                    L_DISTRICT.Text = Format(dtDistricts.Rows.Count, "#,###") & " " & imisgen.getMessage("L_DISTRICT") & "(s)"
 
-                        Dim dtWards As DataTable = Locations.GetWards(gvDistricts.SelectedDataKey.Value, False)
-                        ViewState("dtWards") = dtWards
-
-                        L_WARD.Text = Format(dtWards.Rows.Count, "#,###") & " " & imisgen.getMessage("L_WARD") & "(s)"
-
-                        gvWards.DataSource = dtWards
-                        gvWards.SelectedIndex = 0
-                        gvWards.DataBind()
-
-                        If dtWards.Rows.Count > 0 Then
-                            Dim dtVillages As DataTable = Locations.GetVillages(gvWards.SelectedDataKey.Value, False)
-                            ViewState("dtVillages") = dtVillages
-
-                            L_VILLAGE.Text = Format(dtVillages.Rows.Count, "#,###") & " " & imisgen.getMessage("L_VILLAGE") & "(s)"
-
-                            gvVillages.DataSource = dtVillages
-                            gvVillages.SelectedIndex = 0
-                            gvVillages.DataBind()
-                        Else
-                            gvVillages.DataSource = Nothing
-                            gvVillages.DataBind()
-                        End If
-                    End If
-
-            Case 2
-                    ViewState("SelectedDistrict") = gvDistricts.SelectedDataKey.Value
-                    Dim dtWards As DataTable = Locations.GetWards(ViewState("SelectedDistrict"), False) '(gvDistricts.SelectedDataKey.Value, False)
+                    Dim dtWards As DataTable = Locations.GetWards(gvDistricts.SelectedDataKey.Value, False)
                     ViewState("dtWards") = dtWards
 
                     L_WARD.Text = Format(dtWards.Rows.Count, "#,###") & " " & imisgen.getMessage("L_WARD") & "(s)"
@@ -232,19 +217,45 @@ Partial Public Class Locations
                     gvWards.DataSource = dtWards
                     gvWards.SelectedIndex = 0
                     gvWards.DataBind()
+
                     If dtWards.Rows.Count > 0 Then
-                        LoadGrids(3)
+                        Dim dtVillages As DataTable = Locations.GetVillages(gvWards.SelectedDataKey.Value, False)
+                        ViewState("dtVillages") = dtVillages
+
+                        L_VILLAGE.Text = Format(dtVillages.Rows.Count, "#,###") & " " & imisgen.getMessage("L_VILLAGE") & "(s)"
+
+                        gvVillages.DataSource = dtVillages
+                        gvVillages.SelectedIndex = 0
+                        gvVillages.DataBind()
+                    Else
+                        gvVillages.DataSource = Nothing
+                        gvVillages.DataBind()
                     End If
+                End If
+
+            Case 2
+                ViewState("SelectedDistrict") = gvDistricts.SelectedDataKey.Value
+                Dim dtWards As DataTable = Locations.GetWards(ViewState("SelectedDistrict"), False) '(gvDistricts.SelectedDataKey.Value, False)
+                ViewState("dtWards") = dtWards
+
+                L_WARD.Text = Format(dtWards.Rows.Count, "#,###") & " " & imisgen.getMessage("L_WARD") & "(s)"
+
+                gvWards.DataSource = dtWards
+                gvWards.SelectedIndex = 0
+                gvWards.DataBind()
+                If dtWards.Rows.Count > 0 Then
+                    LoadGrids(3)
+                End If
             Case 3
-                    If gvWards.Rows.Count > 0 Then ViewState("SelectedWard") = gvWards.SelectedDataKey.Value
-                    Dim dtVillages As DataTable = Locations.GetVillages(ViewState("SelectedWard"), False) '(gvWards.SelectedDataKey.Value, False)
-                    ViewState("dtVillages") = dtVillages
+                If gvWards.Rows.Count > 0 Then ViewState("SelectedWard") = gvWards.SelectedDataKey.Value
+                Dim dtVillages As DataTable = Locations.GetVillages(ViewState("SelectedWard"), False) '(gvWards.SelectedDataKey.Value, False)
+                ViewState("dtVillages") = dtVillages
 
-                    L_VILLAGE.Text = Format(dtVillages.Rows.Count, "#,###") & " " & imisgen.getMessage("L_VILLAGE") & "(s)"
+                L_VILLAGE.Text = Format(dtVillages.Rows.Count, "#,###") & " " & imisgen.getMessage("L_VILLAGE") & "(s)"
 
-                    gvVillages.DataSource = dtVillages
-                    gvVillages.SelectedIndex = 0
-                    gvVillages.DataBind()
+                gvVillages.DataSource = dtVillages
+                gvVillages.SelectedIndex = 0
+                gvVillages.DataBind()
         End Select
 
     End Sub
@@ -365,7 +376,7 @@ Partial Public Class Locations
 
     End Sub
 
-    
+
     Public Sub SaveDistrict(ByVal LocationName As String, ByVal LocationCode As String)
 
         Dim Mode = hfMode.Value 'B_ADD
@@ -381,7 +392,7 @@ Partial Public Class Locations
         End If
         eDistricts.LocationName = LocationName
         eDistricts.LocationCode = LocationCode
-        eDistricts.AuditUserID = imisgen.getUserId(Session("User"))
+        eDistricts.AuditUserId = imisgen.getUserId(Session("User"))
         If Not gvRegions.SelectedDataKey Is Nothing Then
             eDistricts.ParentLocationId = gvRegions.SelectedDataKey.Value
         Else
@@ -415,7 +426,7 @@ Partial Public Class Locations
 
         eWards.LocationName = LocationName
         eWards.LocationCode = LocationCode
-        eWards.AuditUserID = imisgen.getUserId(Session("User"))
+        eWards.AuditUserId = imisgen.getUserId(Session("User"))
         If Not gvDistricts.SelectedDataKey Is Nothing Then
             eWards.ParentLocationId = gvDistricts.SelectedDataKey.Value
         Else
@@ -486,7 +497,7 @@ Partial Public Class Locations
                 Return
             End If
         End If
-       
+
 
         If (LocationCode = String.Empty) Then
             imisgen.Alert(imisgen.getMessage("M_EMPTYLOCATIONCODE"), pnlButtons, alertPopupTitle:="IMIS")
@@ -496,7 +507,7 @@ Partial Public Class Locations
             imisgen.Alert(imisgen.getMessage("M_EMPTYLOCATIONNAME"), pnlButtons, alertPopupTitle:="IMIS")
             Return
         End If
-        
+
         If (LocationType = imisgen.getMessage("L_REGION")) Then
             SaveRegion(LocationName, LocationCode)
         ElseIf (LocationType = imisgen.getMessage("L_DISTRICT")) Then
@@ -564,7 +575,7 @@ Partial Public Class Locations
                 lblMsg.Text = imisgen.getMessage("M_WARDSINDISTRICT")
                 Return
             End If
-            eDistricts.AuditUserID = imisgen.getUserId(Session("User"))
+            eDistricts.AuditUserId = imisgen.getUserId(Session("User"))
 
 
             Dim chk As Integer = Locations.DeleteLocation(eDistricts)
@@ -605,7 +616,7 @@ Partial Public Class Locations
                 lblMsg.Text = imisgen.getMessage("M_VILLAGESINWARD")
                 Return
             End If
-            eWards.AuditUserID = imisgen.getUserId(Session("User"))
+            eWards.AuditUserId = imisgen.getUserId(Session("User"))
 
 
             Dim chk As Integer = Locations.DeleteLocation(eWards)
@@ -643,7 +654,7 @@ Partial Public Class Locations
                 eVillages.LocationId = 0
             End If
 
-            eVillages.AuditUserID = imisgen.getUserId(Session("User"))
+            eVillages.AuditUserId = imisgen.getUserId(Session("User"))
 
             Dim chk As Integer = Locations.DeleteLocation(eVillages)
             If chk = 3 Then
@@ -671,6 +682,11 @@ Partial Public Class Locations
         Response.Redirect("MoveLocation.aspx")
     End Sub
 
+    Protected Function OtherGenderUsed() As Boolean
+        gvVillages.Columns(4).Visible = isOtherGenderUsed
+        Dim jSerializer As New JavaScriptSerializer
+        Return jSerializer.Serialize(isOtherGenderUsed)
+    End Function
 
 
 

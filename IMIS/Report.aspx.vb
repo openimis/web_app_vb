@@ -32,6 +32,9 @@ Partial Public Class Report
     Inherits System.Web.UI.Page
     Dim imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private Gender As New IMIS_BI.GenderBI
+
+
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
@@ -253,7 +256,7 @@ Partial Public Class Report
                         ds.Name = "DataSet1_uspSSRSPrimaryIndicators1"
                         Page.Title = imisgen.getMessage("T_PRIMARYOPERATIONALINDICATORS-POLICIES")
 
-                        Dim Param(18) As ReportParameter
+                        Dim Param(22) As ReportParameter
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramPIMainTitle", imisgen.getMessage("T_PRIMARYOPERATIONALINDICATORS-POLICIES", False))
                         Param(2) = New ReportParameter("paramPIProdCode", imisgen.getMessage("L_PRODUCTCODE", False))
@@ -273,7 +276,10 @@ Partial Public Class Report
                         Param(16) = New ReportParameter("paramPIRejectedClm", imisgen.getMessage("L_REJECTEDCLAIMS", False))
                         Param(17) = New ReportParameter("paramPIRTotalFor", imisgen.getMessage("L_TOTALFOR", False))
                         Param(18) = New ReportParameter("paramPIPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
-
+                        Param(19) = New ReportParameter("paramIsOtherGenderUsed", Gender.IsOtherGenderUSed())
+                        Param(20) = New ReportParameter("paramPIMale", imisgen.getMessage("T_MALE", False))
+                        Param(21) = New ReportParameter("paramPIFemale", imisgen.getMessage("T_FEMALE", False))
+                        Param(22) = New ReportParameter("paramPIOther", imisgen.getMessage("T_OTHER", False))
                         rpt.SetParameters(Param)
                         ds.Value = dt
 
@@ -321,7 +327,7 @@ Partial Public Class Report
                         ds.Name = "DataSet1_uspSSRSPrimaryIndicators1"
                         Page.Title = imisgen.getMessage("T_ENROLMENTPERFORMANCEINDICATORS")
 
-                        Dim Param(18) As ReportParameter
+                        Dim Param(22) As ReportParameter
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramPIMainTitle", imisgen.getMessage("T_ENROLMENTPERFORMANCEINDICATORS", False))
                         Param(2) = New ReportParameter("paramPIProdCode", imisgen.getMessage("L_PRODUCTCODE", False))
@@ -341,6 +347,10 @@ Partial Public Class Report
                         Param(16) = New ReportParameter("paramPIRejectedClm", imisgen.getMessage("L_REJECTEDCLAIMS", False))
                         Param(17) = New ReportParameter("paramPIOfficerCode", imisgen.getMessage("L_OFFICERCODE", False))
                         Param(18) = New ReportParameter("paramPIPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
+                        Param(19) = New ReportParameter("paramIsOtherGenderUsed", Gender.IsOtherGenderUSed())
+                        Param(20) = New ReportParameter("paramPIMale", imisgen.getMessage("T_MALE", False))
+                        Param(21) = New ReportParameter("paramPIFemale", imisgen.getMessage("T_FEMALE", False))
+                        Param(22) = New ReportParameter("paramPIOther", imisgen.getMessage("T_OTHER", False))
 
                         rpt.SetParameters(Param)
                         ds.Value = dt
@@ -832,6 +842,26 @@ Partial Public Class Report
                         param(45) = New ReportParameter("paramRegionTotal", imisgen.getMessage("L_REGIONTOTAL", False))
                         param(46) = New ReportParameter("paramOverallTotal", imisgen.getMessage("L_OVERALLTOTAL", False))
 
+
+                        rpt.SetParameters(param)
+
+                        ds.Value = dt
+                        rpt.DataSources.Add(ds)
+                    Case "rp"
+                        Dim dt As DataTable = CType(Session("Report"), DataTable)
+                        rpt.ReportPath = "Reports\rptRejectedPhotos.rdlc"
+
+                        ds.Name = "ds_RejectedPhotos"
+                        Page.Title = imisgen.getMessage("T_REJECTEDPHOTOS")
+                        Dim param(7) As ReportParameter
+                        param(0) = New ReportParameter("paramPSMainTitle", imisgen.getMessage("T_REJECTEDPHOTOS", False))
+                        param(1) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
+                        param(2) = New ReportParameter("paramOfficer", imisgen.getMessage("R_ENROLLMENTOFFICER", False))
+                        param(3) = New ReportParameter("paramPSPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
+                        param(4) = New ReportParameter("paramInsuranceNo", imisgen.getMessage("L_CHFID", False))
+                        param(5) = New ReportParameter("paramRejectedDate", imisgen.getMessage("T_REJECTEDDATE", False))
+                        param(6) = New ReportParameter("paramTotalRejectedPhotos", imisgen.getMessage("T_TOTALREJECTEDPHOTOS", False))
+                        param(7) = New ReportParameter("paramTotal", imisgen.getMessage("L_TOTAL", False))
 
                         rpt.SetParameters(param)
 

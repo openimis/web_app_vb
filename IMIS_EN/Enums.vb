@@ -204,6 +204,7 @@ Public Class Enums
         PendingInsurees
         Renewals
         CapitationPayment
+        RejectedPhoto
         'Report
         ViewReport
 

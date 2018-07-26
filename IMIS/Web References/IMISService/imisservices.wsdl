@@ -65,9 +65,67 @@
       <s:element name="isValidRenewalResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="isValidRenewalResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isValidRenewalResult" type="s:int" />
           </s:sequence>
         </s:complexType>
+      </s:element>
+      <s:element name="UploadClaim">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JsonFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadClaimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadClaimResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFeedback">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JsonFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFeedbackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFeedbackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadRenewal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JsonFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadRenewalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadRenewalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadPhoto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImageName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CHFID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OfficerCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadPhotoResponse">
+        <s:complexType />
       </s:element>
       <s:element name="isValidClaim">
         <s:complexType>
@@ -79,7 +137,7 @@
       <s:element name="isValidClaimResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="isValidClaimResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isValidClaimResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -93,7 +151,7 @@
       <s:element name="isValidFeedbackResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="isValidFeedbackResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isValidFeedbackResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -333,6 +391,56 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getPolicyValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FamilyId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProdId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PolicyId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PolicyStage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnrollDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviousPolicyId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPolicyValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getPolicyValueResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSnapshotIndicators">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SnapshotDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OfficerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSnapshotIndicatorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSnapshotIndicatorsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCumulativeIndicators">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DateFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateTo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OfficerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCumulativeIndicatorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCumulativeIndicatorsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="isValidLogin">
         <s:complexType>
           <s:sequence>
@@ -355,11 +463,24 @@
             <s:element minOccurs="0" maxOccurs="1" name="Insuree" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Policy" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Premium" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InsureePolicy" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="OfficerId" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pictures" type="tns:ArrayOfInsureeImages" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfInsureeImages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InsureeImages" nillable="true" type="tns:InsureeImages" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InsureeImages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ImageName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageContent" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="EnrollFamilyResponse">
         <s:complexType>
           <s:sequence>
@@ -389,6 +510,36 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="DownloadFamilyDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFromPhone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AuditUserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFromPhoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteFromPhoneResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsureeNumberExist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CHFID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsureeNumberExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsureeNumberExistResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -423,6 +574,30 @@
   </wsdl:message>
   <wsdl:message name="isValidRenewalSoapOut">
     <wsdl:part name="parameters" element="tns:isValidRenewalResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadClaimSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadClaim" />
+  </wsdl:message>
+  <wsdl:message name="UploadClaimSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFeedbackSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFeedback" />
+  </wsdl:message>
+  <wsdl:message name="UploadFeedbackSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadRenewalSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadRenewal" />
+  </wsdl:message>
+  <wsdl:message name="UploadRenewalSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadRenewalResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadPhotoSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadPhoto" />
+  </wsdl:message>
+  <wsdl:message name="UploadPhotoSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadPhotoResponse" />
   </wsdl:message>
   <wsdl:message name="isValidClaimSoapIn">
     <wsdl:part name="parameters" element="tns:isValidClaim" />
@@ -532,6 +707,24 @@
   <wsdl:message name="CreateOfflineExtractSoapOut">
     <wsdl:part name="parameters" element="tns:CreateOfflineExtractResponse" />
   </wsdl:message>
+  <wsdl:message name="getPolicyValueSoapIn">
+    <wsdl:part name="parameters" element="tns:getPolicyValue" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyValueSoapOut">
+    <wsdl:part name="parameters" element="tns:getPolicyValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSnapshotIndicatorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSnapshotIndicators" />
+  </wsdl:message>
+  <wsdl:message name="GetSnapshotIndicatorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSnapshotIndicatorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCumulativeIndicatorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCumulativeIndicators" />
+  </wsdl:message>
+  <wsdl:message name="GetCumulativeIndicatorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCumulativeIndicatorsResponse" />
+  </wsdl:message>
   <wsdl:message name="isValidLoginSoapIn">
     <wsdl:part name="parameters" element="tns:isValidLogin" />
   </wsdl:message>
@@ -556,6 +749,18 @@
   <wsdl:message name="DownloadFamilyDataSoapOut">
     <wsdl:part name="parameters" element="tns:DownloadFamilyDataResponse" />
   </wsdl:message>
+  <wsdl:message name="DeleteFromPhoneSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFromPhone" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFromPhoneSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFromPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsureeNumberExistSoapIn">
+    <wsdl:part name="parameters" element="tns:InsureeNumberExist" />
+  </wsdl:message>
+  <wsdl:message name="InsureeNumberExistSoapOut">
+    <wsdl:part name="parameters" element="tns:InsureeNumberExistResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="getFTPCredentials">
       <wsdl:input message="tns:getFTPCredentialsSoapIn" />
@@ -576,6 +781,22 @@
     <wsdl:operation name="isValidRenewal">
       <wsdl:input message="tns:isValidRenewalSoapIn" />
       <wsdl:output message="tns:isValidRenewalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadClaim">
+      <wsdl:input message="tns:UploadClaimSoapIn" />
+      <wsdl:output message="tns:UploadClaimSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFeedback">
+      <wsdl:input message="tns:UploadFeedbackSoapIn" />
+      <wsdl:output message="tns:UploadFeedbackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadRenewal">
+      <wsdl:input message="tns:UploadRenewalSoapIn" />
+      <wsdl:output message="tns:UploadRenewalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadPhoto">
+      <wsdl:input message="tns:UploadPhotoSoapIn" />
+      <wsdl:output message="tns:UploadPhotoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="isValidClaim">
       <wsdl:input message="tns:isValidClaimSoapIn" />
@@ -649,6 +870,18 @@
       <wsdl:input message="tns:CreateOfflineExtractSoapIn" />
       <wsdl:output message="tns:CreateOfflineExtractSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getPolicyValue">
+      <wsdl:input message="tns:getPolicyValueSoapIn" />
+      <wsdl:output message="tns:getPolicyValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSnapshotIndicators">
+      <wsdl:input message="tns:GetSnapshotIndicatorsSoapIn" />
+      <wsdl:output message="tns:GetSnapshotIndicatorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCumulativeIndicators">
+      <wsdl:input message="tns:GetCumulativeIndicatorsSoapIn" />
+      <wsdl:output message="tns:GetCumulativeIndicatorsSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="isValidLogin">
       <wsdl:input message="tns:isValidLoginSoapIn" />
       <wsdl:output message="tns:isValidLoginSoapOut" />
@@ -664,6 +897,14 @@
     <wsdl:operation name="DownloadFamilyData">
       <wsdl:input message="tns:DownloadFamilyDataSoapIn" />
       <wsdl:output message="tns:DownloadFamilyDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromPhone">
+      <wsdl:input message="tns:DeleteFromPhoneSoapIn" />
+      <wsdl:output message="tns:DeleteFromPhoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsureeNumberExist">
+      <wsdl:input message="tns:InsureeNumberExistSoapIn" />
+      <wsdl:output message="tns:InsureeNumberExistSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
@@ -706,6 +947,42 @@
     </wsdl:operation>
     <wsdl:operation name="isValidRenewal">
       <soap:operation soapAction="http://tempuri.org/isValidRenewal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadClaim">
+      <soap:operation soapAction="http://tempuri.org/UploadClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFeedback">
+      <soap:operation soapAction="http://tempuri.org/UploadFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadRenewal">
+      <soap:operation soapAction="http://tempuri.org/UploadRenewal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPhoto">
+      <soap:operation soapAction="http://tempuri.org/UploadPhoto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -875,6 +1152,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getPolicyValue">
+      <soap:operation soapAction="http://tempuri.org/getPolicyValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnapshotIndicators">
+      <soap:operation soapAction="http://tempuri.org/GetSnapshotIndicators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCumulativeIndicators">
+      <soap:operation soapAction="http://tempuri.org/GetCumulativeIndicators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="isValidLogin">
       <soap:operation soapAction="http://tempuri.org/isValidLogin" style="document" />
       <wsdl:input>
@@ -904,6 +1208,24 @@
     </wsdl:operation>
     <wsdl:operation name="DownloadFamilyData">
       <soap:operation soapAction="http://tempuri.org/DownloadFamilyData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromPhone">
+      <soap:operation soapAction="http://tempuri.org/DeleteFromPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsureeNumberExist">
+      <soap:operation soapAction="http://tempuri.org/InsureeNumberExist" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -952,6 +1274,42 @@
     </wsdl:operation>
     <wsdl:operation name="isValidRenewal">
       <soap12:operation soapAction="http://tempuri.org/isValidRenewal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadClaim">
+      <soap12:operation soapAction="http://tempuri.org/UploadClaim" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFeedback">
+      <soap12:operation soapAction="http://tempuri.org/UploadFeedback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadRenewal">
+      <soap12:operation soapAction="http://tempuri.org/UploadRenewal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPhoto">
+      <soap12:operation soapAction="http://tempuri.org/UploadPhoto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1121,6 +1479,33 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getPolicyValue">
+      <soap12:operation soapAction="http://tempuri.org/getPolicyValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnapshotIndicators">
+      <soap12:operation soapAction="http://tempuri.org/GetSnapshotIndicators" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCumulativeIndicators">
+      <soap12:operation soapAction="http://tempuri.org/GetCumulativeIndicators" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="isValidLogin">
       <soap12:operation soapAction="http://tempuri.org/isValidLogin" style="document" />
       <wsdl:input>
@@ -1157,13 +1542,31 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteFromPhone">
+      <soap12:operation soapAction="http://tempuri.org/DeleteFromPhone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsureeNumberExist">
+      <soap12:operation soapAction="http://tempuri.org/InsureeNumberExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">
     <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
-      <soap:address location="http://localhost:52239/ExactServices.asmx" />
+      <soap:address location="http://localhost:53277/IMISServices.asmx" />
     </wsdl:port>
     <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
-      <soap12:address location="http://localhost:52239/ExactServices.asmx" />
+      <soap12:address location="http://localhost:53277/IMISServices.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

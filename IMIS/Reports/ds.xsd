@@ -141,6 +141,25 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ds_RejectedPhotosTableAdapter" GeneratorDataComponentClassName="ds_RejectedPhotosTableAdapter" Name="ds_RejectedPhotos" UserDataComponentName="ds_RejectedPhotosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IMISConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+SELECT CHFID, OfficerCode, LandedDate RejectedDate FROM tblFromPhone WHERE DocType='E'  ORDER BY OfficerCode ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CHFID" DataSetColumn="CHFID" />
+              <Mapping SourceColumn="OfficerCode" DataSetColumn="OfficerCode" />
+              <Mapping SourceColumn="RejectedDate" DataSetColumn="RejectedDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -149,7 +168,7 @@
   <xs:element name="ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds" msprop:Generator_UserDSName="ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="uspSSRSGetClaimOverView" msprop:Generator_TableClassName="uspSSRSGetClaimOverViewDataTable" msprop:Generator_TableVarName="tableuspSSRSGetClaimOverView" msprop:Generator_TablePropName="uspSSRSGetClaimOverView" msprop:Generator_RowDeletingName="uspSSRSGetClaimOverViewRowDeleting" msprop:Generator_RowChangingName="uspSSRSGetClaimOverViewRowChanging" msprop:Generator_RowEvHandlerName="uspSSRSGetClaimOverViewRowChangeEventHandler" msprop:Generator_RowDeletedName="uspSSRSGetClaimOverViewRowDeleted" msprop:Generator_UserTableName="uspSSRSGetClaimOverView" msprop:Generator_RowChangedName="uspSSRSGetClaimOverViewRowChanged" msprop:Generator_RowEvArgName="uspSSRSGetClaimOverViewRowChangeEvent" msprop:Generator_RowClassName="uspSSRSGetClaimOverViewRow">
+        <xs:element name="uspSSRSGetClaimOverView" msprop:Generator_TableClassName="uspSSRSGetClaimOverViewDataTable" msprop:Generator_TableVarName="tableuspSSRSGetClaimOverView" msprop:Generator_RowChangedName="uspSSRSGetClaimOverViewRowChanged" msprop:Generator_TablePropName="uspSSRSGetClaimOverView" msprop:Generator_RowDeletingName="uspSSRSGetClaimOverViewRowDeleting" msprop:Generator_RowChangingName="uspSSRSGetClaimOverViewRowChanging" msprop:Generator_RowEvHandlerName="uspSSRSGetClaimOverViewRowChangeEventHandler" msprop:Generator_RowDeletedName="uspSSRSGetClaimOverViewRowDeleted" msprop:Generator_RowClassName="uspSSRSGetClaimOverViewRow" msprop:Generator_UserTableName="uspSSRSGetClaimOverView" msprop:Generator_RowEvArgName="uspSSRSGetClaimOverViewRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DateClaimed" msprop:Generator_ColumnVarNameInTable="columnDateClaimed" msprop:Generator_ColumnPropNameInRow="DateClaimed" msprop:Generator_ColumnPropNameInTable="DateClaimedColumn" msprop:Generator_UserColumnName="DateClaimed" type="xs:dateTime" />
@@ -257,7 +276,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ds_dtPendingInsurees" msprop:Generator_TableClassName="ds_dtPendingInsureesDataTable" msprop:Generator_TableVarName="tableds_dtPendingInsurees" msprop:Generator_RowChangedName="ds_dtPendingInsureesRowChanged" msprop:Generator_TablePropName="ds_dtPendingInsurees" msprop:Generator_RowDeletingName="ds_dtPendingInsureesRowDeleting" msprop:Generator_RowChangingName="ds_dtPendingInsureesRowChanging" msprop:Generator_RowEvHandlerName="ds_dtPendingInsureesRowChangeEventHandler" msprop:Generator_RowDeletedName="ds_dtPendingInsureesRowDeleted" msprop:Generator_RowClassName="ds_dtPendingInsureesRow" msprop:Generator_UserTableName="ds_dtPendingInsurees" msprop:Generator_RowEvArgName="ds_dtPendingInsureesRowChangeEvent">
+        <xs:element name="ds_dtPendingInsurees" msprop:Generator_TableClassName="ds_dtPendingInsureesDataTable" msprop:Generator_TableVarName="tableds_dtPendingInsurees" msprop:Generator_TablePropName="ds_dtPendingInsurees" msprop:Generator_RowDeletingName="ds_dtPendingInsureesRowDeleting" msprop:Generator_RowChangingName="ds_dtPendingInsureesRowChanging" msprop:Generator_RowEvHandlerName="ds_dtPendingInsureesRowChangeEventHandler" msprop:Generator_RowDeletedName="ds_dtPendingInsureesRowDeleted" msprop:Generator_UserTableName="ds_dtPendingInsurees" msprop:Generator_RowChangedName="ds_dtPendingInsureesRowChanged" msprop:Generator_RowEvArgName="ds_dtPendingInsureesRowChangeEvent" msprop:Generator_RowClassName="ds_dtPendingInsureesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OfficerID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnOfficerID" msprop:Generator_ColumnPropNameInRow="OfficerID" msprop:Generator_ColumnPropNameInTable="OfficerIDColumn" msprop:Generator_UserColumnName="OfficerID" type="xs:int" />
@@ -301,7 +320,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ds_dtRenewals" msprop:Generator_TableClassName="ds_dtRenewalsDataTable" msprop:Generator_TableVarName="tableds_dtRenewals" msprop:Generator_RowChangedName="ds_dtRenewalsRowChanged" msprop:Generator_TablePropName="ds_dtRenewals" msprop:Generator_RowDeletingName="ds_dtRenewalsRowDeleting" msprop:Generator_RowChangingName="ds_dtRenewalsRowChanging" msprop:Generator_RowEvHandlerName="ds_dtRenewalsRowChangeEventHandler" msprop:Generator_RowDeletedName="ds_dtRenewalsRowDeleted" msprop:Generator_RowClassName="ds_dtRenewalsRow" msprop:Generator_UserTableName="ds_dtRenewals" msprop:Generator_RowEvArgName="ds_dtRenewalsRowChangeEvent">
+        <xs:element name="ds_dtRenewals" msprop:Generator_TableClassName="ds_dtRenewalsDataTable" msprop:Generator_TableVarName="tableds_dtRenewals" msprop:Generator_TablePropName="ds_dtRenewals" msprop:Generator_RowDeletingName="ds_dtRenewalsRowDeleting" msprop:Generator_RowChangingName="ds_dtRenewalsRowChanging" msprop:Generator_RowEvHandlerName="ds_dtRenewalsRowChangeEventHandler" msprop:Generator_RowDeletedName="ds_dtRenewalsRowDeleted" msprop:Generator_UserTableName="ds_dtRenewals" msprop:Generator_RowChangedName="ds_dtRenewalsRowChanged" msprop:Generator_RowEvArgName="ds_dtRenewalsRowChangeEvent" msprop:Generator_RowClassName="ds_dtRenewalsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OfficerCode" msprop:Generator_ColumnVarNameInTable="columnOfficerCode" msprop:Generator_ColumnPropNameInRow="OfficerCode" msprop:Generator_ColumnPropNameInTable="OfficerCodeColumn" msprop:Generator_UserColumnName="OfficerCode" type="xs:string" minOccurs="0" />
@@ -317,7 +336,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ds_CapitationPayment" msprop:Generator_TableClassName="ds_CapitationPaymentDataTable" msprop:Generator_TableVarName="tableds_CapitationPayment" msprop:Generator_TablePropName="ds_CapitationPayment" msprop:Generator_RowDeletingName="ds_CapitationPaymentRowDeleting" msprop:Generator_RowChangingName="ds_CapitationPaymentRowChanging" msprop:Generator_RowEvHandlerName="ds_CapitationPaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="ds_CapitationPaymentRowDeleted" msprop:Generator_UserTableName="ds_CapitationPayment" msprop:Generator_RowChangedName="ds_CapitationPaymentRowChanged" msprop:Generator_RowEvArgName="ds_CapitationPaymentRowChangeEvent" msprop:Generator_RowClassName="ds_CapitationPaymentRow">
+        <xs:element name="ds_CapitationPayment" msprop:Generator_TableClassName="ds_CapitationPaymentDataTable" msprop:Generator_TableVarName="tableds_CapitationPayment" msprop:Generator_RowChangedName="ds_CapitationPaymentRowChanged" msprop:Generator_TablePropName="ds_CapitationPayment" msprop:Generator_RowDeletingName="ds_CapitationPaymentRowDeleting" msprop:Generator_RowChangingName="ds_CapitationPaymentRowChanging" msprop:Generator_RowEvHandlerName="ds_CapitationPaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="ds_CapitationPaymentRowDeleted" msprop:Generator_RowClassName="ds_CapitationPaymentRow" msprop:Generator_UserTableName="ds_CapitationPayment" msprop:Generator_RowEvArgName="ds_CapitationPaymentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RegionCode" msprop:Generator_ColumnVarNameInTable="columnRegionCode" msprop:Generator_ColumnPropNameInRow="RegionCode" msprop:Generator_ColumnPropNameInTable="RegionCodeColumn" msprop:Generator_UserColumnName="RegionCode" minOccurs="0">
@@ -402,6 +421,27 @@
               <xs:element name="UPInsFamilies" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUPInsFamilies" msprop:Generator_ColumnPropNameInRow="UPInsFamilies" msprop:Generator_ColumnPropNameInTable="UPInsFamiliesColumn" msprop:Generator_UserColumnName="UPInsFamilies" type="xs:decimal" minOccurs="0" />
               <xs:element name="UPVisits" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUPVisits" msprop:Generator_ColumnPropNameInRow="UPVisits" msprop:Generator_ColumnPropNameInTable="UPVisitsColumn" msprop:Generator_UserColumnName="UPVisits" type="xs:decimal" minOccurs="0" />
               <xs:element name="UPAdjustedAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUPAdjustedAmount" msprop:Generator_ColumnPropNameInRow="UPAdjustedAmount" msprop:Generator_ColumnPropNameInTable="UPAdjustedAmountColumn" msprop:Generator_UserColumnName="UPAdjustedAmount" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ds_RejectedPhotos" msprop:Generator_TableClassName="ds_RejectedPhotosDataTable" msprop:Generator_TableVarName="tableds_RejectedPhotos" msprop:Generator_TablePropName="ds_RejectedPhotos" msprop:Generator_RowDeletingName="ds_RejectedPhotosRowDeleting" msprop:Generator_RowChangingName="ds_RejectedPhotosRowChanging" msprop:Generator_RowEvHandlerName="ds_RejectedPhotosRowChangeEventHandler" msprop:Generator_RowDeletedName="ds_RejectedPhotosRowDeleted" msprop:Generator_UserTableName="ds_RejectedPhotos" msprop:Generator_RowChangedName="ds_RejectedPhotosRowChanged" msprop:Generator_RowEvArgName="ds_RejectedPhotosRowChangeEvent" msprop:Generator_RowClassName="ds_RejectedPhotosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CHFID" msprop:Generator_ColumnVarNameInTable="columnCHFID" msprop:Generator_ColumnPropNameInRow="CHFID" msprop:Generator_ColumnPropNameInTable="CHFIDColumn" msprop:Generator_UserColumnName="CHFID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OfficerCode" msprop:Generator_ColumnVarNameInTable="columnOfficerCode" msprop:Generator_ColumnPropNameInRow="OfficerCode" msprop:Generator_ColumnPropNameInTable="OfficerCodeColumn" msprop:Generator_UserColumnName="OfficerCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RejectedDate" msprop:Generator_ColumnVarNameInTable="columnRejectedDate" msprop:Generator_ColumnPropNameInRow="RejectedDate" msprop:Generator_ColumnPropNameInTable="RejectedDateColumn" msprop:Generator_UserColumnName="RejectedDate" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -436,6 +436,7 @@ Public Class InsureeDAL
         data.setSQLCommand(sSQL, CommandType.Text)
 
         data.params("@CHFID", SqlDbType.NVarChar, 12, CHFID)
+        'data.params("@UpdatedFolder", SqlDbType.NVarChar, 100, HttpContext.Current.Server.MapPath(UpdatedFolder))
         data.params("@UpdatedFolder", SqlDbType.NVarChar, 100, UpdatedFolder)
 
         Return data.Filldata
@@ -544,4 +545,11 @@ Public Class InsureeDAL
 
     End Function
 
+    Public Function InsureePhotoExists(photoFileName As String) As Boolean
+        Dim sSQL As String = ""
+        sSQL = "SELECT 1 FROM tblPhotos WHERE PhotoFileName=@photoFileName AND ValidityTo IS NULL"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@photoFileName", SqlDbType.NVarChar, 100, photoFileName)
+        Return data.Filldata.Rows.Count > 0
+    End Function
 End Class

@@ -98,6 +98,7 @@
     <Compile Include="ExactSQL.vb" />
     <Compile Include="FamilyDAL.vb" />
     <Compile Include="FamilyTypesDAL.vb" />
+    <Compile Include="GenderDAL.vb" />
     <Compile Include="HealthFacilityDAL.vb" />
     <Compile Include="HFCatchmentDAL.vb" />
     <Compile Include="HFSublevelDAL.vb" />

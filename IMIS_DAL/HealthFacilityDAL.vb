@@ -310,12 +310,12 @@ Public Class HealthFacilityDAL
         Return data.Filldata.Rows(0)("hfcode").ToString
     End Function
 
-    Public Function UploadHF(ByVal FilePath As String, ByVal StrategyId As Integer, ByVal AuditUserID As Integer, ByRef dtresult As DataTable, Optional ByVal dryRun As Boolean = 0) As Dictionary(Of String, Integer)
+    Public Function UploadHF(ByVal Xml As System.Xml.XmlDocument, ByVal StrategyId As Integer, ByVal AuditUserID As Integer, ByRef dtresult As DataTable, Optional ByVal dryRun As Boolean = 0) As Dictionary(Of String, Integer)
         Dim data As New ExactSQL
         Dim sSQL As String = "uspUploadHFXML"
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        data.params("@File", SqlDbType.NVarChar, 255, FilePath)
+        data.params("@XML", Xml.InnerXml)
         data.params("@StrategyId", StrategyId)
         data.params("@AuditUserID", AuditUserID)
         data.params("@DryRun", dryRun)

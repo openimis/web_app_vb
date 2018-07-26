@@ -486,12 +486,12 @@ Public Class LocationsDAL
         Return data.Filldata
     End Function
 
-    Public Function UploadLocationsXML(ByVal File As String, ByVal StrategyId As Integer, ByVal AuditUserID As Integer, ByRef dtresult As DataTable, Optional ByVal dryRun As Boolean = 0) As Dictionary(Of String, Integer)
+    Public Function UploadLocationsXML(ByVal Xml As System.Xml.XmlDocument, ByVal StrategyId As Integer, ByVal AuditUserID As Integer, ByRef dtresult As DataTable, Optional ByVal dryRun As Boolean = 0) As Dictionary(Of String, Integer)
         Dim sSQL As String = ""
         Dim data As New ExactSQL
         sSQL = "uspUploadLocationsXML"
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        data.params("@File", SqlDbType.NVarChar, 500, File)
+        data.params("@XML", Xml.InnerXml)
         data.params("@StrategyId", SqlDbType.Int, StrategyId)
         data.params("@dryRun", SqlDbType.Bit, dryRun)
         data.params("@AuditUserID", SqlDbType.Int, AuditUserID)
@@ -540,6 +540,7 @@ Public Class LocationsDAL
         Output("returnValue") = data.sqlParameters("@returnValue")
         Return Output
     End Function
+
     Public Function DownLoadLocationSXML() As DataTable
         Dim sSQL As String = ""
         Dim data As New ExactSQL

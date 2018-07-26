@@ -26,42 +26,21 @@
 ' 
 '
 
-Public Class FindInsureeBI
+Public Class GenderBL
+    Dim Gender As New IMIS_DAL.GenderDAL
+    Public Function GetGenders() As DataTable
+        Dim General As New GeneralBL()
+        Dim dtbl As New DataTable
+        dtbl = Gender.GetGenders()
+        Dim dr As DataRow = dtbl.NewRow
+        dr("Code") = ""
+        dr("Gender") = General.getMessage("T_SELECTGENDER")
+        dr("AltLanguage") = General.getMessage("T_SELECTTYPE")
+        dtbl.Rows.InsertAt(dr, 0)
+        Return dtbl
+    End Function
 
-    Public Function FindInsuree(ByRef eInsuree As IMIS_EN.tblInsuree, Optional ByVal All As Boolean = False, Optional ByVal PhotoAssigned As Int16 = 1)
-        Dim Insuree As New IMIS_BL.InsureeBL
-        Return Insuree.FindInsuree(eInsuree, All, PhotoAssigned)
-    End Function
-    Public Function GetDistricts(ByVal userId As Integer, Optional ByVal showSelect As Boolean = False, Optional ByVal RegionId As Integer = 0) As DataTable
-        Dim Districts As New IMIS_BL.LocationsBL
-        Return Districts.GetDistricts(userId, True, RegionId)
-    End Function
-    Public Function GetWards(ByVal DistrictID As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
-        Dim Wards As New IMIS_BL.LocationsBL
-        Return Wards.GetWards(DistrictID, True)
-    End Function
-    Public Function GetVillages(ByVal WardId As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
-        Dim Villages As New IMIS_BL.LocationsBL
-        Return Villages.GetVillages(WardId, True)
-    End Function
-    Public Function GetGender() As DataTable
-        Dim Gender As New IMIS_BL.GenderBL
-        Return Gender.GetGenders()
-    End Function
-    Public Function GetMaritalStatus() As DataTable
-        Dim Marital As New IMIS_BL.GeneralBL
-        Return Marital.GetMaritalStatus()
-    End Function
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
-    End Function
-    Public Function GetPhotoAssigned() As DataTable
-        Dim insuree As New IMIS_BL.InsureeBL
-        Return insuree.GetPhotoAssigned
-    End Function
-    Public Function GetRegions(UserId As Integer, Optional ShowSelect As Boolean = True) As DataTable
-        Dim BL As New IMIS_BL.LocationsBL
-        Return BL.GetRegions(UserId, ShowSelect)
+    Public Function IsOtherGenderUSed() As Boolean
+        Return Gender.IsOtherGenderUSed()
     End Function
 End Class

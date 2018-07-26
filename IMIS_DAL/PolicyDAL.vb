@@ -141,6 +141,19 @@ Public Class PolicyDAL
         data.params("@ErrorCode", SqlDbType.Int, 0, ParameterDirection.Output)
         ePolicy.PolicyValue = CDec(data.Filldata.Rows(0)(0))
     End Sub
+
+    Public Function getPolicyValue(ByVal FamilyId As Integer, ByVal ProdId As Integer, ByVal PolicyId As Integer, ByVal PolicyStage As String, ByVal EnrollDate As String, ByVal PreviousPolicyId As Integer) As Double
+        Dim sSQL As String = "uspPolicyValue"
+        data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+        data.params("@FamilyId", FamilyId)
+        data.params("@ProdId", ProdId)
+        data.params("@PolicyId", PolicyId)
+        data.params("@PolicyStage", PolicyStage)
+        data.params("@EnrollDate", Date.ParseExact(EnrollDate, "dd/MM/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo))
+        data.params("@PreviousPolicyId", PreviousPolicyId)
+        Dim dt As DataTable = data.Filldata
+        Return dt.Rows(0)("PolicyValue")
+    End Function
     Public Sub InsertPolicy(ByVal ePolicy As IMIS_EN.tblPolicy)
         Dim data As New ExactSQL
         Dim sSQL As String = "INSERT INTO tblPolicy(FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,isOffline, AuditUserID)" & _
@@ -224,16 +237,16 @@ Public Class PolicyDAL
        
 
         If DeactivatedPolicies = True Then
-            ''sSQL += " INNER JOIN ( Select IP1.PolicyId FROM tblInsureePolicy IP1 INNER JOIN tblInsureePolicy IP2 ON IP1.PolicyId = IP2.PolicyId             WHERE(IP1.ValidityTo Is NULL And IP2.ValidityTo Is NULL) AND IP1.EffectiveDate IS NULL AND IP2.EffectiveDate IS NOT NULL GROUP BY IP1.PolicyId"
-            sSQL += " INNER JOIN ("
-            sSQL += " SELECT IP.PolicyId"
-            sSQL += " FROM tblInsureePolicy IP"
-            sSQL += " INNER JOIN tblPolicy PL ON PL.PolicyID = IP.PolicyId"
-            sSQL += " WHERE IP.ValidityTo IS NULL"
-            sSQL += " AND PL.ValidityTo IS NULL"
-            sSQL += " AND IP.EffectiveDate IS NULL"
-            sSQL += " AND PL.PolicyStatus > 1"
-            sSQL += " GROUP BY IP.PolicyId"
+            sSQL += "Select Case PL.PolicyID"
+            sSQL += "From tblInsuree I"
+            sSQL += "INNER Join tblPolicy PL ON I.FamilyId = PL.FamilyID"
+            sSQL += "Left OUTER JOIN tblInsureePolicy IP ON PL.PolicyId = IP.PolicyId And I.InsureeId = IP.InsureeId"
+            sSQL += "WHERE PL.ValidityTo Is NULL"
+            sSQL += " And I.ValidityTo Is NULL"
+            sSQL += "And IP.ValidityTo Is NULL"
+            sSQL += " And PL.PolicyStatus > 1"
+            sSQL += "And IP.EffectiveDate Is NULL"
+            sSQL += "Group BY PL.PolicyId"
 
             sSQL += ")InActivePolicies ON PL.PolicyID = InActivePolicies.PolicyId"
         End If

@@ -116,6 +116,7 @@
     <Compile Include="EscapeBL.vb" />
     <Compile Include="FamilyBL.vb" />
     <Compile Include="ForgotPasswordBL.vb" />
+    <Compile Include="GenderBL.vb" />
     <Compile Include="General.vb" />
     <Compile Include="HealthFacilityBL.vb" />
     <Compile Include="HFCatchmentBL.vb" />

@@ -200,6 +200,7 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.PercentageReferrals : Return (Roles.ClaimAdministrator + Roles.CHFAccountant And RoleId)
             Case IMIS_EN.Enums.Rights.FamiliesInsureesOverview : Return (Roles.CHFAccountant And RoleId)
             Case IMIS_EN.Enums.Rights.PendingInsurees : Return (Roles.CHFAccountant And RoleId)
+            Case IMIS_EN.Enums.Rights.RejectedPhoto : Return (Roles.CHFAccountant And RoleId)
             Case IMIS_EN.Enums.Rights.AddFund : Return (Roles.CHFAccountant And RoleId)
             Case IMIS_EN.Enums.Rights.Renewals : Return (Roles.CHFAccountant And RoleId)
             Case IMIS_EN.Enums.Rights.ViewReport : Return (Roles.CHFManager + Roles.CHFAccountant + Roles.CHFClerk + Roles.CHFMedicalOfficer And RoleId)

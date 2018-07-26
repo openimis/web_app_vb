@@ -93,6 +93,7 @@
     <Compile Include="eExtractInfo.vb" />
     <Compile Include="Enums.vb" />
     <Compile Include="eReports.vb" />
+    <Compile Include="Feedback.vb" />
     <Compile Include="Model1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,6 +118,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Renewal.vb" />
     <Compile Include="tblClaimAdmin.vb" />
     <Compile Include="tblFamilies.vb" />
     <Compile Include="tblHF.vb" />

@@ -41,12 +41,20 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
            var villageCodeLabel = '<%=imisgen.getMessage("L_VILLAGECODE", True)%>';
 
 
-           var locationType = '<%=imisgen.getMessage("L_DISTRICT", True )%>';
+           var locationType = '<%=imisgen.getMessage("L_DISTRICT", True)%>';
            
            var $row = null;
             var disableEdit = false;
 
-            $(document).ready(function() {
+            $(document).ready(function () {
+
+                var OtherGenderUsed = '<%=OtherGenderUsed() %>';
+                var isOtherGenderUsed = OtherGenderUsed.toLocaleLowerCase() == "false"
+                if (isOtherGenderUsed) {
+                    $("#<%= txtOthers.ClientID %>").hide();
+                    $("#<%= lblOthers.ClientID %>").hide();
+                }
+
                 popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
                 popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True)%>';
 
@@ -66,9 +74,9 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                     else if (locationType == '<%=imisgen.getMessage("L_WARD", True)%>')
                         popup.confirm('<%=imisgen.getMessage("M_DELETEWARDPROMPT", True)%>' + "<br/>" + locationName, callBackFun);
                     else if (locationType == '<%=imisgen.getMessage("L_VILLAGE", True)%>')
-                        popup.confirm('<%=imisgen.getMessage("M_DELETEVILLAGEPROMPT", True ) %>' + "<br/>" + locationName, callBackFun);
+                        popup.confirm('<%=imisgen.getMessage("M_DELETEVILLAGEPROMPT", True) %>' + "<br/>" + locationName, callBackFun);
                     else
-                        popup.confirm('<%=imisgen.getMessage("M_DELETEPROMPT", True ) %>', callBackFun, args);
+                        popup.confirm('<%=imisgen.getMessage("M_DELETEPROMPT", True) %>', callBackFun, args);
                     return false;
                 });
                
@@ -94,14 +102,20 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                             if ($row.children().length >2){
                                 $("#<%=txtMale.ClientID%>").val($row.children()[2].innerHTML.replace("&nbsp;", ""));
                                 $("#<%=txtFemale.ClientID%>").val($row.children()[3].innerHTML.replace("&nbsp;", ""));
-                                $("#<%=txtOthers.ClientID%>").val($row.children()[4].innerHTML.replace("&nbsp;", ""));
-                                $("#<%=txtFamily.ClientID%>").val($row.children()[5].innerHTML.replace("&nbsp;", ""));
+                                if (isOtherGenderUsed) {
+                                    $("#<%=txtFamily.ClientID%>").val($row.children()[4].innerHTML.replace("&nbsp;", ""));
+                                }
+                                else
+                                {
+                                    $("#<%=txtOthers.ClientID%>").val($row.children()[4].innerHTML.replace("&nbsp;", ""));
+                                    $("#<%=txtFamily.ClientID%>").val($row.children()[5].innerHTML.replace("&nbsp;", ""));
+                                }
                             }
                         }
                         $("#<%=hfMode.ClientID %>").val('<%=imisgen.getMessage("B_EDIT", True)%>');
 
                     } else if ($(this).is("#<%=btnAdd.ClientID %>")) {
-                        $("#<%=hfMode.ClientID %>").val('<%=imisgen.getMessage("B_ADD", True )%>');
+                        $("#<%=hfMode.ClientID %>").val('<%=imisgen.getMessage("B_ADD", True)%>');
 
                     }
                     //$("#<%=txtLocationName.ClientID %>").focus();
@@ -112,6 +126,8 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                     if ($(eve.target).is(".LocationsButton,#LocationEditPanel,#LocationEditPanel input")) return;
                     $("#LocationEditPanel").slideUp(0);
                 });
+
+                
 
             });
 
@@ -134,7 +150,7 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                     else if ($(this).is("#<%=gvDistricts.ClientID %>")) {
                         $("#LocationTypeLabel").html(districtLocationLabel);
                         $("#LocationCodeLabel").html(districtCodeLabel);
-                        locationType = '<%=imisgen.getMessage("L_DISTRICT", True )%>';
+                        locationType = '<%=imisgen.getMessage("L_DISTRICT", True)%>';
 
                     } else if ($(this).is("#<%=gvWards.ClientID %>")) {
                         $("#LocationTypeLabel").html(wardLocationLabel);
@@ -144,7 +160,7 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                     } else if ($(this).is("#<%=gvVillages.ClientID %>")) {
                         $("#LocationTypeLabel").html(villageLocationLabel);
                         $("#LocationCodeLabel").html(villageCodeLabel);
-                        locationType = '<%=imisgen.getMessage("L_VILLAGE", True )%>';
+                        locationType = '<%=imisgen.getMessage("L_VILLAGE", True)%>';
                     }
                     $("#<%=hfLocationType.ClientID %>").val(locationType);
                 });
@@ -176,7 +192,7 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                         $("#<%=LocationTypeLabel.ClientID %>").html(villageLocationLabel);
                         $("#<%=LocationCodeLabel.ClientID %>").html(villageCodeLabel);
                         $(".Population").show();
-                        locationType = '<%=imisgen.getMessage("L_VILLAGE", True )%>';
+                        locationType = '<%=imisgen.getMessage("L_VILLAGE", True)%>';
 
                     }
                     $("#<%=hfLocationType.ClientID %>").val(locationType);
@@ -197,7 +213,7 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                 } else if ($("#<%=hfLocationType.ClientID %>").val() == '<%=imisgen.getMessage("L_WARD", True)%>') {
                     
                     $gv = $("#<%=gvWards.ClientID %>");
-                } else if ($("#<%=hfLocationType.ClientID %>").val() == '<%=imisgen.getMessage("L_VILLAGE", True )%>') {
+                } else if ($("#<%=hfLocationType.ClientID %>").val() == '<%=imisgen.getMessage("L_VILLAGE", True)%>') {
                     
                      $gv = $("#<%=gvVillages.ClientID %>");
                  }
@@ -241,6 +257,7 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
       text-align: right;
     
     }
+
 </style>
 
 </asp:Content>
@@ -270,12 +287,14 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
                        <td  class="Population">
                           <asp:TextBox runat="server" ID="txtMale" MaxLength="18" CssClass="intNumbersOnly"></asp:TextBox>
                        </td>
+                       
                         <td  class="Population">
-                           <asp:Label ID="lblOthers" runat="server" Text='<%$ Resources:Resource,T_OTHER %>'></asp:Label>
+                           <asp:Label ID="lblOthers" runat="server" Text='<%$ Resources:Resource,T_OTHER %>' ></asp:Label>
                        </td>
                        <td  class="Population">
-                          <asp:TextBox runat="server" ID="txtOthers" MaxLength="18"  CssClass="intNumbersOnly"></asp:TextBox>
+                          <asp:TextBox runat="server" ID="txtOthers" MaxLength="18"  CssClass="intNumbersOnly" ></asp:TextBox>
                        </td>
+
                    </tr>
                    <tr>
                        <td>
@@ -474,17 +493,17 @@ title='<%$ Resources:Resource,L_LOCATIONS%>'%>
 
 
                                             <Columns>
-                                               <asp:BoundField DataField="MalePopulation" ControlStyle-Width="50px"  HeaderText='<%$ Resources:Resource,L_MALEABRREVIATION%>' ></asp:BoundField>
+                                               <asp:BoundField DataField="MalePopulation" ControlStyle-Width="50px"  HeaderText='<%$ Resources:Resource,T_MALE%>' ></asp:BoundField>
                                            </Columns>
                                             <Columns>
-                                               <asp:BoundField DataField="FemalePopulation"  HeaderText='<%$ Resources:Resource,L_FEMALEABRREVIATION%>'></asp:BoundField>
+                                               <asp:BoundField DataField="FemalePopulation"  HeaderText='<%$ Resources:Resource,T_FEMALE%>'></asp:BoundField>
                                            </Columns>
                                             <Columns>
-                                               <asp:BoundField DataField="OtherPopulation" HeaderText='<%$ Resources:Resource,L_OTHERABRREVIATION%>'></asp:BoundField>
+                                               <asp:BoundField DataField="OtherPopulation" HeaderText='<%$ Resources:Resource,T_OTHER%>'  ></asp:BoundField>
                                            </Columns>
 
                                             <Columns>
-                                               <asp:BoundField DataField="Families" HeaderText='<%$ Resources:Resource,L_FAMILYABRREVIATION%>'  ></asp:BoundField>
+                                               <asp:BoundField DataField="Families" HeaderText='<%$ Resources:Resource,R_FAMILY%>'  ></asp:BoundField>
                                            </Columns>
 
                                            <PagerStyle CssClass="pgr" />

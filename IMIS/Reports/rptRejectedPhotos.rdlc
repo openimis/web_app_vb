@@ -2,66 +2,41 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DummyDataSource">
+    <DataSource Name="ds">
       <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString />
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>000b1ce8-126d-42ae-9d12-71aa4ea50c1a</rd:DataSourceID>
+      <rd:DataSourceID>38ff180b-6e2b-4019-9684-fb9e41948a1a</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="ds_dtPendingInsurees">
+    <DataSet Name="ds_RejectedPhotos">
       <Query>
-        <DataSourceName>DummyDataSource</DataSourceName>
+        <DataSourceName>ds</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
-        <Field Name="OfficerID">
-          <DataField>OfficerID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Code">
-          <DataField>Code</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="OtherNames">
-          <DataField>OtherNames</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="LastName">
-          <DataField>LastName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="CHFID">
           <DataField>CHFID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Duplicated">
-          <DataField>Duplicated</DataField>
+        <Field Name="OfficerCode">
+          <DataField>OfficerCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PhotoDate">
-          <DataField>PhotoDate</DataField>
+        <Field Name="RejectedDate">
+          <DataField>RejectedDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="RNo">
-          <DataField>RNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="OfficerStatus">
-          <DataField>OfficerStatus</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ds</rd:DataSetName>
-        <rd:SchemaPath>C:\Rogers\IMIS\IMIS\Reports\ds.xsd</rd:SchemaPath>
-        <rd:TableName>ds_dtPendingInsurees</rd:TableName>
+        <rd:SchemaPath>C:\VB Projects\IMIS 18.0.0\IMIS\IMIS\IMIS\Reports\ds.xsd</rd:SchemaPath>
+        <rd:TableName>ds_RejectedPhotos</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ds_dtPendingInsureesTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>ds_RejectedPhotosTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -162,7 +137,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!paramPhotoDate.Value</Value>
+                                  <Value>=Parameters!paramRejectedDate.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -194,14 +169,16 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Constant" />
+                                  <Value>=Parameters!paramTotal.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -231,7 +208,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!paramOfficer.Value &amp;" - " &amp; Fields!Code.Value &amp; " : " &amp; Fields!LastName.Value &amp; " " &amp; Fields!OtherNames.Value &amp; "		(" &amp; if(Fields!OfficerStatus.Value = "A", "Active", "Non-Active") &amp; ")"</Value>
+                                  <Value>=Parameters!paramOfficer.Value &amp;" - " &amp; Fields!OfficerCode.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -320,7 +297,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox7">
+                        <Textbox Name="CHFID">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -336,7 +313,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>textbox7</rd:DefaultName>
+                          <rd:DefaultName>CHFID</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -348,14 +325,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox5">
+                        <Textbox Name="RejectedDate">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PhotoDate.Value</Value>
+                                  <Value>=Fields!RejectedDate.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>dd/MM/yyyy</Format>
@@ -367,7 +344,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>textbox5</rd:DefaultName>
+                          <rd:DefaultName>RejectedDate</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -386,7 +363,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Duplicated.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -457,8 +434,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style />
+                                  <Value>=Parameters!paramTotal.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>RoyalBlue</Color>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -527,7 +508,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>= Parameters!paramTotalInsurees.Value &amp;" : " &amp;  FORMAT(SUM(Fields!RNo.Value,"grpOfficer"),"#,###")</Value>
+                                  <Value>= FORMAT(Count(Fields!CHFID.Value,"grpOfficer"),"#,###")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -679,7 +660,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!paramTotalInsurees.Value &amp;" : " &amp;  FORMAT(Sum(Fields!RNo.Value),"#,###")</Value>
+                                  <Value>=Parameters!paramTotalRejectedPhotos.Value &amp;" : " &amp;  FORMAT(Count(Fields!CHFID.Value),"#,###")</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -728,7 +709,7 @@
                 <TablixMember>
                   <Group Name="grpOfficer">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!OfficerID.Value</GroupExpression>
+                      <GroupExpression>=Fields!OfficerCode.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <TablixMembers>
@@ -743,7 +724,7 @@
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!PhotoDate.Value</Value>
+                          <Value>=Fields!CHFID.Value</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixMembers>
@@ -765,8 +746,9 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>ds_dtPendingInsurees</DataSetName>
-            <Top>0.09844in</Top>
+            <DataSetName>ds_RejectedPhotos</DataSetName>
+            <Top>0.04922in</Top>
+            <Left>1.40753cm</Left>
             <Height>3.26992cm</Height>
             <Width>5.69867in</Width>
             <Style />
@@ -857,36 +839,6 @@
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="textbox2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>textbox2</rd:DefaultName>
-              <Top>0.25cm</Top>
-              <Left>14.5cm</Left>
-              <Height>0.5cm</Height>
-              <Width>2.53968cm</Width>
-              <Style>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="textbox14">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -908,7 +860,6 @@
               <Top>0.125cm</Top>
               <Height>0.5cm</Height>
               <Width>11cm</Width>
-              <ZIndex>1</ZIndex>
               <Style>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
@@ -920,7 +871,7 @@
               <DataElementOutput>ContentsOnly</DataElementOutput>
               <Height>0.01cm</Height>
               <Width>17.28968cm</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style />
             </Rectangle>
           </ReportItems>
@@ -956,46 +907,29 @@
       <Prompt>paramPSMainTitle</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
+    <ReportParameter Name="paramOfficer">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
     <ReportParameter Name="paramPSPrintedOn">
       <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>paramPSPrintedOn</Prompt>
-      <Hidden>true</Hidden>
-    </ReportParameter>
-    <ReportParameter Name="paramPSUserName">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <DefaultValue>
-        <Values>
-          <Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
-        </Values>
-      </DefaultValue>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>paramPSUserName</Prompt>
-      <Hidden>true</Hidden>
-    </ReportParameter>
-    <ReportParameter Name="paramPhotoDate">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="paramInsuranceNo">
       <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="paramOfficer">
+    <ReportParameter Name="paramRejectedDate">
       <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="paramTotalInsurees">
+    <ReportParameter Name="paramTotalRejectedPhotos">
       <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="paramTotal">
+      <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
@@ -1017,32 +951,32 @@
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>paramPSPrintedOn</ParameterName>
+          <ParameterName>paramOfficer</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>paramPSUserName</ParameterName>
+          <ParameterName>paramPSPrintedOn</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>4</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>paramPhotoDate</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
           <ParameterName>paramInsuranceNo</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>4</ColumnIndex>
+          <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>paramOfficer</ParameterName>
+          <ParameterName>paramRejectedDate</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>paramTotalInsurees</ParameterName>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>paramTotalRejectedPhotos</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>paramTotal</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

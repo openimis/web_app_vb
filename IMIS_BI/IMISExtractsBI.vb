@@ -64,6 +64,11 @@ Public Class IMISExtractsBI
         Dim Extract As New IMIS_BL.IMISExtractsBL
         Return Extract.GetDownLoadExtractInfo(ExtractID, DistrictID, PhotoExtract, ExtractFileName)
     End Function
+    Public Function ImportOffLinePhotosFromPhone(ByRef eExtractInfo As IMIS_EN.eExtractInfo) As Boolean
+        Dim Extract As New IMIS_BL.IMISExtractsBL
+        Extract.ImportOffLinePhotosFromPhone(eExtractInfo)
+        Return True
+    End Function
     Public Function ImportOffLinePhotos(ByRef eExtractInfo As IMIS_EN.eExtractInfo) As Boolean
         Dim Extract As New IMIS_BL.IMISExtractsBL
         Extract.ImportOffLinePhotos(eExtractInfo)
@@ -100,5 +105,28 @@ Public Class IMISExtractsBI
     Public Function NewSequenceNumber(ByVal LocationId As Integer) As Integer
         Dim Ext As New IMIS_BL.IMISExtractsBL
         Return Ext.NewSequenceNumber(LocationId)
+    End Function
+    Public Function getRenewals(ByVal OfficerCode As String) As Dictionary(Of String, String)
+        Dim BL As New IMIS_BL.IMISExtractsBL()
+        Return BL.getRenewals(OfficerCode)
+    End Function
+
+    Public Function getFeedback(ByVal OfficerCode As String) As Dictionary(Of String, String)
+        Dim BL As New IMIS_BL.IMISExtractsBL()
+        Return BL.getFeedback(OfficerCode)
+    End Function
+
+    Public Function UploadFeedBackFromPhone(filename As String) As Dictionary(Of String, Integer)
+        Dim BL As New IMIS_BL.IMISExtractsBL()
+        Return BL.UploadFeedBackFromPhone(filename)
+    End Function
+
+    Public Function UploadRenewalFromPhone(filename As String) As Dictionary(Of String, Integer)
+        Dim BL As New IMIS_BL.IMISExtractsBL()
+        Return BL.UploadRenewalFromPhone(filename)
+    End Function
+    Public Function DownloadMasterData() As String
+        Dim BL As New IMIS_BL.IMISExtractsBL()
+        Return BL.DownloadMasterData()
     End Function
 End Class

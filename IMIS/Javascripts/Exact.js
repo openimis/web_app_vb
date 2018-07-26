@@ -173,6 +173,9 @@ var popup = {
     shadeBG_ID: "SelectPic",
     acceptBTN_Text: "OK",
     middleBTN_Text: "",
+    middle1BTN_Text: "",
+    middle2BTN_Text: "",
+    closeBTN_Text: "",
     rejectBTN_Text: "CANCEL",
     alertTitle: "INFORMATION",
     confirmTitle: "CONFIRM",
@@ -203,11 +206,13 @@ var popup = {
     innerContentStyle: { /** an object contains objects with style properties for each corresponding popup div inner elements **/
 
         header: {
+            position: "relative",
             padding: "5px 2px 5px 2px",
             width: "100%",
             height: "auto",
-            background: "#70A5DA",
-            color: "#000000"
+            background: "#70A5DA"
+            
+
         },
 
         body: {
@@ -259,6 +264,24 @@ var popup = {
             bottom: "-5px"
         },
 
+        middle1: { /** styles for the middle1 wrapper div **/
+            position: "absolute",
+            height: "30px",
+            width: "auto",
+            padding: "2px 0px 2px 0px",
+            left: "120px",
+            bottom: "-5px"
+        },
+
+        middle2: { /** styles for the middle2 wrapper div **/
+            position: "absolute",
+            height: "30px",
+            width: "auto",
+            padding: "2px 0px 2px 0px",
+            left: "240px",
+            bottom: "-5px"
+        },
+
         cancel: { /** styles for the cancel wrapper div **/
             position: "absolute",
             height: "30px",
@@ -266,6 +289,24 @@ var popup = {
             padding: "2px 0px 2px 0px",
             right: "2px",
             bottom: "-5px"
+        },
+
+        closeButtonWrapper: { /** styles for the closebutton wrapper div **/
+            margin: "1px 1px 1px 1px",
+            right: "2px",
+            position: "absolute",
+            bottom: "9px",
+            right: "5px"
+        },
+
+        titleWrapper: { /** styles for the title wrapper div **/
+            position: "relative",
+            height: "auto",
+            width: "auto",
+            padding: "2px 0px 2px 0px",
+            left: "2px",
+            bottom: "-5px",
+            color: "#000000"
         }
 
     },
@@ -283,7 +324,11 @@ var popup = {
             $popFooter = this.$pop.find("div#popup-div-footer");
             $popOK = this.$pop.find("div#btnOkWrapper");
             $popMiddle = this.$pop.find("div#btnMiddleWrapper");
+            $popMiddle1 = this.$pop.find("div#btnMiddle1Wrapper");
+            $popMiddle2 = this.$pop.find("div#btnMiddle2Wrapper");
             $popCancel = this.$pop.find("div#btnCancelWrapper");
+            $popcloseButtonWrapper = this.$pop.find("div#closeButtonWrapper");
+            $poptitleWrapper = this.$pop.find("div#titleWrapper");
 
             /** styling the inner elemnts in the popup div **/
             $popHeader.css(this.innerContentStyle.header);
@@ -293,7 +338,11 @@ var popup = {
             $popFooter.css(this.innerContentStyle.footer);
             $popOK.css(this.innerContentStyle.ok);
             $popMiddle.css(this.innerContentStyle.middle);
+            $popMiddle1.css(this.innerContentStyle.middle1);
+            $popMiddle2.css(this.innerContentStyle.middle2);
             $popCancel.css(this.innerContentStyle.cancel);
+            $popcloseButtonWrapper.css(this.innerContentStyle.closeButtonWrapper);
+            $poptitleWrapper.css(this.innerContentStyle.titleWrapper);
 
         } catch (ex) { }
     },
@@ -301,7 +350,7 @@ var popup = {
     createPopup: function(heading) { /** create the popup div ( jquery object ) and its inner elements **/
         try {
             this.$pop = $('<div id="popup-div">');
-            html = '<div id="popup-div-header"><h3>' + heading + '</h3> </div>';
+            html = '<div id="popup-div-header"><div id="titleWrapper"><h3>' + heading + '</h3></div><div id="closeButtonWrapper"><input name="btnClose" id="btnClose" src="Images/Erase.png" type="image" onClick="closePop();"></div></div></div>';
             html += '<div id="popup-div-body">';
 
             if (this.isPrompt) {
@@ -313,6 +362,8 @@ var popup = {
             html += '<div id="popup-div-footer" >';
             html += '<div id="btnOkWrapper"><input type="button" id="btnOK" value="' + this.acceptBTN_Text + '" /></div>';
             html += '<div id="btnMiddleWrapper"><input type="button" id="btnMiddle" value="' + this.middleBTN_Text + '" /></div>';
+            html += '<div id="btnMiddle1Wrapper"><input type="button" id="btnMiddle1" value="' + this.middle1BTN_Text + '" /></div>';
+            html += '<div id="btnMiddle2Wrapper"><input type="button" id="btnMiddle2" value="' + this.middle2BTN_Text + '" /></div>';
             html += '<div id="btnCancelWrapper"><input type="button" id="btnCancel" value="' + this.rejectBTN_Text + '" /></div>';
             html += '</div>'
 
@@ -323,8 +374,11 @@ var popup = {
             //bind click events to the controls.....
             var that = this;  // for late binding, store the instance in a public variable
             this.$pop.find("input#btnOK").click(function() { that.closePopup($(this).parent().parent().parent(), "ok", false,that.acceptBTN_Text); return true; });
-            this.$pop.find("input#btnMiddle").click(function() { that.closePopup($(this).parent().parent().parent(), "middle", false,that.middleBTN_Text); return true; });
-            this.$pop.find("input#btnCancel").click(function() { that.closePopup($(this).parent().parent().parent(), "cancel", false,that.rejectBTN_Text); return false; })
+            this.$pop.find("input#btnMiddle").click(function () { that.closePopup($(this).parent().parent().parent(), "middle", false, that.middleBTN_Text); return true; });
+            this.$pop.find("input#btnMiddle1").click(function () { that.closePopup($(this).parent().parent().parent(), "middle1", false, that.middle1BTN_Text); return true; });
+            this.$pop.find("input#btnMiddle2").click(function () { that.closePopup($(this).parent().parent().parent(), "middle2", false, that.middle2BTN_Text); return true; });
+            this.$pop.find("input#btnCancel").click(function () { that.closePopup($(this).parent().parent().parent(), "cancel", false, that.rejectBTN_Text); return false; })
+            //this.$pop.find("input#btnClose").click(function () { that.closePopup($(this).parent().parent().parent(), "cancel", false, that.closeBTN_Text); return false; })
         } catch (ex) { }
     },
 
@@ -465,7 +519,7 @@ var popup = {
 
     },
 
-    confirm: function(msg, fn, fnArgs, Isqueued, showMiddleBtn) { /** this will popup a confirmation box, in order to allow a certain process **/
+    confirm: function(msg, fn, fnArgs, Isqueued, showMiddleBtn, twoMiddleButtons) { /** this will popup a confirmation box, in order to allow a certain process **/
         try {
             if (typeof (Isqueued) != "undefined") {
                 if (!Isqueued) {
@@ -483,11 +537,21 @@ var popup = {
 
             this.createPopup(this.confirmTitle);
             this.$pop.find("div#btnMiddleWrapper").hide(); // hides out the middle button part.
+            this.$pop.find("div#btnMiddle1Wrapper").hide(); // hides out the middle button part.
+            this.$pop.find("div#btnMiddle2Wrapper").hide(); // hides out the middle button part.
             if (typeof (showMiddleBtn) != "undefined") {
                 if (showMiddleBtn) {
                     this.$pop.find("div#btnMiddleWrapper").show(); // hides out the middle button part.
                 }
             } 
+
+            if (typeof (twoMiddleButtons) != "undefined") {
+                if (twoMiddleButtons) {
+                    this.$pop.find("div#btnMiddle1Wrapper").show(); // shows out the middle button1 part.
+                    this.$pop.find("div#btnMiddle2Wrapper").show(); // shows out the middle button2 part.
+                }
+            } 
+
             this.$pop.find("div#popup-div-body").prepend(msg);
             this.fn = fn;
             this.fnArgs = fnArgs;
@@ -514,6 +578,8 @@ var popup = {
             this.$pop.find("div#popup-div-body").prepend(msg);
             this.$pop.find("div#btnCancelWrapper").hide(); // hides out the cancel button part.
             this.$pop.find("div#btnMiddleWrapper").hide(); // hides out the middle button part.
+            this.$pop.find("div#btnMiddle1Wrapper").hide(); // shows out the middle button1 part.
+            this.$pop.find("div#btnMiddle2Wrapper").hide(); // shows out the middle button2 part.
             this.fn = fn;
             this.fnArgs = fnArgs;
             this.display(false);
@@ -543,6 +609,8 @@ var popup = {
             }
             this.createPopup(this.promptTitle);
             this.$pop.find("div#btnMiddleWrapper").hide(); // hides out the middle button part.
+            this.$pop.find("div#btnMiddle1Wrapper").hide(); // shows out the middle button1 part.
+            this.$pop.find("div#btnMiddle2Wrapper").hide(); // shows out the middle button2 part.
             this.$pop.find("div#popup-div-body").prepend(msg);
             this.fn = fn;
             this.fnArgs = fnArgs;
@@ -660,4 +728,9 @@ function HighlightMandatoryFields() {
         }
     } catch (ex) {
     }
+}
+
+function closePop()
+{
+    $("#btnCancel").click();
 }
