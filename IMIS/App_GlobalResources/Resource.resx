@@ -1975,10 +1975,10 @@
     <value> Would you like to process the claims?</value>
   </data>
   <data name="L_EXTR_DOWNLOADCLAIMS" xml:space="preserve">
-    <value>Download Claim XMLs</value>
+    <value>Download Claims</value>
   </data>
   <data name="L_EXTR_UPLOADCLAIMS" xml:space="preserve">
-    <value>Upload Claims XML</value>
+    <value>Upload Claims</value>
   </data>
   <data name="M_CLMALREADYREVIEWEDBYUSER" xml:space="preserve">
     <value>This claim has already been reviewed by another user</value>
@@ -2578,7 +2578,7 @@
     <value>Enrolment Officers Code</value>
   </data>
   <data name="L_EXTR_OFFLINENROLMENT" xml:space="preserve">
-    <value>Download Enrolment XMLs</value>
+    <value>Download Enrolments</value>
   </data>
   <data name="M_NOENROLMENTFOUND" xml:space="preserve">
     <value>No new enrolment found.</value>

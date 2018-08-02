@@ -1637,15 +1637,15 @@ Public Class IMISExtractsBL
 
             Select Case rv
                 Case 0
-                    Accepted = Accepted + 1
+                    Accepted += 1
                     MoveFileToRejectedFolder(XMLs(i), FeedBack)
-                Case 1, 2,
-                    Rejected = Rejected + 1
+                Case 1, 2
+                    Rejected += 1
                     MoveFileToRejectedFolder(XMLs(i), FeedBackRejectedFolder)
                 Case 4
-                    Exists = Exists + 1
+                    Exists += 1
                 Case -1
-                    Failed = Failed + 1
+                    Failed += 1
                     MoveFileToRejectedFolder(XMLs(i), FeedBackRejectedFolder)
             End Select
             If Not rv = 0 Then

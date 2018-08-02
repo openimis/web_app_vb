@@ -1027,7 +1027,7 @@
   </data>
   <data name="L_EXTR_DOWNLOADCLAIMS" xml:space="preserve">
     <value>Télécharger le remboursement XMLs</value>
-    <comment>Download Claim XMLs</comment>
+    <comment>Download Claims</comment>
   </data>
   <data name="L_EXTR_IMPORTEXTRACT" xml:space="preserve">
     <value>Importer l'extrait</value>
@@ -1043,7 +1043,7 @@
   </data>
   <data name="L_EXTR_OFFLINENROLMENT" xml:space="preserve">
     <value>Télécharger l'affiliation XMLs</value>
-    <comment>Download Enrolment XMLs</comment>
+    <comment>Download Enrolments</comment>
   </data>
   <data name="L_EXTR_PHONEEXTRACT" xml:space="preserve">
     <value>Créer un extrait de téléphone</value>
@@ -1051,7 +1051,7 @@
   </data>
   <data name="L_EXTR_UPLOADCLAIMS" xml:space="preserve">
     <value>Importer les remboursement en format XML</value>
-    <comment>Upload Claims XML</comment>
+    <comment>Upload Claims</comment>
   </data>
   <data name="L_EXTR_UPLOADENROLMENT" xml:space="preserve">
     <value>Importer les affiliations</value>
@@ -5050,419 +5050,487 @@
     <comment>Your request is submitted and the requested extract is being created now. Once the task is completed, you will receive an email with the download link. Meanwhile you can leave this page and continue with other work.</comment>
   </data>
   <data name="T_NOPOLICY" xml:space="preserve">
-    <value></value>
-  <comment>No policy</comment></data>
+    <value />
+    <comment>No policy</comment>
+  </data>
   <data name="T_CAPITATIONPAYMENT" xml:space="preserve">
-    <value></value>
-  <comment>Capitation Payment</comment></data>
+    <value />
+    <comment>Capitation Payment</comment>
+  </data>
   <data name="L_LEVEL1" xml:space="preserve">
-    <value></value>
-  <comment>Level 1</comment></data>
+    <value />
+    <comment>Level 1</comment>
+  </data>
   <data name="L_LEVEL2" xml:space="preserve">
-    <value></value>
-  <comment>Level 2</comment></data>
+    <value />
+    <comment>Level 2</comment>
+  </data>
   <data name="L_LEVEL3" xml:space="preserve">
-    <value></value>
-  <comment>Level 3</comment></data>
+    <value />
+    <comment>Level 3</comment>
+  </data>
   <data name="L_LEVEL4" xml:space="preserve">
-    <value></value>
-  <comment>Level 4</comment></data>
+    <value />
+    <comment>Level 4</comment>
+  </data>
   <data name="L_SHAREOFCONTRIBUTION" xml:space="preserve">
-    <value></value>
-  <comment>Share of Contribution</comment></data>
+    <value />
+    <comment>Share of Contribution</comment>
+  </data>
   <data name="L_SUBLEVEL1" xml:space="preserve">
-    <value></value>
-  <comment>Sub Level 1</comment></data>
+    <value />
+    <comment>Sub Level 1</comment>
+  </data>
   <data name="L_SUBLEVEL2" xml:space="preserve">
-    <value></value>
-  <comment>Sub Level 2</comment></data>
+    <value />
+    <comment>Sub Level 2</comment>
+  </data>
   <data name="L_SUBLEVEL3" xml:space="preserve">
-    <value></value>
-  <comment>Sub Level 3</comment></data>
+    <value />
+    <comment>Sub Level 3</comment>
+  </data>
   <data name="L_SUBLEVEL4" xml:space="preserve">
-    <value></value>
-  <comment>Sub Level 4</comment></data>
+    <value />
+    <comment>Sub Level 4</comment>
+  </data>
   <data name="L_WEGHTOFNUMBERFAMILIES" xml:space="preserve">
-    <value></value>
-  <comment>Weight of Number of Families</comment></data>
+    <value />
+    <comment>Weight of Number of Families</comment>
+  </data>
   <data name="L_WEIGHTOFADJUSTEDAMOUT" xml:space="preserve">
-    <value></value>
-  <comment>Weight of Adjusted Amount</comment></data>
+    <value />
+    <comment>Weight of Adjusted Amount</comment>
+  </data>
   <data name="L_WEIGHTOFINSUREDPOPULATION" xml:space="preserve">
-    <value></value>
-  <comment>Weight of Insured Population</comment></data>
+    <value />
+    <comment>Weight of Insured Population</comment>
+  </data>
   <data name="L_WEIGHTOFNUMBERINSUREDFAMILIES" xml:space="preserve">
-    <value></value>
-  <comment>Weight of Number of Insured Families</comment></data>
+    <value />
+    <comment>Weight of Number of Insured Families</comment>
+  </data>
   <data name="L_WEIGHTOFNUMBERVISITS" xml:space="preserve">
-    <value></value>
-  <comment>Weight of Number of Visits</comment></data>
+    <value />
+    <comment>Weight of Number of Visits</comment>
+  </data>
   <data name="L_WEIGHTOFPOPUATION" xml:space="preserve">
-    <value></value>
-  <comment>Weight of Population</comment></data>
+    <value />
+    <comment>Weight of Population</comment>
+  </data>
   <data name="L_CAPITATIONPAYMENT" xml:space="preserve">
-    <value></value>
-  <comment>Capitation Payment</comment></data>
+    <value />
+    <comment>Capitation Payment</comment>
+  </data>
   <data name="L_NOOFCLAIMS" xml:space="preserve">
-    <value></value>
-  <comment>Number of Claims</comment></data>
+    <value />
+    <comment>Number of Claims</comment>
+  </data>
   <data name="L_NOOFFAMILIES" xml:space="preserve">
-    <value></value>
-  <comment>Number of Families</comment></data>
+    <value />
+    <comment>Number of Families</comment>
+  </data>
   <data name="L_NOOFINSUREDPOPULATION" xml:space="preserve">
-    <value></value>
-  <comment>Number of Insured Population</comment></data>
+    <value />
+    <comment>Number of Insured Population</comment>
+  </data>
   <data name="L_NOOFINSURESFAMILY" xml:space="preserve">
-    <value></value>
-  <comment>Number of Insured Families</comment></data>
+    <value />
+    <comment>Number of Insured Families</comment>
+  </data>
   <data name="L_POPULATION" xml:space="preserve">
-    <value></value>
-  <comment>Population</comment></data>
+    <value />
+    <comment>Population</comment>
+  </data>
   <data name="L_PERMADDERESS" xml:space="preserve">
-    <value></value>
-  <comment>Permanent address details</comment></data>
+    <value />
+    <comment>Permanent address details</comment>
+  </data>
   <data name="M_SHAREDCONTRIBUTIONPARCENT" xml:space="preserve">
-    <value></value>
-  <comment>Shared contribution  can not exceed 100%</comment></data>
+    <value />
+    <comment>Shared contribution  can not exceed 100%</comment>
+  </data>
   <data name="M_WEIGHTMUSTBE100" xml:space="preserve">
-    <value></value>
-  <comment>Sum of the weights must be 100%</comment></data>
+    <value />
+    <comment>Sum of the weights must be 100%</comment>
+  </data>
   <data name="L_ALLOCATEDCONTRIBUTION" xml:space="preserve">
-    <value></value>
-  <comment>Allocated Contribution</comment></data>
+    <value />
+    <comment>Allocated Contribution</comment>
+  </data>
   <data name="L_DISTRICTTOTAL" xml:space="preserve">
-    <value></value>
-  <comment>District Total</comment></data>
+    <value />
+    <comment>District Total</comment>
+  </data>
   <data name="L_REGIONTOTAL" xml:space="preserve">
-    <value></value>
-  <comment>Region Total</comment></data>
+    <value />
+    <comment>Region Total</comment>
+  </data>
   <data name="L_UNITPRICE" xml:space="preserve">
-    <value></value>
-  <comment>Unit Price</comment></data>
+    <value />
+    <comment>Unit Price</comment>
+  </data>
   <data name="M_SHAREOFCONTRIBUTIONRANGE" xml:space="preserve">
-    <value></value>
-  <comment>Share of Contribution must be greater than 0% and  less or equal to 100%</comment></data>
+    <value />
+    <comment>Share of Contribution must be greater than 0% and  less or equal to 100%</comment>
+  </data>
   <data name="L_UPLOADREGISTERS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Registers</comment>
-  <comment>Registers</comment></data>
+  </data>
   <data name="L_UPLOADHEALTHFACILITIES" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Upload Health Facilities</comment>
-  <comment>Upload Health Facilities</comment></data>
+  </data>
   <data name="L_UPLOADLOCATIONS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Upload Locations</comment>
-  <comment>Upload Locations</comment></data>
+  </data>
   <data name="M_AREYOUSUREUPLOADLOCATIONS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Are you sure you want to upload a new list of locations?</comment>
-  <comment>Are you sure you want to upload a new list of locations?</comment></data>
+  </data>
   <data name="M_SELECTONLYEXCELFILE" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Select only excel File</comment>
-  <comment>Select only excel File</comment></data>
+  </data>
   <data name="M_DISTRICTCODEEXISTSINDB" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>District Code in excel Already Exists in Database</comment>
-  <comment>District Code in excel Already Exists in Database</comment></data>
+  </data>
   <data name="M_DISTRICTCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>District Code specified in Ward Does not exists in Either Database or District Excel</comment>
-  <comment>District Code specified in Ward Does not exists in Either Database or District Excel</comment></data>
+  </data>
   <data name="M_DUPLICATEDISTRICTCODEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Duplicate District Code in excel</comment>
-  <comment>Duplicate District Code in excel</comment></data>
+  </data>
   <data name="M_DUPLICATEMUNICIPALITYCODEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Duplicate Municipality Code in excel</comment>
-  <comment>Duplicate Municipality Code in excel</comment></data>
+  </data>
   <data name="M_DUPLICATEREGIONCODEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Duplicate Region Code in excel</comment>
-  <comment>Duplicate Region Code in excel</comment></data>
+  </data>
   <data name="M_DUPLICATEVILLAGECODEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Duplicate Village Code in excel</comment>
-  <comment>Duplicate Village Code in excel</comment></data>
+  </data>
   <data name="M_INVALIDDISTRICTFILEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Invalid District File(Either Tab name or Column names or inputs are invalid)</comment>
-  <comment>Invalid District File(Either Tab name or Column names or inputs are invalid)</comment></data>
+  </data>
   <data name="M_INVALIDMUNICIPALITYFILEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Invalid Municipality File(Either Tab name or Column names or inputs are invalid)</comment>
-  <comment>Invalid Municipality File(Either Tab name or Column names or inputs are invalid)</comment></data>
+  </data>
   <data name="M_INVALIDREGIONFILEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Invalid Region File(Either Tab name or Column names or inputs are invalid)!</comment>
-  <comment>Invalid Region File(Either Tab name or Column names or inputs are invalid)!</comment></data>
+  </data>
   <data name="M_INVALIDVILLAGEFILEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Invalid Village File(Either Tab name or Column names or inputs are invalid)</comment>
-  <comment>Invalid Village File(Either Tab name or Column names or inputs are invalid)</comment></data>
+  </data>
   <data name="M_INVALIDVILLAGEPOPULATIONINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Village population must be numeric in excel</comment>
-  <comment>Village population must be numeric in excel</comment></data>
+  </data>
   <data name="M_MISSINGDISTRICTCODEORNAMEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Missing District name or Code in Excel</comment>
-  <comment>Missing District name or Code in Excel</comment></data>
+  </data>
   <data name="M_MISSINGMUNICIPALITYCODEORNAMEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Missing Municipality name or Code in Excel</comment>
-  <comment>Missing Municipality name or Code in Excel</comment></data>
+  </data>
   <data name="M_MISSINGREGIONCODEORNAMEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Missing Region name or Code in Excel</comment>
-  <comment>Missing Region name or Code in Excel</comment></data>
+  </data>
   <data name="M_MISSINGVILLAGECODEORNAMEINEXCEL" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Missing Village name or Code in Excel</comment>
-  <comment>Missing Village name or Code in Excel</comment></data>
+  </data>
   <data name="M_MUNICIPALITYCODEEXISTSINDB" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Municipality Code in excel Already Exist in Database</comment>
-  <comment>Municipality Code in excel Already Exist in Database</comment></data>
+  </data>
   <data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Wardcode in Village Excel Does not exist in Either  Database or Ward Excel</comment>
-  <comment>Wardcode in Village Excel Does not exist in Either  Database or Ward Excel</comment></data>
+  </data>
   <data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Region Code in excel Already Exists in Database</comment>
-  <comment>Region Code in excel Already Exists in Database</comment></data>
+  </data>
   <data name="M_REGIONCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Region Code specified in District Does not exist in Either  Database or Region Excel</comment>
-  <comment>Region Code specified in District Does not exist in Either  Database or Region Excel</comment></data>
+  </data>
   <data name="M_UNEXPECTEDERRORONIMPORTLOCATIONS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Unexpected Error when Importing Locations</comment>
-  <comment>Unexpected Error when Importing Locations</comment></data>
+  </data>
   <data name="M_VILLAGECODEEXISTSINDB" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Village Code in excel Already Exists in Database</comment>
-  <comment>Village Code in excel Already Exists in Database</comment></data>
+  </data>
   <data name="M_UPLOADEDLOCATIONS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Uploaded Locations</comment>
-  <comment>Uploaded Locations</comment></data>
+  </data>
   <data name="L_DOWNLOADHEALTHFACILITIES" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Download Health Facilities</comment>
-  <comment>Download Health Facilities</comment></data>
+  </data>
   <data name="L_DOWNLOADICD" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Download Diagnoses</comment>
-  <comment>Download Diagnoses</comment></data>
+  </data>
   <data name="L_DOWNLOADLOCATIONS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Download Locations</comment>
-  <comment>Download Locations</comment></data>
+  </data>
   <data name="L_DRYRUN" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Dry Run</comment>
-  <comment>Dry Run</comment></data>
+  </data>
   <data name="L_ICDUPLOADSTRATEGY" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Strategy</comment>
-  <comment>Strategy</comment></data>
+  </data>
   <data name="M_SELECTONLYXMLFILE" xml:space="preserve">
-    <value></value>
-  <comment>Select only .xml File</comment></data>
+    <value />
+    <comment>Select only .xml File</comment>
+  </data>
   <data name="M_DELETEDDIAGNOSES" xml:space="preserve">
-    <value></value>
-  <comment>Deleted</comment></data>
-  <data name="M_DIAGNOSESUPLOADED" xml:space="preserve">
-    <value></value>
-  <comment>Diagnoses uploaded successfully.</comment></data>
-  <data name="M_INSERTEDDIAGNOSES" xml:space="preserve">
-    <value></value>
-  <comment>Inserted</comment></data>
-  <data name="M_UPDETEDDIAGNOSES" xml:space="preserve">
-    <value></value>
-  <comment>Updeted</comment></data>
-  <data name="M_UPLOADEDDIAGNOSES" xml:space="preserve">
-    <value></value>
-    <comment>Uploaded Diagnoses</comment>
-  <comment>Uploaded Diagnoses</comment></data>
-  <data name="M_DIAGNOSESSENT" xml:space="preserve">
-    <value></value>
-  <comment>Sent</comment></data>
-  <data name="L_DELETED" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Deleted</comment>
-  <comment>Deleted</comment></data>
+  </data>
+  <data name="M_DIAGNOSESUPLOADED" xml:space="preserve">
+    <value />
+    <comment>Diagnoses uploaded successfully.</comment>
+  </data>
+  <data name="M_INSERTEDDIAGNOSES" xml:space="preserve">
+    <value />
+    <comment>Inserted</comment>
+  </data>
+  <data name="M_UPDETEDDIAGNOSES" xml:space="preserve">
+    <value />
+    <comment>Updeted</comment>
+  </data>
+  <data name="M_UPLOADEDDIAGNOSES" xml:space="preserve">
+    <value />
+    <comment>Uploaded Diagnoses</comment>
+  </data>
+  <data name="M_DIAGNOSESSENT" xml:space="preserve">
+    <value />
+    <comment>Sent</comment>
+  </data>
+  <data name="L_DELETED" xml:space="preserve">
+    <value />
+    <comment>Deleted</comment>
+  </data>
   <data name="M_HFUPLOADED" xml:space="preserve">
-    <value></value>
-  <comment>Health facilite(s) uploaded successfully.</comment></data>
+    <value />
+    <comment>Health facilite(s) uploaded successfully.</comment>
+  </data>
   <data name="M_UNEXPECTEDERRORONUPLOADHF" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Unexpected Error when Uploading Health facities</comment>
-  <comment>Unexpected Error when Uploading Health facities</comment></data>
+  </data>
   <data name="M_UPLOADEDHF" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Uploaded Health facilities</comment>
-  <comment>Uploaded Health facilities</comment></data>
+  </data>
   <data name="L_CONFILCTS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Conflicts</comment>
-  <comment>Conflicts</comment></data>
+  </data>
   <data name="L_ERRORS" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Errors</comment>
-  <comment>Errors</comment></data>
+  </data>
   <data name="L_FATALERROR" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Fatal Error</comment>
-  <comment>Fatal Error</comment></data>
+  </data>
   <data name="M_UNEXPECTEDERRORONUPLOADICD" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Unexpected Error when Uploading Diagnoses</comment>
-  <comment>Unexpected Error when Uploading Diagnoses</comment></data>
+  </data>
   <data name="L_INSERTANDUPDATE" xml:space="preserve">
-    <value></value>
-     
-  <comment>Insert and Update</comment></data>
+    <value />
+    <comment>Insert and Update</comment>
+  </data>
   <data name="L_INSERTONLY" xml:space="preserve">
-    <value></value>
-     
-  <comment>Insert Only</comment></data>
+    <value />
+    <comment>Insert Only</comment>
+  </data>
   <data name="L_INSERTUPDATEDELETE" xml:space="preserve">
-    <value></value>
-     
-  <comment>Insert, Update and Delete</comment></data>
+    <value />
+    <comment>Insert, Update and Delete</comment>
+  </data>
   <data name="L_SELECTSTRATEGY" xml:space="preserve">
-    <value></value>
-    
-  <comment>--Select Strategy--</comment></data>
+    <value />
+    <comment>--Select Strategy--</comment>
+  </data>
   <data name="L_UPDATEONLY" xml:space="preserve">
-    <value></value>
-   
-  <comment>Update Only</comment></data>
+    <value />
+    <comment>Update Only</comment>
+  </data>
   <data name="L_CONFILCT" xml:space="preserve">
-    <value></value>
-    
-  <comment>Conflict</comment></data>
+    <value />
+    <comment>Conflict</comment>
+  </data>
   <data name="L_ERROR" xml:space="preserve">
-    <value></value>
-    
-  <comment>Error</comment></data>
+    <value />
+    <comment>Error</comment>
+  </data>
   <data name="B_DOWNLOADLOG" xml:space="preserve">
-    <value></value>
-    
-  <comment>DownLoad  Log</comment></data>
+    <value />
+    <comment>DownLoad  Log</comment>
+  </data>
   <data name="L_FILENAME" xml:space="preserve">
-    <value></value>
-    
-  <comment>File Name</comment></data>
+    <value />
+    <comment>File Name</comment>
+  </data>
   <data name="L_LASTUPLOADLOG" xml:space="preserve">
-    <value></value>
-    
-  <comment>Last Upload Log</comment></data>
+    <value />
+    <comment>Last Upload Log</comment>
+  </data>
   <data name="L_REGISTER" xml:space="preserve">
-    <value></value>
-    
-  <comment>Register</comment></data>
+    <value />
+    <comment>Register</comment>
+  </data>
   <data name="M_SELECTSTRATEGY" xml:space="preserve">
-    <value></value>
-  <comment>Please select strategy</comment></data>
+    <value />
+    <comment>Please select strategy</comment>
+  </data>
   <data name="T_UPLOADDOWNLOADREGISTERS" xml:space="preserve">
-    <value></value>
-  <comment>Upload/Download Registers</comment></data>
+    <value />
+    <comment>Upload/Download Registers</comment>
+  </data>
   <data name="L_LASTUPLOADEDFILENAME" xml:space="preserve">
-    <value></value>
-    
-  <comment>Last uploaded file Name</comment></data>
+    <value />
+    <comment>Last uploaded file Name</comment>
+  </data>
   <data name="M_AREYOUSUREUPLOADHF" xml:space="preserve">
-    <value></value>
-  <comment>Are you sure you want to upload a new list of HF?</comment>
+    <value />
+    <comment>Are you sure you want to upload a new list of HF?</comment>
   </data>
   <data name="B_DownLoadMasterData" xml:space="preserve">
-    <value></value>
-  <comment>Download Master Data</comment></data>
+    <value />
+    <comment>Download Master Data</comment>
+  </data>
   <data name="L_DOWNLOADMASTERDATA" xml:space="preserve">
-    <value></value>
-  <comment>Download Master Data</comment></data>
+    <value />
+    <comment>Download Master Data</comment>
+  </data>
   <data name="T_REJECTEDDATE" xml:space="preserve">
-    <value></value>
-  <comment>Rejected Date</comment></data>
+    <value />
+    <comment>Rejected Date</comment>
+  </data>
   <data name="T_REJECTEDPHOTOS" xml:space="preserve">
-    <value></value>
-  <comment>Rejected Photos</comment></data>
+    <value />
+    <comment>Rejected Photos</comment>
+  </data>
   <data name="T_TOTALREJECTEDPHOTOS" xml:space="preserve">
-    <value></value>
-  <comment>Total Rejected Photos</comment></data>
+    <value />
+    <comment>Total Rejected Photos</comment>
+  </data>
   <data name="L_EXTR_UPLOADPHOTO" xml:space="preserve">
-    <value></value>
-  <comment>Upload Photos</comment></data>
+    <value />
+    <comment>Upload Photos</comment>
+  </data>
   <data name="B_DownLoadFeedback" xml:space="preserve">
-    <value></value>
-  <comment>Download Feedback</comment></data>
+    <value />
+    <comment>Download Feedback</comment>
+  </data>
   <data name="B_DownLoadRenewals" xml:space="preserve">
-    <value></value>
-  <comment>Download Renewals</comment></data>
+    <value />
+    <comment>Download Renewals</comment>
+  </data>
   <data name="M_NODATAFOUND" xml:space="preserve">
-    <value></value>
-  <comment>No Data</comment></data>
+    <value />
+    <comment>No Data</comment>
+  </data>
   <data name="M_OFFICERNOTFOUND" xml:space="preserve">
-    <value></value>
-  <comment>Officer Not Found</comment></data>
+    <value />
+    <comment>Officer Not Found</comment>
+  </data>
   <data name="B_UPLOADFEEDBACK" xml:space="preserve">
-    <value></value>
-  <comment>Upload Feedback</comment></data>
+    <value />
+    <comment>Upload Feedback</comment>
+  </data>
   <data name="B_UPLOADRENEWAL" xml:space="preserve">
-    <value></value>
-  <comment>Upload Renewal</comment></data>
+    <value />
+    <comment>Upload Renewal</comment>
+  </data>
   <data name="M_CLAIMNOTEXIST" xml:space="preserve">
-    <value></value>
-  <comment>Claim does not exist</comment></data>
+    <value />
+    <comment>Claim does not exist</comment>
+  </data>
   <data name="M_DUPLICATEDRECEIPTFOUND" xml:space="preserve">
-    <value></value>
-  <comment>Duplicate receipt found</comment></data>
+    <value />
+    <comment>Duplicate receipt found</comment>
+  </data>
   <data name="M_FEEDFILEACCEPTED" xml:space="preserve">
-    <value></value>
-  <comment>FeedBack  upload summary</comment></data>
+    <value />
+    <comment>FeedBack  upload summary</comment>
+  </data>
   <data name="M_GRACEPERIODISOVER" xml:space="preserve">
-    <value></value>
-  <comment>The grace perios of the given policy is over</comment></data>
+    <value />
+    <comment>The grace perios of the given policy is over</comment>
+  </data>
   <data name="M_INVALIDCHFID" xml:space="preserve">
-    <value></value>
-  <comment>Invalid CHFID</comment></data>
+    <value />
+    <comment>Invalid CHFID</comment>
+  </data>
   <data name="M_INVALIDFEEDBACKFILE" xml:space="preserve">
-    <value></value>
-  <comment>Invalid feedBack file</comment></data>
+    <value />
+    <comment>Invalid feedBack file</comment>
+  </data>
   <data name="M_INVALIDOFFICERCODE" xml:space="preserve">
-    <value></value>
-  <comment>Invalid officer code</comment></data>
+    <value />
+    <comment>Invalid officer code</comment>
+  </data>
   <data name="M_INVALIDRENEWALFILE" xml:space="preserve">
-    <value></value>
-  <comment>Invalid fenewal file</comment></data>
+    <value />
+    <comment>Invalid fenewal file</comment>
+  </data>
   <data name="M_RENEWALUPLOADED" xml:space="preserve">
-    <value></value>
-  <comment>Renewal upload summary</comment></data>
+    <value />
+    <comment>Renewal upload summary</comment>
+  </data>
   <data name="L_ACCEPTED" xml:space="preserve">
-    <value></value>
-  <comment>Accepted</comment></data>
+    <value />
+    <comment>Accepted</comment>
+  </data>
   <data name="L_EXISTS" xml:space="preserve">
-    <value></value>
-  <comment>Exists</comment></data>
+    <value />
+    <comment>Exists</comment>
+  </data>
   <data name="L_FAILED" xml:space="preserve">
-    <value></value>
-  <comment>Failed</comment></data>
+    <value />
+    <comment>Failed</comment>
+  </data>
   <data name="L_REJECTED" xml:space="preserve">
-    <value></value>
-  <comment>Rejected</comment></data>
+    <value />
+    <comment>Rejected</comment>
+  </data>
   <data name="L_UPLOADFEEDBACK" xml:space="preserve">
-    <value></value>
-  <comment>Upload Feedback</comment></data>
+    <value />
+    <comment>Upload Feedback</comment>
+  </data>
   <data name="L_UPLOADRENEWAL" xml:space="preserve">
-    <value></value>
-  <comment>Upload Renewal</comment></data>
+    <value />
+    <comment>Upload Renewal</comment>
+  </data>
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
-    <value></value>
-  <comment>No Enrollment Found</comment></data>
+    <value />
+    <comment>No Enrollment Found</comment>
+  </data>
 </root>
