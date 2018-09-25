@@ -155,7 +155,7 @@ Partial Public Class IMISExtracts
         If Len(ddlDistrictsPhone.SelectedValue) = 0 Then
         End If
 
-        eExtractInfo.LocationId = ddlDistrictsPhone.SelectedValue
+        eExtractInfo.LocationId = Val(ddlDistrictsPhone.SelectedValue)
         eExtractInfo.AuditUserID = imisgen.getUserId(Session("User"))
         eExtractInfo.ExtractType = 1
 
@@ -182,7 +182,7 @@ Partial Public Class IMISExtracts
 
         Dim Service As New IMISService.Service1
         Service.AllowAutoRedirect = True
-        Service.CreatePhoneExtracts(ddlDistrictsPhone.SelectedValue, DirectCast(Session("User"), DataTable)(0)("UserId"), chkWithInsuree.Checked)
+        Service.CreatePhoneExtracts(Val(ddlDistrictsPhone.SelectedValue), DirectCast(Session("User"), DataTable)(0)("UserId"), chkWithInsuree.Checked)
 
 
         Dim Str As String = IMIS_Gen.getMessage("M_BGEXTRACTCOMPLETED")
@@ -276,7 +276,7 @@ Partial Public Class IMISExtracts
         ' If Val(ddlDistrictsOffLine.SelectedValue) > 0 Then
         eExtractInfo.RegionId = If(Val(ddlRegionOffLine.SelectedValue) = -1, 0, Val(ddlRegionOffLine.SelectedValue))
         eExtractInfo.DistrictId = Val(ddlDistrictsOffLine.SelectedValue)
-
+        eExtractInfo.AuditUserID = imisgen.getUserId(Session("User"))
 
         'Else
 
@@ -860,23 +860,65 @@ Partial Public Class IMISExtracts
             Dim FileName As String = Server.MapPath("Workspace\") & fuEnrolments.PostedFile.FileName
             fuEnrolments.SaveAs(FileName)
             Dim Output As New Dictionary(Of String, Integer)
+            Dim ResultType As Integer
+
             Output.Add("FamilySent", 0)
-            Output.Add("InsureeSent", 0)
-            Output.Add("PolicySent", 0)
-            Output.Add("PremiumSent", 0)
             Output.Add("FamilyImported", 0)
+            Output.Add("FamiliesUpd", 0)
+            Output.Add("FamilyRejected", 0)
+            Output.Add("InsureeSent", 0)
+            Output.Add("InsureeUpd", 0)
             Output.Add("InsureeImported", 0)
+            Output.Add("PolicySent", 0)
             Output.Add("PolicyImported", 0)
+            Output.Add("PolicyChanged", 0)
+            Output.Add("PolicyRejected", 0)
+            Output.Add("PremiumSent", 0)
             Output.Add("PremiumImported", 0)
+            Output.Add("PremiumRejected", 0)
+            Output.Add("ResultTyple", 0)
+            Output.Add("PhotoSent", 0)
+            Output.Add("PhotoAccepted", 0)
+            Output.Add("PhotoRejected", 0)
+
+
             Dim dt As DataTable = Extracts.UploadEnrolments(FileName, Output)
-            Dim Msg As String = "<h4><u>" & imisgen.getMessage("M_ENROLMENTUPLOADED") & "</u></h4>" & "<br>" & _
-                                "<table class=""tblPopupMsg"">" & _
-                                "<tr><th></th><th>" & imisgen.getMessage("L_SENT") & "</th><th>" & imisgen.getMessage("L_UPLOADED") & "</th></tr>" & _
-                                "<tr><td class=""str"">" & imisgen.getMessage("L_FAMILY") & "</td><td class=""no"">" & Output("FamilySent") & "</td><td class=""no"">" & Output("FamilyImported") & "</td></tr>" & _
-                                "<tr><td class=""str"">" & imisgen.getMessage("L_INSUREE") & "</td><td class=""no"">" & Output("InsureeSent") & "</td><td class=""no"">" & Output("InsureeImported") & "</td></tr>" & _
-                                "<tr><td class=""str"">" & imisgen.getMessage("L_POLICY") & "</td><td class=""no"">" & Output("PolicySent") & "</td><td class=""no"">" & Output("PolicyImported") & "</td></tr>" & _
-                                "<tr><td class=""str"">" & imisgen.getMessage("L_PREMIUM") & "</td><td class=""no"">" & Output("PremiumSent") & "</td><td class=""no"">" & Output("PremiumImported") & "</td></tr>" & _
+            ResultType = Output("ResultTyple")
+            Dim Msg As String = "<h4><u>" & imisgen.getMessage("M_ENROLMENTUPLOADED") & "</u></h4>" & "<br>"
+            If ResultType = 1 Then
+                Msg += "<table class=""tblPopupMsg"">" &
+                                "<tr><th></th><th>" & imisgen.getMessage("L_SENT") & "</th><th>" & imisgen.getMessage("L_UPLOADED") & "</th></tr>" &
+                                "<tr><td class=""str"">" & imisgen.getMessage("L_FAMILY") & "</td><td class=""no"">" & Output("FamilySent") & "</td><td class=""no"">" & Output("FamilyImported") & "</td></tr>" &
+                                "<tr><td class=""str"">" & imisgen.getMessage("L_INSUREE") & "</td><td class=""no"">" & Output("InsureeSent") & "</td><td class=""no"">" & Output("InsureeImported") & "</td></tr>" &
+                                "<tr><td class=""str"">" & imisgen.getMessage("L_POLICY") & "</td><td class=""no"">" & Output("PolicySent") & "</td><td class=""no"">" & Output("PolicyImported") & "</td></tr>" &
+                                "<tr><td class=""str"">" & imisgen.getMessage("L_PREMIUM") & "</td><td class=""no"">" & Output("PremiumSent") & "</td><td class=""no"">" & Output("PremiumImported") & "</td></tr>" &
                                 "</table>"
+            ElseIf ResultType = 2 Then
+                Msg += "<br>" & imisgen.getMessage("L_FAMILY") & "<br>" &
+                        imisgen.getMessage("L_SENT") & ": " & Output("FamilySent") & "<br>" &
+                        imisgen.getMessage("L_ACCEPTED") & ": " & Output("FamilyImported") & "<br>" &
+                        imisgen.getMessage("L_UPDATED") & ": " & Output("FamiliesUpd") & "<br>" &
+                        imisgen.getMessage("L_REJECTED") & ": " & Output("FamilyRejected") & "</br>" &
+                        "<br>" & imisgen.getMessage("L_INSUREE") & "<br>" &
+                        imisgen.getMessage("L_SENT") & ": " & Output("InsureeSent") & "<br>" &
+                        imisgen.getMessage("L_ACCEPTED") & ": " & Output("InsureeImported") & "<br>" &
+                        imisgen.getMessage("L_UPDATED") & ": " & Output("InsureeUpd") & "</br>" &
+                         "<br>" & imisgen.getMessage("L_POLICY") & "<br>" &
+                        imisgen.getMessage("L_SENT") & ": " & Output("PolicySent") & "<br>" &
+                        imisgen.getMessage("L_ACCEPTED") & ": " & Output("PolicyImported") & "<br>" &
+                        imisgen.getMessage("L_UPDATED") & ": " & Output("PolicyChanged") & "<br>" &
+                         "<br>" & imisgen.getMessage("L_PREMIUM") & "<br>" &
+                        imisgen.getMessage("L_SENT") & ": " & Output("PremiumSent") & "<br>" &
+                        imisgen.getMessage("L_ACCEPTED") & ": " & Output("PremiumImported") & "<br>" &
+                        "<br>" & imisgen.getMessage("L_PHOTOS") & "<br>" &
+                        imisgen.getMessage("L_SENT") & ": " & Output("PhotoSent") & "<br>" &
+                        imisgen.getMessage("L_ACCEPTED") & ": " & Output("PhotoAccepted") & "<br>" &
+                        imisgen.getMessage("L_REJECTED") & ": " & Output("PhotoRejected") & "<br>"
+            Else
+                Msg += imisgen.getMessage("M_NOENROLLMENTFOUND")
+            End If
+
+
             imisgen.Alert(Msg, pnlButtons, alertPopupTitle:="IMIS", Queue:=True)
 
             If dt.Rows.Count > 0 Then
@@ -899,6 +941,183 @@ Partial Public Class IMISExtracts
 
     Private Sub ddlRegionPhone_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegionPhone.SelectedIndexChanged
         FillDistrictsPhone()
+    End Sub
+
+
+    Protected Sub btnDownLoadMasterData_Click(sender As Object, e As EventArgs)
+
+        Dim Extracts As New IMIS_BI.IMISExtractsBI
+        Dim strCommand As String = "MasterData.RAR"
+        Dim FileName As String = Extracts.DownloadMasterData()
+        Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+        If FileName.Length > 0 Then
+
+            strCommand = "attachment;filename=" & FileName
+            Response.AppendHeader("Content-Disposition", strCommand)
+            Response.ContentType = "application/octet-stream"
+            Response.WriteFile(Path & FileName)
+            Response.Flush()
+            IO.File.Delete(Path & FileName)
+            Response.End()
+        Else
+            lblmsg.Text = imisgen.getMessage("M_NOENROLMENTSFOUND")
+        End If
+    End Sub
+
+    'Protected Sub BtnUploadPhotosFromPhone_Click(sender As Object, e As EventArgs) Handles BtnUploadPhotosFromPhone.Click
+    '    Dim str As String = ""
+    '    If fuUploadPhotos.HasFile Then
+    '        If Right(fuUploadPhotos.FileName, 4).ToLower() <> ".rar" Then
+    '            lblmsg.Text = imisgen.getMessage("M_EXTR_NOUPLOADLOADFILE")
+    '            Exit Sub
+    '        End If
+
+    '        fuUploadPhotos.SaveAs(Server.MapPath("Extracts\Offline\") & fuUploadPhotos.FileName)
+    '    Else
+    '        lblmsg.Text = imisgen.getMessage("M_EXTR_NOUPLOADLOADFILE")
+    '        Exit Sub
+    '    End If
+
+    '    Dim eExtractInfo As New IMIS_EN.eExtractInfo
+    '    'eExtractInfo.DistrictID = ddlDistrictsOffLine.SelectedValue
+    '    eExtractInfo.AuditUserID = imisgen.getUserId(Session("User"))
+    '    eExtractInfo.ExtractType = 8   'photos
+    '    eExtractInfo.ExtractFileName = fuUploadPhotos.FileName
+    '    Extracts.ImportOffLinePhotosFromPhone(eExtractInfo)
+
+    '    Select Case eExtractInfo.ExtractStatus
+    '        Case 0
+    '            str = imisgen.getMessage("M_EXTR_PHOTOIMPOK")
+    '        Case 1
+    '            str = imisgen.getMessage("M_EXTR_BUSY")
+    '        Case -1
+    '            str = imisgen.getMessage("M_EXTR_IMPERR1")
+    '        Case -2
+    '            str = imisgen.getMessage("M_EXTR_IMPERR2")
+    '        Case -3
+    '            str = imisgen.getMessage("M_EXTR_IMPERR3")
+    '        Case -4
+    '            str = imisgen.getMessage("M_EXTR_IMPERR4")
+    '        Case -5
+    '            str = imisgen.getMessage("M_EXTR_IMPERR5")
+    '        Case -6
+    '            str = imisgen.getMessage("M_EXTR_IMPERR6")
+    '        Case -7
+    '            str = imisgen.getMessage("M_EXTR_IMPERR7")
+
+    '    End Select
+
+    '    imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
+    'End Sub
+
+    Protected Sub btnDownLoadFeedback_Click(sender As Object, e As EventArgs)
+        Dim OfficerCode As String
+        OfficerCode = txtOfficerCode.Text
+        Dim result As New Dictionary(Of String, String)
+        result = Extracts.getFeedback(OfficerCode)
+        Dim ResultCode As String = result("ResultCode")
+        Dim str As String = ""
+        Select Case ResultCode
+            Case "0"
+                Dim strCommand As String = ""
+                Dim FileName As String = result("result")
+                Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+                If FileName.Length > 0 Then
+                    strCommand = "attachment;filename=" & FileName
+                    Response.AppendHeader("Content-Disposition", strCommand)
+                    Response.ContentType = "application/octet-stream"
+                    Response.WriteFile(Path & FileName)
+                    Response.Flush()
+                    IO.File.Delete(Path & FileName)
+                    Response.End()
+                End If
+            Case "1"
+                imisgen.Alert(imisgen.getMessage("M_OFFICERNOTFOUND"), pnlButtons, alertPopupTitle:="IMIS", Queue:=True)
+            Case "2"
+                imisgen.Alert(imisgen.getMessage("M_NODATAFOUND"), pnlButtons, alertPopupTitle:="IMIS", Queue:=True)
+        End Select
+    End Sub
+
+    Protected Sub btnDownLoadRenewal_Click(sender As Object, e As EventArgs)
+        Dim OfficerCode As String
+        OfficerCode = txtOfficerCode.Text
+        Dim result As New Dictionary(Of String, String)
+        result = Extracts.getRenewals(OfficerCode)
+        Dim ResultCode As String = result("ResultCode")
+        Dim str As String = ""
+        Select Case ResultCode
+            Case "0"
+                Dim strCommand As String = ""
+                Dim FileName As String = result("result")
+                Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+                If FileName.Length > 0 Then
+                    strCommand = "attachment;filename=" & FileName
+                    Response.AppendHeader("Content-Disposition", strCommand)
+                    Response.ContentType = "application/octet-stream"
+                    Response.WriteFile(Path & FileName)
+                    Response.Flush()
+                    IO.File.Delete(Path & FileName)
+                    Response.End()
+                End If
+            Case "1"
+                imisgen.Alert(imisgen.getMessage("M_OFFICERNOTFOUND"), pnlButtons, alertPopupTitle:="IMIS", Queue:=True)
+            Case "2"
+                imisgen.Alert(imisgen.getMessage("M_NODATAFOUND"), pnlButtons, alertPopupTitle:="IMIS", Queue:=True)
+        End Select
+    End Sub
+
+    Protected Sub BtnUploadFeeBack_Click(sender As Object, e As EventArgs)
+        Dim str As String = ""
+        If FileUploadFeedBack.HasFile Then
+            If Right(FileUploadFeedBack.FileName, 4).ToLower() <> ".rar" Then
+                lblmsg.Text = imisgen.getMessage("M_EXTR_NOUPLOADLOADFILE")
+                Exit Sub
+            End If
+            Dim filename As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("FromPhone_Feedback")) & FileUploadFeedBack.FileName
+            FileUploadFeedBack.SaveAs(filename)
+            Dim Output As New Dictionary(Of String, Integer)
+            Output = Extracts.UploadFeedBackFromPhone(filename)
+
+
+            Dim Msg As String = "<h4><u>" & imisgen.getMessage("M_FEEDFILEACCEPTED") & "</u></h4>" & "<br>" &
+                                 imisgen.getMessage("L_SENT") & ": " & Output("Sent") & "<br>" &
+                                 imisgen.getMessage("L_ACCEPTED") & ": " & Output("Accepted") & "<br>" &
+                                 imisgen.getMessage("L_REJECTED") & ": " & Output("Rejected") & "<br>" &
+                                 imisgen.getMessage("L_FAILED") & ": " & Output("Failed") & "<br>" &
+                                 imisgen.getMessage("L_EXISTS") & ": " & Output("Exists") & "</br><br>"
+
+            imisgen.Alert(Msg, Panel1, alertPopupTitle:="IMIS", Queue:=True)
+        Else
+            Exit Sub
+        End If
+        imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
+    End Sub
+
+    Protected Sub BtnUploadRenewal_Click(sender As Object, e As EventArgs)
+        Dim str As String = ""
+        If FileUploadRenewal.HasFile Then
+            If Right(FileUploadRenewal.FileName, 4).ToLower() <> ".rar" Then
+                lblmsg.Text = imisgen.getMessage("M_EXTR_NOUPLOADLOADFILE")
+                Exit Sub
+            End If
+            Dim filename As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("FromPhone_Renewal")) & FileUploadRenewal.FileName
+            FileUploadRenewal.SaveAs(filename)
+            Dim Output As New Dictionary(Of String, Integer)
+            Output = Extracts.UploadRenewalFromPhone(filename)
+
+
+            Dim Msg As String = "<h4><u>" & imisgen.getMessage("M_RENEWALUPLOADED") & "</u></h4>" & "<br>" &
+                                 imisgen.getMessage("L_SENT") & ": " & Output("Sent") & "<br>" &
+                                 imisgen.getMessage("L_ACCEPTED") & ": " & Output("Accepted") & "<br>" &
+                                 imisgen.getMessage("L_REJECTED") & ": " & Output("Rejected") & "<br>" &
+                                 imisgen.getMessage("L_FAILED") & ": " & Output("Failed") & "<br>" &
+                                 imisgen.getMessage("L_EXISTS") & ": " & Output("Exists") & "</br><br>"
+
+            imisgen.Alert(Msg, Panel1, alertPopupTitle:="IMIS", Queue:=True)
+        Else
+            Exit Sub
+        End If
+        imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
     End Sub
 
 

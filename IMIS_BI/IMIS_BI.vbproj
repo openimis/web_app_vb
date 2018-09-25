@@ -112,6 +112,7 @@
     <Compile Include="FindProductsBI.vb" />
     <Compile Include="FindUsersBI.vb" />
     <Compile Include="ForgotPasswordBI.vb" />
+    <Compile Include="GenderBI.vb" />
     <Compile Include="HealthFacilityBI.vb" />
     <Compile Include="HomeBI.vb" />
     <Compile Include="IMISExtractsBI.vb" />

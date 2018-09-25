@@ -195,4 +195,9 @@ Public Class ReportsBI
         Dim BL As New IMIS_BL.ReportBL
         Return BL.getCatchmentArea(RegionId, DistrictId, ProductId, Year, Month)
     End Function
+
+    Public Function getRejectedPhoto(startDate As Date, endDate As Date) As DataTable
+        Dim Rep As New IMIS_BL.ReportBL
+        Return Rep.getRejectedPhoto(startDate, endDate)
+    End Function
 End Class

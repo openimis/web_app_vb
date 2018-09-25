@@ -1045,7 +1045,7 @@
     <value>Enter the new Head of Family/Group Insurance Number</value>
   </data>
   <data name="M_PREMIUMCOVEREDPROMPT" xml:space="preserve">
-    <value>Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution</value>
+    <value>Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution?</value>
   </data>
   <data name="M_POLICYCOMEINFORCEPROMPT" xml:space="preserve">
     <value>Should the policy come into force</value>
@@ -1975,10 +1975,10 @@
     <value> Would you like to process the claims?</value>
   </data>
   <data name="L_EXTR_DOWNLOADCLAIMS" xml:space="preserve">
-    <value>Download Claim XMLs</value>
+    <value>Download Claims</value>
   </data>
   <data name="L_EXTR_UPLOADCLAIMS" xml:space="preserve">
-    <value>Upload Claims XML</value>
+    <value>Upload Claims</value>
   </data>
   <data name="M_CLMALREADYREVIEWEDBYUSER" xml:space="preserve">
     <value>This claim has already been reviewed by another user</value>
@@ -2578,7 +2578,7 @@
     <value>Enrolment Officers Code</value>
   </data>
   <data name="L_EXTR_OFFLINENROLMENT" xml:space="preserve">
-    <value>Download Enrolment XMLs</value>
+    <value>Download Enrolments</value>
   </data>
   <data name="M_NOENROLMENTFOUND" xml:space="preserve">
     <value>No new enrolment found.</value>
@@ -4088,5 +4088,89 @@
   </data>
   <data name="M_AREYOUSUREUPLOADHF" xml:space="preserve">
     <value>Are you sure you want to upload a new list of HF?</value>
+  </data>
+  <data name="B_DownLoadMasterData" xml:space="preserve">
+    <value>Download Master Data</value>
+  </data>
+  <data name="L_DOWNLOADMASTERDATA" xml:space="preserve">
+    <value>Download Master Data</value>
+  </data>
+  <data name="T_REJECTEDDATE" xml:space="preserve">
+    <value>Rejected Date</value>
+  </data>
+  <data name="T_REJECTEDPHOTOS" xml:space="preserve">
+    <value>Rejected Photos</value>
+  </data>
+  <data name="T_TOTALREJECTEDPHOTOS" xml:space="preserve">
+    <value>Total Rejected Photos</value>
+  </data>
+  <data name="L_EXTR_UPLOADPHOTO" xml:space="preserve">
+    <value>Upload Photos</value>
+  </data>
+  <data name="B_DownLoadFeedback" xml:space="preserve">
+    <value>Download Feedback</value>
+  </data>
+  <data name="B_DownLoadRenewals" xml:space="preserve">
+    <value>Download Renewals</value>
+  </data>
+  <data name="M_NODATAFOUND" xml:space="preserve">
+    <value>No Data</value>
+  </data>
+  <data name="M_OFFICERNOTFOUND" xml:space="preserve">
+    <value>Officer Not Found</value>
+  </data>
+  <data name="B_UPLOADFEEDBACK" xml:space="preserve">
+    <value>Upload Feedback</value>
+  </data>
+  <data name="B_UPLOADRENEWAL" xml:space="preserve">
+    <value>Upload Renewal</value>
+  </data>
+  <data name="M_CLAIMNOTEXIST" xml:space="preserve">
+    <value>Claim does not exist</value>
+  </data>
+  <data name="M_DUPLICATEDRECEIPTFOUND" xml:space="preserve">
+    <value>Duplicate receipt found</value>
+  </data>
+  <data name="M_FEEDFILEACCEPTED" xml:space="preserve">
+    <value>FeedBack  upload summary</value>
+  </data>
+  <data name="M_GRACEPERIODISOVER" xml:space="preserve">
+    <value>The grace perios of the given policy is over</value>
+  </data>
+  <data name="M_INVALIDCHFID" xml:space="preserve">
+    <value>Invalid CHFID</value>
+  </data>
+  <data name="M_INVALIDFEEDBACKFILE" xml:space="preserve">
+    <value>Invalid feedBack file</value>
+  </data>
+  <data name="M_INVALIDOFFICERCODE" xml:space="preserve">
+    <value>Invalid officer code</value>
+  </data>
+  <data name="M_INVALIDRENEWALFILE" xml:space="preserve">
+    <value>Invalid fenewal file</value>
+  </data>
+  <data name="M_RENEWALUPLOADED" xml:space="preserve">
+    <value>Renewal upload summary</value>
+  </data>
+  <data name="L_ACCEPTED" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="L_EXISTS" xml:space="preserve">
+    <value>Exists</value>
+  </data>
+  <data name="L_FAILED" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="L_REJECTED" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="L_UPLOADFEEDBACK" xml:space="preserve">
+    <value>Upload Feedback</value>
+  </data>
+  <data name="L_UPLOADRENEWAL" xml:space="preserve">
+    <value>Upload Renewal</value>
+  </data>
+  <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
+    <value>No Enrollment Found</value>
   </data>
 </root>

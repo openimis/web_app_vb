@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Xml
+
 Public Class ICDCodesBL
     Dim icd As New IMIS_DAL.ICDCodesDAL
     Private imisgen As New GeneralBL
@@ -67,16 +69,26 @@ Public Class ICDCodesBL
     Public Function UploadICDXML(ByVal FilePath As String, ByVal StratergyId As Integer, ByVal AuditUserID As Integer, ByRef dtResult As DataTable, ByVal dryRun As Boolean, registerName As String, ByRef LogFile As String) As Dictionary(Of String, Integer)
         Dim ICD As New IMIS_DAL.ICDCodesDAL
 
-        Dim dict As Dictionary(Of String, Integer) = ICD.UploadICDXML(FilePath, StratergyId, AuditUserID, dtResult, dryRun)
+        Dim XMLfile As New XmlDocument
+        XMLfile.Load(FilePath)
+
+        For Each node As XmlNode In XMLfile
+            If node.NodeType = XmlNodeType.XmlDeclaration Then
+                XMLfile.RemoveChild(node)
+            End If
+        Next
+
+
+        Dim dict As Dictionary(Of String, Integer) = ICD.UploadICDXML(XMLfile, StratergyId, AuditUserID, dtResult, dryRun)
 
         If dryRun = False Then
             LogFile = imisgen.CreateUploadRegisterLog(dtResult, registerName, StratergyId, System.IO.Path.GetFileName(FilePath), imisgen.getLoginName(HttpContext.Current.Session("User")), "Diagnosis")
         Else
             LogFile = String.Empty
-            End If
+        End If
 
 
-            Return dict
+        Return dict
     End Function
 
 

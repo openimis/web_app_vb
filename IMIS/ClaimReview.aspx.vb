@@ -46,6 +46,12 @@ Partial Public Class ClaimReview
         lblClaimAdminCode.Visible = Not (Adjustibility = "N")
         blClaimAdminCodeData.Visible = Not (Adjustibility = "N")
 
+
+        'GuranteeNo
+        Adjustibility = General.getControlSetting("GuaranteeNo")
+        lblGuaranteeNo.Visible = Not (Adjustibility = "N")
+        lblGuaranteeData.Visible = Not (Adjustibility = "N")
+
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMsg.Text = ""

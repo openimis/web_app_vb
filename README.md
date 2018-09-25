@@ -28,13 +28,15 @@ Restore the NuGet packages needed by the application using VS or [nuget CLI](htt
 nuget restore
 ```
 
-Before running the application, you need to change the connection string to connect to the 
-database in the [Web.config](./IMIS/Web.config) file within [IMIS](./IMIS/) folder.
+From the [IMIS](./IMIS/) folder, remove the .dist extension from web.debug.config.dist, or web.release.config.dist
+(depending on which configuration you need). In the chosen file, change the connection string to connect to the database.
 
 ```
 <add name="CHF_CENTRALConnectionString" connectionString="Data Source=[DatabaseIPAdress];Initial Catalog=IMIS;User ID=[ImisUserId];Password=[ImisUserPassword]" providerName="System.Data.SqlClient"/>
 ```
 
+Then, build the application via Visual Studio; this action will also generate the web.config file. The latter is not
+included in the sources for privacy purpose.
 
 <!--## Running the tests
 

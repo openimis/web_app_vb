@@ -130,7 +130,7 @@
     <comment>Add Insuree</comment>
   </data>
   <data name="B_ADDPOLICY" xml:space="preserve">
-    <value>Ajouter une couverture d'assurance</value>
+    <value>Ajouter une police</value>
     <comment>Add Policy</comment>
   </data>
   <data name="B_ADDPREMIUM" xml:space="preserve">
@@ -154,7 +154,7 @@
     <comment>Check</comment>
   </data>
   <data name="B_CLAIM" xml:space="preserve">
-    <value>Paiements</value>
+    <value>Remboursements</value>
     <comment>Claims</comment>
   </data>
   <data name="B_CREATE" xml:space="preserve">
@@ -174,7 +174,7 @@
     <comment>Delete Insuree</comment>
   </data>
   <data name="B_DELETEPOLICY" xml:space="preserve">
-    <value>Effacer une couverture d'assurance</value>
+    <value>Effacer une police</value>
     <comment>Delete Policy</comment>
   </data>
   <data name="B_DELETEPREMIUM" xml:space="preserve">
@@ -184,10 +184,6 @@
   <data name="B_DOWNLOAD" xml:space="preserve">
     <value>Télécharger</value>
     <comment>Download</comment>
-  </data>
-  <data name="B_DOWNLOADLOG" xml:space="preserve">
-    <value>Journal de chargement</value>
-    <comment>DownLoad  Log</comment>
   </data>
   <data name="B_DUPLICATE" xml:space="preserve">
     <value>Dupliquer</value>
@@ -226,7 +222,7 @@
     <comment>Modify Insuree</comment>
   </data>
   <data name="B_MODIFYPOLICY" xml:space="preserve">
-    <value>Modifier une couverture d'assurance</value>
+    <value>Modifier une police</value>
     <comment>Modify Policy</comment>
   </data>
   <data name="B_MODIFYPREMIUM" xml:space="preserve">
@@ -290,7 +286,7 @@
     <comment>XML Export</comment>
   </data>
   <data name="G_CLAIMADMINISTRATOR" xml:space="preserve">
-    <value>Info gestionnaire paiement</value>
+    <value>Info Gestionnaire Remboursement</value>
     <comment>Claim Administrator Details</comment>
   </data>
   <data name="G_HEALTHFACILITY" xml:space="preserve">
@@ -306,7 +302,7 @@
     <comment>Medical Service Details</comment>
   </data>
   <data name="G_OFFICER" xml:space="preserve">
-    <value>Détails des animateurs de mutuelle</value>
+    <value>Détails des agents d'affiliation</value>
     <comment>Enrolment Officers Details</comment>
   </data>
   <data name="G_PAYER" xml:space="preserve">
@@ -397,10 +393,6 @@
     <value>Attribué</value>
     <comment>Allocated</comment>
   </data>
-  <data name="L_ALLOCATEDCONTRIBUTION" xml:space="preserve">
-    <value>Contribution allouée</value>
-    <comment>Allocated Contribution</comment>
-  </data>
   <data name="L_AMOUNT" xml:space="preserve">
     <value>Montant</value>
     <comment>Amount</comment>
@@ -410,7 +402,7 @@
     <comment>And Year</comment>
   </data>
   <data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
-    <value>Prénatal, montant /paiement</value>
+    <value>Prénatal, montant /remboursement</value>
     <comment>Ant Amt/Claim</comment>
   </data>
   <data name="L_APPQTY" xml:space="preserve">
@@ -430,7 +422,7 @@
     <comment>Available Contribution</comment>
   </data>
   <data name="L_AVERAGECOSTPERCLAIM" xml:space="preserve">
-    <value>Coût moyen par paiement</value>
+    <value>Coût moyen par remboursement</value>
     <comment>Average Cost per Claim</comment>
   </data>
   <data name="L_BACKENDVERSION" xml:space="preserve">
@@ -509,10 +501,6 @@
     <value>Annuler</value>
     <comment>Cancel</comment>
   </data>
-  <data name="L_CAPITATIONPAYMENT" xml:space="preserve">
-    <value>Capitation Payment</value>
-    <comment>Capitation Payment</comment>
-  </data>
   <data name="L_CARD" xml:space="preserve">
     <value>Carte de bénéficiaire</value>
     <comment>Beneficiary Card</comment>
@@ -530,7 +518,7 @@
     <comment>Category</comment>
   </data>
   <data name="L_CDISTRICT" xml:space="preserve">
-    <value>Mutuelle</value>
+    <value>Mutuelle / ZS actuelle</value>
     <comment>Current District</comment>
   </data>
   <data name="L_CEILING" xml:space="preserve">
@@ -570,7 +558,7 @@
     <comment>Check All</comment>
   </data>
   <data name="L_CHFID" xml:space="preserve">
-    <value>Numéro d'assuré</value>
+    <value>Numéro d'assurance</value>
     <comment>Insurance Number</comment>
   </data>
   <data name="L_CHILDPREMIUM" xml:space="preserve">
@@ -578,11 +566,11 @@
     <comment>Child Contribution</comment>
   </data>
   <data name="L_CLAIM" xml:space="preserve">
-    <value>paiement</value>
+    <value>Remboursement</value>
     <comment>Claim</comment>
   </data>
   <data name="L_CLAIMADMIN" xml:space="preserve">
-    <value>Gestionnaire du paiement</value>
+    <value>Gestionnaire du remboursement</value>
     <comment>Claim Administrator</comment>
   </data>
   <data name="L_CLAIMADMINISTRATOR" xml:space="preserve">
@@ -590,7 +578,7 @@
     <comment>Claim Administrator</comment>
   </data>
   <data name="L_CLAIMADMINISTRATORS" xml:space="preserve">
-    <value>Gestionnaires de paiement</value>
+    <value>Gestionnaires de remboursement</value>
     <comment>Claim Administrators</comment>
   </data>
   <data name="L_CLAIMAPPROVED" xml:space="preserve">
@@ -602,19 +590,19 @@
     <comment>Claim No.</comment>
   </data>
   <data name="L_CLAIMDATE" xml:space="preserve">
-    <value>Date de paiement</value>
+    <value>Date de remboursement</value>
     <comment>Date Claimed</comment>
   </data>
   <data name="L_CLAIMDATEFROM" xml:space="preserve">
-    <value>Date du paiement du </value>
+    <value>Date du remboursement du </value>
     <comment>Claim Date From</comment>
   </data>
   <data name="L_CLAIMDATELABEL" xml:space="preserve">
-    <value>Date du paiement</value>
+    <value>Date du remboursement</value>
     <comment>Claim Date</comment>
   </data>
   <data name="L_CLAIMDETAILS" xml:space="preserve">
-    <value>Détails du paiement</value>
+    <value>Détails du remboursement</value>
     <comment>Claim Details</comment>
   </data>
   <data name="L_CLAIMED" xml:space="preserve">
@@ -626,19 +614,19 @@
     <comment>Feedback</comment>
   </data>
   <data name="L_CLAIMFROM" xml:space="preserve">
-    <value>paiement du</value>
+    <value>Remboursement du</value>
     <comment>Claim From</comment>
   </data>
   <data name="L_CLAIMID" xml:space="preserve">
-    <value>Numéro d'identification du paiement</value>
+    <value>Numéro d'identification du remboursement</value>
     <comment>Claim ID</comment>
   </data>
   <data name="L_CLAIMOVERVIEW" xml:space="preserve">
-    <value>Aperçu du paiement</value>
+    <value>Aperçu du remboursement</value>
     <comment>Claim Overview</comment>
   </data>
   <data name="L_CLAIMPAGETITLE" xml:space="preserve">
-    <value>paiement</value>
+    <value>Remboursement</value>
     <comment>Claim</comment>
   </data>
   <data name="L_CLAIMREVIEW" xml:space="preserve">
@@ -646,7 +634,7 @@
     <comment>Review</comment>
   </data>
   <data name="L_CLAIMREVIEWPAGETITLE" xml:space="preserve">
-    <value>Aperçu du paiement</value>
+    <value>Aperçu du remboursement</value>
     <comment>Claim Review</comment>
   </data>
   <data name="L_CLAIMREVIEWSATUS" xml:space="preserve">
@@ -658,7 +646,7 @@
     <comment>Review Status</comment>
   </data>
   <data name="L_CLAIMSELECTIONUPDATE" xml:space="preserve">
-    <value>MAJ de la sélection de paiements</value>
+    <value>MAJ de la sélection de remboursements</value>
     <comment>Claim Selection Update</comment>
   </data>
   <data name="L_CLAIMSETTLEMENTRATIO" xml:space="preserve">
@@ -666,27 +654,27 @@
     <comment>ClaimSettlement Ratio</comment>
   </data>
   <data name="L_CLAIMSFEEDBACK" xml:space="preserve">
-    <value>paiements pour commentaires</value>
+    <value>Remboursements pour commentaires</value>
     <comment>Claims for Feedback</comment>
   </data>
   <data name="L_CLAIMSFOUND" xml:space="preserve">
-    <value>paiements trouvés</value>
+    <value>Remboursements trouvés</value>
     <comment>Claims Found</comment>
   </data>
   <data name="L_CLAIMSPERINSUREE" xml:space="preserve">
-    <value>paiements par assuré</value>
+    <value>Remboursements par assuré</value>
     <comment>Claims Per Insuree</comment>
   </data>
   <data name="L_CLAIMSSELECTED" xml:space="preserve">
-    <value>paiements sélectionnés</value>
+    <value>Remboursements sélectionnés</value>
     <comment>Claims Selected</comment>
   </data>
   <data name="L_CLAIMSTATUS" xml:space="preserve">
-    <value>Statut du paiement</value>
+    <value>Statut du remboursement</value>
     <comment>Claim Status</comment>
   </data>
   <data name="L_CLAIMSTATUSLABEL" xml:space="preserve">
-    <value>Statut du paiement</value>
+    <value>Statut du remboursement</value>
     <comment>Claim Status</comment>
   </data>
   <data name="L_CLAIMTO" xml:space="preserve">
@@ -702,7 +690,7 @@
     <comment>Claim Type</comment>
   </data>
   <data name="L_CLAIMVALUE" xml:space="preserve">
-    <value>Valeur du paiement</value>
+    <value>Valeur du remboursement</value>
     <comment>Claim Value</comment>
   </data>
   <data name="L_CODE" xml:space="preserve">
@@ -716,14 +704,6 @@
   <data name="L_COMMUNICATE" xml:space="preserve">
     <value>Communiquer</value>
     <comment>Communicate</comment>
-  </data>
-  <data name="L_CONFILCT" xml:space="preserve">
-    <value>Conflit</value>
-    <comment>Conflict</comment>
-  </data>
-  <data name="L_CONFILCTS" xml:space="preserve">
-    <value>Conflits</value>
-    <comment>Conflicts</comment>
   </data>
   <data name="L_CONFIRMATION" xml:space="preserve">
     <value>Confirmation</value>
@@ -746,7 +726,7 @@
     <comment>IMIS</comment>
   </data>
   <data name="L_CONSULTATIONAMOUNTLEFT" xml:space="preserve">
-    <value>Montant de la consultation/paiement</value>
+    <value>Montant de la consultation/remboursement</value>
     <comment>Cons Amt/Claim</comment>
   </data>
   <data name="L_CONSULTATIONS" xml:space="preserve">
@@ -786,7 +766,7 @@
     <comment>Current User</comment>
   </data>
   <data name="L_CVDC" xml:space="preserve">
-    <value>Section de santé actuelle</value>
+    <value>Aire de santé actuelle</value>
     <comment>Current Municipality</comment>
   </data>
   <data name="L_CWARD" xml:space="preserve">
@@ -798,7 +778,7 @@
     <comment>Date</comment>
   </data>
   <data name="L_DATECLAIMED" xml:space="preserve">
-    <value>Date de paiement</value>
+    <value>Date de remboursement</value>
     <comment>Date Claimed</comment>
   </data>
   <data name="L_DATEFROM" xml:space="preserve">
@@ -833,16 +813,12 @@
     <value>Plafond de franchise (non-hôpital)</value>
     <comment>Deductable (Non-Hospital) Ceiling</comment>
   </data>
-  <data name="L_DELETED" xml:space="preserve">
-    <value>Supprimé</value>
-    <comment>Deleted</comment>
-  </data>
   <data name="L_DELIVERIES" xml:space="preserve">
     <value>Accouchements</value>
     <comment>Deliveries</comment>
   </data>
   <data name="L_DELIVERYAMOUNTLEFT" xml:space="preserve">
-    <value>Supprimer montant/paiement</value>
+    <value>Supprimer montant/remboursement</value>
     <comment>Del Amt/Claim</comment>
   </data>
   <data name="L_DERIVEDINDICATORSREPORT" xml:space="preserve">
@@ -870,20 +846,16 @@
     <comment>Distribution</comment>
   </data>
   <data name="L_DISTRICT" xml:space="preserve">
-    <value>Mutuelle</value>
+    <value>Mutuelle / ZS</value>
     <comment>District</comment>
   </data>
   <data name="L_DISTRICTCODE" xml:space="preserve">
-    <value>Code mutuelle</value>
+    <value>Code mutuelle / ZS</value>
     <comment>District Code</comment>
   </data>
   <data name="L_DistrictName" xml:space="preserve">
-    <value>Nom de la mutuelle</value>
+    <value>Nom de la mutuelle / ZS</value>
     <comment>District Name</comment>
-  </data>
-  <data name="L_DISTRICTTOTAL" xml:space="preserve">
-    <value>District Total</value>
-    <comment>District Total</comment>
   </data>
   <data name="L_DOB" xml:space="preserve">
     <value>Date de naissance</value>
@@ -897,18 +869,6 @@
     <value>Cliquez sur le lien pour télécharger les extraits</value>
     <comment>Click the link to download extracts</comment>
   </data>
-  <data name="L_DOWNLOADHEALTHFACILITIES" xml:space="preserve">
-    <value>Télécharger Établissements de santé</value>
-    <comment>Download Health Facilities</comment>
-  </data>
-  <data name="L_DOWNLOADICD" xml:space="preserve">
-    <value>Télécharger Diagnostics</value>
-    <comment>Download Diagnoses</comment>
-  </data>
-  <data name="L_DOWNLOADLOCATIONS" xml:space="preserve">
-    <value>Localisation des téléchargements</value>
-    <comment>Download Locations</comment>
-  </data>
   <data name="L_DRUGSPRESCRIBED" xml:space="preserve">
     <value>Médicaments prescrits</value>
     <comment>Drugs Prescribed</comment>
@@ -916,10 +876,6 @@
   <data name="L_DRUGSRECEIVED" xml:space="preserve">
     <value>Médicament reçus</value>
     <comment>Drugs Received</comment>
-  </data>
-  <data name="L_DRYRUN" xml:space="preserve">
-    <value>Marche à sec</value>
-    <comment>Dry Run</comment>
   </data>
   <data name="L_EDUCATION" xml:space="preserve">
     <value>Education</value>
@@ -966,52 +922,44 @@
     <comment>Enforce</comment>
   </data>
   <data name="L_ENROLDATE" xml:space="preserve">
-    <value>Date d'adhésion</value>
+    <value>Date d'affiliation</value>
     <comment>Enrol Date</comment>
   </data>
   <data name="L_ENROLMENTDATE" xml:space="preserve">
-    <value>Date d'adhésion</value>
+    <value>Date d'affiliation</value>
     <comment>Enrolment Date</comment>
   </data>
   <data name="L_ENROLMENTDATEFROM" xml:space="preserve">
-    <value>Date d'adhésion à partir de</value>
+    <value>Date d'affiliation à partir de</value>
     <comment>Enrolment Date From</comment>
   </data>
   <data name="L_ENROLMENTDATETO" xml:space="preserve">
-    <value>Date d'adhésion jusqu'à</value>
+    <value>Date d'affiliation jusqu'à</value>
     <comment>Enrolment Date To</comment>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERC" xml:space="preserve">
-    <value>Rabais d'adhésion (%)</value>
+    <value>Rabais d'affiliation (%)</value>
     <comment>Enrolment Disc. %</comment>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
-    <value>Rabais d'adhésion (période)</value>
+    <value>Rabais d'affiliation (période)</value>
     <comment>Enrolment Disc. Period</comment>
   </data>
   <data name="L_ENROLMENTOFFICERS" xml:space="preserve">
-    <value>Animateur de mutuel</value>
+    <value>Agent d'affiliation</value>
     <comment>Enrolment Officer</comment>
   </data>
   <data name="L_ENTERCHFIDOFINSUREE" xml:space="preserve">
-    <value>Entrer le numéro d'assuré de l'assuré pour continuer</value>
+    <value>Entrer le numéro d'assurance de l'assuré pour continuer</value>
     <comment>Enter the Insurance Number of Insuree to move</comment>
   </data>
   <data name="L_ENTERNEWHEADCHFID" xml:space="preserve">
-    <value>Entrer le numéro d'assuré du nouveau chef de famille/groupe</value>
+    <value>Entrer le numéro d'assurance du nouveau chef de famille/groupe</value>
     <comment>Enter the new Head of Family/Group Insurance Number</comment>
   </data>
   <data name="L_ENTITY" xml:space="preserve">
     <value>Entité</value>
     <comment>Entity</comment>
-  </data>
-  <data name="L_ERROR" xml:space="preserve">
-    <value>Erreur</value>
-    <comment>Error</comment>
-  </data>
-  <data name="L_ERRORS" xml:space="preserve">
-    <value>Erreurs</value>
-    <comment>Errors</comment>
   </data>
   <data name="L_ETHNICITY" xml:space="preserve">
     <value>Ethnicité</value>
@@ -1026,7 +974,7 @@
     <comment>Expire Date</comment>
   </data>
   <data name="L_EXPIREDPOLICY" xml:space="preserve">
-    <value>couverture d'assurance expirée</value>
+    <value>Police expirée</value>
     <comment>Expired Policy</comment>
   </data>
   <data name="L_EXPIRYDATE" xml:space="preserve">
@@ -1050,11 +998,11 @@
     <comment>Export to EPICOR</comment>
   </data>
   <data name="L_EXTRACT1" xml:space="preserve">
-    <value>Extraction XML de la couverture d'assurance</value>
+    <value>Extraction XML de la police</value>
     <comment>Policy XML Extracts</comment>
   </data>
   <data name="L_EXTRACT11" xml:space="preserve">
-    <value>Extraction XML de la couverture d'assurance</value>
+    <value>Extraction XML de la police</value>
     <comment>Policy XML Extracts</comment>
   </data>
   <data name="L_EXTRACT2" xml:space="preserve">
@@ -1078,8 +1026,8 @@
     <comment>Extra Member Ceiling</comment>
   </data>
   <data name="L_EXTR_DOWNLOADCLAIMS" xml:space="preserve">
-    <value>Télécharger le paiement XMLs</value>
-    <comment>Download Claim XMLs</comment>
+    <value>Télécharger le remboursement XMLs</value>
+    <comment>Download Claims</comment>
   </data>
   <data name="L_EXTR_IMPORTEXTRACT" xml:space="preserve">
     <value>Importer l'extrait</value>
@@ -1094,19 +1042,19 @@
     <comment>Create Offline Extract</comment>
   </data>
   <data name="L_EXTR_OFFLINENROLMENT" xml:space="preserve">
-    <value>Télécharger l'adhésion XMLs</value>
-    <comment>Download Enrolment XMLs</comment>
+    <value>Télécharger l'affiliation XMLs</value>
+    <comment>Download Enrolments</comment>
   </data>
   <data name="L_EXTR_PHONEEXTRACT" xml:space="preserve">
     <value>Créer un extrait de téléphone</value>
     <comment>Create Phone Extract</comment>
   </data>
   <data name="L_EXTR_UPLOADCLAIMS" xml:space="preserve">
-    <value>Importer les paiement en format XML</value>
-    <comment>Upload Claims XML</comment>
+    <value>Importer les remboursement en format XML</value>
+    <comment>Upload Claims</comment>
   </data>
   <data name="L_EXTR_UPLOADENROLMENT" xml:space="preserve">
-    <value>Importer les adhésions</value>
+    <value>Importer les affiliations</value>
     <comment>Upload Enrolments</comment>
   </data>
   <data name="L_EXTR_ZIPPEDPHOTOS" xml:space="preserve">
@@ -1124,10 +1072,6 @@
   <data name="L_FAMILYPANEL" xml:space="preserve">
     <value>Détails famille/groupe</value>
     <comment>Family/Group Details</comment>
-  </data>
-  <data name="L_FATALERROR" xml:space="preserve">
-    <value>Erreur fatale</value>
-    <comment>Fatal Error</comment>
   </data>
   <data name="L_FAX" xml:space="preserve">
     <value>Fax</value>
@@ -1173,10 +1117,6 @@
     <value>F</value>
     <comment>F</comment>
   </data>
-  <data name="L_FILENAME" xml:space="preserve">
-    <value>Nom du fichier</value>
-    <comment>File Name</comment>
-  </data>
   <data name="L_FILTER" xml:space="preserve">
     <value>Filtrer</value>
     <comment>Filter</comment>
@@ -1194,11 +1134,11 @@
     <comment>Batch Details</comment>
   </data>
   <data name="L_FINDCLAIM" xml:space="preserve">
-    <value>Rechercher les paiements</value>
+    <value>Rechercher les remboursements</value>
     <comment>Find Claim</comment>
   </data>
   <data name="L_FINDCLAIMADMINISTRATORS" xml:space="preserve">
-    <value>Rechercher le gestionnaire des paiements</value>
+    <value>Rechercher le gestionnaire des remboursements</value>
     <comment>Find Claim Administrators</comment>
   </data>
   <data name="L_FINDINSUREE" xml:space="preserve">
@@ -1214,7 +1154,7 @@
     <comment>Find Medical Services</comment>
   </data>
   <data name="L_FINDOFFICER" xml:space="preserve">
-    <value>Rechercher les animateurs de mutuelle</value>
+    <value>Rechercher les agents d'affiliation</value>
     <comment>Find Enrolment Officers</comment>
   </data>
   <data name="L_FINDPAYER" xml:space="preserve">
@@ -1250,7 +1190,7 @@
     <comment>Batches Found</comment>
   </data>
   <data name="L_FOUNDCLAIMADMINISTRATORS" xml:space="preserve">
-    <value>Gestionnaires des paiements trouvés</value>
+    <value>Gestionnaires des remboursements trouvés</value>
     <comment>Claim Administrators Found</comment>
   </data>
   <data name="L_FOUNDFAMILY" xml:space="preserve">
@@ -1262,7 +1202,7 @@
     <comment>Facilities Found</comment>
   </data>
   <data name="L_FOUNDINSUREE" xml:space="preserve">
-    <value>assuré trouvé</value>
+    <value>Assuré trouvé</value>
     <comment>Insurees Found</comment>
   </data>
   <data name="L_FOUNDITEMS" xml:space="preserve">
@@ -1270,7 +1210,7 @@
     <comment>Items Found</comment>
   </data>
   <data name="L_FOUNDOFFICERS" xml:space="preserve">
-    <value>Animateurs de mutuelle trouvés</value>
+    <value>Agents d'affiliation trouvés</value>
     <comment>Enrolment Officers Found</comment>
   </data>
   <data name="L_FOUNDPAYERS" xml:space="preserve">
@@ -1322,7 +1262,7 @@
     <comment>Level of FSP</comment>
   </data>
   <data name="L_FSPDISTRICT" xml:space="preserve">
-    <value>Mutuelle du FSP</value>
+    <value>mutuelle / ZS du FSP</value>
     <comment>District of FSP</comment>
   </data>
   <data name="L_FSPREGION" xml:space="preserve">
@@ -1358,7 +1298,7 @@
     <comment>Go back to selector.</comment>
   </data>
   <data name="L_GRACEPERIOD" xml:space="preserve">
-    <value>Période de grâce pour l'adhésion</value>
+    <value>Période de grâce pour l'affiliation</value>
     <comment>Grace Period Enrolment</comment>
   </data>
   <data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
@@ -1406,7 +1346,7 @@
     <comment>Catchment</comment>
   </data>
   <data name="L_HFCLAIM" xml:space="preserve">
-    <value>paiement de la formation sanitaire</value>
+    <value>Remboursement de la formation sanitaire</value>
     <comment>Health Facility Claims</comment>
   </data>
   <data name="L_HFCODE" xml:space="preserve">
@@ -1422,7 +1362,7 @@
     <comment>HF Name</comment>
   </data>
   <data name="L_HFWISEPROCESSBATCH" xml:space="preserve">
-    <value>Rémunération du paiement</value>
+    <value>Rémunération du remboursement</value>
     <comment>Claim Remuneration</comment>
   </data>
   <data name="L_HOME" xml:space="preserve">
@@ -1434,7 +1374,7 @@
     <comment>Hospital</comment>
   </data>
   <data name="L_HOSPITALIZATIONAMOUNTLEFT" xml:space="preserve">
-    <value>Montant hospital / paiement</value>
+    <value>Montant hospital / Remboursement</value>
     <comment>Hosp Amt/Claim</comment>
   </data>
   <data name="L_HOSPITALIZATIONS" xml:space="preserve">
@@ -1465,10 +1405,6 @@
     <value>Code ICD</value>
     <comment>ICD Code</comment>
   </data>
-  <data name="L_ICDUPLOADSTRATEGY" xml:space="preserve">
-    <value>Stratégie</value>
-    <comment>Strategy</comment>
-  </data>
   <data name="L_IDTYPE" xml:space="preserve">
     <value>Type d'identification</value>
     <comment>Identification Type</comment>
@@ -1478,7 +1414,7 @@
     <comment>IMIS-Utilities</comment>
   </data>
   <data name="L_INACTIVEADHERENTS" xml:space="preserve">
-    <value>assuré(e) inacti(f)ve</value>
+    <value>Assuré(e) inacti(f)ve</value>
     <comment>Inactive Insurees</comment>
   </data>
   <data name="L_INBACKGROUND" xml:space="preserve">
@@ -1497,40 +1433,28 @@
     <value>Hospitalisation</value>
     <comment>In-Patient</comment>
   </data>
-  <data name="L_INSERTANDUPDATE" xml:space="preserve">
-    <value>Insertion et mise à jour</value>
-    <comment>Insert and Update</comment>
-  </data>
   <data name="L_INSERTED" xml:space="preserve">
     <value>Insérer</value>
-    <comment>Ins</comment>
-  </data>
-  <data name="L_INSERTONLY" xml:space="preserve">
-    <value>Insérer seulement</value>
-    <comment>Insert Only</comment>
-  </data>
-  <data name="L_INSERTUPDATEDELETE" xml:space="preserve">
-    <value>Insérer, mettre à jour et supprimer</value>
-    <comment>Insert, Update and Delete</comment>
+    <comment>Inserted</comment>
   </data>
   <data name="L_INSURANCEPERIOD" xml:space="preserve">
     <value>Période d'assurance</value>
     <comment>Insurance Period</comment>
   </data>
   <data name="L_INSUREE" xml:space="preserve">
-    <value>assuré</value>
+    <value>Assuré</value>
     <comment>Insuree</comment>
   </data>
   <data name="L_INSUREEID" xml:space="preserve">
-    <value>N°d'identification de l'assuré</value>
+    <value>N°dentification de l'assuré</value>
     <comment>Insuree ID</comment>
   </data>
   <data name="L_INSUREES" xml:space="preserve">
-    <value>assurés</value>
+    <value>Assurés</value>
     <comment>Insurees</comment>
   </data>
   <data name="L_INSUREESANDPOLICIES" xml:space="preserve">
-    <value>assurés et couvertures</value>
+    <value>Assurés et polices</value>
     <comment>Insurees and Policies</comment>
   </data>
   <data name="L_INVALIDEMAIL" xml:space="preserve">
@@ -1589,14 +1513,6 @@
     <value>Nom de famille</value>
     <comment>Last Name</comment>
   </data>
-  <data name="L_LASTUPLOADEDFILENAME" xml:space="preserve">
-    <value>Dernier fichier téléchargé Nom</value>
-    <comment>Last uploaded file Name</comment>
-  </data>
-  <data name="L_LASTUPLOADLOG" xml:space="preserve">
-    <value>Dernier journal des téléchargements</value>
-    <comment>Last Upload Log</comment>
-  </data>
   <data name="L_LEFT" xml:space="preserve">
     <value>Restant</value>
     <comment>Left</comment>
@@ -1606,24 +1522,8 @@
     <comment>Legal Form</comment>
   </data>
   <data name="L_LEVEL" xml:space="preserve">
-    <value>Niveau de la formation sanitaire</value>
-    <comment>HF Level</comment>
-  </data>
-  <data name="L_LEVEL1" xml:space="preserve">
-    <value>Level 1</value>
-    <comment>Level 1</comment>
-  </data>
-  <data name="L_LEVEL2" xml:space="preserve">
-    <value>Level 2</value>
-    <comment>Level 2</comment>
-  </data>
-  <data name="L_LEVEL3" xml:space="preserve">
-    <value>Level 3</value>
-    <comment>Level 3</comment>
-  </data>
-  <data name="L_LEVEL4" xml:space="preserve">
-    <value>Level 4</value>
-    <comment>Level 4</comment>
+    <value>Niveau de soins</value>
+    <comment>Level</comment>
   </data>
   <data name="L_LIMITADULT" xml:space="preserve">
     <value>Adulte O</value>
@@ -1766,7 +1666,7 @@
     <comment>New Password</comment>
   </data>
   <data name="L_NEWPOLICY" xml:space="preserve">
-    <value>Nouvelle couverture d'assurance</value>
+    <value>Nouvelle police</value>
     <comment>New Policy</comment>
   </data>
   <data name="L_NHCEILING" xml:space="preserve">
@@ -1789,17 +1689,9 @@
     <value>Non-hôpital</value>
     <comment>Non-Hospital</comment>
   </data>
-  <data name="L_NOOFCLAIMS" xml:space="preserve">
-    <value>No of claims</value>
-    <comment>No of claims</comment>
-  </data>
   <data name="L_NOOFENROLMENTOFFICERS" xml:space="preserve">
-    <value>Nombre d'animateur de mutuelle</value>
+    <value>Nombre d'agents d'affiliation.</value>
     <comment>No of Enrolment Officers</comment>
-  </data>
-  <data name="L_NOOFFAMILIES" xml:space="preserve">
-    <value>No of Families</value>
-    <comment>No of Families</comment>
   </data>
   <data name="L_NOOFHEALTHFACILITIES" xml:space="preserve">
     <value>Nombre de formation sanitaire</value>
@@ -1808,14 +1700,6 @@
   <data name="L_NOOFINSURANCEPRODUCTS" xml:space="preserve">
     <value>Nombre de produits d'assurance</value>
     <comment>No of Insurance Products</comment>
-  </data>
-  <data name="L_NOOFINSUREDPOPULATION" xml:space="preserve">
-    <value>No of Insured Population</value>
-    <comment>No of Insured Population</comment>
-  </data>
-  <data name="L_NOOFINSURESFAMILY" xml:space="preserve">
-    <value>No of Insured Family</value>
-    <comment>No of Insured Family</comment>
   </data>
   <data name="L_NOOFITEMPRICELIST" xml:space="preserve">
     <value>N°Produit liste de tarifs </value>
@@ -1854,23 +1738,23 @@
     <comment>Number</comment>
   </data>
   <data name="L_OFFICER" xml:space="preserve">
-    <value>Animateurs de mutuelle</value>
+    <value>Agents d'affiliation</value>
     <comment>Enrolment Officers</comment>
   </data>
   <data name="L_OFFICERCODE" xml:space="preserve">
-    <value>Code des animateurs de mutuelle</value>
+    <value>Code des agents d'affiliation</value>
     <comment>Enrolment Officers Code</comment>
   </data>
   <data name="L_OFFICERLASTNAME" xml:space="preserve">
-    <value>Nom des animateurs de mutuelle</value>
+    <value>Nom des agents d'affiliation</value>
     <comment>Enrolment Officers Last Name</comment>
   </data>
   <data name="L_OFFICEROTHERNAMES" xml:space="preserve">
-    <value>Prénom des animateurs de mutuelle</value>
+    <value>Prénom des agents d'affiliation</value>
     <comment>Enrolment Officers First Name</comment>
   </data>
   <data name="L_OFFICERS" xml:space="preserve">
-    <value>Animateurs de mutuelle</value>
+    <value>Agents d'affiliation</value>
     <comment>Enrolment Officers</comment>
   </data>
   <data name="L_OFFLINE" xml:space="preserve">
@@ -2029,10 +1913,6 @@
     <value>Période jusqu'à</value>
     <comment>Period To</comment>
   </data>
-  <data name="L_PERMADDERESS" xml:space="preserve">
-    <value>Permanent address details</value>
-    <comment>Permanent address details</comment>
-  </data>
   <data name="L_PHONE" xml:space="preserve">
     <value>Numéro de téléphone</value>
     <comment>Phone Number</comment>
@@ -2046,19 +1926,19 @@
     <comment>Photos</comment>
   </data>
   <data name="L_POLICIES" xml:space="preserve">
-    <value>Couvertures d'assurance</value>
+    <value>Polices</value>
     <comment>Policies</comment>
   </data>
   <data name="L_POLICIESFOUND" xml:space="preserve">
-    <value>Couvertures d'assurance trouvées</value>
+    <value>Polices trouvées</value>
     <comment>Policies Found</comment>
   </data>
   <data name="L_POLICY" xml:space="preserve">
-    <value>Couverture d'assurance</value>
+    <value>Police</value>
     <comment>Policy</comment>
   </data>
   <data name="L_POLICYDETAILS" xml:space="preserve">
-    <value>Détails de la couverture d'assurance</value>
+    <value>Détails de la police</value>
     <comment>Policy Details</comment>
   </data>
   <data name="L_POLICYHOLDER" xml:space="preserve">
@@ -2066,36 +1946,32 @@
     <comment>Family/Group</comment>
   </data>
   <data name="L_POLICYHOLDER_" xml:space="preserve">
-    <value>Titulaire de la couverture d'assurance d'assurance</value>
+    <value>Titulaire de la police d'assurance</value>
     <comment>Policy Holder</comment>
   </data>
   <data name="L_POLICYRENEWAL" xml:space="preserve">
-    <value>Renouvellement de la couverture d'assurance</value>
+    <value>Renouvellement de la police</value>
     <comment>Policy Renewal</comment>
   </data>
   <data name="L_POLICYRENEWALPROMPTJ" xml:space="preserve">
-    <value>Aperçu rapide du journal de renouvellement de la couverture d'assurance</value>
+    <value>Aperçu rapide du journal de renouvellement de la police</value>
     <comment>Policy Renewal Prompt Journal</comment>
   </data>
   <data name="L_POLICYRENEWALS" xml:space="preserve">
-    <value>Renouvellement des couvertures d'assurance</value>
+    <value>Renouvellement des polices</value>
     <comment>Policy Renewals</comment>
   </data>
   <data name="L_POLICYSTATUS" xml:space="preserve">
-    <value>Statut de la couverture d'assurance</value>
+    <value>Statut de la police</value>
     <comment>Policy Status</comment>
   </data>
   <data name="L_POLICYSTATUSOVERV" xml:space="preserve">
-    <value>Aperçu du renouvellement de la couverture d'assurance</value>
+    <value>Aperçu du renouvellement de la police</value>
     <comment>Policy Status Overview</comment>
   </data>
   <data name="L_POLICYVALUE" xml:space="preserve">
-    <value>Valeur de la couverture d'assurance</value>
+    <value>Valeur de la police</value>
     <comment>Policy Value</comment>
-  </data>
-  <data name="L_POPULATION" xml:space="preserve">
-    <value>Population</value>
-    <comment>Population</comment>
   </data>
   <data name="L_PORT" xml:space="preserve">
     <value>Port</value>
@@ -2174,11 +2050,11 @@
     <comment>Primary Operational Indicators</comment>
   </data>
   <data name="L_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
-    <value>Indicateurs opérationnels primaires-paiement</value>
+    <value>Indicateurs opérationnels primaires-remboursement</value>
     <comment>Primary Operational Indicators-claims</comment>
   </data>
   <data name="L_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
-    <value>Indicateurs opérationels principaux - couvertures d'assurance</value>
+    <value>Indicateurs opérationels principaux - polices</value>
     <comment>Primary Operational Indicators-policies</comment>
   </data>
   <data name="L_PRINTEDON" xml:space="preserve">
@@ -2226,7 +2102,7 @@
     <comment>Product Value</comment>
   </data>
   <data name="L_PRODUCTWISEPROCESSBATCH" xml:space="preserve">
-    <value>Rémunération du paiement</value>
+    <value>Rémunération du remboursement</value>
     <comment>Claim Remuneration</comment>
   </data>
   <data name="L_PROFESSION" xml:space="preserve">
@@ -2238,7 +2114,7 @@
     <comment>Enquiry in progress. Please wait.</comment>
   </data>
   <data name="L_PROLICYVALUE" xml:space="preserve">
-    <value>Valeur de la couverture d'assurance</value>
+    <value>Valeur de la police</value>
     <comment>Policy Value</comment>
   </data>
   <data name="L_PROMPTDATE" xml:space="preserve">
@@ -2246,7 +2122,7 @@
     <comment>Prompt Date</comment>
   </data>
   <data name="L_PROMPTNESSOFCLMSETTLEMENT" xml:space="preserve">
-    <value>Rapidité du traitment du paiement</value>
+    <value>Rapidité du traitment du remboursement</value>
     <comment>Promptness of claim settlement</comment>
   </data>
   <data name="L_QTY" xml:space="preserve">
@@ -2302,35 +2178,27 @@
     <comment>Referral(OP)</comment>
   </data>
   <data name="L_REGION" xml:space="preserve">
-    <value>Région</value>
+    <value>Promoteur</value>
     <comment>Region</comment>
   </data>
   <data name="L_REGIONCODE" xml:space="preserve">
-    <value>Code région</value>
+    <value>Code promoteur</value>
     <comment>Region Code</comment>
   </data>
   <data name="L_REGIONNAME" xml:space="preserve">
-    <value>Nom du région</value>
+    <value>Nom du promoteur</value>
     <comment>Region Name</comment>
   </data>
-  <data name="L_REGIONTOTAL" xml:space="preserve">
-    <value>Région Total</value>
-    <comment>Region Total</comment>
-  </data>
-  <data name="L_REGISTER" xml:space="preserve">
-    <value>S'inscrire</value>
-    <comment>Register</comment>
-  </data>
   <data name="L_REGISTRATIONFEE" xml:space="preserve">
-    <value>Frais d'adhésion</value>
+    <value>Frais d'affiliation</value>
     <comment>Registration Fee</comment>
   </data>
   <data name="L_REGISTRATIONLUMPSUM" xml:space="preserve">
-    <value>Montant forfaitaire d'adhésion</value>
+    <value>Montant forfaitaire d'affiliation</value>
     <comment>Registration Lump Sum</comment>
   </data>
   <data name="L_REJECTEDCLAIMS" xml:space="preserve">
-    <value>paiements rejetés</value>
+    <value>Remboursements rejetés</value>
     <comment>Rejected Claims</comment>
   </data>
   <data name="L_RELATION" xml:space="preserve">
@@ -2418,7 +2286,7 @@
     <comment>Search</comment>
   </data>
   <data name="L_SEARCHCHFNUMBER" xml:space="preserve">
-    <value>Rechercher le numéro d'assuré</value>
+    <value>Rechercher le numéro d'assurance</value>
     <comment>Search Insurance No</comment>
   </data>
   <data name="L_SECONDARYDG1" xml:space="preserve">
@@ -2439,7 +2307,7 @@
   </data>
   <data name="L_SELECTCATEGORY" xml:space="preserve">
     <value>Sélectionner le niveau</value>
-    <comment>-- Select Level --</comment>
+    <comment>-- Select Category --</comment>
   </data>
   <data name="L_SELECTCRITERIA" xml:space="preserve">
     <value>Sélectionner les critères</value>
@@ -2448,10 +2316,6 @@
   <data name="L_SELECTIONCRITERIA" xml:space="preserve">
     <value>Critère de sélection</value>
     <comment>Selection Criteria</comment>
-  </data>
-  <data name="L_SELECTSTRATEGY" xml:space="preserve">
-    <value>Choisir une stratégie.</value>
-    <comment>--Select Strategy--</comment>
   </data>
   <data name="L_SELECTTOPROCESS" xml:space="preserve">
     <value>Sélectionner pour lancer le traitement</value>
@@ -2485,16 +2349,12 @@
     <value>Prestations</value>
     <comment>Services</comment>
   </data>
-  <data name="L_SHAREOFCONTRIBUTION" xml:space="preserve">
-    <value>Share of Contribution</value>
-    <comment>Share of Contribution</comment>
-  </data>
   <data name="L_SHOWALL" xml:space="preserve">
     <value>Tout montrer</value>
     <comment>Show all</comment>
   </data>
   <data name="L_SHOWCLAIM" xml:space="preserve">
-    <value>Montrer les paiements</value>
+    <value>Montrer les remboursements</value>
     <comment>Show Claims</comment>
   </data>
   <data name="L_SMSSTATUS" xml:space="preserve">
@@ -2549,22 +2409,6 @@
     <value>Sous-niveau</value>
     <comment>Sub Level</comment>
   </data>
-  <data name="L_SUBLEVEL1" xml:space="preserve">
-    <value>Sub Level 1</value>
-    <comment>Sub Level 1</comment>
-  </data>
-  <data name="L_SUBLEVEL2" xml:space="preserve">
-    <value>Sub Level 2</value>
-    <comment>Sub Level 2</comment>
-  </data>
-  <data name="L_SUBLEVEL3" xml:space="preserve">
-    <value>Sub Level 3</value>
-    <comment>Sub Level 3</comment>
-  </data>
-  <data name="L_SUBLEVEL4" xml:space="preserve">
-    <value>Sub Level 4</value>
-    <comment>Sub Level 4</comment>
-  </data>
   <data name="L_SUBSTITUTION" xml:space="preserve">
     <value>Substitution</value>
     <comment>Substitution</comment>
@@ -2574,7 +2418,7 @@
     <comment>Surgeries</comment>
   </data>
   <data name="L_SURGERYAMOUNTLEFT" xml:space="preserve">
-    <value>Chirurgie, Montant/ paiement</value>
+    <value>Chirurgie, Montant/ remboursement</value>
     <comment>Surg Amt/Claim</comment>
   </data>
   <data name="L_SUSPEND" xml:space="preserve">
@@ -2582,7 +2426,7 @@
     <comment>Suspend</comment>
   </data>
   <data name="L_SUSPENDEDPOLICY" xml:space="preserve">
-    <value>couverture d'assurance suspendue</value>
+    <value>Police suspendue</value>
     <comment>Suspended Policy</comment>
   </data>
   <data name="L_THRESHOLDMEMBERS" xml:space="preserve">
@@ -2610,7 +2454,7 @@
     <comment>Ant left</comment>
   </data>
   <data name="L_TOTALCLAIMS" xml:space="preserve">
-    <value>Total des paiements</value>
+    <value>Total des remboursements</value>
     <comment>Total Claims</comment>
   </data>
   <data name="L_TOTALCONSULTATIONSLEFT" xml:space="preserve">
@@ -2661,37 +2505,17 @@
     <value>Type de paiement</value>
     <comment>Payment Type</comment>
   </data>
-  <data name="L_UNITPRICE" xml:space="preserve">
-    <value>Prix unitaire</value>
-    <comment>Unit Price</comment>
-  </data>
   <data name="L_UPDATED" xml:space="preserve">
     <value>MAJ</value>
-    <comment>Upd</comment>
-  </data>
-  <data name="L_UPDATEONLY" xml:space="preserve">
-    <value>Mise à jour seulement</value>
-    <comment>Update Only</comment>
+    <comment>Updated</comment>
   </data>
   <data name="L_UPLOADED" xml:space="preserve">
     <value>Tranféré</value>
     <comment>Uploaded</comment>
   </data>
-  <data name="L_UPLOADHEALTHFACILITIES" xml:space="preserve">
-    <value>Télécharger les établissements de santé</value>
-    <comment>Upload Health Facilities</comment>
-  </data>
   <data name="L_UPLOADICD" xml:space="preserve">
     <value>Importer les diagnostics</value>
     <comment>Upload Diagnoses</comment>
-  </data>
-  <data name="L_UPLOADLOCATIONS" xml:space="preserve">
-    <value>Lieux de téléchargement</value>
-    <comment>Upload Locations</comment>
-  </data>
-  <data name="L_UPLOADREGISTERS" xml:space="preserve">
-    <value>Registres</value>
-    <comment>Registers</comment>
   </data>
   <data name="L_USERNAME" xml:space="preserve">
     <value>Nom d'utilisateur</value>
@@ -2774,40 +2598,16 @@
     <comment>Waiting Child</comment>
   </data>
   <data name="L_WARD" xml:space="preserve">
-    <value>Section santé</value>
+    <value>Aire de santé</value>
     <comment>Municipality</comment>
   </data>
   <data name="L_WARDCODE" xml:space="preserve">
-    <value>Code section de santé</value>
+    <value>Code aire de santé</value>
     <comment>Municipality Code</comment>
   </data>
   <data name="L_WardName" xml:space="preserve">
-    <value>Section de l'aire de santé</value>
+    <value>Nom de l'aire de santé</value>
     <comment>Municipality Name</comment>
-  </data>
-  <data name="L_WEGHTOFNUMBERFAMILIES" xml:space="preserve">
-    <value>Weght of Number of Families</value>
-    <comment>Weght of Number of Families</comment>
-  </data>
-  <data name="L_WEIGHTOFADJUSTEDAMOUT" xml:space="preserve">
-    <value>Weight of Adjusted amout</value>
-    <comment>Weight of Adjusted amout</comment>
-  </data>
-  <data name="L_WEIGHTOFINSUREDPOPULATION" xml:space="preserve">
-    <value>Weight of Insured Population</value>
-    <comment>Weight of Insured Population</comment>
-  </data>
-  <data name="L_WEIGHTOFNUMBERINSUREDFAMILIES" xml:space="preserve">
-    <value>Weight of Number of Insured Families</value>
-    <comment>Weight of Number of Insured Families</comment>
-  </data>
-  <data name="L_WEIGHTOFNUMBERVISITS" xml:space="preserve">
-    <value>Weight of Number of visits</value>
-    <comment>Weight of Number of visits</comment>
-  </data>
-  <data name="L_WEIGHTOFPOPUATION" xml:space="preserve">
-    <value>Weight of Popuation</value>
-    <comment>Weight of Popuation</comment>
   </data>
   <data name="L_WELCOME" xml:space="preserve">
     <value>Bienvenu</value>
@@ -2861,17 +2661,9 @@
     <value>Souhaitez-vous appliquer les critères suivants pour </value>
     <comment>Would you like to apply the following criteria for </comment>
   </data>
-  <data name="M_AREYOUSUREUPLOADHF" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir télécharger une nouvelle liste de HF ?</value>
-    <comment>Are you sure you want to upload a new list of HF?</comment>
-  </data>
   <data name="M_AREYOUSUREUPLOADICDLIST" xml:space="preserve">
     <value>Voulez-vous vraiment télécharger une nouvelle liste de diagnostics?</value>
     <comment>Are you sure you want to upload a new list of diagnoses?</comment>
-  </data>
-  <data name="M_AREYOUSUREUPLOADLOCATIONS" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir télécharger une nouvelle liste d'emplacements ?</value>
-    <comment>Are you sure you want to upload a new list of locations?</comment>
   </data>
   <data name="M_BATCHPROCESSRUNDONETHISSELECTION" xml:space="preserve">
     <value>Le traitement par batch a déjà été exécuté pour la sélection en cours</value>
@@ -2881,16 +2673,12 @@
     <value>Appartient déjà à</value>
     <comment>already belongs to</comment>
   </data>
-  <data name="M_BGEXTRACTCOMPLETED" xml:space="preserve">
-    <value>Votre demande a été soumise et l'extrait demandé est en cours de création. Une fois la tâche terminée, vous recevrez un courrier électronique avec le lien de téléchargement. Pendant ce temps, vous pouvez quitter cette page et continuer avec d'autres tâches.</value>
-    <comment>Your request is submitted and the requested extract is being created now. Once the task is completed, you will receive an email with the download link. Meanwhile you can leave this page and continue with other work.</comment>
-  </data>
   <data name="M_CANNOTCHANGECHFNOISHEADFMLY" xml:space="preserve">
-    <value>Ne peut pas changer, le numéro d'assuré sélectionné est déjà Chef de famille/groupe</value>
+    <value>Ne peut pas changer, le numéro d'assurance sélectionné est déjà Chef de famille/groupe</value>
     <comment>Can not change, selected Insurance Number is already Head of Family/Group</comment>
   </data>
   <data name="M_CANNOTCHANGEFAMILYHEAD" xml:space="preserve">
-    <value>Le numéro d'assuré sélectionné est déjà attribué au un chef de famille et ne peut pas être attribué au chef de famille/groupe</value>
+    <value>Le numéro d'assurance sélectionné est déjà attribué au un chef de famille et ne peut pas être attribué au chef de famille/groupe</value>
     <comment>Selected  Insurance Number is already a Head of Family can not change Head of Family/Group</comment>
   </data>
   <data name="M_CANNOTPASSITEMREJECTED" xml:space="preserve">
@@ -2926,19 +2714,19 @@
     <comment>Checked:</comment>
   </data>
   <data name="M_CHFIDNOTFOUND" xml:space="preserve">
-    <value>numéro d'assuré introuvable!</value>
+    <value>Numéro d'assurance introuvable!</value>
     <comment>Insurance  Number not Found!</comment>
   </data>
   <data name="M_CHFNUMBERFEWCHARACTERS" xml:space="preserve">
-    <value>Le numéro d'assuré est court, il devrait être de 9 caratères</value>
+    <value>Le numéro d'assurance est court, il devrait être de 9 caratères</value>
     <comment>Insurance  Number is short, should be 9 characters</comment>
   </data>
   <data name="M_CHFNUMBERMEMBEREXISTS" xml:space="preserve">
-    <value>Le chef de famille/groupe avec ce numéro d'assuré existe déjà dans le système</value>
+    <value>Le chef de famille/groupe avec ce numéro d'assurance existe déjà dans le système</value>
     <comment>Head of Family/Group with that  Insurance Number already exists in system</comment>
   </data>
   <data name="M_CHFNUMBERNOTEXISTS" xml:space="preserve">
-    <value>Le numéro d'assuré sélectionné n'existe pas!</value>
+    <value>Le numéro d'assurance sélectionné n'existe pas!</value>
     <comment>Selected Insurance Number does not exist !</comment>
   </data>
   <data name="M_CHILD" xml:space="preserve">
@@ -2946,39 +2734,39 @@
     <comment>Child</comment>
   </data>
   <data name="M_CLAIMCODEEXISTS" xml:space="preserve">
-    <value>Ce code de paiement existe déjà</value>
+    <value>Ce code de remboursement existe déjà</value>
     <comment>Claim Code Already exists</comment>
   </data>
   <data name="M_CLAIMCONTRIBUTOR" xml:space="preserve">
-    <value>Financeur du paiement</value>
+    <value>Financeur du remboursement</value>
     <comment>Claim Contributor</comment>
   </data>
   <data name="M_CLAIMDATENOTAFTERTODAY" xml:space="preserve">
-    <value>La date du paiement ne peut-être postérieure à la date d'aujourd'hui</value>
+    <value>La date du remboursement ne peut-être postérieure à la date d'aujourd'hui</value>
     <comment>Claimed date can not be after today</comment>
   </data>
   <data name="M_CLAIMDATENOTBEFOREVISITDATE" xml:space="preserve">
-    <value>La date du paiement ne peut être antérieure à la date de visite du</value>
+    <value>La date du remboursement ne peut être antérieure à la date de visite du</value>
     <comment>Claimed date can not be before visit date from</comment>
   </data>
   <data name="M_CLAIMDELETED" xml:space="preserve">
-    <value>Le paiement a été supprimée avec succès</value>
+    <value>Le remboursement a été supprimée avec succès</value>
     <comment>The claim was deleted successfully</comment>
   </data>
   <data name="M_CLAIMDETAILSUPDATED" xml:space="preserve">
-    <value>Les détails du paiement ont été mis à jour avec succès</value>
+    <value>Les détails du remboursement ont été mis à jour avec succès</value>
     <comment>Claim details were Updated successfully</comment>
   </data>
   <data name="M_CLAIMITEMUPDATED" xml:space="preserve">
-    <value>Les produits de ce paiement ont été mis à jour avec succès</value>
+    <value>Les produits de ce remboursement ont été mis à jour avec succès</value>
     <comment>Items on this Claim were Updated successfully</comment>
   </data>
   <data name="M_CLAIMNOTENTEREDNODELETE" xml:space="preserve">
-    <value>La situation de ce paiement n'est pas RENSEIGNÉ et ne peut donc pas être supprimé</value>
+    <value>La situation de ce remboursement n'est pas RENSEIGNÉ et ne peut donc pas être supprimé</value>
     <comment>The status of this Claim is not ENTERED and thus can't be deleted</comment>
   </data>
   <data name="M_CLAIMNOTFORFEEDBACKPROCESS" xml:space="preserve">
-    <value>Le statut du paiement ne permet pas de la consulter pour le traitement des commentaires</value>
+    <value>Le statut du remboursement ne permet pas de la consulter pour le traitement des commentaires</value>
     <comment>The claim status does not allow it to be viewed for feedback process</comment>
   </data>
   <data name="M_CLAIMNOTFORREVIEWPROCESS" xml:space="preserve">
@@ -2986,43 +2774,43 @@
     <comment>The claim status does not allow it to be viewed for review process</comment>
   </data>
   <data name="M_CLAIMPASSEDWITHITEMCHANGE" xml:space="preserve">
-    <value>Les informations sur le paiement ont été mis à jour avec succès en modifiant les détails sur le produit de santé uniquement</value>
+    <value>Les informations sur le remboursement ont été mis à jour avec succès en modifiant les détails sur le produit de santé uniquement</value>
     <comment>The claim detail was updated successfully with a change in item details only</comment>
   </data>
   <data name="M_CLAIMPASSEDWITHOUTCHANGE" xml:space="preserve">
-    <value>Les informations du paiement ont été mis à jour avec succès sans modification des détails des produits et des prestations</value>
+    <value>Les informations du remboursement ont été mis à jour avec succès sans modification des détails des produits et des prestations</value>
     <comment>The claim detail was updated successfully without a change in item and service details</comment>
   </data>
   <data name="M_CLAIMPASSEDWITHSERVICECHANGE" xml:space="preserve">
-    <value>Le détail du paiement a été mis à jour avec succès en modifiant les détails des prestations seulement</value>
+    <value>Le détail du remboursement a été mis à jour avec succès en modifiant les détails des prestations seulement</value>
     <comment>The claim detail was updated successfully with a change in service details only</comment>
   </data>
   <data name="M_CLAIMPASSEDWITHSERVICEITEMCHANGES" xml:space="preserve">
-    <value>Les informations du paiement ont été mis à jour avec succès en modifiant les détails des produits et des prestations</value>
+    <value>Les informations du remboursement ont été mis à jour avec succès en modifiant les détails des produits et des prestations</value>
     <comment>The claim detail was updated successfully with a change in both item and service details</comment>
   </data>
   <data name="M_CLAIMSAVED" xml:space="preserve">
-    <value>paiement sauvegardé OK</value>
+    <value>Remboursement sauvegardé OK</value>
     <comment>Claim Saved OK</comment>
   </data>
   <data name="M_CLAIMSERVICESUPDATED" xml:space="preserve">
-    <value>Les prestations de ce paiement ont été mis à jour avec succès</value>
+    <value>Les prestations de ce remboursement ont été mis à jour avec succès</value>
     <comment>Services on this Claim were Updated successfully</comment>
   </data>
   <data name="M_CLAIMSEXCEEDLIMIT" xml:space="preserve">
-    <value>Le nombre de paiement dépasse la limite permise pour être chargé en une seule fois, Veuillez utiliser les critères de filtrage pour affiner votre sélection</value>
+    <value>Le nombre de remboursement dépasse la limite permise pour être chargé en une seule fois, Veuillez utiliser les critères de filtrage pour affiner votre sélection</value>
     <comment>The number of claims exceed the limit allowed to be loaded in one go, Please use the filter criteria to narrow your selection</comment>
   </data>
   <data name="M_CLAIMSTATUSCHANGEDFROMENTERED" xml:space="preserve">
-    <value>La situation de ce paiement a été modifié depuis l'enregistrment par un autre utilisateur</value>
+    <value>La situation de ce remboursement a été modifié depuis l'enregistrment par un autre utilisateur</value>
     <comment>The status of this Claim has been changed from entered by another user</comment>
   </data>
   <data name="M_CLAIMSUBMITTED_" xml:space="preserve">
-    <value>paiements soumis</value>
+    <value>Remboursements soumis</value>
     <comment>Claims submitted </comment>
   </data>
   <data name="M_CLAIMUPLOADED" xml:space="preserve">
-    <value>paiements envoyées avec succès</value>
+    <value>Remboursements envoyées avec succès</value>
     <comment>Claims uploaded successfully</comment>
   </data>
   <data name="M_CLERK" xml:space="preserve">
@@ -3030,23 +2818,23 @@
     <comment>Clerk</comment>
   </data>
   <data name="M_CLMALREADYREVIEWEDBYUSER" xml:space="preserve">
-    <value>Ce paiement a déjà été examinée par un autre utilisateur</value>
+    <value>Ce remboursement a déjà été examinée par un autre utilisateur</value>
     <comment>This claim has already been reviewed by another user</comment>
   </data>
   <data name="M_CLMDETAILSERVICEITEM" xml:space="preserve">
-    <value>Les informations du paiement, des prestations et des produits ont été mis à jour avec succès</value>
+    <value>Les informations du remboursement, des prestations et des produits ont été mis à jour avec succès</value>
     <comment>Claim details,Services and Items were Updated successfully</comment>
   </data>
   <data name="M_CLMDITEMSAVED" xml:space="preserve">
-    <value>Les informations du paiement, et les produits ont été enregistrés avec succès</value>
+    <value>Les informations du remboursement, et les produits ont été enregistrés avec succès</value>
     <comment>Claim details and Items were Saved successfully</comment>
   </data>
   <data name="M_CLMDSERVICEITEMSAVED" xml:space="preserve">
-    <value>Les informations du paiement, des prestations et des produits ont été enregistrés avec succès</value>
+    <value>Les informations du remboursement, des prestations et des produits ont été enregistrés avec succès</value>
     <comment>Claim details,Services and Items were Saved successfully</comment>
   </data>
   <data name="M_CLMDSERVICESSAVED" xml:space="preserve">
-    <value>Les détails du paiement et les prestations ont été enregistrés avec succès</value>
+    <value>Les détails du remboursement et les prestations ont été enregistrés avec succès</value>
     <comment>Claim details and Services were Saved successfully</comment>
   </data>
   <data name="M_CLMITEMNOCHANGESERVICEYES" xml:space="preserve">
@@ -3054,7 +2842,7 @@
     <comment>The claim service details were changed successfully</comment>
   </data>
   <data name="M_CLMITEMUPDATED" xml:space="preserve">
-    <value>Les informations du paiement et des produits ont été mis à jour avec succès</value>
+    <value>Les informations du remboursement et des produits ont été mis à jour avec succès</value>
     <comment>Claim details and Items were Updated successfully</comment>
   </data>
   <data name="M_CLMNOCHANGEITEMSERVICEYES" xml:space="preserve">
@@ -3066,19 +2854,19 @@
     <comment>The claim item details were changed successfully</comment>
   </data>
   <data name="M_CLMSERVICESITEMSUPDATED" xml:space="preserve">
-    <value>Les prestations et les produits de ce paiement ont été mis à jour avec succès</value>
+    <value>Les prestations et les produits de ce remboursement ont été mis à jour avec succès</value>
     <comment>Services and Items on this Claim were Updated successfully</comment>
   </data>
   <data name="M_CLMSERVICESUPDATED" xml:space="preserve">
-    <value>Les détails du paiement et des prestations ont été mis à jour avec succès</value>
+    <value>Les détails du remboursement et des prestations ont été mis à jour avec succès</value>
     <comment>Claim details and Services were Updated successfully</comment>
   </data>
   <data name="M_CLMSTATUSALREADYCHANGEDBYUSER" xml:space="preserve">
-    <value>Le statut de ce paiement a déjà été modifié par un autre utilisateur</value>
+    <value>Le statut de ce remboursement a déjà été modifié par un autre utilisateur</value>
     <comment>The claim status of this claim has already been changed by another user</comment>
   </data>
   <data name="M_CONFIRMCLAIMDELETE" xml:space="preserve">
-    <value>Voulez-vous vraiment supprimer ce paiement ?</value>
+    <value>Voulez-vous vraiment supprimer ce remboursement ?</value>
     <comment>Are you sure you want to delete this claim</comment>
   </data>
   <data name="M_CONFIRMROWCLEARING" xml:space="preserve">
@@ -3086,7 +2874,7 @@
     <comment>Are you sure you want to clear this row?</comment>
   </data>
   <data name="M_CONFIRMSUBMITCLAIMS" xml:space="preserve">
-    <value>Souhaitez-vous soumettre les paiements?</value>
+    <value>Souhaitez-vous soumettre les remboursements?</value>
     <comment>Would you like to submit the claims?</comment>
   </data>
   <data name="M_CONTINUEPROMPT" xml:space="preserve">
@@ -3094,19 +2882,19 @@
     <comment>Do you want to continue?</comment>
   </data>
   <data name="M_CREATEOFFLINEEXTRACTPROMPT" xml:space="preserve">
-    <value>&lt;/BR&gt;&lt;/BR&gt;Vous n'avez sélectionné aucune mutuelle / ZS.&lt;/BR&gt;&lt;/BR&gt;Voulez-vous vraiment créer une extraction à l'échelle du pays?&lt;/BR&gt;&lt;/BR&gt;Cliquez sur OUI pour continuer ou cliquez sur NON pour revenir en arrière et sélectionnez un mutuelle.</value>
-    <comment>&lt;/BR&gt;&lt;/BR&gt;You haven\'t selected any District.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a District.</comment>
+    <value>&lt;/BR&gt;&lt;/BR&gt;Vous n'avez sélectionné aucune mutuelle / ZS.&lt;/BR&gt;&lt;/BR&gt;Voulez-vous vraiment créer une extraction à l'échelle du pays?&lt;/BR&gt;&lt;/BR&gt;Cliquez sur OUI pour continuer ou cliquez sur NON pour revenir en arrière et sélectionnez un mutuelle / ZS.</value>
+    <comment>&lt;/BR&gt;&lt;/BR&gt;You haven\'t selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region.</comment>
   </data>
   <data name="M_DATEERROR1" xml:space="preserve">
-    <value>La date d'adhésion ne peut être postérieure à la date d'entrée en vigueur</value>
+    <value>La date d'affiliation ne peut être postérieure à la date d'entrée en vigueur</value>
     <comment>Enrolment date can not be after Effective date</comment>
   </data>
   <data name="M_DATEERROR2" xml:space="preserve">
-    <value>La date d'adhésion ne peut être postérieure à la date d'expiration</value>
+    <value>La date d'affiliation ne peut être postérieure à la date d'expiration</value>
     <comment>Enrolment date can not be after Expiry date</comment>
   </data>
   <data name="M_DATEERROR4" xml:space="preserve">
-    <value>La date d'expiration ne peut être antérieure à la date d'adhésion</value>
+    <value>La date d'expiration ne peut être antérieure à la date d'affiliation</value>
     <comment>Expiry date can not be before Enrolment date</comment>
   </data>
   <data name="M_DATEERROR5" xml:space="preserve">
@@ -3125,12 +2913,8 @@
     <value>Supprimé avec succès</value>
     <comment>deleted successfully</comment>
   </data>
-  <data name="M_DELETEDDIAGNOSES" xml:space="preserve">
-    <value>Supprimé</value>
-    <comment>Deleted</comment>
-  </data>
   <data name="M_DELETEDISTRICTPROMPT" xml:space="preserve">
-    <value>Voulez-vous vraiment supprimer cette mutuelle?</value>
+    <value>Voulez-vous vraiment supprimer cette mutuelle / ZS?</value>
     <comment>Are you sure you want to delete District</comment>
   </data>
   <data name="M_DELETEFAMILYPROMPT" xml:space="preserve">
@@ -3142,7 +2926,7 @@
     <comment>Are you sure you want to delete the Insuree ?</comment>
   </data>
   <data name="M_DELETEPOLICYPROMPT" xml:space="preserve">
-    <value>Voulez-vous vraiment supprimer cette couverture d'assurance?</value>
+    <value>Voulez-vous vraiment supprimer cette police?</value>
     <comment>Are you sure you want to delete the policy ?</comment>
   </data>
   <data name="M_DELETEPREMIUMPROMPT" xml:space="preserve">
@@ -3154,7 +2938,7 @@
     <comment>Are you sure you want to delete?</comment>
   </data>
   <data name="M_DELETEREGIONPROMPT" xml:space="preserve">
-    <value>Voulez-vous vraiment supprimer le région?</value>
+    <value>Voulez-vous vraiment supprimer le promoteur?</value>
     <comment>Are you sure you want to delete Region?</comment>
   </data>
   <data name="M_DELETEVILLAGEPROMPT" xml:space="preserve">
@@ -3165,60 +2949,28 @@
     <value>Voulez-vous vraiment supprimer cette municipalité?</value>
     <comment>Are you sure you want to delete Municipality</comment>
   </data>
-  <data name="M_DIAGNOSESSENT" xml:space="preserve">
-    <value>Envoyé</value>
-    <comment>Sent</comment>
-  </data>
-  <data name="M_DIAGNOSESUPLOADED" xml:space="preserve">
-    <value>Diagnostics téléchargés avec succès.</value>
-    <comment>Diagnoses uploaded successfully.</comment>
-  </data>
-  <data name="M_DISTRICTCODEEXISTSINDB" xml:space="preserve">
-    <value>Code de district en excel Existe déjà dans la base de données</value>
-    <comment>District Code in excel Already Exists in Database</comment>
-  </data>
-  <data name="M_DISTRICTCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value>Code de district spécifié dans Ward N'existe pas dans la base de données ou dans Excel du district.</value>
-    <comment>District Code specified in Ward Does not exists in Either Database or District Excel</comment>
-  </data>
   <data name="M_DISTRICTINREGION" xml:space="preserve">
-    <value>Veuillez supprimer d'abord la mutuelle de la région</value>
+    <value>Veuillez supprimer d'abord la mutuelle / ZS du promoteur</value>
     <comment>Please delete District in region first</comment>
   </data>
   <data name="M_DISTRICTSAVED" xml:space="preserve">
-    <value>mutuelle sauvegardé avec succès</value>
+    <value>mutuelle / ZS sauvegardé avec succès</value>
     <comment>District saved successfully</comment>
   </data>
   <data name="M_DUPLICATEDISCTRICT" xml:space="preserve">
-    <value>mutuelle en double trouvée. Importation annulée.</value>
+    <value>mutuelle / ZS en double trouvée. Importation annulée.</value>
     <comment>Duplicate distict found. Import cancelled.</comment>
-  </data>
-  <data name="M_DUPLICATEDISTRICTCODEINEXCEL" xml:space="preserve">
-    <value>Dupliquer le code de district dans excel</value>
-    <comment>Duplicate District Code in excel</comment>
-  </data>
-  <data name="M_DUPLICATEMUNICIPALITYCODEINEXCEL" xml:space="preserve">
-    <value>Dupliquer le code de la municipalité dans excel</value>
-    <comment>Duplicate Municipality Code in excel</comment>
   </data>
   <data name="M_DUPLICATERECEIPT" xml:space="preserve">
     <value>Ce reçu est déjà délivré.</value>
     <comment>This receipt is already issued.</comment>
   </data>
-  <data name="M_DUPLICATEREGIONCODEINEXCEL" xml:space="preserve">
-    <value>Dupliquer le code de la région dans excel</value>
-    <comment>Duplicate Region Code in excel</comment>
-  </data>
   <data name="M_DUPLICATEVILLAGE" xml:space="preserve">
     <value>Village en double trouvé. Importation annulée.</value>
     <comment>Duplicate village found. Import cancelled.</comment>
   </data>
-  <data name="M_DUPLICATEVILLAGECODEINEXCEL" xml:space="preserve">
-    <value>Dupliquer le code du village en excel</value>
-    <comment>Duplicate Village Code in excel</comment>
-  </data>
   <data name="M_DUPLICATEWARD" xml:space="preserve">
-    <value>Section de santé en double trouvée. Importation annulée.</value>
+    <value>Aire de santé en double trouvée. Importation annulée.</value>
     <comment>Duplicate Municipality found. Import cancelled.</comment>
   </data>
   <data name="M_EMAILUPDATED" xml:space="preserve">
@@ -3238,7 +2990,7 @@
     <comment>Location name can not be empty</comment>
   </data>
   <data name="M_ENROLDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
-    <value>Le rabais d'adhésion (%) doit être inférieur ou égal à cent</value>
+    <value>Le rabais d'affiliation (%) doit être inférieur ou égal à cent</value>
     <comment>Enrolment discount percentage should be less than or equal to hundred</comment>
   </data>
   <data name="M_ENROLLOG" xml:space="preserve">
@@ -3246,11 +2998,11 @@
     <comment>Upload failed on following records</comment>
   </data>
   <data name="M_ENROLMENTEXTRACTED" xml:space="preserve">
-    <value>adhésion extraite</value>
+    <value>Affiliation extraite</value>
     <comment>Enrolment Extracted:</comment>
   </data>
   <data name="M_ENROLMENTUPLOADED" xml:space="preserve">
-    <value>adhésion transférée:</value>
+    <value>Affiliation transférée:</value>
     <comment>Enrolment Uploaded:</comment>
   </data>
   <data name="M_ENTERBACKUPPATH" xml:space="preserve">
@@ -3258,7 +3010,7 @@
     <comment>Enter backup path</comment>
   </data>
   <data name="M_ENTERCHFNUMBER" xml:space="preserve">
-    <value>Veuillez entrer un numéro d'assuré</value>
+    <value>Veuillez entrer un numéro d'assurance</value>
     <comment>Please enter a Insurance  Number</comment>
   </data>
   <data name="M_ENTERRESTOREPATH" xml:space="preserve">
@@ -3298,7 +3050,7 @@
     <comment> already exists</comment>
   </data>
   <data name="M_EXPIRYPOLICYNOPAY" xml:space="preserve">
-    <value>Le paiement d'une couverture d'assurance expirée n'est pas autorisé.</value>
+    <value>Le paiement d'une police expirée n'est pas autorisé.</value>
     <comment>Payment on expired policy is not allowed.</comment>
   </data>
   <data name="M_EXTR_BUSY" xml:space="preserve">
@@ -3318,7 +3070,7 @@
     <comment>Extract Header not Valid</comment>
   </data>
   <data name="M_EXTR_IMPERR3" xml:space="preserve">
-    <value>Extrait d'une autre mutuelle</value>
+    <value>Extrait d'une autre mutuelle / ZS</value>
     <comment>Extract from other District</comment>
   </data>
   <data name="M_EXTR_IMPERR4" xml:space="preserve">
@@ -3426,7 +3178,7 @@
     <comment>feedback</comment>
   </data>
   <data name="M_FEEDBACKSAVEDSUCCESSFULLY" xml:space="preserve">
-    <value>La compte rendu a été enregistré avec succès et l'état du paiement est mis à jour pour être envoyé</value>
+    <value>La compte rendu a été enregistré avec succès et l'état du remboursement est mis à jour pour être envoyé</value>
     <comment>The feedback was saved successfully and the status of the claim updated to delivered</comment>
   </data>
   <data name="M_FEEDBACKSELECTION" xml:space="preserve">
@@ -3485,10 +3237,6 @@
     <value>Gestionnaire de la formation sanitaire</value>
     <comment>HF Administrator</comment>
   </data>
-  <data name="M_HFUPLOADED" xml:space="preserve">
-    <value>Facilités de santé téléchargées avec succès.</value>
-    <comment>Health facilite(s) uploaded successfully.</comment>
-  </data>
   <data name="M_ICDUPLOADED" xml:space="preserve">
     <value>Nouvelle liste de diagnostics transférée avec succès</value>
     <comment>New list of diagnoses uploaded successfully</comment>
@@ -3509,10 +3257,6 @@
     <value> ajouté avec succès</value>
     <comment> added successfully</comment>
   </data>
-  <data name="M_INSERTEDDIAGNOSES" xml:space="preserve">
-    <value>Inséré</value>
-    <comment>Inserted</comment>
-  </data>
   <data name="M_INSUREEALREADYINFAMILY" xml:space="preserve">
     <value>L'assuré est déjà dans cette famille/ce groupe</value>
     <comment>Insuree is already in this Family/Group</comment>
@@ -3522,7 +3266,7 @@
     <comment>Insuree  Number</comment>
   </data>
   <data name="M_INSUREEEXTRACTED" xml:space="preserve">
-    <value>assuré extrait</value>
+    <value>Assuré extrait</value>
     <comment>Insuree Extracted</comment>
   </data>
   <data name="M_INSUREEHEADFMLYDELETENOT" xml:space="preserve">
@@ -3530,11 +3274,11 @@
     <comment>Insuree is Head of Family/Group, can't be deleted</comment>
   </data>
   <data name="M_INSUREENOTDELETED" xml:space="preserve">
-    <value>assuré non supprimé</value>
+    <value>Assuré non supprimé</value>
     <comment>Insuree not deleted</comment>
   </data>
   <data name="M_INSUREEUPLOADED" xml:space="preserve">
-    <value>assuré importé</value>
+    <value>Assuré importé</value>
     <comment>Insuree Imported</comment>
   </data>
   <data name="M_INUSE" xml:space="preserve">
@@ -3546,7 +3290,7 @@
     <comment>The path does not exist or you do not have enough permission to access the path</comment>
   </data>
   <data name="M_INVALIDCHFNUMBER" xml:space="preserve">
-    <value>Le numéro d'assuré sélectionné n'est pas valide!</value>
+    <value>Le numéro d'assurance sélectionné n'est pas valide!</value>
     <comment>Selected Insurance Number is not valid !</comment>
   </data>
   <data name="M_INVALIDCYCLE1DATE" xml:space="preserve">
@@ -3565,10 +3309,6 @@
     <value>La combinaison de la valeur plafond de la franchise renseignée n'est pas correcte</value>
     <comment>Combination of Deductable Ceiling Value Filling is not Correct</comment>
   </data>
-  <data name="M_INVALIDDISTRICTFILEINEXCEL" xml:space="preserve">
-    <value>Fichier de district invalide (le nom de l'onglet ou les noms de colonne ou les entrées ne sont pas valides)</value>
-    <comment>Invalid District File(Either Tab name or Column names or inputs are invalid)</comment>
-  </data>
   <data name="M_INVALIDICDCODE" xml:space="preserve">
     <value>Code Dg principal invalide</value>
     <comment>Invalid Main Dg Code</comment>
@@ -3576,22 +3316,6 @@
   <data name="M_INVALIDLOCATIONTYPE" xml:space="preserve">
     <value>Type d'emplacement invalide</value>
     <comment>Invalidy location type</comment>
-  </data>
-  <data name="M_INVALIDMUNICIPALITYFILEINEXCEL" xml:space="preserve">
-    <value>Fichier de la municipalité invalide (le nom de l'onglet ou les noms de colonne ou les entrées ne sont pas valides)</value>
-    <comment>Invalid Municipality File(Either Tab name or Column names or inputs are invalid)</comment>
-  </data>
-  <data name="M_INVALIDREGIONFILEINEXCEL" xml:space="preserve">
-    <value>Fichier de région invalide (le nom de l'onglet ou les noms de colonne ou les entrées ne sont pas valides) !</value>
-    <comment>Invalid Region File(Either Tab name or Column names or inputs are invalid)!</comment>
-  </data>
-  <data name="M_INVALIDVILLAGEFILEINEXCEL" xml:space="preserve">
-    <value>Fichier Village invalide (le nom de l'onglet ou les noms de colonne ou les entrées ne sont pas valides)</value>
-    <comment>Invalid Village File(Either Tab name or Column names or inputs are invalid)</comment>
-  </data>
-  <data name="M_INVALIDVILLAGEPOPULATIONINEXCEL" xml:space="preserve">
-    <value>La population du village doit être numérique en excel.</value>
-    <comment>Village population must be numeric in excel</comment>
   </data>
   <data name="M_ITEMNAME" xml:space="preserve">
     <value>Sélectionner la liste de tarifs</value>
@@ -3618,11 +3342,11 @@
     <comment>This is the last installment according to the product definition.</comment>
   </data>
   <data name="M_LATEPAYMENT" xml:space="preserve">
-    <value>La date de paiement est en dehors de la période d'attente de la couverture d'assurance</value>
+    <value>La date de paiement est en dehors de la période d'attente de la police</value>
     <comment>The payment date falls outside the policy wait period</comment>
   </data>
   <data name="M_LATEPOLICYRENEWAL" xml:space="preserve">
-    <value>Le renouvellement de la couverture d'assurance est en dehors de la période de grâce. Voulez-vous continuer avec ce renouvellement?</value>
+    <value>Le renouvellement de la police est en dehors de la période de grâce. Voulez-vous continuer avec ce renouvellement?</value>
     <comment>Policy renewal is outside the grace period. Do you still want to continue with this renewal ?</comment>
   </data>
   <data name="M_LIMIT" xml:space="preserve">
@@ -3650,7 +3374,7 @@
     <comment>Manager</comment>
   </data>
   <data name="M_MANNUALNOUPDATE" xml:space="preserve">
-    <value>Aucune modification n'a été apportée à ce paiement</value>
+    <value>Aucune modification n'a été apportée à ce remboursement</value>
     <comment>There were no changes made to the claim</comment>
   </data>
   <data name="M_MAXINSTALLMENTEXCEED" xml:space="preserve">
@@ -3658,44 +3382,20 @@
     <comment>Installments have exceeded the maximum number of installments.</comment>
   </data>
   <data name="M_MAXMEMBERCOUNTREACHED" xml:space="preserve">
-    <value>Les couvertures d'assurance avec les dates d'adhésion suivantes ont atteint le maximum du nombre de membres et donc cet(te) assuré(e) ne sera pas couvert par les couvertures d'assurance cependant l'assuré(e) sera ajouté(e) à la famille :</value>
+    <value>Les polices avec les dates d'affiliation suivantes ont atteint le maximum du nombre de membres et donc cet(te) assuré(e) ne sera pas couvert par les polices cependant l'assuré(e) sera ajouté(e) à la famille :</value>
     <comment>Policies with the following enrolment dates have reached to their maximum number of members count and therefore this insuree will not be covered by these policies however the insuree will be added to the family :</comment>
   </data>
   <data name="M_MAXTHRESHOLDCOUNTREACHED" xml:space="preserve">
-    <value>Les couvertures d'assurance suivantes avec date d'adhésion vont dépasser le nombre maximum d'assuré(e)s. &lt;br /&gt; Voulez-vous activer cet(te) assuré(e)?</value>
+    <value>Les polices suivantes avec date d'affiliation vont dépasser le nombre maximum d'assuré(e)s. &lt;br /&gt; Voulez-vous activer cet(te) assuré(e)?</value>
     <comment>Following policies with enrolment date will exceed the maximum number of threshold Insurees. &lt;br /&gt; Do you want to activate this insuree?</comment>
   </data>
   <data name="M_MEDICALOFFICER" xml:space="preserve">
     <value>Médecin</value>
     <comment>Medical Officer</comment>
   </data>
-  <data name="M_MISSINGDISTRICTCODEORNAMEINEXCEL" xml:space="preserve">
-    <value>Nom ou code de district manquant dans Excel</value>
-    <comment>Missing District name or Code in Excel</comment>
-  </data>
-  <data name="M_MISSINGMUNICIPALITYCODEORNAMEINEXCEL" xml:space="preserve">
-    <value>Nom ou code de la municipalité manquant dans Excel</value>
-    <comment>Missing Municipality name or Code in Excel</comment>
-  </data>
-  <data name="M_MISSINGREGIONCODEORNAMEINEXCEL" xml:space="preserve">
-    <value>Nom ou code de région manquant dans Excel</value>
-    <comment>Missing Region name or Code in Excel</comment>
-  </data>
-  <data name="M_MISSINGVILLAGECODEORNAMEINEXCEL" xml:space="preserve">
-    <value>Nom ou code du village manquant dans Excel</value>
-    <comment>Missing Village name or Code in Excel</comment>
-  </data>
   <data name="M_MOVEINSUREE" xml:space="preserve">
     <value> déplacé avec succèsvers la(le) famille/groupe</value>
     <comment> successfully moved to Family/Group</comment>
-  </data>
-  <data name="M_MUNICIPALITYCODEEXISTSINDB" xml:space="preserve">
-    <value>Code de la municipalité en excel Existe déjà dans la base de données</value>
-    <comment>Municipality Code in excel Already Exist in Database</comment>
-  </data>
-  <data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value>Wardcode dans Village Excel N'existe pas dans Either Database ou Ward Excel</value>
-    <comment>Wardcode in Village Excel Does not exist in Either  Database or Ward Excel</comment>
   </data>
   <data name="M_NATIONAL" xml:space="preserve">
     <value>Nationale</value>
@@ -3710,15 +3410,15 @@
     <comment>No Batches found</comment>
   </data>
   <data name="M_NOCHANGEMADETOCLAIM" xml:space="preserve">
-    <value>Aucune modification n'a été apportée à ce paiement</value>
+    <value>Aucune modification n'a été apportée à ce remboursement</value>
     <comment>There was no change made to the Claim</comment>
   </data>
   <data name="M_NOCLAIMS" xml:space="preserve">
-    <value>Aucun paiement n'a été trouvé</value>
+    <value>Aucun remboursement n'a été trouvé</value>
     <comment>No Claims found</comment>
   </data>
   <data name="M_NOCLMTOBEPROCESSED" xml:space="preserve">
-    <value>Il n'y a aucun paiement sélectionné pour être traité</value>
+    <value>Il n'y a aucun remboursement sélectionné pour être traité</value>
     <comment>There are no claims selected to be processed</comment>
   </data>
   <data name="M_NODATAFORREPORT" xml:space="preserve">
@@ -3730,15 +3430,15 @@
     <comment>No distribution has been defined yet!</comment>
   </data>
   <data name="M_NODISTRICTS" xml:space="preserve">
-    <value>Aucune mutuelle trouvée</value>
+    <value>Aucune mutuelle / ZS trouvée</value>
     <comment>No Districts found</comment>
   </data>
   <data name="M_NOENROLMENTFOUND" xml:space="preserve">
-    <value>Aucune nouvelle adhésion n'a été trouvée.</value>
+    <value>Aucune nouvelle affiliation n'a été trouvée.</value>
     <comment>No new enrolment found.</comment>
   </data>
   <data name="M_NOENROLMENTSFOUND" xml:space="preserve">
-    <value>Aucune adhésion trouvée</value>
+    <value>Aucune affiliation trouvée</value>
     <comment>No enrolments found.</comment>
   </data>
   <data name="M_NOFAMILIES" xml:space="preserve">
@@ -3746,7 +3446,7 @@
     <comment>No Families/Groups found</comment>
   </data>
   <data name="M_NOINSUREEFOUND" xml:space="preserve">
-    <value>assuré introuvable</value>
+    <value>Assuré introuvable</value>
     <comment>Insuree not found!</comment>
   </data>
   <data name="M_NOITEMS" xml:space="preserve">
@@ -3766,15 +3466,15 @@
     <comment>You don't have enough permission to access the page</comment>
   </data>
   <data name="M_NOPOLICIES" xml:space="preserve">
-    <value>Aucune couvertures d'assurance en cours</value>
+    <value>Aucune polices en cours</value>
     <comment>No Current Policies.</comment>
   </data>
   <data name="M_NOPOLICYENROLLEDFORADHERENT" xml:space="preserve">
-    <value>Nombre de couverture d'assurance souscrite pour cet(te) assuré(e)</value>
+    <value>Nombre de police souscrite pour cet(te) assuré(e)</value>
     <comment>No policy enrolled with this Insuree.</comment>
   </data>
   <data name="M_NOPREMIUMS" xml:space="preserve">
-    <value>Aucune contribution trouvée pour la couverture d'assurance sélectionnée</value>
+    <value>Aucune contribution trouvée pour la police sélectionnée</value>
     <comment>No Contributions found for selected policy</comment>
   </data>
   <data name="M_NOPRODUCTS" xml:space="preserve">
@@ -3782,7 +3482,7 @@
     <comment>No Products found</comment>
   </data>
   <data name="M_NOREGIONS" xml:space="preserve">
-    <value>Aucune région trouvée</value>
+    <value>Aucun promoteur trouvé</value>
     <comment>No regions found</comment>
   </data>
   <data name="M_NORESULTSFOUND" xml:space="preserve">
@@ -3798,7 +3498,7 @@
     <comment>Not selected:</comment>
   </data>
   <data name="M_NOTVALIDCHFNUMBER" xml:space="preserve">
-    <value>numéro d'assuré invalide</value>
+    <value>Numéro d'assurance invalide</value>
     <comment> is not a valid Insurance Number</comment>
   </data>
   <data name="M_NOUSERS" xml:space="preserve">
@@ -3810,15 +3510,15 @@
     <comment>No village found</comment>
   </data>
   <data name="M_NOWARD" xml:space="preserve">
-    <value>Aucune section de santé trouvée</value>
+    <value>Aucune aire de santé trouvée</value>
     <comment>No wards found</comment>
   </data>
   <data name="M_NOWARDS" xml:space="preserve">
-    <value>Aucune section de santé trouvée</value>
+    <value>Aucune aire de santé trouvée</value>
     <comment>No Municipality found</comment>
   </data>
   <data name="M_NOWARDSPECIFIED" xml:space="preserve">
-    <value>Aucune section de santé spécifiée</value>
+    <value>Aucune aire de santé spécifiée</value>
     <comment>No Municipality specified</comment>
   </data>
   <data name="M_NUMBER" xml:space="preserve">
@@ -3838,19 +3538,19 @@
     <comment>Offline Scheme Administrator</comment>
   </data>
   <data name="M_ONEMORECLMFDPENDING" xml:space="preserve">
-    <value>Un ou plusieurs paiements ont des commentaires en attente.</value>
+    <value>Un ou plusieurs remboursements ont des commentaires en attente.</value>
     <comment>One or more claims have feedback pending.</comment>
   </data>
   <data name="M_ONEMORECLMNOTREVIEWED" xml:space="preserve">
-    <value>Un ou plusieurs paiements n'ont pas été examinés.</value>
+    <value>Un ou plusieurs remboursements n'ont pas été examinés.</value>
     <comment>One or more claims have not been reviewed.</comment>
   </data>
   <data name="M_ONEMORENOTREVIEWEDFDPENDS" xml:space="preserve">
-    <value>Un ou plusieurs paiements n'ont pas été examinés et des commentaires sont en attente.</value>
+    <value>Un ou plusieurs remboursements n'ont pas été examinés et des commentaires sont en attente.</value>
     <comment>One or more claims have not been reviewed and their feedback is pending.</comment>
   </data>
   <data name="M_OTHER" xml:space="preserve">
-    <value>Direct</value>
+    <value>Autre</value>
     <comment>Other</comment>
   </data>
   <data name="M_PASSWOERDMATCH" xml:space="preserve">
@@ -3874,7 +3574,7 @@
     <comment>Please select action to perform.</comment>
   </data>
   <data name="M_PLEASESELECTADISTRICT" xml:space="preserve">
-    <value>Veuillez sélectionner une mutuelle</value>
+    <value>Veuillez sélectionner une mutuelle / ZS</value>
     <comment>Please select a District</comment>
   </data>
   <data name="M_PLEASESELECTAPRODUCT" xml:space="preserve">
@@ -3882,7 +3582,7 @@
     <comment>Please select a product</comment>
   </data>
   <data name="M_PLEASESELECTAREGION" xml:space="preserve">
-    <value>Veuillez sélectionner une région</value>
+    <value>Veuillez sélectionner un promoteur</value>
     <comment>Please select a Region</comment>
   </data>
   <data name="M_PLEASESELECTAUSER" xml:space="preserve">
@@ -3898,7 +3598,7 @@
     <comment>Please select health facility</comment>
   </data>
   <data name="M_PLEASESELECTOFFICER" xml:space="preserve">
-    <value>Veuillez sélectionner un responsable d'adhésion</value>
+    <value>Veuillez sélectionner un responsable d'affiliation</value>
     <comment>Please select an enrolment officer</comment>
   </data>
   <data name="M_PLEASESELECTTHEFILE" xml:space="preserve">
@@ -3906,59 +3606,59 @@
     <comment>Please select the file</comment>
   </data>
   <data name="M_POLICYCEILINGEXCEEDMAXCEILING" xml:space="preserve">
-    <value>Le plafond de la couverture d'assurance doit être inférieur au plafond maximum</value>
+    <value>Le plafond de la police doit être inférieur au plafond maximum</value>
     <comment>Policy ceiling must be less than Maximum ceiling</comment>
   </data>
   <data name="M_POLICYCOMEINFORCEPROMPT" xml:space="preserve">
-    <value>Est-ce que la couverture d'assurance doit entrer en vigueur?</value>
+    <value>Est-ce que la police doit entrer en vigueur?</value>
     <comment>Should the policy come into force</comment>
   </data>
   <data name="M_POLICYENROLEDATE" xml:space="preserve">
-    <value>couverture d'assurance: date d'adhésion</value>
+    <value>Police: date d'affiliation</value>
     <comment>Policy: enroll date </comment>
   </data>
   <data name="M_POLICYEXTRACTED" xml:space="preserve">
-    <value>couverture d'assurance extraite</value>
+    <value>Police extraite</value>
     <comment>Policy Extracted</comment>
   </data>
   <data name="M_POLICYHASPREMIUMNODELETE" xml:space="preserve">
-    <value>Cette couverture d'assurance contient des cotisations, ne peut pas être supprimée</value>
+    <value>Cette police contient des cotisations, ne peut pas être supprimée</value>
     <comment>Policy has Contribution(s), Can't be deleted</comment>
   </data>
   <data name="M_POLICYIPCEILINGEXCEEDMAXIPCEILING" xml:space="preserve">
-    <value>Le plafond Hospitalisation de la couverture d'assurance doit être inférieur à celui du plafond hospitalisation maximal</value>
+    <value>Le plafond Hospitalisation de la police doit être inférieur à celui du plafond hospitalisation maximal</value>
     <comment>Inpatient Policy ceiling must be less than Inpatient Maximum ceiling</comment>
   </data>
   <data name="M_POLICYNOTADDED" xml:space="preserve">
-    <value>Ne peut pas ajouter de cotisation. Aucune couverture d'assurance trouvée</value>
+    <value>Ne peut pas ajouter de cotisation. Aucune police trouvée</value>
     <comment>Can not add Contribution. No Policy found</comment>
   </data>
   <data name="M_POLICYNOTCOVERED" xml:space="preserve">
-    <value>Tarif de la couverture d'assurance pas encore couvert</value>
+    <value>Tarif de la police pas encore couvert</value>
     <comment>Price of the policy not covered yet</comment>
   </data>
   <data name="M_POLICYNOTDELETED" xml:space="preserve">
-    <value>couverture d'assurance non supprimée</value>
+    <value>Police non supprimée</value>
     <comment>Policy not deleted</comment>
   </data>
   <data name="M_POLICYOPCEILINGEXCEEDMAXOPCEILING" xml:space="preserve">
-    <value>Le plafond ambulatoire de la couverture d'assurance doit être inférieur au plafond ambulatoire maximum </value>
+    <value>Le plafond ambulatoire de la police doit être inférieur au plafond ambulatoire maximum </value>
     <comment>Outpatient Policy ceiling must be less than Outpatient Maximum ceiling</comment>
   </data>
   <data name="M_POLICYUPLOADED" xml:space="preserve">
-    <value>couverture d'assurance transférée</value>
+    <value>Police transférée</value>
     <comment>Policy Uploaded</comment>
   </data>
   <data name="M_POLICYVALUECHANGE" xml:space="preserve">
-    <value>Valeur de la couverture d'assurance avec la date de souscription:</value>
+    <value>Valeur de la police avec la date de souscription:</value>
     <comment>Value of policy with the enrolment date:</comment>
   </data>
   <data name="M_PREMIUMCOVEREDPROMPT" xml:space="preserve">
-    <value>Le tarif de la couverture d'assurance est couvert &lt;br/&gt; Souhaitez-vous toujours ajouter un paiement?</value>
-    <comment>Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution</comment>
+    <value>Le tarif de la police est couvert &lt;br/&gt; Souhaitez-vous toujours ajouter un paiement?</value>
+    <comment>Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution?</comment>
   </data>
   <data name="M_PREMIUMEXCEEDSPOLICY" xml:space="preserve">
-    <value>La cotisation dépasse le tarif de la couverture d'assurance d'assurance</value>
+    <value>La cotisation dépasse le tarif de la police d'assurance</value>
     <comment>Contribution exceeds the price of the policy</comment>
   </data>
   <data name="M_PREMIUMEXTRACTED" xml:space="preserve">
@@ -3970,7 +3670,7 @@
     <comment>Contribution is in use</comment>
   </data>
   <data name="M_PREMIUMMATCHESPOLICY" xml:space="preserve">
-    <value>La cotisation correspond au tarif de la couverture d'assurance d'assurance</value>
+    <value>La cotisation correspond au tarif de la police d'assurance</value>
     <comment>Contribution matches the price of the policy</comment>
   </data>
   <data name="M_PREMIUMNOTDELETED" xml:space="preserve">
@@ -4049,14 +3749,6 @@
     <value>Régionale</value>
     <comment>Regional</comment>
   </data>
-  <data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
-    <value>Code de région en excel Existe déjà dans la base de données</value>
-    <comment>Region Code in excel Already Exists in Database</comment>
-  </data>
-  <data name="M_REGIONCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value>Code de la région spécifié dans le district N'existe pas dans la base de données ou la région Excel</value>
-    <comment>Region Code specified in District Does not exist in Either  Database or Region Excel</comment>
-  </data>
   <data name="M_REGIONSAVED" xml:space="preserve">
     <value>Région sauvegardée avec succès</value>
     <comment>Region saved successfully</comment>
@@ -4070,7 +3762,7 @@
     <comment>Renew discount percentage should be less than or equal to hundred</comment>
   </data>
   <data name="M_RENEWPOLICY" xml:space="preserve">
-    <value>Voulez-vous renouveler la couverture d'assurance sélectionnée?</value>
+    <value>Voulez-vous renouveler la police sélectionnée?</value>
     <comment>Do you want to renew the selected policy?</comment>
   </data>
   <data name="M_REPORTINGDATECHANGED" xml:space="preserve">
@@ -4114,7 +3806,7 @@
     <comment>Selected:</comment>
   </data>
   <data name="M_SELECTEDCHFNONOTEXIT" xml:space="preserve">
-    <value>Le numéro d'assuré sélectionné n'existe pas!</value>
+    <value>Le numéro d'assurance sélectionné n'existe pas!</value>
     <comment>Selected Insurance Number does not exist !</comment>
   </data>
   <data name="M_SELECTEDUCATION" xml:space="preserve">
@@ -4149,10 +3841,6 @@
     <value>Veuillez sélectionner le mois</value>
     <comment>Please select month</comment>
   </data>
-  <data name="M_SELECTONLYEXCELFILE" xml:space="preserve">
-    <value>Sélectionner seulement le fichier Excel</value>
-    <comment>Select only excel File</comment>
-  </data>
   <data name="M_SELECTONLYISFFILE" xml:space="preserve">
     <value>Sélectionner seulement les fichiers .isf</value>
     <comment>Select only .isf File</comment>
@@ -4160,10 +3848,6 @@
   <data name="M_SELECTONLYTXTFILE" xml:space="preserve">
     <value>Sélectionner seulement les fichiers .txt</value>
     <comment>Select only .txt File</comment>
-  </data>
-  <data name="M_SELECTONLYXMLFILE" xml:space="preserve">
-    <value>Sélectionnez uniquement le fichier.xml.</value>
-    <comment>Select only .xml File</comment>
   </data>
   <data name="M_SELECTPROFESSION" xml:space="preserve">
     <value>Sélectionner une profession</value>
@@ -4180,10 +3864,6 @@
   <data name="M_SELECTSERVICECODE" xml:space="preserve">
     <value>Veuillez sélectionner le code de la prestation</value>
     <comment>Please select the Service code</comment>
-  </data>
-  <data name="M_SELECTSTRATEGY" xml:space="preserve">
-    <value>Veuillez choisir une stratégie</value>
-    <comment>Please select strategy</comment>
   </data>
   <data name="M_SELECTTODATE" xml:space="preserve">
     <value>Veuillez sélectionner la date</value>
@@ -4221,14 +3901,6 @@
     <value>Les prestations ont été sauvegardés avec succès</value>
     <comment>Services were Saved successfully</comment>
   </data>
-  <data name="M_SHAREDCONTRIBUTIONPARCENT" xml:space="preserve">
-    <value>Shared contribution  can not exceed 100%</value>
-    <comment>Shared contribution  can not exceed 100%</comment>
-  </data>
-  <data name="M_SHAREOFCONTRIBUTIONRANGE" xml:space="preserve">
-    <value>La part de la contribution doit être supérieure à 0 % et inférieure ou égale à 100 %.</value>
-    <comment>Share of Contribution must be greater than 0% and  less or equal to 100%</comment>
-  </data>
   <data name="M_STARTDATESHOULDBELESSTHANENDDATE" xml:space="preserve">
     <value>La date de début doit être inférieure à la date de fin</value>
     <comment>Start date should be less than end date</comment>
@@ -4246,7 +3918,7 @@
     <comment>Submitted to process </comment>
   </data>
   <data name="M_SUBMITTEDTOUPDATE" xml:space="preserve">
-    <value>paiements soumis au processus de sélection</value>
+    <value>Remboursements soumis au processus de sélection</value>
     <comment>Claims submitted to the selection process </comment>
   </data>
   <data name="M_SUCCESSFULLYMOVED" xml:space="preserve">
@@ -4273,18 +3945,6 @@
     <value>La date "à ce jour" doit être supérieur à la date "à partir de"</value>
     <comment>To date must be greater than From date</comment>
   </data>
-  <data name="M_UNEXPECTEDERRORONIMPORTLOCATIONS" xml:space="preserve">
-    <value>Erreur inattendue lors de l'importation de localités</value>
-    <comment>Unexpected Error when Importing Locations</comment>
-  </data>
-  <data name="M_UNEXPECTEDERRORONUPLOADHF" xml:space="preserve">
-    <value>Erreur inattendue lors du téléchargement des faciès de santé</value>
-    <comment>Unexpected Error when Uploading Health facities</comment>
-  </data>
-  <data name="M_UNEXPECTEDERRORONUPLOADICD" xml:space="preserve">
-    <value>Erreur inattendue lors du téléchargement des diagnostics.</value>
-    <comment>Unexpected Error when Uploading Diagnoses</comment>
-  </data>
   <data name="M_UNIQUECODELOCATION" xml:space="preserve">
     <value>Ce code existe déjà, veuillez en créer un autre</value>
     <comment>This code has aready been used, please use different code</comment>
@@ -4293,36 +3953,20 @@
     <value> mis à jour avec succès</value>
     <comment> updated successfully</comment>
   </data>
-  <data name="M_UPDETEDDIAGNOSES" xml:space="preserve">
-    <value>Mise à jour</value>
-    <comment>Updeted</comment>
-  </data>
-  <data name="M_UPLOADEDDIAGNOSES" xml:space="preserve">
-    <value>Diagnostics téléchargés</value>
-    <comment>Uploaded Diagnoses</comment>
-  </data>
-  <data name="M_UPLOADEDHF" xml:space="preserve">
-    <value>Installations de santé téléchargées</value>
-    <comment>Uploaded Health facilities</comment>
-  </data>
-  <data name="M_UPLOADEDLOCATIONS" xml:space="preserve">
-    <value>Lieux téléchargés</value>
-    <comment>Uploaded Locations</comment>
-  </data>
   <data name="M_UPLOADENROLALERT" xml:space="preserve">
-    <value>Cette action remplacera toutes les modifications effectuées depuis la dernière importation des extractions. Assurez-vous d'avoir déjà importé le dernier décompte des adhésions hors ligne sur le serveur direct. &lt;/BR&gt; Voulez-vous continuer?</value>
+    <value>Cette action remplacera toutes les modifications effectuées depuis la dernière importation des extractions. Assurez-vous d'avoir déjà importé le dernier décompte des affiliations hors ligne sur le serveur direct. &lt;/BR&gt; Voulez-vous continuer?</value>
     <comment>This action will overwrite all the changes made since last extracts were uploaded. Please make sure that you already have uploaded the last offline enrolment to the live server. &lt;/BR&gt; Do you want to continue?</comment>
   </data>
   <data name="M_VALIDATEADDBUTTON" xml:space="preserve">
-    <value>Veuillez sélectionner une mutuelle, un code de formation sanitaire et un gestionnaire de paiement pour pouvoir ajouter un paiement</value>
+    <value>Veuillez sélectionner une mutuelle / ZS, un code de formation sanitaire et un gestionnaire de remboursement pour pouvoir ajouter un remboursement</value>
     <comment>Please select a District, a health facility code and claim administrator to be able to add a claim</comment>
   </data>
   <data name="M_VALIDATEADDBUTTONCLAIMADMIN" xml:space="preserve">
-    <value>Veuillez d'abord sélectionner un gestionnaire de paiement</value>
+    <value>Veuillez d'abord sélectionner un gestionnaire de remboursement</value>
     <comment>Please select a Claim Administrator first</comment>
   </data>
   <data name="M_VALIDATEADDBUTTONDISTRICT" xml:space="preserve">
-    <value>Veuillez d'abord sélectionner une mutuelle</value>
+    <value>Veuillez d'abord sélectionner une mutuelle / ZS</value>
     <comment>Please select a District first</comment>
   </data>
   <data name="M_VALIDATEADDBUTTONHFCode" xml:space="preserve">
@@ -4334,7 +3978,7 @@
     <comment>There are no feedback changes made to this claim, please do some changes to save or press the cancel button</comment>
   </data>
   <data name="M_VALIDATESUBMITCLAIMS" xml:space="preserve">
-    <value>Il n'y a aucun paiement sélectionné pour être soumis</value>
+    <value>Il n'y a aucun remboursement sélectionné pour être soumis</value>
     <comment>There are no claims selected to be submitted</comment>
   </data>
   <data name="M_VALUATED" xml:space="preserve">
@@ -4345,20 +3989,16 @@
     <value>Votre version d'arrère-plan est plus élevée que la version script</value>
     <comment>Your backend version is higher than the script version</comment>
   </data>
-  <data name="M_VILLAGECODEEXISTSINDB" xml:space="preserve">
-    <value>Village Code in excel Existe déjà dans la base de données</value>
-    <comment>Village Code in excel Already Exists in Database</comment>
-  </data>
   <data name="M_VILLAGESAVED" xml:space="preserve">
     <value>Village sauvegardé avec succès</value>
     <comment>Village saved successfully</comment>
   </data>
   <data name="M_VILLAGESINWARD" xml:space="preserve">
-    <value>Veuillez d'abord supprimer le village dans la section de santé</value>
+    <value>Veuillez d'abord supprimer le village dans l'aire de santé</value>
     <comment>Please delete Villages in Municipality first</comment>
   </data>
   <data name="M_VISITDATENOTAFTERCLAIMDATE" xml:space="preserve">
-    <value>La "date de visite à partir de" ne peut pas être ultérieure à la date de paiement</value>
+    <value>La "date de visite à partir de" ne peut pas être ultérieure à la date de remboursement</value>
     <comment>Visit date from can not be after claimed date</comment>
   </data>
   <data name="M_VISITDATENOTAFTERTODAY" xml:space="preserve">
@@ -4374,20 +4014,16 @@
     <comment>Waiting Period</comment>
   </data>
   <data name="M_WARDSAVED" xml:space="preserve">
-    <value>Section de santé enregistrée</value>
+    <value>Aire de santé enregistrée</value>
     <comment>Municipality saved successfully</comment>
   </data>
   <data name="M_WARDSINDISTRICT" xml:space="preserve">
-    <value>Veuillez d'abord supprimer la section de santé dans la mutuelle</value>
+    <value>Veuillez d'abord supprimer l'aire de santé dans la mutuelle / ZS</value>
     <comment>Please delete Municipality in District first</comment>
   </data>
   <data name="M_WEAKPASSWORD" xml:space="preserve">
     <value>Le mot de passe doit contenir au moins 8 caractères dont au moins un numéro</value>
     <comment>Password must contain at least 8 characters including at  least one number</comment>
-  </data>
-  <data name="M_WEIGHTMUSTBE100" xml:space="preserve">
-    <value>sum of the weight must be 100%</value>
-    <comment>sum of the weight must be 100%</comment>
   </data>
   <data name="M_WLDLIKECONTINUEWITH" xml:space="preserve">
     <value>Souhaitez-vous continuer avec le</value>
@@ -4402,7 +4038,7 @@
     <comment>Would you like to continue with the review selection process?</comment>
   </data>
   <data name="M_WLDLIKETOPROCESSCLAIMS" xml:space="preserve">
-    <value> Voulez-vous traiter les demandes de paiement ?</value>
+    <value> Voulez-vous traiter les demandes de remboursement ?</value>
     <comment> Would you like to process the claims?</comment>
   </data>
   <data name="M_WRONGCONVERSIONPRODUCTCODE" xml:space="preserve">
@@ -4426,7 +4062,7 @@
     <comment>The combination of the service code and its name in one or more services does not exit</comment>
   </data>
   <data name="NOREGIONSPECIFIED" xml:space="preserve">
-    <value>Aucune région spécifiée</value>
+    <value>Aucun promoteur spécifié</value>
     <comment>No region specified</comment>
   </data>
   <data name="NOVILLAGESPECIFIED" xml:space="preserve">
@@ -4458,7 +4094,7 @@
     <comment>Medical Services Control Panel</comment>
   </data>
   <data name="P_FINDOFFICER" xml:space="preserve">
-    <value>Tableau de bord des animateurs de mutuelle</value>
+    <value>Tableau de bord des agents d'affiliation</value>
     <comment>Enrolment Officers Control Panel</comment>
   </data>
   <data name="P_FINDPAYER" xml:space="preserve">
@@ -4474,7 +4110,7 @@
     <comment>Price List Medical Services Control Panel</comment>
   </data>
   <data name="P_FINDPOLICY" xml:space="preserve">
-    <value>Rechercher la couverture d'assurance</value>
+    <value>Rechercher la police</value>
     <comment>Find Policy</comment>
   </data>
   <data name="P_FINDPRODUCT" xml:space="preserve">
@@ -4510,7 +4146,7 @@
     <comment>Adj.Qty</comment>
   </data>
   <data name="R_AGENT" xml:space="preserve">
-    <value>Animateur</value>
+    <value>Agent</value>
     <comment>Agent</comment>
   </data>
   <data name="R_ALLACTION" xml:space="preserve">
@@ -4518,15 +4154,15 @@
     <comment>--All Actions--</comment>
   </data>
   <data name="R_ALLCLAIMS" xml:space="preserve">
-    <value>Tous les paiements</value>
+    <value>Tous les remboursements</value>
     <comment>All Claims</comment>
   </data>
   <data name="R_CHFID" xml:space="preserve">
-    <value>numéro d'assuré</value>
+    <value>Numéro d'assurance</value>
     <comment>Insurance Number</comment>
   </data>
   <data name="R_CLAIMADMINNAME" xml:space="preserve">
-    <value>Gestionnaire du paiement</value>
+    <value>Gestionnaire du remboursement</value>
     <comment>Claim Admin</comment>
   </data>
   <data name="R_CLAIMCODE" xml:space="preserve">
@@ -4550,11 +4186,11 @@
     <comment>Adjusted Amount</comment>
   </data>
   <data name="R_CLAIMTOTALINITIAL" xml:space="preserve">
-    <value>Montant du paiement</value>
+    <value>Montant du remboursement</value>
     <comment>Claimed Amount</comment>
   </data>
   <data name="R_ENROLLMENTOFFICER" xml:space="preserve">
-    <value>Animateur de mutuel</value>
+    <value>Agent d'affiliation</value>
     <comment>Enrollment Officer</comment>
   </data>
   <data name="R_EXTRACT" xml:space="preserve">
@@ -4574,7 +4210,7 @@
     <comment>Insurance Product</comment>
   </data>
   <data name="R_INSUREENAME" xml:space="preserve">
-    <value>assuré</value>
+    <value>Assuré</value>
     <comment>Insuree</comment>
   </data>
   <data name="R_ITEMCODE" xml:space="preserve">
@@ -4654,7 +4290,7 @@
     <comment>Total Claimed</comment>
   </data>
   <data name="R_TOTALCLAIMS" xml:space="preserve">
-    <value>Total des paiements</value>
+    <value>Total des remboursements</value>
     <comment>Total Claims</comment>
   </data>
   <data name="R_TOTALINSUREES" xml:space="preserve">
@@ -4717,10 +4353,6 @@
     <value>Contourné</value>
     <comment>ByPassed</comment>
   </data>
-  <data name="T_CAPITATIONPAYMENT" xml:space="preserve">
-    <value>Capitation Payment</value>
-    <comment>Capitation Payment</comment>
-  </data>
   <data name="T_CASH" xml:space="preserve">
     <value>Espèces</value>
     <comment>Cash</comment>
@@ -4738,11 +4370,11 @@
     <comment>Child</comment>
   </data>
   <data name="T_CLAIM" xml:space="preserve">
-    <value>paiement</value>
+    <value>Remboursement</value>
     <comment>Claim</comment>
   </data>
   <data name="T_CLAIMOVERVIEW" xml:space="preserve">
-    <value>Aperçu du paiement</value>
+    <value>Aperçu du remboursement</value>
     <comment>Claim Overview</comment>
   </data>
   <data name="T_COMMUNITY_NGO" xml:space="preserve">
@@ -4790,7 +4422,7 @@
     <comment>Dispensary</comment>
   </data>
   <data name="T_DISTRICTORGANIZATION" xml:space="preserve">
-    <value>Organisation de la mutuelle</value>
+    <value>Organisation de la mutuelle / ZS</value>
     <comment>District Organization</comment>
   </data>
   <data name="T_DIVORCED" xml:space="preserve">
@@ -4806,7 +4438,7 @@
     <comment>Drug</comment>
   </data>
   <data name="T_ENROLMENTPERFORMANCEINDICATORS" xml:space="preserve">
-    <value>Indicateurs de performance des adhésions</value>
+    <value>Indicateurs de performance des affiliations</value>
     <comment>Enrolment Performance Indicators</comment>
   </data>
   <data name="T_ENTERED" xml:space="preserve">
@@ -4878,7 +4510,7 @@
     <comment>In-Patient</comment>
   </data>
   <data name="T_INSUREESWITHOUTPHOTOS" xml:space="preserve">
-    <value>assurés sans photos</value>
+    <value>Assurés sans photos</value>
     <comment>Insurees without Photos</comment>
   </data>
   <data name="T_INTEGRATED" xml:space="preserve">
@@ -4946,7 +4578,7 @@
     <comment>Month</comment>
   </data>
   <data name="T_NEWPOLICIES" xml:space="preserve">
-    <value>Nouvelles couvertures d'assurance</value>
+    <value>Nouvelles polices</value>
     <comment>New Policies</comment>
   </data>
   <data name="T_NO" xml:space="preserve">
@@ -4956,10 +4588,6 @@
   <data name="T_NONHOSPITAL" xml:space="preserve">
     <value>Non-hôpital</value>
     <comment>Non Hospital</comment>
-  </data>
-  <data name="T_NOPOLICY" xml:space="preserve">
-    <value>No policy</value>
-    <comment>No policy</comment>
   </data>
   <data name="T_NOSUBLEVEL" xml:space="preserve">
     <value>Aucun sous-niveau</value>
@@ -5002,7 +4630,7 @@
     <comment>-- Payment Type --</comment>
   </data>
   <data name="T_PENDINGINSUREES" xml:space="preserve">
-    <value>assuré(e)s en attente</value>
+    <value>Assuré(e)s en attente</value>
     <comment>Pending Insurees</comment>
   </data>
   <data name="T_PERCENTAGEOFREFERRALS" xml:space="preserve">
@@ -5034,11 +4662,11 @@
     <comment>Primary Operational Indicators</comment>
   </data>
   <data name="T_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
-    <value>Indicateurs opérationnels primaires-paiement</value>
+    <value>Indicateurs opérationnels primaires-remboursement</value>
     <comment>Primary Operational Indicators-claims</comment>
   </data>
   <data name="T_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
-    <value>Indicateurs opérationels principaux - couvertures d'assurance</value>
+    <value>Indicateurs opérationels principaux - polices</value>
     <comment>Primary Operational Indicators-policies</comment>
   </data>
   <data name="T_PRIVATE" xml:space="preserve">
@@ -5114,7 +4742,7 @@
     <comment>Review Select</comment>
   </data>
   <data name="T_SELECREGION" xml:space="preserve">
-    <value> --Choisissez une région--</value>
+    <value>Choisissez un promoteur</value>
     <comment>--Select Region--</comment>
   </data>
   <data name="T_SELECT" xml:space="preserve">
@@ -5146,15 +4774,15 @@
     <comment>--Select category--</comment>
   </data>
   <data name="T_SELECTCLAIMADMIN" xml:space="preserve">
-    <value>Sélectionner un gestionnaire de paiement</value>
+    <value>Sélectionner un gestionnaire de remboursement</value>
     <comment>Select Claim Admin</comment>
   </data>
   <data name="T_SELECTCLAIMCODE" xml:space="preserve">
-    <value>Sélectionner le code du paiement</value>
+    <value>Sélectionner le code du remboursement</value>
     <comment>--Select Claim Code--</comment>
   </data>
   <data name="T_SELECTDISTRICT" xml:space="preserve">
-    <value> Sélectionner une mutuelle</value>
+    <value> Sélectionner une mutuelle / ZS </value>
     <comment>-- Select a District --</comment>
   </data>
   <data name="T_SELECTED" xml:space="preserve">
@@ -5191,14 +4819,14 @@
   </data>
   <data name="T_SELECTLEVEL" xml:space="preserve">
     <value>Sélectionner le niveau de la formation sanitaire</value>
-    <comment>-- Select HF Level--</comment>
+    <comment>-- Select Level--</comment>
   </data>
   <data name="T_SELECTMAINDG" xml:space="preserve">
     <value>Sélectionner le Dg. principal</value>
     <comment>--Select Main Dg.--</comment>
   </data>
   <data name="T_SELECTOFFICER" xml:space="preserve">
-    <value>-- Sélectionner un animateur de mutuelle -- </value>
+    <value> Sélectionner un agent d'affiliation </value>
     <comment>-- Select Enrolment Officer --</comment>
   </data>
   <data name="T_SELECTPATIENT" xml:space="preserve">
@@ -5262,7 +4890,7 @@
     <comment>Single</comment>
   </data>
   <data name="T_STATUS" xml:space="preserve">
-    <value> Statut de la couverture d'assurance </value>
+    <value> Statut de la police </value>
     <comment>-- Status --</comment>
   </data>
   <data name="T_STATUSOFREGISTERS" xml:space="preserve">
@@ -5296,10 +4924,6 @@
   <data name="T_SUSPENDED" xml:space="preserve">
     <value>Suspendu</value>
     <comment>Suspended</comment>
-  </data>
-  <data name="T_UPLOADDOWNLOADREGISTERS" xml:space="preserve">
-    <value>Téléchargement/Téléchargement de registres</value>
-    <comment>Upload/Download Registers</comment>
   </data>
   <data name="T_USERACTIVITYREPORT" xml:space="preserve">
     <value>Rapport d'activité de l'utilisateur</value>
@@ -5342,7 +4966,7 @@
     <comment>Please state if a Beneficiary Card has been issued.</comment>
   </data>
   <data name="V_CHFID" xml:space="preserve">
-    <value>Veuillez sélectionner un numéro d'assuré</value>
+    <value>Veuillez sélectionner un numéro d'assurance</value>
     <comment>Please select Insurance Number.</comment>
   </data>
   <data name="V_CONFIRMPASSWORD" xml:space="preserve">
@@ -5350,7 +4974,7 @@
     <comment>Confirm password does not match</comment>
   </data>
   <data name="V_DISTRICT" xml:space="preserve">
-    <value>Veuillez sélectionner une mutuelle.</value>
+    <value>Veuillez sélectionner une mutuelle / ZS.</value>
     <comment>Please select a District.</comment>
   </data>
   <data name="V_GENDER" xml:space="preserve">
@@ -5386,7 +5010,7 @@
     <comment>Please select at least one care type</comment>
   </data>
   <data name="V_SELECTDISTRICT" xml:space="preserve">
-    <value>Veuillez sélectionner au moins une mutuelle</value>
+    <value>Veuillez sélectionner au moins une mutuelle / ZS</value>
     <comment>Please select at least one District</comment>
   </data>
   <data name="V_SELECTPATIENT" xml:space="preserve">
@@ -5410,7 +5034,7 @@
     <comment>Please select a Village</comment>
   </data>
   <data name="V_WARD" xml:space="preserve">
-    <value>Veuillez sélectionner une section de santé</value>
+    <value>Veuillez sélectionner une aire de santé</value>
     <comment>Please select a Municipality.</comment>
   </data>
   <data name="X_EMAILSENTFAIL" xml:space="preserve">
@@ -5420,5 +5044,493 @@
   <data name="X_MANUAL" xml:space="preserve">
     <value>Manual/IMIS_manual.pdf</value>
     <comment>Manual/IMIS_manual.pdf</comment>
+  </data>
+  <data name="M_BGEXTRACTCOMPLETED" xml:space="preserve">
+    <value />
+    <comment>Your request is submitted and the requested extract is being created now. Once the task is completed, you will receive an email with the download link. Meanwhile you can leave this page and continue with other work.</comment>
+  </data>
+  <data name="T_NOPOLICY" xml:space="preserve">
+    <value />
+    <comment>No policy</comment>
+  </data>
+  <data name="T_CAPITATIONPAYMENT" xml:space="preserve">
+    <value />
+    <comment>Capitation Payment</comment>
+  </data>
+  <data name="L_LEVEL1" xml:space="preserve">
+    <value />
+    <comment>Level 1</comment>
+  </data>
+  <data name="L_LEVEL2" xml:space="preserve">
+    <value />
+    <comment>Level 2</comment>
+  </data>
+  <data name="L_LEVEL3" xml:space="preserve">
+    <value />
+    <comment>Level 3</comment>
+  </data>
+  <data name="L_LEVEL4" xml:space="preserve">
+    <value />
+    <comment>Level 4</comment>
+  </data>
+  <data name="L_SHAREOFCONTRIBUTION" xml:space="preserve">
+    <value />
+    <comment>Share of Contribution</comment>
+  </data>
+  <data name="L_SUBLEVEL1" xml:space="preserve">
+    <value />
+    <comment>Sub Level 1</comment>
+  </data>
+  <data name="L_SUBLEVEL2" xml:space="preserve">
+    <value />
+    <comment>Sub Level 2</comment>
+  </data>
+  <data name="L_SUBLEVEL3" xml:space="preserve">
+    <value />
+    <comment>Sub Level 3</comment>
+  </data>
+  <data name="L_SUBLEVEL4" xml:space="preserve">
+    <value />
+    <comment>Sub Level 4</comment>
+  </data>
+  <data name="L_WEGHTOFNUMBERFAMILIES" xml:space="preserve">
+    <value />
+    <comment>Weight of Number of Families</comment>
+  </data>
+  <data name="L_WEIGHTOFADJUSTEDAMOUT" xml:space="preserve">
+    <value />
+    <comment>Weight of Adjusted Amount</comment>
+  </data>
+  <data name="L_WEIGHTOFINSUREDPOPULATION" xml:space="preserve">
+    <value />
+    <comment>Weight of Insured Population</comment>
+  </data>
+  <data name="L_WEIGHTOFNUMBERINSUREDFAMILIES" xml:space="preserve">
+    <value />
+    <comment>Weight of Number of Insured Families</comment>
+  </data>
+  <data name="L_WEIGHTOFNUMBERVISITS" xml:space="preserve">
+    <value />
+    <comment>Weight of Number of Visits</comment>
+  </data>
+  <data name="L_WEIGHTOFPOPUATION" xml:space="preserve">
+    <value />
+    <comment>Weight of Population</comment>
+  </data>
+  <data name="L_CAPITATIONPAYMENT" xml:space="preserve">
+    <value />
+    <comment>Capitation Payment</comment>
+  </data>
+  <data name="L_NOOFCLAIMS" xml:space="preserve">
+    <value />
+    <comment>Number of Claims</comment>
+  </data>
+  <data name="L_NOOFFAMILIES" xml:space="preserve">
+    <value />
+    <comment>Number of Families</comment>
+  </data>
+  <data name="L_NOOFINSUREDPOPULATION" xml:space="preserve">
+    <value />
+    <comment>Number of Insured Population</comment>
+  </data>
+  <data name="L_NOOFINSURESFAMILY" xml:space="preserve">
+    <value />
+    <comment>Number of Insured Families</comment>
+  </data>
+  <data name="L_POPULATION" xml:space="preserve">
+    <value />
+    <comment>Population</comment>
+  </data>
+  <data name="L_PERMADDERESS" xml:space="preserve">
+    <value />
+    <comment>Permanent address details</comment>
+  </data>
+  <data name="M_SHAREDCONTRIBUTIONPARCENT" xml:space="preserve">
+    <value />
+    <comment>Shared contribution  can not exceed 100%</comment>
+  </data>
+  <data name="M_WEIGHTMUSTBE100" xml:space="preserve">
+    <value />
+    <comment>Sum of the weights must be 100%</comment>
+  </data>
+  <data name="L_ALLOCATEDCONTRIBUTION" xml:space="preserve">
+    <value />
+    <comment>Allocated Contribution</comment>
+  </data>
+  <data name="L_DISTRICTTOTAL" xml:space="preserve">
+    <value />
+    <comment>District Total</comment>
+  </data>
+  <data name="L_REGIONTOTAL" xml:space="preserve">
+    <value />
+    <comment>Region Total</comment>
+  </data>
+  <data name="L_UNITPRICE" xml:space="preserve">
+    <value />
+    <comment>Unit Price</comment>
+  </data>
+  <data name="M_SHAREOFCONTRIBUTIONRANGE" xml:space="preserve">
+    <value />
+    <comment>Share of Contribution must be greater than 0% and  less or equal to 100%</comment>
+  </data>
+  <data name="L_UPLOADREGISTERS" xml:space="preserve">
+    <value />
+    <comment>Registers</comment>
+  </data>
+  <data name="L_UPLOADHEALTHFACILITIES" xml:space="preserve">
+    <value />
+    <comment>Upload Health Facilities</comment>
+  </data>
+  <data name="L_UPLOADLOCATIONS" xml:space="preserve">
+    <value />
+    <comment>Upload Locations</comment>
+  </data>
+  <data name="M_AREYOUSUREUPLOADLOCATIONS" xml:space="preserve">
+    <value />
+    <comment>Are you sure you want to upload a new list of locations?</comment>
+  </data>
+  <data name="M_SELECTONLYEXCELFILE" xml:space="preserve">
+    <value />
+    <comment>Select only excel File</comment>
+  </data>
+  <data name="M_DISTRICTCODEEXISTSINDB" xml:space="preserve">
+    <value />
+    <comment>District Code in excel Already Exists in Database</comment>
+  </data>
+  <data name="M_DISTRICTCODENOTEXISTSINEXCELORDB" xml:space="preserve">
+    <value />
+    <comment>District Code specified in Ward Does not exists in Either Database or District Excel</comment>
+  </data>
+  <data name="M_DUPLICATEDISTRICTCODEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Duplicate District Code in excel</comment>
+  </data>
+  <data name="M_DUPLICATEMUNICIPALITYCODEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Duplicate Municipality Code in excel</comment>
+  </data>
+  <data name="M_DUPLICATEREGIONCODEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Duplicate Region Code in excel</comment>
+  </data>
+  <data name="M_DUPLICATEVILLAGECODEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Duplicate Village Code in excel</comment>
+  </data>
+  <data name="M_INVALIDDISTRICTFILEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Invalid District File(Either Tab name or Column names or inputs are invalid)</comment>
+  </data>
+  <data name="M_INVALIDMUNICIPALITYFILEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Invalid Municipality File(Either Tab name or Column names or inputs are invalid)</comment>
+  </data>
+  <data name="M_INVALIDREGIONFILEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Invalid Region File(Either Tab name or Column names or inputs are invalid)!</comment>
+  </data>
+  <data name="M_INVALIDVILLAGEFILEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Invalid Village File(Either Tab name or Column names or inputs are invalid)</comment>
+  </data>
+  <data name="M_INVALIDVILLAGEPOPULATIONINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Village population must be numeric in excel</comment>
+  </data>
+  <data name="M_MISSINGDISTRICTCODEORNAMEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Missing District name or Code in Excel</comment>
+  </data>
+  <data name="M_MISSINGMUNICIPALITYCODEORNAMEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Missing Municipality name or Code in Excel</comment>
+  </data>
+  <data name="M_MISSINGREGIONCODEORNAMEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Missing Region name or Code in Excel</comment>
+  </data>
+  <data name="M_MISSINGVILLAGECODEORNAMEINEXCEL" xml:space="preserve">
+    <value />
+    <comment>Missing Village name or Code in Excel</comment>
+  </data>
+  <data name="M_MUNICIPALITYCODEEXISTSINDB" xml:space="preserve">
+    <value />
+    <comment>Municipality Code in excel Already Exist in Database</comment>
+  </data>
+  <data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
+    <value />
+    <comment>Wardcode in Village Excel Does not exist in Either  Database or Ward Excel</comment>
+  </data>
+  <data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
+    <value />
+    <comment>Region Code in excel Already Exists in Database</comment>
+  </data>
+  <data name="M_REGIONCODENOTEXISTSINEXCELORDB" xml:space="preserve">
+    <value />
+    <comment>Region Code specified in District Does not exist in Either  Database or Region Excel</comment>
+  </data>
+  <data name="M_UNEXPECTEDERRORONIMPORTLOCATIONS" xml:space="preserve">
+    <value />
+    <comment>Unexpected Error when Importing Locations</comment>
+  </data>
+  <data name="M_VILLAGECODEEXISTSINDB" xml:space="preserve">
+    <value />
+    <comment>Village Code in excel Already Exists in Database</comment>
+  </data>
+  <data name="M_UPLOADEDLOCATIONS" xml:space="preserve">
+    <value />
+    <comment>Uploaded Locations</comment>
+  </data>
+  <data name="L_DOWNLOADHEALTHFACILITIES" xml:space="preserve">
+    <value />
+    <comment>Download Health Facilities</comment>
+  </data>
+  <data name="L_DOWNLOADICD" xml:space="preserve">
+    <value />
+    <comment>Download Diagnoses</comment>
+  </data>
+  <data name="L_DOWNLOADLOCATIONS" xml:space="preserve">
+    <value />
+    <comment>Download Locations</comment>
+  </data>
+  <data name="L_DRYRUN" xml:space="preserve">
+    <value />
+    <comment>Dry Run</comment>
+  </data>
+  <data name="L_ICDUPLOADSTRATEGY" xml:space="preserve">
+    <value />
+    <comment>Strategy</comment>
+  </data>
+  <data name="M_SELECTONLYXMLFILE" xml:space="preserve">
+    <value />
+    <comment>Select only .xml File</comment>
+  </data>
+  <data name="M_DELETEDDIAGNOSES" xml:space="preserve">
+    <value />
+    <comment>Deleted</comment>
+  </data>
+  <data name="M_DIAGNOSESUPLOADED" xml:space="preserve">
+    <value />
+    <comment>Diagnoses uploaded successfully.</comment>
+  </data>
+  <data name="M_INSERTEDDIAGNOSES" xml:space="preserve">
+    <value />
+    <comment>Inserted</comment>
+  </data>
+  <data name="M_UPDETEDDIAGNOSES" xml:space="preserve">
+    <value />
+    <comment>Updeted</comment>
+  </data>
+  <data name="M_UPLOADEDDIAGNOSES" xml:space="preserve">
+    <value />
+    <comment>Uploaded Diagnoses</comment>
+  </data>
+  <data name="M_DIAGNOSESSENT" xml:space="preserve">
+    <value />
+    <comment>Sent</comment>
+  </data>
+  <data name="L_DELETED" xml:space="preserve">
+    <value />
+    <comment>Deleted</comment>
+  </data>
+  <data name="M_HFUPLOADED" xml:space="preserve">
+    <value />
+    <comment>Health facilite(s) uploaded successfully.</comment>
+  </data>
+  <data name="M_UNEXPECTEDERRORONUPLOADHF" xml:space="preserve">
+    <value />
+    <comment>Unexpected Error when Uploading Health facities</comment>
+  </data>
+  <data name="M_UPLOADEDHF" xml:space="preserve">
+    <value />
+    <comment>Uploaded Health facilities</comment>
+  </data>
+  <data name="L_CONFILCTS" xml:space="preserve">
+    <value />
+    <comment>Conflicts</comment>
+  </data>
+  <data name="L_ERRORS" xml:space="preserve">
+    <value />
+    <comment>Errors</comment>
+  </data>
+  <data name="L_FATALERROR" xml:space="preserve">
+    <value />
+    <comment>Fatal Error</comment>
+  </data>
+  <data name="M_UNEXPECTEDERRORONUPLOADICD" xml:space="preserve">
+    <value />
+    <comment>Unexpected Error when Uploading Diagnoses</comment>
+  </data>
+  <data name="L_INSERTANDUPDATE" xml:space="preserve">
+    <value />
+    <comment>Insert and Update</comment>
+  </data>
+  <data name="L_INSERTONLY" xml:space="preserve">
+    <value />
+    <comment>Insert Only</comment>
+  </data>
+  <data name="L_INSERTUPDATEDELETE" xml:space="preserve">
+    <value />
+    <comment>Insert, Update and Delete</comment>
+  </data>
+  <data name="L_SELECTSTRATEGY" xml:space="preserve">
+    <value />
+    <comment>--Select Strategy--</comment>
+  </data>
+  <data name="L_UPDATEONLY" xml:space="preserve">
+    <value />
+    <comment>Update Only</comment>
+  </data>
+  <data name="L_CONFILCT" xml:space="preserve">
+    <value />
+    <comment>Conflict</comment>
+  </data>
+  <data name="L_ERROR" xml:space="preserve">
+    <value />
+    <comment>Error</comment>
+  </data>
+  <data name="B_DOWNLOADLOG" xml:space="preserve">
+    <value />
+    <comment>DownLoad  Log</comment>
+  </data>
+  <data name="L_FILENAME" xml:space="preserve">
+    <value />
+    <comment>File Name</comment>
+  </data>
+  <data name="L_LASTUPLOADLOG" xml:space="preserve">
+    <value />
+    <comment>Last Upload Log</comment>
+  </data>
+  <data name="L_REGISTER" xml:space="preserve">
+    <value />
+    <comment>Register</comment>
+  </data>
+  <data name="M_SELECTSTRATEGY" xml:space="preserve">
+    <value />
+    <comment>Please select strategy</comment>
+  </data>
+  <data name="T_UPLOADDOWNLOADREGISTERS" xml:space="preserve">
+    <value />
+    <comment>Upload/Download Registers</comment>
+  </data>
+  <data name="L_LASTUPLOADEDFILENAME" xml:space="preserve">
+    <value />
+    <comment>Last uploaded file Name</comment>
+  </data>
+  <data name="M_AREYOUSUREUPLOADHF" xml:space="preserve">
+    <value />
+    <comment>Are you sure you want to upload a new list of HF?</comment>
+  </data>
+  <data name="B_DownLoadMasterData" xml:space="preserve">
+    <value />
+    <comment>Download Master Data</comment>
+  </data>
+  <data name="L_DOWNLOADMASTERDATA" xml:space="preserve">
+    <value />
+    <comment>Download Master Data</comment>
+  </data>
+  <data name="T_REJECTEDDATE" xml:space="preserve">
+    <value />
+    <comment>Rejected Date</comment>
+  </data>
+  <data name="T_REJECTEDPHOTOS" xml:space="preserve">
+    <value />
+    <comment>Rejected Photos</comment>
+  </data>
+  <data name="T_TOTALREJECTEDPHOTOS" xml:space="preserve">
+    <value />
+    <comment>Total Rejected Photos</comment>
+  </data>
+  <data name="L_EXTR_UPLOADPHOTO" xml:space="preserve">
+    <value />
+    <comment>Upload Photos</comment>
+  </data>
+  <data name="B_DownLoadFeedback" xml:space="preserve">
+    <value />
+    <comment>Download Feedback</comment>
+  </data>
+  <data name="B_DownLoadRenewals" xml:space="preserve">
+    <value />
+    <comment>Download Renewals</comment>
+  </data>
+  <data name="M_NODATAFOUND" xml:space="preserve">
+    <value />
+    <comment>No Data</comment>
+  </data>
+  <data name="M_OFFICERNOTFOUND" xml:space="preserve">
+    <value />
+    <comment>Officer Not Found</comment>
+  </data>
+  <data name="B_UPLOADFEEDBACK" xml:space="preserve">
+    <value />
+    <comment>Upload Feedback</comment>
+  </data>
+  <data name="B_UPLOADRENEWAL" xml:space="preserve">
+    <value />
+    <comment>Upload Renewal</comment>
+  </data>
+  <data name="M_CLAIMNOTEXIST" xml:space="preserve">
+    <value />
+    <comment>Claim does not exist</comment>
+  </data>
+  <data name="M_DUPLICATEDRECEIPTFOUND" xml:space="preserve">
+    <value />
+    <comment>Duplicate receipt found</comment>
+  </data>
+  <data name="M_FEEDFILEACCEPTED" xml:space="preserve">
+    <value />
+    <comment>FeedBack  upload summary</comment>
+  </data>
+  <data name="M_GRACEPERIODISOVER" xml:space="preserve">
+    <value />
+    <comment>The grace perios of the given policy is over</comment>
+  </data>
+  <data name="M_INVALIDCHFID" xml:space="preserve">
+    <value />
+    <comment>Invalid CHFID</comment>
+  </data>
+  <data name="M_INVALIDFEEDBACKFILE" xml:space="preserve">
+    <value />
+    <comment>Invalid feedBack file</comment>
+  </data>
+  <data name="M_INVALIDOFFICERCODE" xml:space="preserve">
+    <value />
+    <comment>Invalid officer code</comment>
+  </data>
+  <data name="M_INVALIDRENEWALFILE" xml:space="preserve">
+    <value />
+    <comment>Invalid fenewal file</comment>
+  </data>
+  <data name="M_RENEWALUPLOADED" xml:space="preserve">
+    <value />
+    <comment>Renewal upload summary</comment>
+  </data>
+  <data name="L_ACCEPTED" xml:space="preserve">
+    <value />
+    <comment>Accepted</comment>
+  </data>
+  <data name="L_EXISTS" xml:space="preserve">
+    <value />
+    <comment>Exists</comment>
+  </data>
+  <data name="L_FAILED" xml:space="preserve">
+    <value />
+    <comment>Failed</comment>
+  </data>
+  <data name="L_REJECTED" xml:space="preserve">
+    <value />
+    <comment>Rejected</comment>
+  </data>
+  <data name="L_UPLOADFEEDBACK" xml:space="preserve">
+    <value />
+    <comment>Upload Feedback</comment>
+  </data>
+  <data name="L_UPLOADRENEWAL" xml:space="preserve">
+    <value />
+    <comment>Upload Renewal</comment>
+  </data>
+  <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
+    <value />
+    <comment>No Enrollment Found</comment>
   </data>
 </root>

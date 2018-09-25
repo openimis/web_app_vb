@@ -291,6 +291,26 @@ Public Class ReportDAL
         Return dt
     End Function
 
+    Public Function getRejectedPhoto(startDate As Date, endDate As Date) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = ""
+        sSQL = " ;WITH RejectedPhotos AS( "
+        sSQL += "SELECT CHFID, OfficerCode, "
+        sSQL += " Convert(VARCHAR(11), Convert(Date, SUBSTRING(SUBSTRING(SUBSTRING(DocName, CHARINDEX('_', DocName, 1) + 1,  LEN(DocName)-1), CHARINDEX('_', SUBSTRING(DocName, CHARINDEX('_', DocName, 1) + 1,  LEN(DocName)-1), 1) + 1,  LEN(SUBSTRING(DocName, CHARINDEX('_', DocName, 1) + 1,  LEN(DocName)-1))-1), 0, 9)),101) RejectedDate  FROM tblFromPhone WHERE DocType='E' AND DocStatus='R') "
+        sSQL += "SELECT CHFID, OfficerCode, RejectedDate FROM RejectedPhotos WHERE 1=1 "
+        If startDate.ToString().Length > 0 Then
+            sSQL += " AND RejectedDate >=@StartDate"
+        End If
+        If endDate.ToString().Length > 0 Then
+            sSQL += " AND RejectedDate <=@EndDate"
+        End If
+        sSQL += " ORDER BY OfficerCode ASC"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@StartDate", SqlDbType.Date, startDate)
+        data.params("@EndDate", SqlDbType.Date, endDate)
+        Return data.Filldata
+    End Function
+
     'Corrected
     Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?) As DataTable
         Dim Data As New ExactSQL

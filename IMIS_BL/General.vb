@@ -35,29 +35,7 @@ Public Class GeneralBL
     Public Function getMessage(ByVal MessageID As String) As String
         Return System.Web.HttpContext.GetGlobalResourceObject("Resource", MessageID)
     End Function
-    Public Function GetGender() As DataTable
 
-        Dim dtbl As New DataTable
-        dtbl.Columns.Add("Code")
-        dtbl.Columns.Add("Gender")
-        Dim dr As DataRow = dtbl.NewRow
-        dr("Code") = ""
-        dr("Gender") = getMessage("T_SELECTGENDER")
-        dtbl.Rows.Add(dr)
-        dr = dtbl.NewRow
-        dr("Code") = "M"
-        dr("Gender") = getMessage("T_MALE")
-        dtbl.Rows.Add(dr)
-        dr = dtbl.NewRow
-        dr("Code") = "F"
-        dr("Gender") = getMessage("T_FEMALE")
-        dtbl.Rows.Add(dr)
-        dr = dtbl.NewRow
-        dr("Code") = "O"
-        dr("Gender") = getMessage("T_OTHER")
-        dtbl.Rows.Add(dr)
-        Return dtbl
-    End Function
     Public Function GetMaritalStatus() As DataTable
 
         Dim dtbl As New DataTable
@@ -667,7 +645,11 @@ Public Class GeneralBL
         dv.RowFilter = "ResultType='FH' or ResultType='FI'"
         Dim dtFailed As DataTable = dv.ToTable
 
+        dv.RowFilter = "ResultType='IC'"
+        Dim dtinsertedCatchment As DataTable = dv.ToTable
 
+        dv.RowFilter = "ResultType='UC'"
+        Dim dtUpdatedCatchment As DataTable = dv.ToTable
 
 
         dv.RowFilter = "ResultType='E'"
@@ -826,6 +808,18 @@ Public Class GeneralBL
 
         End If
 
+        If regType = "HF" Then
+            If dtinsertedCatchment.Rows.Count > 0 Then
+                fileContent += dtinsertedCatchment.Rows(0)("Result").ToString() & " Catchment(s) inserted" & vbNewLine
+                fileContent += vbNewLine
+            End If
+
+            If dtUpdatedCatchment.Rows.Count > 0 Then
+                fileContent += dtUpdatedCatchment.Rows(0)("Result").ToString() & " Catchment(s) updated" & vbNewLine
+                fileContent += vbNewLine
+            End If
+
+        End If
 
 
         If dtError.Rows.Count > 0 Then

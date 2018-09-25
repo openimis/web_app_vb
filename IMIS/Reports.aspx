@@ -315,7 +315,9 @@ title='<%$ Resources:Resource,L_REPORTS%>' %>
          else if (tid == 18) {
              $criterias = $(".ca");
          }
-
+         else if (tid == 19) {
+             $criterias = $(".rp");
+         }
          if ($criterias != null) {
              $criterias.fadeIn(animationSpeed, function () {
                  $(this).show();
@@ -399,7 +401,7 @@ table tr td.FormLabel{width:auto;}
                             <li style="display:none">
                                 <asp:HiddenField ID="hfVisibleRegion" Value="" runat="server" />
                             </li>
-                            <li class="pc ua pco mf co perc fio pi rnw">
+                            <li class="pc ua pco mf co perc fio pi rnw rp">
                                 <asp:Label ID="lblSTART" runat="server" Text='<%$ Resources:Resource,L_DATEFROM %>' cssClass="FormLabel"></asp:Label>
 
                                 <asp:TextBox ID="txtSTARTData" runat="server" size="10" Width="80px" class="dateInput">
@@ -432,7 +434,7 @@ table tr td.FormLabel{width:auto;}
                                 <asp:DropDownList ID="ddlQuarter" runat="server" Width="80px" AutoPostBack="true"></asp:DropDownList>
                             </li>
 
-                            <li class="pc ua pco mf co perc fio pi rnw">
+                            <li class="pc ua pco mf co perc fio pi rnw rp">
                                 <asp:Label ID="lblEND" runat="server" Text='<%$ Resources:Resource,L_DATETO %>' cssClass="FormLabel" ></asp:Label>
                                 <asp:TextBox ID="txtENDData" Width="80px" runat="server" Size="10" class=" dateInput">
                                 </asp:TextBox>

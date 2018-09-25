@@ -86,6 +86,16 @@ Public Class PremiumBL
             End If
         End If
 
+        'Amani & Hiren 11/05
+
+        If ePremium.tblPolicy.PolicyStatus = 4 Then
+            policy.UpdatePolicy(ePremium.tblPolicy)
+            Return res
+        End If
+
+
+
+
         If Not ePremium.tblPolicy.PolicyStatus Is Nothing And ((ePremium.tblPolicy.EffectiveDate = ePremium.PayDate) Or (ePremium.tblPolicy.EffectiveDate = ePremium.tblPolicy.StartDate)) Then 'should execute only in inforcing the policy
             If Not ePremium.tblPolicy.isOffline Then
                 If Not IsOffline Then

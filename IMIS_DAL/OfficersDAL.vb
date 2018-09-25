@@ -378,4 +378,15 @@ Public Class OfficersDAL
         data.params("@OfficerId", SqlDbType.Int, OfficerId)
         Return data.Filldata
     End Function
+
+    Public Function OfficerCodeExists(ByVal OfficerCode As String) As Boolean
+        Dim data As New ExactSQL
+        Dim sSQL As String = String.Empty
+        sSQL = "SELECT OfficerID FROM tblOfficer WHERE Code = @OfficerCode AND ValidityTo IS NULL"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@OfficerCode", SqlDbType.NVarChar, 8, OfficerCode)
+        Dim dt As New DataTable
+        dt = data.Filldata
+        Return dt.Rows.Count > 0
+    End Function
 End Class

@@ -53,18 +53,18 @@ Public Class ICDCodesDAL
     'End Function
     Public Function DownLoadDiagnosisXML() As DataTable
         Dim sSQL As String
-        sSQL = "SELECT ICDCode,ICDName FROM tblICDCodes WHERE ValidityTo IS NULL"
+        sSQL = "SELECT ICDCode DiagnosisCode,ICDName DiagnosisName  FROM tblICDCodes WHERE ValidityTo IS NULL"
         sSQL += " FOR XML PATH('Diagnosis'),ROOT('Diagnoses'),TYPE"
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.Filldata
     End Function
 
-    Public Function UploadICDXML(ByVal FilePath As String, ByVal StrategyId As Integer, ByVal AuditUserID As Integer, ByRef dtResult As DataTable, Optional ByVal dryRun As Boolean = 0) As Dictionary(Of String, Integer)
+    Public Function UploadICDXML(ByVal Xml As System.Xml.XmlDocument, ByVal StrategyId As Integer, ByVal AuditUserID As Integer, ByRef dtResult As DataTable, Optional ByVal dryRun As Boolean = 0) As Dictionary(Of String, Integer)
         Dim data As New ExactSQL
         Dim sSQL As String = "uspUploadDiagnosisXML"
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        data.params("@File", SqlDbType.NVarChar, 255, FilePath)
+        data.params("@XML", Xml.InnerXml)
         data.params("@StrategyId", StrategyId)
         data.params("@AuditUserID", AuditUserID)
         data.params("@DryRun", dryRun)

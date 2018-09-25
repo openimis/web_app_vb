@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Xml
+
 Public Class HealthFacilityBL
     Private imisgen As New GeneralBL
     Public Sub DeleteHealthFacility(ByRef eHF As IMIS_EN.tblHF)
@@ -158,7 +160,7 @@ Public Class HealthFacilityBL
             dtbl.Rows.Add(dr)
 
         End If
-        
+
         Return dtbl
     End Function
     Public Function GetHFLevelType(Optional ByVal showSelect As Boolean = False) As DataTable
@@ -228,7 +230,7 @@ Public Class HealthFacilityBL
 
         Return dt
 
-     
+
     End Function
     Public Function GetFSPHF(DistrictId As Integer, HFLevel As String) As DataTable
         Dim HF As New IMIS_DAL.HealthFacilityDAL
@@ -247,7 +249,17 @@ Public Class HealthFacilityBL
     End Sub
     Public Function UploadHF(ByVal FilePath As String, ByVal StratergyId As Integer, ByVal AuditUserID As Integer, ByRef dtresult As DataTable, ByVal dryRun As Boolean, registerName As String, ByRef LogFile As String) As Dictionary(Of String, Integer)
         Dim DAL As New IMIS_DAL.HealthFacilityDAL
-        Dim dict As Dictionary(Of String, Integer) = DAL.UploadHF(FilePath, StratergyId, AuditUserID, dtresult, dryRun)
+
+        Dim XMLfile As New XmlDocument
+        XMLfile.Load(FilePath)
+
+        For Each node As XmlNode In XMLfile
+            If node.NodeType = XmlNodeType.XmlDeclaration Then
+                XMLfile.RemoveChild(node)
+            End If
+        Next
+
+        Dim dict As Dictionary(Of String, Integer) = DAL.UploadHF(XMLfile, StratergyId, AuditUserID, dtresult, dryRun)
 
         If dryRun = False Then
             LogFile = imisgen.CreateUploadRegisterLog(dtresult, registerName, StratergyId, System.IO.Path.GetFileName(FilePath), imisgen.getLoginName(HttpContext.Current.Session("User")))

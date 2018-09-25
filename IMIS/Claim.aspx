@@ -246,9 +246,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
         $(document).ready(function(){
             $('#<%=B_SAVE.ClientID %>').click(function() {
 
-
-               
-                if ($("#<%=txtCHFIDData.ClientID%>").val() == "" || $("#<%=txtCLAIMCODEData.ClientID%>").val() == "" || $("#<%=ddlICDData.ClientID%>").val() == 0 || $("#<%=ddlVisitType.ClientID%>").val() == 0) {
+                var isGuaranteeNoRequired = $("#<%= txtGuaranteeId.ClientID %>").hasClass("requiedField");
+                
+                if ($("#<%=txtCHFIDData.ClientID%>").val() == "" || $("#<%=txtCLAIMCODEData.ClientID%>").val() == "" || $("#<%=ddlICDData.ClientID%>").val() == 0 || $("#<%=ddlVisitType.ClientID%>").val() == 0 || isGuaranteeNoRequired) {
                         $('#<%=lblMsg.ClientID%>').html('<%= imisgen.getMessage("V_SUMMARY", True ) %>');
                                                return false;
                     }
@@ -561,7 +561,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                </td>
                <td class ="DataEntry">
                    <asp:Textbox ID="txtCHFIDData" runat="server" CssClass="check" size="11" MaxLength="12" 
-                       AutoPostBack ="true" Width="130px" ></asp:Textbox>
+                       AutoPostBack ="true" Width="125px" ></asp:Textbox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtCHFIDData" 
                        ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
@@ -607,7 +607,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    <asp:Label ID="lblCLAIMCODE" runat="server" Text='<%$ Resources:Resource,L_CLAIMCODE %>' ></asp:Label>
                </td>
                <td class ="DataEntry">
-                   <asp:TextBox ID="txtCLAIMCODEData" runat="server" size="10" MaxLength="8" Text="" Width="130px" ></asp:TextBox>
+                   <asp:TextBox ID="txtCLAIMCODEData" runat="server" size="10" MaxLength="8" Text="" Width="125px" ></asp:TextBox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtCLAIMCODEData" 
                        ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
@@ -683,14 +683,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
                   <td class="DataEntry">
                       <asp:TextBox ID="txtClaimAdminCode" runat="server" Enabled="false" 
                           width="135px"></asp:TextBox>
+                      
                   </td>
                   <td class="FormLabel" style="width:400px;">
                       <asp:Label ID="lblGurantee" runat="server" 
                           Text="<%$ Resources:Resource,L_GUARANTEE %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:TextBox ID="txtGuaranteeId" runat="server" Enabled="true" width="135px" 
+                      <asp:TextBox ID="txtGuaranteeId" runat="server" Enabled="true" width="125px" 
                           MaxLength="50"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="rfGuranteeId" runat="server" ErrorMessage="*" 
+                          ControlToValidate="txtGuaranteeId" ValidationGroup="check" Visible="true"></asp:RequiredFieldValidator>
                   </td>
                   <td class="FormLabel" style="width:400px;">
                     <asp:Label ID="lblVisitType" runat="server" Text="<%$ Resources:Resource,L_VISITTYPE %>"></asp:Label>

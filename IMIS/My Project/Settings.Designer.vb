@@ -57,7 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://localhost:52239/IMISServices.asmx")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://localhost:53277/IMISServices.asmx")>  _
         Public ReadOnly Property IMIS_IMISService_Service1() As String
             Get
                 Return CType(Me("IMIS_IMISService_Service1"),String)

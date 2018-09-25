@@ -1038,6 +1038,29 @@ Partial Public Class Reports
         Return True
     End Function
 
+    Private Function getRejectedPhoto()
+
+        Dim StartDate As Date
+        Dim EndDate As Date
+
+
+        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+
+        dt = reports.getRejectedPhoto(StartDate, EndDate)
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
+            Return True
+        Else
+            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
+            hfCompleted.Value = 0
+            Return False
+        End If
+
+        Return dt
+    End Function
+
     Private Function getCapitationPayment()
         Dim sSubTitle As String = ""
         Dim dtCapitation As DataTable
@@ -1239,6 +1262,10 @@ Partial Public Class Reports
                 If Not getCapitationPayment() Then Exit Sub
                 Session("Report") = dt
                 url = "Report.aspx?r=ca&tid=18"
+            ElseIf SelectedValueID = 19 Then
+                If Not getRejectedPhoto() Then Exit Sub
+                Session("Report") = dt
+                url = "Report.aspx?r=rp&tid=19"
             End If
 
 

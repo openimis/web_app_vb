@@ -30,6 +30,7 @@ Imports System.IO
 Imports System.Text
 Imports System.Security.Cryptography
 Imports System.Data.SqlClient
+Imports System.Xml
 
 
 Public Class IMISExtractsDAL
@@ -139,8 +140,8 @@ Public Class IMISExtractsDAL
         '  data.params("@LocationId", SqlDbType.Int, DistrictID)
         data.params("@RowID", SqlDbType.BigInt, RowID)
 
-        ' dsResult = data.FilldataSet()
-        dtLocation = data.Filldata
+
+        dtLocation = data.Filldata()
         'dtRegion = data.Filldata(0)
         'dtDistricts = dsResult.Tables(1)
         'dtWards = dsResult.Tables(2)
@@ -155,6 +156,7 @@ Public Class IMISExtractsDAL
         data.params("@LocationId", SqlDbType.Int, DistrictID)
         data.params("@RowID", SqlDbType.BigInt, RowID)
 
+
         dsResult = data.FilldataSet()
 
         dtItems = dsResult.Tables(0)
@@ -165,16 +167,17 @@ Public Class IMISExtractsDAL
         dtPLServicesDetails = dsResult.Tables(5)
 
 
+
         Return True
     End Function
-    Public Function GetExportOfflineExtract3(ByRef eExtractInfo As IMIS_EN.eExtractInfo, ByVal RowID As Int64, ByRef dtICD As DataTable, ByRef dtHF As DataTable, ByRef dtPayer As DataTable, ByRef dtOfficer As DataTable, ByRef dtProduct As DataTable, ByRef dtProductItems As DataTable, ByRef dtProductServices As DataTable, ByRef dtRelDistr As DataTable, ByRef dtClaimAdmin As DataTable, ByRef dtOfficerVillage As DataTable) As Boolean
+    Public Function GetExportOfflineExtract3(ByRef eExtractInfo As IMIS_EN.eExtractInfo, ByVal RowID As Int64, ByRef dtICD As DataTable, ByRef dtHF As DataTable, ByRef dtPayer As DataTable, ByRef dtOfficer As DataTable, ByRef dtProduct As DataTable, ByRef dtProductItems As DataTable, ByRef dtProductServices As DataTable, ByRef dtRelDistr As DataTable, ByRef dtClaimAdmin As DataTable, ByRef dtOfficerVillage As DataTable, ByRef dtGenders As DataTable, ByVal isFullExtract As Boolean) As Boolean
 
         Dim dsResult As New DataSet
         data.setSQLCommand("uspExportOffLineExtract3", CommandType.StoredProcedure, timeout:=0)
         data.params("@RegionId", SqlDbType.Int, eExtractInfo.RegionId)
         data.params("@DistrictId", SqlDbType.Int, eExtractInfo.DistrictId)
         data.params("@RowID", SqlDbType.BigInt, RowID)
-
+        data.params("@isFullExtract", SqlDbType.Bit, isFullExtract)
         dsResult = data.FilldataSet()
 
         dtICD = dsResult.Tables(0)
@@ -187,6 +190,7 @@ Public Class IMISExtractsDAL
         dtRelDistr = dsResult.Tables(7)
         dtClaimAdmin = dsResult.Tables(8)
         dtOfficerVillage = dsResult.Tables(9)
+        dtGenders = dsResult.Tables(10)
 
         Return True
     End Function
@@ -295,6 +299,7 @@ Public Class IMISExtractsDAL
         'data.params("@VillagesIns", SqlDbType.Int, Nothing, ParameterDirection.Output)
         'data.params("@VillagesUpd", SqlDbType.Int, Nothing, ParameterDirection.Output)
         data.params("@xLocations", dtLocations)
+
         'data.params("@xtDistricts", dtDistricts)
         'data.params("@xtWards", dtWards)
         'data.params("@xtVillages", dtVillages)
@@ -335,6 +340,7 @@ Public Class IMISExtractsDAL
         data.params("@xtPLItemsDetail", dtPLItemsDetails)
         data.params("@xtPLServicesDetail", dtPLServicesDetails)
 
+
         dsResult = data.FilldataSet()
 
         eExtractInfo.ItemsIns = data.sqlParameters("@ItemsIns")
@@ -352,7 +358,7 @@ Public Class IMISExtractsDAL
 
         Return True
     End Function
-    Public Function ImportOfflineExtract3(ByRef eExtractInfo As IMIS_EN.eExtractInfo, ByRef dtICD As DataTable, ByRef dtHF As DataTable, ByRef dtPayer As DataTable, ByRef dtOfficer As DataTable, ByRef dtProduct As DataTable, ByRef dtProductItems As DataTable, ByRef dtProductServices As DataTable, ByRef dtRelDistr As DataTable, ByRef dtClaimAdmin As DataTable, ByRef dtOfficerVillage As DataTable) As Boolean
+    Public Function ImportOfflineExtract3(ByRef eExtractInfo As IMIS_EN.eExtractInfo, ByRef dtICD As DataTable, ByRef dtHF As DataTable, ByRef dtPayer As DataTable, ByRef dtOfficer As DataTable, ByRef dtProduct As DataTable, ByRef dtProductItems As DataTable, ByRef dtProductServices As DataTable, ByRef dtRelDistr As DataTable, ByRef dtClaimAdmin As DataTable, ByRef dtOfficerVillage As DataTable, ByRef dtGender As DataTable) As Boolean
         Dim dsResult As New DataSet
         data.setSQLCommand("uspImportOffLineExtract3", CommandType.StoredProcedure, timeout:=0)
         data.params("@HFID", SqlDbType.Int, eExtractInfo.HFID)
@@ -391,6 +397,7 @@ Public Class IMISExtractsDAL
         data.params("@xtRelDistr", dtRelDistr)
         data.params("@xtClaimAdmin", dtClaimAdmin)
         data.params("@xtVillageOfficer", dtOfficerVillage)
+        data.params("@xGender", dtGender)
 
         dsResult = data.FilldataSet()
 
@@ -539,12 +546,12 @@ Public Class IMISExtractsDAL
         Return data.Filldata
 
     End Function
-    Public Sub SubmitClaimFromXML(ByVal FileName As String)
+    Public Sub SubmitClaimFromXML(ByVal Xml As XmlDocument)
         Dim data As New ExactSQL
         Dim sSQL As String = "uspUpdateClaimFromPhone"
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        data.params("@FileName", SqlDbType.NVarChar, 255, FileName)
+        data.params("@XML", Xml.InnerXml)
 
         data.ExecuteCommand()
     End Sub
@@ -576,13 +583,15 @@ Public Class IMISExtractsDAL
 
         data.ExecuteCommand()
     End Sub
-    
-    Public Function UploadEnrolments(ByVal File As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
+
+    Public Function UploadEnrolments(ByVal Xml As XmlDocument, ByVal Output As Dictionary(Of String, Integer)) As DataTable
         Dim data As New ExactSQL
-        Dim sSQL As String = "uspUploadEnrolments"
+        Dim sSQL As String = String.Empty
+        sSQL = "uspUploadEnrolments"
+
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        data.params("@File", SqlDbType.NVarChar, 300, File)
+        data.params("@XML", Xml.InnerXml)
         data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         data.params("@FamilySent", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@InsureeSent", SqlDbType.Int, 0, ParameterDirection.Output)
@@ -598,14 +607,63 @@ Public Class IMISExtractsDAL
 
 
 
-        Output("FamilySent") = data.sqlParameters("@FamilySent")
-        Output("InsureeSent") = data.sqlParameters("@InsureeSent")
-        Output("PolicySent") = data.sqlParameters("@PolicySent")
-        Output("PremiumSent") = data.sqlParameters("@PremiumSent")
-        Output("FamilyImported") = data.sqlParameters("@FamilyImported")
-        Output("InsureeImported") = data.sqlParameters("@InsureeImported")
-        Output("PolicyImported") = data.sqlParameters("@PolicyImported")
-        Output("PremiumImported") = data.sqlParameters("@PremiumImported")
+        Output("FamilySent") = If(data.sqlParameters("@FamilySent") Is DBNull.Value, 0, data.sqlParameters("@FamilySent"))
+        Output("InsureeSent") = If(data.sqlParameters("@InsureeSent") Is DBNull.Value, 0, data.sqlParameters("@InsureeSent"))
+        Output("PolicySent") = If(data.sqlParameters("@PolicySent") Is DBNull.Value, 0, data.sqlParameters("@PolicySent"))
+        Output("PremiumSent") = If(data.sqlParameters("@PremiumSent") Is DBNull.Value, 0, data.sqlParameters("@PremiumSent"))
+        Output("FamilyImported") = If(data.sqlParameters("@FamilyImported") Is DBNull.Value, 0, data.sqlParameters("@FamilyImported"))
+        Output("InsureeImported") = If(data.sqlParameters("@InsureeImported") Is DBNull.Value, 0, data.sqlParameters("@InsureeImported"))
+        Output("PolicyImported") = If(data.sqlParameters("@PolicyImported") Is DBNull.Value, 0, data.sqlParameters("@PolicyImported"))
+        Output("PremiumImported") = If(data.sqlParameters("@PremiumImported") Is DBNull.Value, 0, data.sqlParameters("@PremiumImported"))
+        Output("ResultTyple") = 1 'Offline CHF Result Type
+        Return dt
+    End Function
+
+    Public Function ConsumeEnrollment(ByVal Xml As XmlDocument, ByVal Output As Dictionary(Of String, Integer)) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = String.Empty
+        sSQL = "uspConsumeEnrollments"
+
+
+        data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+        data.params("@XML", Xml.InnerXml)
+        data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        data.params("@FamilySent", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@FamilyImported", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@FamiliesUpd", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@FamilyRejected", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@InsureeSent", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@InsureeUpd", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@InsureeImported", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@PolicySent", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@PolicyImported", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@PolicyChanged", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@PolicyRejected", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@PremiumSent", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@PremiumImported", SqlDbType.Int, 0, ParameterDirection.Output)
+        data.params("@PremiumRejected", SqlDbType.Int, 0, ParameterDirection.Output)
+        'get the last datatable which is result table
+        Dim ds As DataSet = data.FilldataSet()
+        Dim dt As DataTable = ds.Tables(ds.Tables.Count - 1)
+
+
+        Output("FamilySent") = If(data.sqlParameters("@FamilySent") Is DBNull.Value, 0, data.sqlParameters("@FamilySent"))
+        Output("FamilyImported") = If(data.sqlParameters("@FamilyImported") Is DBNull.Value, 0, data.sqlParameters("@FamilyImported"))
+        Output("FamiliesUpd") = If(data.sqlParameters("@FamiliesUpd") Is DBNull.Value, 0, data.sqlParameters("@FamiliesUpd"))
+        Output("PremiumSent") = If(data.sqlParameters("@PremiumSent") Is DBNull.Value, 0, data.sqlParameters("@PremiumSent"))
+        Output("FamilyImported") = If(data.sqlParameters("@FamilyImported") Is DBNull.Value, 0, data.sqlParameters("@FamilyImported"))
+        Output("FamilyRejected") = If(data.sqlParameters("@FamilyRejected") Is DBNull.Value, 0, data.sqlParameters("@FamilyRejected"))
+        Output("InsureeSent") = If(data.sqlParameters("@InsureeSent") Is DBNull.Value, 0, data.sqlParameters("@InsureeSent"))
+        Output("InsureeUpd") = If(data.sqlParameters("@InsureeUpd") Is DBNull.Value, 0, data.sqlParameters("@InsureeUpd"))
+        Output("InsureeImported") = If(data.sqlParameters("@InsureeImported") Is DBNull.Value, 0, data.sqlParameters("@InsureeImported"))
+        Output("PolicySent") = If(data.sqlParameters("@PolicySent") Is DBNull.Value, 0, data.sqlParameters("@PolicySent"))
+        Output("PolicyImported") = If(data.sqlParameters("@PolicyImported") Is DBNull.Value, 0, data.sqlParameters("@PolicyImported"))
+        Output("PolicyChanged") = If(data.sqlParameters("@PolicyChanged") Is DBNull.Value, 0, data.sqlParameters("@PolicyChanged"))
+        Output("PolicyRejected") = If(data.sqlParameters("@PolicyRejected") Is DBNull.Value, 0, data.sqlParameters("@PolicyRejected"))
+        Output("PremiumSent") = If(data.sqlParameters("@PremiumSent") Is DBNull.Value, 0, data.sqlParameters("@PremiumSent"))
+        Output("PremiumImported") = If(data.sqlParameters("@PremiumImported") Is DBNull.Value, 0, data.sqlParameters("@PremiumImported"))
+        Output("PremiumRejected") = If(data.sqlParameters("@PremiumRejected") Is DBNull.Value, 0, data.sqlParameters("@PremiumRejected"))
+        Output("ResultTyple") = 2 ' Offline Phone Result Type
         Return dt
     End Function
 
@@ -631,5 +689,87 @@ Public Class IMISExtractsDAL
         data.params("@LocationId", SqlDbType.Int, LocationId)
         Dim dt As DataTable = data.Filldata
         Return If(dt.Rows(0)("ExtractSequence") Is DBNull.Value, 1, dt.Rows(0)("ExtractSequence") + 1)
+    End Function
+
+    Public Function getRenewals(ByVal OfficerCode As String) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = "uspGetPolicyRenewals"
+        data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+        data.params("@OfficerCode", SqlDbType.NVarChar, 8, OfficerCode)
+        Return data.Filldata()
+    End Function
+
+    Public Function getFeedback(ByVal OfficerCode As String) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = ""
+        sSQL = "SELECT F.ClaimId,F.OfficerId,O.Code OfficerCode, I.CHFID, I.LastName, I.OtherNames, HF.HFCode, HF.HFName,C.ClaimCode,CONVERT(NVARCHAR(10),C.DateFrom,103)DateFrom, CONVERT(NVARCHAR(10),C.DateTo,103)DateTo,O.Phone, CONVERT(NVARCHAR(10),F.FeedbackPromptDate,103)FeedbackPromptDate"
+        sSQL += " FROM tblFeedbackPrompt F INNER JOIN tblOfficer O ON F.OfficerId = O.OfficerId"
+        sSQL += " INNER JOIN tblClaim C ON F.ClaimId = C.ClaimId"
+        sSQL += " INNER JOIN tblInsuree I ON C.InsureeId = I.InsureeId"
+        sSQL += " INNER JOIN tblHF HF ON C.HFID = HF.HFID"
+        sSQL += " WHERE F.ValidityTo Is NULL AND O.ValidityTo IS NULL"
+        sSQL += " AND O.Code = @OfficerCode"
+        sSQL += " AND C.FeedbackStatus = 4"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@OfficerCode", SqlDbType.NVarChar, 8, OfficerCode)
+        Return data.Filldata()
+    End Function
+
+    Public Function UploadFeedBackFromPhone(filename As XmlDocument) As Integer
+        Dim data As New ExactSQL
+        Dim Cmd As New SqlCommand()
+        Dim result As New SqlParameter()
+        result.Direction = ParameterDirection.ReturnValue
+        result.ParameterName = "ReturnValue"
+        Cmd.Parameters.Add(result)
+        Cmd.Parameters.Add(New SqlParameter("@XML", filename.InnerXml))
+        Cmd.CommandText = "uspInsertFeedback"
+        Cmd.CommandType = CommandType.StoredProcedure
+        data.setSQLCommand(Cmd)
+        data.ExecuteCommand()
+        Dim rv As Integer = Integer.Parse(Cmd.Parameters("ReturnValue").Value())
+        Return rv
+    End Function
+
+    Public Function UploadRenewalFromPhone(xmlfile As XmlDocument, FileName As String) As Integer
+        Dim data As New ExactSQL
+        Dim Cmd As New SqlCommand()
+        Dim result As New SqlParameter()
+        result.Direction = ParameterDirection.ReturnValue
+        result.ParameterName = "ReturnValue"
+        Cmd.Parameters.Add(result)
+        Cmd.Parameters.Add(New SqlParameter("@FileName", FileName))
+        Cmd.Parameters.Add(New SqlParameter("@XML", xmlfile.InnerXml))
+
+        Cmd.CommandText = "uspIsValidRenewal"
+        Cmd.CommandType = CommandType.StoredProcedure
+        data.setSQLCommand(Cmd)
+        data.ExecuteCommand()
+        Dim rv As Integer = Integer.Parse(Cmd.Parameters("ReturnValue").Value())
+        Return rv
+    End Function
+
+    Public Function DownLoadMAsterData() As DataSet
+        Dim sSQL As String = "SELECT ConfirmationTypeCode, ConfirmationType, SortOrder, AltLanguage FROM tblConfirmationTypes; "
+        sSQL += " SELECT FieldName, Adjustibility FROM tblControls"
+        sSQL += " SELECT EducationId, Education, SortOrder, AltLanguage FROM tblEducations;"
+        sSQL += " SELECT FamilyTypeCode, FamilyType, SortOrder, AltLanguage FROM tblFamilyTypes;"
+        sSQL += " SELECT HFID, HFCode, HFName, LocationId, HFLevel FROM tblHF WHERE ValidityTo IS NULL;"
+        sSQL += " SELECT IdentificationCode, IdentificationTypes, SortOrder, AltLanguage FROM tblIdentificationTypes;"
+        sSQL += " SELECT LanguageCode, LanguageName, SortOrder FROM tblLanguages;"
+        sSQL += " SELECT LocationId, LocationCode, LocationName, ParentLocationId, LocationType FROM tblLocations WHERE ValidityTo IS NULL AND NOT(LocationName='Funding' OR LocationCode='FR' OR LocationCode='FD' OR LocationCode='FW' OR LocationCode='FV');"
+        sSQL += " SELECT OfficerId, Code, LastName, OtherNames, Phone, LocationId, OfficerIDSubst, FORMAT(WorksTo, 'yyyy-MM-dd')WorksTo FROM tblOfficer WHERE ValidityTo IS NULL"
+        sSQL += " SELECT payerId, PayerName, LocationId FROM tblPayer WHERE ValidityTo IS NULL"
+        sSQL += " SELECT ProdId, ProductCode, ProductName, LocationId, InsurancePeriod, FORMAT(DateFrom, 'yyyy-MM-dd')DateFrom, FORMAT(DateTo, 'yyyy-MM-dd')DateTo, ConversionProdId , Lumpsum,"
+        sSQL += " MemberCount, PremiumAdult, PremiumChild, RegistrationLumpsum, RegistrationFee, GeneralAssemblyLumpSum, GeneralAssemblyFee,"
+        sSQL += " StartCycle1, StartCycle2, StartCycle3, StartCycle4, GracePeriodRenewal, MaxInstallments, WaitingPeriod, Threshold,"
+        sSQL += " RenewalDiscountPerc, RenewalDiscountPeriod, AdministrationPeriod, EnrolmentDiscountPerc, EnrolmentDiscountPeriod, GracePeriod"
+        sSQL += " FROM tblProduct WHERE ValidityTo IS NULL"
+        sSQL += " SELECT ProfessionId, Profession, SortOrder, AltLanguage FROM tblProfessions"
+        sSQL += " SELECT Relationid, Relation, SortOrder, AltLanguage FROM tblRelations"
+        sSQL += " SELECT RuleName, RuleValue FROM tblIMISDetaulsPhone;"
+        sSQL += " SELECT Code, Gender, AltLanguage,SortOrder FROM tblGender"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        Return data.FilldataSet()
     End Function
 End Class

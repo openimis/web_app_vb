@@ -130,8 +130,8 @@ Public Class ReportBL
         dict.Add(getMessage("T_FAMILIESINSUREESOVERVIEW"), IMIS_EN.Enums.Rights.FamiliesInsureesOverview) 'id = 15
         dict.Add(getMessage("T_PENDINGINSUREES"), IMIS_EN.Enums.Rights.PendingInsurees) 'id = 16
         dict.Add(getMessage("T_RENEWALS"), IMIS_EN.Enums.Rights.Renewals)    'id = 17
-
         dict.Add(getMessage("T_CAPITATIONPAYMENT"), IMIS_EN.Enums.Rights.CapitationPayment)  'Id = 18
+        dict.Add(getMessage("T_REJECTEDPHOTOS"), IMIS_EN.Enums.Rights.RejectedPhoto)  'Id = 19
 
         Dim dr As DataRow
         Dim index As Integer = 1
@@ -205,6 +205,12 @@ Public Class ReportBL
 
         Return dt
     End Function
+
+    Public Function getRejectedPhoto(startDate As Date, endDate As Date) As DataTable
+        Dim Rep As New IMIS_DAL.ReportDAL
+        Return Rep.getRejectedPhoto(startDate, endDate)
+    End Function
+
     Public Function GetPendingInsurees(ByVal DistrictId As Integer, ByVal OfficerId As Integer?, ByVal StartDate As Date, ByVal EndDate As Date)
         Dim Rep As New IMIS_DAL.ReportDAL
         Return Rep.GetPendingInsurees(DistrictId, OfficerId, StartDate, EndDate)

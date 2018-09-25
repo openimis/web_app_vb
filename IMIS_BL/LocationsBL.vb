@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Xml
+
 Public Class LocationsBL
     Private imisgen As New GeneralBL
     Public Function GetDistricts(ByVal userID As Integer, ByVal showSelect As Boolean, ByVal RegionId As Integer, Optional EnforceSelect As Boolean = False) As DataTable
@@ -110,7 +112,17 @@ Public Class LocationsBL
 
     Public Function UploadLocationsXML(ByVal File As String, ByVal StratergyId As Integer, ByVal AuditUserID As Integer, ByRef dtresult As DataTable, ByVal dryRun As Boolean, registerName As String, ByRef LogFile As String) As Dictionary(Of String, Integer)
         Dim Locations As New IMIS_DAL.LocationsDAL
-        Dim dict As Dictionary(Of String, Integer) = Locations.UploadLocationsXML(File, StratergyId, AuditUserID, dtresult, dryRun)
+
+        Dim XMLfile As New XmlDocument
+        XMLfile.Load(File)
+
+        For Each node As XmlNode In XMLfile
+            If node.NodeType = XmlNodeType.XmlDeclaration Then
+                XMLfile.RemoveChild(node)
+            End If
+        Next
+
+        Dim dict As Dictionary(Of String, Integer) = Locations.UploadLocationsXML(XMLfile, StratergyId, AuditUserID, dtresult, dryRun)
 
         If dryRun = False Then
             LogFile = imisgen.CreateUploadRegisterLog(dtresult, registerName, StratergyId, System.IO.Path.GetFileName(File), imisgen.getLoginName(HttpContext.Current.Session("User")), "Locations")

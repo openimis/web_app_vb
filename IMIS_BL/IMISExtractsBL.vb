@@ -36,7 +36,9 @@ Imports System.Configuration
 Imports System.Web
 Imports System.Threading
 Imports SevenZip
-
+Imports System.Xml
+Imports System.Web.Script.Serialization
+Imports IMIS_EN
 
 Public Class IMISExtractsBL
 
@@ -46,7 +48,7 @@ Public Class IMISExtractsBL
 
     Private Const DESKEY As String = ":-+A7V@="
     Private Const RARPWD As String = ")(#$1HsD"
-    
+
     Private dtblIn As New DataTable
     Private dtblOut As New DataTable
     Private Proc As New Process
@@ -133,6 +135,35 @@ Public Class IMISExtractsBL
 
     End Sub
 
+    Public Sub ZipPhoneData(ByVal strDestFolder As String, ByVal strDestFileName As String, ByVal strSrcFolder As String, ByVal strSrcFilter As String)
+        Dim cmd As String = ""
+        'Folders must have the last '\' character
+        'cmd = "a -p" & RARPWD & " """ & strDestFolder & strDestFileName & """ """ & strSrcFolder & strSrcFilter & """"
+        'StartProcess(WinRarFolder, cmd)
+
+        If IntPtr.Size = 8 Then 'If 64 bit
+            SevenZipBase.SetLibraryPath(System.AppDomain.CurrentDomain.RelativeSearchPath & "\7z64.dll")
+        Else
+            SevenZipBase.SetLibraryPath(System.AppDomain.CurrentDomain.RelativeSearchPath & "\7z.dll")
+        End If
+
+        Dim Compressor As New SevenZipCompressor
+        With Compressor
+            .ArchiveFormat = OutArchiveFormat.Zip
+            .CompressionMode = CompressionMode.Create
+            .CompressionMethod = CompressionMethod.Default
+            .DirectoryStructure = False
+            .CompressionLevel = CompressionLevel.Normal
+        End With
+
+
+        'Compressor.CompressFilesEncrypted(strDestFolder & Path.DirectorySeparatorChar & strDestFileName, RARPWD, strSrcFolder)
+        If Directory.EnumerateFiles(strSrcFolder, strSrcFilter).ToArray().Length > 0 Then
+            Compressor.CompressFilesEncrypted(strDestFolder & Path.DirectorySeparatorChar & strDestFileName, RARPWD, Directory.EnumerateFiles(strSrcFolder, strSrcFilter).ToArray())
+        End If
+
+
+    End Sub
 
     Private Sub Unzip(ByVal strZippedFilename As String, ByVal strDestFolder As String)
         'Dim cmd As String = ""
@@ -162,6 +193,8 @@ Public Class IMISExtractsBL
 
     End Sub
 
+
+
     Private Sub StartProcess(ByVal WinRarFolder As String, ByVal cmd As String)
         Proc = New Process
 
@@ -186,7 +219,6 @@ Public Class IMISExtractsBL
 
 
     End Sub
-
 
 
     Private Function StrToBytes(ByVal str As String) As Byte()
@@ -442,7 +474,7 @@ Public Class IMISExtractsBL
             Using InsertCmd = New SQLiteCommand(con)
                 Using transaction = con.BeginTransaction
                     For Each row In dtExtractSource.Rows
-                        sSQL = "INSERT INTO tblPolicyInquiry(CHFID ,Photo , InsureeName, DOB, Gender, ProductCode, ProductName, ExpiryDate, Status, DedType, Ded1, Ded2, Ceiling1, Ceiling2)" & _
+                        sSQL = "INSERT INTO tblPolicyInquiry(CHFID ,Photo , InsureeName, DOB, Gender, ProductCode, ProductName, ExpiryDate, Status, DedType, Ded1, Ded2, Ceiling1, Ceiling2)" &
                        " VALUES(@CHFID,@image,@InsureeName,@DOB,@Gender,@ProductCode,@ProductName,@ExpiryDate,@Status,@DedType,@Ded1,@Ded2,@Ceiling1,@Ceiling2)"
                         InsertCmd.CommandText = sSQL
 
@@ -487,7 +519,7 @@ Public Class IMISExtractsBL
         Using InsertCmd = New SQLiteCommand(con)
             Using transaction = con.BeginTransaction
                 For Each row In dtReference.Rows
-                    sSQL = "INSERT INTO tblReferences([Code],[Name],[Type],[Price])" & _
+                    sSQL = "INSERT INTO tblReferences([Code],[Name],[Type],[Price])" &
                            " VALUES(@Code,@Name,@Type,@Price)"
 
                     InsertCmd.CommandText = sSQL
@@ -583,6 +615,7 @@ Public Class IMISExtractsBL
         Dim eDefaults As New IMIS_EN.tblIMISDefaults
         '1
         Dim dtLocations As New DataTable
+        Dim dtGenders As New DataTable
         'Dim dtRegions As New DataTable
         'Dim dtDistricts As New DataTable
         'Dim dtWards As New DataTable
@@ -647,10 +680,13 @@ Public Class IMISExtractsBL
                 eExtract.RowID = 0
             End If
 
+
             Extract.GetExportOfflineExtract1(eExtract.RowID, dtLocations)
             'now create the XML encrypted files in the FTP Folder 
 
             EncryptData(strFile & "/xLocations.xml", "Locations", dtLocations)
+
+
 
             'EncryptData(strFile & "/xRegions.xml", "Regions", dtRegions)
             'EncryptData(strFile & "/xDistricts.xml", "Districts", dtDistricts)
@@ -663,6 +699,7 @@ Public Class IMISExtractsBL
             'eExtractInfo.WardsCS = dtWards.Rows.Count
             'eExtractInfo.VillagesCS = dtVillages.Rows.Count
 
+
             Extract.GetExportOfflineExtract2(eExtractInfo.LocationId, eExtract.RowID, dtItems, dtServices, dtPLItems, dtPLItemsDetails, dtPLServices, dtPLServicesDetails)
             'now create the XML encrypted files in the FTP Folder 
             EncryptData(strFile & "/xItems.xml", "Items", dtItems)
@@ -671,6 +708,7 @@ Public Class IMISExtractsBL
             EncryptData(strFile & "/xPLItemsDetails.xml", "PLItemsDetails", dtPLItemsDetails)
             EncryptData(strFile & "/xPLServices.xml", "PLServices", dtPLServices)
             EncryptData(strFile & "/xPLServicesDetails.xml", "PLServicesDetails", dtPLServicesDetails)
+
             eExtractInfo.ItemsCS = dtItems.Rows.Count
             eExtractInfo.ServicesCS = dtServices.Rows.Count
             eExtractInfo.PLItemsCS = dtPLItems.Rows.Count
@@ -678,7 +716,8 @@ Public Class IMISExtractsBL
             eExtractInfo.PLServicesCS = dtPLServices.Rows.Count
             eExtractInfo.PLServicesDetailsCS = dtPLServicesDetails.Rows.Count
 
-            Extract.GetExportOfflineExtract3(eExtractInfo, eExtract.RowID, dtICD, dtHF, dtPayer, dtOfficer, dtProduct, dtProductItems, dtProductServices, dtRelDistr, dtClaimAdmin, dtOfficerVillage)
+            Dim isFullExtract As Boolean = eExtractInfo.ExtractType = 2
+            Extract.GetExportOfflineExtract3(eExtractInfo, eExtract.RowID, dtICD, dtHF, dtPayer, dtOfficer, dtProduct, dtProductItems, dtProductServices, dtRelDistr, dtClaimAdmin, dtOfficerVillage, dtGenders, isFullExtract)
             'now create the XML encrypted files in the FTP Folder 
             EncryptData(strFile & "/xICD.xml", "ICD", dtICD)
             EncryptData(strFile & "/xHF.xml", "HF", dtHF)
@@ -690,6 +729,7 @@ Public Class IMISExtractsBL
             EncryptData(strFile & "/xRelDistr.xml", "RelDistr", dtRelDistr)
             EncryptData(strFile & "/xClaimAdmin.xml", "ClaimAdmin", dtClaimAdmin)
             EncryptData(strFile & "/xOfficerVillage.xml", "OfficerVillage", dtOfficerVillage)
+            EncryptData(strFile & "/xGender.xml", "Genders", dtGenders)
 
             eExtractInfo.RegionCS = dtLocations.Select("LocationType='R'  AND ValidityTo IS NULL").Count
             eExtractInfo.DistrictsCS = dtLocations.Select("LocationType='D'  AND ValidityTo IS NULL").Count
@@ -869,6 +909,60 @@ Public Class IMISExtractsBL
         Return True
 
     End Function
+
+    Public Function ImportOffLinePhotosFromPhone(ByRef eExtractInfo As IMIS_EN.eExtractInfo) As Boolean
+        ImportOffLinePhotosFromPhone = False
+        Dim RandomFolderName As String = Path.GetRandomFileName
+        Dim UpdatedFolder As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("UpdatedFolder"))
+
+
+        Dim WorkingFolder As String = UpdatedFolder + RandomFolderName + "\"
+        Dim Insuree As New IMIS_DAL.InsureeDAL
+        'Create directory to extract photo
+        My.Computer.FileSystem.CreateDirectory(UpdatedFolder & RandomFolderName)
+        Unzip(HttpContext.Current.Server.MapPath("~/Extracts/Offline/" & eExtractInfo.ExtractFileName), WorkingFolder)
+        Dim Photos As String() = Directory.GetFiles(WorkingFolder, "*.jpg")
+        Dim Result As New DataTable
+        For i As Int16 = 0 To Photos.Count - 1
+            Dim FileName As String = Path.GetFileName(Photos(i))
+            If Insuree.InsureePhotoExists(FileName) Then
+                File.Move(WorkingFolder & FileName, UpdatedFolder & FileName)
+            End If
+        Next
+        Directory.Delete(WorkingFolder, True)
+        Return True
+    End Function
+
+    Private Sub UploadPhotosFromPhone(ByVal WorkingFolder As String, ByRef Sent As Integer, ByRef Accepted As Integer, ByRef Rejected As Integer)
+        Dim UpdatedFolder As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("UpdatedFolder"))
+        Dim SubmittedFolder As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("SubmittedFolder"))
+
+        Dim Insuree As New IMIS_DAL.InsureeDAL
+        'Create directory to extract photo
+        Sent = Accepted = Rejected = 0
+        Dim Photos As String() = Directory.GetFiles(WorkingFolder, "*.jpg")
+        Sent = Photos.Length
+        Dim Result As New DataTable
+        For i As Int16 = 0 To Photos.Count - 1
+            Dim FileName As String = Path.GetFileName(Photos(i))
+            If Insuree.InsureePhotoExists(FileName) Then
+                If File.Exists(UpdatedFolder & FileName) Then
+                    File.Delete(UpdatedFolder & FileName)
+                Else
+                    File.Move(WorkingFolder & "\" & FileName, UpdatedFolder & FileName)
+                End If
+                Accepted = Accepted + 1
+            Else
+                If File.Exists(SubmittedFolder & FileName) Then
+                    File.Delete(SubmittedFolder & FileName)
+                Else
+                    File.Move(WorkingFolder & "\" & FileName, SubmittedFolder & FileName)
+                End If
+                Rejected = Rejected + 1
+            End If
+        Next
+    End Sub
+
     Public Sub DeleteAllLocalRecords()
         Dim Ext As New IMIS_DAL.IMISExtractsDAL
         Ext.DeleteAllLocalRecords()
@@ -883,6 +977,7 @@ Public Class IMISExtractsBL
 
         '1'
         Dim dtLocations As New DataTable
+        Dim dtGenders As New DataTable
         'Dim dtRegions As New DataTable
         'Dim dtDistricts As New DataTable
         'Dim dtWards As New DataTable
@@ -1037,10 +1132,12 @@ Public Class IMISExtractsBL
 
             '1'
             dtLocations = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xLocations.xml"))
+            dtGenders = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xGender.xml"))
             'dtDistricts = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xDistricts.xml"))
             'dtWards = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xWards.xml"))
             'dtVillages = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xVillages.xml"))
             Extract.ImportOfflineExtract1(eExtractInfo, dtLocations)
+
 
             '2'
             dtServices = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xServices.xml"))
@@ -1063,7 +1160,7 @@ Public Class IMISExtractsBL
             dtClaimAdmin = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xClaimAdmin.xml"))
             dtOfficerVillage = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xOfficerVillage.xml"))
 
-            Extract.ImportOfflineExtract3(eExtractInfo, dtICD, dtHF, dtPayer, dtOfficer, dtProduct, dtProductItems, dtProductServices, dtRelDistr, dtClaimAdmin, dtOfficerVillage)
+            Extract.ImportOfflineExtract3(eExtractInfo, dtICD, dtHF, dtPayer, dtOfficer, dtProduct, dtProductItems, dtProductServices, dtRelDistr, dtClaimAdmin, dtOfficerVillage, dtGenders)
 
             '4'
             dtFamilies = DecryptData(HttpContext.Current.Server.MapPath("~/Extracts/Offline/WorkFolder/xFamilies.xml"))
@@ -1200,7 +1297,7 @@ Public Class IMISExtractsBL
         CollectPhotos = iPhotos
 
     End Function
-    
+
 
     Public Sub SubmitClaimFromXML(ByVal FileName As String)
         Dim Defaults As New IMIS_EN.tblIMISDefaults
@@ -1218,9 +1315,20 @@ Public Class IMISExtractsBL
         Dim XMLs As String() = Directory.GetFiles(WorkingFolder, "Claim_*.xml")
         Dim xml As String = ""
 
+
+        Dim XMLfile As New XmlDocument
+
+
+
         For i As Integer = 0 To XMLs.Count - 1
             'xml = Mid(XMLs(i), XMLs(i).LastIndexOf("\") + 2, XMLs(i).Length)
-            Extracts.SubmitClaimFromXML(XMLs(i))
+            XMLfile.Load(XMLs(i))
+            For Each node As XmlNode In XMLfile
+                If node.NodeType = XmlNodeType.XmlDeclaration Then
+                    XMLfile.RemoveChild(node)
+                End If
+            Next
+            Extracts.SubmitClaimFromXML(XMLfile)
             File.Delete(XMLs(i))
         Next
 
@@ -1277,6 +1385,7 @@ Public Class IMISExtractsBL
         MoveXMLsToArhive()
 
     End Sub
+
     Private Sub MoveXMLsToArhive()
         Dim XMLs As String()
         XMLs = Directory.GetFiles(HttpContext.Current.Server.MapPath("Workspace"), "Enrolment_*.xml")
@@ -1321,7 +1430,29 @@ Public Class IMISExtractsBL
         Dim Result As New DataTable
 
         If XMLs.Count > 0 Then
-            Result = Extracts.UploadEnrolments(XMLs(0), Output)
+            Dim xmlDoc As New XmlDocument()
+            xmlDoc.Load((XMLs(0)))
+            For Each node As XmlNode In xmlDoc
+                If node.NodeType = XmlNodeType.XmlDeclaration Then
+                    xmlDoc.RemoveChild(node)
+                End If
+            Next
+
+            Dim nodeList As XmlNodeList = xmlDoc.DocumentElement.SelectNodes("/Enrolment/FileInfo")
+            Dim UserId As Int16
+            For Each node As XmlNode In nodeList
+                UserId = Int32.Parse(node.SelectSingleNode("UserId").InnerText)
+            Next
+            If UserId = -2 Then
+                Result = Extracts.ConsumeEnrollment(xmlDoc, Output)
+                Dim Sent, Accepted, Rejected As Integer
+                UploadPhotosFromPhone(WorkingDirectoryPath, Sent, Accepted, Rejected)
+                Output("PhotoSent") = Sent
+                Output("PhotoAccepted") = Accepted
+                Output("PhotoRejected") = Rejected
+            Else
+                Result = Extracts.UploadEnrolments(xmlDoc, Output)
+            End If
             File.Delete(XMLs(0))
         End If
 
@@ -1330,5 +1461,345 @@ Public Class IMISExtractsBL
         Return Result
 
     End Function
+
+    Public Function getRenewals(ByVal OfficerCode As String) As Dictionary(Of String, String)
+        Dim DAL As New IMIS_DAL.IMISExtractsDAL()
+        Dim Officer As New IMIS_DAL.OfficersDAL()
+        Dim result As New Dictionary(Of String, String)
+        Dim Policy As New IMIS_DAL.PolicyDAL()
+        Dim jString As String = String.Empty
+        If Officer.OfficerCodeExists(OfficerCode) Then
+            Dim dt As DataTable = DAL.getRenewals(OfficerCode)
+            If dt.Rows.Count > 0 Then
+                dt.TableName = "Renewal"
+                Dim R As Renewal() = New Renewal(dt.Rows.Count - 1) {}
+                Dim i As Integer = 0
+                For Each row In dt.Rows
+                    R(i) = New Renewal()
+                    R(i).RenewalId = row("RenewalId")
+                    R(i).PolicyId = row("PolicyId")
+                    R(i).OfficerId = row("OfficerId")
+                    R(i).OfficerCode = row("OfficerCode").ToString
+                    R(i).CHFID = row("CHFID").ToString
+                    R(i).LastName = row("LastName").ToString
+                    R(i).OtherNames = row("OtherNames").ToString
+                    R(i).ProductCode = row("ProductCode").ToString
+                    R(i).ProductName = row("ProductName").ToString
+                    R(i).VillageName = row("VillageName").ToString
+                    R(i).RenewalPromptDate = row("RenewalPromptDate").ToString
+                    R(i).Phone = row("Phone").ToString
+                    R(i).LocationId = row("LocationId").ToString
+                    R(i).FamilyId = row("FamilyId").ToString
+                    R(i).EnrollDate = row("EnrollDate").ToString
+                    R(i).PolicyStage = row("PolicyStage").ToString
+                    R(i).ProdId = row("ProdId").ToString
+                    Dim PreviousPolicyId As Integer
+                    Dim ePolicy As New tblPolicy
+                    Dim eProduct As New tblProduct
+                    Dim eFamily As New tblFamilies
+                    eFamily.FamilyID = R(i).FamilyId
+                    eProduct.ProdID = R(i).ProdId
+                    With ePolicy
+                        .tblFamilies = eFamily
+                        .tblProduct = eProduct
+                        .PolicyID = 0
+                        .PolicyStage = R(i).PolicyStage
+                        .EnrollDate = R(i).EnrollDate
+                    End With
+                    PreviousPolicyId = R(i).PolicyId
+                    Policy.getPolicyValue(ePolicy, PreviousPolicyId)
+                    R(i).PolicyValue = ePolicy.PolicyValue
+                    i += 1
+                Next
+                Dim js As New JavaScriptSerializer
+                jString = js.Serialize(R)
+
+                Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+                Dim filename As String = "Renewal_" + OfficerCode + ".RAR"
+                Dim textfile As String = "Renewal_" + OfficerCode + ".txt"
+                My.Computer.FileSystem.WriteAllText(Path & textfile, jString, False)
+                ZipPhoneData(Path, filename, Path, textfile)
+
+                If System.IO.File.Exists(Path & textfile) Then
+                    System.IO.File.Delete(Path & textfile)
+                End If
+
+                result("result") = filename
+                result("ResultCode") = "0" 'All OK
+            Else
+                result("ResultCode") = "2" 'No Data
+                result("Result") = "[]"
+            End If
+
+        Else
+            result("ResultCode") = "1" 'Officer Not Found
+            result("Result") = "[]"
+        End If
+        Return result
+    End Function
+
+    Public Function getFeedback(ByVal OfficerCode As String) As Dictionary(Of String, String)
+        Dim DAL As New IMIS_DAL.IMISExtractsDAL()
+        Dim Officer As New IMIS_DAL.OfficersDAL()
+        Dim result As New Dictionary(Of String, String)
+        Dim jString As String = String.Empty
+        If Officer.OfficerCodeExists(OfficerCode) Then
+            Dim dt As DataTable = DAL.getFeedback(OfficerCode)
+            If dt.Rows.Count > 0 Then
+                Dim fb As IMIS_EN.Feedback() = New Feedback(dt.Rows.Count - 1) {}
+                Dim i As Integer = 0
+                For Each row In dt.Rows
+                    fb(i) = New Feedback()
+                    fb(i).ClaimId = row("ClaimId")
+                    fb(i).OfficerId = row("OfficerId")
+                    fb(i).OfficerCode = row("OfficerCode").ToString
+                    fb(i).CHFID = row("CHFID").ToString
+                    fb(i).LastName = row("LastName").ToString
+                    fb(i).OtherNames = row("OtherNames").ToString
+                    fb(i).HFCode = row("HFCode").ToString
+                    fb(i).HFName = row("HFName").ToString
+                    fb(i).ClaimCode = row("ClaimCode").ToString
+                    fb(i).DateFrom = row("DateFrom").ToString
+                    fb(i).DateTo = row("DateTo").ToString
+                    fb(i).Phone = row("Phone").ToString
+                    fb(i).FeedbackPromptDate = row("FeedbackPromptDate").ToString
+                    i += 1
+                Next
+                Dim js As New JavaScriptSerializer
+                jString = js.Serialize(fb)
+                Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+                Dim filename As String = "FeedBack_" + OfficerCode + ".RAR"
+                Dim textfile As String = "FeedBack_" + OfficerCode + ".txt"
+                My.Computer.FileSystem.WriteAllText(Path & textfile, jString, False)
+                ZipPhoneData(Path, filename, Path, textfile)
+
+                If System.IO.File.Exists(Path & textfile) Then
+                    System.IO.File.Delete(Path & textfile)
+                End If
+
+                result("result") = filename
+                result("ResultCode") = "0" 'All OK
+            Else
+                result("ResultCode") = "2" 'No Data
+                result("Result") = "[]"
+            End If
+
+        Else
+            result("ResultCode") = "1" 'Officer Not Found
+            result("Result") = "[]"
+        End If
+        Return result
+    End Function
+
+    Public Function UploadFeedBackFromPhone(filename As String) As Dictionary(Of String, Integer)
+        Dim FeedBack As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("FromPhone_Feedback"))
+        Dim RandomFolderName As String = Path.GetRandomFileName
+        Dim WorkingFolder As String = IO.Path.Combine(FeedBack, RandomFolderName)
+        Dim FeedBackRejectedFolder As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("FromPhone_Feedback_Rejected"))
+        If My.Computer.FileSystem.DirectoryExists(WorkingFolder) Then
+            My.Computer.FileSystem.DeleteDirectory(WorkingFolder, FileIO.DeleteDirectoryOption.DeleteAllContents)
+        Else
+            My.Computer.FileSystem.CreateDirectory(WorkingFolder)
+        End If
+
+        'File.Move(filename, FeedBack)
+        Unzip(filename, WorkingFolder)
+
+        'Dim XMLs As String() = Directory.GetFiles(WorkingFolder, "Enrolment_*.xml")
+        Dim XMLs As String() = Directory.GetFiles(WorkingFolder, "*.xml")
+        Dim xml As String = ""
+
+        Dim sent As Integer = XMLs.Count
+        Dim Accepted As Integer = 0
+        Dim Rejected As Integer = 0
+        Dim Exists As Integer = 0
+        Dim Failed As Integer = 0
+
+        For i As Integer = 0 To XMLs.Count - 1
+            Dim xmlDoc As New XmlDocument()
+            xmlDoc.Load((XMLs(i)))
+            For Each node As XmlNode In xmlDoc
+                If node.NodeType = XmlNodeType.XmlDeclaration Then
+                    xmlDoc.RemoveChild(node)
+                End If
+            Next
+
+            Dim DAL As New IMIS_DAL.IMISExtractsDAL()
+            Dim rv As Integer = DAL.UploadFeedBackFromPhone(xmlDoc)
+
+
+            '  -1  Fatal Error
+            '   0  All OK
+            '   1: Invalid Officer code
+            '   2: Claim does Not exist
+            '   3: Invalid CHFID
+            '   4: FeedBack Already exists as accepted
+
+            Select Case rv
+                Case 0
+                    Accepted += 1
+                    MoveFileToRejectedFolder(XMLs(i), FeedBack)
+                Case 1, 2
+                    Rejected += 1
+                    MoveFileToRejectedFolder(XMLs(i), FeedBackRejectedFolder)
+                Case 4
+                    Exists += 1
+                Case -1
+                    Failed += 1
+                    MoveFileToRejectedFolder(XMLs(i), FeedBackRejectedFolder)
+            End Select
+            If Not rv = 0 Then
+
+            End If
+        Next
+
+        If My.Computer.FileSystem.DirectoryExists(WorkingFolder) Then My.Computer.FileSystem.DeleteDirectory(WorkingFolder, FileIO.DeleteDirectoryOption.DeleteAllContents)
+
+        Dim OutPut As New Dictionary(Of String, Integer)
+        OutPut("Sent") = sent
+        OutPut("Accepted") = Accepted
+        OutPut("Rejected") = Rejected
+        OutPut("Exists") = Exists
+        OutPut("Failed") = Failed
+        Return OutPut
+    End Function
+
+
+    Public Function UploadRenewalFromPhone(filename As String) As Dictionary(Of String, Integer)
+        Dim RenewalFolder As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("FromPhone_Renewal"))
+        Dim RandomFolderName As String = Path.GetRandomFileName
+        Dim WorkingFolder As String = IO.Path.Combine(RenewalFolder, RandomFolderName)
+        Dim RenewalRejectedFolder As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("FromPhone_Renewal_Rejected"))
+        If My.Computer.FileSystem.DirectoryExists(WorkingFolder) Then
+            My.Computer.FileSystem.DeleteDirectory(WorkingFolder, FileIO.DeleteDirectoryOption.DeleteAllContents)
+        Else
+            My.Computer.FileSystem.CreateDirectory(WorkingFolder)
+        End If
+
+        Unzip(filename, WorkingFolder)
+
+        'Dim XMLs As String() = Directory.GetFiles(WorkingFolder, "Enrolment_*.xml")
+        Dim XMLs As String() = Directory.GetFiles(WorkingFolder, "*.xml")
+        Dim xml As String = ""
+
+        Dim sent As Integer = XMLs.Count
+        Dim Accepted As Integer = 0
+        Dim Rejected As Integer = 0
+        Dim Exists As Integer = 0
+        Dim Failed As Integer = 0
+
+        For i As Integer = 0 To XMLs.Count - 1
+            Dim xmlDoc As New XmlDocument()
+            xmlDoc.Load((XMLs(i)))
+            For Each node As XmlNode In xmlDoc
+                If node.NodeType = XmlNodeType.XmlDeclaration Then
+                    xmlDoc.RemoveChild(node)
+                End If
+            Next
+
+            Dim DAL As New IMIS_DAL.IMISExtractsDAL()
+            Dim rv As Integer = DAL.UploadRenewalFromPhone(xmlDoc, XMLs(i))
+
+
+            '-5  Fatal Error
+            ' 0: All OK
+            '-1: Duplicate Receipt found
+            '-2: Grace Period Is over
+            '-3: Renewal was alredy rejected
+            '-4: Renewal was alredy accepted
+
+            Select Case rv
+                Case 0
+                    Accepted = Accepted + 1
+                    MoveFileToRejectedFolder(XMLs(i), RenewalFolder)
+                Case -1, -2
+                    Rejected = Rejected + 1
+                    MoveFileToRejectedFolder(XMLs(i), RenewalRejectedFolder)
+                Case -3, -4
+                    Exists = Exists + 1
+                Case -5
+                    Failed = Failed + 1
+            End Select
+        Next
+
+        If My.Computer.FileSystem.DirectoryExists(WorkingFolder) Then My.Computer.FileSystem.DeleteDirectory(WorkingFolder, FileIO.DeleteDirectoryOption.DeleteAllContents)
+
+        Dim OutPut As New Dictionary(Of String, Integer)
+        OutPut("Sent") = sent
+        OutPut("Accepted") = Accepted
+        OutPut("Rejected") = Rejected
+        OutPut("Exists") = Exists
+        OutPut("Failed") = Failed
+        Return OutPut
+    End Function
+
+    Private Sub MoveFileToRejectedFolder(ByVal OrginalFile As String, ByVal DestinationFolder As String)
+        On Error Resume Next
+        File.Move(OrginalFile, DestinationFolder & Mid(OrginalFile, OrginalFile.LastIndexOf("\") + 2, OrginalFile.Length))
+    End Sub
+
+    Public Function DownloadMasterData() As String
+        Dim DAL As New IMIS_DAL.IMISExtractsDAL()
+        Dim MasterData As New DataSet
+        MasterData = DAL.DownLoadMAsterData()
+        Dim dtConfirmationTypes As DataTable = MasterData.Tables(0)
+        Dim dtControls As DataTable = MasterData.Tables(1)
+        Dim dtEducations As DataTable = MasterData.Tables(2)
+        Dim dtFamilyTypes As DataTable = MasterData.Tables(3)
+        Dim dtHF As DataTable = MasterData.Tables(4)
+        Dim dtIdentificationTypes As DataTable = MasterData.Tables(5)
+        Dim dtLanguages As DataTable = MasterData.Tables(6)
+        Dim dtLocations As DataTable = MasterData.Tables(7)
+        Dim dtOfficers As DataTable = MasterData.Tables(8)
+        Dim dtPayers As DataTable = MasterData.Tables(9)
+        Dim dtProducts As DataTable = MasterData.Tables(10)
+        Dim dtProfessions As DataTable = MasterData.Tables(11)
+        Dim dtRelations As DataTable = MasterData.Tables(12)
+        Dim dtPhoneDefaults As DataTable = MasterData.Tables(13)
+        Dim dtGenders As DataTable = MasterData.Tables(14)
+
+        Dim ConfirmationTypes As String = "{""ConfirmationTypes"":" & GetJsonFromDt(dtConfirmationTypes) & "}"
+        Dim Controls As String = "{""Controls"":" & GetJsonFromDt(dtControls) & "}"
+        Dim Education As String = "{""Education"":" & GetJsonFromDt(dtEducations) & "}"
+        Dim FamilyTypes As String = "{""FamilyTypes"":" & GetJsonFromDt(dtFamilyTypes) & "}"
+        Dim HF As String = "{""HF"":" & GetJsonFromDt(dtHF) & "}"
+        Dim IdentificationTypes As String = "{""IdentificationTypes"":" & GetJsonFromDt(dtIdentificationTypes) & "}"
+        Dim Languages As String = "{""Languages"":" & GetJsonFromDt(dtLanguages) & "}"
+        Dim Locations As String = "{""Locations"":" & GetJsonFromDt(dtLocations) & "}"
+        Dim Officers As String = "{""Officers"":" & GetJsonFromDt(dtOfficers) & "}"
+        Dim Payers As String = "{""Payers"":" & GetJsonFromDt(dtPayers) & "}"
+        Dim Products As String = "{""Products"":" & GetJsonFromDt(dtProducts) & "}"
+        Dim Professions As String = "{""Professions"":" & GetJsonFromDt(dtProfessions) & "}"
+        Dim Relations As String = "{""Relations"":" & GetJsonFromDt(dtRelations) & "}"
+        Dim PhoneDefaults As String = "{""PhoneDefaults"":" & GetJsonFromDt(dtPhoneDefaults) & "}"
+        Dim Genders As String = "{""Genders"":" & GetJsonFromDt(dtGenders) & "}"
+
+        Dim FileContent As String = "["
+        FileContent += ConfirmationTypes + ", " + Controls + ", " + Education + ", " + FamilyTypes + ", " + HF + ", " + IdentificationTypes + ", " + Languages + ", " + Locations + ", " +
+            Officers + ", " + Payers + ", " + Products + ", " + Professions + ", " + Relations + ", " + PhoneDefaults + ", " + Genders
+        FileContent += "]"
+
+
+        Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+        Dim filename As String = Path & "MasterData.txt"
+        My.Computer.FileSystem.WriteAllText(filename, FileContent, False)
+
+        Dim strCommand As String = ""
+        Dim file As System.IO.FileInfo = New System.IO.FileInfo(Path)
+        ZipPhoneData(Path, "MasterData.RAR", Path & "/", "MasterData.txt")
+        If System.IO.File.Exists(filename) Then
+            System.IO.File.Delete(filename)
+        End If
+        Return "MasterData.RAR"
+    End Function
+
+    Private Function GetJsonFromDt(dt As DataTable) As String
+        Dim json As String = String.Empty
+        Dim js As New JavaScriptSerializer
+        js.MaxJsonLength = Integer.MaxValue
+        json = js.Serialize(From dr As DataRow In dt.Rows Select dt.Columns.Cast(Of DataColumn)().ToDictionary(Function(Col) Col.ColumnName, Function(Col) If(dr(Col) Is DBNull.Value, String.Empty, dr(Col))))
+        Return json
+    End Function
+
 End Class
 

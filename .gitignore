@@ -260,3 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 
+/IMIS/Web.Debug.config
+/IMIS/Web.Release.config
+/IMIS/Web.config

@@ -218,11 +218,38 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Download Feedback.
+        '''</summary>
+        Friend Shared ReadOnly Property B_DownLoadFeedback() As String
+            Get
+                Return ResourceManager.GetString("B_DownLoadFeedback", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to DownLoad  Log.
         '''</summary>
         Friend Shared ReadOnly Property B_DOWNLOADLOG() As String
             Get
                 Return ResourceManager.GetString("B_DOWNLOADLOG", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Download Master Data.
+        '''</summary>
+        Friend Shared ReadOnly Property B_DownLoadMasterData() As String
+            Get
+                Return ResourceManager.GetString("B_DownLoadMasterData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Download Renewals.
+        '''</summary>
+        Friend Shared ReadOnly Property B_DownLoadRenewals() As String
+            Get
+                Return ResourceManager.GetString("B_DownLoadRenewals", resourceCulture)
             End Get
         End Property
         
@@ -434,6 +461,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Upload Feedback.
+        '''</summary>
+        Friend Shared ReadOnly Property B_UPLOADFEEDBACK() As String
+            Get
+                Return ResourceManager.GetString("B_UPLOADFEEDBACK", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Upload Renewal.
+        '''</summary>
+        Friend Shared ReadOnly Property B_UPLOADRENEWAL() As String
+            Get
+                Return ResourceManager.GetString("B_UPLOADRENEWAL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to View.
         '''</summary>
         Friend Shared ReadOnly Property B_VIEW() As String
@@ -556,6 +601,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_ACCCODEREMUNERATION() As String
             Get
                 Return ResourceManager.GetString("L_ACCCODEREMUNERATION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Accepted.
+        '''</summary>
+        Friend Shared ReadOnly Property L_ACCEPTED() As String
+            Get
+                Return ResourceManager.GetString("L_ACCEPTED", resourceCulture)
             End Get
         End Property
         
@@ -1847,6 +1901,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Download Master Data.
+        '''</summary>
+        Friend Shared ReadOnly Property L_DOWNLOADMASTERDATA() As String
+            Get
+                Return ResourceManager.GetString("L_DOWNLOADMASTERDATA", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Drugs Prescribed.
         '''</summary>
         Friend Shared ReadOnly Property L_DRUGSPRESCRIBED() As String
@@ -2099,6 +2162,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Exists.
+        '''</summary>
+        Friend Shared ReadOnly Property L_EXISTS() As String
+            Get
+                Return ResourceManager.GetString("L_EXISTS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Expire Date.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPIREDATE() As String
@@ -2297,11 +2369,29 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Upload Photos.
+        '''</summary>
+        Friend Shared ReadOnly Property L_EXTR_UPLOADPHOTO() As String
+            Get
+                Return ResourceManager.GetString("L_EXTR_UPLOADPHOTO", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Zipped Pictures.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_ZIPPEDPHOTOS() As String
             Get
                 Return ResourceManager.GetString("L_EXTR_ZIPPEDPHOTOS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Failed.
+        '''</summary>
+        Friend Shared ReadOnly Property L_FAILED() As String
+            Get
+                Return ResourceManager.GetString("L_FAILED", resourceCulture)
             End Get
         End Property
         
@@ -5033,6 +5123,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Rejected.
+        '''</summary>
+        Friend Shared ReadOnly Property L_REJECTED() As String
+            Get
+                Return ResourceManager.GetString("L_REJECTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Rejected Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_REJECTEDCLAIMS() As String
@@ -5816,6 +5915,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Upload Feedback.
+        '''</summary>
+        Friend Shared ReadOnly Property L_UPLOADFEEDBACK() As String
+            Get
+                Return ResourceManager.GetString("L_UPLOADFEEDBACK", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Upload Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADHEALTHFACILITIES() As String
@@ -5848,6 +5956,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_UPLOADREGISTERS() As String
             Get
                 Return ResourceManager.GetString("L_UPLOADREGISTERS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Upload Renewal.
+        '''</summary>
+        Friend Shared ReadOnly Property L_UPLOADRENEWAL() As String
+            Get
+                Return ResourceManager.GetString("L_UPLOADRENEWAL", resourceCulture)
             End Get
         End Property
         
@@ -6491,6 +6608,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Claim does not exist.
+        '''</summary>
+        Friend Shared ReadOnly Property M_CLAIMNOTEXIST() As String
+            Get
+                Return ResourceManager.GetString("M_CLAIMNOTEXIST", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to The claim status does not allow it to be viewed for feedback process.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMNOTFORFEEDBACKPROCESS() As String
@@ -6982,6 +7108,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_DUPLICATEDISTRICTCODEINEXCEL() As String
             Get
                 Return ResourceManager.GetString("M_DUPLICATEDISTRICTCODEINEXCEL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Duplicate receipt found.
+        '''</summary>
+        Friend Shared ReadOnly Property M_DUPLICATEDRECEIPTFOUND() As String
+            Get
+                Return ResourceManager.GetString("M_DUPLICATEDRECEIPTFOUND", resourceCulture)
             End Get
         End Property
         
@@ -7535,6 +7670,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to FeedBack  upload summary.
+        '''</summary>
+        Friend Shared ReadOnly Property M_FEEDFILEACCEPTED() As String
+            Get
+                Return ResourceManager.GetString("M_FEEDFILEACCEPTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Please fill in the Item Quantity.
         '''</summary>
         Friend Shared ReadOnly Property M_FILLITEMQUANTITY() As String
@@ -7612,6 +7756,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_GOODMORNING() As String
             Get
                 Return ResourceManager.GetString("M_GOODMORNING", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to The grace perios of the given policy is over.
+        '''</summary>
+        Friend Shared ReadOnly Property M_GRACEPERIODISOVER() As String
+            Get
+                Return ResourceManager.GetString("M_GRACEPERIODISOVER", resourceCulture)
             End Get
         End Property
         
@@ -7769,6 +7922,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Invalid CHFID.
+        '''</summary>
+        Friend Shared ReadOnly Property M_INVALIDCHFID() As String
+            Get
+                Return ResourceManager.GetString("M_INVALIDCHFID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Selected Insurance Number is not valid !.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDCHFNUMBER() As String
@@ -7823,6 +7985,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Invalid feedBack file.
+        '''</summary>
+        Friend Shared ReadOnly Property M_INVALIDFEEDBACKFILE() As String
+            Get
+                Return ResourceManager.GetString("M_INVALIDFEEDBACKFILE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Invalid Main Dg Code.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDICDCODE() As String
@@ -7850,11 +8021,29 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Invalid officer code.
+        '''</summary>
+        Friend Shared ReadOnly Property M_INVALIDOFFICERCODE() As String
+            Get
+                Return ResourceManager.GetString("M_INVALIDOFFICERCODE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Invalid Region File(Either Tab name or Column names or inputs are invalid)!.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDREGIONFILEINEXCEL() As String
             Get
                 Return ResourceManager.GetString("M_INVALIDREGIONFILEINEXCEL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Invalid fenewal file.
+        '''</summary>
+        Friend Shared ReadOnly Property M_INVALIDRENEWALFILE() As String
+            Get
+                Return ResourceManager.GetString("M_INVALIDRENEWALFILE", resourceCulture)
             End Get
         End Property
         
@@ -8174,6 +8363,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to No Data.
+        '''</summary>
+        Friend Shared ReadOnly Property M_NODATAFOUND() As String
+            Get
+                Return ResourceManager.GetString("M_NODATAFOUND", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to No distribution has been defined yet!.
         '''</summary>
         Friend Shared ReadOnly Property M_NODISTRIBUTION() As String
@@ -8188,6 +8386,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_NODISTRICTS() As String
             Get
                 Return ResourceManager.GetString("M_NODISTRICTS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to No Enrollment Found.
+        '''</summary>
+        Friend Shared ReadOnly Property M_NOENROLLMENTFOUND() As String
+            Get
+                Return ResourceManager.GetString("M_NOENROLLMENTFOUND", resourceCulture)
             End Get
         End Property
         
@@ -8395,6 +8602,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_NUMBER() As String
             Get
                 Return ResourceManager.GetString("M_NUMBER", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Officer Not Found.
+        '''</summary>
+        Friend Shared ReadOnly Property M_OFFICERNOTFOUND() As String
+            Get
+                Return ResourceManager.GetString("M_OFFICERNOTFOUND", resourceCulture)
             End Get
         End Property
         
@@ -8687,7 +8903,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution.
+        '''  Looks up a localized string similar to Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution?.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMCOVEREDPROMPT() As String
             Get
@@ -8935,6 +9151,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_REJECTED() As String
             Get
                 Return ResourceManager.GetString("M_REJECTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Renewal upload summary.
+        '''</summary>
+        Friend Shared ReadOnly Property M_RENEWALUPLOADED() As String
+            Get
+                Return ResourceManager.GetString("M_RENEWALUPLOADED", resourceCulture)
             End Get
         End Property
         
@@ -11243,6 +11468,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Rejected Date.
+        '''</summary>
+        Friend Shared ReadOnly Property T_REJECTEDDATE() As String
+            Get
+                Return ResourceManager.GetString("T_REJECTEDDATE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Rejected Photos.
+        '''</summary>
+        Friend Shared ReadOnly Property T_REJECTEDPHOTOS() As String
+            Get
+                Return ResourceManager.GetString("T_REJECTEDPHOTOS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Renewal.
         '''</summary>
         Friend Shared ReadOnly Property T_RENEWAL() As String
@@ -11698,6 +11941,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_SUSPENDED() As String
             Get
                 Return ResourceManager.GetString("T_SUSPENDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Total Rejected Photos.
+        '''</summary>
+        Friend Shared ReadOnly Property T_TOTALREJECTEDPHOTOS() As String
+            Get
+                Return ResourceManager.GetString("T_TOTALREJECTEDPHOTOS", resourceCulture)
             End Get
         End Property
         

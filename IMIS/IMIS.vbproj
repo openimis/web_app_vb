@@ -22,6 +22,8 @@
     <IISExpressUseClassicPipelineMode />
     <Use64BitIISExpress />
     <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -115,6 +117,12 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="7z.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="7z64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="AddFunding.aspx" />
     <Content Include="ChangeFamily.aspx" />
     <Content Include="ChangePassword.aspx" />
@@ -220,9 +228,20 @@
     <Content Include="FromPhone\Enrollment\dummy.dmd" />
     <Content Include="FromPhone\Feedback\Rejected\dummy.dmd" />
     <Content Include="FromPhone\Renewal\Rejected\dummy.dmd" />
+    <Content Include="IMISDataSet.xsc">
+      <DependentUpon>IMISDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="IMISDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IMISDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="IMISDataSet.xss">
+      <DependentUpon>IMISDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
     <None Include="packages.config" />
-    <None Include="Web References\IMISService\ExactServices.disco" />
+    <None Include="Web References\IMISService\imisservices.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -471,6 +490,11 @@
     <Compile Include="IMIS.Master.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>IMIS.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IMISDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="IMISExtracts.aspx.designer.vb">
       <DependentUpon>IMISExtracts.aspx</DependentUpon>
@@ -740,6 +764,9 @@
     <Content Include="Reports\rptCapitationPayment.rdlc">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Reports\rptRejectedPhotos.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />
@@ -763,13 +790,14 @@
     <Content Include="Reports\ds.xss">
       <DependentUpon>ds.xsd</DependentUpon>
     </Content>
-    <None Include="Web References\IMISService\ExactServices.wsdl" />
+    <None Include="Web References\IMISService\imisservices.wsdl" />
     <None Include="Web References\IMISService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -787,10 +815,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:52239/ExactServices.asmx">
+    <WebReferenceUrl Include="http://localhost:53277/IMISServices.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\IMISService\</RelPath>
-      <UpdateFromURL>http://localhost:52239/ExactServices.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:53277/IMISServices.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -853,11 +881,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57214</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49552/</IISUrl>
+          <IISUrl>http://localhost:57214/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -874,4 +902,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" />
+  <Target Name="BeforeBuild">
+    <TransformXml Source="Web.Base.config" Transform="Web.$(Configuration).config" Destination="Web.config" />
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
 </Project>

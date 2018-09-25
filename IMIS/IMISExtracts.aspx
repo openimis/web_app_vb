@@ -39,6 +39,19 @@
         {
             height: 33px;
         }
+        #tbluploadfromphone td
+        {
+            padding-left:10px;
+            padding-bottom:5px;
+            width:auto;
+        }
+        #lblOfficerCode
+        {
+            float:left;
+            text-align:left;
+            color:blue !important;
+        }
+        
     </style>
 </asp:Content>
 
@@ -91,7 +104,58 @@
        </asp:UpdateProgress>--%>
         <%--  <ContentTemplate>
         <div id="DivMsg" runat="server" style="display:none;"></div>--%>
+         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" CssClass="panelBody" style="height:auto; overflow-x:hidden; ">
         <asp:HiddenField ID="hfExtractFound" runat="server" Value="0" />
+
+        <table class="catlabel">
+                <tr>
+                    <td>
+                        <asp:Label ID="Label5" runat="server"
+                            Text='<%$ Resources:Resource,L_DOWNLOADMASTERDATA %>'></asp:Label>
+                    </td>
+                </tr>
+
+            </table>
+        <asp:Panel ID="pnlDownloadMasterData" runat="server" CssClass="panel">
+            
+        <asp:Panel ID="DownLoadMasterData" runat="server" Height="70px" Width="976px">
+            
+           
+                <table>
+                    <tr>
+                        <td>
+                            <table id="tbluploadfromphone">
+                                <tr>
+                                    <td align="left" >
+                                       <asp:Button ID="btnDownLoadMasterData" runat="server" Text='<%$ Resources:Resource,B_DownLoadMasterData %>' OnClick="btnDownLoadMasterData_Click" style="width: auto;float: right;margin-right: 135px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                        <td  align="left">
+
+                                            <font color="blue"><asp:Label ID="lblOfficerCode"  runat="server" Text="<%$ Resources:Resource,L_OFFICERCODE %>" Width="150px" ></asp:Label></font>
+                                            <asp:TextBox ID="txtOfficerCode" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td align="left">
+                                        <font color="red"><asp:RequiredFieldValidator ID="RequiredOfficerCode" runat="server" ControlToValidate="txtOfficerCode" Display="Dynamic" Text="*"  ValidationGroup="chkOfficerCode" ></asp:RequiredFieldValidator></font>
+                                    </td>
+                                        <td align="left">
+                                           <asp:Button ID="btnDownLoadFeedback" runat="server" Text='<%$ Resources:Resource,B_DownLoadFeedback %>' OnClick="btnDownLoadFeedback_Click" ValidationGroup="chkOfficerCode" Width="150px" />
+                                        </td>
+                                    <td align="left">
+                                       <asp:Button ID="btnDownLoadRenewal" runat="server" Text='<%$ Resources:Resource,B_DownLoadRenewals %>' OnClick="btnDownLoadRenewal_Click"  ValidationGroup="chkOfficerCode" Width="150px" />
+                                    </td>
+                                    
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+
+        </asp:Panel>
+
+
         <asp:Panel ID="pnlOnline" runat="server">
             <asp:Panel ID="pnlOnlineExtracts" runat="server">
                 <table class="catlabel">
@@ -106,11 +170,13 @@
                     </tr>
                 </table>
                 <asp:Panel ID="pnlPhoneExtract" runat="server" CssClass="panel" GroupingText=""
-                    Height="60px" Width="976px">
-                    <table width="100%">
+                    Height="60px" Width="940px">
+                    
+                    <table >
                         <tr>
                             <td class="auto-style1">
                                 <table>
+                                    
                                     <tr>
                                         <td class="FormLabel ExtractTd">
 
@@ -178,7 +244,7 @@
                     </tr>
                 </table>
                 <asp:Panel ID="pnlOffLineExtract" runat="server" CssClass="panel"
-                    Height="60px" GroupingText="" Width="976px">
+                    Height="60px" GroupingText="" Width="940px">
                     <table width="100%">
                         <tr>
                             <td class="auto-style1">
@@ -187,20 +253,20 @@
                                     <tr>
                                         <td class="FormLabel ExtractTd">
 
-                                            <asp:Label ID="L_REGION2" runat="server" Text="<%$ Resources:Resource,L_REGION %>" Width="50px"></asp:Label>
+                                            <asp:Label ID="L_REGION2" runat="server" Text="<%$ Resources:Resource,L_REGION %>" Width="40px"></asp:Label>
 
                                         </td>
                                         <td class="DataEntry">
                                             <asp:UpdatePanel runat="server" ID="UpRegionOffline">
                                                 <ContentTemplate>
-                                                    <asp:DropDownList ID="ddlRegionOffLine" runat="server" AutoPostBack="True">
+                                                    <asp:DropDownList ID="ddlRegionOffLine" runat="server" AutoPostBack="True" >
                                                     </asp:DropDownList>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </td>
                                         <td class="FormLabel ExtractTd">
                                             <asp:Label ID="LBLDISTRICT2" runat="server"
-                                                Text='<%$ Resources:Resource,L_DISTRICT %>' Width="50px"></asp:Label>
+                                                Text='<%$ Resources:Resource,L_DISTRICT %>' Width="40px"></asp:Label>
                                         </td>
                                         <td class="DataEntry">
                                             <asp:UpdatePanel runat="server" ID="UpDistrictOffline">
@@ -364,6 +430,145 @@
                 </asp:Panel>
 
             </asp:Panel>
+
+           <%-- <asp:Panel ID="pnlUploadPhotos" runat="server">
+                <table class="catlabel">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label6" runat="server"
+                                Text='<%$ Resources:Resource,L_EXTR_UPLOADPHOTO %>'></asp:Label>
+
+                        </td>
+
+
+                    </tr>
+                </table>
+                <asp:Panel ID="Panel2" runat="server" CssClass="panel"
+                    Height="60px" GroupingText="">
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+
+                                    <tr>
+
+                                        <td class="FormLabel">
+                                            <asp:FileUpload ID="fuUploadPhotos" runat="server" /></td>
+                                        <td class="DataEntry">
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                                                ControlToValidate="fuUploadPhotos" ErrorMessage="*" ValidationGroup="uPhotos">*</asp:RequiredFieldValidator>
+                                        </td>
+                                        <td class="FormLabel">&nbsp;</td>
+                                        <td class="DataEntry">&nbsp;</td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td align="right">
+                                            <asp:Button ID="BtnUploadPhotosFromPhone" runat="server"
+                                                Text='<%$ Resources:Resource,B_UPLOAD %>' ValidationGroup="uPhotos" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+
+            </asp:Panel>--%>
+
+            <asp:Panel ID="PnlUploadFeedBack" runat="server">
+                <table class="catlabel">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label7" runat="server"
+                                Text='<%$ Resources:Resource,L_UPLOADFEEDBACK %>'></asp:Label>
+
+                        </td>
+
+
+                    </tr>
+                </table>
+                <asp:Panel ID="Panel4" runat="server" CssClass="panel"
+                    Height="60px" GroupingText="">
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+
+                                    <tr>
+
+                                        <td class="FormLabel">
+                                            <asp:FileUpload ID="FileUploadFeedBack" runat="server" /></td>
+                                        <td class="DataEntry">
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                                ControlToValidate="FileUploadFeedBack" ErrorMessage="*" ValidationGroup="uFeedBack">*</asp:RequiredFieldValidator>
+                                        </td>
+                                        <td class="FormLabel">&nbsp;</td>
+                                        <td class="DataEntry">&nbsp;</td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td align="right">
+                                            <asp:Button ID="BtnUploadFeeBack" runat="server" OnClick="BtnUploadFeeBack_Click"
+                                                Text='<%$ Resources:Resource,B_UPLOAD %>' ValidationGroup="uFeedBack" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+
+            </asp:Panel>
+
+            <asp:Panel ID="PnlUploadRenewal" runat="server">
+                <table class="catlabel">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label8" runat="server"
+                                Text='<%$ Resources:Resource,L_UPLOADRENEWAL %>'></asp:Label>
+
+                        </td>
+
+
+                    </tr>
+                </table>
+                <asp:Panel ID="Panel6" runat="server" CssClass="panel"
+                    Height="60px" GroupingText="">
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+
+                                    <tr>
+
+                                        <td class="FormLabel">
+                                            <asp:FileUpload ID="FileUploadRenewal" runat="server" /></td>
+                                        <td class="DataEntry">
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                                                ControlToValidate="FileUploadRenewal" ErrorMessage="*" ValidationGroup="uRenewal">*</asp:RequiredFieldValidator>
+                                        </td>
+                                        <td class="FormLabel">&nbsp;</td>
+                                        <td class="DataEntry">&nbsp;</td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td align="right">
+                                            <asp:Button ID="BtnUploadRenewal" runat="server" OnClick="BtnUploadRenewal_Click" 
+                                                Text='<%$ Resources:Resource,B_UPLOAD %>' ValidationGroup="uRenewal" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+
+            </asp:Panel>
+
         </asp:Panel>
         <asp:Panel ID="pnlOffline" runat="server">
             <asp:Panel ID="pnlOfflineExtracts" runat="server">
@@ -533,6 +738,7 @@
                 </div>
             </ProgressTemplate>
        </asp:UpdateProgress>--%>
+             </asp:Panel>
     </div>
     <asp:Panel ID="pnlButtons" runat="server" CssClass="panelbuttons">
         <asp:HiddenField ID="hfExtract" runat="server" Value="No message" />
