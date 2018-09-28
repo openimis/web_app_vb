@@ -231,6 +231,9 @@
     <Content Include="IMISDataSet.xsc">
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Extracts\Export\Log\dummy.dmd" />
+    <Content Include="Images\Submitted\dummy.dmd" />
+    <Content Include="Images\Updated\dummy.dmd" />
     <None Include="IMISDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IMISDataSet.Designer.vb</LastGenOutput>
@@ -240,7 +243,9 @@
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\IMISService\imisservices.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -803,11 +808,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extracts\Export\Log\" />
-    <Folder Include="Images\Submitted\" />
-    <Folder Include="Images\Updated\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

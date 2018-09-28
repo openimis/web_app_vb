@@ -263,3 +263,14 @@ __pycache__/
 /IMIS/Web.Debug.config
 /IMIS/Web.Release.config
 /IMIS/Web.config
+
+**/Extracts/
+**/Archive/
+**/FromPhone/
+**/Images/Submitted/
+**/Images/Updated/
+**/Workspace/
+!dummy.dmd 
+
+
+
