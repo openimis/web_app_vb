@@ -32,7 +32,7 @@ From the [IMIS](./IMIS/) folder, remove the .dist extension from web.debug.confi
 (depending on which configuration you need). In the chosen file, change the connection string to connect to the database.
 
 ```
-<add name="CHF_CENTRALConnectionString" connectionString="Data Source=[DatabaseIPAdress];Initial Catalog=IMIS;User ID=[ImisUserId];Password=[ImisUserPassword]" providerName="System.Data.SqlClient"/>
+<add name="IMISConnectionString" connectionString="Data Source=[DatabaseIPAdress];Initial Catalog=IMIS;User ID=[ImisUserId];Password=[ImisUserPassword]" providerName="System.Data.SqlClient"/>
 ```
 
 Then, build the application via Visual Studio; this action will also generate the web.config file. The latter is not
