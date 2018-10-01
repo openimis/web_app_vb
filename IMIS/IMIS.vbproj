@@ -13,7 +13,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>IMIS</RootNamespace>
     <AssemblyName>IMIS</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -78,6 +78,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.1\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -231,6 +234,10 @@
     <Content Include="IMISDataSet.xsc">
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Extracts\Export\Log\dummy.dmd" />
+    <Content Include="Images\Submitted\dummy.dmd" />
+    <Content Include="Images\Updated\dummy.dmd" />
+    <Content Include="x64\SQLite.Interop.dll" />
     <None Include="IMISDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IMISDataSet.Designer.vb</LastGenOutput>
@@ -240,7 +247,9 @@
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\IMISService\imisservices.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -803,11 +812,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extracts\Export\Log\" />
-    <Folder Include="Images\Submitted\" />
-    <Folder Include="Images\Updated\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
@@ -874,9 +879,30 @@
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />-->
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
@@ -907,5 +933,12 @@
     <TransformXml Source="Web.Base.config" Transform="Web.$(Configuration).config" Destination="Web.config" />
   </Target>
   <Target Name="AfterBuild">
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets'))" />
   </Target>
 </Project>
