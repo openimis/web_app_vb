@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b18559d07c064edcb0f72392f817e5af" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="IMISModel.tblBatchRun" Width="1.5" PointX="3" PointY="48.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblCeilingInterpretation" Width="1.5" PointX="8.75" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblClaim" Width="1.5" PointX="5.25" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblClaimAdmin" Width="1.5" PointX="7.5" PointY="68.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblClaimDedRem" Width="1.5" PointX="15.5" PointY="67.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblClaimItems" Width="1.5" PointX="13.25" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblClaimServices" Width="1.5" PointX="16.25" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblConfirmationTypes" Width="1.5" PointX="0.75" PointY="51.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblControls" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblEducations" Width="1.5" PointX="8.25" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblEmailSettings" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblExtracts" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblFamilies" Width="1.5" PointX="3" PointY="55.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblFamilyTypes" Width="1.5" PointX="0.75" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblFeedback" Width="1.5" PointX="7.5" PointY="64.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblFeedbackPrompt" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblFromPhone" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblHealthStatus" Width="1.5" PointX="12.75" PointY="76.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblHF" Width="1.5" PointX="5.25" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblHFCatchment" Width="1.5" PointX="7.5" PointY="60.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblHFSublevel" Width="1.5" PointX="3" PointY="73.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblICDCodes" Width="1.5" PointX="3" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblIdentificationTypes" Width="1.5" PointX="8.25" PointY="74" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblIMISDefaults" Width="3.25" PointX="8.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblInsuree" Width="1.5" PointX="10.5" PointY="67.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblInsureePolicy" Width="1.5" PointX="18.5" PointY="67.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblItems" Width="1.5" PointX="11" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblLanguages" Width="1.5" PointX="0.75" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblLegalForms" Width="1.5" PointX="3" PointY="86.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblLocations" Width="1.5" PointX="0.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblLogins" Width="1.5" PointX="5.25" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblOfficer" Width="1.5" PointX="3" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblOfficerVillages" Width="1.5" PointX="5.25" PointY="61.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPayer" Width="1.5" PointX="8" PointY="55.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPayerType" Width="1.5" PointX="5.75" PointY="56.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPhotos" Width="1.5" PointX="8.25" PointY="76.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPLItems" Width="1.5" PointX="3" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPLItemsDetail" Width="1.5" PointX="5.25" PointY="77.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPLServices" Width="1.5" PointX="3" PointY="81.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPLServicesDetail" Width="1.5" PointX="5.25" PointY="81.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPolicy" Width="1.5" PointX="13.25" PointY="60.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPolicyRenewalDetails" Width="1.5" PointX="15.75" PointY="73.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPolicyRenewals" Width="1.5" PointX="21.5" PointY="62.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblPremium" Width="1.5" PointX="18.5" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblProduct" Width="1.5" PointX="11" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblProductItems" Width="1.5" PointX="16.25" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblProductServices" Width="1.5" PointX="19.25" PointY="54.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblProfessions" Width="1.5" PointX="8.25" PointY="80.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblRelations" Width="1.5" PointX="8.25" PointY="83.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblRelDistr" Width="1.5" PointX="13.25" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblRelIndex" Width="1.5" PointX="13.25" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblReporting" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblServices" Width="1.5" PointX="14" PointY="45.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblSubmittedPhotos" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblUsers" Width="1.5" PointX="3" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblUsersDistricts" Width="1.5" PointX="3" PointY="61.25" IsExpanded="true" />
+        <AssociationConnector Association="IMISModel.FK_tblBatchRun_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaim_tblBatchRun" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProduct_tblCeilingInterpretation" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaim_tblClaimAdmin" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaim_tblFeedback_FeedbackID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaim_tblHF" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaim_tblICDCodes_ICDID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaim_tblInsuree_InsureeID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaim_tblUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimItems_tblClaim_ClaimID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimServices_tblClaim_ClaimID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblFeedback_tblClaim_ClaimID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimAdmin_tblHF" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimDedRem_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimDedRem_tblPolicy" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimItems_tblItems_ItemID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimItems_tblProduct_ProdID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimServices_tblProduct_ProdID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblClaimServices_tblServices_ServiceID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblConfirmationType_tblFamilies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblEducations_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblFamilies_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblFamilies_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblFamilyTypes_tblFamilies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblInsuree_tblFamilies1_FamilyID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicy_tblFamilies_FamilyID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblHealthStatus_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblHF_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblHF_tblPLItems_PLItemID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblHF_tblPLServices_PLService_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblHFCatchment_tbLHF" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblHFSublevel_tblHF" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblInsuree_tblHF" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblLegalForms_tblHF" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblHFCatchment_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblIdentificationTypes_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblInsuree_tblPhotos" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblInsureePolicy_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicyRenewalDetails_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicyRenewals_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProfessions_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblRelations_tblInsuree" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblInsureePolicy_tblPolicy" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPLItemsDetail_tblItems_ItemID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProductItems_tblItems_ItemID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblLanguages_tblUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblOfficer_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblOfficerVillages_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPayer_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPLItems_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPLServices_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProduct_tblLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblUsersDistricts_tblLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblLogins_tblUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblOfficer_tblOfficer" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblOfficerVillages_tblOfficer" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicy_tblOfficer_OfficerID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicyRenewals_tblOfficer" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPayer_tblPayerType" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPremium_tblPayer" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPLItemsDetail_tblPLItems_PLItemID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPLServicesDetail_tblPLServices_PLServiceID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPLServicesDetail_tblServices_ServiceID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicy_tblProduct_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicyRenewals_tblPolicy" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPremium_tblPolicy" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicyRenewalDetails_tblPolicyRenewals" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblPolicyRenewals_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProduct_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProductItems_tblProduct_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProductServices_tblProduct_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblRelDistr_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblRelIndex_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblProductServices_tblServices_ServiceID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMISModel.FK_tblUsersDistricts_tblUsers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
