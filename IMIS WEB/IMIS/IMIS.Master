@@ -14,12 +14,16 @@
     
      <link href="styleSheets/Imis.css" rel="stylesheet" type="text/css" />
      <link href="styleSheets/MainMenu.css" rel="stylesheet" type="text/css" />
-    
-  
+    <link href="StyleSheets/jquery-ui.css" rel="stylesheet" />
+    <link href="StyleSheets/jquery.ui.autocomplete.css" rel="stylesheet" />
     <script src="Javascripts/jquery-1.8.2.min.js" type="text/javascript"></script>
     <script src="Javascripts/Exact.js?c=<%#(New Random()).Next%>" type="text/javascript"></script>
      <script src="Javascripts/jquery.cookie.js" type="text/javascript"></script>
       <script type="text/javascript" src="Javascripts/ExactDropDown.js"></script>
+      <script type="text/javascript"  src="Javascripts/jquery.ui.autocomplete.js"></script>
+    <script  type="text/javascript" src="Javascripts/jquery.ui.autocomplete.js"></script>
+    <script  type="text/javascript" src="Javascripts/autocomplete.js"></script>
+    <script  type="text/javascript" src="Javascripts/jquery-ui.js"></script>
    <%-- <script type="text/javascript" language="javascript">
         setTimeout(function() {
             $('.footer').text('');
@@ -287,6 +291,7 @@
 
        });
 
+   
 
        $(document).ready(function () {
            $("#btnAdvance").click(function (e) {
@@ -317,6 +322,35 @@
          
        });
 
+            function AutoCompletedataSource(data) {
+
+               this.data = data;
+               this.filter = function (term) {
+                   // console.log(data);
+                   var keys = Object.keys(data[0]);
+                   var arr = [];
+                   for (var i = 0; i < this.data.length; i++) {
+                       var keys = Object.keys(data[i]);
+                       for (var j = 0; j < keys.length; j++) {
+                           if (isNaN(data[i][keys[j]]) && data[i][keys[j]].toLowerCase().includes(term.term.toLowerCase())) {
+                               if (arr.length < 50) {
+                                   arr.push(data[i]);
+                                   break;
+                               }
+                           }
+                           else if (!isNaN(data[i][keys[j]]) && data[i][keys[j]] == term.term) {
+                               if (arr.length < 50) {
+                                   arr.push(data[i]);
+                                   break;
+                               }
+                           }
+                       }
+                   }
+                   return arr;
+               }
+
+
+           }
     </script>
 
      <style type="text/css">

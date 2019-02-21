@@ -23,6 +23,24 @@ Partial Public Class FindClaims
     Protected WithEvents upClaim As Global.System.Web.UI.UpdatePanel
     
     '''<summary>
+    '''hfICDID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDID As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
+    '''hfICDCode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDCode As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''hfClaimAdminAdjustibility control.
     '''</summary>
     '''<remarks>
@@ -311,13 +329,13 @@ Partial Public Class FindClaims
     Protected WithEvents lblICD As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''ddlICD control.
+    '''txtICDCode control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlICD As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtICDCode As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''lblClaimAdmin0 control.
@@ -516,6 +534,33 @@ Partial Public Class FindClaims
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfSubmitClaims As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
+    '''pnlHiddenICDCodes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlHiddenICDCodes As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''Panel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Panel1 As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''gvHiddenICDCodes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvHiddenICDCodes As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
     '''pnlButtons control.

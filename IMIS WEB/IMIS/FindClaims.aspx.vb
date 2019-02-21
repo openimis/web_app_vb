@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Web.Script.Serialization
+
 Partial Public Class FindClaims
     Inherits System.Web.UI.Page
     Private eClaim As New IMIS_EN.tblClaim
@@ -48,9 +50,15 @@ Partial Public Class FindClaims
 
     End Sub
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load, txtICDCode.TextChanged
 
         chkboxSubmitAll.Checked = False
+        'ddlBatchRun.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id);")
+        'ddlClaimStatus.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id,31);")
+        'ddlFBStatus.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id,31);")
+        'ddlHFCode.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id);")
+        'ddlReviewStatus.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id,31);")
+        'ddlDistrict.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id);")
 
         If Request.Form("__EVENTTARGET") = B_DELETE.ClientID Then
             B_DELETE_Click(sender, New System.EventArgs)
@@ -67,8 +75,9 @@ Partial Public Class FindClaims
 
         End If
 
-            If IsPostBack = False Then RunPageSecurity()
+        If IsPostBack = False Then RunPageSecurity()
         FormatForm()
+
 
         Try
 
@@ -104,10 +113,15 @@ Partial Public Class FindClaims
             ddlClaimStatus.DataBind()
             ddlClaimStatus.SelectedValue = 2
 
-            ddlICD.DataSource = FindClaimsB.GetICDCodes(True)
-            ddlICD.DataTextField = "ICDCode"
-            ddlICD.DataValueField = "ICDID"
-            ddlICD.DataBind()
+            'ddlICD.DataSource = FindClaimsB.GetICDCodes(True)
+            'ddlICD.DataTextField = "ICDNames"
+            'ddlICD.DataValueField = "ICDID"
+            'ddlICD.DataBind()
+
+            gvHiddenICDCodes.DataSource = FindClaimsB.GetICDCodes(True)
+            gvHiddenICDCodes.DataBind()
+
+
 
             FillVisitTypes()
 
@@ -115,6 +129,8 @@ Partial Public Class FindClaims
             If ddlHFCode.Items.Count = 1 Then
                 txtHFName.Enabled = False
             End If
+            '  AddButtonControl()
+            ' ClaimCodeTxtControl()
 
 
             ButtonDisplayControl(0)
@@ -138,10 +154,10 @@ Partial Public Class FindClaims
         ddlRegion.DataValueField = "RegionId"
         ddlRegion.DataTextField = "RegionName"
         ddlRegion.DataBind()
-       
+
         If dtRegions.Rows.Count = 1 Then
             FillDistricts()
-            
+
         End If
     End Sub
     Private Sub FillVisitTypes()
@@ -152,14 +168,14 @@ Partial Public Class FindClaims
     End Sub
     Private Sub RunPageSecurity(Optional ByVal which As Integer = 0)
         Dim RefUrl = Request.Headers("Referer")
+        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If which = 0 Then
-            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Claim, Page) Then
+            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindClaim, Page) Then
                 B_ADD.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.EnterClaim, UserID)
                 B_LOAD.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.LoadClaim, UserID)
                 B_DELETE.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.DeleteClaim, UserID)
                 B_SUBMIT.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.SubmitClaim, UserID)
-                btnSearch.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
 
                 If Not B_LOAD.Visible And Not B_DELETE.Visible And Not B_SUBMIT.Visible Then
                     pnlBody.Enabled = False
@@ -169,11 +185,11 @@ Partial Public Class FindClaims
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 1 Then
-            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.DeleteClaim, UserID) Then
+            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.DeleteClaim, RoleID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 2 Then
-            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ReviewClaim, UserID) Then
+            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ReviewClaim, RoleID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -216,7 +232,7 @@ Partial Public Class FindClaims
     End Sub
 
     Private Sub HFCodeAndBatchRunBinding(ByVal UserID As Integer)
-        
+
         FillHF(UserID)
 
         If Not Val(ddlDistrict.SelectedValue) = 0 Then
@@ -301,16 +317,16 @@ Partial Public Class FindClaims
                 ddlFBStatus.SelectedValue = eClaim.FeedbackStatus
                 ddlReviewStatus.SelectedValue = eClaim.ReviewStatus
                 ddlClaimStatus.SelectedValue = eClaim.ClaimStatus
-                ddlICD.SelectedValue = eICDCodes.ICDID
-
-                txtClaimCode.Text = if(eClaim.ClaimCode Is Nothing, "", eClaim.ClaimCode)
+                'txtICDCode.SelectedValue = eICDCodes.ICDID
+                hfICDCode.Value = eICDCodes.ICDID
+                txtClaimCode.Text = If(eClaim.ClaimCode Is Nothing, "", eClaim.ClaimCode)
                 txtHFName.Text = eHF.HFName
                 txtCHFID.Text = eInsuree.CHFID
-                txtVisitDateTo.Text = if(eClaim.DateTo Is Nothing, "", eClaim.DateTo)
-                txtVisitDateFrom.Text = if(eClaim.DateFrom = Nothing, "", eClaim.DateFrom)
-                txtClaimedDateFrom.Text = if(eClaim.DateClaimed = Nothing, "", eClaim.DateClaimed)
-                txtClaimedDateTo.Text = if(eClaim.DateProcessed Is Nothing, "", eClaim.DateProcessed) 'Used as a carrier for ClaimedDate to range 
-                ddlBatchRun.SelectedValue = if(eBatchRun.RunID = Nothing, Nothing, eBatchRun.RunID)
+                txtVisitDateTo.Text = If(eClaim.DateTo Is Nothing, "", eClaim.DateTo)
+                txtVisitDateFrom.Text = If(eClaim.DateFrom = Nothing, "", eClaim.DateFrom)
+                txtClaimedDateFrom.Text = If(eClaim.DateClaimed = Nothing, "", eClaim.DateClaimed)
+                txtClaimedDateTo.Text = If(eClaim.DateProcessed Is Nothing, "", eClaim.DateProcessed) 'Used as a carrier for ClaimedDate to range 
+                ddlBatchRun.SelectedValue = If(eBatchRun.RunID = Nothing, Nothing, eBatchRun.RunID)
                 ddlClaimAdmin.SelectedValue = eClaim.tblClaimAdmin.ClaimAdminId
                 ddlVisitType.SelectedValue = eClaim.VisitType
 
@@ -333,7 +349,12 @@ Partial Public Class FindClaims
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                eICDCodes.ICDID = ddlICD.SelectedValue
+                If Not hfICDID.Value = "" Then
+                    eICDCodes.ICDID = CInt(Int(hfICDID.Value))
+                Else
+                    eICDCodes.ICDID = 0
+                End If
+
                 If Not txtClaimCode.Text = "" Then
                     eClaim.ClaimCode = txtClaimCode.Text
                 End If
@@ -377,6 +398,7 @@ Partial Public Class FindClaims
             gvClaims.DataSource = dtClaims
             gvClaims.SelectedIndex = 0
             gvClaims.DataBind()
+
             ButtonDisplayControl(gvClaims.Rows.Count)
             GetFilterCriteria()
         Catch ex As Exception
@@ -424,12 +446,13 @@ Partial Public Class FindClaims
         dic.Add("ReviewStatus", ddlReviewStatus.SelectedValue)
         dic.Add("FeedbackStatus", ddlFBStatus.SelectedValue)
         dic.Add("ClaimStatus", ddlClaimStatus.SelectedValue)
-        dic.Add("ICDID", ddlICD.SelectedValue)
+        ' dic.Add("ICDID", ddlICD.SelectedValue)
+        dic.Add("ICDID", txtICDCode.Text)
         dic.Add("BatchRunID", ddlBatchRun.SelectedValue)
-        dic.Add("VisitDateFrom", if(txtVisitDateFrom.Text = "", "", txtVisitDateFrom.Text))
-        dic.Add("VisitDateTo", if(txtVisitDateTo.Text = "", "", txtVisitDateTo.Text))
-        dic.Add("ClaimedDateFrom", if(txtClaimedDateFrom.Text = "", "", txtClaimedDateFrom.Text))
-        dic.Add("ClaimedDateTo", if(txtClaimedDateTo.Text = "", "", txtClaimedDateTo.Text))
+        dic.Add("VisitDateFrom", If(txtVisitDateFrom.Text = "", "", txtVisitDateFrom.Text))
+        dic.Add("VisitDateTo", If(txtVisitDateTo.Text = "", "", txtVisitDateTo.Text))
+        dic.Add("ClaimedDateFrom", If(txtClaimedDateFrom.Text = "", "", txtClaimedDateFrom.Text))
+        dic.Add("ClaimedDateTo", If(txtClaimedDateTo.Text = "", "", txtClaimedDateTo.Text))
         dic.Add("ClaimAdminID", ddlClaimAdmin.SelectedValue)
         dic.Add("VisitType", ddlVisitType.SelectedValue)
 
@@ -448,7 +471,7 @@ Partial Public Class FindClaims
     End Sub
     Private Sub B_DELETE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_DELETE.Click
 
-       
+
 
         RunPageSecurity(1)
         Try
@@ -506,14 +529,14 @@ Partial Public Class FindClaims
             Dim Submitted, Checked, Rejected, Changed, Failed, ItemsPassed, ServicesPassed, ItemsRejected, ServicesRejected As Integer
             If Submitflag = False Then Exit Sub
             FindClaimsB.SubmitClaims(dt, imisgen.getUserId(Session("User")), Submitted, Checked, Rejected, Changed, Failed, ItemsPassed, ServicesPassed, ItemsRejected, ServicesRejected)
-            hfSubmitClaims.Value = "<h4><u>" & imisgen.getMessage("M_CLAIMSUBMITTED_") & "</u></h4>" & "<br>" & _
-                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_CHECKED") & "</td><td>" & Checked & "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") & _
-                                    "</td><td>" & Rejected & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed & _
-                                    "</td></tr><tr><td>" & imisgen.getMessage("M_FAILED") & "</td><td>" & Failed & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_ITEMSPASSED") & "</td><td>" & ItemsPassed & "</td></tr>" & _
-                                    "<tr><td>" & imisgen.getMessage("M_SERVICESPASSED") & "</td><td>" & ServicesPassed & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_ITEMSREJECTED") & "</td><td>" & ItemsRejected & "</td></tr><tr><td>" & _
+            hfSubmitClaims.Value = "<h4><u>" & imisgen.getMessage("M_CLAIMSUBMITTED_") & "</u></h4>" & "<br>" &
+                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_CHECKED") & "</td><td>" & Checked & "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") &
+                                    "</td><td>" & Rejected & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed &
+                                    "</td></tr><tr><td>" & imisgen.getMessage("M_FAILED") & "</td><td>" & Failed & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_ITEMSPASSED") & "</td><td>" & ItemsPassed & "</td></tr>" &
+                                    "<tr><td>" & imisgen.getMessage("M_SERVICESPASSED") & "</td><td>" & ServicesPassed & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_ITEMSREJECTED") & "</td><td>" & ItemsRejected & "</td></tr><tr><td>" &
                                     imisgen.getMessage("M_SERVICESREJECTED") & "</td><td>" & ServicesRejected & "</td></tr></table>"
 
             If IMIS_Gen.offlineHF Then
@@ -553,6 +576,17 @@ Partial Public Class FindClaims
     Private Sub ddlHFCode_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlHFCode.SelectedIndexChanged
         FillClaimAdminCodes()
     End Sub
+    'Private Sub ClaimCodeTxtControl()
+    '    If ddlHFCode.SelectedValue = 0 Then
+    '        txtClaimCode.Enabled = False
+    '    Else
+    '        txtClaimCode.Enabled = True
+    '    End If
+    'End Sub
+    'Private Sub ddlHFCode_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlHFCode.SelectedIndexChanged
+    '    ClaimCodeTxtControl()
+    '    AddButtonControl()
+    'End Sub
     Private Sub FillDistricts()
         ddlDistrict.DataSource = FindClaimsB.GetDistricts(imisgen.getUserId(Session("User")), True, Val(ddlRegion.SelectedValue))
         ddlDistrict.DataValueField = "DistrictId"
@@ -565,4 +599,5 @@ Partial Public Class FindClaims
         FillDistricts()
 
     End Sub
+
 End Class

@@ -125,7 +125,65 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
     
      }
 
- }
+    }
+
+// ICDCode AutoComplete TextBox Control Start
+    $(document).ready(function () {
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_initializeRequest(InitializeRequest);
+        prm.add_endRequest(EndRequest);
+
+        InitAutoCompl();
+    });
+
+    function InitializeRequest(sender, args) {
+    }
+
+    function EndRequest(sender, args) {
+        
+        InitAutoCompl();
+    }
+
+    
+    function InitAutoCompl() {
+        $("#<%=txtICDCode.ClientID %>").focus(function () {
+            var datasource;
+            $.ajax({
+                url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                dataType: "json",
+                type: "GET",
+                async: false,
+                cache: false,
+
+                success: function (data) {
+                   
+                    datasource = data;
+                }
+
+            });
+            var ds = new AutoCompletedataSource(datasource);
+            console.log(datasource);
+            $("#<%=txtICDCode.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    var data = ds.filter(request);
+
+                    response($.map(data, function (item, id) {
+
+                        return {
+                            label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                        };
+                    }));
+
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID.ClientID%>').val(u.item.id);
+                    $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
+                }
+            });
+        });
+
+    }
+    // ICDCode AutoComplete TextBox Control End
 
  $(document).ready(function() {
     
@@ -608,6 +666,9 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
  <ContentTemplate>
  
   <div class="divBody" >
+          <asp:HiddenField ID="hfICDID" runat="server"/>
+       <asp:HiddenField ID="hfICDCode" runat="server"/>
+
         <table class="catlabel">
             <tr>
                 <td >
@@ -725,9 +786,9 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                         Text='<%$ Resources:Resource,L_ICD%>'></asp:Label>
                  </td>
                  <td class="DataEntry">
-                 <%--<asp:TextBox ID="txtICDCode" runat="server" MaxLength="6"></asp:TextBox>--%>
-                     <asp:DropDownList ID="ddlICD" runat="server" >
-                     </asp:DropDownList>
+                 <asp:TextBox ID="txtICDCode" runat="server" MaxLength="8"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                  <%--   <asp:DropDownList ID="ddlICD" runat="server" >
+                     </asp:DropDownList>--%>
                  </td>            
                   
               
