@@ -146,10 +146,11 @@ Partial Public Class OverviewFamily
             End If
             txtPoverty.Text = If(eFamily.Poverty Is Nothing, "", If(eFamily.Poverty = True, "Yes", "No"))
             txtConfirmationType.Text = eFamily.ConfirmationType
-          
+
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
+            txtHeadGroupType.Text = eFamily.FamilyType
             txtConfirmationNo.Text = eFamily.ConfirmationNo
             txtPermanentAddress.Text = eFamily.FamilyAddress
         Catch ex As Exception

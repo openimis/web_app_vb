@@ -226,12 +226,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <asp:RequiredFieldValidator ID="RequiredFieldBirthDate" runat="server" 
                                 ControlToValidate="txtFromDate" SetFocusOnError="True" 
                                 Text='<%$ Resources:Resource,M_SELECTFRMDATE %>' ValidationGroup="check" 
-                                Display="Dynamic"></asp:RequiredFieldValidator>
+                                Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                                 ControlToValidate="txtFromDate" 
                                 ErrorMessage='<%$ Resources:Resource,M_DATEFORMAT %>' SetFocusOnError="false" 
                                 ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                                ValidationGroup="check" Display="Dynamic"></asp:RegularExpressionValidator>
+                                ValidationGroup="check" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
                         </td>
                     </tr>
                     <tr>
@@ -248,18 +248,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td>
                             <asp:RequiredFieldValidator ID="RequiredFieldBirthDate0" runat="server" 
                                 ControlToValidate="txtToDate" SetFocusOnError="True" 
-                                Text='<%$ Resources:Resource,M_SELECTTODATE %>' ValidationGroup="check"></asp:RequiredFieldValidator>
+                                Text='<%$ Resources:Resource,M_SELECTTODATE %>' ValidationGroup="check" ForeColor="Red"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 
                                 ControlToValidate="txtToDate" ErrorMessage='<%$ Resources:Resource,M_DATEFORMAT %>' 
                                 SetFocusOnError="false" 
                                 ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                                ValidationGroup="check"></asp:RegularExpressionValidator>
+                                ValidationGroup="check" ForeColor="Red"></asp:RegularExpressionValidator>
                             <br />
                             <asp:CompareValidator ID="CompareValidator1" runat="server" 
                                 ControlToCompare="txtFromDate" ControlToValidate="txtToDate" Display="Dynamic" 
                                 ErrorMessage='<%$ Resources:Resource,M_TODATEGREATER %>' 
                                 Operator="GreaterThanEqual" SetFocusOnError="True" Type="Date" 
-                                ValidationGroup="check"></asp:CompareValidator>
+                                ValidationGroup="check" ForeColor="Red"></asp:CompareValidator>
                         </td>
                         <td><asp:Button ID="btnSendSMS" runat="server" Text='<%$ Resources:Resource,M_SENDSMS %>' Visible="True" /></td>
                     </tr>

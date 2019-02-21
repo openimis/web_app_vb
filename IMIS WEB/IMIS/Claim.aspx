@@ -540,19 +540,20 @@ In case of dispute arising out or in relation to the use of the program, it is s
                </td>
                <td  class ="DataEntry">
                 <asp:TextBox ID="txtSTARTData" runat="server" size="10" Width="100px" maxlength="10"> </asp:TextBox>
-                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                    ControlToValidate="txtSTARTData" ErrorMessage="*" SetFocusOnError="True" 
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="txtSTARTData_RequiredFieldValidator" 
+                   
+                   <%-- <asp:RequiredFieldValidator ID="txtSTARTData_RequiredFieldValidator" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtSTARTData" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>--%>
                <asp:Button ID="btnSTARTData" runat="server" Height="15px" padding-bottom="3px" 
                         Width="15px" class="btnDate" />
                     <ajax:CalendarExtender ID="txtSTARTData_CalendarExtender" runat="server" 
                         Format="dd/MM/yyyy" PopupButtonID="btnSTARTData" TargetControlID="txtSTARTData">
                     </ajax:CalendarExtender>
-                     
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                    ControlToValidate="txtSTARTData" ErrorMessage="*" SetFocusOnError="True" 
+                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                    </asp:RegularExpressionValidator>
                </td>
             </tr>   
              <tr>
@@ -564,7 +565,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                        AutoPostBack ="true" Width="125px" ></asp:Textbox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtCHFIDData" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"
+                                        ></asp:RequiredFieldValidator>
                </td>
                <td class="FormLabel">
                    <asp:Label ID="lblNAME" runat="server" Text='<%$ Resources:Resource,L_PATIENTNAME %>' ></asp:Label>
@@ -578,16 +580,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
                </td>
                <td class ="DataEntry">
                    <asp:TextBox ID="txtENDData" runat="server" Size="10" Width="100px" maxlength="10"></asp:TextBox>
-                   <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
-                    ControlToValidate="txtENDData" ErrorMessage="*" SetFocusOnError="True" 
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                   
                <asp:Button ID="btnENDData" runat="server" Height="15px" padding-bottom="3px" 
                         Width="15px" style="margin-left:7px" class="btnDate" />
                     <ajax:CalendarExtender ID="txtENDData_CalendarExtender" runat="server" 
                         Format="dd/MM/yyyy" PopupButtonID="btnENDData" TargetControlID="txtENDData">
                     </ajax:CalendarExtender>
-                     
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
+                    ControlToValidate="txtENDData" ErrorMessage="*" SetFocusOnError="True" 
+                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                   </asp:RegularExpressionValidator>
                </td> 
             </tr>  
                
@@ -600,7 +603,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    <asp:DropDownList ID="ddlICDData" runat="server" width="130px" ></asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" 
                        runat="server" ErrorMessage="*" ControlToValidate="ddlICDData" InitialValue="0"
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>               
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic">
+                    </asp:RequiredFieldValidator>               
                </td>
             
                <td class="FormLabel">
@@ -610,25 +614,28 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    <asp:TextBox ID="txtCLAIMCODEData" runat="server" size="10" MaxLength="8" Text="" Width="125px" ></asp:TextBox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtCLAIMCODEData" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic">
+                  </asp:RequiredFieldValidator>
                </td>
                <td class="FormLabel" style="width:600px;">
                   <asp:Label ID="lblCLAIMDATE" runat="server" Text='<%$ Resources:Resource,L_CLAIMDATE %>' ></asp:Label>
                </td>
                <td class ="DataEntry" style="width:800px;">
                <asp:TextBox ID="txtClaimDate" runat="server" Size="10" maxlength="10" Width="130px" ></asp:TextBox>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                    ControlToValidate="txtClaimDate" ErrorMessage="*" SetFocusOnError="True" 
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" 
+                
+                    <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator4" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtClaimDate" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>--%>
                <asp:Button ID="btnClaimDate" runat="server" Height="15px" padding-bottom="3px" 
                         Width="15px" class="btnDate"/>
                     <ajax:CalendarExtender ID="txtClaimDateCalendarExtender" runat="server" 
                         Format="dd/MM/yyyy" PopupButtonID="btnClaimDate" TargetControlID="txtClaimDate">
-                    </ajax:CalendarExtender>                    
+                    </ajax:CalendarExtender> 
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                    ControlToValidate="txtClaimDate" ErrorMessage="*" SetFocusOnError="True" 
+                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                </asp:RegularExpressionValidator>
                </td>             
              
                 <td class="FormLabel">
@@ -693,7 +700,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       <asp:TextBox ID="txtGuaranteeId" runat="server" Enabled="true" width="125px" 
                           MaxLength="50"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="rfGuranteeId" runat="server" ErrorMessage="*" 
-                          ControlToValidate="txtGuaranteeId" ValidationGroup="check" Visible="true"></asp:RequiredFieldValidator>
+                          ControlToValidate="txtGuaranteeId" ValidationGroup="check" Visible="true" ForeColor="Red" Display="Dynamic">
+                      </asp:RequiredFieldValidator>
                   </td>
                   <td class="FormLabel" style="width:400px;">
                     <asp:Label ID="lblVisitType" runat="server" Text="<%$ Resources:Resource,L_VISITTYPE %>"></asp:Label>
@@ -702,7 +710,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <asp:DropDownList ID="ddlVisitType" runat="server" Width="135px">
                     </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*"
-                        ControlToValidate="ddlVisitType" ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                         ControlToValidate="ddlVisitType" ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic">
+                        </asp:RequiredFieldValidator>
                   </td>
                   <td class="FormLabel">
                       &nbsp;</td>

@@ -122,24 +122,6 @@ Partial Public Class Claim
     Protected WithEvents txtSTARTData As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''RegularExpressionValidator2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
-    '''<summary>
-    '''txtSTARTData_RequiredFieldValidator control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtSTARTData_RequiredFieldValidator As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
-    '''<summary>
     '''btnSTARTData control.
     '''</summary>
     '''<remarks>
@@ -156,6 +138,15 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtSTARTData_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+    
+    '''<summary>
+    '''RegularExpressionValidator2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
     '''lblCHFID control.
@@ -221,15 +212,6 @@ Partial Public Class Claim
     Protected WithEvents txtENDData As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''RegularExpressionValidator3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidator3 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
-    '''<summary>
     '''btnENDData control.
     '''</summary>
     '''<remarks>
@@ -246,6 +228,15 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtENDData_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+    
+    '''<summary>
+    '''RegularExpressionValidator3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator3 As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
     '''lblICD control.
@@ -320,24 +311,6 @@ Partial Public Class Claim
     Protected WithEvents txtClaimDate As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''RegularExpressionValidator1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
-    '''<summary>
-    '''RequiredFieldValidator4 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
-    '''<summary>
     '''btnClaimDate control.
     '''</summary>
     '''<remarks>
@@ -354,6 +327,15 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtClaimDateCalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+    
+    '''<summary>
+    '''RegularExpressionValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
     '''lblCLAIMTOTAL control.

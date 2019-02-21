@@ -44,7 +44,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
         if ('<%= imisgen.offlineHF %>' == 'True') {
             offlineHFMsg = '<%= imisgen.getMessage("M_OFFLINEHFID", True)%>';
         } else {
-            offlineHFMsg = '<%= imisgen.getMessage("M_OFFLINECHFID", True) %>';
+            offlineHFMsg = '<%= imisgen.getMessage("M_OFFLINECHFID", True ) %>';
         }
 
         function SendOfflineHFID(popupBtnSource, evArgs) {
@@ -147,14 +147,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <td class="FormLabel" style="width:150px !important" ><%= imisgen.getMessage("L_USERNAME",False)%></td>
                 <td><asp:TextBox ID="txtUserName" runat="server" MaxLength="25" Width="120px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="txtUserName" ErrorMessage="*" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        ControlToValidate="txtUserName" ErrorMessage="*" SetFocusOnError="True" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="FormLabel" style="width:150px !important" ><%= imisgen.getMessage("L_PASSWORD" )%></td>
                 <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" MaxLength="25" Width="120px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                        ControlToValidate="txtPassword" ErrorMessage="*" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        ControlToValidate="txtPassword" ErrorMessage="*" SetFocusOnError="True" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

@@ -44,7 +44,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 
                             </td>
                         <td>
-                            <asp:RequiredFieldValidator ID="RequiredFieldCurrentPassword" runat="server" ControlToValidate="txtCurrentPassword" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldCurrentPassword" runat="server" ControlToValidate="txtCurrentPassword" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -57,8 +57,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="RequiredFieldPassword" runat="server" 
-                                    ValidationGroup="check" ControlToValidate="txtNewPassword" Text="*"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtNewPassword"  ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check">*</asp:RegularExpressionValidator>
+                                    ValidationGroup="check" ForeColor="Red" Display="Dynamic" ControlToValidate="txtNewPassword" Text="*"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtNewPassword"  ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                             </td>
                         </tr>
                         <tr>
@@ -71,10 +71,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </td>
                             <td class="Validate">
                                 <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassoward" runat="server"    
-                                    ControlToValidate="txtConfirmNewPassword" Text="*" ValidationGroup="check"> </asp:RequiredFieldValidator>
+                                    ControlToValidate="txtConfirmNewPassword" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"> </asp:RequiredFieldValidator>
                                 <asp:CompareValidator ID="ComparePassword" runat="server"  
                                     ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmNewPassword" ValidationGroup="check"
-                                    Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'></asp:CompareValidator>
+                                    Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>' ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                             </td>
                         </tr>
                         

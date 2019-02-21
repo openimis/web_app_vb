@@ -239,6 +239,24 @@ Partial Public Class OverviewFamily
     Protected WithEvents txtConfirmationNo As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''lblGroupType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGroupType As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtHeadGroupType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHeadGroupType As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''L_VILLAGE control.
     '''</summary>
     '''<remarks>

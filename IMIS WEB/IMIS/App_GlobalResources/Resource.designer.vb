@@ -3143,7 +3143,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Group Type.
+        '''  Looks up a localized string similar to Family / Group Type.
         '''</summary>
         Friend Shared ReadOnly Property L_GROUPTYPE() As String
             Get
