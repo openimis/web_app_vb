@@ -73,7 +73,6 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -171,13 +170,10 @@
     <Content Include="Images\Renew.png" />
     <Content Include="IMISExtracts.aspx" />
     <Content Include="Insuree.aspx" />
-    <Content Include="Javascripts\autocomplete.js" />
     <Content Include="Javascripts\Exact.js" />
     <Content Include="Javascripts\ExactDropDown.js" />
     <Content Include="Javascripts\jquery-1.8.2.min.js" />
-    <Content Include="Javascripts\jquery-ui.js" />
     <Content Include="Javascripts\jquery.cookie.js" />
-    <Content Include="Javascripts\jquery.ui.autocomplete.js" />
     <Content Include="Locations.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MedicalItem.aspx" />
@@ -220,8 +216,6 @@
     <Content Include="StyleSheets\grd_head.png" />
     <Content Include="StyleSheets\grd_pgr.png" />
     <Content Include="StyleSheets\Imis.css" />
-    <Content Include="StyleSheets\jquery-ui.css" />
-    <Content Include="StyleSheets\jquery.ui.autocomplete.css" />
     <Content Include="StyleSheets\MainMenu.css" />
     <Content Include="Templates\FamilySMSBeforeExpiry.txt" />
     <Content Include="Templates\ForgotPassword.html" />
@@ -241,7 +235,6 @@
     <Content Include="IMISDataSet.xsc">
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="AutoCompleteHandlers\AutoCompleteHandler.ashx" />
     <None Include="IMISDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IMISDataSet.Designer.vb</LastGenOutput>
@@ -276,9 +269,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="AutoCompleteHandlers\AutoCompleteHandler.ashx.vb">
-      <DependentUpon>AutoCompleteHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="BgService.aspx.designer.vb">
       <DependentUpon>BgService.aspx</DependentUpon>

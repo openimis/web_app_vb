@@ -99,8 +99,4 @@ Public Class FindClaimsBI
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect)
     End Function
-    Public Function getAutoCompleteICDCodes(Optional ByVal showSelect As Boolean = False) As DataTable
-        Dim GetDataTable As New IMIS_BL.ICDCodesBL
-        Return GetDataTable.getAutoCompleteICDCodes
-    End Function
 End Class

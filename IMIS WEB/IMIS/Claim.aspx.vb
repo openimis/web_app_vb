@@ -117,30 +117,24 @@ Partial Public Class Claim
                 txtNAMEData.Text = eClaim.tblInsuree.OtherNames & " " & eClaim.tblInsuree.LastName
             End If
 
-             If Not eClaim.tblICDCodes Is Nothing Then
+            If Not eClaim.tblICDCodes Is Nothing Then
                 ddlICDData.SelectedValue = eClaim.tblICDCodes.ICDID
-                txtICDCode0.Text = ddlICDData.SelectedItem.Text
-                hfICDID0.Value = eClaim.tblICDCodes.ICDID
             End If
             If Not eClaim.ClaimCode Is Nothing Then
                 txtCLAIMCODEData.Text = eClaim.ClaimCode
             End If
             'Addition for Nepal >> Start
             If Not eClaim.ICDID1 Is Nothing Then
-                ddlICDData1.SelectedValue = eClaim.ICDID
-                txtICDCode1.Text = ddlICDData1.SelectedItem.Text
+                ddlICDData1.SelectedValue = eClaim.ICDID1
             End If
             If Not eClaim.ICDID2 Is Nothing Then
                 ddlICDData2.SelectedValue = eClaim.ICDID2
-                txtICDCode2.Text = ddlICDData2.SelectedItem.Text
             End If
             If Not eClaim.ICDID3 Is Nothing Then
                 ddlICDData3.SelectedValue = eClaim.ICDID3
-                txtICDCode3.Text = ddlICDData3.SelectedItem.Text
             End If
             If Not eClaim.ICDID4 Is Nothing Then
                 ddlICDData4.SelectedValue = eClaim.ICDID4
-                txtICDCode4.Text = ddlICDData4.SelectedItem.Text
             End If
             If Not eClaim.VisitType Is Nothing Then
                 ddlVisitType.SelectedValue = eClaim.VisitType
@@ -197,29 +191,26 @@ Partial Public Class Claim
             Return
         End Try
     End Sub
-
-
-
     Private Sub FillICDCodes()
         Dim dtICD As DataTable = claim.GetICDCodes
         ddlICDData.DataSource = dtICD
-        ddlICDData.DataTextField = "ICDNAMES"
+        ddlICDData.DataTextField = "ICDCODE"
         ddlICDData.DataValueField = "ICDID"
         ddlICDData.DataBind()
         ddlICDData1.DataSource = dtICD
-        ddlICDData1.DataTextField = "ICDNAMES"
+        ddlICDData1.DataTextField = "ICDCODE"
         ddlICDData1.DataValueField = "ICDID"
         ddlICDData1.DataBind()
         ddlICDData2.DataSource = dtICD
-        ddlICDData2.DataTextField = "ICDNAMES"
+        ddlICDData2.DataTextField = "ICDCODE"
         ddlICDData2.DataValueField = "ICDID"
         ddlICDData2.DataBind()
         ddlICDData3.DataSource = dtICD
-        ddlICDData3.DataTextField = "ICDNAMES"
+        ddlICDData3.DataTextField = "ICDCODE"
         ddlICDData3.DataValueField = "ICDID"
         ddlICDData3.DataBind()
         ddlICDData4.DataSource = dtICD
-        ddlICDData4.DataTextField = "ICDNAMES"
+        ddlICDData4.DataTextField = "ICDCODE"
         ddlICDData4.DataValueField = "ICDID"
         ddlICDData4.DataBind()
     End Sub
@@ -239,24 +230,19 @@ Partial Public Class Claim
         Session("LoadedVisitDateTo") = If(eClaim.DateTo Is Nothing, txtSTARTData.Text, eClaim.DateTo)
         Session("LoadedExplanation") = eClaim.Explanation
         'Addition for Nepal >> Start
-
         Session("LoadedICD1") = ddlICDData1.SelectedValue
         Session("LoadedICD2") = ddlICDData2.SelectedValue
         Session("LoadedICD3") = ddlICDData3.SelectedValue
         Session("LoadedICD4") = ddlICDData4.SelectedValue
-
-        Session("LoadedICD1") = txtICDCode1.Text
-        Session("LoadedICD2") = txtICDCode2.Text
-        Session("LoadedICD3") = txtICDCode3.Text
-        Session("LoadedICD4") = txtICDCode4.Text
         Session("LoadedVisitType") = ddlVisitType.SelectedValue
         'Addition for Nepal >> End
     End Sub
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Claim, Page) Then
             B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EnterClaim, UserID)
+            gvService.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EditMedicalService, UserID)
+            gvItems.EditIndex = userBI.checkRights(IMIS_EN.Enums.Rights.EditMedicalItem, UserID)
 
             If Not B_SAVE.Visible Then
                 pnlBodyCLM.Attributes.Add("Class", "disabled")
@@ -362,15 +348,10 @@ Partial Public Class Claim
             txtClaimDate.Text = ""
             txtEXPLANATION.Text = ""
             ddlICDData.SelectedValue = 0
-            'ddlICDData1.SelectedValue = 0
-            'ddlICDData2.SelectedValue = 0
-            'ddlICDData3.SelectedValue = 0
-            'ddlICDData4.SelectedValue = 0
-            txtICDCode1.Text = ""
-            txtICDCode2.Text = ""
-            txtICDCode3.Text = ""
-            txtICDCode4.Text = ""
-
+            ddlICDData1.SelectedValue = 0
+            ddlICDData2.SelectedValue = 0
+            ddlICDData3.SelectedValue = 0
+            ddlICDData4.SelectedValue = 0
             txtCLAIMTOTALData.Text = 0
             hfClaimID.Value = 0
             txtNAMEData.Text = ""
@@ -409,12 +390,12 @@ Partial Public Class Claim
 
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindClaims.aspx")
+        Response.Redirect("FindClaims.aspx?c=c")
     End Sub
     Private Function IsClaimChanged(ByRef ClaimTotalValueFlag As Boolean) As Boolean
         Dim EndDate As Date = CType(Session("LoadedVisitDateTo"), Date)
 
-        If Not Session("LoadedHFID") = CInt(Int(hfHFID.Value)) Then
+        If Not Session("LoadedHFID") = hfHFID.Value Then
         ElseIf Not Session("LoadedCHFID") = txtCHFIDData.Text Then
         ElseIf Not Session("LoadedClaimCode") = txtCLAIMCODEData.Text Then
         ElseIf Not Session("LoadedClaimedDate") = txtClaimDate.Text Then
@@ -424,12 +405,10 @@ Partial Public Class Claim
         ElseIf hfGuaranteeId.Value <> txtGuaranteeId.Text.Trim Then
         ElseIf Not Session("LoadedExplanation") = txtEXPLANATION.Text.Trim Then
             'Addition for Nepal >> Start
-
-
-        ElseIf Not Session("LoadedICD1") = txtICDCode1.Text Then
-        ElseIf Not Session("LoadedICD2") = txtICDCode2.Text Then
-        ElseIf Not Session("LoadedICD3") = txtICDCode3.Text Then
-        ElseIf Not Session("LoadedICD4") = txtICDCode4.Text Then
+        ElseIf Not CType(Session("LoadedICD1"), Integer) = ddlICDData1.SelectedValue Then
+        ElseIf Not CType(Session("LoadedICD2"), Integer) = ddlICDData2.SelectedValue Then
+        ElseIf Not CType(Session("LoadedICD3"), Integer) = ddlICDData3.SelectedValue Then
+        ElseIf Not CType(Session("LoadedICD4"), Integer) = ddlICDData4.SelectedValue Then
         ElseIf Not CType(Session("LoadedVisitType"), String) = ddlVisitType.SelectedValue Then
             'Addition for Nepal >> End
         Else
@@ -484,8 +463,8 @@ Partial Public Class Claim
             '    End If
 
             'End If
-            If txtICDCode0.Text = "" Then
-                imisgen.Alert(imisgen.getMessage("M_PLEASEENTERANMDGCODE"), pnlButtons, alertPopupTitle:="IMIS")
+            If ddlICDData.SelectedValue = 0 Then
+                imisgen.Alert(imisgen.getMessage("M_SELECTICDCODE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return "Exit"
             End If
             If txtNAMEData.Text = "" Then
@@ -523,7 +502,6 @@ Partial Public Class Claim
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         Dim chkSaveClaimItems, chkSaveClaim, chkSaveClaimServices As Integer
         eClaim.ClaimID = hfClaimID.Value
-
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
 
             Try
@@ -557,33 +535,32 @@ Partial Public Class Claim
                             eClaim.DateTo = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
                         End If
                         eClaim.Claimed = hfClaimTotalValue.Value
-
                         Dim eICDCodes As New IMIS_EN.tblICDCodes
-                        eICDCodes.ICDID = If(hfICDID0.Value = "", 0, CInt(Int(hfICDID0.Value)))
+                        eICDCodes.ICDID = ddlICDData.SelectedValue
 
                         'Addition for Nepal >> Start
-                        If Not txtICDCode1.Text = "" Then eClaim.ICDID1 = If(hfICDID1.Value = "", 0, CInt(Int(hfICDID1.Value)))
-                        If Not txtICDCode2.Text = "" Then eClaim.ICDID2 = If(hfICDID2.Value = "", 0, CInt(Int(hfICDID2.Value)))
-                        If Not txtICDCode3.Text = "" Then eClaim.ICDID3 = If(hfICDID3.Value = "", 0, CInt(Int(hfICDID3.Value)))
-                        If Not txtICDCode4.Text = "" Then eClaim.ICDID4 = If(hfICDID4.Value = "", 0, CInt(Int(hfICDID4.Value)))
+                        If ddlICDData1.SelectedValue > 0 Then eClaim.ICDID1 = ddlICDData1.SelectedValue
+                        If ddlICDData2.SelectedValue > 0 Then eClaim.ICDID2 = ddlICDData2.SelectedValue
+                        If ddlICDData3.SelectedValue > 0 Then eClaim.ICDID3 = ddlICDData3.SelectedValue
+                        If ddlICDData4.SelectedValue > 0 Then eClaim.ICDID4 = ddlICDData4.SelectedValue
                         If ddlVisitType.SelectedValue.Trim <> "" Then eClaim.VisitType = ddlVisitType.SelectedValue
-                            'Addition for Nepal >> End
+                        'Addition for Nepal >> End
 
-                            eClaim.tblICDCodes = eICDCodes
-                            eClaim.Explanation = txtEXPLANATION.Text
-                            If hfClaimAdminId.Value.Trim <> String.Empty Then
-                                eClaimAdmin.ClaimAdminId = CInt(hfClaimAdminId.Value)
-                            End If
-                            eClaim.tblClaimAdmin = eClaimAdmin
-                            eClaim.GuaranteeId = txtGuaranteeId.Text
-                            chkSaveClaim = claim.SaveClaim(eClaim)
-                            hfClaimID.Value = eClaim.ClaimID
-                            txtCLAIMCODEData.Attributes.Add("ClaimCodetag", eClaim.ClaimCode)
-                            If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
-                            StoreClaimDetails()
+                        eClaim.tblICDCodes = eICDCodes
+                        eClaim.Explanation = txtEXPLANATION.Text
+                        If hfClaimAdminId.Value.Trim <> String.Empty Then
+                            eClaimAdmin.ClaimAdminId = CInt(hfClaimAdminId.Value)
                         End If
-
+                        eClaim.tblClaimAdmin = eClaimAdmin
+                        eClaim.GuaranteeId = txtGuaranteeId.Text
+                        chkSaveClaim = claim.SaveClaim(eClaim)
+                        hfClaimID.Value = eClaim.ClaimID
+                        txtCLAIMCODEData.Attributes.Add("ClaimCodetag", eClaim.ClaimCode)
+                        If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
+                        StoreClaimDetails()
                     End If
+
+                End If
 
             Catch ex As Exception
                 'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
