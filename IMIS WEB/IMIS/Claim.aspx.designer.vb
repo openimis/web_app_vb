@@ -23,6 +23,51 @@ Partial Public Class Claim
     Protected WithEvents pnlBodyCLM As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
+    '''hfICDID0 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDID0 As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
+    '''hfICDID1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDID1 As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
+    '''hfICDID2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDID2 As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
+    '''hfICDID3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDID3 As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
+    '''hfICDID4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDID4 As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''UpClaims control.
     '''</summary>
     '''<remarks>
@@ -257,13 +302,13 @@ Partial Public Class Claim
     Protected WithEvents ddlICDData As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''RequiredFieldValidator3 control.
+    '''txtICDCode0 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents txtICDCode0 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''lblCLAIMCODE control.
@@ -374,6 +419,15 @@ Partial Public Class Claim
     Protected WithEvents lblICD1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''txtICDCode1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtICDCode1 As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''ddlICDData1 control.
     '''</summary>
     '''<remarks>
@@ -390,6 +444,15 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblICD2 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtICDCode2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtICDCode2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''ddlICDData2 control.
@@ -410,6 +473,15 @@ Partial Public Class Claim
     Protected WithEvents lblICD3 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''txtICDCode3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtICDCode3 As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''ddlICDData3 control.
     '''</summary>
     '''<remarks>
@@ -426,6 +498,15 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblICD4 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtICDCode4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtICDCode4 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''ddlICDData4 control.
