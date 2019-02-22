@@ -95,7 +95,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         ID="RequiredFieldName" runat="server" 
                         ControlToValidate="txtName" 
                         SetFocusOnError="True" 
-                        ValidationGroup="check"
+                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                         Text='*'></asp:RequiredFieldValidator>
                         </td>
                     </tr>
@@ -104,7 +104,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:Label ID="L_Date" runat="server" Text='<%$ Resources:Resource,L_DATE %>'></asp:Label>
                             </td>
                             <td class="DataEntry">
-                             <asp:TextBox ID="txtDate" runat="server" Width="100px" MaxLength="10" ></asp:TextBox>
+                             <asp:TextBox ID="txtDate" runat="server" Width="125px" MaxLength="10" ></asp:TextBox>
                              <asp:MaskedEditExtender ID="txtDate_MaskedEditExtender" runat="server" 
                             CultureDateFormat="dd/MM/YYYY"                             
                             TargetControlID="txtDate" Mask="99/99/9999" MaskType="Date" 
@@ -118,7 +118,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       <asp:RegularExpressionValidator ID="RegularExpressionValidatorDate" runat="server" 
                     ControlToValidate="txtDate" Text="*" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </td>
                         </tr>
                     <tr>
@@ -135,7 +135,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         
                         </td>
                         <td>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         <td>
                             &nbsp;</td>
                     </tr>

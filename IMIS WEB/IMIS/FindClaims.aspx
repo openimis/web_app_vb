@@ -37,10 +37,68 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
         #popup-div-body table tr > td{
            text-align:right;
             }
+
+         table#DropDownSugTable
+        {
+            border-width: 0px;
+            border-collapse: collapse;
+        }
+        table#DropDownSugTable th
+        {
+            background: #CCC;
+            color: #303030;
+            border-width: 0px;
+        }
+        table#DropDownSugTable td
+        {
+            border-width: 0px;
+        }
+        .pnlHiddenICDCodes
+        {
+            display: none;
+            position: absolute;
+            background: #CCCCCC;
+            border: 1px solid #ccc;
+            font-weight: normal;
+            color: #000000;
+            z-index: 100;
+            padding: 3px;
+            height: auto;
+            cursor: pointer;
+            width: auto;
+        }
+        .popup
+        {
+            width: 220px;
+            height: 100px;
+            background-color: White;
+            z-index: 1002;
+            font-size: 14px;
+            text-align: center;
+            border: solid 2px black;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            padding-top: 8px;
+        }
+        .backentry
+        {
+            height: 643px;
+        }
+        .footer
+        {
+            top:auto;
+        }
+        .auto-style1 {
+            height: 27px;
+        }
+
 </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
-<script type="text/javascript">
+    <script type="text/javascript">
     var ClaimStatus;
     var ClaimID;
     //var previousRow;
@@ -91,6 +149,66 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
             $('.ConditionCheck').trigger("change");
       }
 
+        $(document).ready(function ()
+        {
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_initializeRequest(InitializeRequest);
+            prm.add_endRequest(EndRequest);
+
+            InitAutoCompl();
+        });
+
+        function InitializeRequest(sender, args) {
+        }
+
+        function EndRequest(sender, args) {
+            // after update occur on UpdatePanel re-init the Autocomplete
+            InitAutoCompl();
+        }
+
+        function InitAutoCompl() {
+            $("#<%=txtICDCode.ClientID %>").focus(function () {
+                var datasource;
+                $.ajax({
+                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    dataType: "json",
+                    type: "GET",
+                    async: false,
+                    cache: false,
+
+                    success: function (data) {
+                        // console.log(data);
+                        datasource = data;
+                    }
+
+                });
+                var ds = new AutoCompletedataSource(datasource);
+                console.log(datasource);
+                $("#<%=txtICDCode.ClientID %>").autocomplete({
+                    source: function (request, response) {
+                        var data = ds.filter(request);
+
+                        response($.map(data, function (item, id) {
+
+                            return {
+                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                            };
+                        }));
+
+                    },
+                    select: function (e, u) {
+                        $('#<% = hfICDID.ClientID%>').val(u.item.id);
+                        $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
+                    }
+                });
+            });
+        }
+         
+    
+
+ 
+   
 
     $(document).ready(function () {
         if ($("#<%=hfSubmitClaims.ClientID %>").val() == "") {
@@ -222,8 +340,28 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
               }
           });
       }
-      
+
+
+      function pageLoadExtend() {
+          dropdown.init($("#DropDownSugTable"), function () {
+              $('.ClaimValue').eq(0).trigger("change");
+          });
+
+          $(".disabled a").unbind("click").mouseover(function () {
+              $(this).css("opacity", 0.2);
+          });
+          showInsureePopupSearchResult();
+          $('#btnCancel').click(function () {
+              $('#SelectPic').hide();
+          });
+
+        }
+
+
+
 </script>
+
+
 <asp:UpdatePanel ID="upClaim" runat="server" RenderMode="Inline" > 
 <Triggers>
 <asp:PostBackTrigger ControlID="B_SUBMIT" />
@@ -231,6 +369,8 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
 </Triggers>
 <ContentTemplate>
   <div class="divBody" >
+      <asp:HiddenField ID="hfICDID" runat="server"/>
+       <asp:HiddenField ID="hfICDCode" runat="server"/>
         <asp:HiddenField ID="hfClaimAdminAdjustibility" runat="server" Value="" />
         <table class="catlabel">
             <tr>
@@ -245,8 +385,22 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
             </tr>
         </table>
        
+ 
+
         <asp:Panel ID="pnlTop" runat="server"  CssClass="panelTop"  Height="165px"  GroupingText='<%$ Resources:Resource,L_CLAIMDETAILS %>' oncontextmenu="return false;">
-           
+               
+            <table id="DropDownSugTable" border="0px" style="display: none; width: 100%; border-collapse: collapse;
+                border: 0px solid #CCC;">
+                <tr style="color: #303030; background: #C0C0C0;">
+                    <th>
+                        <%=imisgen.getMessage("L_CODE", True)%>
+                    </th>
+                    <th>
+                        <%=imisgen.getMessage("L_NAME", True)%>
+                    </th>
+                   
+                </tr>
+            </table> 
       <table >
           <tr>
             <td class ="FormLabel">
@@ -346,8 +500,10 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                  </td>
             <td class="DataEntry">
                 <%-- <asp:TextBox ID="txtICDCode" runat="server" MaxLength="6"></asp:TextBox>--%>
-                     <asp:DropDownList ID="ddlICD" runat="server" >
-                     </asp:DropDownList>
+                 <%--    <asp:DropdownList ID="ddlICD" runat="server"  class="cmb autosuggest ddlICD" autocomplete="off" >
+                     </asp:DropdownList>--%>
+            <asp:TextBox ID="txtICDCode" runat="server" MaxLength="8"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+
             </td>                  
             <td class="DataEntry" >
                   
@@ -507,6 +663,9 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
              <asp:HiddenField ID="hfSubmitClaims" runat="server" />
         </asp:Panel>
         </div>
+          
+
+
        <asp:Panel ID="pnlButtons" runat="server"   CssClass="panelbuttons" >
         <table width="100%" cellpadding="10 10 10 10" align="center">
              <tr align="center">

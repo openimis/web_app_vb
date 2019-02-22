@@ -23,6 +23,24 @@ Partial Public Class ClaimOverview
     Protected WithEvents upClaimDetail As Global.System.Web.UI.UpdatePanel
     
     '''<summary>
+    '''hfICDID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDID As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
+    '''hfICDCode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfICDCode As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''L_SELECTCRITERIA control.
     '''</summary>
     '''<remarks>
@@ -302,13 +320,13 @@ Partial Public Class ClaimOverview
     Protected WithEvents lblICD As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''ddlICD control.
+    '''txtICDCode control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlICD As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtICDCode As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''lblClaimAdmin0 control.

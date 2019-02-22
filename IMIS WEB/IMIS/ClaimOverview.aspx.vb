@@ -102,10 +102,10 @@ Public Partial Class ClaimOverview
             ddlClaimStatus.DataValueField = "Code"
             ddlClaimStatus.DataBind()
             ddlClaimStatus.SelectedValue = 4 'Checked default selected Item
-            ddlICD.DataSource = ClaimOverviews.GetICDCodes(True)
-            ddlICD.DataTextField = "ICDCode"
-            ddlICD.DataValueField = "ICDID"
-            ddlICD.DataBind()
+            'ddlICD.DataSource = ClaimOverviews.GetICDCodes(True)
+            'ddlICD.DataTextField = "ICDNAMES"
+            'ddlICD.DataValueField = "ICDID"
+            'ddlICD.DataBind()
 
             FillVisitTypes()
 
@@ -330,7 +330,7 @@ Public Partial Class ClaimOverview
                 ddlFBStatus.SelectedValue = eClaim.FeedbackStatus
                 ddlReviewStatus.SelectedValue = eClaim.ReviewStatus
                 ddlClaimStatus.SelectedValue = eClaim.ClaimStatus
-                ddlICD.SelectedValue = eICDCodes.ICDID
+                hfICDID.Value = eICDCodes.ICDID
 
                 txtClaimCode.Text = If(eClaim.ClaimCode Is Nothing, "", eClaim.ClaimCode)
                 txtHFName.Text = eHF.HFName
@@ -364,7 +364,7 @@ Public Partial Class ClaimOverview
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                eICDCodes.ICDID = ddlICD.SelectedValue
+                eICDCodes.ICDID = CInt(Int(hfICDID.Value))
                 If Not ddlBatchRun.SelectedValue = "" Then
                     eBatchRun.RunID = ddlBatchRun.SelectedValue
                 End If
@@ -461,7 +461,8 @@ Public Partial Class ClaimOverview
         dic.Add("ReviewStatus", ddlReviewStatus.SelectedValue)
         dic.Add("FeedbackStatus", ddlFBStatus.SelectedValue)
         dic.Add("ClaimStatus", ddlClaimStatus.SelectedValue)
-        dic.Add("ICDID", ddlICD.SelectedValue)
+        'dic.Add("ICDID", ddlICD.SelectedValue)
+        dic.Add("ICDID", txtICDCode.Text)
         dic.Add("BatchRun", ddlBatchRun.SelectedValue)
         dic.Add("VisitDateFrom", If(txtClaimFrom.Text = "", "", txtClaimFrom.Text))
         dic.Add("VisitDateTo", If(txtClaimTo.Text = "", "", txtClaimTo.Text))

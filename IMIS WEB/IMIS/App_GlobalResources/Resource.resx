@@ -3556,7 +3556,7 @@
     <value>-- Select Subcategory --</value>
   </data>
   <data name="L_GROUPTYPE" xml:space="preserve">
-    <value>Group Type</value>
+    <value>Family / Group Type</value>
   </data>
   <data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
     <value>Antenanal Amount/Claim</value>
@@ -4736,5 +4736,11 @@
   </data>
   <data name="L_RECEIVEDATE" xml:space="preserve">
     <value>Receiving Date</value>
+  </data>
+  <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
+    <value>Please enter an Main Dg code</value>
+  </data>
+  <data name="M_PAYDATETOEXCEEDCURRENDATE" xml:space="preserve">
+    <value>Payment date should not exceed current date</value>
   </data>
 </root>

@@ -3143,7 +3143,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Group Type.
+        '''  Looks up a localized string similar to Family / Group Type.
         '''</summary>
         Friend Shared ReadOnly Property L_GROUPTYPE() As String
             Get
@@ -9398,11 +9398,29 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Payment date should not exceed current date.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PAYDATETOEXCEEDCURRENDATE() As String
+            Get
+                Return ResourceManager.GetString("M_PAYDATETOEXCEEDCURRENDATE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Payment Matched.
         '''</summary>
         Friend Shared ReadOnly Property M_PAYMENTMATCHED() As String
             Get
                 Return ResourceManager.GetString("M_PAYMENTMATCHED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Please enter an Main Dg code.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PLEASEENTERANMDGCODE() As String
+            Get
+                Return ResourceManager.GetString("M_PLEASEENTERANMDGCODE", resourceCulture)
             End Get
         End Property
         

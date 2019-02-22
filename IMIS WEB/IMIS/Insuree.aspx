@@ -245,7 +245,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                             <asp:DropDownList ID="ddlRelation" runat="server" Width="150px">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="rfRelation" runat="server" ControlToValidate="ddlRelation" InitialValue="" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfRelation" runat="server" ControlToValidate="ddlRelation" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'>"</asp:RequiredFieldValidator>
                                                     </td>
                                              <td class="FormLabel">&nbsp;</td>
                                         <td class="DataEntry">&nbsp;</td>
@@ -260,7 +261,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                             <asp:UpdatePanel ID="up1" runat="server">
                                                 <ContentTemplate>
                                                     <asp:TextBox ID="txtCHFID" runat="server" AutoPostBack="True" CssClass="numbersOnly" MaxLength="12" Width="150px"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldCHFID0" runat="server" ControlToValidate="txtCHFID" SetFocusOnError="True" Text="*" ValidationGroup="check">
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldCHFID0" runat="server" ControlToValidate="txtCHFID" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'>"
                                                     </asp:RequiredFieldValidator>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
@@ -276,7 +278,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </td>
                                         <td class="DataEntry">
                                             <asp:TextBox ID="txtOtherNames" runat="server"   Width="150px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldOtherNames1" runat="server" ControlToValidate="txtOtherNames" SetFocusOnError="True" Text="*" ValidationGroup="check">
+                                            <asp:RequiredFieldValidator ID="RequiredFieldOtherNames1" runat="server" ControlToValidate="txtOtherNames" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'>
                                             </asp:RequiredFieldValidator>
                                              
                                         </td>
@@ -290,7 +293,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </td>
                                         <td class="DataEntry">
                                             <asp:TextBox ID="txtLastName" runat="server"   Width="150px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldLastName2" runat="server" ControlToValidate="txtLastName" SetFocusOnError="True" Text="*" ValidationGroup="check">
+                                            <asp:RequiredFieldValidator ID="RequiredFieldLastName2" runat="server" ControlToValidate="txtLastName" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'>"
                                             </asp:RequiredFieldValidator>
                                              
                                         </td>
@@ -306,7 +310,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                             </asp:Label>
                                         </td>
                                         <td class="DataEntry">
-                                            <asp:TextBox ID="txtBirthDate" runat="server" Width="120px"></asp:TextBox>
+                                            <asp:TextBox ID="txtBirthDate" runat="server" Width="132px"></asp:TextBox>
                                            <%-- <asp:MaskedEditExtender ID="txtBirthDate_MaskedEditExtender" runat="server"
                                                 CultureDateFormat="dd/MM/YYYY"
                                                 TargetControlID="txtBirthDate" Mask="99/99/9999" MaskType="Date"
@@ -317,8 +321,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
                                             <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtBirthDate" PopupButtonID="Button1" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldBirthDate0" runat="server" ControlToValidate="txtBirthDate" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtBirthDate" ErrorMessage="*" SetFocusOnError="false" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldBirthDate0" runat="server" ControlToValidate="txtBirthDate" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'>"</asp:RequiredFieldValidator>
+<%--                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtBirthDate" ErrorMessage="*" SetFocusOnError="false" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check"></asp:RegularExpressionValidator>--%>
                                         </td>
                                         <td class="FormLabel">
                                             <br />
@@ -337,7 +342,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                             <asp:DropDownList ID="ddlGender" runat="server" Width="150px">
                                             </asp:DropDownList>
 
-                                            <asp:RequiredFieldValidator ID="RequiredFieldGender0" runat="server" ControlToValidate="ddlGender" InitialValue="" SetFocusOnError="True" Text="*" ValidationGroup="check">
+                                            <asp:RequiredFieldValidator ID="RequiredFieldGender0" runat="server" ControlToValidate="ddlGender" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'>"
                                             </asp:RequiredFieldValidator>
 
                                         </td>
@@ -360,7 +366,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                             <asp:DropDownList ID="ddlMarital" runat="server" Width="150px" Visible="false">
                                             </asp:DropDownList>
 
-                                            <asp:RequiredFieldValidator ID="rfMaritalStatus" runat="server" ControlToValidate="ddlMarital" InitialValue="" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfMaritalStatus" runat="server" ControlToValidate="ddlMarital" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'>"</asp:RequiredFieldValidator>
 
                                         </td>
                                         <td class="FormLabel">
@@ -390,7 +397,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                 runat="server"
                                                 Width="150px">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="rfBeneficiary" runat="server" ControlToValidate="ddlCardIssued" InitialValue="" SetFocusOnError="True" Text="*" ValidationGroup="check">
+                                            <asp:RequiredFieldValidator ID="rfBeneficiary" runat="server" ControlToValidate="ddlCardIssued" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'>"
                                             </asp:RequiredFieldValidator>
                                         </td>
                                         <td class="FormLabel">
@@ -409,7 +417,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                     <asp:DropDownList ID="ddlCurrentRegion" Width="150px" runat="server" AutoPostBack="True">
 
                                                     </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="rfCurrentRegion" runat="server" ControlToValidate="ddlCurrentRegion" InitialValue="0" SetFocusOnError="True" style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="rfCurrentRegion" runat="server" ControlToValidate="ddlCurrentRegion" InitialValue="0" SetFocusOnError="True" style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'>"</asp:RequiredFieldValidator>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </td>
@@ -427,7 +436,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                     <asp:DropDownList ID="ddlCurrentDistrict" Width="150px" runat="server" AutoPostBack="True">
 
                                                     </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="rfCurrentDistrict" runat="server" ControlToValidate="ddlCurrentDistrict" InitialValue="0" SetFocusOnError="True" style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="rfCurrentDistrict" runat="server" ControlToValidate="ddlCurrentDistrict" InitialValue="0" SetFocusOnError="True" style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'>"</asp:RequiredFieldValidator>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </td>
@@ -442,7 +452,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                             <asp:UpdatePanel ID="upCurVDC" runat="server">
                                                 <ContentTemplate>
                                                     <asp:DropDownList ID="ddlCurentWard" runat="server"  Width="150px" AutoPostBack="True"></asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="rfCurrentVDC" runat="server" ControlToValidate="ddlCurentWard" InitialValue="0" SetFocusOnError="True" style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="rfCurrentVDC" runat="server" ControlToValidate="ddlCurentWard" InitialValue="0" SetFocusOnError="True" style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'>"</asp:RequiredFieldValidator>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </td>
@@ -457,7 +468,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                             <asp:UpdatePanel ID="upCurWard" runat="server">
                                                 <ContentTemplate>
                                                     <asp:DropDownList ID="ddlCurrentVillage"  Width="150px" runat="server"></asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="rfCurrentVillage" runat="server" ControlToValidate="ddlCurrentVillage" InitialValue="0" SetFocusOnError="True" style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="rfCurrentVillage" runat="server" ControlToValidate="ddlCurrentVillage" InitialValue="0" SetFocusOnError="True" style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'></asp:RequiredFieldValidator>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </td>
@@ -470,7 +482,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </td>
                                         <td class="DataEntry">
                                             <asp:TextBox ID="txtCurrentAddress" runat="server" Height="40px" MaxLength="25" style="resize:none;" TextMode="MultiLine" Width="150px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfCurrentAddress" runat="server" ControlToValidate="txtCurrentAddress" InitialValue="" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfCurrentAddress" runat="server" ControlToValidate="txtCurrentAddress" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'>"</asp:RequiredFieldValidator>
                                         </td>
                                         <td class="FormLabel">&nbsp;</td>
                                         <td class="DataEntry">&nbsp;</td>
@@ -482,7 +495,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <td class="DataEntry">
                                             <asp:DropDownList ID="ddlProfession" runat="server" Width="150px">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="rfProfession" runat="server" ControlToValidate="ddlProfession" InitialValue="0" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfProfession" runat="server" ControlToValidate="ddlProfession" InitialValue="0" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'>"</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr id="trEducation" runat="server">
@@ -492,7 +506,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <td class="DataEntry">
                                             <asp:DropDownList ID="ddlEducation" runat="server" Width="150px">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="rfEducation" runat="server" ControlToValidate="ddlEducation" InitialValue="0" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfEducation" runat="server" ControlToValidate="ddlEducation" InitialValue="0" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -517,8 +532,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </td>
                                         <td class="DataEntry">
                                             <asp:TextBox ID="txtEmail" runat="server" Width="150px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfEmail" runat="server" ControlToValidate="txtEmail" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check">*</asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="rfEmail" runat="server" ControlToValidate="txtEmail" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'></asp:RequiredFieldValidator>
+<%--                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check">*</asp:RegularExpressionValidator>--%>
                                         </td>
                                         <td class="FormLabel" style="vertical-align: top">&nbsp;</td>
                                         <td class="DataEntry">&nbsp;</td>
@@ -530,7 +546,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <td class="DataEntry">
                                             <asp:DropDownList ID="ddlIdType" runat="server" Width="150px">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="rfIdType" runat="server" ControlToValidate="ddlIdType" InitialValue="" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfIdType" runat="server" ControlToValidate="ddlIdType" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'></asp:RequiredFieldValidator>
                                         </td>
                                         <td class="FormLabel">
                                             &nbsp;</td>
@@ -544,7 +561,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </td>
                                         <td class="DataEntry">
                                             <asp:TextBox ID="txtPassport" runat="server" MaxLength="12" Width="150px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfIdNo" runat="server" ControlToValidate="txtPassport" InitialValue="" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfIdNo" runat="server" ControlToValidate="txtPassport" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'></asp:RequiredFieldValidator>
                                         </td>
                                         <td class="FormLabel">
                                             &nbsp;</td>
@@ -558,7 +576,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <td class="DataEntry">
                                             <asp:DropDownList ID="ddlFSPRegion" runat="server" AutoPostBack="True" Width="150px">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="rfRegionFSP" runat="server" ControlToValidate="ddlFSPRegion" InitialValue="0" SetFocusOnError="True" Style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfRegionFSP" runat="server" ControlToValidate="ddlFSPRegion" InitialValue="0" SetFocusOnError="True" Style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'></asp:RequiredFieldValidator>
                                         </td>
                                         <td>&nbsp;</td>
                                         <td class="DataEntry">&nbsp;</td>
@@ -572,7 +591,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                 <ContentTemplate>
                                                     <asp:DropDownList ID="ddlFSPDistrict" runat="server" AutoPostBack="True" Width="150px">
                                                     </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="rfDistrictFSP" runat="server" ControlToValidate="ddlFSPDistrict" InitialValue="0" SetFocusOnError="True" style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="rfDistrictFSP" runat="server" ControlToValidate="ddlFSPDistrict" InitialValue="0" SetFocusOnError="True" style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'></asp:RequiredFieldValidator>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                             
@@ -591,7 +611,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                 <ContentTemplate>
                                             <asp:DropDownList ID="ddlFSPCateogory" runat="server" AutoPostBack="True" Width="150px">
                                             </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="rfFSPCategory" runat="server" ControlToValidate="ddlFSPCateogory" InitialValue="0" SetFocusOnError="True" style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="rfFSPCategory" runat="server" ControlToValidate="ddlFSPCateogory" InitialValue="0" SetFocusOnError="True" style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'></asp:RequiredFieldValidator>
                                                     </ContentTemplate>
                                                 </asp:UpdatePanel>
                                         </td>
@@ -607,7 +628,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                 <ContentTemplate>
                                             <asp:DropDownList ID="ddlFSP" runat="server" Width="150px">
                                             </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="rfFSP" runat="server" ControlToValidate="ddlFSP" InitialValue="0" SetFocusOnError="True" style="direction: ltr" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="rfFSP" runat="server" ControlToValidate="ddlFSP" InitialValue="0" SetFocusOnError="True" style="direction: ltr" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                    Text='*'></asp:RequiredFieldValidator>
                                                     </ContentTemplate>
                                                 </asp:UpdatePanel>
                                         </td>

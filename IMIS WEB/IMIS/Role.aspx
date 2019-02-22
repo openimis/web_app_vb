@@ -421,7 +421,7 @@
                                     <asp:TreeNode Text="<%$ Resources:Resource,R_CONTRIBUTIONPAYMENT %>" Value="160020" SelectAction="None"></asp:TreeNode>                                   
                                     <asp:TreeNode Text="<%$ Resources:Resource,R_CONTROLNUMBERASSIGNMENT %>" Value="160021" SelectAction="None"></asp:TreeNode>
                                     <asp:TreeNode Text="<%$ Resources:Resource,R_OVERVIEWOFCOMMISSIONS %>" Value="160022" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMHISTORYREPORT %>" Value="160022" SelectAction="None"></asp:TreeNode>
+                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMHISTORYREPORT %>" Value="160023" SelectAction="None"></asp:TreeNode>
                                     
                                 </asp:TreeNode>
 

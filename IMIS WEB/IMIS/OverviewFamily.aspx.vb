@@ -113,6 +113,7 @@ Partial Public Class OverviewFamily
             Dim dt As DataTable
 
             dt = load.GetInsureesByFamilyFiltered(FamilyId)
+
             loadGrid(gvInsurees, dt)
 
             dt = load.GetPolicybyFamily(FamilyId)
@@ -146,10 +147,11 @@ Partial Public Class OverviewFamily
             End If
             txtPoverty.Text = If(eFamily.Poverty Is Nothing, "", If(eFamily.Poverty = True, "Yes", "No"))
             txtConfirmationType.Text = eFamily.ConfirmationType
-          
+
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
+            txtHeadGroupType.Text = eFamily.FamilyType
             txtConfirmationNo.Text = eFamily.ConfirmationNo
             txtPermanentAddress.Text = eFamily.FamilyAddress
         Catch ex As Exception
@@ -342,9 +344,9 @@ Partial Public Class OverviewFamily
                 If gv.ID = "gvInsurees" Then
 
                     Rows = dt.Select("InsureeID=" & eInsuree.InsureeID)
-                    dv.Sort = "CHFID"
+                    dv.Sort = "RowID DESC"
                     If Rows.Length > 0 Then
-                        x = dv.Find(Rows(0).Item("CHFID"))
+                        x = dv.Find(Rows(0).Item("RowID"))
                     End If
 
                 ElseIf gv.ID = "gvPolicies" Then

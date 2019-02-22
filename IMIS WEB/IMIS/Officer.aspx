@@ -287,15 +287,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtCode" runat="server" Width="150px" MaxLength="8"></asp:TextBox>
-                                    <asp:Label ID="lblError4" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
-                                </td>
-                                <td>
+                                    <asp:Label ID="lblError4" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
                                     <asp:RequiredFieldValidator
                                         ID="RequiredFieldLanguage" runat="server"
                                         ControlToValidate="txtCode"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
-                                        Text='*'></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'> </asp:RequiredFieldValidator>
+                                </td>
+                                <td>
+                                   
                                 </td>
                             </tr>
                             <tr>
@@ -307,15 +308,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtOtherNames" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
-                                    <asp:Label ID="lblError6" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
-                                </td>
-                                <td>
+                                    <asp:Label ID="lblError6" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
                                     <asp:RequiredFieldValidator
                                         ID="RequiredFieldOtherNames" runat="server"
                                         ControlToValidate="txtOtherNames"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
+                                </td>
+                                <td>
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -324,13 +326,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtLastName" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
-                                    <asp:Label ID="lblError5" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
-
+                                    <asp:Label ID="lblError5" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldLastName" runat="server"
+                                        ControlToValidate="txtLastName"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldLastName" runat="server"
-                                        ControlToValidate="txtLastName" Text="*"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    
                                 </td>
                             </tr>
 
@@ -341,7 +344,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         Text='<%$ Resources:Resource,L_BIRTHDATE %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
-                                    <asp:TextBox ID="txtDob" runat="server" Width="140px"></asp:TextBox>
+                                    <asp:TextBox ID="txtDob" runat="server" Width="132px"></asp:TextBox>
                                     <asp:MaskedEditExtender ID="txtDob_MaskedEditExtender" runat="server"
                                         CultureDateFormat="dd/MM/YYYY"
                                         TargetControlID="txtDob" Mask="99/99/9999" MaskType="Date"
@@ -351,13 +354,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
                                     <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDob" PopupButtonID="Button1" Format="dd/MM/yyyy"></asp:CalendarExtender>
-
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server"
+                                        ControlToValidate="txtDob" SetFocusOnError="True"
+                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RegularExpressionValidator>
                                 </td>
                                 <td>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server"
-                                        ControlToValidate="txtDob" Text="*" SetFocusOnError="True"
-                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
-                                        ValidationGroup="check"></asp:RegularExpressionValidator>
+                                    
 
                                 </td>
                             </tr>
@@ -382,11 +386,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtEmail" runat="server" MaxLength="200" Width="150px"></asp:TextBox>
-                                  
+                                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RegularExpressionValidator>
 
                                 </td>
                                 <td style="direction: ltr">
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check">*</asp:RegularExpressionValidator>
+                                   
                                 </td>
                             </tr>
 
@@ -408,11 +413,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     
                                     <asp:DropDownList ID="ddlRegion" runat="server" AutoPostBack="true">
                                     </asp:DropDownList>
-                                    <asp:Label ID="lblError7" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
+                                    <asp:Label ID="lblError7" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                 </td>
                                 <td>
-                                    
-                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                   
                                           
                                 </td>
                             </tr>
@@ -425,12 +431,15 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <ContentTemplate>
                                             <asp:DropDownList ID="ddlDistrict" runat="server" AutoPostBack="true">
                                             </asp:DropDownList>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                    <asp:Label ID="lblError8" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
+                                            <asp:Label ID="lblError8" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
+                                        </ContentTemplate> 
+                                    </asp:UpdatePanel> 
+                                   
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -448,7 +457,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:Label ID="L_WorksTo" runat="server" Text='<%$ Resources:Resource,L_WORKSTO %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry" colspan="1">
-                                    <asp:TextBox ID="txtWorksTo" runat="server" Width="140px"></asp:TextBox>
+                                    <asp:TextBox ID="txtWorksTo" runat="server" Width="132px"></asp:TextBox>
                                     <asp:MaskedEditExtender ID="txtWorksTo_MaskedEditExtender" runat="server"
                                         CultureDateFormat="dd/MM/YYYY"
                                         TargetControlID="txtWorksTo" Mask="99/99/9999" MaskType="Date"
@@ -458,14 +467,15 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
                                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtWorksTo" PopupButtonID="Button2" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                                  
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtWorksTo" runat="server"
+                                        ControlToValidate="txtWorksTo" SetFocusOnError="True"
+                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RegularExpressionValidator>
                                 </td>
                                 <td>
 
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtWorksTo" runat="server"
-                                        ControlToValidate="txtWorksTo" Text="*" SetFocusOnError="True"
-                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
-                                        ValidationGroup="check"></asp:RegularExpressionValidator>
+                                  
 
                                 </td>
                             </tr>
@@ -603,7 +613,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <td class="auto-style26">
                         <asp:DropDownList ID="ddlLanguage" runat="server" ViewStateMode="Enabled">
                         </asp:DropDownList>
-                         <asp:Label ID="lblError1" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
+                         <asp:Label ID="lblError1" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
                             <asp:RequiredFieldValidator 
                         ID="RequiredFieldValidator3" runat="server" 
                         ControlToValidate="ddlLanguage" 
@@ -671,7 +681,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </td>
                     <td class="auto-style23">
                         <asp:TextBox ID="txtConfirmPassword" runat="server" MaxLength="100" Width="150px" TextMode="Password" ViewStateMode="Disabled"></asp:TextBox>
-                          <asp:Label ID="lblError3" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
+                          <asp:Label ID="lblError3" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                     ControlToValidate="txtConfirmPassword" Text="" ForeColor="Red" ControlToCompare="txtPassword"
                                     ValidationGroup="check1"></asp:RequiredFieldValidator>

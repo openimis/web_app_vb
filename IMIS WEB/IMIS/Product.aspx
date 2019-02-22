@@ -683,8 +683,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         ID="RequiredFieldCode" runat="server"
                                         ControlToValidate="txtProductCode"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
-                                        Text="*"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                 </td>
 
                             </tr>
@@ -697,8 +697,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldName" runat="server"
-                                        ControlToValidate="txtProductName" Text="*"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ControlToValidate="txtProductName"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                 </td>
 
                             </tr>
@@ -718,7 +719,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
 
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -757,12 +759,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:Button ID="btnDateFrom" runat="server" Height="15px"
                                         Width="20px" />
                                     <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDateFrom" PopupButtonID="btnDateFrom" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDateFrom" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                  <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDateFrom" SetFocusOnError="True"
+                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
                                         ControlToValidate="txtDateFrom" ErrorMessage="*" SetFocusOnError="True"
                                         ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
-                                        ValidationGroup="check"></asp:RegularExpressionValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:RegularExpressionValidator>
                                 </td>
 
                             </tr>
@@ -780,12 +783,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         Width="20px" />
 
                                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtDateTo" PopupButtonID="btnDateTo" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDateTo" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDateTo" SetFocusOnError="True"
+                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
                                         ControlToValidate="txtDateTo" ErrorMessage="*" SetFocusOnError="True"
                                         ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
-                                        ValidationGroup="check"></asp:RegularExpressionValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:RegularExpressionValidator>
 
                                 </td>
 
@@ -831,7 +835,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtThresholdMembers" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ID="CompareValidator27" runat="server" ControlToValidate="txtThresholdMembers" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator27" runat="server" ControlToValidate="txtThresholdMembers" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -842,8 +847,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtMaxNoOfMembers" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMaxNoOfMembers" Text="*" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMaxNoOfMembers" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                     <%--<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtMaxNoOfMembers"    SetFocusOnError ="true"  Type="Integer"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>--%>
                                 </td>
 
@@ -862,7 +868,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ControlToValidate="txtAdultPremium" ID="CompareValidator2" runat="server" SetFocusOnError="true" Type="Currency" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ControlToValidate="txtAdultPremium" ID="CompareValidator2" runat="server" SetFocusOnError="true" Type="Currency" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
 
 
@@ -878,7 +885,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtChildPremium" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtChildPremium" SetFocusOnError="true" Type="Currency" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtChildPremium" SetFocusOnError="true" Type="Currency" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
 
                             </tr>
@@ -890,9 +898,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtInsurancrePeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Text="*" runat="server" ControlToValidate="txtInsurancrePeriod" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
-                                    <asp:CompareValidator ControlToValidate="txtInsurancrePeriod" ID="CompareValidator5" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" Text="*" runat="server" ControlToValidate="txtInsurancrePeriod" SetFocusOnError="True"
+                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                    <asp:CompareValidator ControlToValidate="txtInsurancrePeriod" ID="CompareValidator5" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -903,7 +912,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtAdministrationPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ID="CompareValidator30" runat="server" ControlToValidate="txtAdministrationPeriod" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator30" runat="server" ControlToValidate="txtAdministrationPeriod" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -915,7 +925,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" Text="*" runat="server" ControlToValidate="txtMaxInstallments" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                        </asp:RequiredFieldValidator>
                                     <%--<asp:CompareValidator ControlToValidate="txtMaxInstallments" ID="CompareValidator25"  runat="server" SetFocusOnError ="true"  Type="Integer"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>--%>
                                 </td>
                             </tr>
@@ -927,9 +938,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtWaitingPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" Text="*" runat="server" ControlToValidate="txtWaitingPeriod" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
-                                    <asp:CompareValidator ControlToValidate="txtWaitingPeriod" ID="CompareValidator26" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" Text="*" runat="server" ControlToValidate="txtWaitingPeriod" SetFocusOnError="True"
+                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                    <asp:CompareValidator ControlToValidate="txtWaitingPeriod" ID="CompareValidator26" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -943,7 +955,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" text="*" runat="server" ControlToValidate="txtGracePeriod" SetFocusOnError="True" 
                     ValidationGroup="check"  ></asp:RequiredFieldValidator>--%>
-                                    <asp:CompareValidator ControlToValidate="txtGracePeriod" ID="CompareValidator4" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ControlToValidate="txtGracePeriod" ID="CompareValidator4" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -964,7 +977,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtRenewalDiscountPercentage" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ID="CompareValidator28" runat="server" ControlToValidate="txtRenewalDiscountPercentage" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator28" runat="server" ControlToValidate="txtRenewalDiscountPercentage" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -975,7 +989,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtRenewalDiscountPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ID="CompareValidator29" runat="server" ControlToValidate="txtRenewalDiscountPeriod" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator29" runat="server" ControlToValidate="txtRenewalDiscountPeriod" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
 
@@ -1056,7 +1071,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="rgExpValidLimitationTypeService1" runat="server"
                                                                     ControlToValidate="txtLimitationTypeServiceO" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Ff|Cc]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" ></asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblLimitationTypeO" runat="server" Text='<%$ Resources:Resource,L_LIMITATIONTYPE %>'> </asp:Label>
@@ -1068,7 +1083,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="rgExpValidLimitationTypeService2" runat="server"
                                                                     ControlToValidate="txtLimitationTypeServiceR" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Ff|Cc]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" ></asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblLimitationTypeR" runat="server" Text='<%$ Resources:Resource,L_LIMITATIONTYPER %>'> </asp:Label>
@@ -1080,7 +1095,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="rgExpValidLimitationTypeService3" runat="server"
                                                                     ControlToValidate="txtLimitationTypeServiceE" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Ff|Cc]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" ></asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblLimitationTypeE" runat="server" Text='<%$ Resources:Resource,L_LIMITATIONTYPEE %>'> </asp:Label>
@@ -1093,7 +1108,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidatorP2" runat="server"
                                                                     ControlToValidate="txtPriceOriginService" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Pp|Oo|Rr]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" ></asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblPriceOrigin" runat="server" Text='<%$ Resources:Resource,L_PRICEORIGIN %>'> </asp:Label>
@@ -1276,7 +1291,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="rgExpValidLimitationTypeItem1" runat="server"
                                                                     ControlToValidate="txtLimitationTypeItemO" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Ff|Cc]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" >
+                                                                </asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblLimitationTypeO" runat="server" Text='<%$ Resources:Resource,L_LIMITATIONTYPE %>'></asp:Label>
@@ -1288,7 +1304,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="rgExpValidLimitationTypeItem2" runat="server"
                                                                     ControlToValidate="txtLimitationTypeItemR" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Ff|Cc]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" ></asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblLimitationTypeR" runat="server" Text='<%$ Resources:Resource,L_LIMITATIONTYPER %>'></asp:Label>
@@ -1300,7 +1316,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="rgExpValidLimitationTypeItem3" runat="server"
                                                                     ControlToValidate="txtLimitationTypeItemE" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Ff|Cc]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" ></asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblLimitationTypeE" runat="server" Text='<%$ Resources:Resource,L_LIMITATIONTYPEE %>'></asp:Label>
@@ -1313,7 +1329,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidatorP1" runat="server"
                                                                     ControlToValidate="txtPriceOriginItem" Text="*" SetFocusOnError="True"
                                                                     ValidationExpression="([Pp|Oo|Rr]*)" Display="Dynamic"
-                                                                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                                                                    ValidationGroup="check" ForeColor="Red" ></asp:RegularExpressionValidator>
                                                             </ItemTemplate>
                                                             <HeaderTemplate>
                                                                 <asp:Label ID="lblPriceOrigin" runat="server" Text='<%$ Resources:Resource,L_PRICEORIGIN %>'> </asp:Label>
@@ -1536,13 +1552,15 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         Text='<%$ Resources:Resource,L_CEILINGINTERPRETATION %>'></asp:Label></td>
                                 <td class="DataEntry">
                                     <div style="width: 115px;">
-                                        <asp:DropDownList ID="ddlCeilingInterpretation" runat="server" Width="110px"></asp:DropDownList>
+                                        <asp:DropDownList ID="ddlCeilingInterpretation" runat="server" Width="100px"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredCeilingInterpretation" Text="*" runat="server" ControlToValidate="ddlCeilingInterpretation" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:RequiredFieldValidator>
                                     </div>
 
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredCeilingInterpretation" Text="*" runat="server" ControlToValidate="ddlCeilingInterpretation" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    
                                 </td>
                             </tr>
 

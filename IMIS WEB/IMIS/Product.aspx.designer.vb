@@ -194,15 +194,6 @@ Partial Public Class Product
     Protected WithEvents CalendarExtender1 As Global.AjaxControlToolkit.CalendarExtender
     
     '''<summary>
-    '''RequiredFieldValidator1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
-    '''<summary>
     '''RegularExpressionValidator1 control.
     '''</summary>
     '''<remarks>
@@ -255,15 +246,6 @@ Partial Public Class Product
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
-    
-    '''<summary>
-    '''RequiredFieldValidator2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''RegularExpressionValidator2 control.
@@ -446,15 +428,6 @@ Partial Public Class Product
     Protected WithEvents txtInsurancrePeriod As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''RequiredFieldValidator5 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator5 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
-    '''<summary>
     '''CompareValidator5 control.
     '''</summary>
     '''<remarks>
@@ -534,15 +507,6 @@ Partial Public Class Product
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtWaitingPeriod As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''RequiredFieldValidator8 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator8 As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''CompareValidator26 control.

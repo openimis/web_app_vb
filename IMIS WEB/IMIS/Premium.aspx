@@ -260,6 +260,22 @@ In case of dispute arising out or in relation to the use of the program, it is s
     
   
     
+        .auto-style1 {
+            height: 27px;
+            width: 150px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style2 {
+            height: 27px;
+        }
+    
+  
+    
     </style>
     
 </asp:Content>
@@ -407,7 +423,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td>
                             <asp:RequiredFieldValidator ID="RequiredFieldTypeOfPayment0" runat="server" 
                                 ControlToValidate="ddlCategory"  
-                                ValidationGroup="check"></asp:RequiredFieldValidator>
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                Text='*'></asp:RequiredFieldValidator>
                             
                         </td>
                     </tr>
@@ -421,7 +438,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td>
                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPremiumPaid" 
                                 runat="server" ControlToValidate="txtPremiumPaid" 
-                                ValidationGroup="check"></asp:RequiredFieldValidator>
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                Text='*'></asp:RequiredFieldValidator>
                            <asp:CompareValidator ControlToValidate="txtPremiumPaid" ID="CompareValidator2"  runat="server" SetFocusOnError ="true"  Type="Currency" Operator="DataTypeCheck"  ValidationGroup ="check"> </asp:CompareValidator>
                             
                         </td>
@@ -435,7 +453,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                              <td>                              
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorReceiptNumber" 
                                 runat="server" ControlToValidate="txtReceiptNumber" 
-                                ValidationGroup="check"></asp:RequiredFieldValidator>
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                Text='*'></asp:RequiredFieldValidator>
                             </td>
                             
 
@@ -462,7 +481,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <asp:RequiredFieldValidator ID="RequiredFieldPaymentDate" runat="server" 
                                 ControlToValidate="txtPaymentDate" 
                                 ValidationGroup="check" SetFocusOnError="True" 
-                                        Text="*"></asp:RequiredFieldValidator>
+                                ForeColor="Red" Display="Dynamic"
+                                Text='*'></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                     ControlToValidate="txtPaymentDate" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
@@ -470,7 +490,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </td>
                     </tr>
                         <tr>
-                        <td class="FormLabel">
+                        <td class="auto-style1">
                             <asp:Label ID="L_TypeOfPayment" runat="server" Text='<%$ Resources:Resource,L_TYPEOFPAYMENT %>'></asp:Label>
                         </td>
                         <td class ="DataEntry">
@@ -481,12 +501,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:ListItem Value="">-- Select Payment Type --</asp:ListItem>--%>
                             </asp:DropDownList>
                         </td>
-                        <td>
+                        <td class="auto-style2">
                             <asp:RequiredFieldValidator 
                             ID="RequiredFieldTypeOfPayment" runat="server" 
                             ControlToValidate="ddlTypeOfPayment" 
                             SetFocusOnError="True" 
-                            ValidationGroup="check"
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                             Text='*'></asp:RequiredFieldValidator>
                         </td>
                     </tr>

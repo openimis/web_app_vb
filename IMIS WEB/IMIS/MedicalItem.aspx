@@ -111,30 +111,34 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </td>
                         <td class ="DataEntry">
                             <asp:TextBox ID="txtCode" runat="server" Width="150px" MaxLength="6"></asp:TextBox>
+                         <asp:RequiredFieldValidator 
+                            ID="RequiredFieldCode" runat="server" 
+                            ControlToValidate="txtCode" 
+                            SetFocusOnError="True" 
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                            Text="*">
+                         </asp:RequiredFieldValidator>
                         </td>
                         <td>
-                        <asp:RequiredFieldValidator 
-                        ID="RequiredFieldCode" runat="server" 
-                        ControlToValidate="txtCode" 
-                        SetFocusOnError="True" 
-                        ValidationGroup="check"
-                        Text="*"></asp:RequiredFieldValidator>
+                       
                             </td>
                     </tr>
                         <tr>
                             <td class="FormLabel">
                                 <asp:Label ID="L_Name" runat="server" Text='<%$ Resources:Resource,L_NAME %>'></asp:Label>
                             </td>
-                            <td class="DataEntryWide">
+                            <td class="DataEntry">
                                 <asp:TextBox ID="txtName" runat="server"   MaxLength="100"></asp:TextBox>
+                             <asp:RequiredFieldValidator 
+                                ID="RequiredFieldValidatorName" runat="server" 
+                                ControlToValidate="txtName" 
+                                SetFocusOnError="True" 
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                Text="*">
+                             </asp:RequiredFieldValidator>
                             </td>
                             <td>
-                            <asp:RequiredFieldValidator 
-                        ID="RequiredFieldValidatorName" runat="server" 
-                        ControlToValidate="txtName" 
-                        SetFocusOnError="True" 
-                        ValidationGroup="check"
-                        Text="*"></asp:RequiredFieldValidator>
+                           
                                 </td>
                         </tr>
                     <tr>
@@ -149,9 +153,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 GroupName="Type" /> 
                          <asp:RadioButton ID="rbMedicalProstheses" runat="server" Text='<%$ Resources:Resource, T_MEDICALPROSTHESES %>' 
                                 GroupName="Type" />
+                            <span style="color: Red" id="errMsgType" />
                         </td>
                         <td>
-                            <span style="color: Red" id="errMsgType" />
+                            
                             </td>
                     </tr>
                     <tr>
@@ -162,15 +167,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         Text='<%$ Resources:Resource,L_PACKAGE %>'></asp:Label>
                         </td>
                         <td class ="DataEntry">
-                            <asp:TextBox ID="txtPackage" runat="server" Width="150px" MaxLength="255"></asp:TextBox>
+                            <asp:TextBox ID="txtPackage" runat="server" MaxLength="255"></asp:TextBox> <%--Width="150px"--%>
+                         <asp:RequiredFieldValidator 
+                            ID="RequiredFieldValidatorPackage" runat="server" 
+                            ControlToValidate="txtPackage" 
+                            SetFocusOnError="True" 
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                            Text="*">
+                         </asp:RequiredFieldValidator>
                         </td>
                         <td>
-                        <asp:RequiredFieldValidator 
-                        ID="RequiredFieldValidatorPackage" runat="server" 
-                        ControlToValidate="txtPackage" 
-                        SetFocusOnError="True" 
-                        ValidationGroup="check"
-                        Text="*"></asp:RequiredFieldValidator>
+                       
                         </td>
                     </tr>
                     <tr>
@@ -178,17 +185,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <asp:Label ID="L_Price" runat="server" Text='<%$ Resources:Resource,L_PRICE %>'></asp:Label>
                         </td>
                         <td class ="DataEntry">
-                            <asp:TextBox ID="txtPrice" runat="server" Width="150px" class="numbersOnly" style="text-align:right; padding-right:4px"></asp:TextBox>
+                            <asp:TextBox ID="txtPrice" runat="server" class="numbersOnly" style="text-align:right; " ></asp:TextBox>  <%-- Width="150px" padding-right:4px--%>
                             
-                            <asp:CompareValidator ControlToValidate="txtPrice" ID="CompareValidator1"  runat="server" SetFocusOnError ="true"  Type="Currency"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>
-                        <asp:RequiredFieldValidator 
-                        ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="txtPrice" 
-                        SetFocusOnError="True" 
-                        ValidationGroup="check"
-                        Text="*"></asp:RequiredFieldValidator>
-                           </td>
-                           
+                            <asp:CompareValidator ControlToValidate="txtPrice" ID="CompareValidator1"  runat="server" SetFocusOnError ="true"  Type="Currency"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
+                            <asp:RequiredFieldValidator 
+                                ID="RequiredFieldValidator1" runat="server" 
+                                ControlToValidate="txtPrice" 
+                                SetFocusOnError="True" 
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                Text="*">
+                            </asp:RequiredFieldValidator>
+                           </td>                           
                     </tr>
                    
                         <tr>
@@ -199,17 +206,19 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:RadioButton ID="rbOutPatient"  GroupName = "CareType" runat="server" Text='<%$ Resources:Resource,L_OUTPATIENT %>' />
                                 <asp:RadioButton ID="rbInPatient" GroupName = "CareType"  runat="server" Text='<%$ Resources:Resource,L_INPATIENT %>' />
                                 <asp:RadioButton ID="rbBoth" GroupName = "CareType"  runat="server" Text='<%$ Resources:Resource,L_BOTH %>' />
-                            </td>
-                            <td><span style="color: Red" id="errMsgCareType" /></td>
+                                &nbsp
+                                <span style="color: Red" id="errMsgCareType" />
+                            </td> 
+                            <td></td>
                         </tr>
                         <tr>
                             <td class="FormLabel">
                                 <asp:Label ID="L_Frequency" runat="server" Text='<%$ Resources:Resource,L_FREQUENCY %>' ></asp:Label>
                             </td>
                             <td class="DataEntry">
-                                <asp:TextBox ID="txtFrequency" runat="server" Width="150px" Class="numbersOnly" style="text-align:right; padding-right:4px"></asp:TextBox>
+                                <asp:TextBox ID="txtFrequency" runat="server" Class="numbersOnly" style="text-align:right;"></asp:TextBox>  <%--Width="150px" padding-right:4px--%>
                                
-                             <asp:CompareValidator ControlToValidate="txtFrequency" ID="CompareValidator2"  runat="server" SetFocusOnError ="true"  Type="Integer"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>
+                             <asp:CompareValidator ControlToValidate="txtFrequency" ID="CompareValidator2"  runat="server" SetFocusOnError ="true"  Type="Integer"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
                                 </td>
                             <td>
                                 <%--<asp:RequiredFieldValidator
@@ -229,9 +238,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:CheckBox ID="chkWoman" runat="server" Text= '<%$ Resources:Resource,T_WOMAN %>' />
                                 <asp:CheckBox ID="chkAdult" runat="server" Text= '<%$ Resources:Resource,T_ADULT %>' />
                                 <asp:CheckBox ID="chkChild" runat="server" Text= '<%$ Resources:Resource,T_CHILD %>' />
+                                &nbsp
+                                <span style="color: Red" id="errMsgPatient" />
                             </td>
                                 <td>
-                                 <span style="color: Red" id="errMsgPatient" />
+                                 
                                 </td>
                         </tr>
                         

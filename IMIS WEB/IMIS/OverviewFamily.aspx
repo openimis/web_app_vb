@@ -134,7 +134,7 @@ title='<%$ Resources:Resource,L_FAMILY%>'%>
                              <asp:Label ID="lblConfirmationNo" runat="server" Text="<%$ Resources:Resource, L_CONFIRMATIONNO %>"></asp:Label>
                         </td>
                         <td class="ReadOnlyText">
-                                                      <asp:Label ID="txtConfirmationNo" runat="server" style="direction: ltr" />
+                             <asp:Label ID="txtConfirmationNo" runat="server" style="direction: ltr" />
                         </td>
                         <td>
 
@@ -142,8 +142,14 @@ title='<%$ Resources:Resource,L_FAMILY%>'%>
                     </tr>
                 
                     <tr>
-                        <td class="FormLabel">&nbsp;</td>
-                        <td class="ReadOnlyText">&nbsp;</td>
+                        <td class="FormLabel">
+                            <asp:Label
+                               ID="lblGroupType"
+                               runat="server"
+                               Text='<%$ Resources:Resource,L_GROUPTYPE %>'>
+                           </asp:Label>
+                        </td>
+                        <td class="ReadOnlyText"><asp:Label ID="txtHeadGroupType" runat="server"  /></td>
                         <td class="FormLabel">
                             <asp:Label ID="L_VILLAGE" runat="server" Text="<%$ Resources:Resource,L_VILLAGE %>">
                             </asp:Label>

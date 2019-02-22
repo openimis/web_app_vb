@@ -48,7 +48,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
           
                             <asp:RequiredFieldValidator ID="RequiredFieldTypeOfPayer" runat="server" 
                                 ControlToValidate="ddlTypeOfPayer" SetFocusOnError="True" 
-                                Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -59,7 +59,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:TextBox ID="txtNameOfPayer" runat="server" Width="200px" MaxLength="100"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldName" runat="server" 
                                     ControlToValidate="txtNameOfPayer" Text="*" 
-                                    ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     <tr>
@@ -73,7 +73,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         ID="RequiredFieldOtherAddress" runat="server" 
                         ControlToValidate="txtAddress" 
                         SetFocusOnError="True" 
-                        ValidationGroup="check"
+                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                         Text='*'></asp:RequiredFieldValidator>
                             
                         </td>
@@ -88,7 +88,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td class ="DataEntry">
                             <asp:DropDownList ID="ddlRegion" runat="server" Width="200px" AutoPostBack="True">
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorddlRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorddlRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" SetFocusOnError="True" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         </td>
                         <td>
                               
@@ -130,7 +130,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </td>
                         <td class ="DataEntry">
                             <asp:TextBox ID="txtEmail" runat="server" Width="200px" MaxLength="50"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check">*</asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                         </td>
                         <td style="direction: ltr">
 
