@@ -87,7 +87,7 @@ Partial Public Class FindInsuree
 
             ddlGender.DataSource = Insuree.GetGender
             ddlGender.DataValueField = "Code"
-            ddlGender.DataTextField = "Gender"
+            ddlGender.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Gender", "AltLanguage") '"Gender"
             ddlGender.DataBind()
             ddlMarital.DataSource = Insuree.GetMaritalStatus
             ddlMarital.DataValueField = "Code"
@@ -127,8 +127,8 @@ Partial Public Class FindInsuree
             B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FindInsuree, UserID)
             B_CLAIM.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
             B_CLAIMSREVIEWS.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
-            btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindInsuree, UserID)
-            'test
+            btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddInsuree, UserID)
+
         Else
             Dim RefUrl = Request.Headers("Referer")
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindInsuree.ToString & "&retUrl=" & RefUrl)
@@ -181,8 +181,13 @@ Partial Public Class FindInsuree
 
             eInsuree.tblFamilies1 = eFamily
 
-            Dim dtInsuree As DataTable = Insuree.FindInsuree(eInsuree, chkLegacy.Checked, ddlPhotoAssigned.SelectedValue)
+            Dim dtInsuree As DataTable = Insuree.FindInsuree(eInsuree, chkLegacy.Checked, ddlPhotoAssigned.SelectedValue, Request.Cookies("CultureInfo").Value)
             L_FOUNDINSUREE.Text = If(dtInsuree.Rows.Count = 0, imisgen.getMessage("L_NO"), Format(dtInsuree.Rows.Count, "#,###")) & " " & imisgen.getMessage("L_FOUNDINSUREE")
+            'For Each row As DataRow In dtInsuree.Rows
+            '    If row.IsNull("Gender") = False AndAlso row("Gender") = "M" Then
+            '        row("Gender") = "MALE"
+            '    End If
+            'Next
             gvInsuree.DataSource = dtInsuree
             gvInsuree.SelectedIndex = -1
             gvInsuree.DataBind()

@@ -648,6 +648,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
     {
         width: auto;
     }
+    
     .progress
     {
         background-image: initial;
@@ -669,11 +670,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
             CssClass="panel" GroupingText='<%$ Resources:Resource,L_PRODUCTDETAILS %>' Style="height: auto">
             <table style="position: relative; left: -14px;">
                 <tr>
-                    <td>
+                    <td>  
                         <table>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_PRODUCTCODE" runat="server" Text='<%$ Resources:Resource,L_PRODUCTCODE %>'></asp:Label>
+                                    <asp:Label ID="L_PRODUCTCODE" runat="server" Width="140px" Text='<%$ Resources:Resource,L_PRODUCTCODE %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtProductCode" runat="server" MaxLength="8"></asp:TextBox>
@@ -690,7 +691,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_PRODUCTNAME" runat="server" Text='<%$ Resources:Resource,L_PRODUCTNAME %>'></asp:Label>
+                                    <asp:Label ID="L_PRODUCTNAME" runat="server" Width="140px" Text='<%$ Resources:Resource,L_PRODUCTNAME %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
@@ -705,7 +706,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_REGION" runat="server" Text='<%$ Resources:Resource,L_REGION %>'></asp:Label>
+                                    <asp:Label ID="L_REGION" runat="server" Width="140px" Text='<%$ Resources:Resource,L_REGION %>'></asp:Label>
                                 </td>
                                 <%--    --%>
                                 <td class="DataEntry">
@@ -725,7 +726,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_District" runat="server" Text="<%$ Resources:Resource,L_DISTRICT %>"></asp:Label>
+                                    <asp:Label ID="L_District" runat="server" Width="140px" Text="<%$ Resources:Resource,L_DISTRICT %>"></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:UpdatePanel ID="upDistrict" runat="server">
@@ -744,7 +745,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td class="FormLabel">
                                     <asp:Label
                                         ID="L_DateFrom"
-                                        runat="server"
+                                        runat="server" Width="140px"
                                         Text='<%$ Resources:Resource,L_DATEFROM %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
@@ -771,7 +772,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_Date" runat="server" Text='<%$ Resources:Resource,L_DATETO %>'></asp:Label>
+                                    <asp:Label ID="L_Date" runat="server" Width="140px" Text='<%$ Resources:Resource,L_DATETO %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtDateTo" runat="server" Width="130px"></asp:TextBox>
@@ -799,7 +800,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_Conversion" runat="server" Text='<%$ Resources:Resource,L_CONVERSION %>'></asp:Label>
+                                    <asp:Label ID="L_Conversion" runat="server" Width="140px" Text='<%$ Resources:Resource,L_CONVERSION %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:DropDownList ID="ddlConversion" runat="server" Width="132px">
@@ -807,29 +808,27 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     </asp:DropDownList>
                                     <asp:Button ID="btnConversion" runat="server" Height="15px"
                                         Width="20px" />
-                                </td>
-
-                            </tr>
-                            <tr>
+                                </td> 
+                            </tr> 
+                            <%--</table>
+                            <table>--%>
+                            <tr> 
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_LumpSum" runat="server" Text='<%$ Resources:Resource,L_LUMPSUM %>'></asp:Label>
+                                    <asp:Label ID="L_LumpSum" runat="server" Width="140px" Text='<%$ Resources:Resource,L_LUMPSUM %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
-                                    <asp:TextBox ID="txtLumpSum" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
+                                    <asp:TextBox ID="txtLumpSum" runat="server" Style="text-align: right" class="numbersOnly" ></asp:TextBox>
 
                                 </td>
                                 <td>
                                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLumpSum" text="*" SetFocusOnError="True" 
                     ValidationGroup="check"  ></asp:RequiredFieldValidator>--%>
                                     <%--<asp:CompareValidator ControlToValidate="txtLumpSum" ID="CompareValidator6"  runat="server" SetFocusOnError ="true"  Type="Currency"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>--%>
-                                </td>
-
-
-
+                                </td> 
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="lblThresholdMembers" runat="server" Text='<%$ Resources:Resource,L_THRESHOLDMEMBERS %>'></asp:Label>
+                                    <asp:Label ID="lblThresholdMembers" runat="server" Width="140px" Text='<%$ Resources:Resource,L_THRESHOLDMEMBERS %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtThresholdMembers" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -841,7 +840,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="lblMaxNoOfMembers" runat="server" Text='<%$ Resources:Resource,L_MEMBERS %>'></asp:Label>
+                                    <asp:Label ID="lblMaxNoOfMembers" runat="server" Width="140px" Text='<%$ Resources:Resource,L_MEMBERS %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtMaxNoOfMembers" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -861,7 +860,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_PREMIUMADULT" runat="server" Text='<%$ Resources:Resource,L_PREMIUMADULT %>'></asp:Label>
+                                    <asp:Label ID="L_PREMIUMADULT" runat="server" Width="140px"  Text='<%$ Resources:Resource,L_PREMIUMADULT %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtAdultPremium" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -879,7 +878,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_PREMIUMCHILD" runat="server" Text='<%$ Resources:Resource,L_PREMIUMCHILD %>'></asp:Label>
+                                    <asp:Label ID="L_PREMIUMCHILD" runat="server" Width="140px" Text='<%$ Resources:Resource,L_PREMIUMCHILD %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtChildPremium" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -892,7 +891,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_INSURANCEPERIOD" runat="server" Text='<%$ Resources:Resource,L_INSURANCEPERIOD %>'></asp:Label>
+                                    <asp:Label ID="L_INSURANCEPERIOD" runat="server" Width="140px" Text='<%$ Resources:Resource,L_INSURANCEPERIOD %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtInsurancrePeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -906,7 +905,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="lblAdministrationPeriod" runat="server" Text='<%$ Resources:Resource,L_ADMINISTRATIONPERIOD %>'></asp:Label>
+                                    <asp:Label ID="lblAdministrationPeriod" runat="server" width="140" Text='<%$ Resources:Resource,L_ADMINISTRATIONPERIOD %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtAdministrationPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -932,7 +931,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="lblWaitingPeriod" runat="server" Text='<%$ Resources:Resource,L_WAITINGPERIOD %>'></asp:Label>
+                                    <asp:Label ID="lblWaitingPeriod" runat="server"  Width="140px" Text='<%$ Resources:Resource,L_WAITINGPERIOD %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtWaitingPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -946,7 +945,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_GRACEPERIOD" runat="server" Width="150px" Text='<%$ Resources:Resource,L_GRACEPERIOD %>'></asp:Label>
+                                    <asp:Label ID="L_GRACEPERIOD" runat="server" Width="140px" Text='<%$ Resources:Resource,L_GRACEPERIOD %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtGracePeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -961,7 +960,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="lblGracePeriodRenewal" runat="server" Width="150px"
+                                    <asp:Label ID="lblGracePeriodRenewal" runat="server" Width="140px"
                                         Text='<%$ Resources:Resource,L_GRACEPERIODRENEWAL %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
@@ -983,7 +982,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="lblRenewalDiscountPeriod" runat="server" Text='<%$ Resources:Resource,L_RENEWALDISCOUNTPERIOD %>'></asp:Label>
+                                    <asp:Label ID="lblRenewalDiscountPeriod" runat="server" Width="140px" Text='<%$ Resources:Resource,L_RENEWALDISCOUNTPERIOD %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtRenewalDiscountPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
@@ -1002,7 +1001,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtEnrolmentDiscountPerc" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ID="CompareValidator25" runat="server" ControlToValidate="txtEnrolmentDiscountPerc" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator25" runat="server" ControlToValidate="txtEnrolmentDiscountPerc" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -1013,10 +1012,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtEnrolmentDiscountPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:CompareValidator ID="CompareValidator31" runat="server" ControlToValidate="txtEnrolmentDiscountPeriod" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check"> </asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator31" runat="server" ControlToValidate="txtEnrolmentDiscountPeriod" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
                                 </td>
                             </tr>
-                        </table>
+                        </table> 
                     </td>
 
 

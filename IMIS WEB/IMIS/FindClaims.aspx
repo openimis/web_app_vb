@@ -107,6 +107,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
     /** Ruzo Grid Row Selection 29 Aug 2014 >> Start **/
     function bindRowSelection() {
         var $trs = $('#<%=gvClaims.ClientID%> tr')
+        alert($trs);
          $trs.unbind("hover").hover(function () {
              if ($(this).index() < 1 || $(this).is(".pgr")) return;
              $trs.removeClass("alt");
@@ -119,6 +120,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
              if ($(this).index() < 1 || $(this).is(".pgr")) return;
              $trs.removeClass("srs");
              $(this).addClass("srs");
+
              fillSelectedRowData($(this))
          });
          if ($trs.filter(".srs").length > 0) {
@@ -130,6 +132,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
      function fillSelectedRowData($row) {
          var claimId = $row.find("td").eq(9).html();
          $("#<%=hfClaimID.ClientID%>").val(claimId);
+        
     }
     /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
     

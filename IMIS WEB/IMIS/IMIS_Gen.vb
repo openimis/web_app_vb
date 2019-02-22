@@ -119,6 +119,8 @@ Public Class IMIS_Gen
             Return System.Web.HttpContext.GetGlobalResourceObject("Resource", MessageID)
         End If
     End Function
+
+
     Public Function getRoleId(ByVal session As Object) As Integer
         Try
             Dim dt As New DataTable

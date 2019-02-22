@@ -112,8 +112,7 @@ Partial Public Class OverviewFamily
             Dim load As New IMIS_BI.OverviewFamilyBI
             Dim dt As DataTable
 
-            dt = load.GetInsureesByFamilyFiltered(FamilyId)
-
+            dt = load.GetInsureesByFamilyFiltered(FamilyId, If(Request.Cookies("CultureInfo").Value = "en", "Education", "AltLanguage"))
             loadGrid(gvInsurees, dt)
 
             dt = load.GetPolicybyFamily(FamilyId)
@@ -163,7 +162,6 @@ Partial Public Class OverviewFamily
     End Sub
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False, Optional ByVal comm As String = "delete")
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If Not ondelete Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.OverviewFamily, Page) Then
@@ -344,9 +342,9 @@ Partial Public Class OverviewFamily
                 If gv.ID = "gvInsurees" Then
 
                     Rows = dt.Select("InsureeID=" & eInsuree.InsureeID)
-                    dv.Sort = "RowID DESC"
+                    dv.Sort = "CHFID"
                     If Rows.Length > 0 Then
-                        x = dv.Find(Rows(0).Item("RowID"))
+                        x = dv.Find(Rows(0).Item("CHFID"))
                     End If
 
                 ElseIf gv.ID = "gvPolicies" Then
