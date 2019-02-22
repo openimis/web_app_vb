@@ -64,7 +64,7 @@ Partial Public Class Claim
         RunPageSecurity()
         FormatForm()
         Try
-            hfClaimID.Value = CType(Request.QueryString("c"), Integer)
+            hfClaimID.Value = CInt(Int(Request.QueryString("c")))
 
             eClaim.ClaimID = hfClaimID.Value
             If eClaim.ClaimID = 0 Then

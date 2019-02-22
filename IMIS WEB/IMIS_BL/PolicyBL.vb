@@ -93,22 +93,31 @@ Public Class PolicyBL
         i = dt.Rows.Count
 
         For s = 0 To i - 1
+            dt.Rows(s)("PolicyStatus") = ReturnPolicyStatusALPHA(dt.Rows(s)("Status"))
+            'If dt.Rows(s)("Status") = "I" Then
+            '    dt.Rows(s)("PolicyStatus") = "Idle"
+            'End If
+            'If dt.Rows(s)("Status") = "A" Then
+            '    dt.Rows(s)("PolicyStatus") = "Active"
+            'End If
+            'If dt.Rows(s)("Status") = "E" Then
+            '    dt.Rows(s)("PolicyStatus") = "Expired"
+            'End If
+            'If dt.Rows(s)("Status") = "S" Then
+            '    dt.Rows(s)("PolicyStatus") = "Expired"
 
-            If dt.Rows(s)("Status") = "I" Then
-                dt.Rows(s)("PolicyStatus") = "Idle"
-            End If
-            If dt.Rows(s)("Status") = "A" Then
-                dt.Rows(s)("PolicyStatus") = "Active"
-            End If
-            If dt.Rows(s)("Status") = "E" Then
-                dt.Rows(s)("PolicyStatus") = "Expired"
-            End If
-            If dt.Rows(s)("Status") = "S" Then
-                dt.Rows(s)("PolicyStatus") = "Expired"
-
-            End If
+            'End If
         Next
         Return dt
+    End Function
+    Public Function ReturnPolicyStatusALPHA(ByVal PolicyStatus As String) As String
+        Select Case PolicyStatus
+            Case "I" : Return imisgen.getMessage("T_IDLE")
+            Case "A" : Return imisgen.getMessage("T_ACTIVE")
+            Case "S" : Return imisgen.getMessage("T_SUSPENDED")
+            Case "E" : Return imisgen.getMessage("T_EXPIRED")
+            Case Else : Return ""
+        End Select
     End Function
     Public Function ReturnPolicyStatus(ByVal PolicyStatus As Integer) As String
         Select Case PolicyStatus

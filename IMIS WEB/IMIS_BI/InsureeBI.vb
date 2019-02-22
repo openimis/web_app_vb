@@ -62,9 +62,9 @@ Public Class InsureeBI
         Dim Images As New IMIS_BL.InsureeBL
         Images.UpdateImage(ePhotos, UpdateInDatabase)
     End Sub
-    Public Function GetInsureeByCHFID(ByVal CHFID As String) As DataTable
+    Public Function GetInsureeByCHFID(ByVal CHFID As String, Optional Language As String = "en") As DataTable
         Dim Insuree As New IMIS_BL.InsureeBL
-        Return Insuree.FindInsureeByCHFID(CHFID)
+        Return Insuree.FindInsureeByCHFID(CHFID, Language)
     End Function
     Public Function GetInsureeByCHFIDGrid(ByVal CHFID As String) As DataTable
         Dim Policy As New IMIS_BL.PolicyBL

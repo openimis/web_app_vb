@@ -535,7 +535,7 @@
     <value>Care Type</value>
   </data>
   <data name="L_FREQUENCY" xml:space="preserve">
-    <value>Frequency</value>
+    <value>Frequency (days)</value>
   </data>
   <data name="L_PATIENT" xml:space="preserve">
     <value>Patient</value>
@@ -976,10 +976,10 @@
     <value>Preview</value>
   </data>
   <data name="L_GRACEPERIOD" xml:space="preserve">
-    <value>Grace Period Enrolment</value>
+    <value>Grace Period Enrolment (months)</value>
   </data>
   <data name="L_INSURANCEPERIOD" xml:space="preserve">
-    <value>Insurance Period</value>
+    <value>Insurance Period (months)</value>
   </data>
   <data name="L_DEDUCTABLEINCEILING" xml:space="preserve">
     <value>Deductable (Hospital) Ceiling</value>
@@ -2731,7 +2731,7 @@
     <value>Assembly Lump Sum</value>
   </data>
   <data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
-    <value>Grace Period Renewal</value>
+    <value>Grace Period Renewal (months)</value>
   </data>
   <data name="L_HOSPITALIZATIONS" xml:space="preserve">
     <value>Hospitalizations</value>
@@ -2776,7 +2776,7 @@
     <value>Max Installments</value>
   </data>
   <data name="L_WAITINGPERIOD" xml:space="preserve">
-    <value>Grace Period Payment</value>
+    <value>Grace Period Payment (months)</value>
   </data>
   <data name="M_INVALIDCYCLE1DATE" xml:space="preserve">
     <value>Invalid cycle 1 date</value>
@@ -2959,13 +2959,13 @@
     <value>Confirmation No.</value>
   </data>
   <data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
-    <value>Administration Period</value>
+    <value>Administration Period (months)</value>
   </data>
   <data name="L_RENEWALDISCOUNTPERCENTAGE" xml:space="preserve">
     <value>Renewal Disc. %</value>
   </data>
   <data name="L_RENEWALDISCOUNTPERIOD" xml:space="preserve">
-    <value>Renewal Disc. Period</value>
+    <value>Renewal Disc. Period (months)</value>
   </data>
   <data name="L_STARTCYCLE3" xml:space="preserve">
     <value>Start Cycle 3</value>
@@ -3199,7 +3199,7 @@
     <value>Enrolment Disc. %</value>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
-    <value>Enrolment Disc. Period</value>
+    <value>Enrolment Disc. Period (months)</value>
   </data>
   <data name="M_ENROLDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
     <value>Enrolment discount percentage should be less than or equal to hundred</value>

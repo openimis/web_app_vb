@@ -50,7 +50,7 @@ Partial Public Class FindClaims
 
     End Sub
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load, txtICDCode.TextChanged
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         chkboxSubmitAll.Checked = False
         'ddlBatchRun.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id);")

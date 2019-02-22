@@ -749,7 +749,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Administration Period.
+        '''  Looks up a localized string similar to Administration Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_ADMINISTRATIONPERIOD() As String
             Get
@@ -2216,7 +2216,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Disc. Period.
+        '''  Looks up a localized string similar to Enrolment Disc. Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTDISCOUNTPERIOD() As String
             Get
@@ -2999,7 +2999,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Frequency.
+        '''  Looks up a localized string similar to Frequency (days).
         '''</summary>
         Friend Shared ReadOnly Property L_FREQUENCY() As String
             Get
@@ -3125,7 +3125,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Enrolment.
+        '''  Looks up a localized string similar to Grace Period Enrolment (months).
         '''</summary>
         Friend Shared ReadOnly Property L_GRACEPERIOD() As String
             Get
@@ -3134,7 +3134,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Renewal.
+        '''  Looks up a localized string similar to Grace Period Renewal (months).
         '''</summary>
         Friend Shared ReadOnly Property L_GRACEPERIODRENEWAL() As String
             Get
@@ -3503,7 +3503,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance Period.
+        '''  Looks up a localized string similar to Insurance Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_INSURANCEPERIOD() As String
             Get
@@ -5681,7 +5681,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal Disc. Period.
+        '''  Looks up a localized string similar to Renewal Disc. Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_RENEWALDISCOUNTPERIOD() As String
             Get
@@ -6716,7 +6716,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Payment.
+        '''  Looks up a localized string similar to Grace Period Payment (months).
         '''</summary>
         Friend Shared ReadOnly Property L_WAITINGPERIOD() As String
             Get
