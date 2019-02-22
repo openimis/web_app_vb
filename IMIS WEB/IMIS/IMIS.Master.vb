@@ -37,8 +37,8 @@ Public Class IMIS
         Dim Adjustibility As String = ""
         For i As Integer = 0 To gvPolicy.Columns.Count
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_PRODUCTCODE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
-            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_EXPIREDATE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
-            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_STATUS")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_EXPIREDATE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "M") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_STATUS")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "M") : Exit For
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_HDEDUCTION")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_NHDEDUCTION")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_HCEILING")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
@@ -62,7 +62,7 @@ Public Class IMIS
 
         'ItemCode
         Adjustibility = General.getControlSetting("lblItemCode")
-        lblItemCode.Visible = Not (Adjustibility = "N")
+        lblItemCode.Visible = Not (Adjustibility = "M")
 
         'Item Left
         Adjustibility = General.getControlSetting("lblItemLeft")
@@ -368,12 +368,12 @@ Public Class IMIS
             Adjustibility = General.getControlSetting("CHFID")
             'Reference the Controls.
             Dim InsuranceNumber As Label = TryCast(item.FindControl("chf_ID"), Label)
-            InsuranceNumber.Visible = Not (Adjustibility = "N")
+            InsuranceNumber.Visible = Not (Adjustibility = "M")
 
             'Last Name
             Adjustibility = General.getControlSetting("LastName")
             Dim LastName As Label = TryCast(item.FindControl("Last_Name"), Label)
-            LastName.Visible = Not (Adjustibility = "N")
+            LastName.Visible = Not (Adjustibility = "M")
 
 
             ' Region Of FSP
@@ -384,7 +384,7 @@ Public Class IMIS
             'Other Names
             Adjustibility = General.getControlSetting("OtherNames")
             Dim OtherName As Label = TryCast(item.FindControl("other_names"), Label)
-            OtherName.Visible = Not (Adjustibility = "N")
+            OtherName.Visible = Not (Adjustibility = "M")
 
             'District OF FSP
             Adjustibility = General.getControlSetting("DistrictOfFSP")
@@ -409,7 +409,7 @@ Public Class IMIS
             'Gender
             Adjustibility = General.getControlSetting("Gender")
             Dim Gender As Label = TryCast(item.FindControl("gender"), Label)
-            Gender.Visible = Not (Adjustibility = "N")
+            Gender.Visible = Not (Adjustibility = "M")
 
             'FSP
             Adjustibility = General.getControlSetting("FirstServicePoint")

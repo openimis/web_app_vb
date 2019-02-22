@@ -30,9 +30,9 @@ Public Class InsureeDAL
     Dim data As New ExactSQL
     Public Function GetInsureesByFamily(ByVal FamilyId As Integer) As DataTable
         Dim data As New ExactSQL
-        data.setSQLCommand("select FamilyID,InsureeId,CHFID,LastName,OtherNames,DOB,Gender,Marital" & _
-                           ",cardIssued,isOffline,validityFrom,ValidityTo from tblInsuree where familyid = @FamilyId" & _
-                           " and LegacyID is null and ValidityTo is null ORDER BY CHFID", CommandType.Text)
+        data.setSQLCommand("select FamilyID,InsureeId,CHFID,LastName,OtherNames,DOB,Gender,Marital" &
+                           ",cardIssued,isOffline,validityFrom,ValidityTo, RowID from tblInsuree where familyid = @FamilyId" &
+                           " and LegacyID is null and ValidityTo is null AND RowID > 0  ORDER BY CHFID DESC ", CommandType.Text)
         data.params("@FamilyId", SqlDbType.Int, FamilyId)
         Return data.Filldata
     End Function

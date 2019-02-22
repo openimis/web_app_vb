@@ -4740,4 +4740,7 @@
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value>Please enter an Main Dg code</value>
   </data>
+  <data name="M_PAYDATETOEXCEEDCURRENDATE" xml:space="preserve">
+    <value>Payment date should not exceed current date</value>
+  </data>
 </root>

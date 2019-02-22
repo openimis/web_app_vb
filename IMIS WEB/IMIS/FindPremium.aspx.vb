@@ -151,6 +151,7 @@ Partial Public Class FindPremium
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
+
         End If
 
         If Trim(txtDateOfPaymentTo.Text).Length > 0 Then
@@ -159,6 +160,10 @@ Partial Public Class FindPremium
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
+            End If
+            If ePremium.PayDateTo > System.DateTime.Now Then
+
+                lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
             End If
         End If
         If Trim(txtMatchedDateFrom.Text).Length > 0 Then
