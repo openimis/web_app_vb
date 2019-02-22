@@ -107,7 +107,6 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
     /** Ruzo Grid Row Selection 29 Aug 2014 >> Start **/
     function bindRowSelection() {
         var $trs = $('#<%=gvClaims.ClientID%> tr')
-        alert($trs);
          $trs.unbind("hover").hover(function () {
              if ($(this).index() < 1 || $(this).is(".pgr")) return;
              $trs.removeClass("alt");
@@ -120,7 +119,6 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
              if ($(this).index() < 1 || $(this).is(".pgr")) return;
              $trs.removeClass("srs");
              $(this).addClass("srs");
-
              fillSelectedRowData($(this))
          });
          if ($trs.filter(".srs").length > 0) {
@@ -132,7 +130,6 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
      function fillSelectedRowData($row) {
          var claimId = $row.find("td").eq(9).html();
          $("#<%=hfClaimID.ClientID%>").val(claimId);
-        
     }
     /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
     
@@ -152,7 +149,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
             $('.ConditionCheck').trigger("change");
       }
 
-        $(document).ready(function ()
+        -$(document).ready(function ()
         {
             var prm = Sys.WebForms.PageRequestManager.getInstance();
             prm.add_initializeRequest(InitializeRequest);
@@ -341,25 +338,12 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                   //alert($(this).prop("tagName"));
                   $(this).find("input[type=checkbox]").attr("checked", false);
               }
-          });
+          }) 
       }
 
 
-      function pageLoadExtend() {
-          dropdown.init($("#DropDownSugTable"), function () {
-              $('.ClaimValue').eq(0).trigger("change");
-          });
 
-          $(".disabled a").unbind("click").mouseover(function () {
-              $(this).css("opacity", 0.2);
-          });
-          showInsureePopupSearchResult();
-          $('#btnCancel').click(function () {
-              $('#SelectPic').hide();
-          });
-
-        }
-
+ 
 
 
 </script>
@@ -392,19 +376,8 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
 
         <asp:Panel ID="pnlTop" runat="server"  CssClass="panelTop"  Height="165px"  GroupingText='<%$ Resources:Resource,L_CLAIMDETAILS %>' oncontextmenu="return false;">
                
-            <table id="DropDownSugTable" border="0px" style="display: none; width: 100%; border-collapse: collapse;
-                border: 0px solid #CCC;">
-                <tr style="color: #303030; background: #C0C0C0;">
-                    <th>
-                        <%=imisgen.getMessage("L_CODE", True)%>
-                    </th>
-                    <th>
-                        <%=imisgen.getMessage("L_NAME", True)%>
-                    </th>
-                   
-                </tr>
-            </table> 
-      <table >
+           
+      <table > 
           <tr>
             <td class ="FormLabel">
                      <asp:Label ID="L_REGION" runat="server" Text="<%$ Resources:Resource,L_REGION %>"></asp:Label>
@@ -665,24 +638,9 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
              <asp:HiddenField ID="hfdeleteClaim" runat="server" />
              <asp:HiddenField ID="hfSubmitClaims" runat="server" />
         </asp:Panel>
-        </div>
-          
+        </div>          
 
 
-        <asp:Panel ID="pnlHiddenICDCodes" class="pnlHiddenItemCodes" runat="server" Visible="false">
-        <asp:Panel ID="Panel1" class="innerPanel" runat="server" Height="130px" ScrollBars="Vertical">
-            <asp:GridView ID="gvHiddenICDCodes" runat="server" AutoGenerateColumns="false" DataKeyNames="ICDID,ICDCode"
-                GridLines="None" PagerStyle-CssClass="pgr" ShowSelectButton="false">
-                <Columns>
-                 
-                    <asp:BoundField DataField="ICDCode" HeaderText='<%$ Resources:Resource,L_ITEMCODE%>'>
-                    </asp:BoundField>
-                    <asp:BoundField DataField="ICDName" HeaderText='<%$ Resources:Resource,L_NAME%>'>
-                    </asp:BoundField> 
-                </Columns>
-            </asp:GridView>
-        </asp:Panel>
-        <a href="javascript:void" class="hiddenPanelCloseButton">cancel</a></asp:Panel>
 
        <asp:Panel ID="pnlButtons" runat="server"   CssClass="panelbuttons" >
         <table width="100%" cellpadding="10 10 10 10" align="center">

@@ -536,33 +536,6 @@ Partial Public Class FindClaims
     Protected WithEvents hfSubmitClaims As Global.System.Web.UI.WebControls.HiddenField
     
     '''<summary>
-    '''pnlHiddenICDCodes control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlHiddenICDCodes As Global.System.Web.UI.WebControls.Panel
-    
-    '''<summary>
-    '''Panel1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Panel1 As Global.System.Web.UI.WebControls.Panel
-    
-    '''<summary>
-    '''gvHiddenICDCodes control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gvHiddenICDCodes As Global.System.Web.UI.WebControls.GridView
-    
-    '''<summary>
     '''pnlButtons control.
     '''</summary>
     '''<remarks>

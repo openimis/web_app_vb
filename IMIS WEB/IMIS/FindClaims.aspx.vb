@@ -50,7 +50,7 @@ Partial Public Class FindClaims
 
     End Sub
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load, txtICDCode.TextChanged
 
         chkboxSubmitAll.Checked = False
         'ddlBatchRun.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id);")
@@ -118,8 +118,8 @@ Partial Public Class FindClaims
             'ddlICD.DataValueField = "ICDID"
             'ddlICD.DataBind()
 
-            gvHiddenICDCodes.DataSource = FindClaimsB.GetICDCodes(True)
-            gvHiddenICDCodes.DataBind()
+            'gvHiddenICDCodes.DataSource = FindClaimsB.GetICDCodes(True)
+            'gvHiddenICDCodes.DataBind()
 
 
 
