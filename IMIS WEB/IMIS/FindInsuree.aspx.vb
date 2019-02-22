@@ -127,8 +127,8 @@ Partial Public Class FindInsuree
             B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FindInsuree, UserID)
             B_CLAIM.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
             B_CLAIMSREVIEWS.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
-            btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
-
+            btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindInsuree, UserID)
+            'test
         Else
             Dim RefUrl = Request.Headers("Referer")
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindInsuree.ToString & "&retUrl=" & RefUrl)
