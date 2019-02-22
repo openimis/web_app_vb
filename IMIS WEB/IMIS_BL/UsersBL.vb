@@ -251,8 +251,9 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.CapitationPayment : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant And UserID)
             Case IMIS_EN.Enums.Rights.RejectedPhoto : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)
             Case IMIS_EN.Enums.Rights.ContributionPayment : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)
-            Case IMIS_EN.Enums.Rights.ControlNumberAssignment : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.OverviewOfCommissions : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant )
+            Case IMIS_EN.Enums.Rights.ControlNumberAssignment : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant + Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.ClaimHistoryReport : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant  )
+
 
             'UTILITIES
             Case IMIS_EN.Enums.Rights.Utilities : Return CheckUserRights(UserID, Right, 1) '(Roles.IMISAdministrator + Roles.HFAdministrator + Roles.OfflineCHFAdministrator And UserID)
@@ -959,7 +960,7 @@ Public Class UsersBL
             Dim DALRole As New IMIS_DAL.RoleDAL
             dtRoles = DALRole.GetSystemRoles(eUser.RoleID)
         End If
-        If eUser.UserID = 0 Or eUser.UserID = 5 Then
+        If eUser.UserID = 0 Then
             CreatePassword(eUser)
             users.InsertUser(eUser)
             users.SaveUserRoles(dtRoles, eUser)
