@@ -90,10 +90,9 @@ Public Class Enums
 
         'Batch
         Batch = 111100
-        ValuateClaim = 111101               'Include to Access batch run page
-        BatchProcess = 111102
-        BatchFilter = 111103                'NEW
-        BatchPreview = 111104
+        BatchProcess = 111101
+        BatchFilter = 111102
+        BatchPreview = 111103
 
         '***************************************Administrations 12 00 00
 
@@ -175,9 +174,10 @@ Public Class Enums
         'locations
         Locations = 121900
         FindLocations = 121901
-        AddDistrict = 121902
-        EditDistrict = 121903
-        DeleteDistrict = 121904
+        AddLocations = 121902
+        EditLocations = 121903
+        DeleteLocations = 121904
+        MoveLocations = 121905
 
         'UserProfile
         userProfiles = 122000
@@ -274,15 +274,8 @@ Public Class Enums
         ChangeFamilyHead = 101005
         MovingInsuree = 101006
         'Ward
-        AddWard = 121902
-        EditWard = 121903
-        DeleteWard = 121904
 
-        'Village
-        AddVillage = 121902
-        EditVillage = 121903
-        DeleteVillage = 121904
-        ' NEW end
+
 
         FeedbackPrompt = 191001                 'NOT IN THE NEW DOCUMENT 
         UploadICD = 191002                      'NOT IN THE NEW DOCUMENT  

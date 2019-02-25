@@ -257,7 +257,9 @@ Partial Public Class Claim
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Claim, Page) Then
             B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EnterClaim, UserID)
-
+            btnPrint.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.PrintClaim, UserID)
+            gvItems.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EditClaim, UserID)
+            gvService.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EditClaim, UserID)
             If Not B_SAVE.Visible Then
                 pnlBodyCLM.Attributes.Add("Class", "disabled")
                 pnlBodyCLM.Enabled = False

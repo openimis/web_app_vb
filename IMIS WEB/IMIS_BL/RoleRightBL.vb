@@ -2,8 +2,18 @@
     Public Function GetRoleRights(RoleID As Integer) As DataSet
 
         Dim RoleRightDAL As New IMIS_DAL.RoleRightDAL
-
-        Return RoleRightDAL.GetRoleRights(RoleID)
+        Dim BL As New UsersBL
+        Dim dsRole As DataSet = RoleRightDAL.GetRoleRights(RoleID)
+        If dsRole.Tables.Count > 0 Then
+            If dsRole.Tables(0).Rows.Count > 0 Then
+                For Each role As DataRow In dsRole.Tables(0).Rows
+                    If role("IsSystem") > 0 Then
+                        role("RoleName") = BL.ReturnRole(role("IsSystem"))
+                    End If
+                Next
+            End If
+        End If
+        Return dsRole
 
     End Function
     Public Function SaveRights(dtRights As DataTable, eRole As IMIS_EN.tblRole) As Integer

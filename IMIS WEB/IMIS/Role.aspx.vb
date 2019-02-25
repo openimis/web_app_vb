@@ -11,17 +11,24 @@
 
         eRole.RoleID = HttpContext.Current.Request.QueryString("r")
         If Not IsPostBack Then
+
             If eRole.RoleID > 0 Then
                 Populate()
             End If
+
+        End If
+        If Request.QueryString("action") = "duplicate" Then
+            If Not IsPostBack Then
+                eRole.RoleID = 0
+                txtRoles.Text = ""
+                eRole.IsSystem = 0
+                chkIsSystem.Checked = False
+            Else
+                eRole.RoleID = 0
+            End If
+
         End If
 
-        If Request.QueryString("action") = "duplicate" Then
-            eRole.RoleID = 0
-            txtRoles.Text = ""
-            eRole.IsSystem = 0
-            chkIsSystem.Checked = False
-        End If
         tvRoleRights.ExpandAll()
         tvRoleRights2.ExpandAll()
         tvRoleRights3.ExpandAll()

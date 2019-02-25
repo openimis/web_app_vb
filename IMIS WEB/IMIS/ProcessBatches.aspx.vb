@@ -45,9 +45,9 @@ Partial Public Class ProcessRelIndex
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ProcessBatches, Page) Then
-            btnProcess.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ValuateClaim, UserID)
-            btnFilter.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ValuateClaim, UserID)
-            btnPreview.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ValuateClaim, UserID)
+            btnProcess.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.BatchProcess, UserID)
+            btnFilter.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.BatchFilter, UserID)
+            btnPreview.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.BatchPreview, UserID)
 
             If Not btnProcess.Enabled And Not btnFilter.Enabled Then
                 pnlBody.Enabled = False

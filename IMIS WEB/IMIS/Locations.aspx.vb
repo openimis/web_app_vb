@@ -93,32 +93,31 @@ Partial Public Class Locations
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If Not OnButtonEvent Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Locations, Page) Then
-                Dim AddDistrict As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddDistrict, UserID)
-                Dim EditDistrict As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditDistrict, UserID)
-                Dim DeleteDistrict As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteDistrict, UserID)
+                Dim AddLocations As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddLocations, UserID)
+                Dim EditLocations As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditLocations, UserID)
+                Dim DeleteLocations As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteLocations, UserID)
+                Dim MoveLocations As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.MoveLocations, UserID)
 
-                Dim AddWard As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddWard, UserID)
-                Dim EditWard As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditWard, UserID)
-                Dim DeleteWard As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteWard, UserID)
 
-                Dim AddVillage As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddVillage, UserID)
-                Dim EditVillage As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditVillage, UserID)
-                Dim DeleteVillage As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteVillage, UserID)
 
-                If Not DeleteDistrict And Not EditDistrict Then
+
+                If Not DeleteLocations And Not EditLocations Then
                     pnlDistricts.Enabled = False
-                End If
-                If Not DeleteWard And Not EditWard Then
                     pnlWards.Enabled = False
-                End If
-                If Not DeleteVillage And Not EditVillage Then
                     pnlVillages.Enabled = False
                 End If
-                If Not AddDistrict And Not AddWard And Not AddVillage Then
-                    btnAdd.Visible = True
+
+                If Not AddLocations Then
+                    btnAdd.Visible = False
                 End If
-                If Not DeleteDistrict And Not DeleteWard And Not DeleteVillage Then
+                If Not EditLocations Then
+                    btnEdit.Visible = False
+                End If
+                If Not DeleteLocations Then
                     btnDelete.Visible = False
+                End If
+                If Not MoveLocations Then
+                    btnMoveLocation.Visible = False
                 End If
 
                 If btnAdd.Visible And pnlDistricts.Enabled And Not pnlWards.Enabled And Not pnlVillages.Enabled Then
@@ -129,39 +128,39 @@ Partial Public Class Locations
             End If
         Else
             If cmd = "deletedistrict" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteDistrict, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "deletevillage" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteVillage, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "deleteward" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteWard, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "EditDistrict" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.EditDistrict, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.EditLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "EditWard" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.EditWard, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.EditLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "EditVillage" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.EditVillage, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.EditLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "AddDistrict" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.AddDistrict, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.AddLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "AddWard" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.AddWard, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.AddLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf cmd = "AddVillage" Then
-                If Not userBI.checkRights(IMIS_EN.Enums.Rights.AddVillage, UserID) Then
+                If Not userBI.checkRights(IMIS_EN.Enums.Rights.AddLocations, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Locations.ToString & "&retUrl=" & RefUrl)
                 End If
             End If

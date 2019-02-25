@@ -141,11 +141,11 @@
        <asp:Panel ID="pnlHeader"  runat="server" CssClass="panelTop" GroupingText='<%$ Resources:Resource,G_USER %>'> 
               <table width="100%" cellpadding="10 10 10 10" >
                 <tr>
-                    <td width="25%">
+                    <td width="15%">
                         <asp:Label ID="lblRole" runat="server" Text='<%$ Resources:Resource,L_ROLENAME %>'></asp:Label>
                     </td>
-                     <td width="25%">
-                         <asp:Textbox ID="txtRoles" size="10" runat="server" Width="135px"> </asp:Textbox> 
+                     <td width="35%">
+                         <asp:Textbox ID="txtRoles" size="10" runat="server" Width="200px" MaxLength="50"></asp:Textbox> 
                         <asp:RequiredFieldValidator 
                         ID="RequiredFieldCode" runat="server" 
                         ControlToValidate="txtRoles" 
@@ -336,7 +336,7 @@
                                 </asp:TreeNode>  
                                 <asp:TreeNode Text="<%$ Resources:Resource,R_USERPROFILES %>" Value="122000" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_SEARCH %>" Value="122001" SelectAction="None"></asp:TreeNode>
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="122002" SelectAction="None"></asp:TreeNode>
+                                        <asp:TreeNode Text="<%$ Resources:Resource,R_ADD %>" Value="122002" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="122003" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="122004" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_DUPLICATE %>" Value="122005" SelectAction="None"></asp:TreeNode>                            

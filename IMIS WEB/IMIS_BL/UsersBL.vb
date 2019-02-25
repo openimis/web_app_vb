@@ -128,7 +128,6 @@ Public Class UsersBL
 
             'BATCH
             Case IMIS_EN.Enums.Rights.Batch : Return CheckUserRights(UserID, Right, 1)
-            Case IMIS_EN.Enums.Rights.ValuateClaim : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)    
             Case IMIS_EN.Enums.Rights.BatchProcess : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)  Changed from no mapping to CHFAccount because ParentNode ValueClaim mapped to that user, so child also follows
             Case IMIS_EN.Enums.Rights.BatchFilter : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)   Changed from no mapping to CHFAccount because ParentNode ValueClaim mapped to that user, so child also follows
             Case IMIS_EN.Enums.Rights.BatchPreview : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)  Changed from no mapping to CHFAccount because ParentNode ValueClaim mapped to that user, so child also follows
@@ -198,7 +197,19 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.DeletePayer : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID) 
 
             Case IMIS_EN.Enums.Rights.Locations : Return CheckUserRights(UserID, Right, 1)
-            Case IMIS_EN.Enums.Rights.FindLocations : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)  
+            Case IMIS_EN.Enums.Rights.FindLocations : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID) 
+            Case IMIS_EN.Enums.Rights.AddLocations : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.EditLocations : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.DeleteLocations : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.MoveLocations : Return CheckUserRights(UserID, Right)
+            'Case IMIS_EN.Enums.Rights.AddWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            'Case IMIS_EN.Enums.Rights.EditWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            'Case IMIS_EN.Enums.Rights.DeleteWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+
+            'Case IMIS_EN.Enums.Rights.AddVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            'Case IMIS_EN.Enums.Rights.EditVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            'Case IMIS_EN.Enums.Rights.DeleteVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+
 
             Case IMIS_EN.Enums.Rights.userProfiles : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.FindUserProfile : Return CheckUserRights(UserID, Right)
@@ -274,17 +285,7 @@ Public Class UsersBL
             ''THE REST ARE NOT INCLUDED IN THE DOCUMENT  
             'Case IMIS_EN.Enums.Rights.FamiliesInsureesOverview : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)  
 
-            Case IMIS_EN.Enums.Rights.AddDistrict : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.EditDistrict : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteDistrict : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
 
-            Case IMIS_EN.Enums.Rights.AddWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.EditWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-
-            Case IMIS_EN.Enums.Rights.AddVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.EditVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
 
                 'Tools
            'Case IMIS_EN.Enums.Rights.UploadICD : Return (Roles.IMISAdministrator And RoleId)
@@ -631,7 +632,6 @@ Public Class UsersBL
                 PageRights.Add(Rights.ReviewClaim)
 
             Case IMIS_EN.Enums.Pages.ProcessBatches
-                PageRights.Add(Rights.ValuateClaim)
                 PageRights.Add(Rights.BatchProcess)
                 PageRights.Add(Rights.BatchFilter)
                 PageRights.Add(Rights.BatchPreview)
@@ -770,7 +770,7 @@ Public Class UsersBL
 
 
             Case IMIS_EN.Enums.Pages.Locations
-                PageRights.Add(Rights.FindLocations)
+                PageRights.Add(Rights.Locations)
 
 
             Case IMIS_EN.Enums.Pages.UploadICD                     'Tools
