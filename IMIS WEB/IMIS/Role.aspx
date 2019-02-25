@@ -355,89 +355,59 @@
                           <asp:TreeView ID="tvRoleRights4" runat="server" ImageSet="Arrows" ShowCheckBoxes="All" ShowLines="True" ExpandDepth="1" PopulateNodesFromClient="False" >
                 <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
 
-                <Nodes>                    
-                            <%--130000--%>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_TOOLS %>" Value="130000" SelectAction="None" ImageUrl="~/Images/Renew.png"></asp:TreeNode> 
-                            
-                            <%--140000--%>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_REGISTERS %>" Value="140000" SelectAction="Expand" ImageUrl="~/Images/Renew.png">    
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_DIAGNOSES %>" Value="141000" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_UPLOAD %>" Value="141001" SelectAction="None"> </asp:TreeNode>
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_DOWNLOAD %>" Value="141002" SelectAction="None"> </asp:TreeNode>
-                                </asp:TreeNode>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_HEALTHFACILITIES %>" Value="141100" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_UPLOAD %>" Value="141101" SelectAction="None"></asp:TreeNode>
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_DOWNLOAD %>" Value="141102" SelectAction="None"></asp:TreeNode>
-                                </asp:TreeNode>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_LOCATIONS %>" Value="141200" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_UPLOAD %>" Value="141201" SelectAction="None"></asp:TreeNode> 
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_DOWNLOAD %>" Value="141202" SelectAction="None"></asp:TreeNode>
-                                </asp:TreeNode>
-                                </asp:TreeNode> 
-                            
-                            <%--150000--%>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_EXTRACTS %>" Value="150000" SelectAction="Expand" ImageUrl="~/Images/Renew.png">                                        
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_MASTERDATA %>" Value="151000" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_DOWNLOAD %>" Value="151001" SelectAction="None"></asp:TreeNode> 
-                                </asp:TreeNode> 
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_PHONEEXTRACTS %>" Value="151100" SelectAction="Expand" ImageUrl="~/Images/Renew.png">  
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_CREATE %>" Value="151101" SelectAction="None"></asp:TreeNode>
-                                </asp:TreeNode> 
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_OFFLINEEXTRACTS %>" Value="151200" SelectAction="Expand" ImageUrl="~/Images/Renew.png">  
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_CREATE %>" Value="151201" SelectAction="None"></asp:TreeNode>
-                                </asp:TreeNode> 
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMS %>" Value="151300" SelectAction="Expand" ImageUrl="~/Images/Renew.png">  
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_UPLOAD %>" Value="151301" SelectAction="None"></asp:TreeNode> 
-                                </asp:TreeNode> 
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_ENROLMENTS %>" Value="151400" SelectAction="Expand" ImageUrl="~/Images/Renew.png">  
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_UPLOAD %>" Value="151401" SelectAction="None"></asp:TreeNode> 
-                                </asp:TreeNode> 
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_FEEDBACK %>" Value="151500" SelectAction="Expand" ImageUrl="~/Images/Renew.png">  
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_UPLOAD %>" Value="151501" SelectAction="None"></asp:TreeNode> 
-                                </asp:TreeNode> 
-                                </asp:TreeNode>  
-
-                                         <%--160000--%>
-                                <asp:TreeNode ShowCheckBox="True" Text="<%$ Resources:Resource,R_REPORTS %>" Value="160000" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_PRIMARYOPERATIONALIP %>" Value="160001" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_PRIMARYOPERATIONALIC %>" Value="160002" SelectAction="None" ></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_DERIVEDOPERATIONALI %>" Value="160003" SelectAction="None" ></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CONTRIBUTIONCOLLECTION %>" Value="160004" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_PRODUCTSALES %>" Value="160005" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CONTRIBUTIONDISTRIBUTION %>" Value="160006" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_USERACTIVITYREPORT %>" Value="160007" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_ENROLMENTPERFORMANCEI %>" Value="160008" SelectAction="None"></asp:TreeNode>                                                       
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_STATUSOFREGISTERS %>" Value="160009" SelectAction="None"></asp:TreeNode>                         
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_INSUREESWITHOUTPHOTOS %>" Value="160010" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_PAYMENTCATEGORYOVERVIEW %>" Value="160011" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_MATCHINGFUNDS %>" Value="160012" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMOVERVIEW %>" Value="160013" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_PERCENTAGEOFREFERRALS %>" Value="160014" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_FAMILIESANDINSUREESOVERVIEW %>" Value="160015" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_PENDINGINSUREES %>" Value="160016" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_RENEWALS %>" Value="160017" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CAPITATIONPAYMENT %>" Value="160018" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_REJECTEDPHOTOS %>" Value="160019" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CONTRIBUTIONPAYMENT %>" Value="160020" SelectAction="None"></asp:TreeNode>                                   
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CONTROLNUMBERASSIGNMENT %>" Value="160021" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_OVERVIEWOFCOMMISSIONS %>" Value="160022" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMHISTORYREPORT %>" Value="160023" SelectAction="None"></asp:TreeNode>
-                                    
-                                </asp:TreeNode>
-
-                                    <%--170000--%>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_UTILITIES %>" Value="170000" SelectAction="Expand" ImageUrl="~/Images/Renew.png">
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_BACKUP %>" Value="170001" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_RESTORE %>" Value="170002" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_EXCUTESCRIPT %>" Value="170003" SelectAction="None"></asp:TreeNode> 
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_EMAILSETTING %>" Value="170004" SelectAction="None"> 
-                                </asp:TreeNode> 
-                                </asp:TreeNode>
-
-                                    <%--180000--%>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_FUNDING %>" Value="180000" SelectAction="Expand" ImageUrl="~/Images/Renew.png">                       
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_SAVE %>" Value="181001" SelectAction="None"> </asp:TreeNode> 
-                                </asp:TreeNode> 
+                <Nodes>   
+                    <asp:TreeNode Text="<%$ Resources:Resource,R_TOOLS %>" Value="130000" SelectAction="None" ImageUrl="~/Images/Renew.png">
+                        <asp:TreeNode Text="<%$ Resources:Resource,R_REGISTERS %>" Value="131000" SelectAction="Expand" ImageUrl="~/Images/Renew.png">  
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_DIAGNOSESUPLOAD %>" Value="131001" SelectAction="None"> </asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_DIAGNOSESDOWNLOAD %>" Value="131002" SelectAction="None"> </asp:TreeNode>                               
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_HEALTHFACILITIESUPLOAD %>" Value="131003" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_HEALTHFACILITIESDOWNLOAD %>" Value="131004" SelectAction="None"></asp:TreeNode>                      
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_LOCATIONSUPLOAD %>" Value="131005" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_LOCATIONSDOWNLOAD %>" Value="131006" SelectAction="None"></asp:TreeNode>                          
+                        </asp:TreeNode>
+                        <asp:TreeNode Text="<%$ Resources:Resource,R_EXTRACTS %>" Value="131100" SelectAction="Expand" ImageUrl="~/Images/Renew.png">                                     
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_MASTERDATADOWNLOAD %>" Value="131101" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_PHONEEXTRACTSCREATE %>" Value="131102" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_OFFLINEEXTRACTSCREATE %>" Value="131103" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMSUPLOAD %>" Value="131104" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_ENROLMENTSUPLOAD %>" Value="131105" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_FEEDBACKUPLOAD %>" Value="131106" SelectAction="None"></asp:TreeNode> 
+                        </asp:TreeNode>                   
+                        <asp:TreeNode ShowCheckBox="True" Text="<%$ Resources:Resource,R_REPORTS %>" Value="131200" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_PRIMARYOPERATIONALIP %>" Value="131201" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_PRIMARYOPERATIONALIC %>" Value="131202" SelectAction="None" ></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_DERIVEDOPERATIONALI %>" Value="131203" SelectAction="None" ></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CONTRIBUTIONCOLLECTION %>" Value="131204" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_PRODUCTSALES %>" Value="131205" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CONTRIBUTIONDISTRIBUTION %>" Value="131206" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_USERACTIVITYREPORT %>" Value="131207" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_ENROLMENTPERFORMANCEI %>" Value="131208" SelectAction="None"></asp:TreeNode>                                                       
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_STATUSOFREGISTERS %>" Value="131209" SelectAction="None"></asp:TreeNode>                         
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_INSUREESWITHOUTPHOTOS %>" Value="131210" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_PAYMENTCATEGORYOVERVIEW %>" Value="131211" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_MATCHINGFUNDS %>" Value="131212" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMOVERVIEW %>" Value="131213" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_PERCENTAGEOFREFERRALS %>" Value="131214" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_FAMILIESANDINSUREESOVERVIEW %>" Value="131215" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_PENDINGINSUREES %>" Value="131216" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_RENEWALS %>" Value="131217" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CAPITATIONPAYMENT %>" Value="131218" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_REJECTEDPHOTOS %>" Value="131219" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CONTRIBUTIONPAYMENT %>" Value="131220" SelectAction="None"></asp:TreeNode>                                   
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CONTROLNUMBERASSIGNMENT %>" Value="131221" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_OVERVIEWOFCOMMISSIONS %>" Value="131222" SelectAction="None"></asp:TreeNode>
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMHISTORYREPORT %>" Value="131223" SelectAction="None"></asp:TreeNode>
+                        </asp:TreeNode>
+                        <asp:TreeNode Text="<%$ Resources:Resource,R_UTILITIES %>" Value="131300" SelectAction="Expand" ImageUrl="~/Images/Renew.png">
+                                <asp:TreeNode Text="<%$ Resources:Resource,R_BACKUP %>" Value="131301" SelectAction="None"></asp:TreeNode> 
+                                <asp:TreeNode Text="<%$ Resources:Resource,R_RESTORE %>" Value="131302" SelectAction="None"></asp:TreeNode>
+                                <asp:TreeNode Text="<%$ Resources:Resource,R_EXCUTESCRIPT %>" Value="131303" SelectAction="None"></asp:TreeNode> 
+                                <asp:TreeNode Text="<%$ Resources:Resource,R_EMAILSETTING %>" Value="131304" SelectAction="None"> </asp:TreeNode> 
+                        </asp:TreeNode> 
+                        <asp:TreeNode Text="<%$ Resources:Resource,R_FUNDING %>" Value="131400" SelectAction="Expand" ImageUrl="~/Images/Renew.png">                       
+                                <asp:TreeNode Text="<%$ Resources:Resource,R_SAVE %>" Value="131401" SelectAction="None"> </asp:TreeNode> 
+                        </asp:TreeNode>
+                    </asp:TreeNode>
                 </Nodes>
 
                 <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IMIS", "IMIS\IMIS.vbproj", "{E0D2FF4A-A742-4A05-BF65-BA4BD4C2EB14}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IMIS_BI", "IMIS_BI\IMIS_BI.vbproj", "{9B6B33F6-7629-4EB7-9548-2D3F48963643}"
@@ -40,5 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E440104C-9D0E-4D17-B57B-6DC49A8D0F14}
 	EndGlobalSection
 EndGlobal

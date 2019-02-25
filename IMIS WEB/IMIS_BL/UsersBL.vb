@@ -211,6 +211,7 @@ Public Class UsersBL
            '--
 
            'REGISTERS
+            Case IMIS_EN.Enums.Rights.Registers : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.DiagnosesUpload : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.DiagnosesDownload : Return CheckUserRights(UserID, Right)
 
@@ -221,7 +222,7 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.LocationDonwload : Return CheckUserRights(UserID, Right)
 
             'EXTRACT
-            Case IMIS_EN.Enums.Rights.Extracts : Return CheckUserRights(UserID, Right, 0)'(Roles.HFAdministrator + Roles.CHFAdministrator + Roles.OfflineCHFAdministrator And RoleId)    NOT IN THE NEW DOCUMENT
+            Case IMIS_EN.Enums.Rights.Extracts : Return CheckUserRights(UserID, Right, 1)'(Roles.HFAdministrator + Roles.CHFAdministrator + Roles.OfflineCHFAdministrator And RoleId)    NOT IN THE NEW DOCUMENT
             Case IMIS_EN.Enums.Rights.MasterDataDownload : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.PhoneExtractsCreate : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.OfflineExtractCreate : Return CheckUserRights(UserID, Right)'(Roles.HFAdministrator + Roles.OfflineCHFAdministrator And UserID)

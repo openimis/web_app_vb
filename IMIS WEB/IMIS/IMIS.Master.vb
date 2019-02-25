@@ -228,35 +228,43 @@ Public Class IMIS
         SubBatchRun.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Batch, UserID)
 
         '' Administration
+        SubProducts.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Product, UserID)
+        SubHF.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.HealthFacility, UserID)
+        SubPriceList.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PriceListMedicalItems, UserID)
+        SubPLMS.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PriceListMedicalServices, UserID)
+        SubPLMI.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PriceListMedicalItems, UserID)
+        SubMS.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalService, UserID)
+        SUBMI.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalItem, UserID)
         SubUser.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Users, UserID)
         SubUserProfile.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.userProfiles, UserID)
-        subPayer.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Payer, UserID)
-        subPolicyRenewal.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.RenewPolicy, UserID)
-        SubPriceList.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PriceListMedicalItems, UserID)    'Not correct
-        SubPLMI.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PriceListMedicalItems, UserID)
-        SubPLMS.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PriceListMedicalServices, UserID)
-        SUBMI.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalItem, UserID)
-        SubMS.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalService, UserID)
-        SubHF.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.HealthFacility, UserID)
         subOfficer.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Officer, UserID)
         SubClaimAdministrator.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimAdministrator, UserID)
-        SubProducts.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Product, UserID)
+        subPayer.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Payer, UserID)
         subLocation.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Locations, UserID)
 
-        subEmailSetting.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.EmailSettings, UserID)
 
         '' Tools
-        UploadICD.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.UploadICD, UserID)
+        UploadICD.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Registers, UserID)
         subPolicyRenewal.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.RenewPolicy, UserID)
-        subFeedbackPrompt.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.FeedbackPrompt, UserID)
+        'subFeedbackPrompt.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.SelectClaimForFeedback, UserID)
         If UserID = 8 And (IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) Then
             subIMISExtracts.Enabled = True
         Else
             subIMISExtracts.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Extracts, UserID)
         End If
-        subUtilities.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Utilities, UserID)
         subReports.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Reports, UserID)
+        subUtilities.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Utilities, UserID)
         subFunding.Enabled = MasterBI.checkRights(Enums.Rights.AddFund, UserID)
+        subEmailSetting.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.EmailSettings, UserID)
+
+
+
+
+
+
+
+
+
     End Sub
     Private Sub BindData()
         FillRepeater()

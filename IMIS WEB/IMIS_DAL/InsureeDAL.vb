@@ -33,12 +33,12 @@ Public Class InsureeDAL
         Dim sSQL As String = ""
         sSQL += "SELECT FamilyID, InsureeId, CHFID, LastName, OtherNames, DOB,"
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
-        sSQL += ", Marital,cardIssued, isOffline, validityFrom, ValidityTo from tblInsuree TB"
+        sSQL += ", Marital,cardIssued, isOffline, validityFrom, ValidityTo,RowID from tblInsuree TB"
         sSQL += " LEFT JOIN tblGender GE On GE.Code = TB.Gender"
 
 
         sSQL += " WHERE TB.familyid = @FamilyId"
-        sSQL += " AND TB.LegacyID is null and TB.ValidityTo is null ORDER BY CHFID"
+        sSQL += " AND TB.LegacyID is null and TB.ValidityTo is null AND RowID > 0  ORDER BY CHFID DESC "
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@FamilyId", SqlDbType.Int, FamilyId)
         Return data.Filldata

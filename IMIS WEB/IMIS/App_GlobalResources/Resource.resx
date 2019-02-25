@@ -4743,4 +4743,40 @@
   <data name="M_PAYDATETOEXCEEDCURRENDATE" xml:space="preserve">
     <value>Payment date should not exceed current date</value>
   </data>
+  <data name="R_CLAIMSUPLOAD" xml:space="preserve">
+    <value>Claims Upload</value>
+  </data>
+  <data name="R_DIAGNOSESDOWNLOAD" xml:space="preserve">
+    <value>Diagnoses Download</value>
+  </data>
+  <data name="R_DIAGNOSESUPLOAD" xml:space="preserve">
+    <value>Diagnoses Upload</value>
+  </data>
+  <data name="R_ENROLMENTSUPLOAD" xml:space="preserve">
+    <value>Enrolment Upload</value>
+  </data>
+  <data name="R_FEEDBACKUPLOAD" xml:space="preserve">
+    <value>Feedback Upload</value>
+  </data>
+  <data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
+    <value>Health Facilities Download</value>
+  </data>
+  <data name="R_HEALTHFACILITIESUPLOAD" xml:space="preserve">
+    <value>Health Facilities Upload</value>
+  </data>
+  <data name="R_LOCATIONSDOWNLOAD" xml:space="preserve">
+    <value>Location download</value>
+  </data>
+  <data name="R_LOCATIONSUPLOAD" xml:space="preserve">
+    <value>Location Upload</value>
+  </data>
+  <data name="R_MASTERDATADOWNLOAD" xml:space="preserve">
+    <value>Master Download</value>
+  </data>
+  <data name="R_OFFLINEEXTRACTSCREATE" xml:space="preserve">
+    <value>Create offline extract</value>
+  </data>
+  <data name="R_PHONEEXTRACTSCREATE" xml:space="preserve">
+    <value>Create Phone extract</value>
+  </data>
 </root>

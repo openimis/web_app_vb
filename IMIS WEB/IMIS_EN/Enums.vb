@@ -191,73 +191,75 @@ Public Class Enums
         '--
         '--
 
-        '****************************************Registers 14 00 00
-        DiagnosesUpload = 141001                'NEW
-        DiagnosesDownload = 141002              'NEW
+        '****************************************Registers 13 00 00
+        Tools = 130000
+        Registers = 131000
+        DiagnosesUpload = 131001                'NEW
+        DiagnosesDownload = 131002              'NEW
 
-        HealthFacilitiesUpload = 1411001        'NEW
-        HealthFacilitiesDownload = 141102       'NEW
+        HealthFacilitiesUpload = 131003        'NEW
+        HealthFacilitiesDownload = 131004       'NEW
 
-        LocationUpload = 141201                 'NEW
-        LocationDonwload = 141202               'NEW
+        LocationUpload = 131005                'NEW
+        LocationDonwload = 131006               'NEW
 
         '****************************************Extracts 15 00 00
-        Extracts = 150000
+        Extracts = 131100
         'Master Data
-        MasterDataDownload = 151001             'NEW
+        MasterDataDownload = 131101             'NEW
 
         'Phone Extract
-        PhoneExtractsCreate = 151101            'NEW
+        PhoneExtractsCreate = 131102            'NEW
 
         'Offline Extract
-        OfflineExtractCreate = 151201           'NEW
+        OfflineExtractCreate = 131103           'NEW
 
         'Claims
-        ClaimXMLUpload = 151301
+        ClaimXMLUpload = 131104
 
         'Enrolment
-        EnrolmentsUpload = 151401               'NEW
+        EnrolmentsUpload = 131105               'NEW
 
         'Feedback
-        FeedbackUpload = 151501                 'NEW
+        FeedbackUpload = 131106                 'NEW
 
-        '****************************************Reports 16 00 00
+        '****************************************Reports 1312 00
         'Reports
-        Reports = 160000                              ' Add to include all reports                
-        PrimaryOperationalIndicatorPolicies = 160001  'NEW 
-        PrimaryOperationalIndicatorsClaims = 160002   'NEW
-        DerivedOperationalIndicators = 160003         'NEW
-        ContributionCollection = 160004               'NEW
-        ProductSales = 160005                         'NEW
-        ContributionDistribution = 160006             'NEW
-        UserActivity = 160007                         'NEW
-        EnrolmentPerformanceIndicators = 160008       'NEW
-        StatusOfRegister = 160009                     'NEW
-        InsureeWithoutPhotos = 160010
-        PaymentCategoryOverview = 160011              'NEW
-        MatchingFunds = 160012
-        ClaimOverviewReport = 160013
-        PercentageReferrals = 160014
-        FamiliesInsureesOverview = 160015
-        PendingInsurees = 160016
-        Renewals = 160017
-        CapitationPayment = 160018
-        RejectedPhoto = 160019
-        ContributionPayment = 160020                  'NEW
-        ControlNumberAssignment = 160021              'NEW 
-        OverviewOfCommissions = 160022
-        ClaimHistoryReport = 160023
+        Reports = 131200                              ' Add to include all reports                
+        PrimaryOperationalIndicatorPolicies = 131201  'NEW 
+        PrimaryOperationalIndicatorsClaims = 131202   'NEW
+        DerivedOperationalIndicators = 131203         'NEW
+        ContributionCollection = 131204               'NEW
+        ProductSales = 131205                         'NEW
+        ContributionDistribution = 131206             'NEW
+        UserActivity = 131207                         'NEW
+        EnrolmentPerformanceIndicators = 131208       'NEW
+        StatusOfRegister = 131209                     'NEW
+        InsureeWithoutPhotos = 131210
+        PaymentCategoryOverview = 131211              'NEW
+        MatchingFunds = 131212
+        ClaimOverviewReport = 131213
+        PercentageReferrals = 131214
+        FamiliesInsureesOverview = 131215
+        PendingInsurees = 131216
+        Renewals = 131217
+        CapitationPayment = 131218
+        RejectedPhoto = 131219
+        ContributionPayment = 131220                  'NEW
+        ControlNumberAssignment = 131221              'NEW 
+        OverviewOfCommissions = 131222
+        ClaimHistoryReport = 131223
         '-ViewReport = 160007
 
-        '****************************************Utilities/Email Setting 17 00 00 
-        Utilities = 170000
-        DatabaseBackup = 170001
-        DatabaseRestore = 170002
-        ExecuteScripts = 170003
-        EmailSettings = 170004
+        '****************************************Utilities/Email Setting 131300 
+        Utilities = 131300
+        DatabaseBackup = 131301
+        DatabaseRestore = 131302
+        ExecuteScripts = 131303
+        EmailSettings = 131304
 
-        '****************************************Funding 18 00 00  
-        AddFund = 181001
+        '****************************************Funding 13 14 00  
+        AddFund = 131401
 
         '**********************************************************************************END***************************************************
 

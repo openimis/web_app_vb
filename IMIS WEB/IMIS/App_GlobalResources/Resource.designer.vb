@@ -11090,6 +11090,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Claims Upload.
+        '''</summary>
+        Friend Shared ReadOnly Property R_CLAIMSUPLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_CLAIMSUPLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Adjusted Amount.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMTOTALFINAL() As String
@@ -11189,6 +11198,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Diagnoses Download.
+        '''</summary>
+        Friend Shared ReadOnly Property R_DIAGNOSESDOWNLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_DIAGNOSESDOWNLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Diagnoses Upload.
+        '''</summary>
+        Friend Shared ReadOnly Property R_DIAGNOSESUPLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_DIAGNOSESUPLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Download.
         '''</summary>
         Friend Shared ReadOnly Property R_DOWNLOAD() As String
@@ -11270,6 +11297,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Enrolment Upload.
+        '''</summary>
+        Friend Shared ReadOnly Property R_ENROLMENTSUPLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_ENROLMENTSUPLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Excute Script.
         '''</summary>
         Friend Shared ReadOnly Property R_EXCUTESCRIPT() As String
@@ -11324,6 +11360,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Feedback Upload.
+        '''</summary>
+        Friend Shared ReadOnly Property R_FEEDBACKUPLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_FEEDBACKUPLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Filter.
         '''</summary>
         Friend Shared ReadOnly Property R_FILTER() As String
@@ -11347,6 +11392,24 @@ Namespace Resources
         Friend Shared ReadOnly Property R_HEALTHFACILITIES() As String
             Get
                 Return ResourceManager.GetString("R_HEALTHFACILITIES", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Health Facilities Download.
+        '''</summary>
+        Friend Shared ReadOnly Property R_HEALTHFACILITIESDOWNLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_HEALTHFACILITIESDOWNLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Health Facilities Upload.
+        '''</summary>
+        Friend Shared ReadOnly Property R_HEALTHFACILITIESUPLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_HEALTHFACILITIESUPLOAD", resourceCulture)
             End Get
         End Property
         
@@ -11450,6 +11513,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Location download.
+        '''</summary>
+        Friend Shared ReadOnly Property R_LOCATIONSDOWNLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_LOCATIONSDOWNLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Location Upload.
+        '''</summary>
+        Friend Shared ReadOnly Property R_LOCATIONSUPLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_LOCATIONSUPLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Login.
         '''</summary>
         Friend Shared ReadOnly Property R_LOGIN() As String
@@ -11464,6 +11545,15 @@ Namespace Resources
         Friend Shared ReadOnly Property R_MASTERDATA() As String
             Get
                 Return ResourceManager.GetString("R_MASTERDATA", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Master Download.
+        '''</summary>
+        Friend Shared ReadOnly Property R_MASTERDATADOWNLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_MASTERDATADOWNLOAD", resourceCulture)
             End Get
         End Property
         
@@ -11527,6 +11617,15 @@ Namespace Resources
         Friend Shared ReadOnly Property R_OFFLINEEXTRACTS() As String
             Get
                 Return ResourceManager.GetString("R_OFFLINEEXTRACTS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Create offline extract.
+        '''</summary>
+        Friend Shared ReadOnly Property R_OFFLINEEXTRACTSCREATE() As String
+            Get
+                Return ResourceManager.GetString("R_OFFLINEEXTRACTSCREATE", resourceCulture)
             End Get
         End Property
         
@@ -11608,6 +11707,15 @@ Namespace Resources
         Friend Shared ReadOnly Property R_PHONEEXTRACTS() As String
             Get
                 Return ResourceManager.GetString("R_PHONEEXTRACTS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Create Phone extract.
+        '''</summary>
+        Friend Shared ReadOnly Property R_PHONEEXTRACTSCREATE() As String
+            Get
+                Return ResourceManager.GetString("R_PHONEEXTRACTSCREATE", resourceCulture)
             End Get
         End Property
         
