@@ -638,7 +638,8 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
              <asp:HiddenField ID="hfdeleteClaim" runat="server" />
              <asp:HiddenField ID="hfSubmitClaims" runat="server" />
         </asp:Panel>
-        </div>          
+        </div>
+          
 
 
 

@@ -364,7 +364,7 @@ Public Partial Class ClaimOverview
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                eICDCodes.ICDID = CInt(Int(hfICDID.Value))
+                eICDCodes.ICDID = IIf(hfICDID.Value = "", 0, CInt(Int(hfICDID.Value)))
                 If Not ddlBatchRun.SelectedValue = "" Then
                     eBatchRun.RunID = ddlBatchRun.SelectedValue
                 End If

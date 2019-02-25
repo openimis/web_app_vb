@@ -33,7 +33,8 @@ Public Class UsersDAL
 
         sSQL = "select RightID from tblUserRole UR"
         sSQL += " INNER JOIN tblRoleRight RR ON RR.RoleID = UR.RoleID"
-        sSQL += " WHERE UserID = @UserID AND UR.ValidityTO IS NULL AND RR.ValidityTo IS NULL"
+        sSQL += " INNER JOIN tblRole ROLES ON ROLES.RoleID = UR.RoleID"
+        sSQL += " WHERE UserID = @UserID AND UR.ValidityTO IS NULL AND ISNULL(ROLES.IsBlocked,0) = 0 AND RR.ValidityTo IS NULL"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, UserId)

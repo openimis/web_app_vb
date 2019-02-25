@@ -112,7 +112,7 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.DeletePayment : Return CheckUserRights(UserID, Right)
 
             'CLAIMS
-            'Case IMIS_EN.Enums.Rights.Claim : Return CheckUserRights(UserID, Right, 1)
+            Case IMIS_EN.Enums.Rights.Claims : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.FindClaim : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator + Roles.ClaimContributor + Roles.CHFMedicalOfficer And UserID) 
             Case IMIS_EN.Enums.Rights.EnterClaim : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator + Roles.CHFClerk + Roles.ClaimContributor And UserID)
             Case IMIS_EN.Enums.Rights.EditClaim : Return CheckUserRights(UserID, Right)'NO MAPPING TO ANY USER
@@ -774,7 +774,7 @@ Public Class UsersBL
 
 
             Case IMIS_EN.Enums.Pages.UploadICD                     'Tools
-                PageRights.Add(Rights.UploadICD)
+                PageRights.Add(Rights.Registers)
 
             Case IMIS_EN.Enums.Pages.PolicyRenewal
                 PageRights.Add(Rights.RenewPolicy)

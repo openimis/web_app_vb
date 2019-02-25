@@ -1,0 +1,555 @@
+<HealthFacilities>
+  <HealthFacilityDetails>
+    <HealthFacility>
+      <LegalForm>G</LegalForm>
+      <Level>H</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HF01</Code>
+      <Name>Regional hospital</Name>
+      <Address>str. Colombo</Address>
+      <DistrictCode>D0018</DistrictCode>
+      <DistrictName>TestDistrict1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+      <ItemPriceListName>Hospital items pricelist</ItemPriceListName>
+      <ServicePriceListName>Hospital service pricelist</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>C</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HF02</Code>
+      <Name>District1 health Center</Name>
+      <Address>str.Colombo No.1</Address>
+      <DistrictCode>D0018</DistrictCode>
+      <DistrictName>TestDistrict1</DistrictName>
+      <Phone>+42011111111111</Phone>
+      <Fax>+42011111111111</Fax>
+      <Email>hf@gmail.com</Email>
+      <CareType>O</CareType>
+      <AccountCode />
+      <ItemPriceListName>Health centre items pricelist</ItemPriceListName>
+      <ServicePriceListName>Health centre service pricelist</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>C</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HF03</Code>
+      <Name>Health centre District2</Name>
+      <Address>str.Colombo</Address>
+      <DistrictCode>D0019</DistrictCode>
+      <DistrictName>TestDistrict2</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode />
+      <ItemPriceListName>Test pricelist items</ItemPriceListName>
+      <ServicePriceListName>Test pricelist</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>H</Level>
+      <SubLevel>N</SubLevel>
+      <Code>HFX01</Code>
+      <Name>Regional hospital X</Name>
+      <Address>str. X</Address>
+      <DistrictCode>RX1</DistrictCode>
+      <DistrictName>TestDistrictX1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+      <ItemPriceListName>Regional X pricelist items</ItemPriceListName>
+      <ServicePriceListName>Regional X pricelist services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>C</Level>
+      <SubLevel>N</SubLevel>
+      <Code>HFX02</Code>
+      <Name>Regional Health Centre</Name>
+      <Address>str.</Address>
+      <DistrictCode>RX1</DistrictCode>
+      <DistrictName>TestDistrictX1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode />
+      <ItemPriceListName>Regional X pricelist items</ItemPriceListName>
+      <ServicePriceListName>National price list</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>G</LegalForm>
+      <Level>C</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HFX03</Code>
+      <Name>Health Centre 2</Name>
+      <Address>str.Colombo</Address>
+      <DistrictCode>RX2</DistrictCode>
+      <DistrictName>TestDistrictX2</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode />
+      <ItemPriceListName>Regional X pricelist items</ItemPriceListName>
+      <ServicePriceListName>Regional X pricelist services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>P</LegalForm>
+      <Level>H</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HFX04</Code>
+      <Name>District hospital 2</Name>
+      <Address>str. Liberty</Address>
+      <DistrictCode>RX2</DistrictCode>
+      <DistrictName>TestDistrictX2</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+      <ItemPriceListName>Regional X pricelist items</ItemPriceListName>
+      <ServicePriceListName>Regional X pricelist services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>H</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HFY1</Code>
+      <Name>District hospital Y 1</Name>
+      <Address>str.Liberty</Address>
+      <DistrictCode>D171</DistrictCode>
+      <DistrictName>TestDistrictY1</DistrictName>
+      <Phone>12345666</Phone>
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+      <ItemPriceListName>PricelistY-items</ItemPriceListName>
+      <ServicePriceListName>PricelistY_services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>G</LegalForm>
+      <Level>C</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HFY2</Code>
+      <Name>District health centre Y 1</Name>
+      <Address>str.Liberty</Address>
+      <DistrictCode>D171</DistrictCode>
+      <DistrictName>TestDistrictY1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode />
+      <ItemPriceListName>Primary care Y items</ItemPriceListName>
+      <ServicePriceListName>Primary care Y services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>G</LegalForm>
+      <Level>C</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HFY3</Code>
+      <Name>District health centre Y 2</Name>
+      <Address>str.</Address>
+      <DistrictCode>D171</DistrictCode>
+      <DistrictName>TestDistrictY1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode />
+      <ItemPriceListName>Primary care Y items</ItemPriceListName>
+      <ServicePriceListName>Primary care Y services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>P</LegalForm>
+      <Level>D</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HFY4D</Code>
+      <Name>Dispensary Y 1</Name>
+      <Address>str.</Address>
+      <DistrictCode>D172</DistrictCode>
+      <DistrictName>TestDistrictY2</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode>AHFY4D</AccountCode>
+      <ItemPriceListName>Primary care Y items</ItemPriceListName>
+      <ServicePriceListName>Primary care Y services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>D</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HFY5D</Code>
+      <Name>Dispensary  Y 5</Name>
+      <Address>str.</Address>
+      <DistrictCode>D172</DistrictCode>
+      <DistrictName>TestDistrictY2</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode>AHFY5D</AccountCode>
+      <ItemPriceListName>Primary care Y items</ItemPriceListName>
+      <ServicePriceListName>Primary care Y services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>H</Level>
+      <SubLevel>R</SubLevel>
+      <Code>HZ001</Code>
+      <Name>District hospital Y 2</Name>
+      <Address>str.Liberty</Address>
+      <DistrictCode>D172</DistrictCode>
+      <DistrictName>TestDistrictY2</DistrictName>
+      <Phone>25252262626</Phone>
+      <Fax>373338383383</Fax>
+      <Email>g@gmail.com</Email>
+      <CareType>B</CareType>
+      <AccountCode>ACHZ001</AccountCode>
+      <ItemPriceListName>PricelistY-items</ItemPriceListName>
+      <ServicePriceListName>PricelistY_services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>C</Level>
+      <SubLevel>R</SubLevel>
+      <Code>HS01</Code>
+      <Name>Sinia health centre</Name>
+      <Address>dssfs</Address>
+      <DistrictCode>R00181</DistrictCode>
+      <DistrictName>Sdistrict</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode />
+      <ServicePriceListName>National price list</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>C</LegalForm>
+      <Level>H</Level>
+      <SubLevel>N</SubLevel>
+      <Code>HS001</Code>
+      <Name>Hiren Hospital</Name>
+      <Address>Mbezi beach</Address>
+      <DistrictCode>D171</DistrictCode>
+      <DistrictName>TestDistrictY1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>C</Level>
+      <SubLevel>N</SubLevel>
+      <Code>HF4</Code>
+      <Name>District health centreY 5</Name>
+      <Address>str.Liberty</Address>
+      <DistrictCode>D173</DistrictCode>
+      <DistrictName>TestDistrictY3</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>O</CareType>
+      <AccountCode />
+      <ItemPriceListName>PricelistY-items</ItemPriceListName>
+      <ServicePriceListName>PricelistY_services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>D</LegalForm>
+      <Level>H</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HF5</Code>
+      <Name>District hospital Y 6</Name>
+      <Address>str. Liberty</Address>
+      <DistrictCode>D173</DistrictCode>
+      <DistrictName>TestDistrictY3</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+      <ItemPriceListName>PricelistY-items</ItemPriceListName>
+      <ServicePriceListName>PricelistY_services</ServicePriceListName>
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>P</LegalForm>
+      <Level>D</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HZ01</Code>
+      <Name>Dispensary Z1</Name>
+      <Address>str. Colombo</Address>
+      <DistrictCode>D0018</DistrictCode>
+      <DistrictName>TestDistrict1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>P</LegalForm>
+      <Level>D</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HZ02</Code>
+      <Name>Dispensary Z2</Name>
+      <Address>str. Colombo</Address>
+      <DistrictCode>D0018</DistrictCode>
+      <DistrictName>TestDistrict1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+    </HealthFacility>
+    <HealthFacility>
+      <LegalForm>P</LegalForm>
+      <Level>D</Level>
+      <SubLevel>
+      </SubLevel>
+      <Code>HZ03</Code>
+      <Name>Dispensary Z3</Name>
+      <Address>str. Colombo</Address>
+      <DistrictCode>D0018</DistrictCode>
+      <DistrictName>TestDistrict1</DistrictName>
+      <Phone />
+      <Fax />
+      <Email />
+      <CareType>B</CareType>
+      <AccountCode />
+    </HealthFacility>
+  </HealthFacilityDetails>
+  <CatchmentDetails>
+    <Catchment>
+      <HFCode>HF02</HFCode>
+      <VillageCode>V0057</VillageCode>
+      <VillageName>TestVillageZ2</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HF02</HFCode>
+      <VillageCode>V0058</VillageCode>
+      <VillageName>TestVillage111</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HF03</HFCode>
+      <VillageCode>V0066</VillageCode>
+      <VillageName>TestVillage211</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFX01</HFCode>
+      <VillageCode>RX111</VillageCode>
+      <VillageName>TestVillageX111</VillageName>
+      <Percentage>50</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFX01</HFCode>
+      <VillageCode>RX211</VillageCode>
+      <VillageName>TestVillageX211</VillageName>
+      <Percentage>50</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFX02</HFCode>
+      <VillageCode>RX111</VillageCode>
+      <VillageName>TestVillageX111</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFX03</HFCode>
+      <VillageCode>RX211</VillageCode>
+      <VillageName>TestVillageX211</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFX04</HFCode>
+      <VillageCode>RX211</VillageCode>
+      <VillageName>TestVillageX211</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFX04</HFCode>
+      <VillageCode>RX111</VillageCode>
+      <VillageName>TestVillageX111</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY1</HFCode>
+      <VillageCode>V17111</VillageCode>
+      <VillageName>TestVillageY1</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY1</HFCode>
+      <VillageCode>V17112</VillageCode>
+      <VillageName>TestVillageY2</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY1</HFCode>
+      <VillageCode>V1721</VillageCode>
+      <VillageName>TestVillageY21</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY2</HFCode>
+      <VillageCode>V17111</VillageCode>
+      <VillageName>TestVillageY1</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY3</HFCode>
+      <VillageCode>V1721</VillageCode>
+      <VillageName>TestVillageY21</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY4D</HFCode>
+      <VillageCode>V17211</VillageCode>
+      <VillageName>TestVillageY211</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY5D</HFCode>
+      <VillageCode>V1721</VillageCode>
+      <VillageName>TestVillageY21</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HZ001</HFCode>
+      <VillageCode>V17211</VillageCode>
+      <VillageName>TestVillageY211</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HS001</HFCode>
+      <VillageCode>RX113</VillageCode>
+      <VillageName>TestVillage113</VillageName>
+      <Percentage>60</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HS001</HFCode>
+      <VillageCode>RX112</VillageCode>
+      <VillageName>TestVillageX112</VillageName>
+      <Percentage>50</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HF4</HFCode>
+      <VillageCode>V17311</VillageCode>
+      <VillageName>TestVillageY311</VillageName>
+      <Percentage>50</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HF5</HFCode>
+      <VillageCode>V17311</VillageCode>
+      <VillageName>TestVillageY311</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY4D</HFCode>
+      <VillageCode>V17111</VillageCode>
+      <VillageName>TestVillageY1</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY4D</HFCode>
+      <VillageCode>V17112</VillageCode>
+      <VillageName>TestVillageY2</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY4D</HFCode>
+      <VillageCode>V17113</VillageCode>
+      <VillageName>TestVillageY3</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY4D</HFCode>
+      <VillageCode>V1721</VillageCode>
+      <VillageName>TestVillageY21</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HFY4D</HFCode>
+      <VillageCode>V17311</VillageCode>
+      <VillageName>TestVillageY311</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HZ01</HFCode>
+      <VillageCode>V0057</VillageCode>
+      <VillageName>TestVillageZ2</VillageName>
+      <Percentage>30</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HF01</HFCode>
+      <VillageCode>V0057</VillageCode>
+      <VillageName>TestVillageZ2</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HF01</HFCode>
+      <VillageCode>V0058</VillageCode>
+      <VillageName>TestVillage111</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HF01</HFCode>
+      <VillageCode>V0059</VillageCode>
+      <VillageName>TestVillage113</VillageName>
+      <Percentage>100</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HZ02</HFCode>
+      <VillageCode>V0057</VillageCode>
+      <VillageName>TestVillageZ2</VillageName>
+      <Percentage>30</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HZ02</HFCode>
+      <VillageCode>V0058</VillageCode>
+      <VillageName>TestVillage111</VillageName>
+      <Percentage>10</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HZ02</HFCode>
+      <VillageCode>V0059</VillageCode>
+      <VillageName>TestVillage113</VillageName>
+      <Percentage>60</Percentage>
+    </Catchment>
+    <Catchment>
+      <HFCode>HZ02</HFCode>
+      <VillageCode>V0066</VillageCode>
+      <VillageName>TestVillage211</VillageName>
+      <Percentage>60</Percentage>
+    </Catchment>
+  </CatchmentDetails>
+</HealthFacilities>

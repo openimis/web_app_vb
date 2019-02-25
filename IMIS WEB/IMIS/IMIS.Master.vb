@@ -223,7 +223,7 @@ Public Class IMIS
         SubFindPayment.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.FindPayment, UserID)
 
         ''Claims 
-        SubClaimOverview.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
+        SubClaimOverview.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.claims, UserID)
         SubReview.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.ReviewClaim, UserID)
         SubBatchRun.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Batch, UserID)
 
@@ -258,9 +258,8 @@ Public Class IMIS
         subEmailSetting.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.EmailSettings, UserID)
 
 
-
-
-
+        btnSearch.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.FindInsuree, UserID)
+        txtSearch.Enabled = btnSearch.Enabled
 
 
 

@@ -1384,7 +1384,12 @@ Partial Public Class Reports
             CacheCriteria()
 
             Dim SelectedValueID As Integer = lstboxReportSelector.SelectedValue
-
+            If SelectedValueID = 1 Or SelectedValueID = 5 Or SelectedValueID = 22 Then
+                If Val(ddlProduct.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
+                    Return
+                End If
+            End If
             If SelectedValueID = 3 Then
                 If Val(ddlRegion.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAREGION")
@@ -1404,12 +1409,7 @@ Partial Public Class Reports
                     Return
                 End If
             End If
-            If SelectedValueID = 22 Then
-                If Val(ddlProduct.SelectedValue) = 0 Then
-                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
-                    Return
-                End If
-            End If
+
             If SelectedValueID = 23 Then
                 If txtInsuranceNumber.Text = "" Then
                     lblMsg.Text = imisgen.getMessage("L_PLEASEENTERINSURANCENUMBER")

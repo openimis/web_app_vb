@@ -72,6 +72,7 @@ Public Class Enums
         '***************************************Claims     11 00 00
 
         'Claims
+        Claims = 111001
         FindClaim = 111001
         EnterClaim = 111002
         EditClaim = 111003
