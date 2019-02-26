@@ -289,7 +289,10 @@ Partial Public Class Premium
                 Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
                 Dim StartDate As Date = Date.ParseExact(hfPolicyStartDate.Value, "dd/MM/yyyy", Nothing)
                 Dim EffectiveDate As Date = if(PayDate < StartDate, StartDate, PayDate)
-
+                If ePremium.PayDate > System.DateTime.Now Then
+                    lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
+                    Return
+                End If
 
 
                 If ddlCategory.SelectedValue = "C" Or ddlCategory.SelectedValue = "" Then

@@ -242,7 +242,7 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.FeedbackUpload : Return CheckUserRights(UserID, Right)
 
             'REPORTS 
-            Case IMIS_EN.Enums.Rights.Reports : Return CheckUserRights(UserID, Right, 0)'(Roles.CHFManager + Role.CHFClerk + Roles.CHFAccountant + Roles.IMISAdministrator + Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.Reports : Return CheckUserRights(UserID, Right, 1)'(Roles.CHFManager + Role.CHFClerk + Roles.CHFAccountant + Roles.IMISAdministrator + Roles.CHFAdministrator And UserID)
             Case IMIS_EN.Enums.Rights.PrimaryOperationalIndicatorPolicies : Return CheckUserRights(UserID, Right)'(Roles.CHManager And UserID)
             Case IMIS_EN.Enums.Rights.PrimaryOperationalIndicatorsClaims : Return CheckUserRights(UserID, Right)'(Roles.CHManager And UserID)
             Case IMIS_EN.Enums.Rights.DerivedOperationalIndicators : Return CheckUserRights(UserID, Right)'(Roles.CHManager And UserID)
@@ -264,7 +264,9 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.RejectedPhoto : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)
             Case IMIS_EN.Enums.Rights.ContributionPayment : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)
             Case IMIS_EN.Enums.Rights.ControlNumberAssignment : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant + Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.OverviewOfCommissions : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant  )
             Case IMIS_EN.Enums.Rights.ClaimHistoryReport : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant  )
+
 
 
             'UTILITIES
@@ -792,23 +794,23 @@ Public Class UsersBL
 
             Case IMIS_EN.Enums.Pages.Reports
                 PageRights.Add(Rights.Reports)
-                PageRights.Add(Rights.PrimaryOperationalIndicatorPolicies)
-                PageRights.Add(Rights.PrimaryOperationalIndicatorsClaims)
-                PageRights.Add(Rights.DerivedOperationalIndicators)
-                PageRights.Add(Rights.ContributionCollection)
-                PageRights.Add(Rights.ProductSales)
-                PageRights.Add(Rights.ContributionDistribution)
-                PageRights.Add(Rights.UserActivity)
-                PageRights.Add(Rights.EnrolmentPerformanceIndicators)
-                PageRights.Add(Rights.StatusOfRegister)
-                PageRights.Add(Rights.InsureeWithoutPhotos)
-                PageRights.Add(Rights.PaymentCategoryOverview)
-                PageRights.Add(Rights.MatchingFunds)
-                PageRights.Add(Rights.PercentageReferrals)
-                PageRights.Add(Rights.PendingInsurees)
-                PageRights.Add(Rights.Renewals)
-                PageRights.Add(Rights.CapitationPayment)
-                PageRights.Add(Rights.RejectedPhoto)
+                'PageRights.Add(Rights.PrimaryOperationalIndicatorPolicies)
+                'PageRights.Add(Rights.PrimaryOperationalIndicatorsClaims)
+                'PageRights.Add(Rights.DerivedOperationalIndicators)
+                'PageRights.Add(Rights.ContributionCollection)
+                'PageRights.Add(Rights.ProductSales)
+                'PageRights.Add(Rights.ContributionDistribution)
+                'PageRights.Add(Rights.UserActivity)
+                'PageRights.Add(Rights.EnrolmentPerformanceIndicators)
+                'PageRights.Add(Rights.StatusOfRegister)
+                'PageRights.Add(Rights.InsureeWithoutPhotos)
+                'PageRights.Add(Rights.PaymentCategoryOverview)
+                'PageRights.Add(Rights.MatchingFunds)
+                'PageRights.Add(Rights.PercentageReferrals)
+                'PageRights.Add(Rights.PendingInsurees)
+                'PageRights.Add(Rights.Renewals)
+                'PageRights.Add(Rights.CapitationPayment)
+                'PageRights.Add(Rights.RejectedPhoto)
 
 
             Case IMIS_EN.Enums.Pages.Utilities

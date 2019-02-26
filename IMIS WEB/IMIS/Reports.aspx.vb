@@ -1384,7 +1384,7 @@ Partial Public Class Reports
             CacheCriteria()
 
             Dim SelectedValueID As Integer = lstboxReportSelector.SelectedValue
-            If SelectedValueID = 1 Or SelectedValueID = 5 Or SelectedValueID = 22 Then
+            If SelectedValueID = 1 Or SelectedValueID = 6 Or SelectedValueID = 22 Then
                 If Val(ddlProduct.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
                     Return

@@ -4504,7 +4504,7 @@
     <value>Claim Administrators</value>
   </data>
   <data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
-    <value>ClaimHistoryReport</value>
+    <value>Claim History Report</value>
   </data>
   <data name="R_CLAIMOVERVIEW" xml:space="preserve">
     <value>Claim Overview</value>

@@ -11036,7 +11036,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ClaimHistoryReport.
+        '''  Looks up a localized string similar to Claim History Report.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMHISTORYREPORT() As String
             Get

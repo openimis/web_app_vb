@@ -186,10 +186,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             TargetControlID="txtEnrollmentDate" Mask="99/99/9999" MaskType="Date" 
                             UserDateFormat="DayMonthYear">
                         </asp:MaskedEditExtender>
-                       <%--<asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server" 
+                       <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server" 
                     ControlToValidate="txtEnrollmentDate" SetFocusOnError="True" Text="*"  
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>--%>
+                    ValidationGroup="check"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredfieldValidator1" runat="Server" ControlToValidate="txtEnrollmentDate" SetFocusOnError="true" ForeColor="Red" Display="Dynamic"
                             Text='*' ></asp:RequiredFieldValidator>
                         </td>                        
@@ -207,7 +207,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                               <%--<asp:UpdatePanel ID="upCHFID" runat="server">
                                 <ContentTemplate>--%>
                                      <asp:DropDownList ID="ddlProduct" runat="server" Width="150px" AutoPostBack="True"></asp:DropDownList>
-<%--                                     <asp:RequiredFieldValidator ID="RequiredfieldValidator3" runat="Server" ControlToValidate="ddlProduct" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check" ></asp:RequiredFieldValidator>     --%>
+                                     <asp:RequiredFieldValidator ID="RequiredfieldValidator3" runat="Server" ControlToValidate="ddlProduct" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check"  ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>     
                                <%--</ContentTemplate>
                            </asp:UpdatePanel>--%>
                                                   
@@ -269,7 +269,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
                             ForeColor="Red" Display="Dynamic"
                             Text='*'></asp:RegularExpressionValidator>
-<%--                    <asp:RequiredFieldValidator ID="RequiredfieldValidator2" runat="Server" ControlToValidate="txtStartDate" SetFocusOnError="true" Text="*" ValidationGroup="check" ></asp:RequiredFieldValidator>--%>
+                    <asp:RequiredFieldValidator ID="RequiredfieldValidator2" runat="Server" ControlToValidate="txtStartDate" SetFocusOnError="true" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
                         </td>
                          <td>
                             &nbsp;
@@ -310,7 +310,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         SetFocusOnError="True" 
                         ForeColor="Red" Display="Dynamic"
                         Text='*'></asp:RequiredFieldValidator>
-                        <%--<asp:RequiredFieldValidator ID="RequiredfieldValidator4" runat="Server" ControlToValidate="ddlEnrolementOfficer" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check" ></asp:RequiredFieldValidator>--%>
+                        <asp:RequiredFieldValidator ID="RequiredfieldValidator4" runat="Server" ControlToValidate="ddlEnrolementOfficer" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
                         </td>
                         <td>
                         &nbsp;

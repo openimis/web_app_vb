@@ -738,7 +738,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <%-- --%>
                                 <td>
-                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>--%>
                                 </td>
                             </tr>
                             <tr>
@@ -760,8 +759,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:Button ID="btnDateFrom" runat="server" Height="15px"
                                         Width="20px" />
                                     <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDateFrom" PopupButtonID="btnDateFrom" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                                  <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDateFrom" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDateFrom" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
                                         ControlToValidate="txtDateFrom" ErrorMessage="*" SetFocusOnError="True"
                                         ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
@@ -784,8 +783,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         Width="20px" />
 
                                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtDateTo" PopupButtonID="btnDateTo" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDateTo" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDateTo" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
                                         ControlToValidate="txtDateTo" ErrorMessage="*" SetFocusOnError="True"
                                         ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
@@ -794,9 +793,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                 </td>
 
-                                <%-- <td> <asp:RequiredFieldValidator ID="RequiredFieldDateTo" runat="server" 
-                            ControlToValidate="txtDateTo" ErrorMessage="Please select the To Date" 
-                            ValidationGroup="check"></asp:RequiredFieldValidator> </td>--%>
+                             
                             </tr>
                             <tr>
                                 <td class="FormLabel">
@@ -821,9 +818,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                 </td>
                                 <td>
-                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLumpSum" text="*" SetFocusOnError="True" 
-                    ValidationGroup="check"  ></asp:RequiredFieldValidator>--%>
-                                    <%--<asp:CompareValidator ControlToValidate="txtLumpSum" ID="CompareValidator6"  runat="server" SetFocusOnError ="true"  Type="Currency"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>--%>
                                 </td> 
                             </tr>
                             <tr>
@@ -849,14 +843,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMaxNoOfMembers" SetFocusOnError="True"
                                         ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
-                                    <%--<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtMaxNoOfMembers"    SetFocusOnError ="true"  Type="Integer"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>--%>
                                 </td>
 
-
-
-                                <%-- <td> <asp:RequiredFieldValidator ID="RequiredFieldValidatorNoOfMembers" 
-                                runat="server" ControlToValidate="txtNoOfMembers" 
-                                ErrorMessage="Please enter the Number Of Members" ValidationGroup="check"></asp:RequiredFieldValidator>  </td>--%>
                             </tr>
                             <tr>
                                 <td class="FormLabel">

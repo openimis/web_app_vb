@@ -338,6 +338,15 @@ Partial Public Class Policy
     Protected WithEvents txtEnrolDate_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
     
     '''<summary>
+    '''RegularExpressionValidatortxtDob control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidatortxtDob As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
     '''RequiredfieldValidator1 control.
     '''</summary>
     '''<remarks>
@@ -372,6 +381,15 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlProduct As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''RequiredfieldValidator3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredfieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''RequiredFieldValidatorPackage control.
@@ -482,6 +500,15 @@ Partial Public Class Policy
     Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
+    '''RequiredfieldValidator2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredfieldValidator2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
     '''lblExpiryDate control.
     '''</summary>
     '''<remarks>
@@ -552,6 +579,15 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidatorRegistrationAuthority As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''RequiredfieldValidator4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredfieldValidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''UpdatePanel1 control.

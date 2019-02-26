@@ -115,6 +115,7 @@ Public Partial Class ClaimOverview
             End If
             '  ClaimCodeTxtControl()
             ButtonDisplayControl(0)
+
             If eHF.HfID = 0 And Request.QueryString("c") = 0 Then
                 Exit Sub
             End If
@@ -203,6 +204,7 @@ Public Partial Class ClaimOverview
                 If Not btnUpdateClaims.Visible And Not B_ProcessClaimStatus.Visible Then
                     pnlBody.Enabled = False
                 End If
+                btnSelectionExecute.Visible = btnUpdateClaims.Visible
 
             Else
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ClaimOverview.ToString & "&retUrl=" & RefUrl)
@@ -287,7 +289,10 @@ Public Partial Class ClaimOverview
                 eClaim.FeedbackStatus = dic("FeedbackStatus")
                 eClaim.ReviewStatus = dic("ReviewStatus")
                 eClaim.ClaimStatus = dic("ClaimStatus")
-                eICDCodes.ICDID = dic("ICDID")
+                If dic("ICDID") <> "" Then
+                    eICDCodes.ICDID = dic("ICDID")
+                End If
+
 
                 If Not dic("CHFNo") = "" Then
                     eInsuree.CHFID = dic("CHFNo")
@@ -364,7 +369,7 @@ Public Partial Class ClaimOverview
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                eICDCodes.ICDID = IIf(hfICDID.Value = "", 0, CInt(Int(hfICDID.Value)))
+                eICDCodes.ICDID = IIf(hfICDID.Value = "", 0, eICDCodes.ICDID)
                 If Not ddlBatchRun.SelectedValue = "" Then
                     eBatchRun.RunID = ddlBatchRun.SelectedValue
                 End If
@@ -433,12 +438,14 @@ Public Partial Class ClaimOverview
         End Try
     End Sub
     Private Sub ButtonDisplayControl(ByVal GridCount As Integer)
+        RunPageSecurity()
+
         If GridCount > 0 Then
-            B_FEEDBACK.Visible = True
-            B_ProcessClaimStatus.Visible = True
-            B_REVIEW.Visible = True
-            btnUpdateClaims.Visible = True
-            btnSelectionExecute.Visible = True
+            B_FEEDBACK.Visible = B_FEEDBACK.Visible
+            B_ProcessClaimStatus.Visible = B_ProcessClaimStatus.Visible
+            B_REVIEW.Visible = B_REVIEW.Visible
+            btnUpdateClaims.Visible = btnUpdateClaims.Visible
+            btnSelectionExecute.Visible = btnSelectionExecute.Visible
             lblSelectToProcess.Visible = True
             chkboxSelectToProcess.Visible = True
         Else
