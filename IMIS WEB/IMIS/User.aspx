@@ -261,7 +261,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtEmail" runat="server" Width="150px" MaxLength="200" TextMode="Email"></asp:TextBox>
                                 </td>
                                 <td style="direction: ltr">
-                                    <%--<asp:RequiredFieldValidator ID="rf2" runat="server" ControlToValidate="txtEmail" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                    <asp:RequiredFieldValidator ID="rf2" runat="server" ControlToValidate="txtEmail" SetFocusOnError="True" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
@@ -288,8 +288,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         Width="150px"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldPassword" runat="server"
-                                        ValidationGroup="xx" ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldPassword" runat="server"
+                                        ValidationGroup="xx" ControlToValidate="txtPassword" Text="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
@@ -304,9 +304,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td class="Validate">
                                     <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassoward" runat="server"
                                         ControlToValidate="txtConfirmPassword" Text="*" ValidationGroup="xx" ForeColor="Red" Display="Dynamic"> </asp:RequiredFieldValidator>
-                                    <%--<asp:CompareValidator ID="ComparePassword" runat="server"
-                                        ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ValidationGroup="check"
-                                        Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'></asp:CompareValidator>--%>
+                                    <asp:CompareValidator ID="ComparePassword" runat="server"
+                                        ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'></asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>

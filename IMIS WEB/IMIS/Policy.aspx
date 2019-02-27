@@ -189,7 +189,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                        <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server" 
                     ControlToValidate="txtEnrollmentDate" SetFocusOnError="True" Text="*"  
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredfieldValidator1" runat="Server" ControlToValidate="txtEnrollmentDate" SetFocusOnError="true" ForeColor="Red" Display="Dynamic"
                             Text='*' ></asp:RequiredFieldValidator>
                         </td>                        

@@ -140,6 +140,15 @@ Partial Public Class Family
     Protected WithEvents RequiredFieldWard As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
+    '''RequiredFieldWard1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldWard1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
     '''L_VILLAGE control.
     '''</summary>
     '''<remarks>
@@ -165,6 +174,15 @@ Partial Public Class Family
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldVillage As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''RequiredFieldVillage1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldVillage1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''trPoverty control.
@@ -489,6 +507,15 @@ Partial Public Class Family
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldBirthDate0 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''RegularExpressionValidator7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator7 As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
     '''L_GENDER control.

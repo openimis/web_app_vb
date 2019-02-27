@@ -885,8 +885,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtInsurancrePeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" Text="*" runat="server" ControlToValidate="txtInsurancrePeriod" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Text="*" runat="server" ControlToValidate="txtInsurancrePeriod" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                     <asp:CompareValidator ControlToValidate="txtInsurancrePeriod" ID="CompareValidator5" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
                                     </asp:CompareValidator>
                                 </td>
@@ -925,8 +925,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtWaitingPeriod" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" Text="*" runat="server" ControlToValidate="txtWaitingPeriod" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" Text="*" runat="server" ControlToValidate="txtWaitingPeriod" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                     <asp:CompareValidator ControlToValidate="txtWaitingPeriod" ID="CompareValidator26" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
                                     </asp:CompareValidator>
                                 </td>

@@ -158,6 +158,15 @@ Partial Public Class User
     Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''rf2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rf2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
     '''RegularExpressionValidator2 control.
     '''</summary>
     '''<remarks>
@@ -212,6 +221,15 @@ Partial Public Class User
     Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''RequiredFieldPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
     '''rePasswordStrength control.
     '''</summary>
     '''<remarks>
@@ -246,6 +264,15 @@ Partial Public Class User
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldConfirmPassoward As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''ComparePassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ComparePassword As Global.System.Web.UI.WebControls.CompareValidator
     
     '''<summary>
     '''L_HFNAME control.

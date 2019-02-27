@@ -798,7 +798,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    <asp:DropDownList ID="ddlICDData" runat="server" width="130px" Visible="False"></asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" 
                        runat="server" ErrorMessage="*" ControlToValidate="ddlICDData" InitialValue="0"
-                       ValidationGroup="check" Visible="True"> ForeColor="Red" Display="Dynamic"</asp:RequiredFieldValidator>  
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>  
                        <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                </td>
             

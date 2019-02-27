@@ -428,6 +428,15 @@ Partial Public Class Insuree
     Protected WithEvents RequiredFieldBirthDate0 As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
+    '''RegularExpressionValidator7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator7 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
     '''L_GENDER control.
     '''</summary>
     '''<remarks>

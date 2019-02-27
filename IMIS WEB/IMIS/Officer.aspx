@@ -157,6 +157,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
             font-size: 11px;
             padding-right: 1px;
         }
+        .auto-style36 {
+            height: 27px;
+        }
     </style>
 
 </asp:Content>
@@ -443,14 +446,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                             </tr>
                             <tr>
-                                <td class="FormLabel">
+                                <td class="auto-style32">
                                     <asp:Label ID="L_SUBSTITUTION" runat="server" Text='<%$ Resources:Resource,L_SUBSTITUTION %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:DropDownList ID="ddlSubstitution" runat="server">
                                     </asp:DropDownList>
                                 </td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style36"></td>
                             </tr>
                             <tr>
                                 <td class="FormLabel" valign="top">

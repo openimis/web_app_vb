@@ -129,7 +129,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                               <asp:TextBox ID="txtAddress" runat="server" Height="40px" MaxLength="25"
                                   TextMode="MultiLine" Width="150px" Style="resize: none;"></asp:TextBox>
                               <asp:RequiredFieldValidator ID="rfAddress" runat="server" ControlToValidate="txtAddress" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                        Text='*'>"</asp:RequiredFieldValidator>
+                                        Text='*'></asp:RequiredFieldValidator>
                           </td>
                       </tr>
                       <tr>
@@ -169,14 +169,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 SetFocusOnError="True" 
                                 ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
-                                 <%--<asp:RequiredFieldValidator 
+                                 <asp:RequiredFieldValidator 
                                 ID="RequiredFieldWard1" 
                                 runat="server" 
                                 ControlToValidate="ddlWard" 
                                  ErrorMessage="Please select a Ward." 
                                 SetFocusOnError="True" 
-                                ValidationGroup="check" 
-                                Text="*"></asp:RequiredFieldValidator>--%>
+                                ValidationGroup="check" ForeColor="Red"  Display="Dynamic"
+                                Text="*"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -203,13 +203,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 SetFocusOnError="True" 
                                 ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
-                             <%--<asp:RequiredFieldValidator 
+                             <asp:RequiredFieldValidator 
                                 ID="RequiredFieldVillage1" 
                                 runat="server" 
                                 ControlToValidate="ddlVillage" 
                                  SetFocusOnError="True" 
-                                ValidationGroup="check"
-                                Text="*"></asp:RequiredFieldValidator>--%>
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                Text="*"></asp:RequiredFieldValidator>
                            
                         </td>
                     </tr>
@@ -379,7 +379,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:Button ID="Button1" runat="server" Height="20px" Width="20px" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldBirthDate0" runat="server" ControlToValidate="txtBirthDate" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
-                                <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtBirthDate" ErrorMessage="*" SetFocusOnError="false" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>--%>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtBirthDate" ErrorMessage="*" SetFocusOnError="false" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                             </td>
                             <td></td>
                             <td class="DataEntry"></td>
