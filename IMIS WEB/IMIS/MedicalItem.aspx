@@ -109,7 +109,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td class="FormLabel">
                             <asp:Label ID="L_Code" runat="server" Text='<%$ Resources:Resource,L_Code %>'></asp:Label>
                         </td>
-                        <td class ="DataEntry">
+                        <td class ="auto-style5">
                             <asp:TextBox ID="txtCode" runat="server" Width="150px" MaxLength="6"></asp:TextBox>
                          <asp:RequiredFieldValidator 
                             ID="RequiredFieldCode" runat="server" 
@@ -127,7 +127,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <td class="FormLabel">
                                 <asp:Label ID="L_Name" runat="server" Text='<%$ Resources:Resource,L_NAME %>'></asp:Label>
                             </td>
-                            <td class="DataEntry">
+                            <td class="auto-style5">
                                 <asp:TextBox ID="txtName" runat="server"   MaxLength="100"></asp:TextBox>
                              <asp:RequiredFieldValidator 
                                 ID="RequiredFieldValidatorName" runat="server" 
@@ -148,16 +148,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         runat="server" 
                         Text='<%$ Resources:Resource,L_TYPE %>'></asp:Label>
                         </td>
-                        <td class ="DataEntry" id="chkType">
+                        <td class ="auto-style5" id="chkType">
                          <asp:RadioButton ID="rbDrug" runat="server" Text='<%$ Resources:Resource,T_DRUG %>'
                                 GroupName="Type" /> 
                          <asp:RadioButton ID="rbMedicalProstheses" runat="server" Text='<%$ Resources:Resource, T_MEDICALPROSTHESES %>' 
                                 GroupName="Type" />
-                            <span style="color: Red" id="errMsgType" />
+                            
                         </td>
                         <td>
-                            
-                            </td>
+                            <span style="color: Red" id="errMsgType" />
+                        </td>
                     </tr>
                     <tr>
                         <td class="FormLabel">
@@ -166,7 +166,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         runat="server" 
                         Text='<%$ Resources:Resource,L_PACKAGE %>'></asp:Label>
                         </td>
-                        <td class ="DataEntry">
+                        <td class ="auto-style5">
                             <asp:TextBox ID="txtPackage" runat="server" MaxLength="255"></asp:TextBox> <%--Width="150px"--%>
                          <asp:RequiredFieldValidator 
                             ID="RequiredFieldValidatorPackage" runat="server" 
@@ -184,7 +184,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td class="FormLabel">
                             <asp:Label ID="L_Price" runat="server" Text='<%$ Resources:Resource,L_PRICE %>'></asp:Label>
                         </td>
-                        <td class ="DataEntry">
+                        <td class ="auto-style5">
                             <asp:TextBox ID="txtPrice" runat="server" class="numbersOnly" style="text-align:right; " ></asp:TextBox>  <%-- Width="150px" padding-right:4px--%>
                             
                             <asp:CompareValidator ControlToValidate="txtPrice" ID="CompareValidator1"  runat="server" SetFocusOnError ="true"  Type="Currency"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
@@ -202,25 +202,27 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <td class="FormLabel">
                                 <asp:Label ID="L_CareType" runat="server" Text='<%$ Resources:Resource,L_CARETYPE %>'></asp:Label>
                             </td>
-                            <td class="DataEntryWide" id="rbCareType">
+                            <td class="auto-style6" id="rbCareType">
                                 <asp:RadioButton ID="rbOutPatient"  GroupName = "CareType" runat="server" Text='<%$ Resources:Resource,L_OUTPATIENT %>' />
                                 <asp:RadioButton ID="rbInPatient" GroupName = "CareType"  runat="server" Text='<%$ Resources:Resource,L_INPATIENT %>' />
                                 <asp:RadioButton ID="rbBoth" GroupName = "CareType"  runat="server" Text='<%$ Resources:Resource,L_BOTH %>' />
                                 &nbsp
-                                <span style="color: Red" id="errMsgCareType" />
+                                
                             </td> 
-                            <td></td>
+                            <td>
+                                <span style="color: Red" id="errMsgCareType" />
+                            </td>
                         </tr>
                         <tr>
-                            <td class="FormLabel">
+                            <td class="auto-style3">
                                 <asp:Label ID="L_Frequency" runat="server" Text='<%$ Resources:Resource,L_FREQUENCY %>' ></asp:Label>
                             </td>
-                            <td class="DataEntry">
+                            <td class="auto-style5">
                                 <asp:TextBox ID="txtFrequency" runat="server" Class="numbersOnly" style="text-align:right;"></asp:TextBox>  <%--Width="150px" padding-right:4px--%>
                                
                              <asp:CompareValidator ControlToValidate="txtFrequency" ID="CompareValidator2"  runat="server" SetFocusOnError ="true"  Type="Integer"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
                                 </td>
-                            <td>
+                            <td class="auto-style4">
                                 <%--<asp:RequiredFieldValidator
                                     ID="RequiredFieldValidator2" runat="server"
                                     ControlToValidate="txtFrequency"
@@ -233,16 +235,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <td class="FormLabel" valign="middle">
                                 <asp:Label ID="L_Patient" runat="server" Text='<%$ Resources:Resource,L_PATIENT %>'></asp:Label>
                             </td>
-                            <td class="DataEntryWide" id="chk">
+                            <td class="auto-style6" id="chk">
                                 <asp:CheckBox ID="chkMan" runat="server" Text=   '<%$ Resources:Resource,T_MAN %>' />
                                 <asp:CheckBox ID="chkWoman" runat="server" Text= '<%$ Resources:Resource,T_WOMAN %>' />
                                 <asp:CheckBox ID="chkAdult" runat="server" Text= '<%$ Resources:Resource,T_ADULT %>' />
                                 <asp:CheckBox ID="chkChild" runat="server" Text= '<%$ Resources:Resource,T_CHILD %>' />
                                 &nbsp
-                                <span style="color: Red" id="errMsgPatient" />
+                                
                             </td>
                                 <td>
-                                 
+                                    <span style="color: Red" id="errMsgPatient" />
                                 </td>
                         </tr>
                         
@@ -283,4 +285,41 @@ In case of dispute arising out or in relation to the use of the program, it is s
 <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText='<%$ Resources:Resource,V_SUMMARY%>' ValidationGroup="check" />
 <asp:HiddenField ID="hfMI" runat="server" /> 
 </asp:Content>
+
+<asp:Content ID="Content3" runat="server" contentplaceholderid="head">
+    <style type="text/css">
+        .auto-style1 {
+            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/;
+            height: 27px;
+            direction: ltr;
+            width: 214px;
+        }
+        .auto-style2 {
+            width: 214px;
+        }
+        .auto-style3 {
+            height: 27px;
+            width: 150px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style4 {
+            height: 27px;
+        }
+        .auto-style5 {
+            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/;
+            height: 27px;
+            direction: ltr;
+            width: 271px;
+        }
+        .auto-style6 {
+            width: 271px;
+        }
+    </style>
+</asp:Content>
+
 

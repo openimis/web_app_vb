@@ -355,7 +355,7 @@ Partial Public Class Insuree
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Insuree, Page) Then
-            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditInsuree, UserID) Or userBI.checkRights(IMIS_EN.Enums.Rights.AddInsuree, UserID)
+            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeEdit, UserID) Or userBI.checkRights(IMIS_EN.Enums.Rights.InsureeAdd, UserID)
             If Not B_SAVE.Visible Then
                 pnlImages.Enabled = False
                 Panel2.Enabled = False

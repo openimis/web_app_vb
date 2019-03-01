@@ -547,7 +547,7 @@
     <value>Please select at least one patient</value>
   </data>
   <data name="V_SELECTTYPE" xml:space="preserve">
-    <value>--Select Type--</value>
+    <value>Select Type</value>
   </data>
   <data name="L_DATE" xml:space="preserve">
     <value>Date</value>

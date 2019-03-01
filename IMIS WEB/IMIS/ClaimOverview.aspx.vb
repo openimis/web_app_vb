@@ -194,11 +194,11 @@ Public Partial Class ClaimOverview
 
         If which = 0 Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimOverview, Page) Then
-                btnUpdateClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UpdateClaims, UserID)
-                B_ProcessClaimStatus.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProcessClaims, UserID)
-                pnlMiddle.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.UpdateClaims, UserID)
-                B_FEEDBACK.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EnterFeedback, UserID)
-                B_REVIEW.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ReviewClaim, UserID)
+                btnUpdateClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID)
+                B_ProcessClaimStatus.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimProcess, UserID)
+                pnlMiddle.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID)
+                B_FEEDBACK.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimFeedback, UserID)
+                B_REVIEW.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID)
 
 
                 If Not btnUpdateClaims.Visible And Not B_ProcessClaimStatus.Visible Then
@@ -210,11 +210,11 @@ Public Partial Class ClaimOverview
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ClaimOverview.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 1 Then
-            If Not ClaimOverviews.checkRights(IMIS_EN.Enums.Rights.UpdateClaims, UserID) Then
+            If Not ClaimOverviews.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ClaimOverview.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 2 Then
-            If Not ClaimOverviews.checkRights(IMIS_EN.Enums.Rights.ProcessClaims, UserID) Then
+            If Not ClaimOverviews.checkRights(IMIS_EN.Enums.Rights.ClaimProcess, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ClaimOverview.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -256,7 +256,7 @@ Public Partial Class ClaimOverview
             ddl.DataValueField = "Code"
             ddl.DataBind()
             ddl.SelectedValue = gvClaims.DataKeys(row.RowIndex).Values("ReviewStatus")
-          
+
             FilterStatusCombination(ddl)
 
 
@@ -275,7 +275,7 @@ Public Partial Class ClaimOverview
             Dim eICDCodes As New IMIS_EN.tblICDCodes
             Dim eInsuree As New IMIS_EN.tblInsuree
             Dim eBatchRun As New IMIS_EN.tblBatchRun
-           
+
             If (Not Request.QueryString("c") = 0) And (ScriptManager.GetCurrent(Me.Page).IsInAsyncPostBack() = False) Then
 
                 hfClaimID.Value = Request.QueryString("c")
@@ -573,14 +573,14 @@ Public Partial Class ClaimOverview
             GetFilterCriteria()
             loadGrid()
             chkboxSelectToProcess.Checked = False
-            hfProcessClaims.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOPROCESS") & "</u></h4>" & "<br>" & _
-                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_PROCESSED") & "</td><td>" & Processed & "</td></tr><tr><td>" & imisgen.getMessage("M_VALUATED") & _
-                                    "</td><td>" & Valuated & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed & _
-                                    "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") & "</td><td>" & Rejected & "</td></tr><tr><td>" & _
+            hfProcessClaims.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOPROCESS") & "</u></h4>" & "<br>" &
+                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_PROCESSED") & "</td><td>" & Processed & "</td></tr><tr><td>" & imisgen.getMessage("M_VALUATED") &
+                                    "</td><td>" & Valuated & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed &
+                                    "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") & "</td><td>" & Rejected & "</td></tr><tr><td>" &
                                     imisgen.getMessage("M_FAILED") & "</td><td>" & Failed & "</td></tr></td></tr></table>"
 
-            
+
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
@@ -597,12 +597,12 @@ Public Partial Class ClaimOverview
             ClaimOverviews.ReviewFeedbackSelection(ClaimIDDatatable(), getValue, ddlSelectionType.SelectedValue, getSelectionType(), GetSelectionValue(), Submitted, Selected, NotSelected)
             loadGrid()
             ddlSelectionType.SelectedValue = 0
-            hfSelectionExecute.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOUPDATE") & "</u></h4>" & "<br>" & _
-                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_SELECTED") & "</td><td>" & Selected & "</td></tr><tr><td>" & imisgen.getMessage("M_NOTSELECTED") & _
+            hfSelectionExecute.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOUPDATE") & "</u></h4>" & "<br>" &
+                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_SELECTED") & "</td><td>" & Selected & "</td></tr><tr><td>" & imisgen.getMessage("M_NOTSELECTED") &
                                     "</td><td>" & NotSelected & "</td></tr></table>"
 
-            
+
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
@@ -668,15 +668,15 @@ Public Partial Class ClaimOverview
     End Function
 
     Private Function FilterDataTable() As DataTable
-       
+
         Dim filter As String = ""
         If ddlSelectionType.SelectedValue = 0 Then
             filter = ""
         ElseIf ddlSelectionType.SelectedValue = 1 Then
-            filter = "ReviewStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" & _
+            filter = "ReviewStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" &
                     imisgen.getMessage("T_PROCESSED") & "' and ClaimStatus <> '" & imisgen.getMessage("T_REJECTED") & "' "
         Else
-            filter = "FeedbackStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" & _
+            filter = "FeedbackStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" &
                     imisgen.getMessage("T_PROCESSED") & "' and ClaimStatus <> '" & imisgen.getMessage("T_REJECTED") & "'"
         End If
 
@@ -715,9 +715,9 @@ Public Partial Class ClaimOverview
     End Sub
 
     Protected Sub chkValue_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkValue.CheckedChanged
-        If chkValue.Checked then 
-            filterGrid()
-         end if
+        If chkValue.Checked Then
+            FilterGrid()
+        End If
     End Sub
     Private Sub ClaimCodeTxtControl()
         If ddlHFCode.SelectedValue = 0 Then

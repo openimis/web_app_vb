@@ -133,4 +133,5 @@ Public Class IMISExtractsBI
         Dim BL As New IMIS_BL.IMISExtractsBL()
         Return BL.DownloadMasterData()
     End Function
+
 End Class

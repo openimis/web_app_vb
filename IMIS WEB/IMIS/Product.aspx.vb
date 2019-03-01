@@ -636,9 +636,9 @@ Partial Public Class Product
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         Dim RefUrl = If(Request.Headers("Referer") Is Nothing, String.Empty, Request.Headers("Referer"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Product, Page) Then
-            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddProduct, UserID)
-            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditProduct, UserID)
-            Dim View As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.FindProduct, UserID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.ProductAdd, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.ProductEdit, UserID)
+            Dim View As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.ProductSearch, UserID)
 
             Dim reg As New Regex("OverviewFamily", RegexOptions.IgnoreCase)
             If reg.IsMatch(RefUrl) Then

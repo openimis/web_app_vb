@@ -85,7 +85,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
         }
         .backentry
         {
-            height: 643px;
+            height: 655px;
         }
         .footer
         {

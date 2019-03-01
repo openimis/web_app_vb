@@ -5023,7 +5023,7 @@
   </data>
   <data name="V_SELECTTYPE" xml:space="preserve">
     <value>Sélectionner le type</value>
-    <comment>--Select Type--</comment>
+    <comment>Select Type</comment>
   </data>
   <data name="V_SUMMARY" xml:space="preserve">
     <value>Veuillez cocher les champs marqués d'un astérisque (*).</value>

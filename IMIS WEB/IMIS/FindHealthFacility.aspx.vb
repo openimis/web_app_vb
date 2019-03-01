@@ -117,10 +117,10 @@ Partial Public Class FindHealthFacility
         Dim UserID As Integer = imisGen.getUserId(Session("User"))
         If Not ondelete Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.HealthFacility, Page) Then
-                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddHealthFacility, UserID)
-                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditHealthFacility, UserID)
-                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteHealthFacility, UserID)
-                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindHealthFacility, UserID)
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityAdd, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityEdit, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityDelete, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilitySearch, UserID)
 
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
@@ -130,7 +130,7 @@ Partial Public Class FindHealthFacility
             End If
         Else
 
-            If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteHealthFacility, UserID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindHealthFacility.ToString & "&retUrl=" & RefUrl)
             End If
 

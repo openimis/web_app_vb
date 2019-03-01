@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfiguration.vb" />
+    <Compile Include="Class1.vb" />
     <Compile Include="eExtractInfo.vb" />
     <Compile Include="Enums.vb" />
     <Compile Include="eReports.vb" />
@@ -134,6 +135,7 @@
     <Compile Include="tblProduct.vb" />
     <Compile Include="tblRole.vb" />
     <Compile Include="tblRoleRight.vb" />
+    <Compile Include="tblUserRole.vb" />
     <Compile Include="tblUsers.vb" />
   </ItemGroup>
   <ItemGroup>

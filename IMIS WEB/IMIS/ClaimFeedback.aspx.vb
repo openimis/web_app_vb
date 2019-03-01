@@ -156,7 +156,7 @@ Partial Public Class ClaimFeedback
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimFeedback, Page) Then
-            pnlBody.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EnterFeedback, UserID)
+            pnlBody.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimFeedback, UserID)
 
             If Not pnlBody.Enabled Then
                 B_SAVE.Visible = False

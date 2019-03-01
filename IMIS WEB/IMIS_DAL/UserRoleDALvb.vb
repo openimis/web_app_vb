@@ -1,4 +1,4 @@
-''Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
+﻿''Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
 ''
 ''The program users must agree to the following terms:
 ''
@@ -26,27 +26,11 @@
 ' 
 '
 
-Public Class ReportingBL
-    Private DALRep As New IMIS_DAL.ReportingDAL
-    Public Function GetPreviousMatchingFundsReportDates(ByVal UserID As Integer, ByVal DistrictID As Integer, ByVal ReportingID As Integer?) As DataTable
-        Dim dt = DALRep.GetPreviousMatchingFundsReportDates(UserID, DistrictID, ReportingID)
-        If ReportingID Is Nothing Then
-            Dim dr As DataRow = dt.NewRow
-            dr("ReportingId") = 0
-            dr("Display") = DBNull.Value
-            dt.Rows.InsertAt(dr, 0)
-        End If
-        Return dt
-    End Function
 
-    Public Function GetPreviousOverviewOfCommissionsReportDates(ByVal UserID As Integer, ByVal DistrictID As Integer, ByVal ReportingID As Integer?) As DataTable
-        Dim dt = DALRep.GetPreviousOvervireOfCommissiosReportDates(UserID, DistrictID, ReportingID)
-        If ReportingID Is Nothing Then
-            Dim dr As DataRow = dt.NewRow
-            dr("ReportingId") = 0
-            dr("Display") = DBNull.Value
-            dt.Rows.InsertAt(dr, 0)
-        End If
-        Return dt
+Public Class UserRoleDALvb
+    Dim data As New ExactSQL
+    Public Function GetUserRoles(Userid As Integer) As DataTable
+        Dim strSQL As String = ""
+
     End Function
 End Class

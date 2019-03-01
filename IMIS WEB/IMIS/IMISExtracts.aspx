@@ -104,9 +104,9 @@
        </asp:UpdateProgress>--%>
         <%--  <ContentTemplate>
         <div id="DivMsg" runat="server" style="display:none;"></div>--%>
-         <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" CssClass="panelBody" style="height:auto; overflow-x:hidden; ">
+<asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" CssClass="panelBody" style="height:auto; overflow-x:hidden; ">
         <asp:HiddenField ID="hfExtractFound" runat="server" Value="0" />
-
+<asp:Panel ID="MasterData" runat="server" >
         <table class="catlabel">
                 <tr>
                     <td>
@@ -116,48 +116,49 @@
                 </tr>
 
             </table>
-        <asp:Panel ID="pnlDownloadMasterData" runat="server" CssClass="panel">
-            
-        <asp:Panel ID="DownLoadMasterData" runat="server" Height="70px" Width="976px">
-            
-           
-                <table>
-                    <tr>
-                        <td>
-                            <table id="tbluploadfromphone">
-                                <tr>
-                                    <td align="left" >
-                                       <asp:Button ID="btnDownLoadMasterData" runat="server" Text='<%$ Resources:Resource,B_DownLoadMasterData %>' OnClick="btnDownLoadMasterData_Click" style="width: auto;float: right;margin-right: 135px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                        <td  align="left">
+        <asp:Panel ID="pnlDownloadMasterData" runat="server" CssClass="panel">            
+            <asp:Panel ID="DownLoadMasterData" runat="server" Height="70px" Width="976px">
+              <table>
+                            <tr>
+                                <td>
+                                    <table id="tbluploadfromphone">
+                                        <tr>
+                                            <td align="left" >
+                                               <asp:Button ID="btnDownLoadMasterData" runat="server" Text='<%$ Resources:Resource,B_DownLoadMasterData %>' OnClick="btnDownLoadMasterData_Click" style="width: auto;float: right;margin-right: 135px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td  align="left">
 
-                                            <font color="blue"><asp:Label ID="lblOfficerCode"  runat="server" Text="<%$ Resources:Resource,L_OFFICERCODE %>" Width="150px" ></asp:Label></font>
-                                            <asp:TextBox ID="txtOfficerCode" runat="server"></asp:TextBox>
-                                        </td>
-                                        <td align="left">
-                                        <font color="red"><asp:RequiredFieldValidator ID="RequiredOfficerCode" runat="server" ControlToValidate="txtOfficerCode" Display="Dynamic" Text="*"  ValidationGroup="chkOfficerCode" ></asp:RequiredFieldValidator></font>
-                                    </td>
-                                        <td align="left">
-                                           <asp:Button ID="btnDownLoadFeedback" runat="server" Text='<%$ Resources:Resource,B_DownLoadFeedback %>' OnClick="btnDownLoadFeedback_Click" ValidationGroup="chkOfficerCode" Width="150px" />
-                                        </td>
-                                    <td align="left">
-                                       <asp:Button ID="btnDownLoadRenewal" runat="server" Text='<%$ Resources:Resource,B_DownLoadRenewals %>' OnClick="btnDownLoadRenewal_Click"  ValidationGroup="chkOfficerCode" Width="150px" />
-                                    </td>
+                                                    <font color="blue"><asp:Label ID="lblOfficerCode"  runat="server" Text="<%$ Resources:Resource,L_OFFICERCODE %>" Width="150px" ></asp:Label></font>
+                                                    <asp:TextBox ID="txtOfficerCode" runat="server"></asp:TextBox>
+                                                </td>
+                                                <td align="left">
+                                                <font color="red"><asp:RequiredFieldValidator ID="RequiredOfficerCode" runat="server" ControlToValidate="txtOfficerCode" Display="Dynamic" Text="*"  ValidationGroup="chkOfficerCode" ></asp:RequiredFieldValidator></font>
+                                            </td>
+                                                <td align="left">
+                                                   <asp:Button ID="btnDownLoadFeedback" runat="server" Text='<%$ Resources:Resource,B_DownLoadFeedback %>' OnClick="btnDownLoadFeedback_Click" ValidationGroup="chkOfficerCode" Width="150px" />
+                                                </td>
+                                            <td align="left">
+                                               <asp:Button ID="btnDownLoadRenewal" runat="server" Text='<%$ Resources:Resource,B_DownLoadRenewals %>' OnClick="btnDownLoadRenewal_Click"  ValidationGroup="chkOfficerCode" Width="150px" />
+                                            </td>
                                     
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>  
             </asp:Panel>
-
         </asp:Panel>
+</asp:Panel>
+
+
+
+
 
 
         <asp:Panel ID="pnlOnline" runat="server">
-            <asp:Panel ID="pnlOnlineExtracts" runat="server">
+            <asp:Panel ID="pnlCreatePhoneExtracts" runat="server">
                 <table class="catlabel">
                     <tr>
                         <td>
@@ -234,7 +235,8 @@
                         </tr>
                     </table>
                 </asp:Panel>
-
+             </asp:Panel>
+            <asp:Panel ID="pnlCreateOfflineExtracts" runat="server">
                 <table class="catlabel">
                     <tr>
                         <td>
@@ -430,7 +432,7 @@
                 </asp:Panel>
 
             </asp:Panel>
-
+              
            <%-- <asp:Panel ID="pnlUploadPhotos" runat="server">
                 <table class="catlabel">
                     <tr>

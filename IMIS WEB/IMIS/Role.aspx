@@ -232,7 +232,7 @@
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIM %>" Value="111000" SelectAction="Expand" ImageUrl="~/Images/Renew.png">
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_SEARCH %>" Value="111001" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_ADD %>" Value="111002" SelectAction="None"></asp:TreeNode>
-                                        <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="111003" SelectAction="None"></asp:TreeNode>
+                           <%--             <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="111003" SelectAction="None"></asp:TreeNode>--%>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="111004" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_LOAD %>" Value="111005" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_PRINT %>" Value="111006" SelectAction="None"></asp:TreeNode>

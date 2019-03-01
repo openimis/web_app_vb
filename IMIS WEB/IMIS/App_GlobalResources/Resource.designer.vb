@@ -13997,7 +13997,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Type--.
+        '''  Looks up a localized string similar to Select Type.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTTYPE() As String
             Get

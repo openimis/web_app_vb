@@ -187,11 +187,11 @@ Partial Public Class ChangeFamily
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ChangeFamily, Page) Then
-            btnSave.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditFamily, UserID)
-            pnlChangeFamily.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EditFamily, UserID)
-            pnlChangeHeadOfFamily.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EditFamily, UserID)
-            pnlMoveInsuree.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EditInsuree, UserID)
-            L_FAMILYPANEL.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.EditFamily, UserID)
+            btnSave.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyEdit, UserID)
+            pnlChangeFamily.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyEdit, UserID)
+            pnlChangeHeadOfFamily.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyEdit, UserID)
+            pnlMoveInsuree.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeEdit, UserID)
+            L_FAMILYPANEL.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyEdit, UserID)
         Else
             Dim RefUrl = Request.Headers("Referer")
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ChangeFamily.ToString & "&retUrl=" & RefUrl)

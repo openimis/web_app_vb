@@ -17,24 +17,28 @@ Partial Public Class IMISExtracts
             Exit Sub
         End If
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.IMISExtracts, Page) Then
-            pnlDownloadMasterData.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.MasterDataDownload, UserID)
-            pnlOfflineExtracts.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineExtracts, UserID)
+            MasterData.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractMasterDataDownload, UserID)
 
-            pnlPhoneExtract.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.PhoneExtractsCreate, UserID)
+            pnlCreatePhoneExtracts.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractPhoneExtractsCreate, UserID)
 
-            pnlExtractEntrolment.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EnrolmentsUpload, UserID) 'And IMIS_Gen.OfflineCHF
 
-            pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EnrolmentsUpload, UserID) 'And IMIS_Gen.OfflineCHF
+            pnlCreateOfflineExtracts.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractOfflineExtractCreate, UserID)
+
+            pnlUploadClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractClaimUpload, UserID) And IMIS_Gen.OfflineCHF
+            pnlOnlineClaims.Visible = pnlUploadClaims.Visible And IMIS_Gen.OfflineCHF
+
+            pnlExtractEntrolment.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And IMIS_Gen.OfflineCHF
+
+            pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And IMIS_Gen.OfflineCHF
             pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
 
-            pnlUploadClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UpdateClaims, UserID) ' And IMIS_Gen.OfflineCHF
-            pnlOnlineClaims.Visible = pnlUploadClaims.Visible
 
-            pnlOfflineClaims.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
-            pnlOfflineClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
 
-            pnlFeedbackUpload.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FeedbackUpload, UserID) And IMIS_Gen.offlineHF
-            pnlFeedbackUpload.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FeedbackUpload, UserID) And IMIS_Gen.offlineHF
+            'pnlOfflineClaims.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
+            'pnlOfflineClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
+
+            pnlFeedbackUpload.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractFeedbackUpload, UserID)
+            pnlFeedbackUpload.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractFeedbackUpload, UserID)
             PnlFeedBackUploadHeader.Visible = pnlFeedbackUpload.Visible
 
         Else

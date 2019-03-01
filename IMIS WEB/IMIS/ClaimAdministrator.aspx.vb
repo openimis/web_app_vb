@@ -211,8 +211,9 @@ Public Partial Class ClaimAdministrator
     End Function
     Private Function SetLoginDetails() As Boolean
         eClaimAdmin.eUsers = New IMIS_EN.tblUsers
-        eClaimAdmin.eUsers.UserID = hfUserID.Value
-
+        If hfUserID.Value <> "" Then
+            eClaimAdmin.eUsers.UserID = hfUserID.Value
+        End If
         If eClaimAdmin.eUsers.UserID > 0 Then
             BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
             eClaimAdmin.eUsers.LoginName = txtCode.Text

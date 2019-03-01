@@ -217,7 +217,7 @@ Partial Public Class Policy
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Policy, Page) Then
-            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditPolicy, UserID) Or userBI.checkRights(IMIS_EN.Enums.Rights.AddPolicy, UserID)
+            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.PolicyEdit, UserID) Or userBI.checkRights(IMIS_EN.Enums.Rights.PolicyAdd, UserID)
             If Not B_SAVE.Visible Then
                 pnlBody.Enabled = False
                 L_FAMILYPANEL.Enabled = False

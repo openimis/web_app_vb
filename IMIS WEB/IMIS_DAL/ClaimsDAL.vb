@@ -631,10 +631,10 @@ Public Class ClaimsDAL
             sSQL += " and tblClaim.ClaimCode like @ClaimCode + '%'"
         End If
         If Not eClaims.DateFrom = Nothing Then
-            sSQL += " and tblClaim.DateFrom >= @DateFrom"
+            sSQL += " and tblClaim.DateFrom <= @DateFrom"
         End If
         If Not eClaims.DateTo Is Nothing Then
-            sSQL += " and tblClaim.DateTo <= @DateTo"
+            sSQL += " and tblClaim.DateTo >= @DateTo"
         End If
         'Claim date criteria changed by Ruzo ( 11 Jan 2014 ) >> start..
         If Not eClaims.DateClaimed = Nothing Then

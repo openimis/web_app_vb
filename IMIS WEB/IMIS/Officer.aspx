@@ -717,7 +717,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             Text='<%$ Resources:Resource,L_DOB %>'></asp:Label>
                     </td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="txtVeoDOB" runat="server" Width="130px"></asp:TextBox>
+                        <asp:TextBox ID="txtVeoDOB" runat="server" Width="120px"></asp:TextBox>
                         <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server"
                             CultureDateFormat="dd/MM/YYYY"
                             TargetControlID="txtVeoDOB" Mask="99/99/9999" MaskType="Date"

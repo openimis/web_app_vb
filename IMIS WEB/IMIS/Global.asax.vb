@@ -133,7 +133,7 @@ Public Class Global_asax
             ' Exit Sub
         End If
 
-        Dim Interval As Integer = 20
+        Dim Interval As Integer = 360
 
         HttpContext.Current.Cache.Add(ServiceCacheItemKey, CurrentDomainurl,
                      Nothing, DateTime.MaxValue, TimeSpan.FromSeconds(Interval), CacheItemPriority.Normal,

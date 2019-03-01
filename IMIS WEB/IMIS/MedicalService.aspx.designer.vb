@@ -122,15 +122,6 @@ Partial Public Class MedicalService
     Protected WithEvents ddlCategory As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''RequiredFieldValidator1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
-    '''<summary>
     '''L_Level control.
     '''</summary>
     '''<remarks>

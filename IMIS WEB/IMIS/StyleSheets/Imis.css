@@ -285,7 +285,6 @@ input[type="checkbox"]
 {
     border: 1px solid Gray;
     margin: 3px 3px 1px 3px;
-    height: auto;
     padding: 1px 5px 2px 5px;
     top: 0px;
     left: 0px; /* IE9 SVG, needs conditional override of 'filter' to 'none' */

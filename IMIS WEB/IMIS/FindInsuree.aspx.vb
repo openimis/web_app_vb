@@ -124,10 +124,10 @@ Partial Public Class FindInsuree
     Private Sub RunPageSecurity()
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Insuree, Page) Then
-            B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FindInsuree, UserID)
-            B_CLAIM.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
-            B_CLAIMSREVIEWS.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindClaim, UserID)
-            btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindInsuree, UserID)
+            B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeSearch, UserID)
+            B_CLAIM.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
+            B_CLAIMSREVIEWS.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
+            btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeSearch, UserID)
 
         Else
             Dim RefUrl = Request.Headers("Referer")

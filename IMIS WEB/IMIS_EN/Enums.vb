@@ -34,60 +34,48 @@ Public Class Enums
         '****************************************Insuree and Policy  10 00 00
         'Family
         Family = 101000
-        FindFamily = 101001
-        AddFamily = 101002
-        EditFamily = 101003
-        DeleteFamily = 101004
-        ViewFamily = 101001
-
+        FamilySearch = 101001
+        FamilyAdd = 101002
+        FamilyEdit = 101003
+        FamilyDelete = 101004
         'Insuree
         Insuree = 101100
-        FindInsuree = 101101
-        AddInsuree = 101102
-        EditInsuree = 101103
-        DeleteInsuree = 101104
-        EnquireInsuree = 101105             'NEW
-
+        InsureeSearch = 101101
+        InsureeAdd = 101102
+        InsureeEdit = 101103
+        InsureeDelete = 101104
+        InsureeEnquire = 101105
         'Policy
-        FindPolicy = 101201
-        AddPolicy = 101202
-        EditPolicy = 101203
-        DeletePolicy = 101204
-        RenewPolicy = 101205
-        ViewPolicy = 101201
-
+        PolicySearch = 101201
+        PolicyAdd = 101202
+        PolicyEdit = 101203
+        PolicyDelete = 101204
+        PolicyRenew = 101205
         'Contribution
-        FindContribution = 101301           'NEW
-        AddContribution = 101302            'NEW
-        EditContribution = 101303           'NEW    
-        DeleteContribution = 101304         'NEW
-        ViewContribution = 101301           'NEW 
-
+        ContributionSearch = 101301
+        ContributionAdd = 101302
+        ContributionEdit = 101303
+        ContributionDelete = 101304
         'Payment
-        FindPayment = 101401
-        AddPayment = 101402
-        EditPayment = 101403
-        DeletePayment = 101404
+        PaymentSearch = 101401
+        PaymentAdd = 101402
+        PaymentEdit = 101403
+        PaymentDelete = 101404
 
         '***************************************Claims     11 00 00
 
         'Claims
-        Claims = 111001
-        FindClaim = 111001
-        EnterClaim = 111002
-        EditClaim = 111003
-        DeleteClaim = 111004
-        LoadClaim = 111005
-        PrintClaim = 111006                  'NEW
-        SubmitClaim = 111007                 'NEW
-        ReviewClaim = 111008
-        Feedback = 111009
-        UpdateClaims = 111010
-        ProcessClaims = 111011
-        Filter = 111012
-        Preview = 111013
-        'ClaimsBatchClosure = 111014
-        'ClaimOverview = 111015
+        Claims = 111000
+        ClaimSearch = 111001
+        ClaimAdd = 111002
+        ClaimDelete = 111004
+        ClaimLoad = 111005
+        ClaimPrint = 111006
+        ClaimSubmit = 111007
+        ClaimReview = 111008
+        ClaimFeedback = 111009
+        ClaimUpdate = 111010
+        ClaimProcess = 111011
 
         'Batch
         Batch = 111100
@@ -99,19 +87,19 @@ Public Class Enums
 
         'Product
         Product = 121000
-        FindProduct = 121001
-        AddProduct = 121002
-        EditProduct = 121003
-        DeleteProduct = 121004
-        DuplicateProduct = 121005
-        ViewProduct = 121001
+        ProductSearch = 121001
+        ProductAdd = 121002
+        ProductEdit = 121003
+        ProductDelete = 121004
+        ProductDuplicate = 121005
+
 
         'Health Facilities
         HealthFacility = 121100
-        FindHealthFacility = 121101
-        AddHealthFacility = 121102
-        EditHealthFacility = 121103
-        DeleteHealthFacility = 121104
+        HealthFacilitySearch = 121101
+        HealthFacilityAdd = 121102
+        HealthFacilityEdit = 121103
+        HealthFacilityDelete = 121104
 
         'PriceLists Medical Services
         PriceListMedicalServices = 121200
@@ -189,55 +177,40 @@ Public Class Enums
         DuplicateUserProfile = 122005
 
         '****************************************Tools 13 00 00
-        '--
-        '--
-
-        '****************************************Registers 13 00 00
         Tools = 130000
         Registers = 131000
-        DiagnosesUpload = 131001                'NEW
-        DiagnosesDownload = 131002              'NEW
+        DiagnosesUpload = 131001
+        DiagnosesDownload = 131002
 
-        HealthFacilitiesUpload = 131003        'NEW
-        HealthFacilitiesDownload = 131004       'NEW
+        HealthFacilitiesUpload = 131003
+        HealthFacilitiesDownload = 131004
 
-        LocationUpload = 131005                'NEW
-        LocationDonwload = 131006               'NEW
+        LocationUpload = 131005
+        LocationDonwload = 131006
 
-        '****************************************Extracts 15 00 00
+
         Extracts = 131100
-        'Master Data
-        MasterDataDownload = 131101             'NEW
-
-        'Phone Extract
-        PhoneExtractsCreate = 131102            'NEW
-
-        'Offline Extract
-        OfflineExtractCreate = 131103           'NEW
-
-        'Claims
-        ClaimXMLUpload = 131104
-
-        'Enrolment
-        EnrolmentsUpload = 131105               'NEW
-
-        'Feedback
-        FeedbackUpload = 131106                 'NEW
+        ExtractMasterDataDownload = 131101
+        ExtractPhoneExtractsCreate = 131102
+        ExtractOfflineExtractCreate = 131103
+        ExtractClaimUpload = 131104
+        ExtractEnrolmentsUpload = 131105
+        ExtractFeedbackUpload = 131106
 
         '****************************************Reports 1312 00
         'Reports
-        Reports = 131200                              ' Add to include all reports                
-        PrimaryOperationalIndicatorPolicies = 131201  'NEW 
-        PrimaryOperationalIndicatorsClaims = 131202   'NEW
-        DerivedOperationalIndicators = 131203         'NEW
-        ContributionCollection = 131204               'NEW
-        ProductSales = 131205                         'NEW
-        ContributionDistribution = 131206             'NEW
-        UserActivity = 131207                         'NEW
-        EnrolmentPerformanceIndicators = 131208       'NEW
-        StatusOfRegister = 131209                     'NEW
+        Reports = 131200
+        PrimaryOperationalIndicatorPolicies = 131201
+        PrimaryOperationalIndicatorsClaims = 131202
+        DerivedOperationalIndicators = 131203
+        ContributionCollection = 131204
+        ProductSales = 131205
+        ContributionDistribution = 131206
+        UserActivity = 131207
+        EnrolmentPerformanceIndicators = 131208
+        StatusOfRegister = 131209
         InsureeWithoutPhotos = 131210
-        PaymentCategoryOverview = 131211              'NEW
+        PaymentCategoryOverview = 131211
         MatchingFunds = 131212
         ClaimOverviewReport = 131213
         PercentageReferrals = 131214
@@ -246,11 +219,11 @@ Public Class Enums
         Renewals = 131217
         CapitationPayment = 131218
         RejectedPhoto = 131219
-        ContributionPayment = 131220                  'NEW
-        ControlNumberAssignment = 131221              'NEW 
+        ContributionPayment = 131220
+        ControlNumberAssignment = 131221
         OverviewOfCommissions = 131222
         ClaimHistoryReport = 131223
-        '-ViewReport = 160007
+
 
         '****************************************Utilities/Email Setting 131300 
         Utilities = 131300
@@ -260,32 +233,14 @@ Public Class Enums
         EmailSettings = 131304
 
         '****************************************Funding 13 14 00  
-        AddFund = 131401
-
-        '**********************************************************************************END***************************************************
-
-
-        'IN LEGACY START 
-        SelectClaimForReview = 111016
-        EnterFeedback = 111009
-        'ValuateClaim = 111017 Amended on top
-        ' NEW starts 
-        SelectClaimForFeedback = 111009
-        OverviewFamily = 101005
-        ChangeFamilyHead = 101005
-        MovingInsuree = 101006
-        'Ward
+        FundingSave = 131401
 
 
 
-        FeedbackPrompt = 191001                 'NOT IN THE NEW DOCUMENT 
-        UploadICD = 191002                      'NOT IN THE NEW DOCUMENT  
 
-        OfflineExtracts
-        OfflineClaims
-        OfflineEnrolments
 
-        'IN LEGACY END
+
+
 
 
     End Enum

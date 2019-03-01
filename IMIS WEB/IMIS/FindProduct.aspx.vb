@@ -89,11 +89,11 @@ Partial Public Class FindProduct
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If Not ondelete Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindProduct, Page) Then
-                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddProduct, UserID)
-                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditProduct, UserID)
-                B_DUPLICATE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DuplicateProduct, UserID)
-                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteProduct, UserID)
-                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindProduct, UserID)
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductAdd, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductEdit, UserID)
+                B_DUPLICATE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductDuplicate, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductDelete, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductSearch, UserID)
 
 
                 If Not B_EDIT.Visible And Not B_DUPLICATE.Visible And Not B_DELETE.Visible Then
@@ -103,7 +103,7 @@ Partial Public Class FindProduct
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindProduct.ToString & "&retUrl=" & RefUrl)
             End If
         Else
-            If Not products.checkRights(IMIS_EN.Enums.Rights.DeleteProduct, UserID) Then
+            If Not products.checkRights(IMIS_EN.Enums.Rights.ProductDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindProduct.ToString & "&retUrl=" & RefUrl)
             End If
         End If

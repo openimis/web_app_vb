@@ -479,7 +479,7 @@ Public Class ReportDAL
         sSQL += " AND PR.ValidityTo IS NULL"
         sSQL += " AND PolicyStage = N'R'"
         sSQL += " AND (D.Region = @LocationId OR D.DistrictID = @LocationId OR @LocationId = 0)"
-        sSQL += " AND (PL.ProdID = @ProdId OR @ProdId IS NULL)"
+        sSQL += " AND (PL.ProdID = @ProdId OR @ProdId = 0)"
         sSQL += " AND (O.OfficerId = @OfficerID  OR @OFficerID IS NULL)"
         sSQL += " AND (PL.EnrollDate BETWEEN @FromDate AND @ToDate)"
 

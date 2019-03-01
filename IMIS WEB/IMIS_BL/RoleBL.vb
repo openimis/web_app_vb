@@ -21,4 +21,11 @@
         Dim Role As New IMIS_DAL.RoleDAL
         Return Role.IsRoleInUse(RoleID)
     End Function
+    Public Function HasUserRole(userID, Roleid) As Boolean
+        Dim DAL As New IMIS_DAL.RoleDAL
+        Dim erole As New IMIS_EN.tblRole
+
+        Dim BL As New UsersBL
+        Dim dtRoles As DataTable = DAL.GetRoles(erole)
+    End Function
 End Class

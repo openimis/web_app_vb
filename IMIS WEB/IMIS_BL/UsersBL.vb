@@ -72,59 +72,59 @@ Public Class UsersBL
     'The Security Function call stack is as mentioned below:
     '1. RunPageSecurity [ inside IMIS page( code behind file ) ] ---- calls RunPageSecurity [ inside USERBL class ] 
     '2a) RunPageSecurity [ inside USERBL class ]  ---- calls GetPageRights [ inside USERBL class ]
-    '2b) RunPageSecurity [ inside USERBL class ] ---- calls CheckRoles[ inside USERBL class ]
+    '2b) RunPageSecurity [ inside USERBL class ] ---- calls CheckRights[ inside USERBL class ]
     Public Function CheckRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
 
         Select Case Right
             'FAMILY OR GROUP
             Case IMIS_EN.Enums.Rights.Family : Return CheckUserRights(UserID, Right, 1)
-            Case IMIS_EN.Enums.Rights.FindFamily : Return CheckUserRights(UserID, Right)''(Roles.CHFAccountant + Roles.CHFClerk + Roles.Receptionist And UserID)
-            Case IMIS_EN.Enums.Rights.AddFamily : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.EditFamily : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteFamily : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.FamilySearch : Return CheckUserRights(UserID, Right)''(Roles.CHFAccountant + Roles.CHFClerk + Roles.Receptionist And UserID)
+            Case IMIS_EN.Enums.Rights.FamilyAdd : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.FamilyEdit : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.FamilyDelete : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
 
             'INSUREE
             Case IMIS_EN.Enums.Rights.Insuree : Return CheckUserRights(UserID, Right, 1)
-            Case IMIS_EN.Enums.Rights.FindInsuree : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk + Roles.Receptionist And UserID)
-            Case IMIS_EN.Enums.Rights.AddInsuree : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.EditInsuree : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteInsuree : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.EnquireInsuree : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.InsureeSearch : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk + Roles.Receptionist And UserID)
+            Case IMIS_EN.Enums.Rights.InsureeAdd : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.InsureeEdit : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.InsureeDelete : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.InsureeEnquire : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
 
             'POLICY
-            Case IMIS_EN.Enums.Rights.FindPolicy : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk + Roles.Receptionist And UserID)
-            Case IMIS_EN.Enums.Rights.AddPolicy : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.EditPolicy : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.DeletePolicy : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.PolicySearch : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk + Roles.Receptionist And UserID)
+            Case IMIS_EN.Enums.Rights.PolicyAdd : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.PolicyEdit : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.PolicyDelete : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
                 '
-            Case IMIS_EN.Enums.Rights.RenewPolicy : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)   'NOT PART OF THE NEW DOCUMENT
+            Case IMIS_EN.Enums.Rights.PolicyRenew : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)   'NOT PART OF THE NEW DOCUMENT
 
             'CONTRIBUTION
-            Case IMIS_EN.Enums.Rights.FindContribution : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID) 
-            Case IMIS_EN.Enums.Rights.AddContribution : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.EditContribution : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteContribution : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.ContributionSearch : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID) 
+            Case IMIS_EN.Enums.Rights.ContributionAdd : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.ContributionEdit : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.ContributionDelete : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
 
             'PAYMENT
-            Case IMIS_EN.Enums.Rights.FindPayment : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID) 
-            Case IMIS_EN.Enums.Rights.AddPayment : Return CheckUserRights(UserID, Right)
-            Case IMIS_EN.Enums.Rights.EditPayment : Return CheckUserRights(UserID, Right)
-            Case IMIS_EN.Enums.Rights.DeletePayment : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.PaymentSearch : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk And UserID) 
+            Case IMIS_EN.Enums.Rights.PaymentAdd : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.PaymentEdit : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.PaymentDelete : Return CheckUserRights(UserID, Right)
 
             'CLAIMS
             Case IMIS_EN.Enums.Rights.Claims : Return CheckUserRights(UserID, Right, 1)
-            Case IMIS_EN.Enums.Rights.FindClaim : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator + Roles.ClaimContributor + Roles.CHFMedicalOfficer And UserID) 
-            Case IMIS_EN.Enums.Rights.EnterClaim : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator + Roles.CHFClerk + Roles.ClaimContributor And UserID)
-            Case IMIS_EN.Enums.Rights.EditClaim : Return CheckUserRights(UserID, Right)'NO MAPPING TO ANY USER
-            Case IMIS_EN.Enums.Rights.DeleteClaim : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.LoadClaim : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk + Roles.ClaimAdministrator + Roles.ClaimContributor And UserID)
-            Case IMIS_EN.Enums.Rights.PrintClaim : Return CheckUserRights(UserID, Right)
-            Case IMIS_EN.Enums.Rights.SubmitClaim : Return CheckUserRights(UserID, Right)
-            Case IMIS_EN.Enums.Rights.ReviewClaim : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
-            Case IMIS_EN.Enums.Rights.EnterFeedback : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)                 
-            Case IMIS_EN.Enums.Rights.SelectClaimForFeedback : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
-            Case IMIS_EN.Enums.Rights.UpdateClaims : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
-            Case IMIS_EN.Enums.Rights.ProcessClaims : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)  
+            Case IMIS_EN.Enums.Rights.ClaimSearch : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator + Roles.ClaimContributor + Roles.CHFMedicalOfficer And UserID) 
+            Case IMIS_EN.Enums.Rights.ClaimAdd : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator + Roles.CHFClerk + Roles.ClaimContributor And UserID)
+
+            Case IMIS_EN.Enums.Rights.ClaimDelete : Return CheckUserRights(UserID, Right)'(Roles.ClaimAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.ClaimLoad : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant + Roles.CHFClerk + Roles.ClaimAdministrator + Roles.ClaimContributor And UserID)
+            Case IMIS_EN.Enums.Rights.ClaimPrint : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.ClaimSubmit : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.ClaimReview : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
+            Case IMIS_EN.Enums.Rights.ClaimFeedback : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)                
+
+            Case IMIS_EN.Enums.Rights.ClaimUpdate : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
+            Case IMIS_EN.Enums.Rights.ClaimProcess : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)  
 
             'BATCH
             Case IMIS_EN.Enums.Rights.Batch : Return CheckUserRights(UserID, Right, 1)
@@ -134,17 +134,17 @@ Public Class UsersBL
 
             'ADMINISTRATION 
             Case IMIS_EN.Enums.Rights.Product : Return CheckUserRights(UserID, Right, 1)
-            Case IMIS_EN.Enums.Rights.FindProduct : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.AddProduct : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.EditProduct : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteProduct : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID) 
-            Case IMIS_EN.Enums.Rights.DuplicateProduct : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.ProductSearch : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.ProductAdd : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.ProductEdit : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.ProductDelete : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID) 
+            Case IMIS_EN.Enums.Rights.ProductDuplicate : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
 
             Case IMIS_EN.Enums.Rights.HealthFacility : Return CheckUserRights(UserID, Right, 1)
-            Case IMIS_EN.Enums.Rights.FindHealthFacility : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.AddHealthFacility : Return CheckUserRights(UserID, Right)' (Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.EditHealthFacility : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.DeleteHealthFacility : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID) 
+            Case IMIS_EN.Enums.Rights.HealthFacilitySearch : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.HealthFacilityAdd : Return CheckUserRights(UserID, Right)' (Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.HealthFacilityEdit : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.HealthFacilityDelete : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID) 
 
             Case IMIS_EN.Enums.Rights.PriceListMedicalServices : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.FindPriceListMedicalServices : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
@@ -202,14 +202,6 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.EditLocations : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
             Case IMIS_EN.Enums.Rights.DeleteLocations : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
             Case IMIS_EN.Enums.Rights.MoveLocations : Return CheckUserRights(UserID, Right)
-            'Case IMIS_EN.Enums.Rights.AddWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            'Case IMIS_EN.Enums.Rights.EditWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            'Case IMIS_EN.Enums.Rights.DeleteWard : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-
-            'Case IMIS_EN.Enums.Rights.AddVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            'Case IMIS_EN.Enums.Rights.EditVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-            'Case IMIS_EN.Enums.Rights.DeleteVillage : Return CheckUserRights(UserID, Right)'(Roles.CHFAdministrator And UserID)
-
 
             Case IMIS_EN.Enums.Rights.userProfiles : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.FindUserProfile : Return CheckUserRights(UserID, Right)
@@ -218,28 +210,25 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.DeleteUserProfile : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.DuplicateUserProfile : Return CheckUserRights(UserID, Right)
            'TOOLS
-            Case IMIS_EN.Enums.Rights.UploadICD : Return CheckUserRights(UserID, Right)'(Roles.IMISAdministrator And RoleId) 'PAUL, THIS NEEDS YOUR ATTENTION (LEGACY BUT NOT FIND IN A NEW DOCUMENT)*******************<<<
-           '--
+
 
            'REGISTERS
             Case IMIS_EN.Enums.Rights.Registers : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.DiagnosesUpload : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.DiagnosesDownload : Return CheckUserRights(UserID, Right)
-
             Case IMIS_EN.Enums.Rights.HealthFacilitiesUpload : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.HealthFacilitiesDownload : Return CheckUserRights(UserID, Right)
-
             Case IMIS_EN.Enums.Rights.LocationUpload : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.LocationDonwload : Return CheckUserRights(UserID, Right)
 
             'EXTRACT
             Case IMIS_EN.Enums.Rights.Extracts : Return CheckUserRights(UserID, Right, 1)'(Roles.HFAdministrator + Roles.CHFAdministrator + Roles.OfflineCHFAdministrator And RoleId)    NOT IN THE NEW DOCUMENT
-            Case IMIS_EN.Enums.Rights.MasterDataDownload : Return CheckUserRights(UserID, Right)
-            Case IMIS_EN.Enums.Rights.PhoneExtractsCreate : Return CheckUserRights(UserID, Right)
-            Case IMIS_EN.Enums.Rights.OfflineExtractCreate : Return CheckUserRights(UserID, Right)'(Roles.HFAdministrator + Roles.OfflineCHFAdministrator And UserID)
-            Case IMIS_EN.Enums.Rights.ClaimXMLUpload : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
-            Case IMIS_EN.Enums.Rights.EnrolmentsUpload : Return CheckUserRights(UserID, Right)
-            Case IMIS_EN.Enums.Rights.FeedbackUpload : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.ExtractMasterDataDownload : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.ExtractPhoneExtractsCreate : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.ExtractOfflineExtractCreate : Return CheckUserRights(UserID, Right)'(Roles.HFAdministrator + Roles.OfflineCHFAdministrator And UserID)
+            Case IMIS_EN.Enums.Rights.ExtractClaimUpload : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
+            Case IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.ExtractFeedbackUpload : Return CheckUserRights(UserID, Right)
 
             'REPORTS 
             Case IMIS_EN.Enums.Rights.Reports : Return CheckUserRights(UserID, Right, 1)'(Roles.CHFManager + Role.CHFClerk + Roles.CHFAccountant + Roles.IMISAdministrator + Roles.CHFAdministrator And UserID)
@@ -267,8 +256,6 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.OverviewOfCommissions : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant  )
             Case IMIS_EN.Enums.Rights.ClaimHistoryReport : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant  )
 
-
-
             'UTILITIES
             Case IMIS_EN.Enums.Rights.Utilities : Return CheckUserRights(UserID, Right, 1) '(Roles.IMISAdministrator + Roles.HFAdministrator + Roles.OfflineCHFAdministrator And UserID)
             Case IMIS_EN.Enums.Rights.DatabaseBackup : Return CheckUserRights(UserID, Right)'(Roles.IMISAdministrator + Roles.HFAdministrator + Roles.OfflineCHFAdministrator And UserID)
@@ -277,34 +264,9 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.EmailSettings : Return CheckUserRights(UserID, Right)'(Roles.IMISAdministrator And UserID)
 
             'FUNDING
-            Case IMIS_EN.Enums.Rights.AddFund : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)
-
-            'LEGACY ROLE, NEW NOT FIND IN NEW DOCUMENT
-            Case IMIS_EN.Enums.Rights.FeedbackPrompt : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
+            Case IMIS_EN.Enums.Rights.FundingSave : Return CheckUserRights(UserID, Right) '(Roles.CHFAccountant And UserID)
 
 
-        '***************************************************************************************************The rest are not in part of the new Legacy roles****************************************
-            ''THE REST ARE NOT INCLUDED IN THE DOCUMENT  
-            'Case IMIS_EN.Enums.Rights.FamiliesInsureesOverview : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)  
-
-
-
-                'Tools
-           'Case IMIS_EN.Enums.Rights.UploadICD : Return (Roles.IMISAdministrator And RoleId)
-
-            Case IMIS_EN.Enums.Rights.OfflineExtracts : Return CheckUserRights(UserID, Right)'(Roles.HFAdministrator + Roles.OfflineCHFAdministrator And UserID) 
-
-
-
-
-            Case IMIS_EN.Enums.Rights.SelectClaimForReview : Return CheckUserRights(UserID, Right) '(Roles.CHFMedicalOfficer And UserID)                                                        '--> NOT INCLUDED IN A NEW DOCUMENT (Commented by Emmanuel)                                                                   '---> NOT INCLUDED IN A NEW DOCUMENT (Comment by Emmanuel)
-                '?????  Case IMIS_EN.Enums.Rights.DownloadClaimForPayment : Return (Roles.CHFAccountant And RoleId)
-
-
-
-                '????? Case IMIS_EN.Enums.Rights.CheckClaimPlausibility : Return (Roles.CHFMedicalOfficer And RoleId)  
-
-                '***************************************************************************************************Not in part of Legacy roles****************************************
             Case Else
                 Return False
         End Select
@@ -504,24 +466,7 @@ Public Class UsersBL
         HFAdministrator = 524288
         OfflineCHFAdministrator = 1048576
     End Enum
-    'Public Function RunPageSecurity(ByVal PageName As IMIS_EN.Enums.Pages, ByRef PageObj As System.Web.UI.Page) As Boolean
 
-    '    Dim RoleId As Integer = getRoleId(PageObj.Session("User"))
-    '    Dim HasAccess As Boolean = False
-
-    '    Dim PageRights As List(Of Rights) = GetPageRights(PageName)
-
-    '    For i As Integer = 0 To PageRights.Count - 1
-    '        HasAccess = CheckRoles(PageRights.ElementAt(i), RoleId)
-    '        If HasAccess Then
-    '            Return True   'security is not enforced on page, user has access, can be full access or partial access.
-    '        End If
-
-    '    Next
-
-    '    Return HasAccess  'security is enforced on page, user has no access
-
-    'End Function
     Private Function getUserId(ByVal session As Object) As Integer
         Try
             Dim dt As New DataTable
@@ -558,179 +503,147 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Pages.Home
 
             Case IMIS_EN.Enums.Pages.FindFamily
-                PageRights.Add(Rights.FindFamily)
-                PageRights.Add(Rights.AddFamily)
-                PageRights.Add(Rights.EditFamily)
-                PageRights.Add(Rights.DeleteFamily)
+                PageRights.Add(Rights.FamilySearch)
+                PageRights.Add(Rights.FamilyAdd)
+                PageRights.Add(Rights.FamilyEdit)
+                PageRights.Add(Rights.FamilyDelete)
 
             Case IMIS_EN.Enums.Pages.Family
-                PageRights.Add(Rights.FindFamily)
-                PageRights.Add(Rights.AddFamily)
-                PageRights.Add(Rights.EditFamily)
-                PageRights.Add(Rights.DeleteFamily)
+                PageRights.Add(Rights.FamilySearch)
+                PageRights.Add(Rights.FamilyAdd)
+                PageRights.Add(Rights.FamilyEdit)
+                PageRights.Add(Rights.FamilyDelete)
 
             Case IMIS_EN.Enums.Pages.ChangeFamily
-                PageRights.Add(Rights.EditFamily)
+                PageRights.Add(Rights.FamilyEdit)
 
             Case IMIS_EN.Enums.Pages.OverviewFamily
-                PageRights.Add(Rights.FindFamily)
+                PageRights.Add(Rights.FamilySearch)
 
             Case IMIS_EN.Enums.Pages.FindInsuree
-                PageRights.Add(Rights.FindInsuree)
-                PageRights.Add(Rights.AddInsuree)
-                PageRights.Add(Rights.EditInsuree)
-                PageRights.Add(Rights.DeleteInsuree)
-                PageRights.Add(Rights.EnquireInsuree)
+                PageRights.Add(Rights.InsureeSearch)
+                PageRights.Add(Rights.InsureeAdd)
+                PageRights.Add(Rights.InsureeEdit)
+                PageRights.Add(Rights.InsureeDelete)
+                PageRights.Add(Rights.InsureeEnquire)
 
             Case IMIS_EN.Enums.Pages.Insuree
-                PageRights.Add(Rights.EditInsuree)
-                PageRights.Add(Rights.AddInsuree)
-                PageRights.Add(Rights.FindInsuree)
-
+                PageRights.Add(Rights.InsureeEdit)
+                PageRights.Add(Rights.InsureeAdd)
+                PageRights.Add(Rights.InsureeSearch)
             Case IMIS_EN.Enums.Pages.FindPolicy
-                PageRights.Add(Rights.FindPolicy)
-
+                PageRights.Add(Rights.PolicySearch)
             Case IMIS_EN.Enums.Pages.Policy
-                PageRights.Add(Rights.AddPolicy)
-                PageRights.Add(Rights.EditPolicy)
-                PageRights.Add(Rights.FindPolicy)
+                PageRights.Add(Rights.PolicyAdd)
+                PageRights.Add(Rights.PolicyEdit)
+                PageRights.Add(Rights.PolicySearch)
 
             Case IMIS_EN.Enums.Pages.FindPremium
-                PageRights.Add(Rights.FindContribution)
-
+                PageRights.Add(Rights.ContributionSearch)
             Case IMIS_EN.Enums.Pages.Premium
-                PageRights.Add(Rights.EditContribution)
-                PageRights.Add(Rights.AddContribution)
-                PageRights.Add(Rights.ViewContribution)
-
+                PageRights.Add(Rights.ContributionEdit)
+                PageRights.Add(Rights.ContributionAdd)
+                PageRights.Add(Rights.ContributionSearch)
             Case IMIS_EN.Enums.Pages.FindClaim     'claims
-                PageRights.Add(Rights.FindClaim)
-                PageRights.Add(Rights.EnterClaim)
-                PageRights.Add(Rights.EditClaim)
-                PageRights.Add(Rights.DeleteClaim)
-                PageRights.Add(Rights.LoadClaim)
-                PageRights.Add(Rights.PrintClaim)
-                PageRights.Add(Rights.SubmitClaim)
-                PageRights.Add(Rights.ReviewClaim)
-                PageRights.Add(Rights.EnterFeedback)
-                PageRights.Add(Rights.SelectClaimForFeedback)
-                PageRights.Add(Rights.UpdateClaims)
-                PageRights.Add(Rights.ProcessClaims)
-
-
+                PageRights.Add(Rights.ClaimSearch)
+                PageRights.Add(Rights.ClaimAdd)
+                PageRights.Add(Rights.ClaimDelete)
+                PageRights.Add(Rights.ClaimLoad)
+                PageRights.Add(Rights.ClaimPrint)
+                PageRights.Add(Rights.ClaimSubmit)
+                PageRights.Add(Rights.ClaimReview)
+                PageRights.Add(Rights.ClaimFeedback)
+                PageRights.Add(Rights.ClaimUpdate)
+                PageRights.Add(Rights.ClaimProcess)
             Case IMIS_EN.Enums.Pages.ClaimOverview
-                PageRights.Add(Rights.ProcessClaims)
-                PageRights.Add(Rights.UpdateClaims)
+                PageRights.Add(Rights.ClaimProcess)
+                PageRights.Add(Rights.ClaimUpdate)
                'PageRights.Add(Rights.ClaimOverview)
-
             Case IMIS_EN.Enums.Pages.Claim
-                PageRights.Add(Rights.EnterClaim)
-                PageRights.Add(Rights.LoadClaim)
-
+                PageRights.Add(Rights.ClaimAdd)
+                PageRights.Add(Rights.ClaimPrint)
             Case IMIS_EN.Enums.Pages.ClaimFeedback
-                PageRights.Add(Rights.EnterFeedback)
-
+                PageRights.Add(Rights.ClaimFeedback)
             Case IMIS_EN.Enums.Pages.ClaimReview
-                PageRights.Add(Rights.ReviewClaim)
-
+                PageRights.Add(Rights.ClaimReview)
             Case IMIS_EN.Enums.Pages.ProcessBatches
                 PageRights.Add(Rights.BatchProcess)
                 PageRights.Add(Rights.BatchFilter)
                 PageRights.Add(Rights.BatchPreview)
-
-            Case IMIS_EN.Enums.Pages.FindProduct                 'administration
-                PageRights.Add(Rights.FindProduct)
-                PageRights.Add(Rights.AddProduct)
-                PageRights.Add(Rights.EditProduct)
-                PageRights.Add(Rights.DeleteProduct)
-                PageRights.Add(Rights.DuplicateProduct)
-
+            Case IMIS_EN.Enums.Pages.FindProduct
+                PageRights.Add(Rights.ProductSearch)
+                PageRights.Add(Rights.ProductAdd)
+                PageRights.Add(Rights.ProductEdit)
+                PageRights.Add(Rights.ProductDelete)
+                PageRights.Add(Rights.ProductDuplicate)
             Case IMIS_EN.Enums.Pages.Product
-                PageRights.Add(Rights.AddProduct)
-                PageRights.Add(Rights.EditProduct)
-                PageRights.Add(Rights.FindProduct)
-                PageRights.Add(Rights.FindProduct)
-
+                PageRights.Add(Rights.ProductAdd)
+                PageRights.Add(Rights.ProductEdit)
+                PageRights.Add(Rights.ProductSearch)
+                PageRights.Add(Rights.ProductSearch)
             Case IMIS_EN.Enums.Pages.FindHealthFacility
-                PageRights.Add(Rights.FindHealthFacility)
-                PageRights.Add(Rights.AddHealthFacility)
-                PageRights.Add(Rights.EditHealthFacility)
-                PageRights.Add(Rights.DeleteHealthFacility)
-
+                PageRights.Add(Rights.HealthFacilitySearch)
+                PageRights.Add(Rights.HealthFacilityAdd)
+                PageRights.Add(Rights.HealthFacilityEdit)
+                PageRights.Add(Rights.HealthFacilityDelete)
             Case IMIS_EN.Enums.Pages.HealthFacility
-                PageRights.Add(Rights.AddHealthFacility)
-                PageRights.Add(Rights.EditHealthFacility)
-                PageRights.Add(Rights.FindHealthFacility)
-
+                PageRights.Add(Rights.HealthFacilityAdd)
+                PageRights.Add(Rights.HealthFacilityEdit)
+                PageRights.Add(Rights.HealthFacilitySearch)
             Case IMIS_EN.Enums.Pages.FindPriceListMI
                 PageRights.Add(Rights.FindPriceListMedicalItems)
                 PageRights.Add(Rights.EditPriceListMedicalItems)
                 PageRights.Add(Rights.AddPriceListMedicalItems)
                 PageRights.Add(Rights.DeletePriceListMedicalItems)
                 PageRights.Add(Rights.DuplicatePriceListMedicalItems)
-
-
             Case IMIS_EN.Enums.Pages.PriceListMI
                 PageRights.Add(Rights.EditPriceListMedicalItems)
                 PageRights.Add(Rights.AddPriceListMedicalItems)
                 PageRights.Add(Rights.DeletePriceListMedicalItems)
-
                 PageRights.Add(Rights.DuplicatePriceListMedicalItems)
-
             Case IMIS_EN.Enums.Pages.FindPriceListMS
                 PageRights.Add(Rights.FindPriceListMedicalServices)
                 PageRights.Add(Rights.EditPriceListMedicalServices)
                 PageRights.Add(Rights.AddPriceListMedicalServices)
                 PageRights.Add(Rights.DeletePriceListMedicalServices)
                 PageRights.Add(Rights.DuplicatePriceListMedicalServices)
-
             Case IMIS_EN.Enums.Pages.PriceListMS
                 PageRights.Add(Rights.EditPriceListMedicalServices)
                 PageRights.Add(Rights.AddPriceListMedicalServices)
                 PageRights.Add(Rights.FindPriceListMedicalServices)
-
             Case IMIS_EN.Enums.Pages.FindMedicalService
                 PageRights.Add(Rights.FindMedicalService)
                 PageRights.Add(Rights.EditMedicalService)
                 PageRights.Add(Rights.AddMedicalService)
                 PageRights.Add(Rights.DeleteMedicalService)
-
             Case IMIS_EN.Enums.Pages.MedicalService
                 PageRights.Add(Rights.EditMedicalService)
                 PageRights.Add(Rights.AddMedicalService)
                 PageRights.Add(Rights.FindMedicalService)
-
             Case IMIS_EN.Enums.Pages.FindMedicalItem
                 PageRights.Add(Rights.FindMedicalItem)
                 PageRights.Add(Rights.EditMedicalItem)
                 PageRights.Add(Rights.AddMedicalItem)
                 PageRights.Add(Rights.DeleteMedicalItem)
-
             Case IMIS_EN.Enums.Pages.MedicalItem
                 PageRights.Add(Rights.EditMedicalItem)
                 PageRights.Add(Rights.AddMedicalItem)
                 PageRights.Add(Rights.FindMedicalItem)
-
             Case IMIS_EN.Enums.Pages.FindUser
                 PageRights.Add(Rights.FindUser)
                 PageRights.Add(Rights.AddUser)
                 PageRights.Add(Rights.EditUser)
                 PageRights.Add(Rights.DeleteUser)
-
-
             Case IMIS_EN.Enums.Pages.User
                 PageRights.Add(Rights.AddUser)
                 PageRights.Add(Rights.EditUser)
                 PageRights.Add(Rights.FindUser)
-
             Case IMIS_EN.Enums.Pages.UserProfiles
                 PageRights.Add(Rights.FindUserProfile)
                 PageRights.Add(Rights.AddUserProfile)
                 PageRights.Add(Rights.EditUserProfile)
                 PageRights.Add(Rights.DeleteUserProfile)
                 PageRights.Add(Rights.DuplicateUserProfile)
-
-
             Case IMIS_EN.Enums.Pages.Role
                 PageRights.Add(Rights.AddUserProfile)
                 PageRights.Add(Rights.EditUserProfile)
@@ -741,88 +654,51 @@ Public Class UsersBL
                 PageRights.Add(Rights.AddOfficer)
                 PageRights.Add(Rights.EditOfficer)
                 PageRights.Add(Rights.DeleteOfficer)
-
             Case IMIS_EN.Enums.Pages.Officer
                 PageRights.Add(Rights.AddOfficer)
                 PageRights.Add(Rights.EditOfficer)
                 PageRights.Add(Rights.FindOfficer)
-
             Case IMIS_EN.Enums.Pages.FindClaimAdministrator
                 PageRights.Add(Rights.FindClaimAdministrator)
                 PageRights.Add(Rights.AddClaimAdministrator)
                 PageRights.Add(Rights.EditClaimAdministrator)
                 PageRights.Add(Rights.DeleteClaimAdministrator)
-
             Case IMIS_EN.Enums.Pages.ClaimAdministrator
                 PageRights.Add(Rights.AddClaimAdministrator)
                 PageRights.Add(Rights.EditClaimAdministrator)
                 PageRights.Add(Rights.FindClaimAdministrator)
-
             Case IMIS_EN.Enums.Pages.FindPayer
                 PageRights.Add(Rights.FindPayer)
                 PageRights.Add(Rights.AddPayer)
                 PageRights.Add(Rights.EditPayer)
                 PageRights.Add(Rights.DeletePayer)
-
             Case IMIS_EN.Enums.Pages.Payer
                 PageRights.Add(Rights.AddPayer)
                 PageRights.Add(Rights.EditPayer)
                 PageRights.Add(Rights.FindPayer)
                 PageRights.Add(Rights.FindPayer)
-
-
             Case IMIS_EN.Enums.Pages.Locations
                 PageRights.Add(Rights.Locations)
-
-
-            Case IMIS_EN.Enums.Pages.UploadICD                     'Tools
+            Case IMIS_EN.Enums.Pages.UploadICD
                 PageRights.Add(Rights.Registers)
-
             Case IMIS_EN.Enums.Pages.PolicyRenewal
-                PageRights.Add(Rights.RenewPolicy)
-
+                PageRights.Add(Rights.PolicyRenew)
             Case IMIS_EN.Enums.Pages.IMISExtracts
-                PageRights.Add(Rights.MasterDataDownload)
-                PageRights.Add(Rights.PhoneExtractsCreate)
-                PageRights.Add(Rights.OfflineExtracts)
-                PageRights.Add(Rights.UpdateClaims)
-                PageRights.Add(Rights.EnrolmentsUpload)
-                PageRights.Add(Rights.FeedbackUpload)
-
+                PageRights.Add(Rights.Extracts)
             Case IMIS_EN.Enums.Pages.Report
                 PageRights.Add(Rights.Reports)
-
+                PageRights.Add(Rights.ClaimPrint)
+                PageRights.Add(Rights.BatchPreview)
+                PageRights.Add(Rights.PolicyRenew)
             Case IMIS_EN.Enums.Pages.Reports
                 PageRights.Add(Rights.Reports)
-                'PageRights.Add(Rights.PrimaryOperationalIndicatorPolicies)
-                'PageRights.Add(Rights.PrimaryOperationalIndicatorsClaims)
-                'PageRights.Add(Rights.DerivedOperationalIndicators)
-                'PageRights.Add(Rights.ContributionCollection)
-                'PageRights.Add(Rights.ProductSales)
-                'PageRights.Add(Rights.ContributionDistribution)
-                'PageRights.Add(Rights.UserActivity)
-                'PageRights.Add(Rights.EnrolmentPerformanceIndicators)
-                'PageRights.Add(Rights.StatusOfRegister)
-                'PageRights.Add(Rights.InsureeWithoutPhotos)
-                'PageRights.Add(Rights.PaymentCategoryOverview)
-                'PageRights.Add(Rights.MatchingFunds)
-                'PageRights.Add(Rights.PercentageReferrals)
-                'PageRights.Add(Rights.PendingInsurees)
-                'PageRights.Add(Rights.Renewals)
-                'PageRights.Add(Rights.CapitationPayment)
-                'PageRights.Add(Rights.RejectedPhoto)
-
-
             Case IMIS_EN.Enums.Pages.Utilities
                 PageRights.Add(Rights.Utilities)
                 PageRights.Add(Rights.DatabaseBackup)
                 PageRights.Add(Rights.DatabaseRestore)
                 PageRights.Add(Rights.ExecuteScripts)
-
-
             Case IMIS_EN.Enums.Pages.FeedbackPrompt
-                PageRights.Add(Rights.FeedbackPrompt)
-
+                PageRights.Add(Rights.ClaimReview)
             Case IMIS_EN.Enums.Pages.EmailSettings
                 PageRights.Add(Rights.EmailSettings)
         End Select
@@ -904,6 +780,7 @@ Public Class UsersBL
         End If
         Return dtRoles
     End Function
+
     Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean) As DataTable
         Dim UsersDal As New IMIS_DAL.UsersDAL
         Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline)

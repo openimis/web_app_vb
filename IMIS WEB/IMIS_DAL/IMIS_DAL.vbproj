@@ -155,6 +155,7 @@
     <Compile Include="RoleDAL.vb" />
     <Compile Include="RoleRightDAL.vb" />
     <Compile Include="ServicesDAL.vb" />
+    <Compile Include="UserRoleDALvb.vb" />
     <Compile Include="UsersDAL.vb" />
     <Compile Include="UsersDistrictsDAL.vb" />
     <Compile Include="UtilitiesDAL.vb" />

@@ -267,7 +267,7 @@ Partial Public Class FindPolicy
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindPolicy, Page) Then
-            B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.FindPolicy, UserID)
+            B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.PolicySearch, UserID)
         Else
             Dim RefUrl = Request.Headers("Referer")
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindPolicy.ToString & "&retUrl=" & RefUrl)
