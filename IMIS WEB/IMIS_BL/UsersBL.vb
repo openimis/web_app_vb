@@ -854,9 +854,9 @@ Public Class UsersBL
             Dim UserOrg As New IMIS_EN.tblUsers
             UserOrg.UserID = eUser.UserID
             users.LoadUsers(UserOrg)
-            If isDirtyUser(eUser, UserOrg) Then
-                users.UpdateUser(eUser)
-            End If
+            'If isDirtyUser(eUser, UserOrg) Then
+            users.UpdateUser(eUser)
+            'End If
 
             users.SaveUserRoles(dtRoles, eUser)
             Return 2

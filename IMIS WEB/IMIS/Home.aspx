@@ -70,7 +70,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
    
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
 
-    <span id="version">v1.3.1.1 &beta;</span>
+    <span id="version">v1.3.1.2 &beta;</span>
     <div style="min-height:650px;">
     <div id="UserGreeting">
         <asp:Label ID="L_CURRENTUSER" runat="server" Text='<%$ Resources:Resource,L_WELCOME %>'></asp:Label>

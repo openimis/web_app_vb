@@ -123,6 +123,7 @@ Partial Public Class FindProfile
     End Sub
     Private Sub getGridData()
         eRole.RoleName = txtRolename.Text
+        eRole.AltLanguage = txtRolename.Text
         If ddlBlocked.SelectedIndex > 0 Then
             If ddlBlocked.SelectedValue = "True" Then
                 eRole.IsBlocked = 1

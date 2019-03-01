@@ -29,7 +29,7 @@ Public Class tblRole
 
     Private _RoleID As Int32
     Private _RoleName As String
-    Private _AltLanguage String
+    Private _AltLanguage As String
     Private _IsSystem As Integer?
     Private _IsBlocked As Boolean?
     Private _ValidityFrom As DateTime
