@@ -141,22 +141,12 @@ title='<%$ Resources:Resource,L_REPORTS%>' %>
                         }
                     }
 
-                    else if ($(this).is("#<%=ddlProduct.ClientID %>")) {
-                        var lstBoxID = $lstBox.val();
-                        if (lstBoxID == 22) {
-                            if ($("#<%=ddlProduct.ClientID %>").val() == 0) {
-                                flag = false;
-                                $("#<%=lblMsg.ClientID %>").html('<%= imisgen.getMessage("M_PLEASESELECTAPRODUCT", True)%>')
-                                $(this).focus();
-                                return false;
-                            }
-                        }
-                    }
+           
 
                     else if ($(this).is("#<%=ddlProductStrict.ClientID%>")) {
                         var lstBoxID = $lstBox.val();
                         
-                        if (lstBoxID == 6 || lstBoxID == 3 || lstBoxID == 18) {
+                        if ( lstBoxID == 3 || lstBoxID == 18) {
                             if ($("#<%=ddlProductStrict.ClientID %>").val() == 0 || $("#<%=ddlProductStrict.ClientID %>").val() == null)                                                        {
                                 flag = false;
                                 $("#<%=lblMsg.ClientID %>").html('<%= imisgen.getMessage("M_PLEASESELECTAPRODUCT", True)%>')

@@ -1541,7 +1541,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Commission Rate.
+        '''  Looks up a localized string similar to Commission Rate (%).
         '''</summary>
         Friend Shared ReadOnly Property L_COMMISSIONRATE() As String
             Get
@@ -1663,6 +1663,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_CONTRIBUTIONPAYMENT() As String
             Get
                 Return ResourceManager.GetString("L_CONTRIBUTIONPAYMENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Contribution.
+        '''</summary>
+        Friend Shared ReadOnly Property L_CONTRIBUTIONPREMIUM() As String
+            Get
+                Return ResourceManager.GetString("L_CONTRIBUTIONPREMIUM", resourceCulture)
             End Get
         End Property
         
@@ -12125,7 +12134,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Actual Paid Contributions.
+        '''  Looks up a localized string similar to Actually Paid Contributions.
         '''</summary>
         Friend Shared ReadOnly Property T_ACTUALPAIDCONTRIBUTIONS() As String
             Get

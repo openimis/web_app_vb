@@ -4420,7 +4420,7 @@
     <value>Overview of Commissions</value>
   </data>
   <data name="L_COMMISSIONRATE" xml:space="preserve">
-    <value>Commission Rate</value>
+    <value>Commission Rate (%)</value>
   </data>
   <data name="L_MODE" xml:space="preserve">
     <value>Mode</value>
@@ -4429,7 +4429,7 @@
     <value>Please select month</value>
   </data>
   <data name="T_ACTUALPAIDCONTRIBUTIONS" xml:space="preserve">
-    <value>Actual Paid Contributions</value>
+    <value>Actually Paid Contributions</value>
   </data>
   <data name="T_PRESCRIBEDCONTRIBUTIONS" xml:space="preserve">
     <value>Prescribed Contributions</value>
@@ -4778,5 +4778,8 @@
   </data>
   <data name="R_PHONEEXTRACTSCREATE" xml:space="preserve">
     <value>Create Phone extract</value>
+  </data>
+  <data name="L_CONTRIBUTIONPREMIUM" xml:space="preserve">
+    <value>Contribution</value>
   </data>
 </root>
