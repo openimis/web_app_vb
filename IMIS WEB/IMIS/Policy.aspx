@@ -176,23 +176,21 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td class="FormLabel">
                         <asp:Label ID="lblEnrolmentDate" runat="server" Text='<%$ Resources:Resource,L_ENROLMENTDATE %>'></asp:Label>
                         </td>
-                        <td class ="DataEntry">
-                        <asp:TextBox ID="txtEnrollmentDate" runat="server" Width="132px" Height="16px" 
+                         <td class ="DataEntry">
+                            <asp:TextBox ID="txtEnrollmentDate" runat="server" Width="132px" Height="16px" 
                                 AutoPostBack="True"></asp:TextBox>                                      
-                        <asp:Button ID="btnEnrollmentDate" runat="server" Height="20px" Width="20px"/>
-                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtEnrollmentDate" PopupButtonID="btnEnrollmentDate" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                        <asp:MaskedEditExtender ID="txtEnrolDate_MaskedEditExtender" runat="server" 
-                            CultureDateFormat="dd/MM/YYYY"                             
-                            TargetControlID="txtEnrollmentDate" Mask="99/99/9999" MaskType="Date" 
-                            UserDateFormat="DayMonthYear">
-                        </asp:MaskedEditExtender>
-                       <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server" 
-                    ControlToValidate="txtEnrollmentDate" SetFocusOnError="True" Text="*"  
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="RequiredfieldValidator1" runat="Server" ControlToValidate="txtEnrollmentDate" SetFocusOnError="true" ForeColor="Red" Display="Dynamic"
-                            Text='*' ></asp:RequiredFieldValidator>
-                        </td>                        
+                            <asp:Button ID="btnEnrollmentDate" runat="server" Height="20px" Width="20px"/> 
+                             <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtEnrollmentDate" PopupButtonID="btnEnrollmentDate" Format="dd/MM/yyyy"></asp:CalendarExtender>
+                                    <asp:RequiredFieldValidator ID="RequiredfieldValidator1" runat="server" ControlToValidate="txtEnrollmentDate" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic" Text="*"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtEnrollmentDate" runat="server"
+                                        ControlToValidate="txtEnrollmentDate" ErrorMessage="*" SetFocusOnError="True"
+                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:RegularExpressionValidator>
+
+
+                        </td>   
                        <td style="width:210px"> &nbsp;</td>
                            <td class="FormLabel" style="text-align:left">
                             <asp:Label ID="lblPolicyStatus" runat="server" Text='<%$ Resources:Resource,L_POLICYSTATUS %>'></asp:Label>

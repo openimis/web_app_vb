@@ -141,24 +141,33 @@
        <asp:Panel ID="pnlHeader"  runat="server" CssClass="panelTop" GroupingText='<%$ Resources:Resource,G_USER %>'> 
               <table width="100%" cellpadding="10 10 10 10" >
                 <tr>
-                    <td width="15%">
-                        <asp:Label ID="lblRole" runat="server" Text='<%$ Resources:Resource,L_ROLENAME %>'></asp:Label>
-                    </td>
-                     <td width="35%">
-                         <asp:Textbox ID="txtRoles" size="10" runat="server" Width="200px" MaxLength="50"></asp:Textbox> 
+                    <td width="45%">
+                        &nbsp
+                        <asp:Label ID="lblRole" size="50" runat="server" Text='<%$ Resources:Resource,L_ROLENAME %>'></asp:Label>   
+                        &nbsp                
+                         <asp:Textbox ID="txtRoles" size="10" runat="server" Width="300px" MaxLength="50"></asp:Textbox> 
                         <asp:RequiredFieldValidator 
                         ID="RequiredFieldCode" runat="server" 
                         ControlToValidate="txtRoles" 
                         SetFocusOnError="False"
                         ValidationGroup="check"   ForeColor="Red" Display="Dynamic"
-                        Text='*'></asp:RequiredFieldValidator>
-                        
+                        Text='*'></asp:RequiredFieldValidator>                        
                     </td>
-                     <td width="25%">
+                    <td width="45%">
+                        <asp:Label ID="lblAltLanguage" runat="server" Text='<%$ Resources:Resource,L_ALTLANGUAGE %>'></asp:Label>    
+                         <asp:Textbox ID="txtAltLanguage" size="10" runat="server" Width="300px" MaxLength="50" Enabled="false"></asp:Textbox> 
+                        <asp:RequiredFieldValidator 
+                        ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtAltLanguage" 
+                        SetFocusOnError="False"
+                        ValidationGroup="check"   ForeColor="Red" Display="Dynamic"
+                        Text='*'></asp:RequiredFieldValidator>                        
+                    </td>
+                     <td width="5%">
                           <asp:Label ID="lblIsSystem" runat="server" Text='<%$ Resources:Resource,L_SYSTEM %>'  ></asp:Label> 
                          <asp:CheckBox ID="chkIsSystem" runat="server" Enabled="false" />
                     </td>
-                    <td width="25%">
+                    <td width="5%">
                           <asp:Label ID="Label1" runat="server" Text='<%$ Resources:Resource,L_BLOCKED %>' ></asp:Label> 
                          <asp:CheckBox ID="chkIsBlocked" runat="server" />
                     </td>                   

@@ -53,7 +53,6 @@ Public Class RoleDAL
         data.params("@IsSystem", SqlDbType.Bit, erole.IsSystem)
         data.params("@IsBlocked", SqlDbType.Bit, erole.IsBlocked)
 
-
         Return data.Filldata
     End Function
     Public Function GetRoles(offline As Boolean) As DataTable
@@ -113,8 +112,12 @@ Public Class RoleDAL
     Dim sSQL As String = String.Empty
     Dim data As new ExactSQL
 
-        sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,AuditUserID)"
-        sSQL += " VALUES(@RoleName,@IsSystem,@IsBlocked,GetDate(),@AuditUserID)"
+        'sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,AuditUserID)"
+        'sSQL += " VALUES(@RoleName,@IsSystem,@IsBlocked,GetDate(),@AuditUserID)"
+        'sSQL += " SELECT @RoleId = SCOPE_IDENTITY()"
+
+        sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,AuditUserID, AltLanguage)"
+        sSQL += " VALUES(@RoleName,@IsSystem,@IsBlocked,GetDate(),@AuditUserID, @AltLanguage)"
         sSQL += " SELECT @RoleId = SCOPE_IDENTITY()"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -123,7 +126,7 @@ Public Class RoleDAL
         data.params("@IsSystem", SqlDbType.Bit, eRole.IsSystem)
         data.params("@IsBlocked", SqlDbType.Bit, eRole.IsBlocked)
         data.params("@AuditUserID", SqlDbType.Int, eRole.AuditUserID)
-
+        data.params("@AltLanguage", SqlDbType.NVarChar, 50, eRole.AltLanguage)
 
 
         data.ExecuteCommand
@@ -138,7 +141,7 @@ Public Class RoleDAL
         sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID)"
         sSQL += " SELECT RoleName,IsSystem,IsBlocked,ValidityFrom,GETDATE(),AuditUserID,RoleID FROM tblRole WHERE RoleID=@RoleID"
         sSQL += " UPDATE tblRole SET RoleName = @RoleName ,IsSystem = @IsSystem ,IsBlocked = @IsBlocked ,ValidityFrom ="
-        sSQL += " GETDATE() ,AuditUserID = @AuditUserID WHERE RoleID = @RoleID"
+        sSQL += " GETDATE() ,AuditUserID = @AuditUserID AltLanguage = @AltLanguage WHERE RoleID = @RoleID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
 
@@ -146,7 +149,8 @@ Public Class RoleDAL
         data.params("@RoleName", SqlDbType.NVarChar, 50, eRole.RoleName)
         data.params("@IsSystem",SqlDbType.bit, eRole.IsSystem)
         data.params("@IsBlocked", SqlDbType.Bit, eRole.IsBlocked)
-        data.params("@AuditUserID",SqlDbType.int, eRole.AuditUserID)
+        data.params("@AuditUserID", SqlDbType.Int, eRole.AuditUserID)
+        data.params("@AltLanguage", SqlDbType.NVarChar, 50, eRole.AltLanguage)
 
 
 

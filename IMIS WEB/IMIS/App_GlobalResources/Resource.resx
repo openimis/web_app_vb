@@ -4782,4 +4782,10 @@
   <data name="L_CONTRIBUTIONPREMIUM" xml:space="preserve">
     <value>Contribution</value>
   </data>
+  <data name="M_DELETEOFFICERLOGIN" xml:space="preserve">
+    <value>Are you sure want to delete user login ?</value>
+  </data>
+  <data name="L_ALTLANGUAGE" xml:space="preserve">
+    <value>Alt Language</value>
+  </data>
 </root>

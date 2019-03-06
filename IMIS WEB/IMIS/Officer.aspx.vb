@@ -31,7 +31,7 @@ Partial Public Class Officer
     Dim eOfficer As New IMIS_EN.tblOfficer
     Dim Officer As New IMIS_BI.OfficerBI
     Private eUsers As New IMIS_EN.tblUsers
-    Private imisgen As New IMIS_Gen
+    Public imisgen As New IMIS_Gen
     Private BIOfficer As New IMIS_BI.OfficerBI
 #End Region
 
@@ -40,6 +40,7 @@ Partial Public Class Officer
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
         lblmsg.Text = ""
+        FillLanguage()
         eOfficer.OfficerID = HttpContext.Current.Request.QueryString("o")
         eUsers.UserID = imisgen.getUserId(Session("User"))
         'If IsPostBack = True Then
@@ -83,19 +84,10 @@ Partial Public Class Officer
                 txtVeoPhone.Text = If(eOfficer.VEOPhone Is Nothing, "", eOfficer.VEOPhone)
                 chkCommunicate.Checked = If(eOfficer.PhoneCommunication Is Nothing, False, eOfficer.PhoneCommunication)
 
-
-                FillLanguage()
-                If chkIncludeLogin.Checked = False Then
-                    ShowLoginTextboxes()
-                End If
-
                 If eOfficer.HasLogin = True Then
                     eUsers.LoginName = eOfficer.Code
                     eUsers.UserID = 0
                     BIOfficer.LoadUsers(eUsers)
-                    If eUsers.IsAssociated = True Then
-                        chkIncludeLogin.Checked = True
-                    End If
 
                     ddlLanguage.SelectedValue = eUsers.LanguageID
                     txtCode.Enabled = True
@@ -123,9 +115,9 @@ Partial Public Class Officer
                     ddlLanguage.Visible = True
                     ddlLanguage.Enabled = True
 
-                    If chkIncludeLogin.Checked = False Then
-                        chkIncludeLogin.Checked = True
-                    End If
+                    'If chkOfficerIncludeLogin.Checked = False Then
+                    '    chkOfficerIncludeLogin.Checked = True
+                    'End If
                 Else
                     ddlLanguage.Visible = False
                     lblLanguage.Visible = False
@@ -142,27 +134,27 @@ Partial Public Class Officer
             Else
                 eUsers.UserID = 0
                 BIOfficer.LoadUsers(eUsers)
-                If chkIncludeLogin.Checked = True Then
-                    Dim ipassword As Integer = IsValidPassword()
+                'If chkOfficerIncludeLogin.Checked = True Then
+                '    Dim ipassword As Integer = IsValidPassword()
 
-                    If ipassword = -1 Then
-                        lblmsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
-                        Exit Sub
-                    ElseIf ipassword = -2 Then
+                '    If ipassword = -1 Then
+                '        lblmsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
+                '        Exit Sub
+                '    ElseIf ipassword = -2 Then
 
-                        lblmsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
-                        Exit Sub
-                    End If
-                    ShowLoginTextboxes()
-                Else
-                    ddlLanguage.Visible = False
-                    lblLanguage.Visible = False
-                    txtConfirmPassword.Visible = False
-                    lblConfirmPassword.Visible = False
-                    txtPassword.Visible = False
-                    lblPassword.Visible = False
+                '        lblmsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                '        Exit Sub
+                '    End If
+                '    ShowLoginTextboxes()
+                'Else
+                '    ddlLanguage.Visible = False
+                '    lblLanguage.Visible = False
+                '    txtConfirmPassword.Visible = False
+                '    lblConfirmPassword.Visible = False
+                '    txtPassword.Visible = False
+                '    lblPassword.Visible = False
 
-                End If
+                'End If
 
             End If
 
@@ -186,8 +178,8 @@ Partial Public Class Officer
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
 
 
-        If chkIncludeLogin.Checked = True Then
-            If eOfficer.OfficerID = 0 Then
+        ' If chkOfficerIncludeLogin.Checked = True Then
+        If eOfficer.OfficerID = 0 Then
                 If OfficerExists() = True Then
                     Return
                 Else
@@ -214,27 +206,20 @@ Partial Public Class Officer
 
 
 
-        End If
+        ' End If
 
 
         If Not eOfficer.OfficerID = 0 Then
-            If chkIncludeLogin.Checked = True Then
-                Dim ipassword As Integer = IsValidPassword()
+            'If chkOfficerIncludeLogin.Checked = True Then
+            Dim ipassword As Integer = IsValidPassword()
 
                 If ipassword = -1 Then
-                    lblmsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
-                    ShowLoginTextboxes()
-                    FillLanguage()
-
-
-                    Exit Sub
+                lblmsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
+                Exit Sub
                 ElseIf ipassword = -2 Then
 
-                    lblmsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
-                    ShowLoginTextboxes()
-                    FillLanguage()
-
-                    Exit Sub
+                lblmsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                Exit Sub
                 End If
                 If ValidateEntry() = True Then Return
                 SaveOfficer()
@@ -245,11 +230,11 @@ Partial Public Class Officer
                     End If
                     Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
                 End If
-            Else
-                If ValidateEntry() = True Then Return
-                SaveOfficer()
-                Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
-            End If
+            'Else
+            '    If ValidateEntry() = True Then Return
+            '    SaveOfficer()
+            '    Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
+            'End If
 
         End If
 
@@ -278,42 +263,8 @@ Partial Public Class Officer
 
         Return dtData
     End Function
-    Private Sub ShowLoginTextboxes()
-        lblLanguage.Enabled = True
-        ddlLanguage.Enabled = True
-        ddlLanguage.Visible = True
-        lblLanguage.Visible = True
-        lblPassword.Enabled = True
-        txtPassword.Enabled = True
-        lblConfirmPassword.Enabled = True
-        txtConfirmPassword.Enabled = True
 
-        ddlLanguage.Visible = True
-        lblLanguage.Visible = True
-        txtConfirmPassword.Visible = True
-        lblConfirmPassword.Visible = True
-        txtPassword.Visible = True
-        lblPassword.Visible = True
-    End Sub
-    Private Sub HideLoginTextboxes()
-        lblLanguage.Enabled = False
-        ddlLanguage.Enabled = False
-        ddlLanguage.Visible = False
-        lblLanguage.Visible = False
-        lblPassword.Enabled = False
-        txtPassword.Enabled = False
-        lblConfirmPassword.Enabled = False
-        txtConfirmPassword.Enabled = False
-
-        ddlLanguage.Visible = False
-        lblLanguage.Visible = False
-        txtConfirmPassword.Visible = False
-        lblConfirmPassword.Visible = False
-        txtPassword.Visible = False
-        lblPassword.Visible = False
-    End Sub
     Private Function ValidateEntry()
-        ShowLoginTextboxes()
         Dim flag As Boolean = False
         If txtCode.Text = "" Then
             lblError4.Visible = True
@@ -339,20 +290,7 @@ Partial Public Class Officer
             flag = True
         End If
 
-        If chkIncludeLogin.Checked = True Then
-            If txtPassword.Text = "" Then
-                lblError2.Visible = True
-                flag = True
-            End If
-            If txtConfirmPassword.Text = "" Then
-                lblError3.Visible = True
-                flag = True
-            End If
-            If ddlLanguage.SelectedIndex = 0 Then
-                lblError1.Visible = True
-                flag = True
-            End If
-        End If
+
 
         lblmsg.Text = imisgen.getMessage("V_SUMMARY")
 
@@ -376,61 +314,6 @@ Partial Public Class Officer
         FillDistrict()
     End Sub
 
-    Protected Sub chkIncludeLogin_CheckedChanged(sender As Object, e As EventArgs) Handles chkIncludeLogin.CheckedChanged
-
-        FillLanguage()
-
-        If chkIncludeLogin.Checked = True Then
-            ShowLoginTextboxes()
-            FillLanguage()
-        Else
-
-            If ValidateEntry() = True Then
-                ShowLoginTextboxes()
-                Return
-
-            End If
-
-            'SaveOfficer()
-            BIOfficer.LoadOfficer(eOfficer)
-            If eOfficer.HasLogin = False Then
-                ShowLoginTextboxes()
-                Return
-            End If
-
-
-
-
-
-            lblmsg.Text = ""
-                    BIOfficer.LoadOfficer(eOfficer)
-                    eUsers.LoginName = eOfficer.Code
-                    eUsers.UserID = 0
-                    BIOfficer.LoadUsers(eUsers)
-                    If Not eUsers.IsAssociated = True Then
-                        eOfficer.HasLogin = True
-                        Dim dtData As DataTable = GetOfficersVillagesDT()
-                        Officer.SaveOfficer(eOfficer, dtData)
-                    Else
-                        eUsers.AuditUserID = imisgen.getUserId(Session("User"))
-                        BIOfficer.DeleteUser(eUsers)
-                        eOfficer.HasLogin = False
-                        Dim dtData As DataTable = GetOfficersVillagesDT()
-
-                        Officer.SaveOfficer(eOfficer, dtData)
-                        Dim User As String = eOfficer.Code
-                        Session("msg") = User & " " & imisgen.getMessage("M_DELETED")
-                        Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
-                    End If
-
-            'Catch ex As Exception
-            '    imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            '    EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
-            'End Try
-
-        End If
-
-    End Sub
 
 #End Region
 #End Region
@@ -582,15 +465,15 @@ Partial Public Class Officer
                 eOfficer.PhoneCommunication = chkCommunicate.Checked
 
 
-                If chkIncludeLogin.Checked = True Then
-                    If eOfficer.HasLogin = 0 Then
-                        eOfficer.HasLogin = 1
-                    End If
-                Else
-                    eOfficer.HasLogin = 0
-                End If
+            'If chkOfficerIncludeLogin.Checked = True Then
+            '    If eOfficer.HasLogin = 0 Then
+            '        eOfficer.HasLogin = 1
+            '    End If
+            'Else
+            'eOfficer.HasLogin = 0
+            '    End If
 
-                If Not txtVeoDOB.Text.Length = 0 Then
+            If Not txtVeoDOB.Text.Length = 0 Then
                     eOfficer.VEODOB = Date.Parse(txtVeoDOB.Text)
                 End If
                 Dim eofficer2 As New IMIS_EN.tblOfficer
