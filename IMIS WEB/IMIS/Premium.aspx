@@ -391,7 +391,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     
                     
          </asp:Panel>
-   <asp:Panel ID="pnlBody" runat="server"  ScrollBars="Auto" CssClass="panel" GroupingText="<%$ Resources:Resource, L_PAYMENTGRIDVIEW %>">
+   <asp:Panel ID="pnlBody" runat="server"  ScrollBars="Auto" CssClass="panel" GroupingText="<%$ Resources:Resource, L_CONTRIBUTIONPREMIUM %>">
            <table>
                  <tr>  
                    <td>
@@ -546,7 +546,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
            </table>            
          </asp:Panel> 
         <asp:Panel ID="pnlGridPremium" runat="server" height="150px" 
-             CssClass="panelBody" >
+             CssClass="panel" GroupingText="<%$ Resources:Resource, L_PAYMENTGRIDVIEW %>">
            
 
 

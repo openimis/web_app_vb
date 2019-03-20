@@ -52,7 +52,7 @@ title='<%$ Resources:Resource,L_REPORTS%>' %>
             var lstBoxID = $lstBox.val();
          
             $("#<%=lblMsg.ClientID %>").html("");
-            if (lstBoxID == 12 && $("#<%=ddlPreviousReportDate.ClientID %>").val() > 0) {
+            if (lstBoxID == 12  && $("#<%=ddlPreviousReportDate.ClientID %>").val() > 0) {
                 popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
                 popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True)%>';
                 popup.confirm('<%=imisgen.getMessage("M_REPORTINGDATECHANGED", True ) %>', function (btn) {
@@ -63,6 +63,18 @@ title='<%$ Resources:Resource,L_REPORTS%>' %>
                 cacheCriteria();
                 return false;
             }
+            if (lstBoxID == 22 && $("#<%=ddlPreviousReportDateCommission.ClientID %>").val() > 0) {
+                popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
+                popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True)%>';
+                popup.confirm('<%=imisgen.getMessage("M_PREVIOUSCOMMISSIONREPORT", True) %>', function (btn) {
+                    if (btn == "ok") {
+                        reDoPostBack("<%=btnPreview.UniqueID %>");
+                    }
+                });
+                cacheCriteria();
+                return false;
+            }
+
             var flag = true;
             $criterias.find("select, input[type=text]").each(function () {
                 

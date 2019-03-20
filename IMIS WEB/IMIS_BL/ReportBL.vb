@@ -113,29 +113,29 @@ Public Class ReportBL
         dt.Columns.Add("Name")
 
         Dim dict As New Dictionary(Of String, IMIS_EN.Enums.Rights)
-        dict.Add(getMessage("T_PRIMARYOPERATIONALINDICATORS-POLICIES"), IMIS_EN.Enums.Rights.PrimaryOperationalIndicatorPolicies) 'id = 1
-        dict.Add(getMessage("T_PRIMARYOPERATIONALINDICATORS-CLAIMS"), IMIS_EN.Enums.Rights.PrimaryOperationalIndicatorsClaims) 'id = 2
-        dict.Add(getMessage("T_DERIVEDOPERATIONALINDICATORS"), IMIS_EN.Enums.Rights.DerivedOperationalIndicators) 'id = 3
-        dict.Add(getMessage("T_PREMIUMCOLLECTION"), IMIS_EN.Enums.Rights.ContributionCollection) 'id = 4
-        dict.Add(getMessage("T_PRODUCTSALES"), IMIS_EN.Enums.Rights.ProductSales) 'id = 5
-        dict.Add(getMessage("T_PREMIUMDISTRIBUTION"), IMIS_EN.Enums.Rights.ContributionDistribution) 'id = 6
-        dict.Add(getMessage("T_USERACTIVITYREPORT"), IMIS_EN.Enums.Rights.UserActivity) 'id = 7
-        dict.Add(getMessage("T_ENROLMENTPERFORMANCEINDICATORS"), IMIS_EN.Enums.Rights.EnrolmentPerformanceIndicators) 'id = 8
-        dict.Add(getMessage("T_STATUSOFREGISTERS"), IMIS_EN.Enums.Rights.StatusOfRegister) 'id = 9
-        dict.Add(getMessage("T_INSUREESWITHOUTPHOTOS"), IMIS_EN.Enums.Rights.InsureeWithoutPhotos) 'id = 10
-        dict.Add(getMessage("T_PAYMENTCATEGORYOVERVIEW"), IMIS_EN.Enums.Rights.PaymentCategoryOverview) 'id = 11
-        dict.Add(getMessage("T_MATCHINGFUNDS"), IMIS_EN.Enums.Rights.MatchingFunds) 'id = 12
-        dict.Add(getMessage("T_CLAIMOVERVIEW"), IMIS_EN.Enums.Rights.ClaimOverviewReport) 'id = 13
-        dict.Add(getMessage("T_PERCENTAGEOFREFERRALS"), IMIS_EN.Enums.Rights.PercentageReferrals) 'id = 14
-        dict.Add(getMessage("T_FAMILIESINSUREESOVERVIEW"), IMIS_EN.Enums.Rights.FamiliesInsureesOverview) 'id = 15
-        dict.Add(getMessage("T_PENDINGINSUREES"), IMIS_EN.Enums.Rights.PendingInsurees) 'id = 16
-        dict.Add(getMessage("T_RENEWALS"), IMIS_EN.Enums.Rights.Renewals)    'id = 17
-        dict.Add(getMessage("T_CAPITATIONPAYMENT"), IMIS_EN.Enums.Rights.CapitationPayment)  'Id = 18
-        dict.Add(getMessage("T_REJECTEDPHOTOS"), IMIS_EN.Enums.Rights.RejectedPhoto)  'Id = 19
-        dict.Add(getMessage("L_CONTRIBUTIONPAYMENT"), IMIS_EN.Enums.Rights.ContributionPayment) 'Id =20 
-        dict.Add(getMessage("L_CONTROLNUMBERASSIGNMENT"), IMIS_EN.Enums.Rights.ControlNumberAssignment) 'Id = 21
-        dict.Add(getMessage("L_OVERVIEWOFCOMMISSIONS"), IMIS_EN.Enums.Rights.OverviewOfCommissions) 'Id = 22
-        dict.Add(getMessage("L_CLAIMHISTORYREPORT"), IMIS_EN.Enums.Rights.ClaimHistoryReport) 'Id = 23
+        dict.Add(getMessage("T_PRIMARYOPERATIONALINDICATORS-POLICIES"), IMIS_EN.Enums.Rights.ReportsPrimaryOperationalIndicatorPolicies) 'id = 1
+        dict.Add(getMessage("T_PRIMARYOPERATIONALINDICATORS-CLAIMS"), IMIS_EN.Enums.Rights.ReportsPrimaryOperationalIndicatorsClaims) 'id = 2
+        dict.Add(getMessage("T_DERIVEDOPERATIONALINDICATORS"), IMIS_EN.Enums.Rights.ReportsDerivedOperationalIndicators) 'id = 3
+        dict.Add(getMessage("T_PREMIUMCOLLECTION"), IMIS_EN.Enums.Rights.ReportsContributionCollection) 'id = 4
+        dict.Add(getMessage("T_PRODUCTSALES"), IMIS_EN.Enums.Rights.ReportsProductSales) 'id = 5
+        dict.Add(getMessage("T_PREMIUMDISTRIBUTION"), IMIS_EN.Enums.Rights.ReportsContributionDistribution) 'id = 6
+        dict.Add(getMessage("T_USERACTIVITYREPORT"), IMIS_EN.Enums.Rights.ReportsUserActivity) 'id = 7
+        dict.Add(getMessage("T_ENROLMENTPERFORMANCEINDICATORS"), IMIS_EN.Enums.Rights.ReportsEnrolmentPerformanceIndicators) 'id = 8
+        dict.Add(getMessage("T_STATUSOFREGISTERS"), IMIS_EN.Enums.Rights.ReportsStatusOfRegister) 'id = 9
+        dict.Add(getMessage("T_INSUREESWITHOUTPHOTOS"), IMIS_EN.Enums.Rights.ReportsInsureeWithoutPhotos) 'id = 10
+        dict.Add(getMessage("T_PAYMENTCATEGORYOVERVIEW"), IMIS_EN.Enums.Rights.ReportsPaymentCategoryOverview) 'id = 11
+        dict.Add(getMessage("T_MATCHINGFUNDS"), IMIS_EN.Enums.Rights.ReportsMatchingFunds) 'id = 12
+        dict.Add(getMessage("T_CLAIMOVERVIEW"), IMIS_EN.Enums.Rights.ReportsClaimOverviewReport) 'id = 13
+        dict.Add(getMessage("T_PERCENTAGEOFREFERRALS"), IMIS_EN.Enums.Rights.ReportsPercentageReferrals) 'id = 14
+        dict.Add(getMessage("T_FAMILIESINSUREESOVERVIEW"), IMIS_EN.Enums.Rights.ReportsFamiliesInsureesOverview) 'id = 15
+        dict.Add(getMessage("T_PENDINGINSUREES"), IMIS_EN.Enums.Rights.ReportsPendingInsurees) 'id = 16
+        dict.Add(getMessage("T_RENEWALS"), IMIS_EN.Enums.Rights.ReportsRenewals)    'id = 17
+        dict.Add(getMessage("T_CAPITATIONPAYMENT"), IMIS_EN.Enums.Rights.ReportsCapitationPayment)  'Id = 18
+        dict.Add(getMessage("T_REJECTEDPHOTOS"), IMIS_EN.Enums.Rights.ReportRejectedPhoto)  'Id = 19
+        dict.Add(getMessage("L_CONTRIBUTIONPAYMENT"), IMIS_EN.Enums.Rights.ReportsContributionPayment) 'Id =20 
+        dict.Add(getMessage("L_CONTROLNUMBERASSIGNMENT"), IMIS_EN.Enums.Rights.ReportsControlNumberAssignment) 'Id = 21
+        dict.Add(getMessage("L_OVERVIEWOFCOMMISSIONS"), IMIS_EN.Enums.Rights.ReportsOverviewOfCommissions) 'Id = 22
+        dict.Add(getMessage("L_CLAIMHISTORYREPORT"), IMIS_EN.Enums.Rights.ReportsClaimHistoryReport) 'Id = 23
         Dim dr As DataRow
         Dim index As Integer = 1
         For Each Rtype As String In dict.Keys
@@ -340,7 +340,7 @@ Public Class ReportBL
         Return DAL.GetControlNumberAssignment(startDate, endDate, PostingStatus, AssignmentStatus, RegionId, DistrictId, dt)
     End Function
 
-    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer, ByVal ProductId As Integer?, ByVal Month As Integer, ByVal Year As Integer, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer?, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
+    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
         Dim DAL As New IMIS_DAL.ReportDAL
         Return DAL.GetOverviewOfCommissions(LocationId, ProductId, Month, Year, PayerId, OfficerId, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
     End Function

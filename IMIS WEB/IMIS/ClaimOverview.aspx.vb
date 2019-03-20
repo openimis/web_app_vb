@@ -199,7 +199,7 @@ Public Partial Class ClaimOverview
                 pnlMiddle.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID)
                 B_FEEDBACK.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimFeedback, UserID)
                 B_REVIEW.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID)
-
+                btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
 
                 If Not btnUpdateClaims.Visible And Not B_ProcessClaimStatus.Visible Then
                     pnlBody.Enabled = False

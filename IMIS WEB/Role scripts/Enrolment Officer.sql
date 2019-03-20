@@ -1,62 +1,34 @@
-					--START Enrolement Officer--
-SELECT @ID = RoleID from tblRole WHERE Rolename ='Enrolement Officer' 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101002 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101002,GETDATE()) --FamilyAdd 
- 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101003 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101003,GETDATE()) --FamilyEdit  
- 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101004 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101004,GETDATE()) --FamilyDelete  
+--Declare variable
+DECLARE @RoleID as INT
+DECLARE @Rights AS TABLE(RightID INT) 
+INSERT INTO @Rights VALUES(101001)--FamilySearch
+INSERT INTO @Rights VALUES(101002)--FamilyAdd
+INSERT INTO @Rights VALUES(101003)--FamilyEdit
+INSERT INTO @Rights VALUES(101004)--FamilyDelete 
+INSERT INTO @Rights VALUES(101101)--InsureeSearch
+INSERT INTO @Rights VALUES(101102)--InsureeAdd
+INSERT INTO @Rights VALUES(101103)--InsureeEdit
+INSERT INTO @Rights VALUES(101104)--InsureeDelete
+INSERT INTO @Rights VALUES(101105)--InsureeEnquire
+INSERT INTO @Rights VALUES(101001)--PolicySearch 
+INSERT INTO @Rights VALUES(101202)--PolicyAdd
+INSERT INTO @Rights VALUES(101203)--PolicyEdit
+INSERT INTO @Rights VALUES(101204)--PolicyDelete
+INSERT INTO @Rights VALUES(101205)--PolicyRenew
+INSERT INTO @Rights VALUES(101301)--ContributionSearch   
+INSERT INTO @Rights VALUES(101302)--ContributionAdd
+INSERT INTO @Rights VALUES(101303)--ContributionEdit
+INSERT INTO @Rights VALUES(101304)--ContributionDelete 
+INSERT INTO @Rights VALUES(111009)--ClaimFeedback 
+SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Enrolement Officer'	
+--Uncheck
+DELETE FROM tblRoleRight WHERE RoleID = @RoleID AND RightID NOT IN (SELECT RightID FROM @Rights)
 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101102 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101102,GETDATE()) --InsureeAdd  
+--Setting value	
 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101103 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101103,GETDATE()) --InsureeEdit  
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101104 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101104,GETDATE()) --InsureeDelete 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101105 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101105,GETDATE()) --InsureeEnquire 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101202 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101202,GETDATE()) --PolicyAdd 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101203 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101203,GETDATE()) --PolicyEdit 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101204 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101204,GETDATE()) --PolicyDelete 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101205 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101205,GETDATE()) --PolicyRenewal 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101302 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101302,GETDATE()) --ContributionAdd 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101303 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101303,GETDATE()) --ContributionEdit 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101304 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101304,GETDATE()) --ContributionDelete 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111009 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111009,GETDATE()) --ClaimFeedback 
-							--End Enrolment Officer--
+INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom) 
+SELECT @RoleID,Ro.RightID,GETDATE() FROM @Rights Ro 
+		LEFT OUTER JOIN tblRoleRight Rr ON Rr.RoleID =@RoleID 
+		AND Rr.RightID = Ro.RightID 
+		AND Rr.ValidityTo IS NULL 
+		WHERE Rr.RoleRightID IS NULL 

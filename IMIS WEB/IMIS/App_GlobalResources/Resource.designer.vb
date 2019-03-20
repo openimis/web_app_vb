@@ -9704,6 +9704,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Generating of the report from past perspective may result in duplication of request for Overview of commissions. &lt;br/&gt; Do you want to continue?.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PREVIOUSCOMMISSIONREPORT() As String
+            Get
+                Return ResourceManager.GetString("M_PREVIOUSCOMMISSIONREPORT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to [P] = Scheme price [O]= Providers Own price [R]= Relative price.
         '''</summary>
         Friend Shared ReadOnly Property M_PRICEORIGIN() As String

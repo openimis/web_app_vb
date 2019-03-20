@@ -231,13 +231,14 @@ Public Class ReportsBI
         Return gen.GetMode()
     End Function
 
-    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer, ByVal Year As Integer, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer?, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
-        Dim Rep As New IMIS_BL.ReportBL
-        Return Rep.GetOverviewOfCommissions(LocationId, ProductId, Month, Year, PayerId, OfficerId, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
-    End Function
     Public Function GetPreviousOverviewOfCommissionsReportDates(ByVal UserID As Integer, ByVal DistrictID As Integer, ByVal ReportingID As Integer?) As DataTable
         Dim Rep As New IMIS_BL.ReportingBL
         Return Rep.GetPreviousOverviewOfCommissionsReportDates(UserID, DistrictID, ReportingID)
+    End Function
+
+    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
+        Dim Rep As New IMIS_BL.ReportBL
+        Return Rep.GetOverviewOfCommissions(LocationId, ProductId, Month, Year, PayerId, OfficerId, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
     End Function
     Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByRef oReturn As Integer) As DataTable
         Dim BL As New IMIS_BL.ReportBL

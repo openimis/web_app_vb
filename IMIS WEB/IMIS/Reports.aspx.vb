@@ -1252,31 +1252,56 @@ Partial Public Class Reports
         Return dt
     End Function
     Public Function OverviewOfCommissions()
-        Dim Month As Integer
+        Dim Month As Integer?
         Dim DistrictID As Integer?
         Dim ProdID As Integer?
         Dim PayerID As Integer?
-        Dim Year As Integer
+        Dim Year As Integer?
         Dim LocationId As Integer?
-        Dim Mode As Integer?
+        Dim Mode As Integer
         Dim OfficerID As Integer?
-        Dim ReportingID As Integer? = If(ddlPreviousReportDate.SelectedValue > 0, CInt(ddlPreviousReportDate.SelectedValue), Nothing)
+        Dim ReportingID As Integer?
         Dim CommissionRate As Decimal?
+        If ddlPreviousReportDateCommission.SelectedValue > 0 Then
+            ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
+        Else
+            ReportingID = Nothing
+        End If
 
-
-        If ReportingID = 0 Then
+        If ReportingID Is Nothing Then
             DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
-            ProdID = If(ddlProduct.SelectedValue > 0, CInt(ddlProduct.SelectedValue), Nothing)
-            If ddlPayer.SelectedIndex > 0 Then PayerID = ddlPayer.SelectedValue
-            If ddlMonth.SelectedIndex > 0 Then Month = ddlMonth.SelectedValue
-            If ddlYear.SelectedIndex > 0 Then Year = ddlYear.SelectedValue
+
+            If ddlProduct.SelectedValue > 0 Then
+                ProdID = CInt(ddlProduct.SelectedValue)
+            Else
+                ProdID = Nothing
+
+            End If
+
+            If ddlPayer.SelectedIndex > 0 Then
+                PayerID = ddlPayer.SelectedValue
+            End If
+            If ddlMonth.SelectedIndex > 0 Then
+                Month = ddlMonth.SelectedValue
+            Else
+                Month = Nothing
+            End If
+            If ddlYear.SelectedIndex > 0 Then
+                Year = ddlYear.SelectedValue
+            Else
+                Year = Nothing
+            End If
             If Val(ddlDistrictWoNational.SelectedValue) > 0 Then
                 LocationId = Val(ddlDistrictWoNational.SelectedValue)
             Else
                 LocationId = Val(ddlRegionWoNational.SelectedValue)
             End If
 
-            If ddlMode.SelectedIndex > 0 Then Mode = ddlMode.SelectedValue Else Mode = Nothing
+            If ddlMode.SelectedIndex > 0 Then
+                Mode = ddlMode.SelectedValue
+            Else
+                Mode = 0
+            End If
             If ddlEnrolmentOfficer.SelectedIndex > 0 Then OfficerID = ddlEnrolmentOfficer.SelectedValue
             CommissionRate = Val(txtCommissionRate.Text)
             If ddlPayer.SelectedIndex > 0 Then PayerID = ddlPayer.SelectedValue
@@ -1303,7 +1328,7 @@ Partial Public Class Reports
 
         dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
-            If ReportingID IsNot Nothing Then
+            If ReportingID > 0 Then
                 Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID)
                 If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
                     'StartDate = dtRep.Rows(0)("StartDate")
@@ -1319,6 +1344,7 @@ Partial Public Class Reports
 
         Return True
     End Function
+
     Public Function ClaimHistoryReport()
         Dim DistrictID As Integer?
         Dim ProdID As Integer?

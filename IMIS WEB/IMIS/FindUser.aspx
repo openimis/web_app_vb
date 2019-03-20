@@ -62,7 +62,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
         });
     }
     function fillSelectedRowData($row) {
-        var $anchor = $row.find("td").eq(0).find("a");
+
+        var $anchor = $row.find("td").eq(0).find("a");  
+        
         var dataNavStringParts = $anchor.attr("href").split("=")
         $("#<%=hfUserId.ClientID%>").val(dataNavStringParts[1]);
         $("#<%=hfUserName.ClientID%>").val($anchor.html());
