@@ -400,7 +400,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <asp:Button 
                         ID="BtnMatchPayment" 
                         runat="server" 
-                        Text='<%$ Resources:Resource,B_MATCHPAYMENT%>'
+                        Text='<%$ Resources:Resource,B_MATCHPAYMENT%>' Visible="false"
                           />
                     </td>
                      <td align="center">
