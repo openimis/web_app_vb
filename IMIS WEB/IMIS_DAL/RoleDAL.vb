@@ -138,10 +138,10 @@ Public Class RoleDAL
     Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
 
-        sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID)"
-        sSQL += " SELECT RoleName,IsSystem,IsBlocked,ValidityFrom,GETDATE(),AuditUserID,RoleID FROM tblRole WHERE RoleID=@RoleID"
+        sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID,AltLanguage)"
+        sSQL += " SELECT RoleName,IsSystem,IsBlocked,ValidityFrom,GETDATE(),AuditUserID,RoleID,AltLanguage FROM tblRole WHERE RoleID=@RoleID"
         sSQL += " UPDATE tblRole SET RoleName = @RoleName ,IsSystem = @IsSystem ,IsBlocked = @IsBlocked ,ValidityFrom ="
-        sSQL += " GETDATE() ,AuditUserID = @AuditUserID AltLanguage = @AltLanguage WHERE RoleID = @RoleID"
+        sSQL += " GETDATE() ,AuditUserID = @AuditUserID, AltLanguage = @AltLanguage WHERE RoleID = @RoleID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
 

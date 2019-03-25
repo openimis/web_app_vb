@@ -37,6 +37,7 @@
         isDirty = True
 
         If eRole.RoleID.ToString() <> eRoleOrg.RoleID.ToString() Then Exit Function
+        If IIf(eRole.AltLanguage Is Nothing, DBNull.Value, eRole.AltLanguage).ToString() <> IIf(eRoleOrg.AltLanguage Is Nothing, DBNull.Value, eRoleOrg.AltLanguage).ToString() Then Exit Function
         If IIf(eRole.RoleName Is Nothing, DBNull.Value, eRole.RoleName).ToString() <> IIf(eRoleOrg.RoleName Is Nothing, DBNull.Value, eRoleOrg.RoleName).ToString() Then Exit Function
         If IIf(eRole.IsSystem Is Nothing, False, eRole.IsSystem).ToString() <> IIf(eRoleOrg.IsSystem Is Nothing, False, eRoleOrg.IsSystem).ToString() Then Exit Function
         If IIf(eRole.IsBlocked Is Nothing, False, eRole.IsBlocked).ToString() <> IIf(eRoleOrg.IsBlocked Is Nothing, False, eRoleOrg.IsBlocked).ToString() Then Exit Function

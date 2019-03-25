@@ -224,7 +224,7 @@ Public Class IMIS
 
         ''Claims 
         SubClaimOverview.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.claims, UserID)
-        SubReview.Enabled = (MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID) Or MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimFeedback, UserID))
+        SubReview.Enabled = (MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID) Or MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimFeedback, UserID) Or MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimProcess, UserID) Or MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID))
         SubBatchRun.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Batch, UserID)
 
         '' Administration

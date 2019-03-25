@@ -4785,4 +4785,7 @@
   <data name="M_PREVIOUSCOMMISSIONREPORT" xml:space="preserve">
     <value>Generating of the report from past perspective may result in duplication of request for Overview of commissions. &lt;br/&gt; Do you want to continue?</value>
   </data>
+  <data name="L_ALTLANGUAGE" xml:space="preserve">
+    <value>Alternative Language</value>
+  </data>
 </root>

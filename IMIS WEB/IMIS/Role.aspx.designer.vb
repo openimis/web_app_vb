@@ -50,6 +50,24 @@ Partial Public Class Role
     Protected WithEvents RequiredFieldCode As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
+    '''lblAltLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAltLanguage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtAltLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAltLanguage As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''lblIsSystem control.
     '''</summary>
     '''<remarks>

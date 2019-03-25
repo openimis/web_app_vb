@@ -812,7 +812,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Alt Language.
+        '''  Looks up a localized string similar to Alternative Language.
         '''</summary>
         Friend Shared ReadOnly Property L_ALTLANGUAGE() As String
             Get
@@ -7594,15 +7594,6 @@ Namespace Resources
         Friend Shared ReadOnly Property M_DELETEINSUREEPROMPT() As String
             Get
                 Return ResourceManager.GetString("M_DELETEINSUREEPROMPT", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Are you sure want to delete user login ?.
-        '''</summary>
-        Friend Shared ReadOnly Property M_DELETEOFFICERLOGIN() As String
-            Get
-                Return ResourceManager.GetString("M_DELETEOFFICERLOGIN", resourceCulture)
             End Get
         End Property
         

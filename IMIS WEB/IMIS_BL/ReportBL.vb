@@ -327,7 +327,7 @@ Public Class ReportBL
         Dim dt As DataTable = BL.GetHFLevel(False)
         Return DAL.getCatchmentArea(RegionId, DistrictId, ProductId, Year, Month, dt)
     End Function
-    Public Function GetPaymentContribution(startDate As Date, endDate As Date, controlNumber As String, productCode As String, paymentStutus As Integer)
+    Public Function GetPaymentContribution(startDate As Date?, endDate As Date?, controlNumber As String, productCode As String, paymentStutus As Integer)
         Dim DAL As New IMIS_DAL.ReportDAL
         Return DAL.GetPaymentContribution(startDate, endDate, controlNumber, productCode, paymentStutus)
         Return True

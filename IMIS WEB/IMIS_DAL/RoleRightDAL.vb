@@ -32,7 +32,7 @@ Public Class RoleRightDAL
 
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-        sSQL = "SELECT RoleId,RoleName,isSystem,isBlocked From tblRole WHERE ValidityTo IS NULL AND RoleID = @RoleID"
+        sSQL = "SELECT RoleId,RoleName,isSystem,isBlocked,AltLanguage From tblRole WHERE ValidityTo IS NULL AND RoleID = @RoleID"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
         sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) = 10"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"

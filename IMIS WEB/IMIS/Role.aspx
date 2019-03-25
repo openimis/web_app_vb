@@ -155,13 +155,8 @@
                     </td>
                     <td width="45%">
                         <asp:Label ID="lblAltLanguage" runat="server" Text='<%$ Resources:Resource,L_ALTLANGUAGE %>'></asp:Label>    
-                         <asp:Textbox ID="txtAltLanguage" size="10" runat="server" Width="300px" MaxLength="50" Enabled="false"></asp:Textbox> 
-                        <asp:RequiredFieldValidator 
-                        ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="txtAltLanguage" 
-                        SetFocusOnError="False"
-                        ValidationGroup="check"   ForeColor="Red" Display="Dynamic"
-                        Text='*'></asp:RequiredFieldValidator>                        
+                         <asp:Textbox ID="txtAltLanguage" size="10" runat="server" Width="300px" MaxLength="50" ></asp:Textbox> 
+                                             
                     </td>
                      <td width="5%">
                           <asp:Label ID="lblIsSystem" runat="server" Text='<%$ Resources:Resource,L_SYSTEM %>'  ></asp:Label> 

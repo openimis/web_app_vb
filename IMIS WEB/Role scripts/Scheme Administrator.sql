@@ -42,18 +42,17 @@ INSERT INTO @Rights VALUES(121604)--ClaimAdministratorDelete
 INSERT INTO @Rights VALUES(121801)--PayersSearch      
 INSERT INTO @Rights VALUES(121802)--PayersAdd         
 INSERT INTO @Rights VALUES(121803)--PayersEdit        
-INSERT INTO @Rights VALUES(121804)--PayersDelete    
-INSERT INTO @Rights VALUES(121901)--LocationsSearch   
-INSERT INTO @Rights VALUES(121902)--LocationsAdd      
-INSERT INTO @Rights VALUES(121903)--LocationsEdit     
-INSERT INTO @Rights VALUES(121904)--LocationsDelete  
-INSERT INTO @Rights VALUES(121905)--LocationsMove  
+INSERT INTO @Rights VALUES(121804)--PayersDelete 
+ 
+ --RFC 108 Scheme administrator loses all rights to the register of locations  
+ 
 INSERT INTO @Rights VALUES(131001)--DiagnosesUpload          
 INSERT INTO @Rights VALUES(131002)--DiagnosesDownload        
 INSERT INTO @Rights VALUES(131003)--HealthFacilitiesUpload   
-INSERT INTO @Rights VALUES(131004)--HealthFacilitiesDownload 
-INSERT INTO @Rights VALUES(131005)--LocationsUpload          
-INSERT INTO @Rights VALUES(131006)--LocationsDownload   
+INSERT INTO @Rights VALUES(131004)--HealthFacilitiesDownload
+
+ --RFC 108 Scheme administrator loses all rights to the register of locations upload and download
+
 INSERT INTO @Rights VALUES(131101)--ExtractsMasterDataDownload      
 INSERT INTO @Rights VALUES(131102)--ExtractsPhoneExtractsCreate     
 INSERT INTO @Rights VALUES(131103)--ExtractsOfflineExtractCreate    
@@ -61,11 +60,11 @@ INSERT INTO @Rights VALUES(131104)--ExtractsClaimsUpload
 INSERT INTO @Rights VALUES(131105)--ExtractsEnrolmentsUpload        
 INSERT INTO @Rights VALUES(131106)--ExtractsFeedbackUpload  
 INSERT INTO @Rights VALUES(131209)--ReportsStatusOfRegister  
-SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Scheme Administrator'	 
---Uncheck
-DELETE FROM tblRoleRight WHERE RoleID = @RoleID AND RightID NOT IN (SELECT RightID FROM @Rights)
 
  --Setting value
+SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Scheme Administrator'	 AND ValidityTo IS NULL	 
+--Uncheck
+DELETE FROM tblRoleRight WHERE RoleID = @RoleID AND RightID NOT IN (SELECT RightID FROM @Rights)
 
 INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom) 
 SELECT @RoleID,Ro.RightID,GETDATE() FROM @Rights Ro 

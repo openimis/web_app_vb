@@ -90,7 +90,8 @@ Partial Public Class User
                     B_SAVE.Visible = False
                 End If
                 ddlHFNAME.SelectedValue = eUsers.HFID.ToString
-                '
+                RequiredFieldPassword.Visible = False
+                RequiredFieldConfirmPassword.Visible = False
             End If 'Added
             Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
             'If RoleId = 524288 Then

@@ -79,7 +79,8 @@ title='<%$ Resources:Resource,L_REPORTS%>' %>
             $criterias.find("select, input[type=text]").each(function () {
                 
                 if ($(this).is("input[type=text]") || $(this).is("input[type=text]").attr("class") != "cp") {
-
+                    var lstBoxID = $lstBox.val();
+                    if (lstBoxID == 20) { return true; }
                     flag = isValidJSDate($(this).val()); 
                     if (!flag) {
                         $("#<%=lblMsg.ClientID %>").html('<%= imisgen.getMessage("M_INVALIDDATE", True)%>');
@@ -223,6 +224,7 @@ title='<%$ Resources:Resource,L_REPORTS%>' %>
     }
 
     function StartDateFill() {
+        
         StartDate = $('#<%=txtSTARTData.ClientID %>').val();
         var day = StartDate.substr(0, 2);
         var Month = StartDate.substr(3, 2);

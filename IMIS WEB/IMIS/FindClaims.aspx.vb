@@ -168,7 +168,7 @@ Partial Public Class FindClaims
     End Sub
     Private Sub RunPageSecurity(Optional ByVal which As Integer = 0)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If which = 0 Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindClaim, Page) Then
@@ -185,11 +185,11 @@ Partial Public Class FindClaims
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 1 Then
-            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimDelete, RoleID) Then
+            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 2 Then
-            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimReview, RoleID) Then
+            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         End If

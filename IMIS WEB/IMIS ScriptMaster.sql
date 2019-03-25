@@ -21,9 +21,13 @@ IF  COL_LENGTH('tblReporting','ReportType') IS NULL
 
 IF  COL_LENGTH('tblPremium','ReportingCommisionID') IS NULL
 	ALTER TABLE tblPremium Add ReportingCommisionID INT NULL
-
 GO
-
+IF  COL_LENGTH('tblPayment','TypeOfPayment') IS NULL
+	ALTER TABLE tblPayment Add TypeOfPayment NVARCHAR(50) NULL
+GO
+IF  COL_LENGTH('tblPayment','TransferFee') IS NULL
+	ALTER TABLE tblPayment Add TransferFee DECIMAL(18,2) NULL
+GO
 IF OBJECT_ID('tblRole') IS NULL
 	BEGIN	
 		CREATE TABLE [dbo].[tblRole](

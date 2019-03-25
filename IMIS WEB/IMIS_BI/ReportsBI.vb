@@ -205,7 +205,7 @@ Public Class ReportsBI
         Return Rep.getRejectedPhoto(startDate, endDate)
     End Function
 
-    Public Function GetPaymentContribution(startDate As Date, endDate As Date, controlNumber As String, productCode As String, paymentStutus As Integer)
+    Public Function GetPaymentContribution(startDate As Date?, endDate As Date?, controlNumber As String, productCode As String, paymentStutus As Integer)
         Dim Rep As New IMIS_BL.ReportBL
         Return Rep.GetPaymentContribution(startDate, endDate, controlNumber, productCode, paymentStutus)
         Return True

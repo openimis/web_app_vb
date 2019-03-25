@@ -21,6 +21,7 @@
             If Not IsPostBack Then
                 eRole.RoleID = 0
                 txtRoles.Text = ""
+                txtAltLanguage.Text = ""
                 eRole.IsSystem = 0
                 chkIsSystem.Checked = False
             Else
@@ -79,7 +80,9 @@
         eRole.RoleName = dtRole.Rows(0)("RoleName")
         eRole.IsSystem = dtRole.Rows(0)("IsSystem")
         eRole.IsBlocked = dtRole.Rows(0)("IsBlocked")
+        eRole.AltLanguage = dtRole.Rows(0)("AltLanguage").ToString
         txtRoles.Text = eRole.RoleName
+        txtAltLanguage.Text = eRole.AltLanguage
         chkIsBlocked.Checked = eRole.IsBlocked
         chkIsSystem.Checked = eRole.IsSystem
 
@@ -153,7 +156,9 @@
         Dim dr As DataRow = Nothing
         dtRights.Columns.Add("RightID")
         dtRights.Columns.Add("Description")
+
         eRole.RoleName = txtRoles.Text
+        eRole.AltLanguage = txtAltLanguage.Text
         eRole.IsSystem = chkIsSystem.Checked
         eRole.IsBlocked = chkIsBlocked.Checked
 
@@ -200,7 +205,7 @@
             SaveRights()
         Catch ex As Exception
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlHeader, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 

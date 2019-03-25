@@ -1183,14 +1183,20 @@ Partial Public Class Reports
         Return True
     End Function
     Private Function getContributionPayment()
-        Dim StartDate As DateTime = txtSTARTData.Text
-        Dim EndDate As DateTime = txtENDData.Text
+        Dim StartDate As DateTime?
+        Dim EndDate As DateTime?
         Dim ControlNumber As String
         Dim PaymentStatus As String
         Dim ProductCode As String
 
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        'StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        'EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        If IsDate(txtSTARTData.Text) Then
+            StartDate = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+        End If
+        If IsDate(txtENDData.Text) Then
+            EndDate = Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)
+        End If
 
         If Not txtControlNumber.Text = "" Then
             ControlNumber = txtControlNumber.Text
@@ -1410,8 +1416,15 @@ Partial Public Class Reports
             CacheCriteria()
 
             Dim SelectedValueID As Integer = lstboxReportSelector.SelectedValue
-            If SelectedValueID = 1 Or SelectedValueID = 6 Then
+            If SelectedValueID = 1 Then
                 If Val(ddlProduct.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
+                    Return
+                End If
+            End If
+
+            If SelectedValueID = 6 Then
+                If Val(ddlProductStrict.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
                     Return
                 End If
