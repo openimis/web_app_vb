@@ -37,8 +37,8 @@ Public Class IMIS
         Dim Adjustibility As String = ""
         For i As Integer = 0 To gvPolicy.Columns.Count
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_PRODUCTCODE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
-            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_EXPIREDATE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "M") : Exit For
-            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_STATUS")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "M") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_EXPIREDATE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_STATUS")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_HDEDUCTION")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_NHDEDUCTION")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
             If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_HCEILING")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
@@ -62,7 +62,7 @@ Public Class IMIS
 
         'ItemCode
         Adjustibility = General.getControlSetting("lblItemCode")
-        lblItemCode.Visible = Not (Adjustibility = "M")
+        lblItemCode.Visible = Not (Adjustibility = "N")
 
         'Item Left
         Adjustibility = General.getControlSetting("lblItemLeft")
@@ -224,7 +224,7 @@ Public Class IMIS
 
         ''Claims 
         SubClaimOverview.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.claims, UserID)
-        SubReview.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID)
+        SubReview.Enabled = (MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID) Or MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimFeedback, UserID))
         SubBatchRun.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Batch, UserID)
 
         '' Administration
@@ -367,7 +367,6 @@ Public Class IMIS
             Dim hf As HiddenField = CType(upDL.FindControl("hfPanelHasData"), HiddenField)
         End If
     End Sub
-
     Protected Sub rptInsuree_ItemDataBound(sender As Object, e As RepeaterItemEventArgs) Handles rptInsuree.ItemDataBound
         If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
             'Reference the Repeater Item.
@@ -376,12 +375,12 @@ Public Class IMIS
             Adjustibility = General.getControlSetting("CHFID")
             'Reference the Controls.
             Dim InsuranceNumber As Label = TryCast(item.FindControl("chf_ID"), Label)
-            InsuranceNumber.Visible = Not (Adjustibility = "M")
+            InsuranceNumber.Visible = Not (Adjustibility = "N")
 
             'Last Name
             Adjustibility = General.getControlSetting("LastName")
             Dim LastName As Label = TryCast(item.FindControl("Last_Name"), Label)
-            LastName.Visible = Not (Adjustibility = "M")
+            LastName.Visible = Not (Adjustibility = "N")
 
 
             ' Region Of FSP
@@ -392,7 +391,7 @@ Public Class IMIS
             'Other Names
             Adjustibility = General.getControlSetting("OtherNames")
             Dim OtherName As Label = TryCast(item.FindControl("other_names"), Label)
-            OtherName.Visible = Not (Adjustibility = "M")
+            OtherName.Visible = Not (Adjustibility = "N")
 
             'District OF FSP
             Adjustibility = General.getControlSetting("DistrictOfFSP")
@@ -417,7 +416,7 @@ Public Class IMIS
             'Gender
             Adjustibility = General.getControlSetting("Gender")
             Dim Gender As Label = TryCast(item.FindControl("gender"), Label)
-            Gender.Visible = Not (Adjustibility = "M")
+            Gender.Visible = Not (Adjustibility = "N")
 
             'FSP
             Adjustibility = General.getControlSetting("FirstServicePoint")

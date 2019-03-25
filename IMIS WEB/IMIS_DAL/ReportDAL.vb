@@ -516,9 +516,13 @@ Public Class ReportDAL
         Dim sSQL As String = ""
         Dim myDate = New DateTime()
 
-        sSQL = " SELECT * FROM ( SELECT ROW_NUMBER() OVER(PARTITION BY PY.PaymentID ORDER BY PY.PaymentID ASC ) RN, PD.Amount MatchedAmount, PY.PaymentID, CN.ControlNumber, PY.TransactionNo,  PY.MatchedDate MatchingDate, CASE PY.PaymentStatus WHEN 5 THEN PY.ReceiptNo ELSE NULL END AS ReceiptNo, CASE PY.PaymentStatus WHEN 5 THEN PY.ReceivedAmount ELSE NULL END AS ReceivedAmount, PY.PaymentDate,PY.ReceivedDate, PY.PaymentOrigin, PY.OfficerCode FROM tblPayment PY"
+        sSQL = " SELECT * FROM ( SELECT ROW_NUMBER() OVER(PARTITION BY PY.PaymentID ORDER BY PY.PaymentID ASC ) RN, PD.Amount MatchedAmount, PY.PaymentID, CN.ControlNumber, PY.TransactionNo,  PY.MatchedDate MatchingDate, CASE PY.PaymentStatus WHEN 5 THEN PY.ReceiptNo ELSE NULL END AS ReceiptNo, CASE PY.PaymentStatus WHEN 5 THEN PY.ReceivedAmount ELSE NULL END AS ReceivedAmount, PY.PaymentDate,PY.ReceivedDate, PY.PaymentOrigin, PY.OfficerCode"
+        sSQL += " ,PR.Receipt,PD.InsuranceNumber,PD.ProductCode"
+        sSQL += " FROM tblPayment PY"
         sSQL += " LEFT OUTER JOIN tblPaymentDetails PD ON PD.PaymentID = PY.PaymentID"
         sSQL += " LEFT OUTER JOIN tblControlNumber CN ON CN.PaymentID = PY.PaymentID"
+        sSQL += " LEFT OUTER JOIN tblpremium PR ON PD.PremiumID = PR.PremiumID AND PR.ValidityTo IS NULL"
+
 
         sSQL += " WHERE"
         sSQL += " PY.ValidityTo IS NULL"
@@ -526,13 +530,11 @@ Public Class ReportDAL
         sSQL += " AND CN.ValidityTo IS NULL"
         sSQL += " AND (PD.ProductCode = @ProductCode OR @ProductCode IS NULL)"
         sSQL += " AND (PY.PaymentDate BETWEEN CAST(@FromDate AS DATE) AND CAST(@ToDate AS DATE))"
-        If PaymentStatus >= 1 Then
-            If PaymentStatus = 1 Then
-                sSQL += " AND PY.PaymentStatus >=4 AND PY.PaymentStatus < 5"
-            Else
-                sSQL += " AND PY.PaymentStatus = @PaymentStatus"
-            End If
+
+        If PaymentStatus > 0 Then
+            sSQL += " AND PY.PaymentStatus = @PaymentStatus"
         End If
+
 
         If controlNumber <> "" Then
             sSQL += " AND CN.ControlNumber LIKE @ControlNumber"
@@ -543,7 +545,7 @@ Public Class ReportDAL
         data.params("@ProductCode", SqlDbType.NVarChar, 8, productCode)
         data.params("@FromDate", SqlDbType.Date, startDate)
         data.params("@ToDate", SqlDbType.Date, endDate)
-        data.params("@PaymentStatus", SqlDbType.Int, PaymentStatus)
+        data.params("@PaymentStatus", SqlDbType.Int, IIf(PaymentStatus = 1, 4, PaymentStatus))
         data.params("@ControlNumber", SqlDbType.NVarChar, 50, controlNumber + "%")
 
         Return data.Filldata
@@ -601,22 +603,22 @@ Public Class ReportDAL
 
         Return data.Filldata
     End Function
-    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer, ByVal Year As Integer, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer?, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
+    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
 
         Dim Data As New ExactSQL
         Dim sSQL As String = "uspSSRSOverviewOfCommissions"
 
         Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
 
-        Data.params("@Month", Month)
-        Data.params("@Year", Year)
+        Data.params("@Month", SqlDbType.Int, Month)
+        Data.params("@Year", SqlDbType.Int, Year)
         Data.params("@Mode", SqlDbType.Int, Mode)
-        Data.params("@OfficerId", OfficerId)
+        Data.params("@OfficerId", SqlDbType.Int, OfficerId)
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdId", SqlDbType.Int, ProductId)
         Data.params("@PayerId", SqlDbType.Int, PayerId)
-        Data.params("@ReportingId", SqlDbType.Int, If(ReportingID = 0, DBNull.Value, ReportingID))
-        Data.params("@CommissionRate", SqlDbType.Decimal, CommissionRate)
+        Data.params("@ReportingId", SqlDbType.Int, ReportingID)
+        Data.params("@CommissionRate", SqlDbType.Decimal, 0)
         Data.params("@ErrorMessage", SqlDbType.NVarChar, 200, "", ParameterDirection.Output)
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()

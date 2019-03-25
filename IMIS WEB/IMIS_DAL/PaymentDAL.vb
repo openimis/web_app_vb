@@ -207,12 +207,21 @@ Public Class PaymentDAL
         data.params("@PaymentOrigin", SqlDbType.NVarChar, 50, ePayment.PaymentOrigin + "%")
         data.params("@PaymentStatus", SqlDbType.Int, ePayment.PaymentStatus)
         data.params("@UserId", SqlDbType.Int, ePayment.AuditUserID)
-        data.params("@DateFrom", SqlDbType.Date, ePayment.DateFrom)
-        data.params("@DateTo", SqlDbType.Date, ePayment.DateTo)
-        data.params("@ReceivingDateFrom", SqlDbType.Date, ePayment.ReceivingDateFrom)
-        data.params("@ReceivingDateTo", SqlDbType.Date, ePayment.ReceivingDateTo)
-        data.params("@MatchDateFrom", SqlDbType.Date, ePayment.MatchDateFrom)
-        data.params("@MatchedDateTo", SqlDbType.Date, ePayment.MatchedDateTo)
+        data.params("@DateFrom", SqlDbType.SmallDateTime, ePayment.DateFrom)
+        If ePayment.DateTo IsNot Nothing AndAlso ePayment.DateTo = ePayment.DateTo.Value.Date Then
+            ePayment.DateTo = ePayment.DateTo.Value.AddDays(1)
+        End If
+        data.params("@DateTo", SqlDbType.SmallDateTime, ePayment.DateTo)
+        data.params("@ReceivingDateFrom", SqlDbType.SmallDateTime, ePayment.ReceivingDateFrom)
+        If ePayment.ReceivingDateTo IsNot Nothing AndAlso ePayment.ReceivingDateTo = ePayment.ReceivingDateTo.Value.Date Then
+            ePayment.ReceivingDateTo = ePayment.ReceivingDateTo.Value.AddDays(1)
+        End If
+        data.params("@ReceivingDateTo", SqlDbType.SmallDateTime, ePayment.ReceivingDateTo)
+        data.params("@MatchDateFrom", SqlDbType.SmallDateTime, ePayment.MatchDateFrom)
+        If ePayment.MatchedDateTo IsNot Nothing AndAlso ePayment.MatchedDateTo = ePayment.MatchedDateTo.Value.Date Then
+            ePayment.MatchedDateTo = ePayment.MatchedDateTo.Value.AddDays(1)
+        End If
+        data.params("@MatchedDateTo", SqlDbType.SmallDateTime, ePayment.MatchedDateTo)
         data.params("@ReceivedAmountFrom", SqlDbType.Decimal, ePayment.ReceivedAmountFrom)
         data.params("@ReceivedAmountTO", SqlDbType.Decimal, ePayment.ReceivedAmountTO)
         data.params("@RegionId", SqlDbType.Int, ePayment.RegionId)

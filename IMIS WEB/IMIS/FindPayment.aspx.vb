@@ -99,11 +99,11 @@ Partial Public Class FindPayment
     Private Sub RunPageSecurity()
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
-        If Payment.RunPageSecurity(IMIS_EN.Enums.Pages.FindPremium, Page) Then
-            B_VIEW.Enabled = Payment.checkRights(IMIS_EN.Enums.Rights.ContributionSearch, UserID)
+        If Payment.RunPageSecurity(IMIS_EN.Enums.Pages.FindPayment, Page) Then
+            B_VIEW.Enabled = Payment.checkRights(IMIS_EN.Enums.Rights.PaymentSearch, UserID)
         Else
             Dim RefUrl = Request.Headers("Referer")
-            Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindPremium.ToString & "&retUrl=" & RefUrl)
+            Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindPayment.ToString & "&retUrl=" & RefUrl)
         End If
     End Sub
     Private Sub loadSecurity()

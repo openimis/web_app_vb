@@ -1,27 +1,22 @@
+--Declare variable
+DECLARE @RoleID as INT	
+DECLARE @Rights AS TABLE(RightID INT)  
 
-					--START Claim Administrator--
-SELECT @ID = RoleID from tblRole WHERE Rolename ='Claim Administrator' 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111001 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111001,GETDATE()) --FindClaim
---
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111002 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111002,GETDATE()) --EnterClaim
---
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111004 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111004,GETDATE()) --DeleteClaim 
---
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111005 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111005,GETDATE()) --LoadClaim
+INSERT INTO @Rights VALUES(111001)--ClaimSearch
+INSERT INTO @Rights VALUES(111002)--ClaimAdd
+INSERT INTO @Rights VALUES(111004)--ClaimDelete
+INSERT INTO @Rights VALUES(111005)--ClaimLoad
+INSERT INTO @Rights VALUES(111006)--ClaimPrint  
+INSERT INTO @Rights VALUES(111007)--ClaimSubmit
+SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Claim Administrator'	
+--Uncheck
+DELETE FROM tblRoleRight WHERE RoleID = @RoleID AND RightID NOT IN (SELECT RightID FROM @Rights)
 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111006 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111006,GETDATE()) --PrintClaim
- 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 131214 AND ROLEID = @ID) IS NULL 
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,131214,GETDATE()) --PercentageReferrals
-					--END Claim Administrator--
+ --Setting value
+
+INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom) 
+SELECT @RoleID,Ro.RightID,GETDATE() FROM @Rights Ro 
+		LEFT OUTER JOIN tblRoleRight Rr ON Rr.RoleID =@RoleID 
+		AND Rr.RightID = Ro.RightID 
+		AND Rr.ValidityTo IS NULL 
+		WHERE Rr.RoleRightID IS NULL

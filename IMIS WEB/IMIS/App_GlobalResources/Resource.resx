@@ -4782,10 +4782,7 @@
   <data name="L_CONTRIBUTIONPREMIUM" xml:space="preserve">
     <value>Contribution</value>
   </data>
-  <data name="M_DELETEOFFICERLOGIN" xml:space="preserve">
-    <value>Are you sure want to delete user login ?</value>
-  </data>
-  <data name="L_ALTLANGUAGE" xml:space="preserve">
-    <value>Alt Language</value>
+  <data name="M_PREVIOUSCOMMISSIONREPORT" xml:space="preserve">
+    <value>Generating of the report from past perspective may result in duplication of request for Overview of commissions. &lt;br/&gt; Do you want to continue?</value>
   </data>
 </root>

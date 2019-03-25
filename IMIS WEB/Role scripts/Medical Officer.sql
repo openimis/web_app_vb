@@ -1,29 +1,22 @@
 							--Medical Officer--
-SELECT @ID = RoleID from tblRole WHERE Rolename ='Medical Officer'
---ReviewClaim 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111008 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111008,GETDATE()) --ReviewClaim
---
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111009 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111009,GETDATE()) --EnterFeedback
---
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111010 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111010,GETDATE()) --UpdateClaims
---
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111011 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111011,GETDATE()) --ProcessClaims 
+DECLARE @RoleID as INT
+DECLARE @Rights AS TABLE(RightID INT)
+INSERT INTO @Rights VALUES(111001)--ClaimSearch
+INSERT INTO @Rights VALUES(111008)--ClaimReview
+INSERT INTO @Rights VALUES(111009)--ClaimFeedback
+INSERT INTO @Rights VALUES(111010)--ClaimUpdate
+INSERT INTO @Rights VALUES(111011)--ClaimProcess
+INSERT INTO @Rights VALUES(131223)--ReportsClaimHistoryReport
 
-----ClaimOverview
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111015 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111015,GETDATE()) --ClaimOverview
+SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Medical Officer'
+DELETE FROM tblRoleRight WHERE RoleID = @RoleID AND RightID NOT IN (SELECT RightID FROM @Rights)
 
---Claim History Report
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 131223 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,131223,GETDATE()) --ClaimHistoreReport 
+
+	
+INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom) 
+SELECT @RoleID,Ro.RightID,GETDATE() FROM @Rights Ro 
+		LEFT OUTER JOIN tblRoleRight Rr ON Rr.RoleID =@RoleID 
+		AND Rr.RightID = Ro.RightID 
+		AND Rr.ValidityTo IS NULL 
+		WHERE Rr.RoleRightID IS NULL
 					--END Medical Officer

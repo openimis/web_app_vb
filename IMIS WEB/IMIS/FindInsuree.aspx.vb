@@ -45,7 +45,7 @@ Partial Public Class FindInsuree
                 If Not row.Cells(11).Text = "&nbsp;" Then
                     row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
                 End If
-                'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
+                '  row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
             Next
 
         Catch ex As Exception
@@ -63,15 +63,7 @@ Partial Public Class FindInsuree
         Next
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim UserID As Integer = imisgen.getUserId(Session("User"))
-
-
-
-
         If IsPostBack Then Return
-
-        'gvInsuree.SelectedIndexChanged(sender, e)
-
         RunPageSecurity()
         Try
             FormatForm()
@@ -87,7 +79,7 @@ Partial Public Class FindInsuree
 
             ddlGender.DataSource = Insuree.GetGender
             ddlGender.DataValueField = "Code"
-            ddlGender.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Gender", "AltLanguage") '"Gender"
+            ddlGender.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Gender", "AltLanguage")
             ddlGender.DataBind()
             ddlMarital.DataSource = Insuree.GetMaritalStatus
             ddlMarital.DataValueField = "Code"
@@ -135,8 +127,7 @@ Partial Public Class FindInsuree
         End If
     End Sub
 
-    Private Sub loadgrid() Handles btnSearch.Click, chkLegacy.CheckedChanged, chkOffline.CheckedChanged
-
+    Private Sub loadgrid() Handles btnSearch.Click, chkLegacy.CheckedChanged, gvInsuree.PageIndexChanged, chkOffline.CheckedChanged
         Try
             loadSecurity()
             Dim eFamily As New IMIS_EN.tblFamilies
@@ -144,6 +135,8 @@ Partial Public Class FindInsuree
 
             'Dim bdate As Nullable(Of DateTime) = New DateTime(1900, 1, 1)
             'If IsDate(txtBirthDate.Text) Then bdate = FormatDateTime(txtBirthDate.Text, "dd/MM/yyyy")
+
+
             eInsuree.AuditUserID = imisgen.getUserId(Session("User"))
             eInsuree.LastName = txtLastName.Text
             eInsuree.OtherNames = txtOtherNames.Text
@@ -157,7 +150,7 @@ Partial Public Class FindInsuree
                     Return
                 End If
             End If
-            If Trim(txtBirthDateTo.Text).Length > 0 Then
+            If Trim(txtBirthDateto.Text).Length > 0 Then
                 If IsDate(txtBirthDateTo.Text) Then
                     eInsuree.DOBTo = Date.Parse(txtBirthDateTo.Text)
                 Else
@@ -171,23 +164,19 @@ Partial Public Class FindInsuree
             eInsuree.isOffline = chkOffline.Checked
 
             eFamily.RegionId = Val(ddlRegion.SelectedValue)
-            If Val(ddlDistrict.SelectedValue) > 0 Then eFamily.DistrictId = ddlDistrict.SelectedValue
+            If Val(ddlDistrict.SelectedValue) > 0 Then eFamily.DistrictID = ddlDistrict.SelectedValue
             If Not Val(ddlVillage.SelectedValue) = 0 Then
                 eFamily.LocationId = ddlVillage.SelectedValue
             End If
             If Not Val(ddlWard.SelectedValue) = 0 Then
-                eFamily.WardId = ddlWard.SelectedValue
+                eFamily.WardID = ddlWard.SelectedValue
             End If
-
+           
             eInsuree.tblFamilies1 = eFamily
+
 
             Dim dtInsuree As DataTable = Insuree.FindInsuree(eInsuree, chkLegacy.Checked, ddlPhotoAssigned.SelectedValue, Request.Cookies("CultureInfo").Value)
             L_FOUNDINSUREE.Text = If(dtInsuree.Rows.Count = 0, imisgen.getMessage("L_NO"), Format(dtInsuree.Rows.Count, "#,###")) & " " & imisgen.getMessage("L_FOUNDINSUREE")
-            'For Each row As DataRow In dtInsuree.Rows
-            '    If row.IsNull("Gender") = False AndAlso row("Gender") = "M" Then
-            '        row("Gender") = "MALE"
-            '    End If
-            'Next
             gvInsuree.DataSource = dtInsuree
             gvInsuree.SelectedIndex = -1
             gvInsuree.DataBind()
@@ -248,6 +237,7 @@ Partial Public Class FindInsuree
         End If
 
     End Sub
+
     Protected Sub gvInsuree_PageIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles gvInsuree.PageIndexChanging
         gvInsuree.PageIndex = e.NewPageIndex
 
@@ -256,17 +246,17 @@ Partial Public Class FindInsuree
         Response.Redirect("Home.aspx")
     End Sub
     Private Sub loadSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
         Dim AllowEdit As Boolean = userBI.RunPageSecurity(IMIS_EN.Enums.Pages.OverviewFamily, Page)
 
-        Dim hlink As HyperLinkField = gvInsuree.Columns(1)
+        Dim hlink As HyperLinkField = gvInsuree.Columns(0)
         If chkLegacy.Checked Then
-            hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={1}"
+            hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={0}"
         Else
             If AllowEdit Then
-                hlink.DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}&i={1}"
+                hlink.DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}&i={0}"
             Else
-                hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={1}"
+                hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={0}"
             End If
         End If
 
@@ -298,20 +288,21 @@ Partial Public Class FindInsuree
         End If
 
     End Sub
-
     Protected Sub B_CLAIM_Click(sender As Object, e As EventArgs) Handles B_CLAIM.Click
+        If gvInsuree.Rows.Count > 0 Then
+            Dim InsuranceNumber = hfInsuranceNumber.Value
 
-        Dim InsuranceNumber = hfInsuranceNumber.Value
+            Response.Redirect("FindClaims.aspx?i=" & InsuranceNumber)
+        End If
 
-        Response.Redirect("FindClaims.aspx?i=" & InsuranceNumber)
 
     End Sub
 
     Protected Sub B_CLAIMSREVIEWS_Click(sender As Object, e As EventArgs) Handles B_CLAIMSREVIEWS.Click
+        If gvInsuree.Rows.Count > 0 And Not gvInsuree.SelectedDataKey Is Nothing Then
+            Dim InsuranceNumber = gvInsuree.SelectedDataKey.Item("CHFID") 'hfInsuranceNumber.Value
 
-        Dim InsuranceNumber = hfInsuranceNumber.Value
-
-        Response.Redirect("ClaimOverview.aspx?i=" & InsuranceNumber)
-
+            Response.Redirect("ClaimOverview.aspx?i=" & InsuranceNumber)
+        End If
     End Sub
 End Class

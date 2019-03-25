@@ -1,109 +1,43 @@
+							
 							-- Accountant--
-SELECT @ID = RoleID from tblRole WHERE Rolename ='Accountant'
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101101 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101105,GETDATE()) --InsureeSearch
+DECLARE @Rights AS TABLE(RightID INT)
+INSERT INTO @Rights VALUES(101001)--FamilySearch
+INSERT INTO @Rights VALUES(101101)--InsureeSearch
+INSERT INTO @Rights VALUES(101105)--InsureeEnquire
+INSERT INTO @Rights VALUES(101201)--PolicySearch
+INSERT INTO @Rights VALUES(101301)--ContributionSearch
+INSERT INTO @Rights VALUES(101401)--PaymentSearch
+INSERT INTO @Rights VALUES(101402)--PaymentAdd
+INSERT INTO @Rights VALUES(101403)--PaymentEdit
+INSERT INTO @Rights VALUES(101404)--PaymentDelete
+INSERT INTO @Rights VALUES(111101)--BatchProcess
+INSERT INTO @Rights VALUES(111102)--BatchFilter
+INSERT INTO @Rights VALUES(111103)--BatchPreview
+INSERT INTO @Rights VALUES(131204)--ReportsContributionCollection
+INSERT INTO @Rights VALUES(131205)--ReportsProductSales
+INSERT INTO @Rights VALUES(131206)--ReportsContributionDistribution
+INSERT INTO @Rights VALUES(131210)--ReportsInsureeWithoutPhotos
+INSERT INTO @Rights VALUES(131211)--ReportsPaymentCategoryOverview
+INSERT INTO @Rights VALUES(131212)--ReportsMatchingFunds
+INSERT INTO @Rights VALUES(131213)--ReportsClaimOverviewReport 
+INSERT INTO @Rights VALUES(131214)--ReportsPercentageReferrals
+INSERT INTO @Rights VALUES(131215)--ReportsFamiliesInsureesOverview
+INSERT INTO @Rights VALUES(131216)--ReportsPendingInsurees
+INSERT INTO @Rights VALUES(131217)--ReportsRenewals
+INSERT INTO @Rights VALUES(131218)--ReportsCapitationPayment
+INSERT INTO @Rights VALUES(131219)--ReportRejectedPhoto
+INSERT INTO @Rights VALUES(131220)--ReportsContributionPayment
+INSERT INTO @Rights VALUES(131221)--ReportsControlNumberAssignment
+INSERT INTO @Rights VALUES(131222)--ReportsOverviewOfCommissions
+INSERT INTO @Rights VALUES(131401)--AddFund
 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101102 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101102,GETDATE()) --InsureeAdd
+DECLARE @RoleID INT
+SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Accountant'
+DELETE FROM tblRoleRight WHERE RoleID = @RoleID AND RightID NOT IN (SELECT RightID FROM @Rights)
+INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom) 
+SELECT @RoleID,R.RightID,GETDATE() FROM @Rights R 
+LEFT JOIN tblRoleRight RR ON RR.RoleID =@RoleID AND RR.RightID = R.RightID AND RR.ValidityTo IS NULL 
+WHERE RR.RoleRightID IS NULL
+						--END Accountant--
 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101103 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101103,GETDATE()) --InsureeEdit
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101104 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101104,GETDATE()) --InsureeDelete
-
---Insuree Enquire
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101105 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101105,GETDATE()) --InsureeEnquire
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101201 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101201,GETDATE()) --PolicySearch
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101202 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101202,GETDATE()) --PolicyAdd
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101203 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101203,GETDATE()) --PolicyEdit
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101204 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101204,GETDATE()) --PolicyDelete
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101205 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101205,GETDATE()) --PolicyRenew
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101301 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101301,GETDATE()) --ContributionSearch
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101302 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101302,GETDATE()) --ContributionAdd
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101303 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101303,GETDATE()) --ContributionEdit 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101401 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101401,GETDATE()) --FindPayment
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101402 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101402,GETDATE()) --AddPayment
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101403 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101403,GETDATE()) --EditPayment
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101404 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101404,GETDATE()) --DeletePayment
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111005 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111005,GETDATE()) --LoadClaim
- 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111006 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111006,GETDATE()) --PrintClaim
- 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 111008 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,111008,GETDATE()) --ReviewClaim
- 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 131201 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,131201,GETDATE()) --PrimaryOperationalIndicators-policies
- 
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 131207 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,131207,GETDATE()) --UserActivityReport 
-
-/* Previous rights*/
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101001 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101001,GETDATE())  --FindFamily 
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101102 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101102,GETDATE()) --InsureeAdd
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 101103 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,101103,GETDATE()) --InsureeEdit
-
-IF (SELECT 1 FROM tblRoleRight WHERE RightID = 131401 AND ROLEID = @ID) IS NULL
-INSERT INTO tblRoleRight (RoleID,RightID,ValidityFrom)
-VALUES (@ID,131401,GETDATE()) --AddFund
-/*previous rights*/
-					--END Accountant--
+--END Accountant--

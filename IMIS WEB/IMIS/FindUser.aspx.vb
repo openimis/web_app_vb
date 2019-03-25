@@ -115,10 +115,10 @@ Partial Public Class FindUser
         Dim UserID As Integer = imisGen.getUserId(Session("User"))
         If Not ondelete Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindUser, Page) Then
-                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddUser, UserID)
-                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditUser, UserID)
-                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteUser, UserID)
-                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindUser, UserID)
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersAdd, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersEdit, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersDelete, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersSearch, UserID)
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
                 End If
@@ -128,7 +128,7 @@ Partial Public Class FindUser
 
         Else
 
-            If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteUser, UserID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.UsersDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindUser.ToString & "&retUrl=" & RefUrl)
             End If
         End If

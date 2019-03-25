@@ -147,10 +147,10 @@ Public Class Enums
 
         'Users
         Users = 121700
-        FindUser = 121701
-        AddUser = 121702
-        EditUser = 121703
-        DeleteUser = 121704
+        UsersSearch = 121701
+        UsersAdd = 121702
+        UsersEdit = 121703
+        UsersDelete = 121704
 
         'Payers
         Payer = 121800
@@ -200,29 +200,29 @@ Public Class Enums
         '****************************************Reports 1312 00
         'Reports
         Reports = 131200
-        PrimaryOperationalIndicatorPolicies = 131201
-        PrimaryOperationalIndicatorsClaims = 131202
-        DerivedOperationalIndicators = 131203
-        ContributionCollection = 131204
-        ProductSales = 131205
-        ContributionDistribution = 131206
-        UserActivity = 131207
-        EnrolmentPerformanceIndicators = 131208
-        StatusOfRegister = 131209
-        InsureeWithoutPhotos = 131210
-        PaymentCategoryOverview = 131211
-        MatchingFunds = 131212
-        ClaimOverviewReport = 131213
-        PercentageReferrals = 131214
-        FamiliesInsureesOverview = 131215
-        PendingInsurees = 131216
-        Renewals = 131217
-        CapitationPayment = 131218
-        RejectedPhoto = 131219
-        ContributionPayment = 131220
-        ControlNumberAssignment = 131221
-        OverviewOfCommissions = 131222
-        ClaimHistoryReport = 131223
+        ReportsPrimaryOperationalIndicatorPolicies = 131201
+        ReportsPrimaryOperationalIndicatorsClaims = 131202
+        ReportsDerivedOperationalIndicators = 131203
+        ReportsContributionCollection = 131204
+        ReportsProductSales = 131205
+        ReportsContributionDistribution = 131206
+        ReportsUserActivity = 131207
+        ReportsEnrolmentPerformanceIndicators = 131208
+        ReportsStatusOfRegister = 131209
+        ReportsInsureeWithoutPhotos = 131210
+        ReportsPaymentCategoryOverview = 131211
+        ReportsMatchingFunds = 131212
+        ReportsClaimOverviewReport = 131213
+        ReportsPercentageReferrals = 131214
+        ReportsFamiliesInsureesOverview = 131215
+        ReportsPendingInsurees = 131216
+        ReportsRenewals = 131217
+        ReportsCapitationPayment = 131218
+        ReportRejectedPhoto = 131219
+        ReportsContributionPayment = 131220
+        ReportsControlNumberAssignment = 131221
+        ReportsOverviewOfCommissions = 131222
+        ReportsClaimHistoryReport = 131223
 
 
         '****************************************Utilities/Email Setting 131300 

@@ -99,7 +99,7 @@ Public Class PremiumDAL
         sSQL += " tblPremium.ValidityTo,tblPayer.PayerName, PT.Name PayType,"
         sSQL += " C.Name PayCategory"
         sSQL += " FROM tblPremium LEFT JOIN"
-        sSQL += " (SELECT premiumID,SUM(Amount) Amount FROM"
+        sSQL += " (SELECT premiumID,MatchedDate,SUM(Amount) Amount FROM"
         sSQL += " tblPaymentDetails PD"
         sSQL += " INNER JOIN tblPayment"
         sSQL += " ON PD.PaymentID = tblPayment.PaymentID"
@@ -111,7 +111,7 @@ Public Class PremiumDAL
             sSQL += " AND MatchedDate <= @MatchedDateTo"
         End If
 
-        sSQL += " Group BY PremiumID ) PY"
+        sSQL += " Group BY PremiumID,MatchedDate ) PY"
         sSQL += " ON PY.PremiumID = tblPremium.PremiumId"
         sSQL += " INNER JOIN tblPolicy ON tblPremium.PolicyID = tblPolicy.PolicyID"
         sSQL += " INNER JOIN tblFamilies ON tblPolicy.FamilyID = tblFamilies.FamilyID"
@@ -119,7 +119,7 @@ Public Class PremiumDAL
         sSQL += " INNER JOIN tblWards W ON W.WardId = V.WardId"
         sSQL += " INNER JOIN tblDistricts D ON D.DistrictId = W.DistrictID"
         sSQL += " INNER JOIN tblRegions R ON R.RegionId = D.Region"
-        sSQL += " INNER JOIN tblUsersDistricts UD on UD.LocationId = D.districtid and UD.userid = @userid and UD.ValidityTo is null"
+        'sSQL += " INNER JOIN tblUsersDistricts UD on UD.LocationId = D.districtid and UD.userid = @userid and UD.ValidityTo is null"
         sSQL += " left JOIN tblPayer ON tblPremium.PayerID = tblPayer.PayerID"
         sSQL += " LEFT OUTER JOIN @dtPayType PT ON PT.Code = tblPremium.PayType"
         sSQL += " LEFT OUTER JOIN @dtCategory C ON C.Code = CASE isPhotoFee WHEN 1 THEN 'P' ELSE 'C' END"
@@ -134,12 +134,12 @@ Public Class PremiumDAL
         If Not ePremium.PayDateTo Is Nothing Then
             sSQL += " AND PayDate <= @PayDateTo"
         End If
-        'If Not ePremium.MatchedDateFrom Is Nothing Then
-        '    sSQL += " AND MatchedDate >= @MatchedDateFrom"
-        'End If
-        'If Not ePremium.MatchedDateTo Is Nothing Then
-        '    sSQL += " AND MatchedDate <= @MatchedDateTo"
-        'End If
+        If Not ePremium.MatchedDateFrom Is Nothing Then
+            sSQL += " AND MatchedDate >= @MatchedDateFrom"
+        End If
+        If Not ePremium.MatchedDateTo Is Nothing Then
+            sSQL += " AND MatchedDate <= @MatchedDateTo"
+        End If
         If Not ePremium.tblPayer.tblLocations.RegionId = 0 Then
             sSQL += " AND (R.RegionId =  @RegionId)"
         End If
@@ -167,12 +167,18 @@ Public Class PremiumDAL
             data.params("@PayDateFrom", SqlDbType.SmallDateTime, ePremium.PayDateFrom)
         End If
         If Not ePremium.PayDateTo Is Nothing Then
+            If ePremium.PayDateTo = ePremium.PayDateTo.Value.Date Then
+                ePremium.PayDateTo = ePremium.PayDateTo.Value.AddDays(1)
+            End If
             data.params("@PayDateTo", SqlDbType.SmallDateTime, ePremium.PayDateTo)
         End If
         If Not ePremium.MatchedDateFrom Is Nothing Then
             data.params("@MatchedDateFrom", SqlDbType.SmallDateTime, ePremium.MatchedDateFrom)
         End If
         If Not ePremium.MatchedDateTo Is Nothing Then
+            If ePremium.MatchedDateTo = ePremium.MatchedDateTo.Value.Date Then
+               ePremium.MatchedDateTo = ePremium.MatchedDateTo.Value.AddDays(1)
+            End If
             data.params("@MatchedDateTo", SqlDbType.SmallDateTime, ePremium.MatchedDateTo)
         End If
         data.params("PayType", SqlDbType.NVarChar, 1, ePremium.PayType)
@@ -386,7 +392,7 @@ Public Class PremiumDAL
     Public Function GetPremium(ByVal ePremium As IMIS_EN.tblPremium) As DataTable
         Dim sSQL As String = ""
         Dim data As New ExactSQL
-        sSQL += " SELECT ROW_NUMBER() OVER (Partition BY PD.PremiumID ORDER BY py.MatchedDate) Transactions, Pr.Receipt Receipt, PD.Amount MatchedAmount,"
+        sSQL += " SELECT TransactionNo Transactions, ReceiptNo Receipt, PD.Amount MatchedAmount,"
         sSQL += " Py.ReceivedDate ReceiveDate, py.MatchedDate MatchingDate,"
         sSQL += " Py.PaymentOrigin PaymentOrigin FROM tblPremium Pr"
         sSQL += " INNER JOIN tblPaymentDetails PD ON PD.PremiumID = Pr.PremiumId AND PD.ValidityTo IS NULL"
