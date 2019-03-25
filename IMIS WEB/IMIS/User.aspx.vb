@@ -59,7 +59,7 @@ Partial Public Class User
             ddlHFNAME.DataTextField = "HFCode"
             ddlHFNAME.DataBind()
 
-            Dim dtRegion As DataTable = Users.getRegions(eUsers.UserID)
+            Dim dtRegion As DataTable = Users.getRegions(eUsers.UserID, imisgen.getUserId(Session("User")))
             gvRegion.DataSource = dtRegion
             gvRegion.DataBind()
 
@@ -68,7 +68,7 @@ Partial Public Class User
             If IMIS_Gen.offlineHF Then
                 gvDistrict.DataSource = Users.GetDistrictForHF(IMIS_Gen.HFID, eUsers.UserID)
             Else
-                gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID)
+                gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID, imisgen.getUserId(Session("User")))
             End If
             gvDistrict.DataBind()
             Assign(gvDistrict)

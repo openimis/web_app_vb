@@ -822,7 +822,7 @@ Public Class UsersBL
     '    Return dtbl
     'End Function
 
-    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, Optional ByVal Legacy As Boolean = False, Optional ByVal DistrictId As Integer = 0) As DataTable
+    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, Optional ByVal Legacy As Boolean = False, Optional ByVal DistrictId As Integer = 0, Optional Authority As Integer = 0) As DataTable
         Dim getDataTable As New IMIS_DAL.UsersDAL
         eUser.LastName += "%"
         eUser.OtherNames += "%"
@@ -831,7 +831,7 @@ Public Class UsersBL
         eUser.EmailId = "%" & eUser.EmailId & "%"
 
 
-        Return getDataTable.GetUsers(eUser, Legacy, DistrictId)
+        Return getDataTable.GetUsers(eUser, Legacy, DistrictId, Authority)
 
 
     End Function

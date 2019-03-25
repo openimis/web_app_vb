@@ -188,8 +188,8 @@ Partial Public Class FindUser
         eLocations.RegionId = RegionId
         eLocations.DistrictID = DistrictId
         eUser.tblLocations = eLocations
-
-        Dim dtUsers As DataTable = users.GetUsers(eUser, chkLegacy.Checked, LocationId)
+        Dim Authority As Integer = imisGen.getUserId(Session("User"))
+        Dim dtUsers As DataTable = users.GetUsers(eUser, chkLegacy.Checked, LocationId, Authority)
         Dim sindex As Integer = 0
         Dim dv As DataView = dtUsers.DefaultView
         If Not IsPostBack = True Then
