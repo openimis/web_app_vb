@@ -68,7 +68,6 @@ Partial Public Class User
             If IMIS_Gen.offlineHF Then
                 gvDistrict.DataSource = Users.GetDistrictForHF(IMIS_Gen.HFID, eUsers.UserID)
             Else
-
                 gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID, imisgen.getUserId(Session("User")))
             End If
             gvDistrict.DataBind()
@@ -165,8 +164,8 @@ Partial Public Class User
         Dim RefUrl = Request.Headers("Referer")
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.User, Page) Then
-            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddUser, UserID)
-            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditUser, UserID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.UsersAdd, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.UsersEdit, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False

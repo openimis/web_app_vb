@@ -93,7 +93,7 @@ Public Class LocationsBI
 
     Public Function GetRegions(ByVal UserId As Integer) As DataTable
         Dim Regions As New IMIS_BL.LocationsBL
-        Return Regions.GetAllRegions(UserId, False)
+        Return Regions.GetRegions(UserId, False)
     End Function
     'Public Function SaveRegion(eRegions As IMIS_EN.tblLocations) As Boolean
     '    Dim Regions As New IMIS_BL.RegionsBL

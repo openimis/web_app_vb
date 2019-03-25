@@ -31,9 +31,9 @@ Public Class FindUsersBI
     Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
         Return UserRights.CheckRights(Right, UserID)
     End Function
-    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, Optional ByVal All As Boolean = False, Optional ByVal DistrictId As Integer = 0, Optional UserID As Integer = 0) As DataTable
+    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, Optional ByVal All As Boolean = False, Optional ByVal DistrictId As Integer = 0, Optional Authority As Integer = 0) As DataTable
         Dim users As New IMIS_BL.UsersBL
-        Return users.GetUsers(eUser, All, DistrictId, UserID)
+        Return users.GetUsers(eUser, All, DistrictId, Authority:=Authority)
     End Function
     Public Function GetDistricts(ByVal userId As Integer, Optional ByVal showSelect As Boolean = False, Optional ByVal RegionId As Integer = 0) As DataTable
         Dim Districts As New IMIS_BL.LocationsBL

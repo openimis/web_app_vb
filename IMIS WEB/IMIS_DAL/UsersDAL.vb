@@ -103,12 +103,12 @@ Public Class UsersDAL
     End Function
 
     'Corrected
-    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, ByVal All As Boolean, ByVal LocationId As Integer, Optional UserID As Integer = 0) As DataTable
+    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, ByVal All As Boolean, ByVal LocationId As Integer, Authority As Integer) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         'Dim strsql As String = "Select distinct tblusers.* from tblUsers inner join tblUsersDistricts On  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID And tblUsersDistricts.ValidityTo Is null inner join (Select LocationId from tblUsersDistricts where UserID = @userId And ValidityTo Is null) userDistricts On userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName Like @LastName And OtherNames Like @OtherNames And LoginName Like @LoginName And Case When @RoleID = 0 Then 0 Else RoleID & @RoleId End = @RoleID And  Case When @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
         sSQL = "  DECLARE @RegionIds AS TABLE(RegionId int)"
-        sSQL += " INSERT INTO @RegionIds SELECT DISTINCT L.ParentLocationId FROM tblLocations L INNER JOIN tblUsersDistricts UD ON L.LocationId = UD.LocationId WHERE UD.UserID = @UserID"
+        sSQL += " INSERT INTO @RegionIds SELECT DISTINCT L.ParentLocationId FROM tblLocations L INNER JOIN tblUsersDistricts UD ON L.LocationId = UD.LocationId WHERE UD.UserID = @AuthorityID"
         sSQL += " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,"
         sSQL += "  U.EmailId, IsAssociated"
         sSQL += " FROM tblUsers U"
@@ -150,6 +150,7 @@ Public Class UsersDAL
         data.params("@DistrictId", SqlDbType.Int, eUser.tblLocations.DistrictId)
         data.params("@HFID", SqlDbType.Int, If(eUser.HFID Is Nothing, 0, eUser.HFID))
         data.params("@EmailId", SqlDbType.NVarChar, 200, eUser.EmailId)
+        data.params("@AuthorityID", SqlDbType.Int, Authority)
         Return data.Filldata
     End Function
 

@@ -128,7 +128,7 @@ Partial Public Class FindUser
 
         Else
 
-            If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteUser, UserID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.UsersDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindUser.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -188,9 +188,8 @@ Partial Public Class FindUser
         eLocations.RegionId = RegionId
         eLocations.DistrictID = DistrictId
         eUser.tblLocations = eLocations
-        Dim UserID As Integer = imisGen.getUserId(Session("User"))
-
-        Dim dtUsers As DataTable = users.GetUsers(eUser, chkLegacy.Checked, LocationId, UserID)
+        Dim Authority As Integer = imisGen.getUserId(Session("User"))
+        Dim dtUsers As DataTable = users.GetUsers(eUser, chkLegacy.Checked, LocationId, Authority)
         Dim sindex As Integer = 0
         Dim dv As DataView = dtUsers.DefaultView
         If Not IsPostBack = True Then

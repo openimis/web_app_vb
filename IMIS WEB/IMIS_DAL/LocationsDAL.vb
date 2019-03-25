@@ -68,10 +68,10 @@ Public Class LocationsDAL
     End Function
     Public Function GetDistrictForHF(ByVal HFID As Integer, ByVal UserId As Integer) As DataTable
         Dim data As New ExactSQL
-        Dim Query As String = "SELECT CAST(CASE WHEN UD.LocationId IS NULL THEN 0 ELSE 1 END AS BIT) Checked,D.DistrictId, DistrictName, DistrictCode,UD.UserDistrictID, D.Region " & _
-                " FROM tblDistricts D INNER JOIN tbLHF HF ON D.districtId = HF.LocationId" & _
-                " LEFT OUTER JOIN tblUsersDistricts UD ON UD.LocationId = D.DistrictId AND UD.UserId = @UserId" & _
-                " WHERE HF.HFId = @HFID AND D.DistrictName <> N'Funding'" & _
+        Dim Query As String = "SELECT CAST(CASE WHEN UD.LocationId IS NULL THEN 0 ELSE 1 END AS BIT) Checked,D.DistrictId, DistrictName, DistrictCode,UD.UserDistrictID, D.Region " &
+                " FROM tblDistricts D INNER JOIN tbLHF HF ON D.districtId = HF.LocationId" &
+                " LEFT OUTER JOIN tblUsersDistricts UD ON UD.LocationId = D.DistrictId AND UD.UserId = @UserId" &
+                " WHERE HF.HFId = @HFID AND D.DistrictName <> N'Funding'" &
                 " AND HF.ValidityTo IS NULL AND UD.ValidityTo IS NULL AND D.ValidityTo IS NULL"
         data.setSQLCommand(Query, CommandType.Text)
         data.params("@HFID", SqlDbType.Int, HFID)
@@ -115,8 +115,8 @@ Public Class LocationsDAL
     Public Sub UpdateLocation(ByVal eLocations As IMIS_EN.tblLocations)
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL = "INSERT INTO tblLocations(LocationName,LocationCode,ParentLocationId, LocationType,ValidityFrom,ValidityTo,LegacyID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families)" & _
-               " SELECT LocationName,@DistrictCode,ParentLocationId, LocationType,ValidityFrom,GETDATE(),LocationID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families FROM tblLocations WHERE LocationID = @LocationID;" & _
+        sSQL = "INSERT INTO tblLocations(LocationName,LocationCode,ParentLocationId, LocationType,ValidityFrom,ValidityTo,LegacyID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families)" &
+               " SELECT LocationName,@DistrictCode,ParentLocationId, LocationType,ValidityFrom,GETDATE(),LocationID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families FROM tblLocations WHERE LocationID = @LocationID;" &
                " UPDATE tblLocations SET LocationName = @DistrictName, LocationCode=@DistrictCode, LocationType = @LocationType,ValidityFrom=GETDATE(),AuditUserID=@AuditUserID, MalePopulation = @MalePopulation, FemalePopulation = @FemalePopulation, OtherPopulation = @OtherPopulation, Families = @Families WHERE LocationID = @LocationID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -232,8 +232,8 @@ Public Class LocationsDAL
     Public Function DeleteLocation(ByVal eLocations As IMIS_EN.tblLocations) As Boolean
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL = "INSERT INTO tblLocations(LocationName,ParentLocationId, LocationType,ValidityFrom,ValidityTo,LegacyID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families)" & _
-               " SELECT LocationName,ParentLocationId, LocationType,ValidityFrom,GETDATE(),LocationID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families FROM tblLocations WHERE LocationID = @LocationId;" & _
+        sSQL = "INSERT INTO tblLocations(LocationName,ParentLocationId, LocationType,ValidityFrom,ValidityTo,LegacyID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families)" &
+               " SELECT LocationName,ParentLocationId, LocationType,ValidityFrom,GETDATE(),LocationID,AuditUserID, MalePopulation, FemalePopulation, OtherPopulation, Families FROM tblLocations WHERE LocationID = @LocationId;" &
                " UPDATE tblLocations SET ValidityTo=GETDATE(),AuditUserID=@AuditUserID WHERE LocationID = @LocationId"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -464,20 +464,24 @@ left JOIN tblUsersDistricts UD ON D.DistrictID = UD.LocationId
 AND UD.UserId = @UserId 
 
 AND UD.ValidityTo IS NULL "
-        sSQL += " RIGHT JOIN (SELECT DISTINCT RegionId FROM tblRegions R
+        If Authority > 0 Then
+            sSQL += " RIGHT JOIN (SELECT DISTINCT RegionId FROM tblRegions R
         INNER JOIN tblDistricts D ON D.Region = R.RegionId
         INNER JOIN tblUsersDistricts UD ON UD.LocationId = D.DistrictId AND UD.ValidityTo IS NULL
 
         where UserID = @Authority And UD.ValidityTo IS NULL) AR ON Ar.RegionId = R.RegionId"
+        End If
         sSQL += " WHERE R.ValidityTo IS NULL 
+     
 
-GROUP BY UD.UserID, R.RegionId, R.RegionName, R.ValidityFrom, R.ValidityTo, R.LegacyId, R.AuditUserId,RegionCode ) 
+
+        Group BY UD.UserID, R.RegionId, R.RegionName, R.ValidityFrom, R.ValidityTo, R.LegacyId, R.AuditUserId,RegionCode ) 
 SELECT Checked, RegionId, RegionName,RegionCode, ValidityFrom, ValidityTo, LegacyId, AuditUserId FROM Regions 
 
 WHERE RNo = 1
 "
 
-        Dim data As New ExactSQL
+            Dim data As New ExactSQL
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, UserId)
         data.params("@Authority", SqlDbType.Int, Authority)
