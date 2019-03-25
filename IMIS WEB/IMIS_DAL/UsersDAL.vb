@@ -103,20 +103,23 @@ Public Class UsersDAL
     End Function
 
     'Corrected
-    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, ByVal All As Boolean, ByVal LocationId As Integer) As DataTable
+    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, ByVal All As Boolean, ByVal LocationId As Integer, Optional UserID As Integer = 0) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         'Dim strsql As String = "Select distinct tblusers.* from tblUsers inner join tblUsersDistricts On  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID And tblUsersDistricts.ValidityTo Is null inner join (Select LocationId from tblUsersDistricts where UserID = @userId And ValidityTo Is null) userDistricts On userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName Like @LastName And OtherNames Like @OtherNames And LoginName Like @LoginName And Case When @RoleID = 0 Then 0 Else RoleID & @RoleId End = @RoleID And  Case When @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
-        sSQL = " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,"
+        sSQL = "  DECLARE @RegionIds AS TABLE(RegionId int)"
+        sSQL += " INSERT INTO @RegionIds SELECT DISTINCT L.ParentLocationId FROM tblLocations L INNER JOIN tblUsersDistricts UD ON L.LocationId = UD.LocationId WHERE UD.UserID = @UserID"
+        sSQL += " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,"
         sSQL += "  U.EmailId, IsAssociated"
         sSQL += " FROM tblUsers U"
         sSQL += " INNER JOIN tblUsersDistricts UD ON UD.UserId = U.UserId"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(UD.LocationId, 0)"
-        sSQL += " WHERE (L.Regionid = @RegionId OR @RegionId = 0 OR L.LocationId = 0)"
-        sSQL += " AND (L.DistrictId = @DistrictId OR @DistrictId = 0 OR L.DistrictId IS NULL)"
+        ' sSQL += " WHERE (L.Regionid = @RegionId OR @RegionId = 0 OR L.LocationId = 0)"
+        'sSQL += " AND (L.DistrictId = @DistrictId OR @DistrictId = 0 OR L.DistrictId IS NULL)"
+        sSQL += " INNER JOIN @RegionIds RID ON RID.RegionId = L.ParentLocationId"
 
-
-        sSQL += " AND UD.ValidityTo IS NULL"
+        sSQL += " WHERE"
+        sSQL += " UD.ValidityTo IS NULL"
         sSQL += " AND U.LastName LIKE @lastName"
         sSQL += " AND U.OtherNames LIKE @OtherNames"
         sSQL += " AND U.LoginName LIKE @LoginName"

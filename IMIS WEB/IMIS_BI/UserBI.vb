@@ -36,9 +36,9 @@ Public Class UserBI
         Dim users As New IMIS_BL.GeneralBL
         Return users.GetLanguage
     End Function
-    Public Function GetDistricts(ByVal userID As Integer) As DataTable
+    Public Function GetDistricts(ByVal userID As Integer, Authority As Integer) As DataTable
         Dim districts As New IMIS_BL.LocationsBL
-        Return districts.GetDistrictsAll(userID)
+        Return districts.GetDistrictsAll(userID, Authority)
     End Function
     Public Function GetDistrictForHF(ByVal HFID As Integer, ByVal UserId As Integer) As DataTable
         Dim Loc As New IMIS_BL.LocationsBL
@@ -71,9 +71,9 @@ Public Class UserBI
     '    Dim user As New IMIS_BL.UsersBL
     '    Return user.CheckRoles(Right, RoleId)
     'End Function
-    Public Function getRegions(UserId As Integer) As DataTable
+    Public Function getRegions(UserId As Integer, Optional Authority As Integer = 0) As DataTable
         Dim Region As New IMIS_BL.LocationsBL
-        Return Region.GetAllRegions(UserId, False)
+        Return Region.GetAllRegions(UserId, False, Authority:=Authority)
     End Function
     Public Function getUserRoles(ByVal UserId As Integer, offline As Boolean) As DataTable
         Dim user As New IMIS_BL.UsersBL
