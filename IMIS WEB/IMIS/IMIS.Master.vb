@@ -168,51 +168,7 @@ Public Class IMIS
 
     Private Sub Loadsecurity()
 
-#Region "Role not use"
-        'Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
-        ''Policies and Insurees
-        'SubAddFamily.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.AddFamily, RoleId)
-        'SubFindfamily.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindFamily, RoleId)
-        'SubFindInsuree.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindInsuree, RoleId)
-        'SubFindPolicy.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindPolicy, RoleId)
-        'SubFindPremium.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindContribution, RoleId)
-        'SubFindPayment.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindPayment, RoleId)
 
-        '''Claims 
-        'SubClaimOverview.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindClaim, RoleId)
-        'SubReview.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.ClaimOverview, RoleId)
-        'SubBatchRun.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.ValuateClaim, RoleId) ' need to check this
-
-        ''' Administration
-        'SubUser.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindUser, RoleId)
-        'subPayer.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindPayer, RoleId)
-        'subPolicyRenewal.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.RenewPolicy, RoleId)
-        'SubPriceList.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindPriceListMedicalItems, RoleId)
-        'SubPLMI.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindPriceListMedicalItems, RoleId)
-        'SubPLMS.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindPriceListMedicalServices, RoleId)
-        'SUBMI.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindMedicalItem, RoleId)
-        'SubMS.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindMedicalService, RoleId)
-        'SubHF.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindHealthFacility, RoleId)
-        'subOfficer.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindOfficer, RoleId)
-        'SubClaimAdministrator.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindClaimAdministrator, RoleId)
-        'SubProducts.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindProduct, RoleId)
-        'subLocation.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FindLocations, RoleId)
-
-        'subEmailSetting.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.EmailSettings, RoleId)
-
-        ''' Tools
-        'UploadICD.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.UploadICD, RoleId)
-        'subPolicyRenewal.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.RenewPolicy, RoleId)
-        'subFeedbackPrompt.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.FeedbackPrompt, RoleId)
-        'If RoleId = 8 And (IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) Then
-        '    subIMISExtracts.Enabled = True
-        'Else
-        '    subIMISExtracts.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.IMISExtracts, RoleId)
-        'End If
-        'subUtilities.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.Utilities, RoleId)
-        'subReports.Enabled = MasterBI.checkRoles(IMIS_EN.Enums.Rights.Reports, RoleId)
-        'subFunding.Enabled = MasterBI.checkRoles(Enums.Rights.AddFund, RoleId)
-#End Region
 
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         SubAddFamily.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.FamilyAdd, UserID)

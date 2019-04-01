@@ -518,6 +518,24 @@ Partial Public Class Reports
     Protected WithEvents ddlEnrolmentOfficer As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''lblScope control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblScope As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddlScope control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlScope As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
     '''lblClaimStatus control.
     '''</summary>
     '''<remarks>
@@ -705,24 +723,6 @@ Partial Public Class Reports
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtInsuranceNumber As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''lblScope control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblScope As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''ddlScope control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlScope As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''upPrevReport control.

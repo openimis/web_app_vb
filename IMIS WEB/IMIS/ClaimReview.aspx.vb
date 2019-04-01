@@ -113,7 +113,49 @@ Partial Public Class ClaimReview
 
 
             Dim ds As New DataSet
+            Dim dtService As New DataTable
+            Dim dtItem As New DataTable
+
+
+            Dim RejServiceDescr As DataColumn
+            Dim RejItemDescr As DataColumn
+            RejServiceDescr = New DataColumn("RejServiceDescr", System.Type.GetType("System.String"))
+            RejItemDescr = New DataColumn("RejItemDescr", System.Type.GetType("System.String"))
+
+
+
+            Dim ItemReason As String = ""
+            Dim ServiceReason As String = ""
+            Dim ServiceRejectedReason As Integer = 0
+            Dim ItemRejectedReason As Integer = 0
+            Dim row As String = ""
             ds = claim.getClaimServiceAndItems(eClaim.ClaimID)
+            ds.Tables("ClaimedServices").Columns.Add(RejServiceDescr)
+            ds.Tables("ClaimedItems").Columns.Add(RejItemDescr)
+
+            dtService = ds.Tables("ClaimedServices")
+            dtItem = ds.Tables("ClaimedItems")
+            If dtService.Rows.Count > 0 Then
+
+                For Each dr As DataRow In dtService.Rows
+
+                    ServiceRejectedReason = dr("RejectionReason")
+                    ServiceReason = claim.GetServiceRejectedReason(ServiceRejectedReason)
+                    dr("RejServiceDescr") = ServiceReason
+                    ' dtService.Rows.Add(row, ServiceReason)
+                Next
+
+            End If
+            If dtItem.Rows.Count > 0 Then
+
+                For Each dr As DataRow In dtItem.Rows
+                    ItemRejectedReason = dr("RejectionReason")
+                    ItemReason = claim.GetItemRejectedReason(ItemRejectedReason)
+                    dr("RejItemDescr") = ItemReason
+                Next
+
+            End If
+
             gvService.DataSource = ds.Tables("ClaimedServices")
             gvService.DataBind()
             completeGridFill(gvService, ds.Tables("ClaimedServices"))
@@ -400,5 +442,18 @@ Partial Public Class ClaimReview
         Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimID)
     End Sub
 
- 
+    Protected Sub gvService_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvService.RowDataBound
+
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            e.Row.ToolTip = TryCast(e.Row.DataItem, DataRowView)("RejServiceDescr").ToString()
+        End If
+
+    End Sub
+
+    Protected Sub gvItems_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvItems.RowDataBound
+
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            e.Row.ToolTip = TryCast(e.Row.DataItem, DataRowView)("RejItemDescr").ToString()
+        End If
+    End Sub
 End Class

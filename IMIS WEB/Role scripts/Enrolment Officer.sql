@@ -10,7 +10,7 @@ INSERT INTO @Rights VALUES(101102)--InsureeAdd
 INSERT INTO @Rights VALUES(101103)--InsureeEdit
 INSERT INTO @Rights VALUES(101104)--InsureeDelete
 INSERT INTO @Rights VALUES(101105)--InsureeEnquire
-INSERT INTO @Rights VALUES(101001)--PolicySearch 
+INSERT INTO @Rights VALUES(101201)--PolicySearch 
 INSERT INTO @Rights VALUES(101202)--PolicyAdd
 INSERT INTO @Rights VALUES(101203)--PolicyEdit
 INSERT INTO @Rights VALUES(101204)--PolicyDelete
@@ -18,9 +18,10 @@ INSERT INTO @Rights VALUES(101205)--PolicyRenew
 INSERT INTO @Rights VALUES(101301)--ContributionSearch   
 INSERT INTO @Rights VALUES(101302)--ContributionAdd
 INSERT INTO @Rights VALUES(101303)--ContributionEdit
-INSERT INTO @Rights VALUES(101304)--ContributionDelete 
+INSERT INTO @Rights VALUES(101304)--ContributionDelete
+INSERT INTO @Rights VALUES(111001)--ClaimSearch  
 INSERT INTO @Rights VALUES(111009)--ClaimFeedback 
-SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Enrolement Officer'	
+SELECT @RoleID = RoleID from tblRole WHERE Rolename ='Enrolement Officer' AND ValidityTo IS NULL	
 --Uncheck
 DELETE FROM tblRoleRight WHERE RoleID = @RoleID AND RightID NOT IN (SELECT RightID FROM @Rights)
 

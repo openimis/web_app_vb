@@ -85,4 +85,12 @@ Public Class ClaimReviewBI
         Dim Clm As New IMIS_BL.ClaimsBL
         Return Clm.GetVisitTypeText(VisitTypeCode)
     End Function
+    Public Function GetServiceRejectedReason(ByVal ReasonId As Integer) As String
+        Dim Clm As New IMIS_BL.ClaimsBL
+        Return Clm.GetServiceRejectedReason(ReasonId)
+    End Function
+    Public Function GetItemRejectedReason(ByVal ReasonId As Integer) As String
+        Dim Clm As New IMIS_BL.ClaimsBL
+        Return Clm.GetItemRejectedReason(ReasonId)
+    End Function
 End Class

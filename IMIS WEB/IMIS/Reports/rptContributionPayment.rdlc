@@ -957,7 +957,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1451,7 +1451,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1466,6 +1466,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1872,7 +1873,7 @@
             <DataSetName>ds_ContributionPayment</DataSetName>
             <Top>0.06944in</Top>
             <Height>0.84872in</Height>
-            <Width>10.65781in</Width>
+            <Width>10.65782in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1887,7 +1888,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>27.07083cm</Width>
+      <Width>27.07086cm</Width>
       <Page>
         <PageHeader>
           <Height>1.72841cm</Height>

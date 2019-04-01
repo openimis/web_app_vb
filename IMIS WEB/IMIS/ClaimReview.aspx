@@ -39,6 +39,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
             }
         }
 
+
+
         function CalculateApprovedValue() {
             $('.appvalue').each(function() {
                 $Row = $(this).parent().parent();
@@ -62,7 +64,32 @@ In case of dispute arising out or in relation to the use of the program, it is s
             ApprovedTotal = 0;
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
+             $('[id*=gvService] tr').each(function () {
+            var toolTip = $(this).attr("title");
+            $(this).find("td").each(function () {
+                $(this).simpletip({
+                    content: toolTip
+                });
+            });
+
+               $(this).removeAttr("title");
+             });
+
+
+             $('[id*=gvItems] tr').each(function () {
+            var toolTip = $(this).attr("title");
+            $(this).find("td").each(function () {
+                $(this).simpletip({
+                    content: toolTip
+                });
+            });
+
+                $(this).removeAttr("title");
+             });
+          
+
+
             $('.PriceAsked').each(function() {
                 var $Row = $(this).parent();
                 PriceValue = $Row.find("td").eq(2).html();
@@ -106,6 +133,26 @@ In case of dispute arising out or in relation to the use of the program, it is s
     .footer{top:665px;}
      /*.backentry{ height:629px; }*/
      .panelbuttons{ position:relative;top:0px;}
+
+     .tooltip
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        display: none;
+        background-color: rgb(102, 102, 102)
+;;
+        color: White;
+        padding: 5px;
+        font-size: 10pt;
+        font-family: Arial;
+    }
+    td
+    {
+        cursor: pointer;
+    }
+
 </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server"> 
@@ -194,6 +241,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:Label ID="lblICDData1" runat="server">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </asp:Label>
                                 </td>
                                  <td class="FormLabel">
@@ -201,6 +249,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:Label ID="lblICDData2" runat="server">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </asp:Label>
                                 </td>
                                  <td class="FormLabel">
@@ -208,6 +257,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:Label ID="lblICDData3" runat="server">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </asp:Label>
                                </td>
                                  <td class="FormLabel">
@@ -215,6 +265,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:Label ID="lblICDData4" runat="server">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </asp:Label>
                                 </td>
                             </tr>
@@ -262,6 +313,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                </td>
                <td class ="DataEntryWide" >
                    <asp:Label ID="blClaimAdminCodeData" runat="server"  >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </asp:Label>
                </td>  
                <td class="FormLabel">
@@ -269,6 +321,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 </td>
                 <td class="DataEntry">
                     <asp:Label ID="lblVisitTypeData" runat="server" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </asp:Label>
                  </td>  
                   <td class="FormLabel">
@@ -276,6 +329,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 </td>
                 <td class="DataEntry">
                     <asp:Label ID="lblGuaranteeData" runat="server" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </asp:Label>
                  </td>  
                  <td></td>
@@ -362,6 +416,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <HeaderStyle Width="55px" />
                                 <ItemStyle HorizontalAlign="Right" Width="55px" />
                                </asp:BoundField>
+
                                 <asp:BoundField DataField="RejectionReason"  ItemStyle-Width="8px" HeaderText="R" ItemStyle-HorizontalAlign="Right" >
                                 <HeaderStyle Width="8px" />
                                 <ItemStyle HorizontalAlign="Right" Width="8px" />

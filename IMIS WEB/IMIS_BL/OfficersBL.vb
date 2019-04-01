@@ -64,17 +64,45 @@ Public Class OfficersBL
         If eOfficers.OfficerID = 0 Then
             SaveData.InsertOfficer(eOfficers)
             SaveOfficersVillages(dtData, eOfficers.OfficerID)
+            If eOfficers.HasLogin = True Then
+                SaveOfficerUser(eOfficers)
+            End If
             Return 0
         Else
             Dim eOfficerOrgr As New IMIS_EN.tblOfficer
             eOfficerOrgr.OfficerID = eOfficers.OfficerID
             SaveData.LoadOfficer(eOfficerOrgr)
-            If (isDirtyOfficer(eOfficers, eOfficerOrgr)) Then
-                SaveData.UpdateOfficer(eOfficers)
-            End If
+            'If (isDirtyOfficer(eOfficers, eOfficerOrgr)) Then
+            SaveData.UpdateOfficer(eOfficers)
+            'End If
             SaveOfficersVillages(dtData, eOfficers.OfficerID)
+            If eOfficers.HasLogin = True Then
+                SaveOfficerUser(eOfficers)
+            End If
             Return 2
         End If
+    End Function
+    Public Function SaveOfficerUser(eOfficer As IMIS_EN.tblOfficer) As Integer
+        Dim BLUsers As New UsersBL
+        Dim iReturn As Integer = -5
+        If BLUsers.SaveUser(eOfficer.eUsers) >= 0 Then
+
+            Dim eUsersDistricts As New IMIS_EN.tblUsersDistricts
+            Dim eLocations As New IMIS_EN.tblLocations
+            Dim DALUserDistricts As New IMIS_DAL.UsersDistrictsDAL
+
+            eUsersDistricts.AuditUserID = eOfficer.eUsers.AuditUserID
+
+            eLocations.LocationId = eOfficer.tblLocations.LocationId
+            eUsersDistricts.tblUsers = eOfficer.eUsers
+            eUsersDistricts.UserDistrictID = 0
+            eUsersDistricts.tblLocations = eLocations
+            BLUsers.SaveUserDistricts(eUsersDistricts)
+        Else
+            Return -4
+        End If
+        Return 0
+
     End Function
     Private Function isDirtyOfficer(eOfficer As IMIS_EN.tblOfficer, eOfficerOrg As IMIS_EN.tblOfficer) As Boolean
         isDirtyOfficer = True

@@ -24,6 +24,8 @@
     <script  type="text/javascript" src="Javascripts/jquery.ui.autocomplete.js"></script>
     <script  type="text/javascript" src="Javascripts/autocomplete.js"></script>
     <script  type="text/javascript" src="Javascripts/jquery-ui.js"></script>
+    <script  type="text/javascript" src="Javascripts/simpletip.js"></script>
+
    <%-- <script type="text/javascript" language="javascript">
         setTimeout(function() {
             $('.footer').text('');

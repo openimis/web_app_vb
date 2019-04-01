@@ -1017,7 +1017,73 @@ Public Class GeneralBL
         dtMode.Rows.Add(1, getMessage("T_ACTUALPAIDCONTRIBUTIONS"))
         Return dtMode
     End Function
-    Public Function GetScope() As DataTable
+    Public Function GetRejectedReasons(ByVal ReasonId As Integer) As String
+        Select Case ReasonId
+            Case -1 : Return getMessage("T_REJECTEDBYMEDICALOFFICER")
+            Case 0 : Return getMessage("T_ACCEPTED")
+            Case 1 : Return getMessage("T_ITEMSERVICENOTINTHEREGISTER")
+            Case 2 : Return getMessage("T_ITEMSERVICENOTINTHEPRICELIST")
+            Case 3 : Return getMessage("T_ITEMSERVICENOTCOVEREDBYPOLICY")
+            Case 4 : Return getMessage("T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION")
+            Case 5 : Return getMessage("T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY")
+            Case 6 : Return getMessage("T_ITEMSERVICEDUPLICATED")
+            Case 7 : Return getMessage("T_ITEMSERVICENOTVALIDINSURANCENUMBER")
+            Case 8 : Return getMessage("T_DIAGNOSISCODENOTINTHECURRENTLIST")
+            Case 9 : Return getMessage("T_TARGETDATEOFPROVISIONHEALTHCAREINVALID")
+            Case 10 : Return getMessage("T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT")
+            Case 11 : Return getMessage("T_MAXIMUMNUMBEROFINPATIENTEXCEEDED")
+            Case 12 : Return getMessage("T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED")
+            Case 13 : Return getMessage("T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED")
+            Case 14 : Return getMessage("T_MAXIMUMNUMBEROFSURGERIESEXCEEDED")
+            Case 15 : Return getMessage("T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED")
+            Case 16 : Return getMessage("T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED")
+            Case 17 : Return getMessage("T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD")
+            Case 18 : Return getMessage("T_NA")
+            Case 19 : Return getMessage("T_MAXIMUMNUMBEROFANTENETALEXCEEDED")
+            Case Else : Return ""
+        End Select
+    End Function
 
+    Public Function GetAllRejectedReasons() As DataTable
+        Dim dtRejReasons As New DataTable
+        dtRejReasons.Columns.Add("ID", GetType(Integer))
+        'Dim col = New DataColumn()
+        'col.ColumnName = "Name"
+        'col.DataType =GetType()
+        dtRejReasons.Columns.Add("Name", GetType(String)).MaxLength = 100
+        dtRejReasons.Rows.Add(-1, getMessage("T_REJECTEDBYMEDICALOFFICER"))
+        dtRejReasons.Rows.Add(0, getMessage("T_ACCEPTED"))
+        dtRejReasons.Rows.Add(1, getMessage("T_ITEMSERVICENOTINTHEREGISTER"))
+        dtRejReasons.Rows.Add(2, getMessage("T_ITEMSERVICENOTINTHEPRICELIST"))
+        dtRejReasons.Rows.Add(3, getMessage("T_ITEMSERVICENOTCOVEREDBYPOLICY"))
+        dtRejReasons.Rows.Add(4, getMessage("T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION"))
+        dtRejReasons.Rows.Add(5, getMessage("T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY"))
+        dtRejReasons.Rows.Add(6, getMessage("T_ITEMSERVICEDUPLICATED"))
+        dtRejReasons.Rows.Add(7, getMessage("T_ITEMSERVICENOTVALIDINSURANCENUMBER"))
+        dtRejReasons.Rows.Add(8, getMessage("T_DIAGNOSISCODENOTINTHECURRENTLIST"))
+        dtRejReasons.Rows.Add(9, getMessage("T_TARGETDATEOFPROVISIONHEALTHCAREINVALID"))
+        dtRejReasons.Rows.Add(10, getMessage("T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT"))
+        dtRejReasons.Rows.Add(11, getMessage("T_MAXIMUMNUMBEROFINPATIENTEXCEEDED"))
+        dtRejReasons.Rows.Add(12, getMessage("T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED"))
+        dtRejReasons.Rows.Add(13, getMessage("T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED"))
+        dtRejReasons.Rows.Add(14, getMessage("T_MAXIMUMNUMBEROFSURGERIESEXCEEDED"))
+        dtRejReasons.Rows.Add(15, getMessage("T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED"))
+        dtRejReasons.Rows.Add(16, getMessage("T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED"))
+        dtRejReasons.Rows.Add(17, getMessage("T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD"))
+        dtRejReasons.Rows.Add(18, getMessage("T_NA"))
+        dtRejReasons.Rows.Add(19, getMessage("T_MAXIMUMNUMBEROFANTENETALEXCEEDED"))
+
+        Return dtRejReasons
+    End Function
+    Public Function GetScope() As DataTable
+        Dim dtScope As New DataTable
+        dtScope.Columns.Add("ScopeID", GetType(Integer))
+        dtScope.Columns.Add("ScopeName", GetType(String))
+        dtScope.Rows.Add(-1, getMessage("T_SELECTSCOPE"))
+        dtScope.Rows.Add(0, getMessage("T_CLAIMSONLY"))
+        dtScope.Rows.Add(1, getMessage("T_CLAIMSANDREJECTIONDETAILS"))
+        dtScope.Rows.Add(2, getMessage("T_CLAIMSANDALLDETAILS"))
+
+        Return dtScope
     End Function
 End Class

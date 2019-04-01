@@ -112,9 +112,7 @@ Public Class RoleDAL
     Dim sSQL As String = String.Empty
     Dim data As new ExactSQL
 
-        'sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,AuditUserID)"
-        'sSQL += " VALUES(@RoleName,@IsSystem,@IsBlocked,GetDate(),@AuditUserID)"
-        'sSQL += " SELECT @RoleId = SCOPE_IDENTITY()"
+
 
         sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,AuditUserID, AltLanguage)"
         sSQL += " VALUES(@RoleName,@IsSystem,@IsBlocked,GetDate(),@AuditUserID, @AltLanguage)"

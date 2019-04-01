@@ -423,7 +423,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td>
                             <asp:RequiredFieldValidator ID="RequiredFieldTypeOfPayment0" runat="server" 
                                 ControlToValidate="ddlCategory"  
-                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic" Text="*"
                                 ></asp:RequiredFieldValidator>
                             
                         </td>
@@ -438,9 +438,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td>
                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPremiumPaid" 
                                 runat="server" ControlToValidate="txtPremiumPaid" 
-                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"  Text="*"
                                 ></asp:RequiredFieldValidator>
-                           <asp:CompareValidator ControlToValidate="txtPremiumPaid" ID="CompareValidator2"  runat="server" SetFocusOnError ="true"  Type="Currency" Operator="DataTypeCheck"  ValidationGroup ="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
+                           <asp:CompareValidator ControlToValidate="txtPremiumPaid" ID="CompareValidator2"  runat="server" SetFocusOnError ="true"  Type="Currency" Operator="DataTypeCheck"  ValidationGroup ="check" ForeColor="Red" Display="Dynamic"  Text="*"> </asp:CompareValidator>
                             
                         </td>
                     </tr>
@@ -453,7 +453,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                              <td>                              
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorReceiptNumber" 
                                 runat="server" ControlToValidate="txtReceiptNumber" 
-                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"  Text="*"
                                 ></asp:RequiredFieldValidator>
                             </td>
                             
@@ -486,7 +486,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                     ControlToValidate="txtPaymentDate" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"> </asp:RegularExpressionValidator>
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"  Text="*">  </asp:RegularExpressionValidator>
                         </td>
                     </tr>
                         <tr>

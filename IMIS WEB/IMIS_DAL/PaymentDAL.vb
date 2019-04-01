@@ -283,13 +283,13 @@ Public Class PaymentDAL
         Return dt
     End Function
     Public Sub SaveEditedPaymentDetails(ePaymentDetails As IMIS_EN.tblPaymentDetail)
-        data.setSQLCommand("INSERT INTO [dbo].[tblPaymentDetails] ([PaymentID],[ProductCode] ,[InsuranceNumber],[PolicyStage] ,[Amount],[LegacyID],[ValidityFrom],[ValidityTo] ,[PremiumID],[AuditedUserId])
-              SELECT [PaymentID],[ProductCode] ,[InsuranceNumber],[PolicyStage] ,[Amount],[PaymentDetailsID],[ValidityFrom],getdate() ,[PremiumID],[AuditedUserId]
-              FROM  [tblPaymentDetails] WHERE PaymentDetailsID = @PaymentDetailsID
-
-              UPDATE [dbo].[tblPaymentDetails]
-              SET [ProductCode] = @ProductCode ,[InsuranceNumber]= @InsuranceNumber ,[PolicyStage] = @PolicyStage ,[ValidityFrom] = GETDATE(),[AuditedUserId] = @AuditedUserId
-              WHERE [PaymentDetailsID] = @PaymentDetailsID", CommandType.Text)
+        Dim SSQL As String = "INSERT INTO [dbo].[tblPaymentDetails] ([PaymentID],[ProductCode] ,[InsuranceNumber],[PolicyStage] ,[Amount],[LegacyID],[ValidityFrom],[ValidityTo] ,[PremiumID],[AuditedUserId])"
+        SSQL += " SELECT [PaymentID],[ProductCode] ,[InsuranceNumber],[PolicyStage] ,[Amount],[PaymentDetailsID],[ValidityFrom],getdate() ,[PremiumID],[AuditedUserId]"
+        SSQL += " FROM  [tblPaymentDetails] WHERE PaymentDetailsID = @PaymentDetailsID"
+        SSQL += " UPDATE [dbo].[tblPaymentDetails]"
+        SSQL += " SET [ProductCode] = @ProductCode ,[InsuranceNumber]= @InsuranceNumber ,[PolicyStage] = @PolicyStage ,[ValidityFrom] = GETDATE(),[AuditedUserId] = @AuditedUserId"
+        SSQL += " WHERE [PaymentDetailsID] = @PaymentDetailsID"
+        data.setSQLCommand(SSQL, CommandType.Text)
 
         data.params("@InsuranceNumber", SqlDbType.NVarChar, 12, ePaymentDetails.InsuranceNumber)
         data.params("@ProductCode", SqlDbType.NVarChar, 8, ePaymentDetails.ProductCode)

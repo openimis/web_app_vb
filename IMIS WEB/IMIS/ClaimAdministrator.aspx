@@ -257,7 +257,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                            
                                 <asp:CompareValidator ID="ComparePassword" runat="server"
                                         ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ValidationGroup="check" Operator="Equal" SetFocusOnError="True" ForeColor="Red" Display="Dynamic" 
-                                        Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'> </asp:CompareValidator>
+                                        Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'> 
+
+                                </asp:CompareValidator>
                              
                             </td>
                           

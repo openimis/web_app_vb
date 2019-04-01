@@ -571,7 +571,10 @@ table tr td.FormLabel{width:auto;}
                                 <asp:Label ID="lblEnrolmentOfficer" runat="server" Text='<%$ Resources:Resource,L_ENROLMENTOFFICERS%>' CssClass="FormLabel"></asp:Label>
                                 <asp:DropDownList ID="ddlEnrolmentOfficer"  Width="150px" runat="server"></asp:DropDownList>
                             </li>
-
+                              <li class="co">
+                                <asp:Label ID="lblScope" runat="server"  Text='<%$ Resources:Resource,L_SCOPE%>' CssClass="FormLabel"></asp:Label>
+                                <asp:DropDownList ID="ddlScope" runat="server"></asp:DropDownList>
+                            </li>
 
                             <li class="co chr" >
                                 <asp:Label ID="lblClaimStatus" runat="server" Text='<%$ Resources:Resource,L_CLAIMSTATUS %>' CssClass="FormLabel"></asp:Label>
@@ -620,10 +623,7 @@ table tr td.FormLabel{width:auto;}
                                 <asp:Label ID="lblInsuranceNumber" runat="server"  Text='<%$ Resources:Resource,L_CHFID%>' CssClass="FormLabel"></asp:Label>
                                 <asp:TextBox ID="txtInsuranceNumber" runat="server"></asp:TextBox>
                             </li>
-                            <li class="chr">
-                                <asp:Label ID="lblScope" runat="server"  Text='<%$ Resources:Resource,L_SCOPE%>' CssClass="FormLabel"></asp:Label>
-                                <asp:DropDownList ID="ddlScope" runat="server"></asp:DropDownList>
-                            </li>
+                          
                         </ul>
                     </td>
                 </tr>
@@ -655,7 +655,7 @@ table tr td.FormLabel{width:auto;}
                            </ContentTemplate>
                           
                       </asp:UpdatePanel>
-                      <asp:ListBox ID="lstboxReportSelector" runat="server" Height="244px" Width="364px" CssClass="panel"> 
+                      <asp:ListBox ID="lstboxReportSelector" runat="server" Height="380px" Width="364px" CssClass="panel"> 
                       </asp:ListBox>
 
                   

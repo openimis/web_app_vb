@@ -51,14 +51,14 @@ Public Class LocationsDAL
     'Corrected + Rogers addition of option regionId
     Public Function GetDistrictsALL(ByVal UserID As Integer, Optional RegionId As Integer = 0, Optional Authority As Integer = 0) As DataTable
         Dim data As New ExactSQL
+        If Authority = 0 Then Authority = UserID
         Dim sSQL As String = ""
         sSQL += " SELECT CASE WHEN UserID IS NULL THEN 0 ELSE 1 END AS checked,userDistrictId, tblDistricts.DistrictID, tblDistricts.DistrictName, DistrictCode,tblDistricts.Region FROM tblDistricts"
         sSQL += " LEFT JOIN tblUsersDistricts ON tblDistricts.DistrictID = tblUsersDistricts.LocationId And  tblUsersDistricts.UserID = @UserID And tblUsersDistricts.ValidityTo Is NULL "
-        sSQL += " RIGHT JOIN (SELECT LocationID FROM tblUsersDistricts UD  
-        where UserID = @Authority And UD.ValidityTo Is NULL) AR ON Ar.LocationID = tblDistricts.DistrictID"
-        sSQL += " where tbldistricts.validityto Is null And tblDistricts.DistrictName <> N'Funding'"
-        'data.setSQLCommand("SELECT CASE WHEN UserID IS NULL THEN 0 ELSE 1 END AS checked,userDistrictId, tblDistricts.DistrictID, tblDistricts.DistrictName, DistrictCode,tblDistricts.Region FROM tblDistricts LEFT OUTER JOIN " _
-        '                   & "tblUsersDistricts ON tblDistricts.DistrictID = tblUsersDistricts.LocationId AND  tblUsersDistricts.UserID = @UserID AND tblUsersDistricts.ValidityTo is NULL where tbldistricts.validityto is null AND tblDistricts.DistrictName <> N'Funding'", CommandType.Text)
+        sSQL += " RIGHT JOIN (SELECT LocationID FROM tblUsersDistricts UD"
+        sSQL += " WHERE UserID = @Authority And UD.ValidityTo Is NULL) AR ON Ar.LocationID = tblDistricts.DistrictID"
+        sSQL += " WHERE tbldistricts.validityto Is null And tblDistricts.DistrictName <> N'Funding'"
+
         If RegionId <> 0 Then sSQL += "   AND Region = @RegionId "
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, UserID)
@@ -455,33 +455,33 @@ Public Class LocationsDAL
 
 
     Public Function getAllRegions(UserId As Integer, Optional Authority As Integer = 0)
-        Dim sSQL As String = ";WITH Regions AS ( SELECT ROW_NUMBER() OVER(PARTITION BY R.RegionId ORDER BY UD.UserId DESC)RNo,
-IIF(UD.UserID IS NULL, 0, 1)Checked, R.RegionId, R.RegionName,RegionCode, R.ValidityFrom, R.ValidityTo,
- R.LegacyId, R.AuditUserId FROM tblRegions R 
-left JOIN tblDistricts D ON R.RegionId = D.Region AND D.ValidityTo IS NULL AND R.ValidityTo IS NULL
-left JOIN tblUsersDistricts UD ON D.DistrictID = UD.LocationId 
+        Dim sSQL As String = ";WITH Regions AS ( SELECT ROW_NUMBER() OVER(PARTITION BY R.RegionId ORDER BY UD.UserId DESC)RNo,"
+        sSQL += " IIf(UD.UserID Is NULL, 0, 1) Checked, R.RegionId, R.RegionName,RegionCode, R.ValidityFrom, R.ValidityTo,"
+        sSQL += " R.LegacyId, R.AuditUserId FROM tblRegions R "
+        sSQL += " left JOIN tblDistricts D ON R.RegionId = D.Region And D.ValidityTo Is NULL And R.ValidityTo Is NULL"
+        sSQL += " left JOIN tblUsersDistricts UD ON D.DistrictID = UD.LocationId "
 
-AND UD.UserId = @UserId 
+        sSQL += " And UD.UserId = @UserId "
 
-AND UD.ValidityTo IS NULL "
+        sSQL += " And UD.ValidityTo Is NULL "
         If Authority > 0 Then
-            sSQL += " RIGHT JOIN (SELECT DISTINCT RegionId FROM tblRegions R
-        INNER JOIN tblDistricts D ON D.Region = R.RegionId
-        INNER JOIN tblUsersDistricts UD ON UD.LocationId = D.DistrictId AND UD.ValidityTo IS NULL
+            sSQL += " RIGHT JOIN (SELECT DISTINCT RegionId FROM tblRegions R"
+            sSQL += " INNER JOIN tblDistricts D ON D.Region = R.RegionId"
+            sSQL += "  INNER JOIN tblUsersDistricts UD ON UD.LocationId = D.DistrictId AND UD.ValidityTo IS NULL"
 
-        where UserID = @Authority And UD.ValidityTo IS NULL) AR ON Ar.RegionId = R.RegionId"
+            sSQL += "  where UserID = @Authority And UD.ValidityTo IS NULL) AR ON Ar.RegionId = R.RegionId"
         End If
-        sSQL += " WHERE R.ValidityTo IS NULL 
-     
+        sSQL += " WHERE R.ValidityTo IS NULL"
 
 
-        Group BY UD.UserID, R.RegionId, R.RegionName, R.ValidityFrom, R.ValidityTo, R.LegacyId, R.AuditUserId,RegionCode ) 
-SELECT Checked, RegionId, RegionName,RegionCode, ValidityFrom, ValidityTo, LegacyId, AuditUserId FROM Regions 
 
-WHERE RNo = 1
-"
+        sSQL += "   Group BY UD.UserID, R.RegionId, R.RegionName, R.ValidityFrom, R.ValidityTo, R.LegacyId, R.AuditUserId,RegionCode ) "
+        sSQL += " SELECT Checked, RegionId, RegionName,RegionCode, ValidityFrom, ValidityTo, LegacyId, AuditUserId FROM Regions "
 
-            Dim data As New ExactSQL
+        sSQL += " WHERE RNo = 1"
+
+
+        Dim data As New ExactSQL
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, UserId)
         data.params("@Authority", SqlDbType.Int, Authority)

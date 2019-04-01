@@ -522,22 +522,77 @@ Partial Public Class Report
 
                     Case "co"
                         Dim dt As DataTable = CType(Session("report"), DataTable)
-                        rpt.ReportPath = "Reports\rptClaimOverview.rdlc"
+                        Dim dtDistinct As New DataTable
+                        Dim ServiceQTY As Object = Nothing
+                        Dim ItemQTY As Object = Nothing
+                        Dim TotalClaimed As Object = Nothing
+                        Dim TotalAdjAmount As Object = Nothing
+                        Dim TotalApproved As Object = Nothing
+                        Dim TotalPaid As Object = Nothing
+
+
+                        If dt.Rows(0)("RDLC") = 0 Then
+                            rpt.ReportPath = "Reports\rptClaimOverviewAllClaims.rdlc"
+                            Dim dtView As DataView = dt.DefaultView
+                            dtDistinct = dtView.ToTable(True, New String() {"ClaimID", "Claimed", "Adjusted", "Approved", "Paid", "ClaimStatus"})
+
+                            TotalClaimed = dtDistinct.Compute("SUM(Claimed)", "1=1")
+
+                            TotalAdjAmount = dtDistinct.Compute("SUM(Adjusted)", "1=1")
+
+                            TotalApproved = dtDistinct.Compute("SUM(Approved)", "1=1")
+
+                            TotalPaid = dtDistinct.Compute("SUM(Paid)", "1=1")
+                        ElseIf dt.Rows(0)("RDLC") = 1 Then
+                            rpt.ReportPath = "Reports\rptClaimOverviewRejecteServItem.rdlc"
+
+                            Dim dtViewDetail As DataView = dt.DefaultView
+                            Dim dtDistinct1 As DataTable = dtViewDetail.ToTable(True, New String() {"ClaimServiceID", "ClaimItemID"})
+                            ServiceQTY = dtDistinct1.Compute("SUM(ClaimServiceID)", "1=1")
+
+                            ItemQTY = dtDistinct1.Compute("SUM(ClaimItemID)", "1=1")
+
+                            Dim dtView1 As DataView = dt.DefaultView
+                            dtDistinct = dtView1.ToTable(True, New String() {"ClaimID", "Claimed", "Adjusted", "Approved", "Paid"})
+
+                            TotalClaimed = dtDistinct.Compute("SUM(Claimed)", "1=1")
+
+                            TotalAdjAmount = dtDistinct.Compute("SUM(Adjusted)", "1=1")
+
+                            TotalApproved = dtDistinct.Compute("SUM(Approved)", "1=1")
+
+                            TotalPaid = dtDistinct.Compute("SUM(Paid)", "1=1")
+
+                        Else
+                            rpt.ReportPath = "Reports\rptClaimOverviewAllDetails.rdlc"
+                            Dim dtView As DataView = dt.DefaultView
+                            dtDistinct = dtView.ToTable(True, New String() {"ClaimID", "Claimed", "Adjusted", "Approved", "Paid", "ClaimStatus"})
+
+                            TotalClaimed = dtDistinct.Compute("SUM(Claimed)", "1=1")
+
+                            TotalAdjAmount = dtDistinct.Compute("SUM(Adjusted)", "1=1")
+
+                            TotalApproved = dtDistinct.Compute("SUM(Approved)", "1=1")
+
+                            TotalPaid = dtDistinct.Compute("SUM(Paid)", "1=1")
+
+                        End If
+
                         ds.Name = "ds_dtGetClaimOverview"
                         Page.Title = imisgen.getMessage("T_CLAIMOVERVIEW")
-                        Dim Param(33) As ReportParameter
+                        Dim Param(44) As ReportParameter
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramUAMainTitle", imisgen.getMessage("T_CLAIMOVERVIEW", False))
                         Param(2) = New ReportParameter("paramUAPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
                         Param(3) = New ReportParameter("paramUAUserName", imisgen.getMessage("T_USERNAME", False))
 
-                        Param(4) = New ReportParameter("paramClaimCode", imisgen.getMessage("R_CLAIMCODE", False))
-                        Param(5) = New ReportParameter("paramClaimDate", imisgen.getMessage("R_CLAIMDATE", False))
+                        Param(4) = New ReportParameter("paramClaimCode", imisgen.getMessage("L_CLAIMCODE", False))
+                        Param(5) = New ReportParameter("paramClaimDate", imisgen.getMessage("L_CLAIMDATE", False))
                         Param(6) = New ReportParameter("paramClaimAdminName", imisgen.getMessage("R_CLAIMADMINNAME", False))
                         Param(7) = New ReportParameter("paramVisitFrom", imisgen.getMessage("R_VISITFROM", False))
                         Param(8) = New ReportParameter("paramVisitTo", imisgen.getMessage("R_VISITTO", False))
                         Param(9) = New ReportParameter("paramCHFNumber", imisgen.getMessage("R_CHFID", False))
-                        Param(10) = New ReportParameter("paramInsureeName", imisgen.getMessage("R_INSUREENAME", False))
+                        Param(10) = New ReportParameter("paramInsureeName", imisgen.getMessage("L_PATIENTNAME", False))
                         Param(11) = New ReportParameter("paramClaimStatus", imisgen.getMessage("R_CLAIMSTATUS", False))
                         Param(12) = New ReportParameter("paramRejectionCode", imisgen.getMessage("R_CLAIMREJECTIONREASONCODE", False))
                         Param(13) = New ReportParameter("paramClaimTotalInitial", imisgen.getMessage("L_CLAIMED", False))
@@ -555,21 +610,24 @@ Partial Public Class Report
                         Param(25) = New ReportParameter("paramTotalClaimedT", imisgen.getMessage("R_TOTALCLAIMED", False))
                         Param(26) = New ReportParameter("paramTotalClaimsT", imisgen.getMessage("R_TOTALCLAIMS", False))
 
-                        Dim dtView As DataView = dt.DefaultView
-                        Dim dtDistinct As DataTable = dtView.ToTable(True, New String() {"ClaimID", "Claimed", "Adjusted", "Approved", "Paid", "ClaimStatus"})
-
-                        Dim TotalClaimed As Object = dtDistinct.Compute("SUM(Claimed)", "1=1")
-                        If TotalClaimed Is DBNull.Value Then TotalClaimed = 0
-
-                        Dim TotalAdjAmount As Object = dtDistinct.Compute("SUM(Adjusted)", "1=1")
-                        If TotalAdjAmount Is DBNull.Value Then TotalAdjAmount = 0
-
-                        Dim TotalApproved As Object = dtDistinct.Compute("SUM(Approved)", "1=1")
-                        If TotalApproved Is DBNull.Value Then TotalApproved = 0
-
-                        Dim TotalPaid As Object = dtDistinct.Compute("SUM(Paid)", "1=1")
-                        If TotalPaid Is DBNull.Value Then TotalPaid = 0
-
+                        If ItemQTY Is Nothing Then
+                            ItemQTY = 0
+                        End If
+                        If ServiceQTY Is Nothing Then
+                            ServiceQTY = 0
+                        End If
+                        If TotalClaimed Is Nothing Then
+                            TotalClaimed = 0
+                        End If
+                        If TotalAdjAmount Is DBNull.Value Then
+                            TotalAdjAmount = 0
+                        End If
+                        If TotalApproved Is Nothing Then
+                            TotalApproved = 0
+                        End If
+                        If TotalPaid Is DBNull.Value Then
+                            TotalPaid = 0
+                        End If
 
                         Param(27) = New ReportParameter("paramTotalClaims", dtDistinct.Rows.Count)
                         Param(28) = New ReportParameter("paramTotalClaimed", TotalClaimed.ToString)
@@ -579,6 +637,19 @@ Partial Public Class Report
                         Param(31) = New ReportParameter("paramTotalApproved", TotalApproved.ToString)
                         Param(32) = New ReportParameter("paramApproved", imisgen.getMessage("L_APPROVED", False))
                         Param(33) = New ReportParameter("paramTotalPaid", TotalPaid.ToString)
+                        Param(34) = New ReportParameter("prmService", imisgen.getMessage("L_SERVICE", False))
+                        Param(35) = New ReportParameter("prmQty", imisgen.getMessage("L_QTY", False))
+                        Param(36) = New ReportParameter("paramServiceQty", ServiceQTY.ToString)
+                        Param(37) = New ReportParameter("paramItemQty", ItemQTY.ToString)
+                        Param(38) = New ReportParameter("prmAppQty", imisgen.getMessage("L_APPQTY", False))
+                        Param(39) = New ReportParameter("prmPrice", imisgen.getMessage("L_PRICE", False))
+                        Param(40) = New ReportParameter("prmAppValue", imisgen.getMessage("L_APPVALUE", False))
+                        Param(41) = New ReportParameter("prmClaimServices", imisgen.getMessage("L_SERVICES", False))
+                        Param(42) = New ReportParameter("prmClaimItems", imisgen.getMessage("L_ITEM", False))
+                        Param(43) = New ReportParameter("prmJustification", imisgen.getMessage("L_JUSTIFICATION", False))
+                        Param(44) = New ReportParameter("prmValuated", imisgen.getMessage("L_PRICEVALUATED", False))
+
+
                         rpt.SetParameters(Param)
                         ds.Value = dt
                         rpt.DataSources.Add(ds)
@@ -588,7 +659,7 @@ Partial Public Class Report
                         rpt.ReportPath = "Reports\rptClaim.rdlc"
                         Page.Title = imisgen.getMessage("T_CLAIM")
 
-                        Dim Param(41) As ReportParameter '28
+                        Dim Param(39) As ReportParameter '28
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramUAMainTitle", imisgen.getMessage("L_CLAIM", False))
                         Param(2) = New ReportParameter("paramUAPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
@@ -643,8 +714,8 @@ Partial Public Class Report
                         Param(37) = New ReportParameter("prmFreeServicePrice", imisgen.getMessage("L_FREESERVICEPRICE", False))
                         Param(38) = New ReportParameter("prmFreeItemPrice", imisgen.getMessage("L_FREEITEMPRICE", False))
                         Param(39) = New ReportParameter("prmTotal", imisgen.getMessage("L_TOTAL", False))
-                        Param(40) = New ReportParameter("prmClaimServices", imisgen.getMessage("L_SERVICES", False))
-                        Param(41) = New ReportParameter("prmClaimItems", imisgen.getMessage("L_ITEMS", False))
+
+
 
                         rpt.SetParameters(Param)
                         ds.Name = "ds_dtClaim"

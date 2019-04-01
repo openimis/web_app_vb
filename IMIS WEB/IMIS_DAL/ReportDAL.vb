@@ -311,17 +311,23 @@ Public Class ReportDAL
         Return data.Filldata
     End Function
 
-    'Corrected
-    Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?) As DataTable
+    Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
         Dim Data As New ExactSQL
         Data.setSQLCommand("uspSSRSGetClaimOverView", CommandType.StoredProcedure)
+        Data.params("@HfID", SqlDbType.Int, HfID)
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdID", SqlDbType.Int, ProdID)
-        Data.params("@HfID", SqlDbType.Int, HfID)
+
         Data.params("@StartDate", SqlDbType.Date, StartDate)
         Data.params("@EndDate", SqlDbType.Date, EndDate)
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
-        Return Data.Filldata()
+        Data.params("@Scope", SqlDbType.Int, Scope)
+        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        Dim dt As DataTable = Data.Filldata()
+        oReturn = Data.sqlParameters("@RV")
+
+        Return dt
     End Function
 
     'Corrected
@@ -559,6 +565,7 @@ Public Class ReportDAL
         sSQL = " SELECT CONVERT(NVARCHAR(12), CN.RequestedDate) RequestedDate,CASE PD.PolicyStage WHEN 'N' THEN 'Yes' ELSE 'No' END AS PolicyStage, PY.OfficerCode,O.LastName, PY.PhoneNumber,  "
         sSQL += " CASE PY.PaymentStatus WHEN 1 THEN 'Not yet Confirmed' WHEN 2 THEN 'Posted' WHEN 3 THEN 'Posted' WHEN 4 THEN  'Posted' WHEN 5 THEN 'Posted' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' END PostingStatus,   "
         sSQL += " PY.RejectedReason PostingRejectedReason, CASE PY.PaymentStatus WHEN 3 THEN 'Assigned' WHEN 4 THEN 'Assigned' WHEN 5 THEN 'Assigned' WHEN 1 THEN 'Not yet assigned' WHEN 2 THEN 'Not yet assigned' WHEN -3 THEN 'Rejected' END AssigmentStatus,"
+        sSQL += " PY.ExpectedAmount,PY.TransferFee,PY.TypeOfPayment, "
         sSQL += " CN.Comment CAssignmentRejectedReason, cn.ControlNumber,NULL PaymenyStatusName FROM tblControlNumber CN "
         sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = CN.PaymentID"
         sSQL += "  LEFT OUTER JOIN tblPaymentDetails PD ON PD.PaymentID = PY.PaymentID"
