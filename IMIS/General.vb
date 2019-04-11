@@ -38,4 +38,25 @@ Public Class General
         Return dr(0)("Adjustibility").ToString.ToUpper
 
     End Function
+
+    Public Shared Function isValidPassword(password As String) As Boolean
+        Try
+            Return Regex.IsMatch(password, IMIS_EN.AppConfiguration.ValidationPasswordRegex)
+        Catch ex As Exception
+            Dim passwordRegex As String = "^(?=.{8})(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=[^\d]*[\d])(?=[^\W]*[\W])[A-Za-z0-9\W]+$"
+            Return Regex.IsMatch(password, passwordRegex)
+        End Try
+    End Function
+
+    Public Shared Function getInvalidPasswordMessage() As String
+        Dim imisgen As New IMIS_Gen
+        Dim result As String = imisgen.getMessage("M_WEAKPASSWORD")
+        Try
+            If Not String.IsNullOrEmpty(IMIS_EN.AppConfiguration.ValidationPasswordRegex) Then
+                result = imisgen.getMessage("M_WEAKPASSWORD_GENERAL")
+            End If
+        Catch ex As Exception
+        End Try
+        Return result
+    End Function
 End Class

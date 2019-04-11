@@ -127,4 +127,14 @@ Public Class AppConfiguration
             Throw New Exception("AppSetting Host not found in web.config file.")
         End Get
     End Property
+
+    Public Shared ReadOnly Property ValidationPasswordRegex As String
+        Get
+            Dim Result As String = ConfigurationManager.AppSettings("ValidationPasswordRegex")
+            If Not String.IsNullOrEmpty(Result) Then
+                Return Result
+            End If
+            Throw New Exception("AppSetting ValidationPasswordRegex not found in web.config file.")
+        End Get
+    End Property
 End Class

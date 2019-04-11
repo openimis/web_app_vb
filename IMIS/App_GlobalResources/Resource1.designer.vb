@@ -10064,11 +10064,20 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Password must contain at least 8 characters including at  least one number.
+        '''  Looks up a localized string similar to Password must contain at least 8 characters including, at least one number, at least one upper and lower case letter, at least one special symbol.
         '''</summary>
         Friend Shared ReadOnly Property M_WEAKPASSWORD() As String
             Get
                 Return ResourceManager.GetString("M_WEAKPASSWORD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Password is too weak.
+        '''</summary>
+        Friend Shared ReadOnly Property M_WEAKPASSWORD_GENERAL() As String
+            Get
+                Return ResourceManager.GetString("M_WEAKPASSWORD_GENERAL", resourceCulture)
             End Get
         End Property
         

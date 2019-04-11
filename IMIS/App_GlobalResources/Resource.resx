@@ -3592,7 +3592,10 @@
     <value>A link has been sent to your email, click on link to confirm new password</value>
   </data>
   <data name="M_WEAKPASSWORD" xml:space="preserve">
-    <value>Password must contain at least 8 characters including at  least one number</value>
+    <value>Password must contain at least 8 characters including, at least one number, at least one upper and lower case letter, at least one special symbol</value>
+  </data>
+  <data name="M_WEAKPASSWORD_GENERAL" xml:space="preserve">
+    <value>Password is too weak</value>
   </data>
   <data name="L_MYPROFILE" xml:space="preserve">
     <value>My profile</value>

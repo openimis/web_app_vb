@@ -4934,8 +4934,12 @@ Fuzzy</comment>
     <comment>Good Afternoon</comment>
   </data>
   <data name="M_GOODEVENING" xml:space="preserve">
-    <value>Bonsoir</value>
-    <comment>Good Evening</comment>
+      <value>Bonsoir</value>
+      <comment>Good Evening</comment>
+  </data>
+  <data name="M_WEAKPASSWORD_GENERAL" xml:space="preserve">
+    <value>Le mot de passe doit contenir au moins 8 caractères dont au moins un numéro</value>
+    <comment>Password is too weak</comment>
   </data>
   <data name="M_GOODMORNING" xml:space="preserve">
     <value>Bonjour</value>
