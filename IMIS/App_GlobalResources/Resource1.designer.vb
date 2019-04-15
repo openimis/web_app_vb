@@ -776,7 +776,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ant Amt/Claim.
+        '''  Looks up a localized string similar to Antenatal Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_ANTENATALAMOUNTLEFT() As String
             Get
@@ -1532,7 +1532,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cons Amt/Claim.
+        '''  Looks up a localized string similar to Consultation Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_CONSULTATIONAMOUNTLEFT() As String
             Get
@@ -1748,7 +1748,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Del Amt/Claim.
+        '''  Looks up a localized string similar to Delivery Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_DELIVERYAMOUNTLEFT() As String
             Get
@@ -2297,7 +2297,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Claim XMLs.
+        '''  Looks up a localized string similar to Download Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_DOWNLOADCLAIMS() As String
             Get
@@ -2333,7 +2333,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Enrolment XMLs.
+        '''  Looks up a localized string similar to Download Enrolments.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_OFFLINENROLMENT() As String
             Get
@@ -2351,7 +2351,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Claims XML.
+        '''  Looks up a localized string similar to Upload Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_UPLOADCLAIMS() As String
             Get
@@ -3116,7 +3116,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hosp Amt/Claim.
+        '''  Looks up a localized string similar to Admission Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_HOSPITALIZATIONAMOUNTLEFT() As String
             Get
@@ -5330,7 +5330,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Search Insurance No.
+        '''  Looks up a localized string similar to Enquiry.
         '''</summary>
         Friend Shared ReadOnly Property L_SEARCHCHFNUMBER() As String
             Get
@@ -5681,7 +5681,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Surg Amt/Claim.
+        '''  Looks up a localized string similar to Surgery Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_SURGERYAMOUNTLEFT() As String
             Get
@@ -5744,7 +5744,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adm Left.
+        '''  Looks up a localized string similar to Admissions Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALADMISSIONSLEFT() As String
             Get
@@ -5753,7 +5753,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ant left.
+        '''  Looks up a localized string similar to Antenatal Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALANTENATALLEFT() As String
             Get
@@ -5771,7 +5771,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cons Left.
+        '''  Looks up a localized string similar to Consultations Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALCONSULTATIONSLEFT() As String
             Get
@@ -5780,7 +5780,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Del Left.
+        '''  Looks up a localized string similar to Deliveries Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALDELIVERIESLEFT() As String
             Get
@@ -5825,7 +5825,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Surg Left.
+        '''  Looks up a localized string similar to Surgeries Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALSURGERIESLEFT() As String
             Get
@@ -5843,7 +5843,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Vis Left.
+        '''  Looks up a localized string similar to Visits Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALVISITSLEFT() As String
             Get

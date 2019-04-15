@@ -403,7 +403,7 @@
   </data>
   <data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
     <value>Prénatal, montant /remboursement</value>
-    <comment>Ant Amt/Claim</comment>
+    <comment>Antenatal Amount/Claim</comment>
   </data>
   <data name="L_APPQTY" xml:space="preserve">
     <value>Quantité appouvée</value>
@@ -727,7 +727,7 @@
   </data>
   <data name="L_CONSULTATIONAMOUNTLEFT" xml:space="preserve">
     <value>Montant de la consultation/remboursement</value>
-    <comment>Cons Amt/Claim</comment>
+    <comment>Consultation Amount/Claim</comment>
   </data>
   <data name="L_CONSULTATIONS" xml:space="preserve">
     <value>Consultation</value>
@@ -819,7 +819,7 @@
   </data>
   <data name="L_DELIVERYAMOUNTLEFT" xml:space="preserve">
     <value>Supprimer montant/remboursement</value>
-    <comment>Del Amt/Claim</comment>
+    <comment>Delivery Amount/Claim</comment>
   </data>
   <data name="L_DERIVEDINDICATORSREPORT" xml:space="preserve">
     <value>Rapport des indicateurs dérivés</value>
@@ -1375,7 +1375,7 @@
   </data>
   <data name="L_HOSPITALIZATIONAMOUNTLEFT" xml:space="preserve">
     <value>Montant hospital / Remboursement</value>
-    <comment>Hosp Amt/Claim</comment>
+    <comment>Admission Amount/Claim</comment>
   </data>
   <data name="L_HOSPITALIZATIONS" xml:space="preserve">
     <value>hospit</value>
@@ -2287,7 +2287,7 @@
   </data>
   <data name="L_SEARCHCHFNUMBER" xml:space="preserve">
     <value>Rechercher le numéro d'assurance</value>
-    <comment>Search Insurance No</comment>
+    <comment>Enquiry</comment>
   </data>
   <data name="L_SECONDARYDG1" xml:space="preserve">
     <value>Dg1 secondaire</value>
@@ -2419,7 +2419,7 @@
   </data>
   <data name="L_SURGERYAMOUNTLEFT" xml:space="preserve">
     <value>Chirurgie, Montant/ remboursement</value>
-    <comment>Surg Amt/Claim</comment>
+    <comment>Surgery Amount/Claim</comment>
   </data>
   <data name="L_SUSPEND" xml:space="preserve">
     <value>Suspendre</value>
@@ -2447,11 +2447,11 @@
   </data>
   <data name="L_TOTALADMISSIONSLEFT" xml:space="preserve">
     <value>Administration restante</value>
-    <comment>Adm Left</comment>
+    <comment>Admissions Left</comment>
   </data>
   <data name="L_TOTALANTENATALLEFT" xml:space="preserve">
     <value>Prénatal montant restant</value>
-    <comment>Ant left</comment>
+    <comment>Antenatal Left</comment>
   </data>
   <data name="L_TOTALCLAIMS" xml:space="preserve">
     <value>Total des remboursements</value>
@@ -2459,11 +2459,11 @@
   </data>
   <data name="L_TOTALCONSULTATIONSLEFT" xml:space="preserve">
     <value>Consultation restant</value>
-    <comment>Cons Left</comment>
+    <comment>Consultations Left</comment>
   </data>
   <data name="L_TOTALDELIVERIESLEFT" xml:space="preserve">
     <value>Supprimer restant</value>
-    <comment>Del Left</comment>
+    <comment>Deliveries Left</comment>
   </data>
   <data name="L_TOTALFAMILY" xml:space="preserve">
     <value>Total de la famille</value>
@@ -2483,7 +2483,7 @@
   </data>
   <data name="L_TOTALSURGERIESLEFT" xml:space="preserve">
     <value>Interventions chirurgicales restantes</value>
-    <comment>Surg Left</comment>
+    <comment>Surgeries Left</comment>
   </data>
   <data name="L_TOTALVALUE" xml:space="preserve">
     <value>Valeur totale</value>
@@ -2491,7 +2491,7 @@
   </data>
   <data name="L_TOTALVISITSLEFT" xml:space="preserve">
     <value>Visites restantes</value>
-    <comment>Vis Left</comment>
+    <comment>Visits Left</comment>
   </data>
   <data name="L_TREATMENT" xml:space="preserve">
     <value>Prescription</value>
