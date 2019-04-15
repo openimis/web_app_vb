@@ -510,10 +510,10 @@
                         <li><a href="Logout.aspx">
                             <asp:Label ID="lblLogout" runat="server" Text='<%$ Resources:Resource,L_LOGOUT %>'></asp:Label>
                             </a></li>
-                        <li><a style="width: 190px" class="search">
-                            <div style="position: relative; background-color: White; overflow: hidden; width: 145px; float: left; font-weight: normal;">
+                        <li><a style="width: 200px" class="search">
+                            <div style="position: relative; background-color: White; overflow: hidden; width: 155px; float: left; font-weight: normal;">
                                 <asp:Label ID="lblWaterMark" runat="server" Text='<%$ Resources:Resource,L_SEARCHCHFNUMBER %>' CssClass="WaterMark"></asp:Label>
-                                <asp:TextBox ID="txtSearch" runat="server" CssClass="numbersOnly" AutoPostBack="False" Height="14px" Style="background: none; z-index: 2; position: relative; font-size: small; float: left; width: 145px" MaxLength="12"></asp:TextBox>
+                                <asp:TextBox ID="txtSearch" runat="server" CssClass="numbersOnly" AutoPostBack="False" Height="14px" Style="background: none; z-index: 2; position: relative; font-size: small; float: left; width: 155px" MaxLength="12"></asp:TextBox>
                             </div>
                             <div class="AdvancedSearch">
                                 <span id="btnAdvance" style="color: Blue; font-size: 18px;">▼</span>
@@ -598,8 +598,8 @@
                 <table id="SelectPic">
                     <tr>
                         <td align="center">
-                            <div style="width: 700px;">
-                                <img alt="Close" id="btnCancel" src="Images/Erase.png" style="float: right" />
+                            <div style="display: inline-block; position: relative;">
+                                <img alt="Close" id="btnCancel" src="Images/Erase.png" style="position: absolute; top: 0px; right: -15px;"/>
                                 <table class="InsureeByCHFID">
                                     <tr>
                                         <td>
@@ -620,19 +620,50 @@
                                                                 <table cellpadding="0" cellspacing="0" style="width: 500px;">
                                                                     <thead>
                                                                         <tr class="SearchHeader">
-                                                                            <td colspan="2"><%#Eval("CHFID") %></td>
+                                                                            <td colspan="2">
+                                                                                <asp:Label ID="chf_ID" Text='<%#Eval("CHFID")%>' runat="server"></asp:Label>
+                                                                            </td>
                                                                         </tr>
                                                                     </thead>
                                                                     <tr>
-                                                                        <td class="SearchLabel">
+                                                                        <td class="SearchLabel" align="left">
                                                                             <asp:Label
                                                                                 ID="L_LASTNAME"
                                                                                 runat="server"
+                                                                                width="100"
                                                                                 Text='<%$ Resources:Resource,L_LASTNAME %>'>
                                                                             </asp:Label>
                                                                         </td>
                                                                         <td class="SearchDetails">
-                                                                            <%#Eval("LastName") %></td>
+                                                                            <asp:Label ID="Last_Name" Text='<%#Eval("LastName")%>' runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchLabel">
+                                                                            <asp:Label
+                                                                                ID="Label2"
+                                                                                runat="server"
+                                                                          visible="false"
+                                                                             Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="FormLabel">
+                                                                            <asp:Label
+                                                                                ID="Label6"
+                                                                                runat="server"
+                                                                          visible="false"
+                                                                              Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                            </asp:Label>
+                                                                           </td>
+                                                                        <td class="SearchLabel">
+                                                                            <asp:Label
+                                                                                ID="L_FSPREGION"
+                                                                                runat="server"
+                                                                                width="100"
+                                                                                Text='<%$ Resources:Resource,L_FSPREGION %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchDetails">
+                                                                            <asp:Label ID="regionalFSP" Text='<%#Eval("RegionOfFSP")%>' runat="server"></asp:Label>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="SearchLabel">
@@ -643,7 +674,35 @@
                                                                             </asp:Label>
                                                                         </td>
                                                                         <td class="SearchDetails">
-                                                                            <%#Eval("OtherNames") %></td>
+                                                                            <asp:Label ID="other_names" Text='<%#Eval("OtherNames")%>' runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td class="FormLabel">
+                                                                            <asp:Label
+                                                                                ID="Label3"
+                                                                                runat="server"
+                                                                                visible="false"
+                                                                                Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchDetails">
+                                                                            <asp:Label
+                                                                                ID="Label7"
+                                                                                runat="server"
+                                                                                visible="false"
+                                                                                Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchLabel">
+                                                                            <asp:Label
+                                                                                ID="L_FSPDISTRICT"
+                                                                                runat="server"
+                                                                                width="100"
+                                                                                Text='<%$ Resources:Resource,L_FSPDISTRICT %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchDetails">
+                                                                            <asp:Label ID="district_of_fsp" Text='<%#Eval("DistrictOfFSP")%>' runat="server"></asp:Label>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="SearchLabel">
@@ -654,7 +713,27 @@
                                                                             </asp:Label>
                                                                         </td>
                                                                         <td class="SearchDetails">
-                                                                            <%#Eval("DOB")%></td>
+                                                                            <asp:Label ID="dob" Text='<%#Eval("DOB")%>' runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchLabel">
+                                                                            <asp:Label
+                                                                                ID="L_AGE"
+                                                                                runat="server"
+                                                                                Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="ReadOnlyText" align="left">
+                                                                           <asp:Label ID="age" Text='<%#Eval("Age")%>' runat="server"></asp:Label>
+                                                                         <td class="SearchLabel">
+                                                                            <asp:Label
+                                                                                ID="L_FSPLEVEL"
+                                                                                runat="server"
+                                                                                Text='<%$ Resources:Resource,L_FSPLEVEL %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="ReadOnlyText">
+                                                                             <asp:Label ID="hfLevel" Text='<%#Eval("HFLevel")%>' runat="server"></asp:Label>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="SearchLabel">
@@ -665,7 +744,27 @@
                                                                             </asp:Label>
                                                                         </td>
                                                                         <td class="SearchDetails">
-                                                                            <%#Eval("Gender")%></td>
+                                                                            <asp:Label ID="gender" Text='<%#Eval("Gender")%>' runat="server"></asp:Label>
+                                                                        </td>
+                                                                         <td class="SearchLabel">
+                                                                            <asp:Label
+                                                                                ID="Label5"
+                                                                                runat="server"
+                                                                                visible="false"
+                                                                                Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchDetails"></td>
+                                                                        <td class="SearchLabel">
+                                                                            <asp:Label
+                                                                                ID="L_FSP"
+                                                                                runat="server"
+                                                                                Text='<%$ Resources:Resource,L_FSP %>'>
+                                                                            </asp:Label>
+                                                                        </td>
+                                                                        <td class="SearchDetails">
+                                                                             <asp:Label ID="fsp" Text='<%#Eval("FirstServicePoint")%>' runat="server"></asp:Label>
+                                                                        </td>
                                                                     </tr>
 
                                                                 </table>
@@ -690,7 +789,7 @@
                                                             <asp:BoundField DataField="ProductCode" HeaderText="<%$ Resources:Resource,L_PRODUCTCODE %>" />
                                                             <asp:BoundField DataField="ProductName" HeaderText="<%$ Resources:Resource,L_PRODUCTNAME %>" />
                                                             <asp:BoundField DataField="ExpiryDate" DataFormatString="{0:d}" HeaderText="<%$ Resources:Resource,L_EXPIREDATE %>" />
-                                                            <asp:BoundField DataField="Status" HeaderText="<%$ Resources:Resource,L_STATUS %>" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField DataField="PolicyStatus" HeaderText="<%$ Resources:Resource,L_STATUS %>" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField DataField="Ded1" HeaderText="<%$ Resources:Resource,L_HDEDUCTION %>" ItemStyle-HorizontalAlign="Right" />
                                                             <asp:BoundField DataField="Ded2" HeaderText="<%$ Resources:Resource,L_NHDEDUCTION %>" ItemStyle-HorizontalAlign="Right" />
                                                             <asp:BoundField DataField="Ceiling1" HeaderText="<%$ Resources:Resource,L_HCEILING %>" ItemStyle-HorizontalAlign="Right" />

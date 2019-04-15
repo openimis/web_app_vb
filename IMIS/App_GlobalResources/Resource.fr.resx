@@ -5533,4 +5533,10 @@
     <value />
     <comment>No Enrollment Found</comment>
   </data>
+  <data name="L_AGE" xml:space="preserve">
+    <value>Âge</value>
+  <comment>Age</comment></data>
+  <data name="L_FSPLEVEL" xml:space="preserve">
+    <value>Level of FSP</value>
+  <comment>Level of FSP</comment></data>
 </root>

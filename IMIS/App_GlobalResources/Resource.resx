@@ -4173,4 +4173,10 @@
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
     <value>No Enrollment Found</value>
   </data>
+  <data name="L_AGE" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="L_FSPLEVEL" xml:space="preserve">
+    <value>Level of FSP</value>
+  </data>
 </root>

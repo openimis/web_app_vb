@@ -722,6 +722,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Age.
+        '''</summary>
+        Friend Shared ReadOnly Property L_AGE() As String
+            Get
+                Return ResourceManager.GetString("L_AGE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to IMIS.
         '''</summary>
         Friend Shared ReadOnly Property L_ALERTPOPUPTITLE() As String
@@ -2869,6 +2878,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_FSPDISTRICT() As String
             Get
                 Return ResourceManager.GetString("L_FSPDISTRICT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Level of FSP.
+        '''</summary>
+        Friend Shared ReadOnly Property L_FSPLEVEL() As String
+            Get
+                Return ResourceManager.GetString("L_FSPLEVEL", resourceCulture)
             End Get
         End Property
         

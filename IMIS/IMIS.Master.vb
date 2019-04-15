@@ -181,7 +181,8 @@ Public Class IMIS
         If Not IsNumeric(txtSearch.Text) Then Return
         Dim dt As New DataTable
         Dim Insuree As New IMIS_BI.InsureeBI
-        dt = Insuree.GetInsureeByCHFID(txtSearch.Text)
+
+        dt = Insuree.GetInsureeByCHFID(txtSearch.Text, Request.Cookies("CultureInfo").Value)
         rptInsuree.DataSource = dt
         rptInsuree.DataBind()
 
