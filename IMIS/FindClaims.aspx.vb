@@ -65,7 +65,6 @@ Partial Public Class FindClaims
             B_SUBMIT_Click(sender, New System.EventArgs)
         End If
 
-
         If IsPostBack = False Then RunPageSecurity()
         FormatForm()
 
@@ -102,11 +101,6 @@ Partial Public Class FindClaims
             ddlClaimStatus.DataValueField = "Code"
             ddlClaimStatus.DataBind()
             ddlClaimStatus.SelectedValue = 2
-
-            ddlICD.DataSource = FindClaimsB.GetICDCodes(True)
-            ddlICD.DataTextField = "ICDCode"
-            ddlICD.DataValueField = "ICDID"
-            ddlICD.DataBind()
 
             FillVisitTypes()
 
@@ -301,7 +295,7 @@ Partial Public Class FindClaims
                 ddlFBStatus.SelectedValue = eClaim.FeedbackStatus
                 ddlReviewStatus.SelectedValue = eClaim.ReviewStatus
                 ddlClaimStatus.SelectedValue = eClaim.ClaimStatus
-                ddlICD.SelectedValue = eICDCodes.ICDID
+                hfICDCode.Value = eICDCodes.ICDID
 
                 txtClaimCode.Text = if(eClaim.ClaimCode Is Nothing, "", eClaim.ClaimCode)
                 txtHFName.Text = eHF.HFName
@@ -333,7 +327,11 @@ Partial Public Class FindClaims
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                eICDCodes.ICDID = ddlICD.SelectedValue
+                If Not String.IsNullOrEmpty(hfICDID.Value) Then
+                    eICDCodes.ICDID = CInt(Int(hfICDID.Value))
+                Else
+                    eICDCodes.ICDID = 0
+                End If
                 If Not txtClaimCode.Text = "" Then
                     eClaim.ClaimCode = txtClaimCode.Text
                 End If
@@ -423,7 +421,7 @@ Partial Public Class FindClaims
         dic.Add("ReviewStatus", ddlReviewStatus.SelectedValue)
         dic.Add("FeedbackStatus", ddlFBStatus.SelectedValue)
         dic.Add("ClaimStatus", ddlClaimStatus.SelectedValue)
-        dic.Add("ICDID", ddlICD.SelectedValue)
+        dic.Add("ICDID", txtICDCode.Text)
         dic.Add("BatchRunID", ddlBatchRun.SelectedValue)
         dic.Add("VisitDateFrom", if(txtVisitDateFrom.Text = "", "", txtVisitDateFrom.Text))
         dic.Add("VisitDateTo", if(txtVisitDateTo.Text = "", "", txtVisitDateTo.Text))
@@ -500,14 +498,14 @@ Partial Public Class FindClaims
             Dim Submitted, Checked, Rejected, Changed, Failed, ItemsPassed, ServicesPassed, ItemsRejected, ServicesRejected As Integer
             If Submitflag = False Then Exit Sub
             FindClaimsB.SubmitClaims(dt, imisgen.getUserId(Session("User")), Submitted, Checked, Rejected, Changed, Failed, ItemsPassed, ServicesPassed, ItemsRejected, ServicesRejected)
-            hfSubmitClaims.Value = "<h4><u>" & imisgen.getMessage("M_CLAIMSUBMITTED_") & "</u></h4>" & "<br>" & _
-                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_CHECKED") & "</td><td>" & Checked & "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") & _
-                                    "</td><td>" & Rejected & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed & _
-                                    "</td></tr><tr><td>" & imisgen.getMessage("M_FAILED") & "</td><td>" & Failed & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_ITEMSPASSED") & "</td><td>" & ItemsPassed & "</td></tr>" & _
-                                    "<tr><td>" & imisgen.getMessage("M_SERVICESPASSED") & "</td><td>" & ServicesPassed & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_ITEMSREJECTED") & "</td><td>" & ItemsRejected & "</td></tr><tr><td>" & _
+            hfSubmitClaims.Value = "<h4><u>" & imisgen.getMessage("M_CLAIMSUBMITTED_") & "</u></h4>" & "<br>" &
+                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_CHECKED") & "</td><td>" & Checked & "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") &
+                                    "</td><td>" & Rejected & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed &
+                                    "</td></tr><tr><td>" & imisgen.getMessage("M_FAILED") & "</td><td>" & Failed & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_ITEMSPASSED") & "</td><td>" & ItemsPassed & "</td></tr>" &
+                                    "<tr><td>" & imisgen.getMessage("M_SERVICESPASSED") & "</td><td>" & ServicesPassed & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_ITEMSREJECTED") & "</td><td>" & ItemsRejected & "</td></tr><tr><td>" &
                                     imisgen.getMessage("M_SERVICESREJECTED") & "</td><td>" & ServicesRejected & "</td></tr></table>"
 
             If IMIS_Gen.offlineHF Then
