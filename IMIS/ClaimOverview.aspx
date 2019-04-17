@@ -127,6 +127,58 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
 
  }
 
+    $(document).ready(function () {
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_initializeRequest(InitializeRequest);
+        prm.add_endRequest(EndRequest);
+
+        InitAutoCompl();
+    });
+
+    function InitializeRequest(sender, args) {
+    }
+
+    function EndRequest(sender, args) {
+        InitAutoCompl();
+    }
+
+
+    function InitAutoCompl() {
+        $("#<%=txtICDCode.ClientID %>").focus(function () {
+            var datasource;
+            $.ajax({
+                url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                dataType: "json",
+                type: "GET",
+                async: false,
+                cache: false,
+                success: function (data) {
+                    datasource = data;
+                }
+            });
+            var ds = new AutoCompletedataSource(datasource);
+            $("#<%=txtICDCode.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    var data = ds.filter(request);
+                    response($.map(data, function (item, id) {
+                        return {
+                            label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                        };
+                    }));
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID.ClientID%>').val(u.item.id);
+                    $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
+                }
+            });
+        });
+        $("#<%=txtICDCode.ClientID %>").change(function () {
+            if ($(this).val() === "") {
+                $('#<% = hfICDID.ClientID%>').val("")
+            }
+        });
+    }
+
  $(document).ready(function() {
     
     if( $("#<%=hfSelectionExecute.ClientID %>").val() == ""){
@@ -608,6 +660,8 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
  <ContentTemplate>
  
   <div class="divBody" >
+        <asp:HiddenField ID="hfICDID" runat="server"/>
+        <asp:HiddenField ID="hfICDCode" runat="server"/>
         <table class="catlabel">
             <tr>
                 <td >
@@ -649,7 +703,7 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                         Format="dd/MM/yyyy" PopupButtonID="btnClaimFrom" TargetControlID="txtClaimFrom">
                     </ajax:CalendarExtender>
                    
-                    <asp:Label ID="lblVisitDateTo" runat="server" Text='<%$ Resources:Resource,L_TO%>' class ="FormLabel" style="margin-left:15px"></asp:Label>
+                    <asp:Label ID="lblVisitDateTo" runat="server" Text='<%$ Resources:Resource,L_TO%>' class ="FormLabel" style="margin-left:5px"></asp:Label>
                   </td>
                   <td >
                   <asp:TextBox ID="txtClaimTo" runat="server" Text="" width="100px" CssClass="dateCheck" ></asp:TextBox>
@@ -691,7 +745,7 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                     <ajax:CalendarExtender ID="CalendarExtender2" runat="server" 
                         Format="dd/MM/yyyy" PopupButtonID="btnClaimedDateFrom" TargetControlID="txtClaimedDateFrom">
                     </ajax:CalendarExtender>
-                     <asp:Label ID="lblClaimedDateTo" runat="server" Text='<%$ Resources:Resource,L_TO%>' class ="FormLabel" style="margin-left:15px"></asp:Label>
+                     <asp:Label ID="lblClaimedDateTo" runat="server" Text='<%$ Resources:Resource,L_TO%>' class ="FormLabel" style="margin:5px"></asp:Label>
                </td>
                <td >
                   <asp:TextBox ID="txtClaimedDateTo" runat="server" Text="" width="100px" CssClass="dateCheck"></asp:TextBox>
@@ -725,9 +779,7 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                         Text='<%$ Resources:Resource,L_ICD%>'></asp:Label>
                  </td>
                  <td class="DataEntry">
-                 <%--<asp:TextBox ID="txtICDCode" runat="server" MaxLength="6"></asp:TextBox>--%>
-                     <asp:DropDownList ID="ddlICD" runat="server" >
-                     </asp:DropDownList>
+                 <asp:TextBox ID="txtICDCode" runat="server" MaxLength="8"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                  </td>            
                   
               
@@ -827,8 +879,8 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                 <td class ="DataEntry">
                     <asp:CheckBox ID="chkRandom" runat="server" />
                 </td>
-                <td class ="DataEntry">
-                    <asp:TextBox ID="txtRandom" runat="server" size="3" MaxLength="3"  style="text-align:right" Enabled="false" CssClass="numbersOnly"></asp:TextBox>
+                <td class ="DataEntry" style="width:150px">
+                    <asp:TextBox ID="txtRandom" runat="server" size="3" MaxLength="3"  style="text-align:right" Enabled="false" CssClass="numbersOnly" Width ="100px"></asp:TextBox>
                     <asp:Label ID="lblRandomPercentageMark" runat="server" 
                         Text='%'></asp:Label>
                 </td>
@@ -850,8 +902,8 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                  <td class="DataEntry">
                      <asp:CheckBox ID="chkVariance" runat="server" />
                  </td>
-                 <td class ="DataEntry">
-                    <asp:TextBox ID="txtVariance" runat="server" size="3" MaxLength="3" style="text-align:right" Enabled="false" CssClass="numbersOnly"></asp:TextBox>
+                 <td class ="DataEntry" style="width:150px">
+                    <asp:TextBox ID="txtVariance" runat="server" size="3" MaxLength="3" style="text-align:right" Enabled="false" CssClass="numbersOnly" Width="100px"></asp:TextBox>
                     <asp:Label ID="lblVariancePercentageMark" runat="server" 
                         Text='%'></asp:Label>
                 </td>
