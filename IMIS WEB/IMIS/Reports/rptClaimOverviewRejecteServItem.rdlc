@@ -1296,7 +1296,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Parameters!prmAppQty.Value</Value>
+                                                    <Value>=Parameters!prmQty.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -1330,11 +1330,10 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Parameters!prmQty.Value</Value>
+                                                    <Value>=Parameters!prmAppQty.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
-                                                      <Format>dd/MM/yyyy</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1535,7 +1534,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!ItemQtyApproved.Value)</Value>
+                                                    <Value>=Parameters!paramItemQty.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                     </Style>
@@ -1558,14 +1557,14 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="ItemQtyApproved">
+                                          <Textbox Name="OrgQtyItem">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Parameters!paramItemQty.Value</Value>
+                                                    <Value>=Sum(Fields!OrgQtyItem.Value)</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                     </Style>
@@ -1576,7 +1575,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>ItemQtyApproved</rd:DefaultName>
+                                            <rd:DefaultName>OrgQtyItem</rd:DefaultName>
                                             <Style>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -2316,6 +2315,7 @@
                           </Style>
                         </Rectangle>
                         <ColSpan>12</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />

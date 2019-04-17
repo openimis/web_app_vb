@@ -72,7 +72,7 @@ Public Class UsersDAL
         If Offline = True Then
             sSQL += " And (IsSystem = 0 Or IsSystem In (524288, 525184, 1048584))"
         Else
-            sSQL += " And (IsSystem = 0  Or isSystem & 1023 > 0)"
+            sSQL += " And (IsSystem >= 0  AND isSystem <= 512)"
         End If
         sSQL += " ORDER BY CASE WHEN issystem = 0 THEN 10000000 + tblrole.roleid ELSE issystem END"
         data.setSQLCommand(sSQL, CommandType.Text)

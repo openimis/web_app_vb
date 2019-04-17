@@ -178,6 +178,7 @@
     <Content Include="Javascripts\jquery-ui.js" />
     <Content Include="Javascripts\jquery.cookie.js" />
     <Content Include="Javascripts\jquery.ui.autocomplete.js" />
+    <Content Include="Javascripts\simpletip.js" />
     <Content Include="Locations.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MedicalItem.aspx" />
