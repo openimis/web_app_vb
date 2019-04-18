@@ -119,6 +119,8 @@ Partial Public Class Claim
 
             If Not eClaim.tblICDCodes Is Nothing Then
                 ddlICDData.SelectedValue = eClaim.tblICDCodes.ICDID
+                txtICDCode0.Text = ddlICDData.SelectedItem.Text
+                hfICDID0.Value = eClaim.tblICDCodes.ICDID
             End If
             If Not eClaim.ClaimCode Is Nothing Then
                 txtCLAIMCODEData.Text = eClaim.ClaimCode
@@ -126,15 +128,23 @@ Partial Public Class Claim
             'Addition for Nepal >> Start
             If Not eClaim.ICDID1 Is Nothing Then
                 ddlICDData1.SelectedValue = eClaim.ICDID1
+                txtICDCode1.Text = ddlICDData1.SelectedItem.Text
+                hfICDID1.Value = eClaim.ICDID1
             End If
             If Not eClaim.ICDID2 Is Nothing Then
                 ddlICDData2.SelectedValue = eClaim.ICDID2
+                txtICDCode2.Text = ddlICDData2.SelectedItem.Text
+                hfICDID2.Value = eClaim.ICDID2
             End If
             If Not eClaim.ICDID3 Is Nothing Then
                 ddlICDData3.SelectedValue = eClaim.ICDID3
+                txtICDCode3.Text = ddlICDData3.SelectedItem.Text
+                hfICDID3.Value = eClaim.ICDID3
             End If
             If Not eClaim.ICDID4 Is Nothing Then
                 ddlICDData4.SelectedValue = eClaim.ICDID4
+                txtICDCode4.Text = ddlICDData4.SelectedItem.Text
+                hfICDID4.Value = eClaim.ICDID4
             End If
             If Not eClaim.VisitType Is Nothing Then
                 ddlVisitType.SelectedValue = eClaim.VisitType
@@ -222,7 +232,7 @@ Partial Public Class Claim
     End Sub
     Private Sub StoreClaimDetails()
         Session("LoadedHFID") = hfHFID.Value
-        Session("LoadedICD") = ddlICDData.SelectedValue
+        Session("LoadedICD") = txtICDCode0.Text
         Session("LoadedCHFID") = txtCHFIDData.Text ' CInt(txtCHFIDData.Text)
         Session("LoadedClaimCode") = txtCLAIMCODEData.Text
         Session("LoadedClaimedDate") = txtClaimDate.Text 'Date.Parse(txtClaimDate.Text)
@@ -230,10 +240,10 @@ Partial Public Class Claim
         Session("LoadedVisitDateTo") = If(eClaim.DateTo Is Nothing, txtSTARTData.Text, eClaim.DateTo)
         Session("LoadedExplanation") = eClaim.Explanation
         'Addition for Nepal >> Start
-        Session("LoadedICD1") = ddlICDData1.SelectedValue
-        Session("LoadedICD2") = ddlICDData2.SelectedValue
-        Session("LoadedICD3") = ddlICDData3.SelectedValue
-        Session("LoadedICD4") = ddlICDData4.SelectedValue
+        Session("LoadedICD1") = txtICDCode1.Text
+        Session("LoadedICD2") = txtICDCode2.Text
+        Session("LoadedICD3") = txtICDCode3.Text
+        Session("LoadedICD4") = txtICDCode4.Text
         Session("LoadedVisitType") = ddlVisitType.SelectedValue
         'Addition for Nepal >> End
     End Sub
@@ -345,11 +355,11 @@ Partial Public Class Claim
             txtSTARTData.Text = ""
             txtClaimDate.Text = ""
             txtEXPLANATION.Text = ""
-            ddlICDData.SelectedValue = 0
-            ddlICDData1.SelectedValue = 0
-            ddlICDData2.SelectedValue = 0
-            ddlICDData3.SelectedValue = 0
-            ddlICDData4.SelectedValue = 0
+            txtICDCode0.Text = ""
+            txtICDCode1.Text = ""
+            txtICDCode2.Text = ""
+            txtICDCode3.Text = ""
+            txtICDCode4.Text = ""
             txtCLAIMTOTALData.Text = 0
             hfClaimID.Value = 0
             txtNAMEData.Text = ""
@@ -399,14 +409,14 @@ Partial Public Class Claim
         ElseIf Not Session("LoadedClaimedDate") = txtClaimDate.Text Then
         ElseIf Not Session("LoadedVisitDateFrom") = txtSTARTData.Text Then
         ElseIf Not If(EndDate = Nothing, "", Format(EndDate, "dd/MM/yyyy")) = txtENDData.Text Then
-        ElseIf Not Session("LoadedICD") = ddlICDData.SelectedValue Then
+        ElseIf Not Session("LoadedICD") = txtICDCode0.Text Then
         ElseIf hfGuaranteeId.Value <> txtGuaranteeId.Text.Trim Then
         ElseIf Not Session("LoadedExplanation") = txtEXPLANATION.Text.Trim Then
             'Addition for Nepal >> Start
-        ElseIf Not CType(Session("LoadedICD1"), Integer) = ddlICDData1.SelectedValue Then
-        ElseIf Not CType(Session("LoadedICD2"), Integer) = ddlICDData2.SelectedValue Then
-        ElseIf Not CType(Session("LoadedICD3"), Integer) = ddlICDData3.SelectedValue Then
-        ElseIf Not CType(Session("LoadedICD4"), Integer) = ddlICDData4.SelectedValue Then
+        ElseIf Not Session("LoadedICD1") = txtICDCode1.Text Then
+        ElseIf Not Session("LoadedICD2") = txtICDCode2.Text Then
+        ElseIf Not Session("LoadedICD3") = txtICDCode3.Text Then
+        ElseIf Not Session("LoadedICD4") = txtICDCode4.Text Then
         ElseIf Not CType(Session("LoadedVisitType"), String) = ddlVisitType.SelectedValue Then
             'Addition for Nepal >> End
         Else
@@ -461,8 +471,8 @@ Partial Public Class Claim
             '    End If
 
             'End If
-            If ddlICDData.SelectedValue = 0 Then
-                imisgen.Alert(imisgen.getMessage("M_SELECTICDCODE"), pnlButtons, alertPopupTitle:="IMIS")
+            If txtICDCode0.Text = "" Then
+                imisgen.Alert(imisgen.getMessage("M_PLEASEENTERANMDGCODE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return "Exit"
             End If
             If txtNAMEData.Text = "" Then
@@ -534,13 +544,13 @@ Partial Public Class Claim
                         End If
                         eClaim.Claimed = hfClaimTotalValue.Value
                         Dim eICDCodes As New IMIS_EN.tblICDCodes
-                        eICDCodes.ICDID = ddlICDData.SelectedValue
+                        eICDCodes.ICDID = If(hfICDID0.Value = "", 0, CInt(Int(hfICDID0.Value)))
 
                         'Addition for Nepal >> Start
-                        If ddlICDData1.SelectedValue > 0 Then eClaim.ICDID1 = ddlICDData1.SelectedValue
-                        If ddlICDData2.SelectedValue > 0 Then eClaim.ICDID2 = ddlICDData2.SelectedValue
-                        If ddlICDData3.SelectedValue > 0 Then eClaim.ICDID3 = ddlICDData3.SelectedValue
-                        If ddlICDData4.SelectedValue > 0 Then eClaim.ICDID4 = ddlICDData4.SelectedValue
+                        If Not txtICDCode1.Text = "" Then eClaim.ICDID1 = If(hfICDID1.Value = "", 0, CInt(Int(hfICDID1.Value)))
+                        If Not txtICDCode2.Text = "" Then eClaim.ICDID2 = If(hfICDID2.Value = "", 0, CInt(Int(hfICDID2.Value)))
+                        If Not txtICDCode3.Text = "" Then eClaim.ICDID3 = If(hfICDID3.Value = "", 0, CInt(Int(hfICDID3.Value)))
+                        If Not txtICDCode4.Text = "" Then eClaim.ICDID4 = If(hfICDID4.Value = "", 0, CInt(Int(hfICDID4.Value)))
                         If ddlVisitType.SelectedValue.Trim <> "" Then eClaim.VisitType = ddlVisitType.SelectedValue
                         'Addition for Nepal >> End
 

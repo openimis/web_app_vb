@@ -4173,4 +4173,7 @@
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
     <value>No Enrollment Found</value>
   </data>
+  <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
+    <value>Please enter an Main Dg code</value>
+  </data>
 </root>

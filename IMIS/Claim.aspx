@@ -248,7 +248,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                 var isGuaranteeNoRequired = $("#<%= txtGuaranteeId.ClientID %>").hasClass("requiedField");
                 
-                if ($("#<%=txtCHFIDData.ClientID%>").val() == "" || $("#<%=txtCLAIMCODEData.ClientID%>").val() == "" || $("#<%=ddlICDData.ClientID%>").val() == 0 || $("#<%=ddlVisitType.ClientID%>").val() == 0 || isGuaranteeNoRequired) {
+                if ($("#<%=txtCHFIDData.ClientID%>").val() == "" || $("#<%=txtCLAIMCODEData.ClientID%>").val() == "" || $("#<%=txtICDCode0.ClientID%>").val() == 0 || $("#<%=ddlVisitType.ClientID%>").val() == 0 || isGuaranteeNoRequired) {
                         $('#<%=lblMsg.ClientID%>').html('<%= imisgen.getMessage("V_SUMMARY", True ) %>');
                                                return false;
                     }
@@ -430,7 +430,188 @@ In case of dispute arising out or in relation to the use of the program, it is s
             });
 
         }
+        $(document).ready(function () {
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_initializeRequest(InitializeRequest);
+            prm.add_endRequest(EndRequest);
 
+            InitAutoCompl();
+        });
+        function InitializeRequest(sender, args) {
+        }
+
+        function EndRequest(sender, args) {
+
+            InitAutoCompl();
+        }
+        function InitAutoCompl() {
+            $("#<%=txtICDCode0.ClientID %>").focus(function () {
+                var datasource;
+                $.ajax({
+                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    dataType: "json",
+                    type: "GET",
+                    async: false,
+                    cache: false,
+                    success: function (data) {
+                        datasource = data;
+                    }
+                });
+                var ds = new AutoCompletedataSource(datasource);
+                $("#<%=txtICDCode0.ClientID %>").autocomplete({
+                    source: function (request, response) {
+                        var data = ds.filter(request);
+                        response($.map(data, function (item, id) {
+
+                            return {
+                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                            };
+                        }));
+                    },
+                    select: function (e, u) {
+                        $('#<% = hfICDID0.ClientID%>').val(u.item.id);
+                    }
+                });
+            });
+            $("#<%=txtICDCode0.ClientID %>").change(function () {
+                if ($(this).val() === "") {
+                    $('#<% = hfICDID0.ClientID%>').val("")
+                 }
+             });
+
+            $("#<%=txtICDCode1.ClientID %>").focus(function () {
+                var datasource;
+                $.ajax({
+                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    dataType: "json",
+                    type: "GET",
+                    async: false,
+                    cache: false,
+                    success: function (data) {
+                        datasource = data;
+                    }
+                });
+                var ds = new AutoCompletedataSource(datasource);
+                $("#<%=txtICDCode1.ClientID %>").autocomplete({
+                    source: function (request, response) {
+                        var data = ds.filter(request);
+                        response($.map(data, function (item, id) {
+                            return {
+                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                            };
+                        }));
+                    },
+                    select: function (e, u) {
+                        $('#<% = hfICDID1.ClientID%>').val(u.item.id);
+                    }
+                });
+            });
+            $("#<%=txtICDCode1.ClientID %>").change(function () {
+                if ($(this).val() === "") {
+                    $('#<% = hfICDID1.ClientID%>').val("")
+                }
+            });
+
+            $("#<%=txtICDCode2.ClientID %>").focus(function () {
+                var datasource;
+                $.ajax({
+                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    dataType: "json",
+                    type: "GET",
+                    async: false,
+                    cache: false,
+
+                    success: function (data) {
+                        datasource = data;
+                    }
+                });
+                var ds = new AutoCompletedataSource(datasource);
+                $("#<%=txtICDCode2.ClientID %>").autocomplete({
+                    source: function (request, response) {
+                        var data = ds.filter(request);
+                        response($.map(data, function (item, id) {
+                            return {
+                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                            };
+                        }));
+                    },
+                    select: function (e, u) {
+                        $('#<% = hfICDID2.ClientID%>').val(u.item.id);
+                    }
+                });
+            });
+            $("#<%=txtICDCode2.ClientID %>").change(function () {
+                if ($(this).val() === "") {
+                    $('#<% = hfICDID2.ClientID%>').val("")
+                }
+            });
+
+            $("#<%=txtICDCode3.ClientID %>").focus(function () {
+                var datasource;
+                $.ajax({
+                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    dataType: "json",
+                    type: "GET",
+                    async: false,
+                    cache: false,
+                    success: function (data) {
+                        datasource = data;
+                    }
+                });
+                var ds = new AutoCompletedataSource(datasource);
+                $("#<%=txtICDCode3.ClientID %>").autocomplete({
+                    source: function (request, response) {
+                        var data = ds.filter(request);
+                        response($.map(data, function (item, id) {
+                            return {
+                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                            };
+                        }));
+                    },
+                    select: function (e, u) {
+                        $('#<% = hfICDID3.ClientID%>').val(u.item.id);
+                    }
+                });
+            });
+            $("#<%=txtICDCode3.ClientID %>").change(function () {
+                if ($(this).val() === "") {
+                    $('#<% = hfICDID3.ClientID%>').val("")
+                }
+            });
+
+            $("#<%=txtICDCode4.ClientID %>").focus(function () {
+                var datasource;
+                $.ajax({
+                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    dataType: "json",
+                    type: "GET",
+                    async: false,
+                    cache: false,
+                    success: function (data) {
+                        datasource = data;
+                    }
+                });
+                var ds = new AutoCompletedataSource(datasource);
+                $("#<%=txtICDCode4.ClientID %>").autocomplete({
+                    source: function (request, response) {
+                        var data = ds.filter(request);
+                        response($.map(data, function (item, id) {
+                            return {
+                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                            };
+                        }));
+                    },
+                    select: function (e, u) {
+                        $('#<% = hfICDID4.ClientID%>').val(u.item.id);
+                    }
+                });
+            });
+            $("#<%=txtICDCode4.ClientID %>").change(function () {
+                if ($(this).val() === "") {
+                    $('#<% = hfICDID4.ClientID%>').val("")
+                }
+            });
+        }
        
     </script>
 
@@ -496,6 +677,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <div class="divBody" style="height:582px;" >
         <asp:Panel ID="pnlBodyCLM" runat="server">
+            <asp:HiddenField ID="hfICDID0" runat="server"/>
+            <asp:HiddenField ID="hfICDID1" runat="server"/>
+            <asp:HiddenField ID="hfICDID2" runat="server"/>
+            <asp:HiddenField ID="hfICDID3" runat="server"/>
+            <asp:HiddenField ID="hfICDID4" runat="server"/>
             <table id="DropDownSugTable" border="0px" style="display: none; width: 100%; border-collapse: collapse;
                 border: 0px solid #CCC;">
                 <tr style="color: #303030; background: #C0C0C0;">
@@ -543,10 +729,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                     ControlToValidate="txtSTARTData" ErrorMessage="*" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="txtSTARTData_RequiredFieldValidator" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtSTARTData" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                <asp:Button ID="btnSTARTData" runat="server" Height="15px" padding-bottom="3px" 
                         Width="15px" class="btnDate" />
                     <ajax:CalendarExtender ID="txtSTARTData_CalendarExtender" runat="server" 
@@ -564,7 +750,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                        AutoPostBack ="true" Width="125px" ></asp:Textbox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtCHFIDData" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                </td>
                <td class="FormLabel">
                    <asp:Label ID="lblNAME" runat="server" Text='<%$ Resources:Resource,L_PATIENTNAME %>' ></asp:Label>
@@ -581,7 +767,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                     ControlToValidate="txtENDData" ErrorMessage="*" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                <asp:Button ID="btnENDData" runat="server" Height="15px" padding-bottom="3px" 
                         Width="15px" style="margin-left:7px" class="btnDate" />
                     <ajax:CalendarExtender ID="txtENDData_CalendarExtender" runat="server" 
@@ -597,10 +783,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
                </td>
                <td class ="DataEntry">
                <%--<asp:TextBox ID="txtICDCode" size="10" runat="server" MaxLength="6"></asp:TextBox>--%>
-                   <asp:DropDownList ID="ddlICDData" runat="server" width="130px" ></asp:DropDownList>
+                   <asp:DropDownList ID="ddlICDData" runat="server" width="130px" Visible="False"></asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" 
                        runat="server" ErrorMessage="*" ControlToValidate="ddlICDData" InitialValue="0"
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>               
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                   <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                </td>
             
                <td class="FormLabel">
@@ -610,7 +797,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    <asp:TextBox ID="txtCLAIMCODEData" runat="server" size="10" MaxLength="8" Text="" Width="125px" ></asp:TextBox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtCLAIMCODEData" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                </td>
                <td class="FormLabel" style="width:600px;">
                   <asp:Label ID="lblCLAIMDATE" runat="server" Text='<%$ Resources:Resource,L_CLAIMDATE %>' ></asp:Label>
@@ -620,10 +807,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                     ControlToValidate="txtClaimDate" ErrorMessage="*" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtClaimDate" 
-                       ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                <asp:Button ID="btnClaimDate" runat="server" Height="15px" padding-bottom="3px" 
                         Width="15px" class="btnDate"/>
                     <ajax:CalendarExtender ID="txtClaimDateCalendarExtender" runat="server" 
@@ -650,28 +837,32 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       <asp:Label ID="lblICD1" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG1 %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:DropDownList ID="ddlICDData1" runat="server" width="135px">
+                      <asp:TextBox ID="txtICDCode1" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                      <asp:DropDownList ID="ddlICDData1" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
                   <td class="FormLabel">
                       <asp:Label ID="lblICD2" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG2 %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:DropDownList ID="ddlICDData2" runat="server" width="135px">
+                        <asp:TextBox ID="txtICDCode2" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                      <asp:DropDownList ID="ddlICDData2" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
                   <td class="FormLabel">
                       <asp:Label ID="lblICD3" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG3 %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:DropDownList ID="ddlICDData3" runat="server" width="135px">
+                      <asp:TextBox ID="txtICDCode3" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                      <asp:DropDownList ID="ddlICDData3" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
                   <td class="FormLabel">
                       <asp:Label ID="lblICD4" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG4 %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:DropDownList ID="ddlICDData4" runat="server" width="135px">
+                      <asp:TextBox ID="txtICDCode4" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                      <asp:DropDownList ID="ddlICDData4" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
               </tr>
@@ -693,7 +884,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       <asp:TextBox ID="txtGuaranteeId" runat="server" Enabled="true" width="125px" 
                           MaxLength="50"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="rfGuranteeId" runat="server" ErrorMessage="*" 
-                          ControlToValidate="txtGuaranteeId" ValidationGroup="check" Visible="true"></asp:RequiredFieldValidator>
+                          ControlToValidate="txtGuaranteeId" ValidationGroup="check" Visible="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </td>
                   <td class="FormLabel" style="width:400px;">
                     <asp:Label ID="lblVisitType" runat="server" Text="<%$ Resources:Resource,L_VISITTYPE %>"></asp:Label>
@@ -702,7 +893,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <asp:DropDownList ID="ddlVisitType" runat="server" Width="135px">
                     </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*"
-                        ControlToValidate="ddlVisitType" ValidationGroup="check" Visible="True"></asp:RequiredFieldValidator>
+                        ControlToValidate="ddlVisitType" ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </td>
                   <td class="FormLabel">
                       &nbsp;</td>

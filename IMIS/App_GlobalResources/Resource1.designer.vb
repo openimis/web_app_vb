@@ -2297,7 +2297,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Claim XMLs.
+        '''  Looks up a localized string similar to Download Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_DOWNLOADCLAIMS() As String
             Get
@@ -2333,7 +2333,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Enrolment XMLs.
+        '''  Looks up a localized string similar to Download Enrolments.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_OFFLINENROLMENT() As String
             Get
@@ -2351,7 +2351,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Claims XML.
+        '''  Looks up a localized string similar to Upload Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_UPLOADCLAIMS() As String
             Get
@@ -8692,6 +8692,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_PASSWORDERROR() As String
             Get
                 Return ResourceManager.GetString("M_PASSWORDERROR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Please enter an Main Dg code.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PLEASEENTERANMDGCODE() As String
+            Get
+                Return ResourceManager.GetString("M_PLEASEENTERANMDGCODE", resourceCulture)
             End Get
         End Property
         
