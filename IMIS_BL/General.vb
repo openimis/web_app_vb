@@ -880,4 +880,30 @@ Public Class GeneralBL
         End Try
     End Function
 
+Public Function GetRejectedReasons(ByVal ReasonId As Integer) As String
+        Select Case ReasonId
+            Case -1 : Return getMessage("T_REJECTEDBYMEDICALOFFICER")
+            Case 0 : Return getMessage("T_ACCEPTED")
+            Case 1 : Return getMessage("T_ITEMSERVICENOTINTHEREGISTER")
+            Case 2 : Return getMessage("T_ITEMSERVICENOTINTHEPRICELIST")
+            Case 3 : Return getMessage("T_ITEMSERVICENOTCOVEREDBYPOLICY")
+            Case 4 : Return getMessage("T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION")
+            Case 5 : Return getMessage("T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY")
+            Case 6 : Return getMessage("T_ITEMSERVICEDUPLICATED")
+            Case 7 : Return getMessage("T_ITEMSERVICENOTVALIDINSURANCENUMBER")
+            Case 8 : Return getMessage("T_DIAGNOSISCODENOTINTHECURRENTLIST")
+            Case 9 : Return getMessage("T_TARGETDATEOFPROVISIONHEALTHCAREINVALID")
+            Case 10 : Return getMessage("T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT")
+            Case 11 : Return getMessage("T_MAXIMUMNUMBEROFINPATIENTEXCEEDED")
+            Case 12 : Return getMessage("T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED")
+            Case 13 : Return getMessage("T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED")
+            Case 14 : Return getMessage("T_MAXIMUMNUMBEROFSURGERIESEXCEEDED")
+            Case 15 : Return getMessage("T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED")
+            Case 16 : Return getMessage("T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED")
+            Case 17 : Return getMessage("T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD")
+            Case 18 : Return getMessage("T_NA")
+            Case 19 : Return getMessage("T_MAXIMUMNUMBEROFANTENETALEXCEEDED")
+            Case Else : Return ""
+        End Select
+    End Function
 End Class

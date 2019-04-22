@@ -5533,7 +5533,71 @@
     <value />
     <comment>No Enrollment Found</comment>
   </data>
-
+<data name="T_ACCEPTED" xml:space="preserve">
+<value/>
+    <comment>Accepted</comment>
+  </data>
+  <data name="T_DIAGNOSISCODENOTINTHECURRENTLIST" xml:space="preserve">
+<value/>    <comment>Diagnosis code not in the current list of diagnoses</comment>
+  </data>
+  <data name="T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD" xml:space="preserve">
+    <value/><comment>Item/service cannot be covered within waiting period</comment>
+  </data>
+  <data name="T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT" xml:space="preserve">
+    <value/><comment>Item/Service doesn’t comply with type of care constraint</comment>
+  </data>
+  <data name="T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY" xml:space="preserve">
+    <value/><comment>Item/Service doesn’t comply with frequency constraint</comment>
+  </data>
+  <data name="T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION" xml:space="preserve">
+    <value/><comment>Item/Service doesn’t comply with limitations on patients (men/women,
+adults/children)</comment>
+  </data>
+  <data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
+    <value/><comment>Item/Service duplicated</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
+    <value/><comment>Item/Service is not covered by an active policy of the patient</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
+    <value/><comment>Item/Service not in the pricelists associated with the health facility</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
+    <value/><comment>Item/Service not in the registers of medical items/services</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
+    <value/><comment>Not valid insurance number</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of antenatal contacts exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of consultations exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of deliveries exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of in-patient admissions exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of out-patient visits exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of provisions of item/service exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of surgeries exceeded</comment>
+  </data>
+  <data name="T_NA" xml:space="preserve">
+    <value/><comment>N/A</comment>
+  </data>
+  <data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
+    <value/><comment>Rejected by a medical officer</comment>
+  </data>
+  <data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
+    <value/><comment>Target date of provision of health care invalid</comment>
+  </data>
   <data name="L_AGE" xml:space="preserve">
     <value>Âge</value>
   <comment>Age</comment></data>
