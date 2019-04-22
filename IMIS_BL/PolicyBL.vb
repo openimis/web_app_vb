@@ -85,7 +85,22 @@ Public Class PolicyBL
     End Function
     Public Function FindInsureeByCHFIDGrid(ByVal CHFId As String)
         Dim Policy As New IMIS_DAL.PolicyDAL
-        Return Policy.FindInsureeByCHFIDGrid(CHFId)
+        Dim dt As DataTable = Policy.FindInsureeByCHFIDGrid(CHFId)
+        dt.Columns.Add("PolicyStatus", GetType(String)).AllowDBNull = True
+        Dim s As Integer
+        For s = 0 To dt.Rows.Count - 1
+            dt.Rows(s)("PolicyStatus") = ReturnPolicyStatusALPHA(dt.Rows(s)("Status"))
+        Next
+        Return dt
+    End Function
+    Public Function ReturnPolicyStatusALPHA(ByVal PolicyStatus As String) As String
+        Select Case PolicyStatus
+            Case "I" : Return imisgen.getMessage("T_IDLE")
+            Case "A" : Return imisgen.getMessage("T_ACTIVE")
+            Case "S" : Return imisgen.getMessage("T_SUSPENDED")
+            Case "E" : Return imisgen.getMessage("T_EXPIRED")
+            Case Else : Return ""
+        End Select
     End Function
     Public Function ReturnPolicyStatus(ByVal PolicyStatus As Integer) As String
         Select Case PolicyStatus

@@ -422,16 +422,27 @@ Public Class InsureeDAL
         Return data.Filldata()
     End Function
 
-    Public Function FindInsureeByCHFID(ByVal CHFID As String) As DataTable
+    Public Function FindInsureeByCHFID(ByVal CHFID As String, Optional Language As String = "en") As DataTable
         Dim data As New ExactSQL
         'Imports System.Web.Configuration.WebConfigurationManager
         Dim UpdatedFolder As String
         UpdatedFolder = System.Web.Configuration.WebConfigurationManager.AppSettings("UpdatedFolder").ToString()
-        ' Dim sSQL As String = "SELECT I.CHFID,I.LastName,I.OtherNames,CONVERT(VARCHAR,I.DOB,103)DOB,I.Gender, P.PhotoFolder + P.PhotoFileName AS PhotoPath" &
-        Dim sSQL As String = "SELECT I.CHFID,I.LastName,I.OtherNames,CONVERT(VARCHAR,I.DOB,103)DOB,I.Gender, @UpdatedFolder + P.PhotoFileName AS PhotoPath" &
-                " FROM tblInsuree I INNER JOIN tblFamilies F ON I.FamilyID = F.FamilyID" &
-                " LEFT OUTER JOIN tblPhotos P ON I.PhotoID = P.PhotoID" &
-                " WHERE I.CHFID = @CHFID AND I.ValidityTo IS NULL"
+        Dim sSQL As String = "SELECT I.CHFID, I.LastName, I.OtherNames, CONVERT(VARCHAR,I.DOB,103)DOB, @UpdatedFolder + P.PhotoFileName AS PhotoPath"
+        sSQL += "," & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += ", (YEAR(GETDATE()) - YEAR(I.DOB)) AS Age"
+        sSQL += ", HF.HFCode + ' ' + HF.HFName AS FirstServicePoint"
+        sSQL += ", CASE HF.HFLevel WHEN 'D' THEN 'Dispensary' WHEN 'C' THEN 'Health Centre' WHEN 'H' THEN 'Hospital' END HFLevel"
+        sSQL += ", R.LocationName RegionOfFSP, D.LocationName DistrictOfFSP "
+        sSQL += " FROM tblInsuree I INNER JOIN tblFamilies F ON I.FamilyID = F.FamilyID"
+        sSQL += " LEFT OUTER JOIN tblPhotos P ON I.PhotoID = P.PhotoID"
+        sSQL += " LEFT OUTER JOIN tblHF HF On HF.HfID = I.HFID"
+        sSQL += " LEFT OUTER JOIN tblLocations D On D.LocationId = HF.LocationId"
+        sSQL += " LEFT OUTER JOIN tblLocations R On R.LocationId = D.ParentLocationId"
+        sSQL += " LEFT OUTER JOIN tblGender GE On GE.Code = I.Gender"
+        sSQL += " WHERE I.CHFID = @CHFID AND I.ValidityTo IS NULL"
+        sSQL += " And I.ValidityTo Is NULL"
+        sSQL += " And D.ValidityTo Is NULL"
+        sSQL += " And R.ValidityTo Is NULL"
 
         data.setSQLCommand(sSQL, CommandType.Text)
 

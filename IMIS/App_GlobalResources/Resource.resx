@@ -1138,7 +1138,7 @@
     <value>Combination of deductables/ceilings configured wrongly</value>
   </data>
   <data name="L_SEARCHCHFNUMBER" xml:space="preserve">
-    <value>Search Insurance No</value>
+    <value>Enquiry</value>
   </data>
   <data name="M_ENTERCHFNUMBER" xml:space="preserve">
     <value>Please enter a Insurance  Number</value>
@@ -2866,34 +2866,34 @@
     <value>Service</value>
   </data>
   <data name="L_CONSULTATIONAMOUNTLEFT" xml:space="preserve">
-    <value>Cons Amt/Claim</value>
+    <value>Consultation Amount/Claim</value>
   </data>
   <data name="L_DELIVERYAMOUNTLEFT" xml:space="preserve">
-    <value>Del Amt/Claim</value>
+    <value>Delivery Amount/Claim</value>
   </data>
   <data name="L_HOSPITALIZATIONAMOUNTLEFT" xml:space="preserve">
-    <value>Hosp Amt/Claim</value>
+    <value>Admission Amount/Claim</value>
   </data>
   <data name="L_PRODUCTID" xml:space="preserve">
     <value>Product ID</value>
   </data>
   <data name="L_SURGERYAMOUNTLEFT" xml:space="preserve">
-    <value>Surg Amt/Claim</value>
+    <value>Surgery Amount/Claim</value>
   </data>
   <data name="L_TOTALADMISSIONSLEFT" xml:space="preserve">
-    <value>Adm Left</value>
+    <value>Admissions Left</value>
   </data>
   <data name="L_TOTALCONSULTATIONSLEFT" xml:space="preserve">
-    <value>Cons Left</value>
+    <value>Consultations Left</value>
   </data>
   <data name="L_TOTALDELIVERIESLEFT" xml:space="preserve">
-    <value>Del Left</value>
+    <value>Deliveries Left</value>
   </data>
   <data name="L_TOTALSURGERIESLEFT" xml:space="preserve">
-    <value>Surg Left</value>
+    <value>Surgeries Left</value>
   </data>
   <data name="L_TOTALVISITSLEFT" xml:space="preserve">
-    <value>Vis Left</value>
+    <value>Visits Left</value>
   </data>
   <data name="L_ITEMLEFT" xml:space="preserve">
     <value>Item Left</value>
@@ -3562,10 +3562,10 @@
     <value>Group Type</value>
   </data>
   <data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
-    <value>Ant Amt/Claim</value>
+    <value>Antenatal Amount/Claim</value>
   </data>
   <data name="L_TOTALANTENATALLEFT" xml:space="preserve">
-    <value>Ant left</value>
+    <value>Antenatal Left</value>
   </data>
   <data name="T_SELECTMAINDG" xml:space="preserve">
     <value>--Select Main Dg.--</value>
@@ -4172,5 +4172,11 @@
   </data>
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
     <value>No Enrollment Found</value>
+  </data>
+  <data name="L_AGE" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="L_FSPLEVEL" xml:space="preserve">
+    <value>Level of FSP</value>
   </data>
 </root>
