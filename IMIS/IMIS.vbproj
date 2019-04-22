@@ -75,6 +75,9 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -238,6 +241,7 @@
     <Content Include="Images\Submitted\dummy.dmd" />
     <Content Include="Images\Updated\dummy.dmd" />
     <Content Include="x64\SQLite.Interop.dll" />
+    <Content Include="AutoCompleteHandlers\AutoCompleteHandler.ashx" />
     <None Include="IMISDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IMISDataSet.Designer.vb</LastGenOutput>
@@ -278,6 +282,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCompleteHandlers\AutoCompleteHandler.ashx.vb">
+      <DependentUpon>AutoCompleteHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="ChangeFamily.aspx.designer.vb">
       <DependentUpon>ChangeFamily.aspx</DependentUpon>

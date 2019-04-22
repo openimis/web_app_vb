@@ -8714,6 +8714,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Please enter an Main Dg code.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PLEASEENTERANMDGCODE() As String
+            Get
+                Return ResourceManager.GetString("M_PLEASEENTERANMDGCODE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Please fill in the date.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASEFILLINTHEDATE() As String

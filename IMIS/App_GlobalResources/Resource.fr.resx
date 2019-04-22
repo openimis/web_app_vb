@@ -5533,10 +5533,17 @@
     <value />
     <comment>No Enrollment Found</comment>
   </data>
+<<<<<<< HEAD
   <data name="L_AGE" xml:space="preserve">
     <value>Âge</value>
   <comment>Age</comment></data>
   <data name="L_FSPLEVEL" xml:space="preserve">
     <value>Level of FSP</value>
   <comment>Level of FSP</comment></data>
+=======
+  <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
+    <value>Please enter an Main Dg code</value>
+    <comment>Please enter an Main Dg code</comment>
+  </data>
+>>>>>>> feature/OP-62
 </root>

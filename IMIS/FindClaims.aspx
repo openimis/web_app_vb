@@ -29,14 +29,15 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
 
 <asp:Content ID="HeadContent" contentplaceholderid="head" runat="server">
     <style type="text/css">
- .selectedRow{background:#99CCFF;color:black;
-              }
-#popup-div-body table{
-    margin:auto;
-        }
-        #popup-div-body table tr > td{
-           text-align:right;
-            }
+    .selectedRow {
+        background:#99CCFF;color:black;
+    }
+    #popup-div-body table {
+        margin:auto;
+    }
+    #popup-div-body table tr > td {
+        text-align:right;
+    }
 </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
@@ -89,7 +90,60 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                 }
             });
             $('.ConditionCheck').trigger("change");
-      }
+    }
+
+    $(document).ready(function () {
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_initializeRequest(InitializeRequest);
+        prm.add_endRequest(EndRequest);
+
+        InitAutoCompl();
+    });
+
+    function InitializeRequest(sender, args) {
+    }
+
+    function EndRequest(sender, args) {
+        // after update occur on UpdatePanel re-init the Autocomplete
+        InitAutoCompl();
+    }
+
+    function InitAutoCompl() {
+        $("#<%=txtICDCode.ClientID %>").focus(function () {
+            var datasource;
+            $.ajax({
+                url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                dataType: "json",
+                type: "GET",
+                async: false,
+                cache: false,
+                success: function (data) {
+                    datasource = data;
+                }
+            });
+
+            var ds = new AutoCompletedataSource(datasource);
+            $("#<%=txtICDCode.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    var data = ds.filter(request);
+                    response($.map(data, function (item, id) {
+                        return {
+                            label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
+                        };
+                    }));
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID.ClientID%>').val(u.item.id);
+                    $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
+                }
+            });
+        });
+        $("#<%=txtICDCode.ClientID %>").change(function () {
+            if ($(this).val() === "") {
+                $('#<% = hfICDID.ClientID%>').val("")
+            }
+        });
+    }
 
 
     $(document).ready(function () {
@@ -231,6 +285,8 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
 </Triggers>
 <ContentTemplate>
   <div class="divBody" >
+        <asp:HiddenField ID="hfICDID" runat="server"/>
+        <asp:HiddenField ID="hfICDCode" runat="server"/>
         <asp:HiddenField ID="hfClaimAdminAdjustibility" runat="server" Value="" />
         <table class="catlabel">
             <tr>
@@ -345,9 +401,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                         Text='<%$ Resources:Resource,L_ICD%>'></asp:Label>
                  </td>
             <td class="DataEntry">
-                <%-- <asp:TextBox ID="txtICDCode" runat="server" MaxLength="6"></asp:TextBox>--%>
-                     <asp:DropDownList ID="ddlICD" runat="server" >
-                     </asp:DropDownList>
+                <asp:TextBox ID="txtICDCode" runat="server" MaxLength="8"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
             </td>                  
             <td class="DataEntry" >
                   

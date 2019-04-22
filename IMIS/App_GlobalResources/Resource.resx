@@ -4173,10 +4173,15 @@
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
     <value>No Enrollment Found</value>
   </data>
+<<<<<<< HEAD
   <data name="L_AGE" xml:space="preserve">
     <value>Age</value>
   </data>
   <data name="L_FSPLEVEL" xml:space="preserve">
     <value>Level of FSP</value>
+=======
+  <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
+    <value>Please enter an Main Dg code</value>
+>>>>>>> feature/OP-62
   </data>
 </root>

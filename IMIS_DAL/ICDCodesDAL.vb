@@ -38,7 +38,14 @@ Public Class ICDCodesDAL
 
         Return data.Filldata
     End Function
+    Public Function getAutoCompleteICDCodes() As DataTable
+        Dim str As String
+        str = "SELECT DISTINCT ICDID, ISNULL(ICDCode,'')+ ' ' + ISNULL(ICDName,'') ICDNames FROM tblICDCodes WHERE ValidityTo IS NULL"
 
+        data.setSQLCommand(str, CommandType.Text)
+
+        Return data.Filldata
+    End Function
     'Public Function getICDIDFromCode(ByVal ICDCODE As String) As Integer
     '    Dim str As String
     '    str = "SELECT @ICDID = ICDID FROM tblICDCodes where icdcode = @ICDCode"
