@@ -3559,7 +3559,7 @@
     <value>-- Select Subcategory --</value>
   </data>
   <data name="L_GROUPTYPE" xml:space="preserve">
-    <value>Group Type</value>
+    <value>Family / Group Type</value>
   </data>
   <data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
     <value>Antenatal Amount/Claim</value>
@@ -4173,15 +4173,13 @@
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
     <value>No Enrollment Found</value>
   </data>
-
   <data name="L_AGE" xml:space="preserve">
     <value>Age</value>
   </data>
   <data name="L_FSPLEVEL" xml:space="preserve">
     <value>Level of FSP</value>
-   </data>
+  </data>
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value>Please enter an Main Dg code</value>
-
   </data>
 </root>

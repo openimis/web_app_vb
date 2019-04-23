@@ -150,12 +150,13 @@ Partial Public Class OverviewFamily
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
+            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo").Value = "en", eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
             txtConfirmationNo.Text = eFamily.ConfirmationNo
             txtPermanentAddress.Text = eFamily.FamilyAddress
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlPremiums, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message & " : " & ex.StackTrace, EventLogEntryType.Error, 999)
             Return
         End Try
     End Sub

@@ -1306,8 +1306,8 @@
     <comment>Grace Period Renewal</comment>
   </data>
   <data name="L_GROUPTYPE" xml:space="preserve">
-    <value>Type de groupe</value>
-    <comment>Group Type</comment>
+    <value>Type de groupe / famille</value>
+    <comment>Family / Group Type</comment>
   </data>
   <data name="L_GROWTHRATIO" xml:space="preserve">
     <value>Taux de croissance</value>
@@ -5533,17 +5533,16 @@
     <value />
     <comment>No Enrollment Found</comment>
   </data>
-
   <data name="L_AGE" xml:space="preserve">
     <value>Âge</value>
-  <comment>Age</comment></data>
+    <comment>Age</comment>
+  </data>
   <data name="L_FSPLEVEL" xml:space="preserve">
-    <value></value>
-  <comment>Level of FSP</comment></data>
-
+    <value />
+    <comment>Level of FSP</comment>
+  </data>
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Please enter an Main Dg code</comment>
   </data>
-
 </root>
