@@ -5545,4 +5545,10 @@
     <value />
     <comment>Please enter an Main Dg code</comment>
   </data>
+  <data name="L_INCLUDELOGIN" xml:space="preserve">
+    <value>Include Login</value>
+  </data>
+  <data name="M_DELETEUSERLOGIN" xml:space="preserve">
+    <value>Are you sure you want to delete the User Login?</value>
+  </data>
 </root>

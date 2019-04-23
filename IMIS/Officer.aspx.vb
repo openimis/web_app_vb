@@ -30,15 +30,21 @@ Partial Public Class Officer
     Inherits System.Web.UI.Page
     Dim eOfficer As New IMIS_EN.tblOfficer
     Dim Officer As New IMIS_BI.OfficerBI
-    Private imisgen As New IMIS_Gen
-    Private userBI As New IMIS_BI.UserBI
+    Private eUsers As New IMIS_EN.tblUsers
+    Public imisgen As New IMIS_Gen
+    Private BIOfficer As New IMIS_BI.OfficerBI
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
         lblmsg.Text = ""
         eOfficer.OfficerID = HttpContext.Current.Request.QueryString("o")
-
-        If IsPostBack = True Then Return
+        eUsers.UserID = imisgen.getUserId(Session("User"))
+        If IsPostBack = True Then
+            If Request.Params.Get("__EVENTARGUMENT").ToString = "Delete" Then
+                DeleteLogin()
+            End If
+            Return
+        End If
 
         Try
             Dim dtRegions As DataTable = Officer.GetRegions(imisgen.getUserId(Session("User")), True)
@@ -49,44 +55,86 @@ Partial Public Class Officer
             If dtRegions.Rows.Count = 1 Then
                 FillDistrict()
             End If
+            FillLanguage()
 
             If Not eOfficer.OfficerID = 0 Then
                 Officer.LoadOfficer(eOfficer)
                 txtCode.Text = eOfficer.Code
                 txtLastName.Text = eOfficer.LastName
                 txtOtherNames.Text = eOfficer.OtherNames
-                txtDob.Text = if(eOfficer.DOB Is Nothing, "", eOfficer.DOB)
-                txtPhone.Text = if(eOfficer.Phone Is Nothing, "", eOfficer.Phone)
+                txtDob.Text = If(eOfficer.DOB Is Nothing, "", eOfficer.DOB)
+                txtPhone.Text = If(eOfficer.Phone Is Nothing, "", eOfficer.Phone)
                 ddlRegion.SelectedValue = eOfficer.LocationId1
                 FillDistrict()
                 ddlDistrict.SelectedValue = eOfficer.tblLocations.LocationId
                 txtpermaddress.Text = eOfficer.PermanentAddress
                 txtEmail.Text = eOfficer.EmailId
                 ddlSubstitution.SelectedValue = eOfficer.tblOfficer2.OfficerID
-                txtWorksTo.Text = if(txtWorksTo.Text Is Nothing, "", eOfficer.WorksTo)
+                txtWorksTo.Text = If(txtWorksTo.Text Is Nothing, "", eOfficer.WorksTo)
 
-                txtVeoCode.Text = if(eOfficer.VEOCode Is Nothing, "", eOfficer.VEOCode)
-                txtVeoLastName.Text = if(eOfficer.VEOLastName Is Nothing, "", eOfficer.VEOLastName)
-                txtVeoOtherName.Text = if(eOfficer.VEOOtherNames Is Nothing, "", eOfficer.VEOOtherNames)
-                txtVeoDOB.Text = if(eOfficer.VEODOB Is Nothing, "", eOfficer.VEODOB)
-                txtVeoPhone.Text = if(eOfficer.VEOPhone Is Nothing, "", eOfficer.VEOPhone)
+                txtVeoCode.Text = If(eOfficer.VEOCode Is Nothing, "", eOfficer.VEOCode)
+                txtVeoLastName.Text = If(eOfficer.VEOLastName Is Nothing, "", eOfficer.VEOLastName)
+                txtVeoOtherName.Text = If(eOfficer.VEOOtherNames Is Nothing, "", eOfficer.VEOOtherNames)
+                txtVeoDOB.Text = If(eOfficer.VEODOB Is Nothing, "", eOfficer.VEODOB)
+                txtVeoPhone.Text = If(eOfficer.VEOPhone Is Nothing, "", eOfficer.VEOPhone)
                 chkCommunicate.Checked = If(eOfficer.PhoneCommunication Is Nothing, False, eOfficer.PhoneCommunication)
+
+                If eOfficer.HasLogin = True Then
+                    eUsers.LoginName = eOfficer.Code
+                    eUsers.UserID = 0
+                    eOfficer.eUsers = eUsers
+                    BIOfficer.LoadUsers(eOfficer.eUsers)
+                    hfUserID.Value = eOfficer.eUsers.UserID
+                    chkOfficerIncludeLogin.Checked = True
+                    ddlLanguage.SelectedValue = eUsers.LanguageID
+                End If
+            Else
+                hfUserID.Value = 0
             End If
 
             FillWards()
             fillVillages()
-
             If HttpContext.Current.Request.QueryString("r") = 1 Or eOfficer.ValidityTo.HasValue Then
                 Panel2.Enabled = False
                 B_SAVE.Visible = False
             End If
-            
         Catch ex As Exception
-            'lblmsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
+
     End Sub
+
+    Private Function SetLoginDetails() As Boolean
+        eOfficer.eUsers = New IMIS_EN.tblUsers
+        If hfUserID.Value <> "" Then
+            eOfficer.eUsers.UserID = hfUserID.Value
+        End If
+        If eOfficer.eUsers.UserID > 0 Then
+            BIOfficer.LoadUsers(eOfficer.eUsers)
+            eOfficer.eUsers.LoginName = txtCode.Text
+        Else
+            eOfficer.eUsers.LoginName = txtCode.Text
+            BIOfficer.LoadUsers(eOfficer.eUsers)
+        End If
+        eOfficer.eUsers.AuditUserID = eOfficer.AuditUserID
+        eOfficer.eUsers.LastName = txtLastName.Text
+        eOfficer.eUsers.OtherNames = txtOtherNames.Text
+        If txtPassword.Text.Length > 0 Then
+            eOfficer.eUsers.DummyPwd = txtPassword.Text
+            eOfficer.eUsers.DummyPwd = txtConfirmPassword.Text
+        End If
+
+        eOfficer.eUsers.Phone = txtPhone.Text
+        eOfficer.eUsers.EmailId = txtEmail.Text
+        eOfficer.eUsers.LanguageID = ddlLanguage.SelectedValue
+        eOfficer.eUsers.RoleID = 1
+        eOfficer.eUsers.AuditUserID = imisgen.getUserId(Session("User"))
+        eOfficer.eUsers.IsAssociated = True
+        eOfficer.HasLogin = 1
+        Return True
+    End Function
+
     Private Sub FillDistrict()
         Dim dtDistricts As DataTable = Officer.GetDistricts(imisgen.getUserId(Session("User")), True, ddlRegion.SelectedValue)
         ddlDistrict.DataSource = dtDistricts
@@ -115,9 +163,16 @@ Partial Public Class Officer
     End Sub
     Private Sub fillVillages()
         Dim dtVillages As DataTable = Officer.GetVillages(Val(ddlDistrict.SelectedValue), eOfficer.OfficerID)
-        gvVillage.datasource = dtVillages
+        gvVillage.DataSource = dtVillages
         gvVillage.DataBind()
         SetCheckboxes(gvVillage)
+    End Sub
+    Private Sub FillLanguage()
+        eUsers.UserID = imisgen.getUserId(Session("User"))
+        ddlLanguage.DataSource = BIOfficer.GetLanguage
+        ddlLanguage.DataValueField = "LanguageCode"
+        ddlLanguage.DataTextField = "LanguageName"
+        ddlLanguage.DataBind()
     End Sub
 
     Private Sub SetCheckboxes(gv As GridView)
@@ -153,6 +208,7 @@ Partial Public Class Officer
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim userBI As New IMIS_BI.UserBI
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Officer, Page) Then
             Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddOfficer, RoleID)
             Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditOfficer, RoleID)
@@ -167,78 +223,102 @@ Partial Public Class Officer
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Officer.ToString & "&retUrl=" & RefUrl)
         End If
     End Sub
+    Public Sub DeleteLogin()
+        Try
+            eUsers.UserID = hfUserID.Value
+            eOfficer.eUsers = eUsers
+            BIOfficer.LoadUsers(eOfficer.eUsers)
+            BIOfficer.DeleteUser(eOfficer.eUsers)
+            eOfficer.HasLogin = False
+            If Not eOfficer.OfficerID = 0 Then
+                SaveOfficer()
+            End If
+            Session("msg") = txtCode.Text & " " & imisgen.getMessage("M_DELETED")
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+        End Try
+
+    End Sub
 
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
-        If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
-            Try
-                Dim dt As New DataTable
-                dt = DirectCast(Session("User"), DataTable)
-
-                Dim eLocations As New IMIS_EN.tblLocations
-
-                Dim LocationId As Integer = -1
-                If Val(ddlDistrict.SelectedValue) > 0 Then
-                    LocationId = ddlDistrict.SelectedValue
-                ElseIf Val(ddlRegion.SelectedValue) > 0 Then
-                    LocationId = ddlRegion.SelectedValue
-                Else
-                    LocationId = -1
-                End If
-
-                eLocations.LocationId = LocationId
-                eOfficer.Code = txtCode.Text
-                eOfficer.LastName = txtLastName.Text
-                eOfficer.OtherNames = txtOtherNames.Text
-
-                If Not txtDob.Text.Length = 0 Then
-                    eOfficer.DOB = Date.Parse(txtDob.Text)
-                End If
-
-                eOfficer.EmailId = txtEmail.Text
-                eOfficer.PermanentAddress = txtpermaddress.Text
-
-                eOfficer.Phone = txtPhone.Text
-                eOfficer.tblLocations = eLocations
-                eOfficer.VEOCode = txtVeoCode.Text
-                eOfficer.VEOLastName = txtVeoLastName.Text
-                eOfficer.VEOOtherNames = txtVeoOtherName.Text
-                eOfficer.VEOPhone = txtVeoPhone.Text
-                eOfficer.PhoneCommunication = chkCommunicate.Checked
-                If Not txtVeoDOB.Text.Length = 0 Then
-                    eOfficer.VEODOB = Date.Parse(txtVeoDOB.Text)
-                End If
-                Dim eofficer2 As New IMIS_EN.tblOfficer
-
-                If Not ddlSubstitution.SelectedValue = "" Then
-                    eofficer2.OfficerID = ddlSubstitution.SelectedValue
-                End If
-                If txtWorksTo.Text.Length > 0 Then
-                    eOfficer.WorksTo = Date.Parse(txtWorksTo.Text)
-                End If
-
-                eOfficer.AuditUserID = imisgen.getUserId(Session("User"))
-                eOfficer.tblOfficer2 = eofficer2
-
-                Dim dtData As DataTable = GetOfficersVillagesDT()
-
-                Dim chk As Integer = Officer.SaveOfficer(eOfficer, dtData)
-                If chk = 0 Then
-                    Session("msg") = eOfficer.Code & " " & eOfficer.LastName & imisgen.getMessage("M_Inserted")
-                ElseIf chk = 1 Then
-                    imisgen.Alert(eOfficer.Code & imisgen.getMessage("M_Exists"), pnlButtons, alertPopupTitle:="IMIS")
-                    Return
-                Else
-                    Session("msg") = eOfficer.Code & " " & eOfficer.LastName & imisgen.getMessage("M_Updated")
-                End If
-
-            Catch ex As Exception
-                'lblmsg.Text = ex.Message
-                imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
-                Return
-            End Try
-        End If
+        SaveOfficer()
         Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
+    End Sub
+
+    Public Sub SaveOfficer()
+        'If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
+        Try
+            Dim dt As New DataTable
+            dt = DirectCast(Session("User"), DataTable)
+
+            Dim eLocations As New IMIS_EN.tblLocations
+
+            Dim LocationId As Integer = -1
+            If Val(ddlDistrict.SelectedValue) > 0 Then
+                LocationId = ddlDistrict.SelectedValue
+            ElseIf Val(ddlRegion.SelectedValue) > 0 Then
+                LocationId = ddlRegion.SelectedValue
+            Else
+                LocationId = -1
+            End If
+
+            eLocations.LocationId = LocationId
+            eOfficer.Code = txtCode.Text
+            eOfficer.LastName = txtLastName.Text
+            eOfficer.OtherNames = txtOtherNames.Text
+
+            If Not txtDob.Text.Length = 0 Then
+                eOfficer.DOB = Date.Parse(txtDob.Text)
+            End If
+
+            eOfficer.EmailId = txtEmail.Text
+            eOfficer.PermanentAddress = txtpermaddress.Text
+
+            eOfficer.Phone = txtPhone.Text
+            eOfficer.tblLocations = eLocations
+            eOfficer.VEOCode = txtVeoCode.Text
+            eOfficer.VEOLastName = txtVeoLastName.Text
+            eOfficer.VEOOtherNames = txtVeoOtherName.Text
+            eOfficer.VEOPhone = txtVeoPhone.Text
+            eOfficer.PhoneCommunication = chkCommunicate.Checked
+            If Not txtVeoDOB.Text.Length = 0 Then
+                eOfficer.VEODOB = Date.Parse(txtVeoDOB.Text)
+            End If
+            Dim eofficer2 As New IMIS_EN.tblOfficer
+
+            If Not ddlSubstitution.SelectedValue = "" Then
+                eofficer2.OfficerID = ddlSubstitution.SelectedValue
+            End If
+            If txtWorksTo.Text.Length > 0 Then
+                eOfficer.WorksTo = Date.Parse(txtWorksTo.Text)
+            End If
+
+            eOfficer.AuditUserID = imisgen.getUserId(Session("User"))
+            eOfficer.tblOfficer2 = eofficer2
+
+            Dim dtData As DataTable = GetOfficersVillagesDT()
+            If chkOfficerIncludeLogin.Checked = True Then
+                If SetLoginDetails() = False Then
+                    Exit Sub
+                End If
+            End If
+            Dim chk As Integer = Officer.SaveOfficer(eOfficer, dtData)
+            If chk = 0 Then
+                Session("msg") = eOfficer.Code & " " & eOfficer.LastName & imisgen.getMessage("M_Inserted")
+
+            ElseIf chk = 1 Then
+                imisgen.Alert(eOfficer.Code & imisgen.getMessage("M_Exists"), pnlButtons, alertPopupTitle:="IMIS")
+                Return
+            Else
+                Session("msg") = eOfficer.Code & " " & eOfficer.LastName & imisgen.getMessage("M_Updated")
+            End If
+
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            Return
+        End Try
     End Sub
 
     Private Function GetOfficersVillagesDT() As DataTable

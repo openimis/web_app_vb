@@ -3251,6 +3251,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Include Login.
+        '''</summary>
+        Friend Shared ReadOnly Property L_INCLUDELOGIN() As String
+            Get
+                Return ResourceManager.GetString("L_INCLUDELOGIN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Incurred Claim Ratio.
         '''</summary>
         Friend Shared ReadOnly Property L_INCURREDCLAIMRATIO() As String
@@ -7036,6 +7045,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_DELETEREGIONPROMPT() As String
             Get
                 Return ResourceManager.GetString("M_DELETEREGIONPROMPT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Are you sure you want to delete the User Login?.
+        '''</summary>
+        Friend Shared ReadOnly Property M_DELETEUSERLOGIN() As String
+            Get
+                Return ResourceManager.GetString("M_DELETEUSERLOGIN", resourceCulture)
             End Get
         End Property
         

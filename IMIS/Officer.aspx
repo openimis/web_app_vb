@@ -149,7 +149,59 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
     </script>
     
+    <script  type="text/ecmascript" language="javascript">
+        $(document).ready(function () {
+            var chk = document.getElementById('<%= chkOfficerIncludeLogin.ClientID %>');
+            toggleUserInfoForm(chk.checked);
+            if (chk.checked) {
+                userInfoValidation(true);
+            } else {
+                userInfoValidation(false);
+            }
+        });
 
+        function userInfoValidation(value) {
+            ValidatorEnable(document.getElementById("<%=RequiredFieldLanguage.ClientID %>"), value);
+            ValidatorEnable(document.getElementById("<%=RequiredFieldPassword.ClientID %>"), value);
+            ValidatorEnable(document.getElementById("<%=RequiredFieldConfirmPassword.ClientID %>"), value);
+        }
+
+        function fireCheckChanged() { 
+            var chk = document.getElementById('<%= chkOfficerIncludeLogin.ClientID %>');
+            toggleUserInfoForm(chk.checked);
+            if (chk.checked) {
+                userInfoValidation(true);
+            } else {
+                ShowdeletePopUp()        
+            }
+        };
+       
+        function ShowdeletePopUp() {         
+            popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
+            popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True)%>';
+            popup.confirm('<%=imisgen.getMessage("M_DELETEUSERLOGIN", True)%>', DoPostBack);
+            return false;
+        }
+
+       function DoPostBack(btn, args) {
+           if (btn == "ok") {
+               userInfoValidation(false);
+               __doPostBack('', 'Delete')
+           } else {
+               var chk = document.getElementById('<%= chkOfficerIncludeLogin.ClientID %>');
+               chk.checked = true; 
+               toggleUserInfoForm(true);
+           }               
+        } 
+
+        function toggleUserInfoForm(visible) {
+            var Password = document.getElementById("OfficerInfo");
+            Password.style.display = visible ? "block" : "none";
+        }
+    </script>
+
+    
+    <asp:HiddenField ID="hfUserID" runat="server" />
     <div class="divBody">
         <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto"
             CssClass="panel" GroupingText='<%$ Resources:Resource,G_OFFICER %>'>
@@ -162,18 +214,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <table class="style15">
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_Language" runat="server" Text='<%$ Resources:Resource,L_CODE %>'></asp:Label>
+                                    <asp:Label ID="L_CODE" runat="server" Text='<%$ Resources:Resource,L_CODE %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtCode" runat="server" Width="150px" MaxLength="8"></asp:TextBox>
-                                </td>
-                                <td>
                                     <asp:RequiredFieldValidator
-                                        ID="RequiredFieldLanguage" runat="server"
+                                        ID="RequiredFieldCode" runat="server"
                                         ControlToValidate="txtCode"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
-                                        Text='*'></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'> </asp:RequiredFieldValidator>
+                                </td>
+                                <td>
                                 </td>
                             </tr>
                             <tr>
@@ -185,14 +237,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtOtherNames" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
-                                </td>
-                                <td>
                                     <asp:RequiredFieldValidator
                                         ID="RequiredFieldOtherNames" runat="server"
                                         ControlToValidate="txtOtherNames"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
+                                </td>
+                                <td>
                                 </td>
                             </tr>
                             <tr>
@@ -201,11 +253,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtLastName" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldLastName" runat="server"
+                                        ControlToValidate="txtLastName"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldLastName" runat="server"
-                                        ControlToValidate="txtLastName" Text="*"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
 
@@ -216,24 +269,21 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         Text='<%$ Resources:Resource,L_BIRTHDATE %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
-                                    <asp:TextBox ID="txtDob" runat="server" Width="140px"></asp:TextBox>
+                                    <asp:TextBox ID="txtDob" runat="server" Width="132px"></asp:TextBox>
                                     <asp:MaskedEditExtender ID="txtDob_MaskedEditExtender" runat="server"
                                         CultureDateFormat="dd/MM/YYYY"
                                         TargetControlID="txtDob" Mask="99/99/9999" MaskType="Date"
                                         UserDateFormat="DayMonthYear">
                                     </asp:MaskedEditExtender>
                                     <asp:Button ID="Button1" runat="server" Class="dateButton" />
-
-
                                     <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDob" PopupButtonID="Button1" Format="dd/MM/yyyy"></asp:CalendarExtender>
-
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server"
+                                        ControlToValidate="txtDob" SetFocusOnError="True"
+                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RegularExpressionValidator>
                                 </td>
                                 <td>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server"
-                                        ControlToValidate="txtDob" Text="*" SetFocusOnError="True"
-                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
-                                        ValidationGroup="check"></asp:RegularExpressionValidator>
-
                                 </td>
                             </tr>
                             <tr>
@@ -244,9 +294,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:TextBox ID="txtPhone" runat="server" Width="150px" MaxLength="50"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldLoginName" runat="server" 
-                                ControlToValidate="txtPhone" Text="*" 
-                                ValidationGroup="check"></asp:RequiredFieldValidator>--%>
                                     <asp:CheckBox ID="chkCommunicate" runat="server" Text='<%$ Resources:Resource, L_COMMUNICATE %>' Font-Size="9pt" ForeColor="Blue" Style="direction: ltr" />
                                 </td>
                             </tr>
@@ -257,9 +304,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtEmail" runat="server" MaxLength="200" Width="150px"></asp:TextBox>
+                                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" 
+                                       ErrorMessage="<%$ Resources:Resource,L_INVALIDEMAIL %>" SetFocusOnError="True" 
+                                       ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                                       ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                       Text='*'></asp:RegularExpressionValidator>
+
                                 </td>
                                 <td style="direction: ltr">
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check">*</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
 
@@ -281,11 +333,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     
                                     <asp:DropDownList ID="ddlRegion" runat="server" AutoPostBack="true">
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" 
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                 </td>
                                 <td>
-                                    
-                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
-                                          
                                 </td>
                             </tr>
                             <tr>
@@ -297,11 +349,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <ContentTemplate>
                                             <asp:DropDownList ID="ddlDistrict" runat="server" AutoPostBack="true">
                                             </asp:DropDownList>
-                                        </ContentTemplate>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" 
+                                                ControlToValidate="ddlDistrict" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                Text='*'></asp:RequiredFieldValidator>
+                                        </ContentTemplate> 
                                     </asp:UpdatePanel>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -319,7 +373,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:Label ID="L_WorksTo" runat="server" Text='<%$ Resources:Resource,L_WORKSTO %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry" colspan="1">
-                                    <asp:TextBox ID="txtWorksTo" runat="server" Width="140px"></asp:TextBox>
+                                    <asp:TextBox ID="txtWorksTo" runat="server" Width="132px"></asp:TextBox>
                                     <asp:MaskedEditExtender ID="txtWorksTo_MaskedEditExtender" runat="server"
                                         CultureDateFormat="dd/MM/YYYY"
                                         TargetControlID="txtWorksTo" Mask="99/99/9999" MaskType="Date"
@@ -329,24 +383,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
                                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtWorksTo" PopupButtonID="Button2" Format="dd/MM/yyyy"></asp:CalendarExtender>
-
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtWorksTo" runat="server"
+                                        ControlToValidate="txtWorksTo" SetFocusOnError="True"
+                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RegularExpressionValidator>
                                 </td>
                                 <td>
-
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtWorksTo" runat="server"
-                                        ControlToValidate="txtWorksTo" Text="*" SetFocusOnError="True"
-                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
-                                        ValidationGroup="check"></asp:RegularExpressionValidator>
-
                                 </td>
                             </tr>
-
                         </table>
-
                     </td>
-
-                   
-
                             <td style="width: 200px">
                                 <asp:CheckBox ID="chkCheckAllWards" runat="server" Text='<%$ Resources:Resource,L_CHECKALL%>' margin-left="10px" onClick="toggleCheckWards(this.checked);" />
                                 <asp:Panel ID="pnlWards" runat="server" ScrollBars="Auto" Height="320px" Width="175px"
@@ -426,10 +473,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                 HeaderStyle-Width="110px">
                                                 <HeaderStyle Width="200px" />
                                             </asp:BoundField>
-
-
                                         </Columns>
-
                                         <PagerStyle CssClass="pgr" />
                                         <%--<AlternatingRowStyle CssClass="alt" />--%>
                                         <SelectedRowStyle CssClass="srs" />
@@ -439,19 +483,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                 </asp:Panel>
                             </td>
-
                 </tr>
             </table>
-
                         </ContentTemplate>
                     </asp:UpdatePanel>
-
         </asp:Panel>
-        <br />
-        <br />
+
         <asp:Panel ID="pnlVeoOfficer" runat="server" CssClass="panel" GroupingText='<%$ Resources:Resource,L_VILLAGEOFFICER %>'>
             <table>
                 <tr>
+                <td style="width : 59%">
+                <table>
+                    <tr>
                     <td class="FormLabel">
                         <asp:Label ID="L_VEOCODE" runat="server" Text='<%$ Resources:Resource,L_CODE %>'> </asp:Label>
                     </td>
@@ -519,19 +562,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             Text='<%$ Resources:Resource,L_DOB %>'></asp:Label>
                     </td>
                     <td class="DataEntry">
-                        <asp:TextBox ID="txtVeoDOB" runat="server" Width="130px"></asp:TextBox>
+                        <asp:TextBox ID="txtVeoDOB" runat="server" Width="128px"></asp:TextBox>
                         <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server"
                             CultureDateFormat="dd/MM/YYYY"
                             TargetControlID="txtVeoDOB" Mask="99/99/9999" MaskType="Date"
                             UserDateFormat="DayMonthYear">
                         </asp:MaskedEditExtender>
                         <asp:Button ID="btnVeoDOB" runat="server" class="dateButton" />
-
-
                         <asp:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="txtVeoDOB" PopupButtonID="btnVeoDOB" Format="dd/MM/yyyy"></asp:CalendarExtender>
-
                     </td>
-                    <td>
+                    <td style="width: 244px;">
                         <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                     ControlToValidate="txtVeoDOB" Text="*" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
@@ -539,9 +579,73 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     
                     </td>
                 </tr>
-            </table>
-
+                </table>
+                </td> 
+                <td style="width : 46%">
+                <asp:Panel ID="pnlOfficeLogin" runat="server" height="150px"
+                    GroupingText='<%$ Resources:Resource,L_INCLUDELOGIN %>' style="border:1px solid Gray;margin:3px 3px 1px 3px ;padding: 1px 5px 2px 5px">
+                <asp:CheckBox ID="chkOfficerIncludeLogin" runat="server" onclick="fireCheckChanged()" Text='<%$ Resources:Resource, L_INCLUDELOGIN %>' Font-Size="9pt" ForeColor="Blue" Style="direction: ltr;padding:50px"/>                   
+            <table class="style15" style="display:none;" id="OfficerInfo"  width= "430px"> 
+                 <tr>
+                    <td class="FormLabel">
+                        <asp:Label ID="lblLanguage" runat="server" Text="<%$ Resources:Resource,L_LANGUAGE %>" ViewStateMode="Disabled"></asp:Label>
+                    </td>
+                    <td class ="DataEntry">
+                        <asp:DropDownList ID="ddlLanguage" runat="server" ViewStateMode="Enabled">
+                        </asp:DropDownList>
+                                      
+                        <asp:RequiredFieldValidator 
+                            ID="RequiredFieldLanguage" runat="server" 
+                            ControlToValidate="ddlLanguage"  InitialValue="-1"
+                            SetFocusOnError="False"  ForeColor="Red"
+                            ValidationGroup="check" Display="Dynamic"
+                            Text='*'>
+                        </asp:RequiredFieldValidator>
+                    </td>
+                    <td>                      
+                    </td>
+                </tr>                        
+                <tr>                   
+                    <td class="FormLabel">
+                        <asp:Label ID="lblPassword" runat="server" Text="<%$ Resources:Resource,L_PASSWORD %>" ></asp:Label>
+                    </td>
+                    <td class ="DataEntry">
+                        <asp:TextBox ID="txtPassword" runat="server" Width="150px" TextMode="Password" ></asp:TextBox>
+                        <asp:RequiredFieldValidator 
+                            ID="RequiredFieldPassword" runat="server" 
+                            ControlToValidate="txtPassword" 
+                            SetFocusOnError="False" 
+                            ValidationGroup="check"
+                            Text='*' ForeColor="Red" Display="Dynamic">
+                            </asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" 
+                            ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ForeColor="Red" 
+                            Display="Dynamic" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check" Text='*'></asp:RegularExpressionValidator>
+                    </td>                      
+                </tr>
+                <tr>                       
+                    <td class="FormLabel">
+                        <asp:Label ID="lblCOnfirmPassword" runat="server" Text="<%$ Resources:Resource,L_CONFIRMPASSWORD %>" ></asp:Label>
+                    </td>
+                    <td class="DataEntry">
+                        <asp:TextBox ID="txtConfirmPassword" runat="server" MaxLength="100" Width="150px" TextMode="Password" ViewStateMode="Disabled"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassword" runat="server" 
+                            ControlToValidate="txtConfirmPassword" Text="*" ForeColor="Red" ControlToCompare="txtPassword"
+                            ValidationGroup="check">
+                        </asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="ComparePassword" runat="server"
+                            ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" 
+                            ValidationGroup="check" Operator="Equal" SetFocusOnError="True" ForeColor="Red" Display="Dynamic" 
+                            Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'> 
+                        </asp:CompareValidator>
+                    </td>                          
+                </tr>       
+            </table>  
         </asp:Panel>
+        </td> 
+    </tr>
+    </table>
+</asp:Panel>
     </div>
     <asp:Panel ID="pnlButtons" runat="server" CssClass="panelbuttons">
         <table width="100%" cellpadding="10 10 10 10">
@@ -570,5 +674,5 @@ In case of dispute arising out or in relation to the use of the program, it is s
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Footer" Runat="Server">
     <asp:label id="lblmsg" runat="server"></asp:label>
-    <asp:ValidationSummary ID="validationSummary1" runat="server" HeaderText='<%$ Resources:Resource,V_SUMMARY%>' ValidationGroup="check" />
+    <asp:ValidationSummary ID="validationSummary1" runat="server" HeaderText='<%$ Resources:Resource,V_SUMMARY%>' ValidationGroup="check" style="padding-left:15px;"/>
 </asp:Content>
