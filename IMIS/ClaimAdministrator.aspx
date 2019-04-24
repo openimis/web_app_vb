@@ -69,10 +69,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
         function userInfoValidation(value) {
             ValidatorEnable(document.getElementById("<%=RequiredFieldLanguage.ClientID %>"), value);
-            if (document.getElementById('<%= hfUserID.ClientID %>').value == "0" ) {
-                ValidatorEnable(document.getElementById("<%=RequiredFieldPassword.ClientID %>"), value);
-                ValidatorEnable(document.getElementById("<%=RequiredFieldConfirmPassword.ClientID %>"), value);
+            var shouldChangePassword = value;
+            if (document.getElementById('<%= hfUserID.ClientID %>').value != "0" ) {
+                shouldChangePassword = false;
             }
+            ValidatorEnable(document.getElementById("<%=RequiredFieldPassword.ClientID %>"), shouldChangePassword);
+            ValidatorEnable(document.getElementById("<%=RequiredFieldConfirmPassword.ClientID %>"), shouldChangePassword);
         }
 
         function toggleUserInfoForm(visible) {
