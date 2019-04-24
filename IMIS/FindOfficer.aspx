@@ -331,7 +331,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 SortExpression="RegionName" HeaderStyle-Width="70px" />
                             <asp:BoundField DataField="DistrictName" HeaderText='<%$ Resources:Resource,L_DISTRICT %>' 
                                 SortExpression="DistrictName" HeaderStyle-Width="70px" />
-                    
+                            <asp:BoundField DataField="HasLogin" HeaderText='<%$ Resources:Resource,L_HASLOGIN %>' SortExpression="HasLogin" 
+                                HeaderStyle-Width="70px"> 
+                            </asp:BoundField>
                      <asp:BoundField DataField="ValidityFrom" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_VALIDFROM %>' SortExpression="ValidityFrom" HeaderStyle-Width="70px">  </asp:BoundField>
                 <asp:BoundField DataField="ValidityTo" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_VALIDTO %>' SortExpression="ValidityTo" HeaderStyle-Width="70px">  </asp:BoundField>
                     </Columns>

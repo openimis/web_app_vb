@@ -127,7 +127,7 @@ Public Partial Class FindClaimAdministrator
 #Region "Functions & Procedures"
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(8).Text = "&nbsp;" Then
+            If Not row.Cells(9).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
         Next

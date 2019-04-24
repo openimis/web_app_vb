@@ -43,9 +43,8 @@ Public Class UsersDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         'Dim strsql As String = "select distinct tblusers.* from tblUsers inner join tblUsersDistricts on  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID and tblUsersDistricts.ValidityTo is null inner join (select LocationId from tblUsersDistricts where UserID = @userId and ValidityTo is null) userDistricts on userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName LIKE @LastName AND OtherNames LIKE @OtherNames AND LoginName LIKE @LoginName AND CASE WHEN @RoleID = 0 THEN 0 ELSE RoleID & @RoleId END = @RoleID AND  CASE WHEN @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
-        sSQL = " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId"
-        sSQL = ", IsAssociated"
-        sSQL += " U.[Password], U.DummyPwd, U.EmailId"
+        sSQL += " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId, U.IsAssociated"
+        sSQL += " , U.[Password], U.DummyPwd, U.EmailId"
         sSQL += " FROM tblUsers U"
         sSQL += " INNER JOIN tblUsersDistricts UD ON UD.UserId = U.UserId"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(UD.LocationId, 0)"
@@ -103,6 +102,29 @@ Public Class UsersDAL
         End If
         Return data.Filldata()
     End Function
+
+    Public Function IsUserExists(ByVal UserID As Integer) As Boolean
+        Dim sSQL As String = String.Empty
+        Dim data As New ExactSQL
+        Dim strSQL As String = "Select Top 1 * from tblUsers where tblUsers.UserId = @UserId AND isAssociated = 1 AND ValidityTo is null" 'LoginName = @LoginName and 
+
+        If Not UserID = 0 Then
+            strSQL += " AND tblUsers.UserId = @UserId"
+        End If
+
+        data.setSQLCommand(strSQL, CommandType.Text)
+        'data.params("@LoginName", SqlDbType.NVarChar, 25, eUserID)
+        If Not UserID = 0 Then
+            data.params("@UserId", SqlDbType.Int, UserID)
+        End If
+        Dim dt As New DataTable
+        dt = data.Filldata()
+        If dt.Rows.Count > 0 Then
+            Return True
+        End If
+        Return False
+    End Function
+
     Public Sub DeleteUser(ByVal eUser As IMIS_EN.tblUsers)
         Dim data As New ExactSQL
         data.setSQLCommand("INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID], [EmailId])" _

@@ -40,7 +40,7 @@ Partial Public Class FindOfficer
     End Sub
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(9).Text = "&nbsp;" Then
+            If Not row.Cells(10).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
             'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))

@@ -5549,6 +5549,14 @@
     <value>Include Login</value>
     <comment>Include Login</comment>
   </data>
+  <data name="L_HASLOGIN" xml:space="preserve">
+    <value>Has Login</value>
+    <comment>Has Login</comment>
+  </data>
+  <data name="M_NOTDELETEASSOCIATEDUSER" xml:space="preserve">
+    <value>could not be deleted because is associated</value>
+    <comment>could not be deleted because is associated</comment>
+  </data>
   <data name="M_DELETEUSERLOGIN" xml:space="preserve">
     <value>Are you sure you want to delete the User Login?</value>
     <comment>Are you sure you want to delete the User Login?</comment>

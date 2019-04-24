@@ -577,4 +577,9 @@ Public Class UsersBL
         Dim users As New IMIS_DAL.UsersDAL
         users.ChangePassword(euser)
     End Sub
+
+    Public Function IsUserExists(ByVal UserID As Integer) As Boolean
+        Dim User As New IMIS_DAL.UsersDAL
+        Return User.IsUserExists(UserID)
+    End Function
 End Class

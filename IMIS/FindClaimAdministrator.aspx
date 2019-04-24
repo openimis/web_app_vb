@@ -28,7 +28,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
-
  <script type="text/javascript" language="javascript">
      $(document).ready(function () {
          bindRowSelection();
@@ -158,7 +157,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <td class ="DataEntry">
                    <asp:TextBox 
                         ID="txtDOBFrom" 
-                        runat="server" Width="130px" CssClass="dateCheck"></asp:TextBox>
+                        runat="server" Width="120px" CssClass="dateCheck"></asp:TextBox>
                     <asp:Button ID="btnDateFrom" runat="server" Height="20px" Width="20px" />
                     <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDOBFrom" PopupButtonID="btnDateFrom" Format="dd/MM/yyyy"></asp:CalendarExtender>
                    <%-- <asp:MaskedEditExtender ID="txtDOBFrom_MaskedEditExtender" runat="server" 
@@ -194,7 +193,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <td class ="DataEntry">
                    <asp:TextBox 
                         ID="txtDOBTo" 
-                        runat="server" Width="130px" CssClass="dateCheck" ></asp:TextBox>
+                        runat="server" Width="120 px" CssClass="dateCheck" ></asp:TextBox>
                     <asp:Button ID="btnDateTo" runat="server" Height="20px" Width="20px" />
                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtDOBTo" PopupButtonID="btnDateTo" Format="dd/MM/yyyy"></asp:CalendarExtender>
                  <%--   <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
@@ -315,7 +314,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     
                             <HeaderStyle Width="100px" />
                             </asp:BoundField>
-                    
+                        <asp:BoundField DataField="HasLogin" HeaderText='<%$ Resources:Resource,L_HASLOGIN %>' SortExpression="HasLogin" HeaderStyle-Width="100px" >  
+                            <HeaderStyle Width="100px" />
+                        </asp:BoundField>
                      <asp:BoundField DataField="ValidityFrom" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_VALIDFROM %>' SortExpression="ValidityFrom" HeaderStyle-Width="70px">  
                             <HeaderStyle Width="70px" />
                             </asp:BoundField>
