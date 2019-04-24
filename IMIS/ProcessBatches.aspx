@@ -185,7 +185,8 @@ table tr td.FormLabel{width:auto;}
                             </td>
                             <td class="auto-style4">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                            ControlToValidate="ddlRegionBatch" SetFocusOnError="True" ValidationGroup="proc" InitialValue="0">*</asp:RequiredFieldValidator>
+                            ControlToValidate="ddlRegionBatch" SetFocusOnError="True" ValidationGroup="proc" InitialValue="0" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                         </td>
                         <td class="FormLabel">   
                             <asp:Label ID="Label2" runat="server"  Text='<%$ Resources:Resource,L_DISTRICT%>'></asp:Label> 
@@ -204,7 +205,8 @@ table tr td.FormLabel{width:auto;}
                         <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                     ControlToValidate="ddlMonthProcess" 
-                                ValidationGroup="proc" InitialValue="0">*</asp:RequiredFieldValidator>
+                                ValidationGroup="proc" InitialValue="0" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                         </td>
                             <td class="FormLabel">   
                                 <asp:Label ID="lblYearProcess" runat="server" Text='<%$ Resources:Resource,L_YEAR%>'></asp:Label> 
@@ -216,7 +218,8 @@ table tr td.FormLabel{width:auto;}
                          <td>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                     ControlToValidate="ddlYearProcess" ValidationGroup="proc" 
-                                    InitialValue="--Year--">*</asp:RequiredFieldValidator>
+                                    InitialValue="--Year--" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                          </td>
                             <td class="FormLabel Empty">   </td>
      
@@ -490,7 +493,8 @@ table tr td.FormLabel{width:auto;}
                                 <asp:TextBox ID="txtENDData" runat="server" Size="10" Width="120px">
                                 </asp:TextBox>
                                 <asp:Button ID="btnENDData" runat="server" class="dateButton" />
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtENDData" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtENDData" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                </asp:RegularExpressionValidator>
                                 <ajax:CalendarExtender ID="txtENDData_CalendarExtender" runat="server" Format="dd/MM/yyyy" PopupButtonID="btnENDData" TargetControlID="txtENDData">
                                 </ajax:CalendarExtender>
                                 <ajax:MaskedEditExtender ID="txtENDData_MaskedEditExtender" runat="server" CultureDateFormat="dd/MM/YYYY" Mask="99/99/9999" MaskType="Date" TargetControlID="txtENDData" UserDateFormat="DayMonthYear">

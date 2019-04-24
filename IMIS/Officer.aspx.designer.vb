@@ -84,8 +84,8 @@ Partial Public Class Officer
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldLanguage As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    Protected WithEvents RequiredFieldCode As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
     '''<summary>
     '''L_OtherName control.
     '''</summary>
@@ -104,6 +104,15 @@ Partial Public Class Officer
     '''</remarks>
     Protected WithEvents txtOtherNames As Global.System.Web.UI.WebControls.TextBox
 
+    '''<summary>
+    '''lblError6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblError6 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''RequiredFieldOtherNames control.
     '''</summary>
@@ -131,6 +140,15 @@ Partial Public Class Officer
     '''</remarks>
     Protected WithEvents txtLastName As Global.System.Web.UI.WebControls.TextBox
 
+    '''<summary>
+    '''lblError5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblError5 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''RequiredFieldLastName control.
     '''</summary>
@@ -285,6 +303,15 @@ Partial Public Class Officer
     Protected WithEvents ddlRegion As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''lblError7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblError7 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''RequiredFieldRegion control.
     '''</summary>
     '''<remarks>
@@ -320,6 +347,15 @@ Partial Public Class Officer
     '''</remarks>
     Protected WithEvents ddlDistrict As Global.System.Web.UI.WebControls.DropDownList
 
+    '''<summary>
+    '''lblError8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblError8 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''RequiredFieldDistrict control.
     '''</summary>
@@ -489,8 +525,8 @@ Partial Public Class Officer
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents L_VeoLastName As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtVeoLastName control.
     '''</summary>
@@ -499,16 +535,16 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoLastName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
-    '''Label4 control.
+    '''Label9 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents Label9 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtVeoOtherName control.
     '''</summary>
@@ -517,16 +553,16 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoOtherName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
-    '''Label5 control.
+    '''Label12 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents Label12 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtVeoPhone control.
     '''</summary>
@@ -535,16 +571,16 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoPhone As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
-    '''L_VEODOB control.
+    '''Label13 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents L_VEODOB As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents Label13 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtVeoDOB control.
     '''</summary>
@@ -553,7 +589,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoDOB As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''MaskedEditExtender1 control.
     '''</summary>
@@ -562,7 +598,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MaskedEditExtender1 As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''btnVeoDOB control.
     '''</summary>
@@ -571,7 +607,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnVeoDOB As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''CalendarExtender3 control.
     '''</summary>
@@ -580,8 +616,16 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender3 As Global.AjaxControlToolkit.CalendarExtender
-
+    
     '''<summary>
+    '''RegularExpressionValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
     '''pnlButtons control.
     '''</summary>
     '''<remarks>

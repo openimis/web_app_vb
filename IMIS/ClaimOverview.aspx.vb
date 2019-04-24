@@ -48,7 +48,14 @@ Public Partial Class ClaimOverview
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         txtValue.Enabled = chkValue.Checked
+        If Not IsPostBack = True Then
+            If Not HttpContext.Current.Request.QueryString("i") Is Nothing Then
+                txtCHFID.Text = HttpContext.Current.Request.QueryString("i")
+            Else
+                txtCHFID.Text = ""
+            End If
 
+        End If
 
         If Request.Form("__EVENTTARGET") = btnSelectionExecute.ClientID Then
             btnSelectionExecute_Click(sender, New System.EventArgs)
@@ -95,6 +102,10 @@ Public Partial Class ClaimOverview
             ddlClaimStatus.DataValueField = "Code"
             ddlClaimStatus.DataBind()
             ddlClaimStatus.SelectedValue = 4 'Checked default selected Item
+            'ddlICD.DataSource = ClaimOverviews.GetICDCodes(True)
+            'ddlICD.DataTextField = "ICDNAMES"
+            'ddlICD.DataValueField = "ICDID"
+            'ddlICD.DataBind()
 
             FillVisitTypes()
 
@@ -104,6 +115,7 @@ Public Partial Class ClaimOverview
             End If
             '  ClaimCodeTxtControl()
             ButtonDisplayControl(0)
+
             If eHF.HfID = 0 And Request.QueryString("c") = 0 Then
                 Exit Sub
             End If
@@ -242,7 +254,7 @@ Public Partial Class ClaimOverview
             ddl.DataValueField = "Code"
             ddl.DataBind()
             ddl.SelectedValue = gvClaims.DataKeys(row.RowIndex).Values("ReviewStatus")
-          
+
             FilterStatusCombination(ddl)
 
 
@@ -261,7 +273,7 @@ Public Partial Class ClaimOverview
             Dim eICDCodes As New IMIS_EN.tblICDCodes
             Dim eInsuree As New IMIS_EN.tblInsuree
             Dim eBatchRun As New IMIS_EN.tblBatchRun
-           
+
             If (Not Request.QueryString("c") = 0) And (ScriptManager.GetCurrent(Me.Page).IsInAsyncPostBack() = False) Then
 
                 hfClaimID.Value = Request.QueryString("c")
@@ -278,6 +290,7 @@ Public Partial Class ClaimOverview
                 If dic("ICDID") <> "" Then
                     eICDCodes.ICDID = dic("ICDID")
                 End If
+
 
                 If Not dic("CHFNo") = "" Then
                     eInsuree.CHFID = dic("CHFNo")
@@ -354,11 +367,7 @@ Public Partial Class ClaimOverview
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                If Not String.IsNullOrEmpty(hfICDID.Value) Then
-                    eICDCodes.ICDID = CInt(Int(hfICDID.Value))
-                Else
-                    eICDCodes.ICDID = 0
-                End If
+                eICDCodes.ICDID = IIf(hfICDID.Value = "", 0, eICDCodes.ICDID)
                 If Not ddlBatchRun.SelectedValue = "" Then
                     eBatchRun.RunID = ddlBatchRun.SelectedValue
                 End If
@@ -559,14 +568,14 @@ Public Partial Class ClaimOverview
             GetFilterCriteria()
             loadGrid()
             chkboxSelectToProcess.Checked = False
-            hfProcessClaims.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOPROCESS") & "</u></h4>" & "<br>" & _
-                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_PROCESSED") & "</td><td>" & Processed & "</td></tr><tr><td>" & imisgen.getMessage("M_VALUATED") & _
-                                    "</td><td>" & Valuated & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed & _
-                                    "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") & "</td><td>" & Rejected & "</td></tr><tr><td>" & _
+            hfProcessClaims.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOPROCESS") & "</u></h4>" & "<br>" &
+                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_PROCESSED") & "</td><td>" & Processed & "</td></tr><tr><td>" & imisgen.getMessage("M_VALUATED") &
+                                    "</td><td>" & Valuated & "</td></tr><tr><td>" & imisgen.getMessage("M_CHANGED") & "</td><td>" & Changed &
+                                    "</td></tr><tr><td>" & imisgen.getMessage("M_REJECTED") & "</td><td>" & Rejected & "</td></tr><tr><td>" &
                                     imisgen.getMessage("M_FAILED") & "</td><td>" & Failed & "</td></tr></td></tr></table>"
 
-            
+
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
@@ -583,12 +592,12 @@ Public Partial Class ClaimOverview
             ClaimOverviews.ReviewFeedbackSelection(ClaimIDDatatable(), getValue, ddlSelectionType.SelectedValue, getSelectionType(), GetSelectionValue(), Submitted, Selected, NotSelected)
             loadGrid()
             ddlSelectionType.SelectedValue = 0
-            hfSelectionExecute.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOUPDATE") & "</u></h4>" & "<br>" & _
-                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" & _
-                                    imisgen.getMessage("M_SELECTED") & "</td><td>" & Selected & "</td></tr><tr><td>" & imisgen.getMessage("M_NOTSELECTED") & _
+            hfSelectionExecute.Value = "<h4><u>" & imisgen.getMessage("M_SUBMITTEDTOUPDATE") & "</u></h4>" & "<br>" &
+                                    "<table><tr><td>" & imisgen.getMessage("M_SUBMITTED") & "</td><td>" & Submitted & "</td></tr><tr><td>" &
+                                    imisgen.getMessage("M_SELECTED") & "</td><td>" & Selected & "</td></tr><tr><td>" & imisgen.getMessage("M_NOTSELECTED") &
                                     "</td><td>" & NotSelected & "</td></tr></table>"
 
-            
+
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
@@ -630,7 +639,12 @@ Public Partial Class ClaimOverview
 
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("Home.aspx")
+        If Not HttpContext.Current.Request.QueryString("i") Is Nothing Then
+            Response.Redirect("FindInsuree.aspx")
+        Else
+            Response.Redirect("Home.aspx")
+        End If
+
     End Sub
 
     Protected Sub ddlSelectionType_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ddlSelectionType.SelectedIndexChanged
@@ -649,15 +663,15 @@ Public Partial Class ClaimOverview
     End Function
 
     Private Function FilterDataTable() As DataTable
-       
+
         Dim filter As String = ""
         If ddlSelectionType.SelectedValue = 0 Then
             filter = ""
         ElseIf ddlSelectionType.SelectedValue = 1 Then
-            filter = "ReviewStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" & _
+            filter = "ReviewStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" &
                     imisgen.getMessage("T_PROCESSED") & "' and ClaimStatus <> '" & imisgen.getMessage("T_REJECTED") & "' "
         Else
-            filter = "FeedbackStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" & _
+            filter = "FeedbackStatus=1 and ClaimStatus <> '" & imisgen.getMessage("T_VALUATED") & "' and ClaimStatus <> '" &
                     imisgen.getMessage("T_PROCESSED") & "' and ClaimStatus <> '" & imisgen.getMessage("T_REJECTED") & "'"
         End If
 
@@ -696,9 +710,9 @@ Public Partial Class ClaimOverview
     End Sub
 
     Protected Sub chkValue_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkValue.CheckedChanged
-        If chkValue.Checked then 
-            filterGrid()
-         end if
+        If chkValue.Checked Then
+            FilterGrid()
+        End If
     End Sub
     Private Sub ClaimCodeTxtControl()
         If ddlHFCode.SelectedValue = 0 Then

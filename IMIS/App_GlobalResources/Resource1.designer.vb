@@ -155,6 +155,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Claims Reviewed.
+        '''</summary>
+        Friend Shared ReadOnly Property B_CLAIMSREVIEWS() As String
+            Get
+                Return ResourceManager.GetString("B_CLAIMSREVIEWS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Create.
         '''</summary>
         Friend Shared ReadOnly Property B_CREATE() As String
@@ -12206,7 +12215,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Type--.
+        '''  Looks up a localized string similar to Select Type.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTTYPE() As String
             Get

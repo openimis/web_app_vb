@@ -374,8 +374,8 @@
     <comment>Administration</comment>
   </data>
   <data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
-    <value>Periode d'administration</value>
-    <comment>Administration Period</comment>
+    <value>Periode d'administration (mois)</value>
+    <comment>Administration Period (months)</comment>
   </data>
   <data name="L_ADULTPREMIUM" xml:space="preserve">
     <value>Cotisation adulte</value>
@@ -942,8 +942,8 @@
     <comment>Enrolment Disc. %</comment>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
-    <value>Rabais d'affiliation (période)</value>
-    <comment>Enrolment Disc. Period</comment>
+    <value>Rabais d'affiliation (période, mois)</value>
+    <comment>Enrolment Disc. Period (months)</comment>
   </data>
   <data name="L_ENROLMENTOFFICERS" xml:space="preserve">
     <value>Agent d'affiliation</value>
@@ -1246,8 +1246,8 @@
     <comment>Free service price</comment>
   </data>
   <data name="L_FREQUENCY" xml:space="preserve">
-    <value>Fréquence</value>
-    <comment>Frequency</comment>
+    <value>Fréquence (jours)</value>
+    <comment>Frequency (days)</comment>
   </data>
   <data name="L_FROM" xml:space="preserve">
     <value>A partir de</value>
@@ -1298,12 +1298,12 @@
     <comment>Go back to selector.</comment>
   </data>
   <data name="L_GRACEPERIOD" xml:space="preserve">
-    <value>Période de grâce pour l'affiliation</value>
-    <comment>Grace Period Enrolment</comment>
+    <value>Période de grâce pour l'affiliation (mois)</value>
+    <comment>Grace Period Enrolment (months)</comment>
   </data>
   <data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
-    <value>Période de grâce pour le renouvellement</value>
-    <comment>Grace Period Renewal</comment>
+    <value>Période de grâce pour le renouvellement (mois)</value>
+    <comment>Grace Period Renewal (months)</comment>
   </data>
   <data name="L_GROUPTYPE" xml:space="preserve">
     <value>Type de groupe / famille</value>
@@ -1438,8 +1438,8 @@
     <comment>Inserted</comment>
   </data>
   <data name="L_INSURANCEPERIOD" xml:space="preserve">
-    <value>Période d'assurance</value>
-    <comment>Insurance Period</comment>
+    <value>Période d'assurance (mois)</value>
+    <comment>Insurance Period (months)</comment>
   </data>
   <data name="L_INSUREE" xml:space="preserve">
     <value>Assuré</value>
@@ -2222,8 +2222,8 @@
     <comment>Renewal Disc. %</comment>
   </data>
   <data name="L_RENEWALDISCOUNTPERIOD" xml:space="preserve">
-    <value>Période de remise suite au renouvellement</value>
-    <comment>Renewal Disc. Period</comment>
+    <value>Période de remise suite au renouvellement (mois)</value>
+    <comment>Renewal Disc. Period (months)</comment>
   </data>
   <data name="L_RENEWALID" xml:space="preserve">
     <value>Numéro d'identification du renouvellement</value>
@@ -2342,7 +2342,7 @@
     <comment>Service Left</comment>
   </data>
   <data name="L_SERVICEMINDATE" xml:space="preserve">
-    <value>Durée minimal de la prestation???</value>
+    <value>Durée minimal de la prestation</value>
     <comment>Service MinDate</comment>
   </data>
   <data name="L_SERVICES" xml:space="preserve">
@@ -2586,8 +2586,8 @@
     <comment>Wait</comment>
   </data>
   <data name="L_WAITINGPERIOD" xml:space="preserve">
-    <value>Période de grâce pour le paiement</value>
-    <comment>Grace Period Payment</comment>
+    <value>Période de grâce pour le paiement (mois)</value>
+    <comment>Grace Period Payment (months)</comment>
   </data>
   <data name="L_WAITINGPERIODADULT" xml:space="preserve">
     <value>Attente adulte</value>
@@ -5023,7 +5023,7 @@
   </data>
   <data name="V_SELECTTYPE" xml:space="preserve">
     <value>Sélectionner le type</value>
-    <comment>--Select Type--</comment>
+    <comment>Select Type</comment>
   </data>
   <data name="V_SUMMARY" xml:space="preserve">
     <value>Veuillez cocher les champs marqués d'un astérisque (*).</value>
@@ -5544,5 +5544,9 @@
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value />
     <comment>Please enter an Main Dg code</comment>
+  </data>
+  <data name="B_CLAIMSREVIEWS" xml:space="preserve">
+    <value />
+    <comment>Claims Reviewed</comment>
   </data>
 </root>

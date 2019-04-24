@@ -176,22 +176,21 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td class="FormLabel">
                         <asp:Label ID="lblEnrolmentDate" runat="server" Text='<%$ Resources:Resource,L_ENROLMENTDATE %>'></asp:Label>
                         </td>
-                        <td class ="DataEntry">
-                        <asp:TextBox ID="txtEnrollmentDate" runat="server" Width="121px" Height="16px" 
+                         <td class ="DataEntry">
+                            <asp:TextBox ID="txtEnrollmentDate" runat="server" Width="132px" Height="16px" 
                                 AutoPostBack="True"></asp:TextBox>                                      
-                        <asp:Button ID="btnEnrollmentDate" runat="server" Height="20px" Width="20px"/>
-                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtEnrollmentDate" PopupButtonID="btnEnrollmentDate" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                        <asp:MaskedEditExtender ID="txtEnrolDate_MaskedEditExtender" runat="server" 
-                            CultureDateFormat="dd/MM/YYYY"                             
-                            TargetControlID="txtEnrollmentDate" Mask="99/99/9999" MaskType="Date" 
-                            UserDateFormat="DayMonthYear">
-                        </asp:MaskedEditExtender>
-                       <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtDob" runat="server" 
-                    ControlToValidate="txtEnrollmentDate" SetFocusOnError="True" Text="*"  
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="RequiredfieldValidator1" runat="Server" ControlToValidate="txtEnrollmentDate" SetFocusOnError="true" Text="*" ValidationGroup="check" ></asp:RequiredFieldValidator>
-                        </td>                        
+                            <asp:Button ID="btnEnrollmentDate" runat="server" Height="20px" Width="20px"/> 
+                             <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtEnrollmentDate" PopupButtonID="btnEnrollmentDate" Format="dd/MM/yyyy"></asp:CalendarExtender>
+                                    <asp:RequiredFieldValidator ID="RequiredfieldValidator1" runat="server" ControlToValidate="txtEnrollmentDate" SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic" Text="*"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtEnrollmentDate" runat="server"
+                                        ControlToValidate="txtEnrollmentDate" ErrorMessage="*" SetFocusOnError="True"
+                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic">
+                                    </asp:RegularExpressionValidator>
+
+
+                        </td>   
                        <td style="width:210px"> &nbsp;</td>
                            <td class="FormLabel" style="text-align:left">
                             <asp:Label ID="lblPolicyStatus" runat="server" Text='<%$ Resources:Resource,L_POLICYSTATUS %>'></asp:Label>
@@ -206,7 +205,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                               <%--<asp:UpdatePanel ID="upCHFID" runat="server">
                                 <ContentTemplate>--%>
                                      <asp:DropDownList ID="ddlProduct" runat="server" Width="150px" AutoPostBack="True"></asp:DropDownList>
-                                     <asp:RequiredFieldValidator ID="RequiredfieldValidator3" runat="Server" ControlToValidate="ddlProduct" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check" ></asp:RequiredFieldValidator>     
+                                     <asp:RequiredFieldValidator ID="RequiredfieldValidator3" runat="Server" ControlToValidate="ddlProduct" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check"  ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>     
                                <%--</ContentTemplate>
                            </asp:UpdatePanel>--%>
                                                   
@@ -214,8 +213,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         ID="RequiredFieldValidatorPackage" runat="server" 
                         ControlToValidate="ddlProduct" 
                         SetFocusOnError="True" 
-                        ValidationGroup="check"
-                        Text="*"></asp:RequiredFieldValidator>
+                        ForeColor="Red" Display="Dynamic"
+                        Text='*'></asp:RequiredFieldValidator>
                         </td>
                         <td>
                         &nbsp;
@@ -237,9 +236,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             UserDateFormat="DayMonthYear">
                         </asp:MaskedEditExtender>
                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                    ControlToValidate="txtEffectiveDate" Text="*" SetFocusOnError="True" 
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                           ControlToValidate="txtEffectiveDate" SetFocusOnError="True" 
+                           ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
+                           ForeColor="Red" Display="Dynamic"
+                           Text='*'></asp:RegularExpressionValidator>
                         </td>
                         <td>
                         &nbsp;
@@ -263,10 +263,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             UserDateFormat="DayMonthYear">
                         </asp:MaskedEditExtender>
                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                    ControlToValidate="txtStartDate" Text="*" SetFocusOnError="True" 
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="RequiredfieldValidator2" runat="Server" ControlToValidate="txtStartDate" SetFocusOnError="true" Text="*" ValidationGroup="check" ></asp:RequiredFieldValidator>
+                            ControlToValidate="txtStartDate" SetFocusOnError="True" 
+                            ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
+                            ForeColor="Red" Display="Dynamic"
+                            Text='*'></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredfieldValidator2" runat="Server" ControlToValidate="txtStartDate" SetFocusOnError="true" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
                         </td>
                          <td>
                             &nbsp;
@@ -285,9 +286,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             UserDateFormat="DayMonthYear">
                         </asp:MaskedEditExtender>
                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
-                    ControlToValidate="txtExpiryDate" Text="*" SetFocusOnError="True" 
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check"></asp:RegularExpressionValidator>
+                            ControlToValidate="txtExpiryDate"  SetFocusOnError="True" 
+                            ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
+                            ForeColor="Red" Display="Dynamic"
+                            Text='*'></asp:RegularExpressionValidator>
                         </td>
                          <td>
                             &nbsp;
@@ -304,9 +306,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         ID="RequiredFieldValidatorRegistrationAuthority" runat="server" 
                         ControlToValidate="ddlEnrolementOfficer" 
                         SetFocusOnError="True" 
-                        ValidationGroup="check"
-                        Text="*"></asp:RequiredFieldValidator>
-                        <asp:RequiredFieldValidator ID="RequiredfieldValidator4" runat="Server" ControlToValidate="ddlEnrolementOfficer" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check" ></asp:RequiredFieldValidator>
+                        ForeColor="Red" Display="Dynamic"
+                        Text='*'></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredfieldValidator4" runat="Server" ControlToValidate="ddlEnrolementOfficer" SetFocusOnError="true" Text="*" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
                         </td>
                         <td>
                         &nbsp;
@@ -390,19 +392,22 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:TextBox ID="txtPaidDeductable" runat="server" MaxLength="18" 
                                     Text-align="right" Width="80px" style="text-align:right; padding-right:1px" 
                                     class="numbersOnly" ReadOnly="True" Enabled="false"></asp:TextBox>
-                             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtPaidDeductable" SetFocusOnError="true" Text="*" Operator="DataTypeCheck" Type="Double" ValidationGroup="check"></asp:CompareValidator>
+                             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtPaidDeductable" SetFocusOnError="true" Operator="DataTypeCheck" Type="Double" ForeColor="Red" Display="Dynamic"
+                                    Text='*'></asp:CompareValidator>
                              </td>
                              <td class="DataEntry">
                                 <asp:TextBox ID="txtPaidDeductableIP" runat="server" MaxLength="18" 
                                      Text-align="right" Width="80px" style="text-align:right; padding-right:1px" 
                                      class="numbersOnly" ReadOnly="True" Enabled="false"></asp:TextBox>
-                                 <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtPaidDeductableIP" SetFocusOnError="true" Text="*" Operator="DataTypeCheck" Type="Double" ValidationGroup="check"></asp:CompareValidator>
+                                 <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtPaidDeductableIP" SetFocusOnError="true" Operator="DataTypeCheck" Type="Double" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:CompareValidator>
                                 </td>
                                 <td class="DataEntry">
                                 <asp:TextBox ID="txtPaidDeductableOP" runat="server" MaxLength="18" 
                                         Text-align="right" Width="80px" style="text-align:right; padding-right:1px" 
                                         class="numbersOnly" ReadOnly="True" Enabled="false"></asp:TextBox>
-                                 <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtPaidDeductableOP" SetFocusOnError="true" Text="*" Operator="DataTypeCheck" Type="Double" ValidationGroup="check"></asp:CompareValidator>
+                                 <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtPaidDeductableOP" SetFocusOnError="true" Operator="DataTypeCheck" Type="Double" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:CompareValidator>
                                 </td>    
                                 </tr>
                                 <tr>
@@ -413,19 +418,22 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <asp:TextBox ID="txtRemuneratedHealthCare" runat="server" MaxLength="18" 
                                     Text-align="right" Width="80px" style="text-align:right; padding-right:1px" 
                                     class="numbersOnly" ReadOnly="True" Enabled="false"></asp:TextBox>
-                                  <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="txtRemuneratedHealthCare" SetFocusOnError="true" Text="*" Operator="DataTypeCheck" Type="Double" ValidationGroup="check"></asp:CompareValidator>                                
+                                  <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="txtRemuneratedHealthCare" SetFocusOnError="true" Operator="DataTypeCheck" Type="Double" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:CompareValidator>                                
                             </td> 
                             <td class="DataEntry">
                                 <asp:TextBox ID="txtRemuneratedIP" runat="server" MaxLength="18" 
                                     text-align="right" Width="80px" style="text-align:right; padding-right:1px" 
                                     class="numbersOnly" ReadOnly="True" Enabled="false"></asp:TextBox>
-                             <asp:CompareValidator ID="CompareValidator5" runat="server" ControlToValidate="txtRemuneratedIP" SetFocusOnError="true" Text="*" Type="Double" Operator="DataTypeCheck" ValidationGroup="check"></asp:CompareValidator>
+                             <asp:CompareValidator ID="CompareValidator5" runat="server" ControlToValidate="txtRemuneratedIP" SetFocusOnError="true" Type="Double" Operator="DataTypeCheck" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:CompareValidator>
                             </td>
                             <td class="DataEntry">
                             <asp:TextBox ID="txtRemuneratedOP" runat="server" MaxLength="18" Text-align="right" 
                                     Width="80px" style="text-align:right; padding-right:1px" class="numbersOnly" 
                                     ReadOnly="True" Enabled="false"></asp:TextBox>                                   
-                               <asp:CompareValidator ID="CompareValidator6" runat="server" ControlToValidate="txtRemuneratedOP" SetFocusOnError="true" Text="*" Type="Double" Operator="DataTypeCheck" ValidationGroup="check"></asp:CompareValidator>
+                               <asp:CompareValidator ID="CompareValidator6" runat="server" ControlToValidate="txtRemuneratedOP" SetFocusOnError="true" Type="Double" Operator="DataTypeCheck" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:CompareValidator>
                               </td>
                               </tr>
                             </table>

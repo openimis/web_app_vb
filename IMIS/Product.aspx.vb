@@ -542,7 +542,7 @@ Partial Public Class Product
             If eProduct.Sublevel4 IsNot Nothing Then ddlSubLevel4.SelectedValue = eProduct.Sublevel4
 
             txtShareContribution.Text = eProduct.ShareContribution 'If(eProduct.ShareContribution = 0, 100.0, eProduct.ShareContribution)
-            txtWaitOfPopulation.Text = eProduct.WeightPopulation
+            txtWeightOfPopulation.Text = eProduct.WeightPopulation
             txtNumberOfFamilies.Text = eProduct.WeightNumberFamilies
             txtNoOfInsuredPopulation.Text = eProduct.WeightInsuredPopulation ' If(SumWeight = 0, 100.0, eProduct.WeightInsuredPopulation)
             txtNoOfInseredFamilies.Text = eProduct.WeightNumberInsuredFamilies
@@ -661,7 +661,7 @@ Partial Public Class Product
         Dim _checkedMI As Boolean = True
         For Each r In gv.Rows
             Dim chkSelect As CheckBox = CType(r.Cells(0).Controls(1), CheckBox)
-            chkSelect.Checked = if(gv.DataKeys(r.RowIndex).Value Is System.DBNull.Value, 0, 1)
+            chkSelect.Checked = If(gv.DataKeys(r.RowIndex).Value Is System.DBNull.Value, 0, 1)
             If chkSelect.Checked <> True Then
                 _checkedMI = False
             End If
@@ -680,7 +680,7 @@ Partial Public Class Product
             Return chkSelect.Checked
         End If
 
-        If chkSelect.Checked <> CBool(if(grid.DataKeys(grid.Rows(RowIndex).RowIndex).Value Is System.DBNull.Value, 0, grid.DataKeys(grid.Rows(RowIndex).RowIndex).Value)) Then
+        If chkSelect.Checked <> CBool(If(grid.DataKeys(grid.Rows(RowIndex).RowIndex).Value Is System.DBNull.Value, 0, grid.DataKeys(grid.Rows(RowIndex).RowIndex).Value)) Then
             Return True
         Else
             Return False
@@ -693,26 +693,26 @@ Partial Public Class Product
         End If
         Dim Deductible As New Dictionary(Of String, Boolean)
 
-        Deductible.Add("DedTreatment", if(eProduct.DedTreatment Is Nothing, 0, 1))
-        Deductible.Add("MaxTreatment", if(eProduct.MaxTreatment Is Nothing, 0, 1))
-        Deductible.Add("DedIPTreatment", if(eProduct.DedIPTreatment Is Nothing, 0, 1))
-        Deductible.Add("MaxIPTreatment", if(eProduct.MaxIPTreatment Is Nothing, 0, 1))
-        Deductible.Add("DedOPTreatment", if(eProduct.DedOPTreatment Is Nothing, 0, 1))
-        Deductible.Add("MaxOPTreatment", if(eProduct.MaxOPTreatment Is Nothing, 0, 1))
+        Deductible.Add("DedTreatment", If(eProduct.DedTreatment Is Nothing, 0, 1))
+        Deductible.Add("MaxTreatment", If(eProduct.MaxTreatment Is Nothing, 0, 1))
+        Deductible.Add("DedIPTreatment", If(eProduct.DedIPTreatment Is Nothing, 0, 1))
+        Deductible.Add("MaxIPTreatment", If(eProduct.MaxIPTreatment Is Nothing, 0, 1))
+        Deductible.Add("DedOPTreatment", If(eProduct.DedOPTreatment Is Nothing, 0, 1))
+        Deductible.Add("MaxOPTreatment", If(eProduct.MaxOPTreatment Is Nothing, 0, 1))
 
-        Deductible.Add("DedInsuree", if(eProduct.DedInsuree Is Nothing, 0, 1))
-        Deductible.Add("MaxInsuree", if(eProduct.MaxInsuree Is Nothing, 0, 1))
-        Deductible.Add("DedIPInsuree", if(eProduct.DedIPInsuree Is Nothing, 0, 1))
-        Deductible.Add("MaxIPInsuree", if(eProduct.MaxIPInsuree Is Nothing, 0, 1))
-        Deductible.Add("DedOPInsuree", if(eProduct.DedOPInsuree Is Nothing, 0, 1))
-        Deductible.Add("MaxOPInsuree", if(eProduct.MaxOPInsuree Is Nothing, 0, 1))
+        Deductible.Add("DedInsuree", If(eProduct.DedInsuree Is Nothing, 0, 1))
+        Deductible.Add("MaxInsuree", If(eProduct.MaxInsuree Is Nothing, 0, 1))
+        Deductible.Add("DedIPInsuree", If(eProduct.DedIPInsuree Is Nothing, 0, 1))
+        Deductible.Add("MaxIPInsuree", If(eProduct.MaxIPInsuree Is Nothing, 0, 1))
+        Deductible.Add("DedOPInsuree", If(eProduct.DedOPInsuree Is Nothing, 0, 1))
+        Deductible.Add("MaxOPInsuree", If(eProduct.MaxOPInsuree Is Nothing, 0, 1))
 
-        Deductible.Add("DedPolicy", if(eProduct.DedPolicy Is Nothing, 0, 1))
-        Deductible.Add("MaxPolicy", if(eProduct.MaxPolicy Is Nothing, 0, 1))
-        Deductible.Add("DedIPPolicy", if(eProduct.DedIPPolicy Is Nothing, 0, 1))
-        Deductible.Add("MaxIPPolicy", if(eProduct.MaxIPPolicy Is Nothing, 0, 1))
-        Deductible.Add("DedOPPolicy", if(eProduct.DedOPPolicy Is Nothing, 0, 1))
-        Deductible.Add("MaxOPPolicy", if(eProduct.MaxOPPolicy Is Nothing, 0, 1))
+        Deductible.Add("DedPolicy", If(eProduct.DedPolicy Is Nothing, 0, 1))
+        Deductible.Add("MaxPolicy", If(eProduct.MaxPolicy Is Nothing, 0, 1))
+        Deductible.Add("DedIPPolicy", If(eProduct.DedIPPolicy Is Nothing, 0, 1))
+        Deductible.Add("MaxIPPolicy", If(eProduct.MaxIPPolicy Is Nothing, 0, 1))
+        Deductible.Add("DedOPPolicy", If(eProduct.DedOPPolicy Is Nothing, 0, 1))
+        Deductible.Add("MaxOPPolicy", If(eProduct.MaxOPPolicy Is Nothing, 0, 1))
 
         'Deductible.Add("MaxExtraMember", if(eProduct.MaxPolicyExtraMember Is Nothing, 0, 1))
         'Deductible.Add("MaxIPExtraMember", if(eProduct.MaxPolicyExtraMemberIP Is Nothing, 0, 1))
@@ -961,20 +961,37 @@ Partial Public Class Product
         Dim chk As Integer = 1
         eProduct.ProductCode = txtProductCode.Text
         Dim bRelative As Boolean = False ' This flag will check if Relative has been used
-        Dim sumWegth As Double = 0
-        sumWegth += Val(txtWaitOfPopulation.Text) + Val(txtNumberOfFamilies.Text) + Val(txtNoOfInsuredPopulation.Text)
-        sumWegth += Val(txtNoOfInseredFamilies.Text) + Val(txtNumberOfClaims.Text) + Val(txtAdjustedAmount.Text)
+        Dim sumWeigth As Double = 0
+        sumWeigth += (If(txtWeightOfPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(txtWeightOfPopulation.Text))) + (If(txtNumberOfFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfFamilies.Text)))) + (If(txtNoOfInsuredPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInsuredPopulation.Text)))))
+        sumWeigth += (If(txtNoOfInseredFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInseredFamilies.Text))) + (If(txtNumberOfClaims.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfClaims.Text)))) + (If(txtAdjustedAmount.Text Is Nothing, 0, Convert.ToDouble(Val(txtAdjustedAmount.Text)))))
+        'Changed by Salumu 10-12-2018 Start
 
-        If (sumWegth <> 100) Then
+        'Edited by Emmanuel 11/12/2018 
+        If sumWeigth = 0 Then
+            eProduct.WeightInsuredPopulation = 100
+            sumWeigth += (If(txtWeightOfPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(txtWeightOfPopulation.Text))) + (If(txtNumberOfFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfFamilies.Text)))) + (If(txtNoOfInsuredPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(eProduct.WeightInsuredPopulation)))))
+            sumWeigth += (If(txtNoOfInseredFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInseredFamilies.Text))) + (If(txtNumberOfClaims.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfClaims.Text)))) + (If(txtAdjustedAmount.Text Is Nothing, 0, Convert.ToDouble(Val(txtAdjustedAmount.Text)))))
+
+        Else
+            eProduct.WeightInsuredPopulation = Val(txtNoOfInsuredPopulation.Text)
+        End If
+        If sumWeigth > 100 Then
             Dim msg As String = imisgen.getMessage("M_WEIGHTMUSTBE100")
             imisgen.Alert(msg, pnlButtons, alertPopupTitle:="IMIS")
             Exit Sub
+        End If
+        If sumWeigth < 100 Then
+            Dim msg As String = imisgen.getMessage("M_WEIGHTMUSTBE100")
+            imisgen.Alert(msg, pnlButtons, alertPopupTitle:="IMIS")
+            Exit Sub
+            'Edited by Emmanuel End 
+
         ElseIf Val(txtShareContribution.Text) > 100 Then
             imisgen.Alert(imisgen.getMessage("M_SHAREDCONTRIBUTIONPARCENT"), pnlButtons, alertPopupTitle:="IMIS")
             Exit Sub
         End If
         Dim Changed As Boolean = CType(Me.Master.FindControl("hfDirty"), HiddenField).Value
-        If Changed = False Then Changed = if(ddlDistrict.Attributes.Item("LoadValue") = ddlDistrict.SelectedValue, False, True)
+        If Changed = False Then Changed = If(ddlDistrict.Attributes.Item("LoadValue") = ddlDistrict.SelectedValue, False, True)
         If Request.QueryString("action") = "duplicate" Then
             eProduct.ProdID = 0
         End If
@@ -1231,9 +1248,9 @@ Partial Public Class Product
                 End If
                 'Addition for Nepal >> End
 
-                eProduct.PeriodRelPrices = if(ddlDistribution.SelectedValue = "0", Nothing, ddlDistribution.SelectedValue)
-                eProduct.PeriodRelPricesOP = if(ddlDistributionOP.SelectedValue = "0", Nothing, ddlDistributionOP.SelectedValue)
-                eProduct.PeriodRelPricesIP = if(ddlDistributionIP.SelectedValue = "0", Nothing, ddlDistributionIP.SelectedValue)
+                eProduct.PeriodRelPrices = If(ddlDistribution.SelectedValue = "0", Nothing, ddlDistribution.SelectedValue)
+                eProduct.PeriodRelPricesOP = If(ddlDistributionOP.SelectedValue = "0", Nothing, ddlDistributionOP.SelectedValue)
+                eProduct.PeriodRelPricesIP = If(ddlDistributionIP.SelectedValue = "0", Nothing, ddlDistributionIP.SelectedValue)
                 eProduct.AccCodePremiums = txtAccCodePremiums.Text
                 eProduct.AccCodeRemuneration = txtAccCodeRemuneration.Text
 
@@ -1290,9 +1307,10 @@ Partial Public Class Product
                 End If
 
                 eProduct.ShareContribution = Val(txtShareContribution.Text)
-                eProduct.WeightPopulation = Val(txtWaitOfPopulation.Text)
+                eProduct.WeightPopulation = Val(txtWeightOfPopulation.Text)
                 eProduct.WeightNumberFamilies = Val(txtNumberOfFamilies.Text)
-                eProduct.WeightInsuredPopulation = Val(txtNoOfInsuredPopulation.Text)
+
+
                 eProduct.WeightNumberInsuredFamilies = Val(txtNoOfInseredFamilies.Text)
                 eProduct.WeightNumberVisits = Val(txtNumberOfClaims.Text)
                 eProduct.WeightAdjustedAmount = Val(txtAdjustedAmount.Text)

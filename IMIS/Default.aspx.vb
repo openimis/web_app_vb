@@ -45,7 +45,7 @@ Partial Public Class Login
 
             dt = Login.GetLogin(eLogin)
 
-            If dt.Rows.Count > 0 Then
+            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
 
                 'Get component settings
                 Dim dtControls As DataTable = Login.getControlsSettings
@@ -60,7 +60,7 @@ Partial Public Class Login
                 If cookie Is Nothing Then
                     cookie = New HttpCookie("CultureInfo")
                 End If
-              
+
 
                 cookie.Value = dt.Rows(0)("LanguageID").ToString
 
@@ -122,7 +122,7 @@ Partial Public Class Login
         Catch ex As Exception
             If OK = False Then
                 lblMessage.Text = imisgen.getMessage("M_PASSWORDERROR")
-                EventLog.WriteEntry("IMIS", eLogin.LoginName & " : " & ex.Message & "\n" & ex.StackTrace, EventLogEntryType.Error, 999)
+                EventLog.WriteEntry("IMIS", eLogin.LoginName & " : " & ex.Message, EventLogEntryType.Error, 999)
                 Return
             End If
         End Try

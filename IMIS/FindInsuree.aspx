@@ -28,23 +28,60 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
      <script type="text/javascript">
-         $(document).ready(function () {
-             $('#<%= btnSearch.ClientID %>').click(function (e) {
-                var passed = true;
-                $DateControls = $('.dateCheck');
-                $DateControls.each(function () {
-                    if ($(this).val().length > 0 && !isValidJSDate($(this).val())) {
-                        $('#<%=lblMsg.ClientID%>').html('<%= imisgen.getMessage("M_INVALIDDATE", True ) %>');
-                        $(this).focus();
-                        passed = false;
-                        return false;
-                    }
-                });
-                if (passed == false) {
-                    return false;
-                }
+        $(document).ready(function () {
+            $('#<%= btnSearch.ClientID %>').click(function (e) {
+            var passed = true;
+            $DateControls = $('.dateCheck');
+            $DateControls.each(function () {
+            if ($(this).val().length > 0 && !isValidJSDate($(this).val())) {
+            $('#<%=lblMsg.ClientID%>').html('<%= imisgen.getMessage("M_INVALIDDATE", True) %>');
+            $(this).focus();
+            passed = false;
+            return false;
+            }
             });
+            if (passed == false) {
+            return false;
+            }
+            });
+        bindRowSelection();
         });
+              
+        
+
+      
+    /** Ruzo Grid Row Selection 29 Aug 2014 >> Start **/
+    function bindRowSelection() {
+        var $trs = $('#<%=gvInsuree.ClientID%> tr')
+        $trs.unbind("hover").hover(function () {
+            if ($(this).index() < 1 || $(this).is(".pgr")) return;
+            $trs.removeClass("alt");
+            $(this).addClass("alt");
+        }, function () {
+            if ($(this).index() < 1 || $(this).is(".pgr")) return;
+            $(this).removeClass("alt");
+        });
+        $trs.unbind("click").click(function () {
+            if ($(this).index() < 1 || $(this).is(".pgr")) return;
+            $trs.removeClass("srs");
+            $(this).addClass("srs");
+            fillSelectedRowData($(this))
+        });
+        if ($trs.filter(".srs").length > 0) {
+            $trs.filter(".srs").eq(0).trigger("click");
+        } else {
+            $trs.eq(1).trigger("click");
+        }
+    
+    }
+    function fillSelectedRowData($row) {
+         var $anchor = $row.find("td").eq(0).find("a");          
+        $("#<%=hfInsuranceNumber.ClientID%>").val($anchor.html());  
+       
+      
+    }
+    /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
+
     </script>
     <div class="divBody">
         <table class="catlabel">
@@ -110,7 +147,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                                 <asp:TextBox
                                                     ID="txtBirthDateFrom"
                                                     runat="server"
-                                                    Width="130px"
+                                                    Width="110px"
                                                     CssClass="dateCheck"
                                                     ></asp:TextBox>
                                                                                             <asp:Button
@@ -154,7 +191,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                             <asp:TextBox
                                                 ID="txtBirthDateTo"
                                                 runat="server"
-                                                Width="130px"
+                                                Width="110px"
                                                 CssClass="dateCheck"
                                                 ></asp:TextBox>
                                           
@@ -263,6 +300,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
         </table>
         <asp:Panel ID="pnlBody" runat="server" CssClass="panelBody">
+            <asp:HiddenField runat="server" ID="hfInsuranceNumber"/>
             <asp:GridView ID="gvInsuree" runat="server"
                 AutoGenerateColumns="False"
                 GridLines="None"
@@ -271,14 +309,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'
                 PagerStyle-CssClass="pgr" PageSize="15"
                 AlternatingRowStyle-CssClass="alt"
-                SelectedRowStyle-CssClass="srs" DataKeyNames="FamilyID,InsureeID">
+                SelectedRowStyle-CssClass="srs" DataKeyNames="FamilyID,InsureeID,CHFID">
                 <Columns>
-                    <asp:CommandField SelectText="Select" ShowSelectButton="true"
+                  <%--  <asp:CommandField SelectText="Select" ShowSelectButton="true"
                         ItemStyle-CssClass="HideButton" HeaderStyle-CssClass="HideButton">
                         <HeaderStyle CssClass="HideButton" />
                         <ItemStyle CssClass="HideButton" />
-                    </asp:CommandField>
-                    <asp:HyperLinkField DataNavigateUrlFields="FamilyId,InsureeID" DataTextField="CHFID"
+                    </asp:CommandField>--%>
+                    <asp:HyperLinkField DataNavigateUrlFields="FamilyId,InsureeID," DataTextField="CHFID"
                         DataNavigateUrlFormatString="OverviewFamily.aspx?f={0}&i={1}" HeaderText='<%$ Resources:Resource,L_CHFID %>'
                         HeaderStyle-Width="100px">
 
@@ -332,20 +370,27 @@ In case of dispute arising out or in relation to the use of the program, it is s
             <tr>
 
                 <td align="left">
-                    <%--   <asp:Button 
-                ID="B_ADD" 
+                       <asp:Button 
+                ID="B_CLAIM" 
                 runat="server" 
-                Text='<%$ Resources:Resource,B_ADD%>'
-                  />--%>
+                Text='<%$ Resources:Resource,B_CLAIM%>'
+                 Visible="true" />
                 </td>
 
+                <td align="center">
+                    <asp:Button
+                        ID="B_CLAIMSREVIEWS"
+                        runat="server"
+                        Text='<%$ Resources:Resource,B_CLAIMSREVIEWS%>'
+                        Visible="True" width="120px"/>
+                </td>
 
                 <td align="center">
                     <asp:Button
                         ID="B_VIEW"
                         runat="server"
-                        Text='<%$ Resources:Resource,B_VIEW %>'
-                        Visible="False" />
+                        Text='<%$ Resources:Resource,B_VIEW%>'
+                        Visible="false" width="120px"/>
                 </td>
                 <td align="right">
                     <asp:Button
