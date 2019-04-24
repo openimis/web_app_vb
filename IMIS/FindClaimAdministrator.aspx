@@ -82,7 +82,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
         var $anchor = $row.find("td").eq(0).find("a");
         var dataNavStringParts = $anchor.attr("href").split("=")
         $("#<%=hfClaimAdministratorId.ClientID%>").val(dataNavStringParts[1]);
-         $("#<%=hfClaimAdministratorCode.ClientID%>").val($anchor.html());
+        $("#<%=hfClaimAdministratorCode.ClientID%>").val($anchor.html());
+        var $hasLogin = $row.find("td").eq(7).html()
+        $("#<%=hfHasLogin.ClientID%>").val($hasLogin);
     }
     /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
  </script>
@@ -93,7 +95,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
 
 <asp:HiddenField ID="hfClaimAdministratorId" runat="server" />
-      <asp:HiddenField ID="hfClaimAdministratorCode" runat="server" />
+<asp:HiddenField ID="hfClaimAdministratorCode" runat="server" />
+<asp:HiddenField ID="hfHasLogin" runat="server" />
       
   <div class="divBody" >
          <table class="catlabel">
