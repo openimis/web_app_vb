@@ -22,13 +22,13 @@ sustained by you or third parties or a failure of the program to operate with an
 advised of the possibility of such damages.
 
 In case of dispute arising out or in relation to the use of the program, it is subject to the public law of Switzerland. The place of jurisdiction is Berne.--%>
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="ForgotPassword.aspx.vb" Inherits="IMIS.ForgotPassword" Async="true" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="EnterNewPassword.aspx.vb" Inherits="IMIS.EnterNewPassword" Async="true" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title><%= imisgen.getMessage("T_FORGOTPASSWORD", True) %></title>
+    <title><%= imisgen.getMessage("T_NEWPASSWORD", True) %></title>
     <link href="StyleSheets/Imis.css" rel="stylesheet" />
     <script src="Javascripts/jquery-1.8.2.min.js"></script>
 </head>
@@ -40,13 +40,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
     <div style="height:500px;top:10%;">
         <div id="ForgotPassword">
             <div class="Heading">
-                <asp:Literal ID="heading" runat="server" Text='<%$RESOURCES:Resource, L_FOROGOTPASSWORDHEADING %>'></asp:Literal>
+                <asp:Literal ID="heading" runat="server" Text='<%$RESOURCES:Resource, L_CONFIRMEMAILANDPASSWORD %>'></asp:Literal>
             </div>
             <div class="Summary">
                 <asp:ValidationSummary ID="vs" runat="server" DisplayMode="List" ValidationGroup="submit" />
             </div>
             <div class="line">
-                <div class="lbl"><asp:Label ID="L_LoginName" runat="server" Text='<%$ Resources:Resource,L_USERNAME %>'></asp:Label></div>
+                 <div class="lbl"><asp:Label ID="L_LoginName" runat="server" Text='<%$ Resources:Resource,L_USERNAME %>'></asp:Label></div>
                 <div class="cnt"><asp:TextBox ID="txtLoginName" runat="server" Width="80%"  ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="submit" 
                         ControlToValidate="txtLoginName" ErrorMessage="*" SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -55,7 +55,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     
             </div>
             <div class="line">
-                <div class="lbl"><asp:Label ID="L_Password" runat="server" Text='<%$ Resources:Resource,L_NEWPASSWORD %>'></asp:Label></div>
+                <div class="lbl"> <asp:Label ID="L_Password" runat="server" Text='<%$ Resources:Resource,L_NEWPASSWORD %>'></asp:Label></div>
                 <div class="cnt"><asp:TextBox ID="txtPassword" runat="server" Width="80%" TextMode="Password" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfPassword" runat="server"  ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>'  ValidationGroup="submit" Text="*"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="submit">*</asp:RegularExpressionValidator>

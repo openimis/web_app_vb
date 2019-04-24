@@ -19,7 +19,7 @@
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
     <Use64BitIISExpress />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>

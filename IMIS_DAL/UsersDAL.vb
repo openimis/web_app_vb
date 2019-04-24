@@ -43,8 +43,7 @@ Public Class UsersDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         'Dim strsql As String = "select distinct tblusers.* from tblUsers inner join tblUsersDistricts on  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID and tblUsersDistricts.ValidityTo is null inner join (select LocationId from tblUsersDistricts where UserID = @userId and ValidityTo is null) userDistricts on userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName LIKE @LastName AND OtherNames LIKE @OtherNames AND LoginName LIKE @LoginName AND CASE WHEN @RoleID = 0 THEN 0 ELSE RoleID & @RoleId END = @RoleID AND  CASE WHEN @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
-        sSQL = " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,"
-        sSQL += " U.[Password], U.DummyPwd, U.EmailId"
+        sSQL = " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId, U.EmailId"
         sSQL += " FROM tblUsers U"
         sSQL += " INNER JOIN tblUsersDistricts UD ON UD.UserId = U.UserId"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(UD.LocationId, 0)"
@@ -67,7 +66,7 @@ Public Class UsersDAL
         End If
 
         sSQL += " GROUP BY U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId,"
-        sSQL += " U.AuditUserId, U.[Password], U.DummyPwd, U.EmailId"
+        sSQL += " U.AuditUserId, U.EmailId"
         sSQL += " ORDER BY U.LoginName, U.ValidityFrom DESC"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -104,8 +103,8 @@ Public Class UsersDAL
     End Function
     Public Sub DeleteUser(ByVal eUser As IMIS_EN.tblUsers)
         Dim data As New ExactSQL
-        data.setSQLCommand("INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID], [EmailId])" _
-      & "select [LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[ValidityFrom],getdate(),@UserID,[AuditUserID], [EmailId] from tblUsers where UserID = @UserID;" _
+        data.setSQLCommand("INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID], [EmailId])" _
+      & "select [LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[ValidityFrom],getdate(),@UserID,[AuditUserID], [EmailId] from tblUsers where UserID = @UserID;" _
       & "UPDATE [tblUsers]   SET [ValidityFrom] = GetDate(),[ValidityTo] = GetDate(),[AuditUserID] = @AuditUserID  WHERE UserID = @UserID", CommandType.Text)
         data.params("@UserID", SqlDbType.Int, eUser.UserID)
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
@@ -140,10 +139,9 @@ Public Class UsersDAL
     Public Sub InsertUser(ByRef eUser As IMIS_EN.tblUsers)
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL = "OPEN SYMMETRIC KEY EncryptionKey DECRYPTION BY Certificate EncryptData" & _
-               " Insert into tblUsers ([LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[LanguageID],[HFID],[AuditUserID],[EmailId])" & _
-               " VALUES(@LastName, @OtherNames, @Phone, @LoginName, ENCRYPTBYKEY(KEY_GUID('EncryptionKey'),@Password), @RoleId,@LanguageID,@HFID,@AuditUserID, @EmailId);select @UserId = scope_identity()" & _
-               " CLOSE SYMMETRIC KEY EncryptionKey"
+        sSQL =
+               " Insert into tblUsers ([LastName],[OtherNames],[Phone],[LoginName],[RoleID],[LanguageID],[HFID],[AuditUserID],[EmailId],[StoredPassword],[PrivateKey])" &
+               " VALUES(@LastName, @OtherNames, @Phone, @LoginName, @RoleId,@LanguageID,@HFID,@AuditUserID, @EmailId,@StoredPassword,@PrivateKey);select @UserId = scope_identity()"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, eUser.UserID, ParameterDirection.Output)
@@ -151,24 +149,29 @@ Public Class UsersDAL
         data.params("@OtherNames", SqlDbType.NVarChar, 100, eUser.OtherNames)
         data.params("@Phone", SqlDbType.NVarChar, 50, eUser.Phone)
         data.params("@LoginName", SqlDbType.NVarChar, 100, eUser.LoginName)
-        data.params("@Password", SqlDbType.NVarChar, 25, eUser.DummyPwd)
         data.params("@LanguageID", SqlDbType.NVarChar, 2, eUser.LanguageID)
         data.params("@RoleId", SqlDbType.Int, eUser.RoleID)
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
         data.params("@HFID", SqlDbType.Int, eUser.HFID)
         data.params("@EmailId", SqlDbType.NVarChar, 200, eUser.EmailId)
+        data.params("@StoredPassword", SqlDbType.NVarChar, 256, eUser.StoredPassword)
+        data.params("@PrivateKey", SqlDbType.NVarChar, 256, eUser.PrivateKey)
         data.ExecuteCommand()
         eUser.UserID = data.sqlParameters("@UserId")
     End Sub
     Public Sub UpdateUser(ByRef eUser As IMIS_EN.tblUsers)
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL = "OPEN SYMMETRIC KEY EncryptionKey DECRYPTION BY Certificate EncryptData;" & _
-                "INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[HFID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID],[EmailId])" _
-                & " select [LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[HFID],[ValidityFrom],getdate(),[UserID],[AuditUserID],[EmailId] from tblUsers where UserID = @UserID;" _
-                & "UPDATE [tblUsers] SET [LanguageID] = @LanguageID,[LastName] = @LastName,[OtherNames] = @OtherNames,[Phone] = @Phone,[LoginName] = @LoginName,[Password] = ENCRYPTBYKEY(KEY_GUID('EncryptionKey'),@Password),[RoleID] = @RoleID,[HFID] = @HFID, [EmailId] = @EmailId" _
-                & ",[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID  WHERE UserID = @UserID" & _
-                 " CLOSE SYMMETRIC KEY EncryptionKey"
+        sSQL =
+                "INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[HFID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID],[EmailId],[StoredPassword],[PrivateKey])" _
+                & " select [LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[HFID],[ValidityFrom],getdate(),[UserID],[AuditUserID],[EmailId],[StoredPassword],[PrivateKey] from tblUsers where UserID = @UserID;" _
+                & "UPDATE [tblUsers] SET [LanguageID] = @LanguageID,[LastName] = @LastName,[OtherNames] = @OtherNames,[Phone] = @Phone,[LoginName] = @LoginName,[RoleID] = @RoleID,[HFID] = @HFID, [EmailId] = @EmailId" _
+                & ",[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID"
+        If eUser.DummyPwd <> String.Empty Then
+            sSQL += ",[StoredPassword] =@StoredPassword,[PrivateKey]=@PrivateKey"
+        End If
+
+        sSQL += " WHERE UserID = @UserID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, eUser.UserID)
@@ -177,19 +180,19 @@ Public Class UsersDAL
         data.params("@OtherNames", SqlDbType.NVarChar, 100, eUser.OtherNames)
         data.params("@Phone", SqlDbType.NVarChar, 50, eUser.Phone)
         data.params("@LoginName", SqlDbType.NVarChar, 25, eUser.LoginName)
-        data.params("@Password", SqlDbType.NVarChar, 25, eUser.DummyPwd)
         data.params("@RoleID", SqlDbType.Int, eUser.RoleID)
         data.params("@HFID", SqlDbType.Int, eUser.HFID)
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
         data.params("@EmailId", SqlDbType.NVarChar, 200, eUser.EmailId)
+        data.params("@StoredPassword", SqlDbType.NVarChar, 256, eUser.StoredPassword)
+        data.params("@PrivateKey", SqlDbType.NVarChar, 256, eUser.PrivateKey)
         data.ExecuteCommand()
     End Sub
     Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL = "OPEN SYMMETRIC KEY EncryptionKey DECRYPTION BY Certificate EncryptData;" & _
-                " select LanguageID,LastName,OtherNames,Phone,LoginName,RoleID,HFID,ValidityTo,CONVERT(NVARCHAR(25), DECRYPTBYKEY(Password)) Password, EmailId from tblUsers where (UserID= @UserID OR EmailId = @EmailId) AND ValidityTo IS NULL" & _
-                " CLOSE SYMMETRIC KEY EncryptionKey"
+        sSQL = " select UserID,LanguageID,LastName,OtherNames,Phone,LoginName,RoleID,HFID,ValidityTo, EmailId,StoredPassword,PrivateKey,PasswordValidity from tblUsers"
+        sSQL += " where (UserID= @UserID OR EmailId = @EmailId OR LoginName = @LoginName) AND ValidityTo IS NULL"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, eUser.UserID)
@@ -201,7 +204,7 @@ Public Class UsersDAL
             eUser.OtherNames = dr("OtherNames")
             eUser.Phone = If(dr.IsNull("Phone"), "", dr("Phone"))
             eUser.LoginName = dr("LoginName")
-            eUser.DummyPwd = dr("Password")
+            eUser.DummyPwd = ""
             eUser.RoleID = dr("RoleID")
             If Not dr("HFID") Is DBNull.Value Then
                 eUser.HFID = dr("HFID")
@@ -210,6 +213,11 @@ Public Class UsersDAL
                 eUser.ValidityTo = dr("ValidityTo").ToString
             End If
             eUser.EmailId = dr("EmailId").ToString
+            eUser.PrivateKey = dr("PrivateKey").ToString
+            eUser.StoredPassword = dr("StoredPassword").ToString
+            If Not dr("PasswordValidity") Is DBNull.Value Then
+                eUser.PasswordValidity = dr("PasswordValidity")
+            End If
         End If
 
     End Sub
@@ -255,16 +263,31 @@ Public Class UsersDAL
         Dim data As New ExactSQL
 
         Dim sSQL As String = ""
-        sSQL = "OPEN SYMMETRIC KEY EncryptionKey DECRYPTION BY Certificate EncryptData;" & _
-                "INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[HFID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID],[EmailId])" _
-                & " select [LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[Password],[RoleID],[HFID],[ValidityFrom],getdate(),[UserID],[AuditUserID],[EmailId] from tblUsers where UserID = @UserID;" _
-                & "UPDATE [tblUsers] SET [Password] = ENCRYPTBYKEY(KEY_GUID('EncryptionKey'),@Password)" _
-                & ",[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID  WHERE UserID = @UserID" & _
-                 " CLOSE SYMMETRIC KEY EncryptionKey"
+        sSQL = "INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[HFID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID],[EmailId],StoredPassword,PrivateKey)" _
+                & " select [LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[HFID],[ValidityFrom],getdate(),[UserID],[AuditUserID],[EmailId],StoredPassword,PrivateKey from tblUsers where UserID = @UserID;" _
+                & "UPDATE [tblUsers] SET [PrivateKey] = @PrivateKey,StoredPassword=@StoredPassword,password = NULL" _
+                & ",[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID  WHERE UserID = @UserID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, eUser.UserID)
-        data.params("@Password", SqlDbType.NVarChar, 25, eUser.DummyPwd)
+        data.params("@StoredPassword", SqlDbType.NVarChar, 256, eUser.StoredPassword)
+        data.params("@PrivateKey", SqlDbType.NVarChar, 256, eUser.PrivateKey)
+        data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
+        data.ExecuteCommand()
+    End Sub
+    Public Sub UpdatePasswordValidity(ByVal eUser As IMIS_EN.tblUsers)
+
+        Dim data As New ExactSQL
+
+        Dim sSQL As String = ""
+        sSQL = "INSERT INTO tblUsers ([LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[HFID],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID],[EmailId],StoredPassword,PrivateKey,PasswordValidity)" _
+                & " select [LanguageID],[LastName],[OtherNames],[Phone],[LoginName],[RoleID],[HFID],[ValidityFrom],getdate(),[UserID],[AuditUserID],[EmailId],StoredPassword,PrivateKey,PasswordValidity from tblUsers where UserID = @UserID;" _
+                & "UPDATE [tblUsers] SET [PasswordValidity] = @PasswordValidity" _
+                & ",[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID  WHERE UserID = @UserID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@UserID", SqlDbType.Int, eUser.UserID)
+        data.params("@PasswordValidity", SqlDbType.DateTime, eUser.PasswordValidity)
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
         data.ExecuteCommand()
     End Sub

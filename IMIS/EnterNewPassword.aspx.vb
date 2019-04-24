@@ -26,13 +26,51 @@
 ' 
 '
 
-Public Class ChangePasswordBI
-    Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
-        Dim User As New IMIS_BL.UsersBL
-        User.LoadUsers(eUser)
+Public Class EnterNewPassword
+    Inherits System.Web.UI.Page
+    Protected imisgen As New IMIS_Gen
+    Private ForgotPasswordBI As New IMIS_BI.EnterNewPasswordBI
+
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
     End Sub
-    Public Function ChangePassword(ByRef eUser As IMIS_EN.tblUsers, NewPassword As String) As Integer
-        Dim User As New IMIS_BL.UsersBL
-        Return User.ChangePassword(eUser, NewPassword)
-    End Function
+
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        Dim FontColor As String = ""
+        msg.Text = ""
+        Try
+            If txtPassword.Text.Trim.Length = 0 Then Exit Sub
+            If txtLoginName.Text.Trim.Length = 0 Then Exit Sub
+            Dim txtHashString As String = HttpContext.Current.Request.QueryString("h")
+
+            Dim Result As Integer = ForgotPasswordBI.UpdatePassword(txtLoginName.Text.Trim, txtPassword.Text, txtHashString)
+
+            If Result > 0 Then
+                FontColor = "green"
+                msg.Text = imisgen.getMessage("L_PASSWORDCHANGED", False)
+                Threading.Thread.Sleep(3000)
+                Response.Redirect("Default.aspx?")
+            Else
+                FontColor = "red"
+                If Result = -1 Then
+                    msg.Text = imisgen.getMessage("M_NOUSERSLOGIN", False)
+                ElseIf Result = -2 Then
+                    msg.Text = imisgen.getMessage("M_VALIDITYEXPIRED", False)
+                ElseIf Result = -3 Then
+                    msg.Text = imisgen.getMessage("M_PASSWORDINVALID", False)
+                Else
+                    msg.Text = imisgen.getMessage("X_EMAILSENTFAIL", False)
+                End If
+            End If
+
+        Catch ex As Exception
+            msg.Text = imisgen.getMessage("M_ERRORWHILEPROCESSING")
+        Finally
+            Dim script As String = "$(document).ready(function () {$('#ForgotPassword .msg').css('color','" & FontColor & "');$('.msg').fadeIn().delay(10000).fadeOut();});"
+            ClientScript.RegisterClientScriptBlock(Me.GetType(), "showMsg", script, True)
+        End Try
+
+    End Sub
+
 End Class
