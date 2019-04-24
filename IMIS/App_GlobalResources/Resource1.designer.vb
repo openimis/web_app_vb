@@ -506,6 +506,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Include User Login.
+        '''</summary>
+        Friend Shared ReadOnly Property G_CLAIMADMINISTRATORLOGIN() As String
+            Get
+                Return ResourceManager.GetString("G_CLAIMADMINISTRATORLOGIN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Health Facility Details.
         '''</summary>
         Friend Shared ReadOnly Property G_HEALTHFACILITY() As String

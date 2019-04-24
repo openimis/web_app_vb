@@ -5547,8 +5547,14 @@
   </data>
   <data name="L_INCLUDELOGIN" xml:space="preserve">
     <value>Include Login</value>
+    <comment>Include Login</comment>
   </data>
   <data name="M_DELETEUSERLOGIN" xml:space="preserve">
     <value>Are you sure you want to delete the User Login?</value>
+    <comment>Are you sure you want to delete the User Login?</comment>
+  </data>
+  <data name="G_CLAIMADMINISTRATORLOGIN" xml:space="preserve">
+    <value>Include User Login</value>
+    <comment>Include User Login</comment>
   </data>
 </root>
