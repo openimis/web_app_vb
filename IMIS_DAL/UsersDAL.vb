@@ -197,8 +197,10 @@ Public Class UsersDAL
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, eUser.UserID)
         data.params("@EmailId", SqlDbType.NVarChar, 300, eUser.EmailId)
+        data.params("@LoginName", SqlDbType.NVarChar, 25, eUser.LoginName)
         Dim dr As DataRow = data.Filldata()(0)
         If Not dr Is Nothing Then
+            eUser.UserID = dr("UserID")
             eUser.LanguageID = dr("LanguageID")
             eUser.LastName = dr("LastName")
             eUser.OtherNames = dr("OtherNames")
