@@ -28,4 +28,5 @@
 
 Partial Public Class tblUsers
     Public Property tblLocations As tblLocations
+    Public Property IsAssociated As Boolean?
 End Class

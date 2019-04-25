@@ -506,6 +506,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Include User Login.
+        '''</summary>
+        Friend Shared ReadOnly Property G_CLAIMADMINISTRATORLOGIN() As String
+            Get
+                Return ResourceManager.GetString("G_CLAIMADMINISTRATORLOGIN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Health Facility Details.
         '''</summary>
         Friend Shared ReadOnly Property G_HEALTHFACILITY() As String
@@ -3008,6 +3017,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Has Login.
+        '''</summary>
+        Friend Shared ReadOnly Property L_HASLOGIN() As String
+            Get
+                Return ResourceManager.GetString("L_HASLOGIN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Hospital Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_HCEILING() As String
@@ -3247,6 +3265,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_INBACKGROUND() As String
             Get
                 Return ResourceManager.GetString("L_INBACKGROUND", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Include Login.
+        '''</summary>
+        Friend Shared ReadOnly Property L_INCLUDELOGIN() As String
+            Get
+                Return ResourceManager.GetString("L_INCLUDELOGIN", resourceCulture)
             End Get
         End Property
         
@@ -7040,6 +7067,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Are you sure you want to delete the User Login?.
+        '''</summary>
+        Friend Shared ReadOnly Property M_DELETEUSERLOGIN() As String
+            Get
+                Return ResourceManager.GetString("M_DELETEUSERLOGIN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Are you sure you want to delete village.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEVILLAGEPROMPT() As String
@@ -8548,6 +8584,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_NOSERVICES() As String
             Get
                 Return ResourceManager.GetString("M_NOSERVICES", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to could not be deleted because is associated.
+        '''</summary>
+        Friend Shared ReadOnly Property M_NOTDELETEASSOCIATEDUSER() As String
+            Get
+                Return ResourceManager.GetString("M_NOTDELETEASSOCIATEDUSER", resourceCulture)
             End Get
         End Property
         

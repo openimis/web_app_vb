@@ -42,12 +42,9 @@ Partial Public Class FindUser
     End Sub
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(5).Text = "&nbsp;" Then
+            If Not row.Cells(6).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
-
-            '          row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
-
         Next
     End Sub
    
@@ -220,15 +217,22 @@ Partial Public Class FindUser
     Protected Sub B_EDIT_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_EDIT.Click
         Response.Redirect("User.aspx?u=" & hfUserId.Value & "&r=0")
     End Sub
-    Private Sub B_DELETE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_DELETE.Click
+    Private Sub B_DELETE_Click(sender As Object, e As EventArgs) Handles B_DELETE.Click, gvUsers.SelectedIndexChanged
         RunPageSecurity(True)
+        Dim UserId As Integer = hfUserId.Value
+        Dim User As String = hfUserName.Value
+        Dim IsAssoc As Boolean = userBI.IsUserExists(UserId)
+
+        If IsAssoc = True Then
+            imisGen.Alert(User & " " & imisGen.getMessage("M_NOTDELETEASSOCIATEDUSER"), pnlButtons, alertPopupTitle:="IMIS")
+            Return
+        End If
         Try
             eUser.UserID = hfUserId.Value
 
             lblMsg.Text = ""
             eUser.AuditUserID = imisGen.getUserId(Session("User"))
             users.DeleteUser(eUser)
-            Dim User As String = hfUserName.Value
             loadgrid()
             Session("msg") = User & " " & imisGen.getMessage("M_DELETED")
         Catch ex As Exception

@@ -82,7 +82,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
         var $anchor = $row.find("td").eq(0).find("a");
         var dataNavStringParts = $anchor.attr("href").split("=")
         $("#<%=hfOfficerId.ClientID%>").val(dataNavStringParts[1]);
-         $("#<%=hfOfficerCode.ClientID%>").val($anchor.html());
+        $("#<%=hfOfficerCode.ClientID%>").val($anchor.html());
+        var $hasLogin = $row.find("td").eq(8).html()
+        $("#<%=hfHasLogin.ClientID%>").val($hasLogin);
     }
     /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
  </script>
@@ -106,7 +108,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
 
 <asp:HiddenField ID="hfOfficerId" runat="server" />
-      <asp:HiddenField ID="hfOfficerCode" runat="server" />
+<asp:HiddenField ID="hfOfficerCode" runat="server" />
+<asp:HiddenField ID="hfHasLogin" runat="server" />
       
   <div class="divBody" >
          <table class="catlabel">
@@ -331,7 +334,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 SortExpression="RegionName" HeaderStyle-Width="70px" />
                             <asp:BoundField DataField="DistrictName" HeaderText='<%$ Resources:Resource,L_DISTRICT %>' 
                                 SortExpression="DistrictName" HeaderStyle-Width="70px" />
-                    
+                            <asp:BoundField DataField="HasLogin" HeaderText='<%$ Resources:Resource,L_HASLOGIN %>' SortExpression="HasLogin" 
+                                HeaderStyle-Width="70px"> 
+                            </asp:BoundField>
                      <asp:BoundField DataField="ValidityFrom" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_VALIDFROM %>' SortExpression="ValidityFrom" HeaderStyle-Width="70px">  </asp:BoundField>
                 <asp:BoundField DataField="ValidityTo" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_VALIDTO %>' SortExpression="ValidityTo" HeaderStyle-Width="70px">  </asp:BoundField>
                     </Columns>
