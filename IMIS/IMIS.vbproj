@@ -19,7 +19,7 @@
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode />
     <Use64BitIISExpress />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -140,6 +140,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
     <Content Include="EmailSettings.aspx" />
+    <Content Include="EnterNewPassword.aspx" />
     <Content Include="Error.htm" />
     <Content Include="Family.aspx" />
     <Content Include="FeedbackPrompt.aspx" />
@@ -355,6 +356,13 @@
     <Compile Include="EmailSettings.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>EmailSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnterNewPassword.aspx.designer.vb">
+      <DependentUpon>EnterNewPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnterNewPassword.aspx.vb">
+      <DependentUpon>EnterNewPassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Family.aspx.designer.vb">
       <DependentUpon>Family.aspx</DependentUpon>
