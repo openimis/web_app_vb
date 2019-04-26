@@ -32,6 +32,7 @@ Partial Public Class FindOfficer
     Private Officer As New IMIS_BI.FindOfficersBI
     Protected imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private BIClaimAdmin As New IMIS_BI.ClaimAdministratorBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvOfficers)
@@ -40,7 +41,7 @@ Partial Public Class FindOfficer
     End Sub
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(9).Text = "&nbsp;" Then
+            If Not row.Cells(10).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
             'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
@@ -220,14 +221,28 @@ Partial Public Class FindOfficer
         Try
             lblMsg.Text = ""
             eofficer.OfficerID = hfOfficerId.Value
-
+            eofficer.Code = hfOfficerCode.Value
             eofficer.AuditUserID = imisGen.getUserId(Session("User"))
+            If hfHasLogin.Value = "True" Then
+                DeleteAssociatedUser()
+            End If
             Officer.DeleteOfficer(eofficer)
             Dim FOfficer As String = hfOfficerCode.Value
             loadGrid()
             lblMsg.Text = FOfficer & " " & imisGen.getMessage("M_DELETED")
         Catch ex As Exception
             'lblMsg.Text = imisGen.getMessage("M_ERRORMESSAGE")
+            imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+        End Try
+    End Sub
+    Private Sub DeleteAssociatedUser()
+        Try
+            eofficer.eUsers = New IMIS_EN.tblUsers
+            eofficer.eUsers.LoginName = eofficer.Code
+            BIClaimAdmin.LoadUsers(eofficer.eUsers)
+            BIClaimAdmin.DeleteUser(eofficer.eUsers)
+        Catch ex As Exception
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try

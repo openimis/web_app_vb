@@ -621,6 +621,9 @@ Public Class UsersBL
             Return True
         End If
         Return False
-
+    End Function
+    Public Function IsUserExists(ByVal UserID As Integer) As Boolean
+        Dim User As New IMIS_DAL.UsersDAL
+        Return User.IsUserExists(UserID)
     End Function
 End Class

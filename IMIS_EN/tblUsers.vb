@@ -31,4 +31,5 @@ Partial Public Class tblUsers
     Public Property StoredPassword As String
     Public Property PrivateKey As String
     Public Property PasswordValidity As Date?
+    Public Property IsAssociated As Boolean?
 End Class
