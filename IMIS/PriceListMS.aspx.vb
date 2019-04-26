@@ -109,9 +109,10 @@ Partial Public Class PriceListMS
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.PriceListMS, Page) Then
-            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddPriceListMedicalServices, RoleID)
-            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditPriceListMedicalServices, RoleID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddPriceListMedicalServices, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditPriceListMedicalServices, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False

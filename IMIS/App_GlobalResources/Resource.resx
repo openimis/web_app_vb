@@ -4182,19 +4182,328 @@
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value>Please enter an Main Dg code</value>
   </data>
+  <data name="L_FINDROLE" xml:space="preserve">
+    <value>Find Role</value>
+  </data>
+  <data name="P_ROLE" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="L_ROLEFOUNDS" xml:space="preserve">
+    <value>Roles Found</value>
+  </data>
   <data name="L_INCLUDELOGIN" xml:space="preserve">
     <value>Include Login</value>
   </data>
   <data name="L_HASLOGIN" xml:space="preserve">
     <value>Has Login</value>
   </data>
+  <data name="L_USERPROFILES" xml:space="preserve">
+    <value>User Profiles</value>
+  </data>
   <data name="M_NOTDELETEASSOCIATEDUSER" xml:space="preserve">
     <value>could not be deleted because is associated</value>
+  </data>
+  <data name="M_NOTDELETEASSOCIATEDROLE" xml:space="preserve">
+    <value>Could not be deleted because is associated</value>
   </data>
   <data name="M_DELETEUSERLOGIN" xml:space="preserve">
     <value>Are you sure you want to delete the User Login?</value>
   </data>
   <data name="G_CLAIMADMINISTRATORLOGIN" xml:space="preserve">
     <value>Include User Login</value>
+  </data>
+  <data name="R_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="R_ADMINISTRATION" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="R_BACKUP" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="R_BATCH" xml:space="preserve">
+    <value>Batch</value>
+  </data>
+  <data name="R_CAPITATIONPAYMENT" xml:space="preserve">
+    <value>Capitation Payment</value>
+  </data>
+  <data name="R_CLAIM" xml:space="preserve">
+    <value>Claim</value>
+  </data>
+  <data name="R_CLAIMADMINISTRATOR" xml:space="preserve">
+    <value>Claim Administrators</value>
+  </data>
+  <data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
+    <value>Claim History Report</value>
+  </data>
+  <data name="R_CLAIMOVERVIEW" xml:space="preserve">
+    <value>Claim Overview</value>
+  </data>
+  <data name="R_CLAIMREVIEW" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="R_CLAIMS" xml:space="preserve">
+    <value>Claims</value>
+  </data>
+  <data name="R_CONTRIBUTION" xml:space="preserve">
+    <value>Contribution</value>
+  </data>
+  <data name="R_CONTRIBUTIONCOLLECTION" xml:space="preserve">
+    <value>Contribution Collection</value>
+  </data>
+  <data name="R_CONTRIBUTIONDISTRIBUTION" xml:space="preserve">
+    <value>Contribution Distribution</value>
+  </data>
+  <data name="R_CONTRIBUTIONPAYMENT" xml:space="preserve">
+    <value>Contribution Payment</value>
+  </data>
+  <data name="R_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
+    <value>Control Number Assignment</value>
+  </data>
+  <data name="R_CREATE" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="R_DELETE" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="R_DERIVEDOPERATIONALI" xml:space="preserve">
+    <value>Derived Operational Indicators</value>
+  </data>
+  <data name="R_DIAGNOSES" xml:space="preserve">
+    <value>Diagnoses</value>
+  </data>
+  <data name="R_DOWNLOAD" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="R_DUPLICATE" xml:space="preserve">
+    <value>Duplicate</value>
+  </data>
+  <data name="R_EDIT" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="R_EMAILSETTING" xml:space="preserve">
+    <value>Email Setting</value>
+  </data>
+  <data name="R_ENQUIRE" xml:space="preserve">
+    <value>Enquire</value>
+  </data>
+  <data name="R_ENROLMENTOFFICER" xml:space="preserve">
+    <value>Enrolment Officers</value>
+  </data>
+  <data name="R_ENROLMENTPERFORMANCEI" xml:space="preserve">
+    <value>Enrolment Performance Indicators</value>
+  </data>
+  <data name="R_ENROLMENTS" xml:space="preserve">
+    <value>Enrolments</value>
+  </data>
+  <data name="R_EXCUTESCRIPT" xml:space="preserve">
+    <value>Excute Script</value>
+  </data>
+  <data name="R_EXTRACTS" xml:space="preserve">
+    <value>Extracts</value>
+  </data>
+  <data name="R_FAMILIESANDINSUREESOVERVIEW" xml:space="preserve">
+    <value>Families and insurees Overview</value>
+  </data>
+  <data name="R_FEEDBACK" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="R_FILTER" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="R_FUNDING" xml:space="preserve">
+    <value>Funding</value>
+  </data>
+  <data name="R_HEALTHFACILITIES" xml:space="preserve">
+    <value>Health Facilities</value>
+  </data>
+  <data name="R_INSUREE" xml:space="preserve">
+    <value>Insuree</value>
+  </data>
+  <data name="R_INSUREEANDPOLICIES" xml:space="preserve">
+    <value>Insurees and Policies</value>
+  </data>
+  <data name="R_INSUREESWITHOUTPHOTOS" xml:space="preserve">
+    <value>Insurees without Photos</value>
+  </data>
+  <data name="R_LOAD" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="R_LOCATIONS" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="R_MASTERDATA" xml:space="preserve">
+    <value>Master Data</value>
+  </data>
+  <data name="R_MATCHINGFUNDS" xml:space="preserve">
+    <value>Matching Funds</value>
+  </data>
+  <data name="R_MEDICALITEMS" xml:space="preserve">
+    <value>Medical Items</value>
+  </data>
+  <data name="R_MEDICALSERVICES" xml:space="preserve">
+    <value>Medical Services</value>
+  </data>
+  <data name="R_MOVE" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="R_OFFLINEEXTRACTS" xml:space="preserve">
+    <value>Offline Extracts</value>
+  </data>
+  <data name="R_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
+    <value>Overview Of Commissions</value>
+  </data>
+  <data name="R_PAYERS" xml:space="preserve">
+    <value>Payers</value>
+  </data>
+  <data name="R_PAYMENT" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="R_PAYMENTCATEGORYOVERVIEW" xml:space="preserve">
+    <value>Payment Category Overview</value>
+  </data>
+  <data name="R_PENDINGINSUREES" xml:space="preserve">
+    <value>Pending Insurees</value>
+  </data>
+  <data name="R_PERCENTAGEOFREFERRALS" xml:space="preserve">
+    <value>Percentage of Referrals</value>
+  </data>
+  <data name="R_PHONEEXTRACTS" xml:space="preserve">
+    <value>Phone Extracts</value>
+  </data>
+  <data name="R_Policy" xml:space="preserve">
+    <value>Policy</value>
+  </data>
+  <data name="R_PREVIEW" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="R_PRICELISTMI" xml:space="preserve">
+    <value>Pricelists-Medical Items</value>
+  </data>
+  <data name="R_PRICELISTMS" xml:space="preserve">
+    <value>Pricelists-Medical Services</value>
+  </data>
+  <data name="R_PRIMARYOPERATIONALIC" xml:space="preserve">
+    <value>Primary Operational Indicators-claims</value>
+  </data>
+  <data name="R_PRIMARYOPERATIONALIP" xml:space="preserve">
+    <value>Primary Operational Indicators-policies</value>
+  </data>
+  <data name="R_PRINT" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="R_PROCESS" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="R_PRODUCTS" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="R_PRODUCTSALES" xml:space="preserve">
+    <value>Product Sales</value>
+  </data>
+  <data name="R_REGISTERS" xml:space="preserve">
+    <value>Registers</value>
+  </data>
+  <data name="R_REJECTEDPHOTOS" xml:space="preserve">
+    <value>Rejected Photos</value>
+  </data>
+  <data name="R_RENEW" xml:space="preserve">
+    <value>Renew</value>
+  </data>
+  <data name="R_RENEWALS" xml:space="preserve">
+    <value>Renewals</value>
+  </data>
+  <data name="R_REPORTS" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="R_RESTORE" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="R_REVIEW" xml:space="preserve">
+    <value>Review Claim</value>
+  </data>
+  <data name="R_SAVE" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="R_SEARCH" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="R_STATUSOFREGISTERS" xml:space="preserve">
+    <value>Status of Registers</value>
+  </data>
+  <data name="R_SUBMIT" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="R_TOOLS" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="R_UPDATE" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="R_UPLOAD" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="R_USERACTIVITYREPORT" xml:space="preserve">
+    <value>User Activity Report</value>
+  </data>
+  <data name="R_USERPROFILES" xml:space="preserve">
+    <value>User Profiles</value>
+  </data>
+  <data name="R_USERS" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="R_UTILITIES" xml:space="preserve">
+    <value>Utilies/Email settings</value>
+  </data>
+  <data name="R_CLAIMSUPLOAD" xml:space="preserve">
+    <value>Claims Upload</value>
+  </data>
+  <data name="R_DIAGNOSESDOWNLOAD" xml:space="preserve">
+    <value>Diagnoses Download</value>
+  </data>
+  <data name="R_DIAGNOSESUPLOAD" xml:space="preserve">
+    <value>Diagnoses Upload</value>
+  </data>
+  <data name="R_ENROLMENTSUPLOAD" xml:space="preserve">
+    <value>Enrolment Upload</value>
+  </data>
+  <data name="R_FEEDBACKUPLOAD" xml:space="preserve">
+    <value>Feedback Upload</value>
+  </data>
+  <data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
+    <value>Health Facilities Download</value>
+  </data>
+  <data name="R_HEALTHFACILITIESUPLOAD" xml:space="preserve">
+    <value>Health Facilities Upload</value>
+  </data>
+  <data name="R_LOCATIONSDOWNLOAD" xml:space="preserve">
+    <value>Location download</value>
+  </data>
+  <data name="R_LOCATIONSUPLOAD" xml:space="preserve">
+    <value>Location Upload</value>
+  </data>
+  <data name="R_MASTERDATADOWNLOAD" xml:space="preserve">
+    <value>Master Download</value>
+  </data>
+  <data name="R_OFFLINEEXTRACTSCREATE" xml:space="preserve">
+    <value>Create offline extract</value>
+  </data>
+  <data name="R_PHONEEXTRACTSCREATE" xml:space="preserve">
+    <value>Create Phone extract</value>
+  </data>
+  <data name="L_ALTLANGUAGE" xml:space="preserve">
+    <value>Alternative Language</value>
+  </data>
+  <data name="G_ROLE_DETAILS" xml:space="preserve">
+    <value>Role Details</value>
+  </data>
+  <data name="L_ROLENAME" xml:space="preserve">
+    <value>Role name</value>
+  </data>
+  <data name="L_SYSTEM" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="L_BLOCKED" xml:space="preserve">
+    <value>Blocked</value>
   </data>
 </root>

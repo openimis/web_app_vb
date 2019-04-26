@@ -27,7 +27,10 @@
 '
 
 Public Class FindPolicyBI
-
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
 
     Public Function GetPolicy(ByRef ePolicy As IMIS_EN.tblPolicy, ByVal All As Boolean, Optional ByVal DeactivatedPolicies As Boolean = False) As DataTable
         Dim Policy As New IMIS_BL.PolicyBL
@@ -45,12 +48,6 @@ Public Class FindPolicyBI
     Public Function GetOfficers(ByVal DistrictId As Integer, ByVal showselect As Boolean, Optional VillageId As Integer = 0) As DataTable
         Dim getDataTable As New IMIS_BL.OfficersBL
         Return getDataTable.GetOfficers(DistrictId, showselect, VillageId)
-    End Function
-  
-
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
     Public Function GetProducts(ByVal UserId As Integer, Optional ByVal ShowSelect As Boolean = False, Optional ByVal RegionId As Integer = 0, Optional ByVal DistrictID As Integer = 0) As DataTable
         Dim getDataTable As New IMIS_BL.ProductsBL

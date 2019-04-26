@@ -33,6 +33,10 @@ Public Class IMISExtractsBI
     '    Return HealthFacility.GetHealthFacility(All)
     'End Function
 
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetDistricts(ByVal userID As Integer, Optional ByVal showSelect As Boolean = False, Optional RegionId As Integer = 0) As DataTable
         Dim Districts As New IMIS_BL.LocationsBL
         Return Districts.GetDistricts(userID, showSelect, RegionId)
@@ -82,10 +86,6 @@ Public Class IMISExtractsBI
         Dim Extracts As New IMIS_BL.IMISExtractsBL
         Extracts.SubmitClaimFromXML(FileName)
     End Sub
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
-    End Function
     Public Sub CreateEnrolmentXML(ByVal Output As Dictionary(Of String, Integer), Optional ByVal isBackp As Boolean = False)
         Dim Ext As New IMIS_BL.IMISExtractsBL
         Ext.CreateEnrolmentXML(Output, isBackp)

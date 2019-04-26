@@ -130,6 +130,9 @@
     <Compile Include="tblPolicy.vb" />
     <Compile Include="tblPremium.vb" />
     <Compile Include="tblProduct.vb" />
+    <Compile Include="tblRole.vb" />
+    <Compile Include="tblRoleRight.vb" />
+    <Compile Include="tblUserRole.vb" />
     <Compile Include="tblUsers.vb" />
   </ItemGroup>
   <ItemGroup>

@@ -157,6 +157,7 @@
     <Content Include="FindPriceListMI.aspx" />
     <Content Include="FindPriceListMS.aspx" />
     <Content Include="FindProduct.aspx" />
+    <Content Include="FindProfile.aspx" />
     <Content Include="FindUser.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Global.asax" />
@@ -201,6 +202,7 @@
     <Content Include="Registers.aspx" />
     <Content Include="Report.aspx" />
     <Content Include="Reports.aspx" />
+    <Content Include="Role.aspx" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -468,6 +470,13 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>FindProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindProfile.aspx.designer.vb">
+      <DependentUpon>FindProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindProfile.aspx.vb">
+      <DependentUpon>FindProfile.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="FindUser.aspx.designer.vb">
       <DependentUpon>FindUser.aspx</DependentUpon>
     </Compile>
@@ -699,6 +708,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Role.aspx.designer.vb">
+      <DependentUpon>Role.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Role.aspx.vb">
+      <DependentUpon>Role.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="User.aspx.designer.vb">
       <DependentUpon>User.aspx</DependentUpon>

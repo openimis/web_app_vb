@@ -51,11 +51,6 @@ Public Class FindHealthFacilityBI
         Dim HF As New IMIS_BL.HealthFacilityBL
         HF.DeleteHealthFacility(eHF)
     End Sub
-
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
-    End Function
     Public Function GetRegions(UserId As Integer, Optional ShowSelect As Boolean = True, Optional ByVal IncludeNational As Boolean = False) As DataTable
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect, IncludeNational)

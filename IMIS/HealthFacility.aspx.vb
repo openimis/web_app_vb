@@ -154,9 +154,10 @@ Partial Public Class HealthFacility
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.HealthFacility, Page) Then
-            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddHealthFacility, RoleID)
-            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditHealthFacility, RoleID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityAdd, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityEdit, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False

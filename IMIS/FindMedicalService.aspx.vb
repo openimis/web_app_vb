@@ -77,12 +77,13 @@ Partial Public Class FindMedicalService
 
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisGen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisGen.getUserId(Session("User"))
         If Not ondelete Then
-            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindMedicalService, Page) Then
-                B_ADD.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddMedicalService, RoleID)
-                B_EDIT.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditMedicalService, RoleID)
-                B_DELETE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteMedicalService, RoleID)
+            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.MedicalService, Page) Then
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddMedicalService, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditMedicalService, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteMedicalService, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindMedicalService, UserID)
 
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
@@ -91,7 +92,7 @@ Partial Public Class FindMedicalService
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindMedicalService.ToString & "&retUrl=" & RefUrl)
             End If
         Else
-            If Not userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteMedicalService, RoleID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteMedicalService, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindMedicalService.ToString & "&retUrl=" & RefUrl)
             End If
 

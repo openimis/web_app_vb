@@ -106,7 +106,7 @@
         <div id="DivMsg" runat="server" style="display:none;"></div>--%>
          <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto" CssClass="panelBody" style="height:auto; overflow-x:hidden; ">
         <asp:HiddenField ID="hfExtractFound" runat="server" Value="0" />
-
+<asp:Panel ID="MasterData" runat="server" >
         <table class="catlabel">
                 <tr>
                     <td>
@@ -152,12 +152,12 @@
                     </tr>
                 </table>
             </asp:Panel>
-
         </asp:Panel>
+</asp:Panel>
 
 
         <asp:Panel ID="pnlOnline" runat="server">
-            <asp:Panel ID="pnlOnlineExtracts" runat="server">
+            <asp:Panel ID="pnlCreatePhoneExtracts" runat="server">
                 <table class="catlabel">
                     <tr>
                         <td>
@@ -234,7 +234,8 @@
                         </tr>
                     </table>
                 </asp:Panel>
-
+             </asp:Panel>
+            <asp:Panel ID="pnlCreateOfflineExtracts" runat="server">
                 <table class="catlabel">
                     <tr>
                         <td>
@@ -477,7 +478,7 @@
 
             </asp:Panel>--%>
 
-            <asp:Panel ID="PnlUploadFeedBack" runat="server">
+            <asp:Panel ID="PnlFeedBackUploadHeader" runat="server">
                 <table class="catlabel">
                     <tr>
                         <td>
@@ -489,7 +490,7 @@
 
                     </tr>
                 </table>
-                <asp:Panel ID="Panel4" runat="server" CssClass="panel"
+                <asp:Panel ID="pnlFeedbackUpload" runat="server" CssClass="panel"
                     Height="60px" GroupingText="">
                     <table>
                         <tr>

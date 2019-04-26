@@ -27,6 +27,10 @@
 '
 
 Public Class FindMedicalItemsBI
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetMedicalItems(ByVal eItems As IMIS_EN.tblItems, Optional ByVal All As Boolean = False) As DataTable
         Dim getDataTable As New IMIS_BL.MedicalItemsBL
         Return getDataTable.GetMedicalItems(eItems, All)
@@ -42,10 +46,5 @@ Public Class FindMedicalItemsBI
     Public Function GetPatient() As DataTable
         Dim getDataTable As New IMIS_BL.GeneralBL
         Return getDataTable.GetPatient()
-    End Function
-
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
 End Class

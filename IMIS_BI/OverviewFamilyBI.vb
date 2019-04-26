@@ -28,6 +28,10 @@
 
 Public Class OverviewFamilyBI
 
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetInsureesByFamilyFiltered(ByVal FamilyId As Integer) As DataTable
         Dim Insurees As New IMIS_BL.InsureeBL
         Return Insurees.GetInsureesByFamily(FamilyId)
@@ -60,10 +64,6 @@ Public Class OverviewFamilyBI
     Public Function DeleteFamily(ByVal eFamily As IMIS_EN.tblFamilies) As Integer
         Dim family As New IMIS_BL.FamilyBL
         Return family.DeleteFamily(eFamily)
-    End Function
-    Public Function checkRoles(ByVal roles As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim User As New IMIS_BL.UsersBL
-        Return User.CheckRoles(roles, roleid)
     End Function
 
     Public Sub GetPolicyValue(ByRef ePolicy As IMIS_EN.tblPolicy, PreviousPolicyId As Integer)

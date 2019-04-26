@@ -11,16 +11,36 @@ Partial Public Class IMISExtracts
 
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
-        If RoleID = 8 And (IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) Then
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
+        If UserID = 8 And (IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) Then
             pnlOfflineClaims.Visible = False
             Exit Sub
         End If
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.IMISExtracts, Page) Then
-            pnlOfflineExtracts.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.OfflineExtracts, RoleID)
-            pnlOfflineClaims.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.OfflineClaims, RoleID)
-            pnlExtractEntrolment.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.OfflineClaims, RoleID) And IMIS_Gen.OfflineCHF
-            pnlOfflineClaims.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.OfflineClaims, RoleID) And IMIS_Gen.offlineHF
+            MasterData.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractMasterDataDownload, UserID)
+
+            pnlCreatePhoneExtracts.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractPhoneExtractsCreate, UserID)
+
+
+            pnlCreateOfflineExtracts.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractOfflineExtractCreate, UserID)
+
+            pnlUploadClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractClaimUpload, UserID) And IMIS_Gen.OfflineCHF
+            pnlOnlineClaims.Visible = pnlUploadClaims.Visible And IMIS_Gen.OfflineCHF
+
+            pnlExtractEntrolment.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And IMIS_Gen.OfflineCHF
+
+            pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And IMIS_Gen.OfflineCHF
+            pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
+
+
+
+            'pnlOfflineClaims.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
+            'pnlOfflineClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
+
+            pnlFeedbackUpload.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractFeedbackUpload, UserID)
+            pnlFeedbackUpload.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractFeedbackUpload, UserID)
+            PnlFeedBackUploadHeader.Visible = pnlFeedbackUpload.Visible
+
         Else
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.IMISExtracts.ToString & "&retUrl=" & RefUrl)
         End If

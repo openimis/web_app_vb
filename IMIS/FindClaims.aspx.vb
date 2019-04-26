@@ -147,14 +147,15 @@ Partial Public Class FindClaims
     End Sub
     Private Sub RunPageSecurity(Optional ByVal which As Integer = 0)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If which = 0 Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindClaim, Page) Then
-                B_ADD.Visible = FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.EnterClaim, RoleID)
-                B_LOAD.Visible = FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.LoadClaim, RoleID)
-                B_DELETE.Visible = FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.DeleteClaim, RoleID)
-                B_SUBMIT.Visible = FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.ClaimsBatchClosure, RoleID)
-
+                B_ADD.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimAdd, UserID)
+                B_LOAD.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimLoad, UserID)
+                B_DELETE.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimDelete, UserID)
+                B_SUBMIT.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimSubmit, UserID)
+                btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
                 If Not B_LOAD.Visible And Not B_DELETE.Visible And Not B_SUBMIT.Visible Then
                     pnlBody.Enabled = False
                     'pnlTop.Enabled = False
@@ -163,11 +164,11 @@ Partial Public Class FindClaims
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 1 Then
-            If Not FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.DeleteClaim, RoleID) Then
+            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 2 Then
-            If Not FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.ClaimsBatchClosure, RoleID) Then
+            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -210,7 +211,7 @@ Partial Public Class FindClaims
     End Sub
 
     Private Sub HFCodeAndBatchRunBinding(ByVal UserID As Integer)
-        
+
         FillHF(UserID)
 
         If Not Val(ddlDistrict.SelectedValue) = 0 Then
@@ -297,14 +298,14 @@ Partial Public Class FindClaims
                 ddlClaimStatus.SelectedValue = eClaim.ClaimStatus
                 hfICDCode.Value = eICDCodes.ICDID
 
-                txtClaimCode.Text = if(eClaim.ClaimCode Is Nothing, "", eClaim.ClaimCode)
+                txtClaimCode.Text = If(eClaim.ClaimCode Is Nothing, "", eClaim.ClaimCode)
                 txtHFName.Text = eHF.HFName
                 txtCHFID.Text = eInsuree.CHFID
-                txtVisitDateTo.Text = if(eClaim.DateTo Is Nothing, "", eClaim.DateTo)
-                txtVisitDateFrom.Text = if(eClaim.DateFrom = Nothing, "", eClaim.DateFrom)
-                txtClaimedDateFrom.Text = if(eClaim.DateClaimed = Nothing, "", eClaim.DateClaimed)
-                txtClaimedDateTo.Text = if(eClaim.DateProcessed Is Nothing, "", eClaim.DateProcessed) 'Used as a carrier for ClaimedDate to range 
-                ddlBatchRun.SelectedValue = if(eBatchRun.RunID = Nothing, Nothing, eBatchRun.RunID)
+                txtVisitDateTo.Text = If(eClaim.DateTo Is Nothing, "", eClaim.DateTo)
+                txtVisitDateFrom.Text = If(eClaim.DateFrom = Nothing, "", eClaim.DateFrom)
+                txtClaimedDateFrom.Text = If(eClaim.DateClaimed = Nothing, "", eClaim.DateClaimed)
+                txtClaimedDateTo.Text = If(eClaim.DateProcessed Is Nothing, "", eClaim.DateProcessed) 'Used as a carrier for ClaimedDate to range 
+                ddlBatchRun.SelectedValue = If(eBatchRun.RunID = Nothing, Nothing, eBatchRun.RunID)
                 ddlClaimAdmin.SelectedValue = eClaim.tblClaimAdmin.ClaimAdminId
                 ddlVisitType.SelectedValue = eClaim.VisitType
 
@@ -385,15 +386,16 @@ Partial Public Class FindClaims
         End Try
     End Sub
     Private Sub ButtonDisplayControl(ByVal GridCount As Integer)
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If GridCount > 0 Then
-            If B_LOAD.Visible Or FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.LoadClaim, RoleID) Then
+            If B_LOAD.Visible Or FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimLoad, UserID) Then
                 B_LOAD.Visible = True
             End If
-            If B_DELETE.Visible Or FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.DeleteClaim, RoleID) Then
+            If B_DELETE.Visible Or FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimDelete, UserID) Then
                 B_DELETE.Visible = True
             End If
-            If B_SUBMIT.Visible Or FindClaimsB.checkRoles(IMIS_EN.Enums.Rights.ClaimsBatchClosure, RoleID) Then
+            If B_SUBMIT.Visible Or FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimSubmit, UserID) Then
                 B_SUBMIT.Visible = True
                 lblSelectToSubmit.Visible = True
                 chkboxSubmitAll.Visible = True

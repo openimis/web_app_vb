@@ -114,9 +114,11 @@ Partial Public Class FindInsuree
         End If
     End Sub
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
-        If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindInsuree, Page) Then
-            B_VIEW.Enabled = userBI.CheckRoles(IMIS_EN.Enums.Rights.ViewInsuree, RoleID)
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
+        If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Insuree, Page) Then
+            B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeSearch, UserID)
+            btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeSearch, UserID)
+
         Else
             Dim RefUrl = Request.Headers("Referer")
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindInsuree.ToString & "&retUrl=" & RefUrl)
@@ -238,7 +240,7 @@ Partial Public Class FindInsuree
         Response.Redirect("Home.aspx")
     End Sub
     Private Sub loadSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
         Dim AllowEdit As Boolean = userBI.RunPageSecurity(IMIS_EN.Enums.Pages.OverviewFamily, Page)
 
         Dim hlink As HyperLinkField = gvInsuree.Columns(1)

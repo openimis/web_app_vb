@@ -32,6 +32,15 @@ Partial Public Class IMISExtracts
     Protected WithEvents hfExtractFound As Global.System.Web.UI.WebControls.HiddenField
     
     '''<summary>
+    '''MasterData control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents MasterData As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
     '''Label5 control.
     '''</summary>
     '''<remarks>
@@ -122,13 +131,13 @@ Partial Public Class IMISExtracts
     Protected WithEvents pnlOnline As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
-    '''pnlOnlineExtracts control.
+    '''pnlCreatePhoneExtracts control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pnlOnlineExtracts As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents pnlCreatePhoneExtracts As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
     '''LBLPhoneExtract control.
@@ -255,6 +264,15 @@ Partial Public Class IMISExtracts
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnPhoneExtract As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''pnlCreateOfflineExtracts control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlCreateOfflineExtracts As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
     '''LblOfflineExtract control.
@@ -536,13 +554,13 @@ Partial Public Class IMISExtracts
     Protected WithEvents btnUploadEnrolments As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''PnlUploadFeedBack control.
+    '''PnlFeedBackUploadHeader control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PnlUploadFeedBack As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents PnlFeedBackUploadHeader As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
     '''Label7 control.
@@ -554,13 +572,13 @@ Partial Public Class IMISExtracts
     Protected WithEvents Label7 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Panel4 control.
+    '''pnlFeedbackUpload control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Panel4 As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents pnlFeedbackUpload As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
     '''FileUploadFeedBack control.

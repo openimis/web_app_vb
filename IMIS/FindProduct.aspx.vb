@@ -86,12 +86,14 @@ Partial Public Class FindProduct
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False, Optional ByVal cmd As String = "delete")
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If Not ondelete Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindProduct, Page) Then
-                B_ADD.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddProduct, RoleID)
-                B_EDIT.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditProduct, RoleID)
-                B_DUPLICATE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DuplicateProduct, RoleID)
-                ' B_DELETE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteProduct, RoleID)
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductAdd, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductEdit, UserID)
+                B_DUPLICATE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductDuplicate, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductDelete, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductSearch, UserID)
 
                 If Not B_EDIT.Visible And Not B_DUPLICATE.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
@@ -100,7 +102,7 @@ Partial Public Class FindProduct
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindProduct.ToString & "&retUrl=" & RefUrl)
             End If
         Else
-            If Not products.checkRoles(IMIS_EN.Enums.Rights.DeleteProduct, RoleID) Then
+            If Not products.checkRights(IMIS_EN.Enums.Rights.ProductDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindProduct.ToString & "&retUrl=" & RefUrl)
             End If
         End If

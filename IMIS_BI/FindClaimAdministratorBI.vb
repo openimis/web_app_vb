@@ -27,13 +27,13 @@
 '
 
 Public Class FindClaimAdministratorBI
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function RunPageSecurity(ByVal PageName As IMIS_EN.Enums.Pages, ByRef PageObj As System.Web.UI.Page) As Boolean
         Dim user As New IMIS_BL.UsersBL
         Return user.RunPageSecurity(PageName, PageObj)
-    End Function
-    Public Function CheckRoles(ByVal Right As IMIS_EN.Enums.Rights, ByVal RoleId As Integer) As Boolean
-        Dim user As New IMIS_BL.UsersBL
-        Return user.CheckRoles(Right, RoleId)
     End Function
     Public Function GetHFCodes(ByVal UserId As Integer, ByVal LocationId As Integer) As DataTable
         Dim hf As New IMIS_BL.HealthFacilityBL

@@ -164,6 +164,8 @@
     <Compile Include="RelIndexBL.vb" />
     <Compile Include="ReportBL.vb" />
     <Compile Include="ReportingBL.vb" />
+    <Compile Include="RoleBL.vb" />
+    <Compile Include="RoleRightBL.vb" />
     <Compile Include="ServicesBL.vb" />
     <Compile Include="UsersBL.vb" />
     <Compile Include="UsersDistrictsBL.vb" />

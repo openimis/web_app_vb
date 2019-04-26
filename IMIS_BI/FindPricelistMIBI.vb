@@ -27,6 +27,10 @@
 '
 
 Public Class FindPricelistMIBI
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetPriceListMI(ByVal ePL As IMIS_EN.tblPLItems, Optional ByVal All As Boolean = False) As DataTable
         Dim getDataTable As New IMIS_BL.PriceListMIBL
         Return getDataTable.GetPriceListMI(ePL, All)
@@ -44,11 +48,6 @@ Public Class FindPricelistMIBI
         Dim PLMI As New IMIS_BL.PriceListMIBL
         PLMI.DeletePriceListMI(ePLItems)
     End Sub
-
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
-    End Function
     Public Function GetRegions(UserId As Integer, Optional ShowSelect As Boolean = True, Optional ByVal IncludeNational As Boolean = False) As DataTable
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect:=ShowSelect, IncludeNational:=IncludeNational)

@@ -88,12 +88,13 @@ Partial Public Class FindOfficer
 
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisGen.getUserId(Session("User"))
         If Not ondelete Then
-            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindOfficer, Page) Then
-                B_ADD.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddOfficer, RoleID)
-                B_EDIT.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditOfficer, RoleID)
-                B_DELETE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteOfficer, RoleID)
+            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Officer, Page) Then
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddOfficer, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditOfficer, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteOfficer, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindOfficer, UserID)
 
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
@@ -102,7 +103,7 @@ Partial Public Class FindOfficer
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindOfficer.ToString & "&retUrl=" & RefUrl)
             End If
         Else
-            If Not userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteOfficer, RoleID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteOfficer, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindOfficer.ToString & "&retUrl=" & RefUrl)
             End If
 
