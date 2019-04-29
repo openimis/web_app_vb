@@ -36,8 +36,10 @@
         tvRoleRights4.ExpandAll()
         If eRole.IsSystem Then
 
-            B_SAVE.Visible = False
-            pnlHeader.Enabled = False
+            txtRoles.Enabled = False
+            txtAltLanguage.Enabled = False
+            chkIsSystem.Enabled = False
+            chkIsBlocked.Enabled = True
 
             tvRoleRights.Enabled = False
             tvRoleRights2.Enabled = False
@@ -79,6 +81,7 @@
 
         eRole.RoleName = dtRole.Rows(0)("RoleName")
         eRole.IsSystem = dtRole.Rows(0)("IsSystem")
+        hfSystemCode.Value = eRole.IsSystem
         eRole.IsBlocked = dtRole.Rows(0)("IsBlocked")
         eRole.AltLanguage = dtRole.Rows(0)("AltLanguage").ToString
         txtRoles.Text = eRole.RoleName
@@ -159,7 +162,11 @@
 
         eRole.RoleName = txtRoles.Text
         eRole.AltLanguage = txtAltLanguage.Text
-        eRole.IsSystem = chkIsSystem.Checked
+        If Not String.IsNullOrEmpty(hfSystemCode.Value) AndAlso hfSystemCode.Value > 1 Then
+            eRole.IsSystem = hfSystemCode.Value
+        Else
+            eRole.IsSystem = chkIsSystem.Checked
+        End If
         eRole.IsBlocked = chkIsBlocked.Checked
 
         For Each tnLevel1 As TreeNode In tvRoleRights.Nodes

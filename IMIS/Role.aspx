@@ -2,6 +2,7 @@
  Title='<%$ Resources:Resource,P_ROLE %>' %>
  <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content runat="server" ContentPlaceHolderID="body">
+    <asp:HiddenField ID="hfSystemCode" runat="server"/>
     <script type="text/javascript">
       
         function fireCheckChanged() {

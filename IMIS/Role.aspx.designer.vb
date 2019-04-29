@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Role
     
     '''<summary>
+    '''hfSystemCode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfSystemCode As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''pnlHeader control.
     '''</summary>
     '''<remarks>
