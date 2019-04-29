@@ -33,14 +33,18 @@ Public Class ChangePassword
     Private imisgen As New IMIS_Gen
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
         Try
-            If Not IsValidyCurrentPassword() Then
-                lblMsg.Text = imisgen.getMessage("M_INCORRECTCURRENTPASSWORD")
-                Exit Sub
-            End If
-            eUsers.DummyPwd = txtNewPassword.Text
+
+            eUsers.UserID = imisgen.getUserId(Session("User"))
+
+            eUsers.DummyPwd = txtCurrentPassword.Text.ToString
             eUsers.AuditUserID = eUsers.UserID
-            ChangePasswordBI.ChangePassword(eUsers)
-            lblMsg.Text = imisgen.getMessage("L_PASSWORD") & imisgen.getMessage("M_Updated")
+            If ChangePasswordBI.ChangePassword(eUsers, txtNewPassword.Text) = 1 Then
+                lblMsg.Text = imisgen.getMessage("L_PASSWORD") & imisgen.getMessage("M_Updated")
+            Else
+                lblMsg.Text = imisgen.getMessage("M_INCORRECTCURRENTPASSWORD")
+            End If
+
+
         Catch ex As Exception
             lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)

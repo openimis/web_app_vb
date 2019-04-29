@@ -1179,7 +1179,7 @@
   </data>
   <data name="L_FOROGOTPASSWORDHEADING" xml:space="preserve">
     <value>Entrez un e-mail pour récupérer le mot de passe</value>
-    <comment>Enter email id to retrieve password</comment>
+    <comment>Enter username and new password to reset password</comment>
   </data>
   <data name="L_FOUNDBATCH" xml:space="preserve">
     <value>Batchs trouvés</value>
@@ -1839,7 +1839,7 @@
   </data>
   <data name="L_PASSWORDSENT" xml:space="preserve">
     <value>Votre mot de passe est envoyé à votre identifiant de messagerie électronique</value>
-    <comment>Your password is sent to your email id</comment>
+    <comment>A link has been sent to your email, click on link to confirm new password</comment>
   </data>
   <data name="L_PATIENT" xml:space="preserve">
     <value>Patient</value>
@@ -5540,6 +5540,12 @@
   <data name="L_FSPLEVEL" xml:space="preserve">
     <value />
     <comment>Level of FSP</comment>
+  </data>
+  <data name="M_LINKSENT" xml:space="preserve">
+    <value>Link sent to email</value>
+  </data>
+  <data name="M_NOUSERSLOGIN" xml:space="preserve">
+    <value>No user found with this username</value>
   </data>
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value />

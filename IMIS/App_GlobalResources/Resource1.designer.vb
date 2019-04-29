@@ -2693,7 +2693,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter email id to retrieve password.
+        '''  Looks up a localized string similar to Enter username and new password to reset password.
         '''</summary>
         Friend Shared ReadOnly Property L_FOROGOTPASSWORDHEADING() As String
             Get
@@ -4331,7 +4331,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Your password is sent to your email id.
+        '''  Looks up a localized string similar to A link has been sent to your email, click on link to confirm new password.
         '''</summary>
         Friend Shared ReadOnly Property L_PASSWORDSENT() As String
             Get
@@ -8228,6 +8228,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Link sent to email.
+        '''</summary>
+        Friend Shared ReadOnly Property M_LINKSENT() As String
+            Get
+                Return ResourceManager.GetString("M_LINKSENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Locations uploaded successfully..
         '''</summary>
         Friend Shared ReadOnly Property M_LOCATIONUPLOADED() As String
@@ -8620,6 +8629,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_NOUSERS() As String
             Get
                 Return ResourceManager.GetString("M_NOUSERS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to No user found with this username.
+        '''</summary>
+        Friend Shared ReadOnly Property M_NOUSERSLOGIN() As String
+            Get
+                Return ResourceManager.GetString("M_NOUSERSLOGIN", resourceCulture)
             End Get
         End Property
         
