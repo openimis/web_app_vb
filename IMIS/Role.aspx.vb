@@ -150,7 +150,7 @@
         Next
 
     End Sub
-    Private Function SaveRights()
+    Private Sub SaveRights()
         dtRights = New DataTable
 
         Dim dr As DataRow = Nothing
@@ -161,8 +161,6 @@
         eRole.AltLanguage = txtAltLanguage.Text
         eRole.IsSystem = chkIsSystem.Checked
         eRole.IsBlocked = chkIsBlocked.Checked
-
-
 
         For Each tnLevel1 As TreeNode In tvRoleRights.Nodes
             LoadNodes(tnLevel1.ChildNodes)
@@ -179,7 +177,7 @@
         eRole.AuditUserID = imisGen.getUserId(Session("User"))
 
         BI.SaveRights(dtRights, eRole)
-    End Function
+    End Sub
 
     Private Sub LoadNodes(ByVal tnc As TreeNodeCollection)
         For Each tn As TreeNode In tnc
@@ -197,10 +195,12 @@
         Next
     End Sub
 
-
-
-
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
+        If eRole.RoleID = 0 And BI.IsRoleNameUnique(txtRoles.Text) Then
+            imisGen.Alert(imisGen.getMessage("M_UNIQUEROLENAME"), pnlHeader, alertPopupTitle:="IMIS")
+            Return
+        End If
+
         Try
             SaveRights()
         Catch ex As Exception

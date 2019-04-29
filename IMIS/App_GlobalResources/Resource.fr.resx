@@ -5880,9 +5880,14 @@
   <data name="L_SYSTEM" xml:space="preserve">
     <value>System</value>
     <comment>System</comment>
+    
   </data>
   <data name="L_BLOCKED" xml:space="preserve">
     <value>Blocked</value>
     <comment>Blocked</comment>
+  </data>
+  <data name="M_UNIQUEROLENAME" xml:space="preserve">
+    <value>This role name has aready been used, please use different name</value>
+    <comment>This role name has aready been used, please use different name</comment>
   </data>
 </root>

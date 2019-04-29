@@ -157,7 +157,7 @@ Partial Public Class FindClaims
                 B_SUBMIT.Visible = FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimSubmit, UserID)
                 btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
                 If Not B_LOAD.Visible And Not B_DELETE.Visible And Not B_SUBMIT.Visible Then
-                    pnlBody.Enabled = False
+                    ' pnlBody.Enabled = False
                     'pnlTop.Enabled = False
                 End If
             Else

@@ -16,6 +16,12 @@
         Return dsRole
 
     End Function
+
+    Public Function IsRoleNameUnique(ByVal roleName As String) As Boolean
+        Dim RoleDAL As New IMIS_DAL.RoleDAL
+        Return RoleDAL.IsRoleNameUnique(roleName)
+    End Function
+
     Public Function SaveRights(dtRights As DataTable, eRole As IMIS_EN.tblRole) As Integer
         Dim RoleRightDAL As New IMIS_DAL.RoleRightDAL
         Dim RoleDAL As New IMIS_DAL.RoleDAL

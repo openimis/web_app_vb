@@ -9812,6 +9812,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to This role name has aready been used, please use different name.
+        '''</summary>
+        Friend Shared ReadOnly Property M_UNIQUEROLENAME() As String
+            Get
+                Return ResourceManager.GetString("M_UNIQUEROLENAME", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to  updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_UPDATED() As String

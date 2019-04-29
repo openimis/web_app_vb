@@ -3,6 +3,10 @@
     Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
         Return UserRights.CheckRights(Right, UserID)
     End Function
+    Public Function IsRoleNameUnique(ByVal roleName As String) As Boolean
+        Dim RoleRightBL As New IMIS_BL.RoleRightBL
+        Return RoleRightBL.IsRoleNameUnique(roleName)
+    End Function
     Public Function GetRoleRights(RoleID As Integer) As DataSet
 
         Dim RoleRightBL As New IMIS_BL.RoleRightBL

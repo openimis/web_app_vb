@@ -192,4 +192,14 @@ Public Class RoleDAL
         Return data.Filldata()
     End Function
 
+    Public Function IsRoleNameUnique(ByVal roleName As String) As Boolean
+        Dim data As New ExactSQL
+        Dim sSQL As String = ""
+        sSQL = "SELECT * FROM tblRole R WHERE R.RoleName = @RoleName and R.ValidityTo IS NULL"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@RoleName", SqlDbType.NVarChar, 50, roleName)
+        Dim dt As DataTable = data.Filldata()
+        If dt.Rows.Count = 0 Then Return False
+        Return True
+    End Function
 End Class

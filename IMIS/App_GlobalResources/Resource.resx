@@ -4506,4 +4506,7 @@
   <data name="L_BLOCKED" xml:space="preserve">
     <value>Blocked</value>
   </data>
+  <data name="M_UNIQUEROLENAME" xml:space="preserve">
+    <value>This role name has aready been used, please use different name</value>
+  </data>
 </root>
