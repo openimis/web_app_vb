@@ -75,6 +75,10 @@ Public Class OfficerBI
         Dim user As New IMIS_BL.UsersBL
         Return user.RunPageSecurity(PageName, PageObj)
     End Function
+    Public Function getRoleId(ByVal session As Object) As Integer
+        Dim user As New IMIS_BL.UsersBL
+        Return user.getRoleId(session)
+    End Function
     Public Function DeleteUser(ByVal eUser As IMIS_EN.tblUsers) As Boolean
         Dim Del As New IMIS_BL.UsersBL
         Del.DeleteUser(eUser)

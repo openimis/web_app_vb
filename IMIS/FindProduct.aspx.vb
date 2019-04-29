@@ -95,6 +95,7 @@ Partial Public Class FindProduct
                 B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductDelete, UserID)
                 B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ProductSearch, UserID)
 
+
                 If Not B_EDIT.Visible And Not B_DUPLICATE.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
                 End If
@@ -181,10 +182,11 @@ Partial Public Class FindProduct
         gvProducts.PageIndex = e.NewPageIndex
     End Sub
     Private Sub EnableButtons(ByVal rows As Integer)
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If rows = 0 Then
             B_DELETE.Visible = False
             B_EDIT.Visible = False
-            B_ADD.Visible = True
+            B_ADD.Visible = B_ADD.Visible
             B_DUPLICATE.Visible = False
         Else
             If chkLegacy.Checked = True Then
@@ -193,10 +195,10 @@ Partial Public Class FindProduct
                 B_ADD.Visible = False
                 B_DUPLICATE.Visible = False
             Else
-                'B_DELETE.Visible = True
-                B_EDIT.Visible = True
-                B_DUPLICATE.Visible = True
-                B_ADD.Visible = True
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_DUPLICATE.Visible = B_DUPLICATE.Visible
+                B_ADD.Visible = B_ADD.Visible
             End If
 
         End If

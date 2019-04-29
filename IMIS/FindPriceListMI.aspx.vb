@@ -192,17 +192,17 @@ Partial Public Class FindPriceListMI
             B_DUPLICATE.Visible = False
         Else
             If chkLegacy.Checked = True Then
-                B_DELETE.Visible = False
-                B_EDIT.Visible = False
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
                 'B_VIEW.Visible = True
-                B_ADD.Visible = False
-                B_DUPLICATE.Visible = False
+                B_ADD.Visible = B_ADD.Visible
+                B_DUPLICATE.Visible = B_DUPLICATE.Visible
             Else
-                B_DELETE.Visible = True
-                B_EDIT.Visible = True
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
                 'B_VIEW.Visible = False
-                B_DUPLICATE.Visible = True
-                B_ADD.Visible = True
+                B_DUPLICATE.Visible = B_DUPLICATE.Visible
+                B_ADD.Visible = B_ADD.Visible
             End If
 
         End If
