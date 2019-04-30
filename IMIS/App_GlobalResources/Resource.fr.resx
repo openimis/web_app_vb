@@ -5804,9 +5804,6 @@ adults/children)</comment>
   <data name="R_PAYERS" xml:space="preserve">
     <value>Payers</value>
   </data>
-  <data name="R_PAYMENT" xml:space="preserve">
-    <value>Payment</value>
-  </data>
   <data name="R_PAYMENTCATEGORYOVERVIEW" xml:space="preserve">
     <value>Payment Category Overview</value>
   </data>

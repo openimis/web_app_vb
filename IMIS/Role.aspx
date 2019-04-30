@@ -208,14 +208,7 @@
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_ADD %>" Value="101302" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="101303" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="101304" SelectAction="None"></asp:TreeNode> 
-                                </asp:TreeNode>
-                                <asp:TreeNode Text="<%$ Resources:Resource,R_PAYMENT %>" Value="101400" SelectAction="Expand" ImageUrl="~/Images/Renew.png" >  
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_SEARCH %>" Value="101401" SelectAction="None">  </asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_ADD %>" Value="101402" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="101403" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="101404" SelectAction="None"></asp:TreeNode>                                                            
-                                </asp:TreeNode>
-
+                                </asp:TreeNode>                             
                             </asp:TreeNode>  
                         </Nodes>
                         <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />

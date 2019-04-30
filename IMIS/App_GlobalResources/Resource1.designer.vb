@@ -11108,15 +11108,6 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment.
-        '''</summary>
-        Friend Shared ReadOnly Property R_PAYMENT() As String
-            Get
-                Return ResourceManager.GetString("R_PAYMENT", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Payment Category Overview.
         '''</summary>
         Friend Shared ReadOnly Property R_PAYMENTCATEGORYOVERVIEW() As String
