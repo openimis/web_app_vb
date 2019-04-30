@@ -5619,6 +5619,7 @@ adults/children)</comment>
   <data name="B_CLAIMSREVIEWS" xml:space="preserve">
     <value />
     <comment>Claims Reviewed</comment>
+    </data>
   <data name="L_INCLUDELOGIN" xml:space="preserve">
     <value>Include Login</value>
     <comment>Include Login</comment>
