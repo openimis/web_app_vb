@@ -30,13 +30,10 @@ Public Class LoginDAL
     Private data As New ExactSQL
     Private sSQL As String = ""
     Public Function GetLogin(ByVal eLogin As IMIS_EN.tblUsers) As DataTable
-        sSQL = " OPEN SYMMETRIC KEY EncryptionKey DECRYPTION BY Certificate EncryptData;" & _
-               " SELECT UserID,LoginName, LanguageID, RoleID" & _
-               " FROM tblUsers" & _
-               " WHERE LoginName = @LoginName" & _
-               " AND  CONVERT(NVARCHAR(25), DECRYPTBYKEY(Password)) COLLATE LATIN1_GENERAL_CS_AS = @Password" & _
-               " AND ValidityTo is null" & _
-               " CLOSE SYMMETRIC KEY EncryptionKey"
+        sSQL = " SELECT UserID,LoginName, LanguageID, RoleID,StoredPassword,PrivateKey" &
+               " FROM tblUsers" &
+               " WHERE LoginName = @LoginName" &
+               " AND ValidityTo is null"
 
         data.setSQLCommand(sSQL, CommandType.Text)
 

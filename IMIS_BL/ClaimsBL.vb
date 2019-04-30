@@ -514,4 +514,10 @@ Public Class ClaimsBL
     Public Function GetClaim(ByVal ClaimID As Integer) As DataTable
         Return clm.GetClaim(ClaimID)
     End Function
+    Public Function GetServiceRejectedReason(ByVal ReasonId As Integer) As String
+        Return imisgen.GetRejectedReasons(ReasonId)
+    End Function
+    Public Function GetItemRejectedReason(ByVal ReasonId As Integer) As String
+        Return imisgen.GetRejectedReasons(ReasonId)
+    End Function
 End Class

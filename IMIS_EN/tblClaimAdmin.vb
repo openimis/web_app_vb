@@ -29,5 +29,6 @@
 Partial Public Class tblClaimAdmin
     Public Property DOBFrom As Date?
     Public Property DOBTo As Date?
-
+    Public Property HasLogin As Boolean
+    Public Property eUsers As tblUsers
 End Class

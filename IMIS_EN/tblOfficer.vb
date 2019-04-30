@@ -30,6 +30,7 @@ Partial Public Class tblOfficer
     Public Property DOBFrom As Date?
     Public Property DOBTo As Date?
     Public Property LocationId1 As Integer?
-
+    Public Property HasLogin As Boolean
+    Public Property eUsers As tblUsers
 
 End Class

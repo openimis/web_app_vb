@@ -311,7 +311,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_HFNAME" runat="server" Text='<%$ Resources:Resource,L_HFNAME%>'></asp:Label>
+                                    <asp:Label ID="L_HFNAME" runat="server" Text='<%$ Resources:Resource,L_HF%>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:DropDownList ID="ddlHFNAME" runat="server"

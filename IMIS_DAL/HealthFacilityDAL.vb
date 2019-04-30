@@ -377,4 +377,23 @@ Public Class HealthFacilityDAL
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.Filldata()
     End Function
+    Public Function getHFUserLocation(ByVal UserId As Integer, ByVal Hfid As Integer) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = ""
+        sSQL = "SELECT  D.DistrictId, UD.UserDistrictID,UD.LocationId FROM tblHF HF "
+        sSQL += " INNER JOIN tblUsersDistricts UD ON UD.LocationId = HF.LocationId "
+        sSQL += " AND UD.ValidityTo IS NULL"
+        sSQL += " AND UD.UserID = @UserID"
+        sSQL += " INNER JOIN tblDistricts D ON D.DistrictId = UD.LocationId"
+        sSQL += " INNER JOIN tblRegions R ON R.RegionId = D.Region"
+        sSQL += " WHERE HF.ValidityTo IS NULL"
+        sSQL += " AND CASE WHEN  @HfID = 0 THEN 0 ELSE HF.HfID END = @HfID"
+
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@UserId", SqlDbType.Int, UserId)
+        data.params("@HfID", SqlDbType.Int, Hfid)
+
+        Return data.Filldata
+    End Function
 End Class
