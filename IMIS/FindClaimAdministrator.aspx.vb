@@ -34,6 +34,7 @@ Public Partial Class FindClaimAdministrator
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private eHF As IMIS_EN.tblHF
     Private BIFindClaimAdmin As New IMIS_BI.FindClaimAdministratorBI
+    Private BIClaimAdmin As New IMIS_BI.ClaimAdministratorBI
 #End Region
 #Region "Events"
 #Region "Page"
@@ -127,7 +128,7 @@ Public Partial Class FindClaimAdministrator
 #Region "Functions & Procedures"
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(8).Text = "&nbsp;" Then
+            If Not row.Cells(9).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
         Next
@@ -236,7 +237,11 @@ Public Partial Class FindClaimAdministrator
     Private Function DeleteClaimAdministrator() As Boolean
         lblMsg.Text = ""
         eClaimAdmin.ClaimAdminId = hfClaimAdministratorId.Value
+        eClaimAdmin.ClaimAdminCode = hfClaimAdministratorCode.Value
         eClaimAdmin.AuditUserId = ImisGen.getUserId(Session("User"))
+        If hfHasLogin.Value = "True" Then
+            DeleteAssociatedUser()
+        End If
         Dim Chk As Integer = BIFindClaimAdmin.DeleteClaimAdmin(eClaimAdmin)
         Dim AdminCode As String = hfClaimAdministratorCode.Value
         SetEntity()
@@ -249,5 +254,17 @@ Public Partial Class FindClaimAdministrator
         End If
         Return True
     End Function
+
+    Private Sub DeleteAssociatedUser()
+        Try
+            eClaimAdmin.eUsers = New IMIS_EN.tblUsers
+            eClaimAdmin.eUsers.LoginName = eClaimAdmin.ClaimAdminCode
+            BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+            BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
+        Catch ex As Exception
+            ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+        End Try
+    End Sub
 #End Region
 End Class

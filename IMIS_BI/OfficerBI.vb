@@ -59,4 +59,17 @@ Public Class OfficerBI
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect, False)
     End Function
+    Public Function GetLanguage() As DataTable
+        Dim users As New IMIS_BL.GeneralBL
+        Return users.GetLanguage
+    End Function
+    Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
+        Dim User As New IMIS_BL.UsersBL
+        User.LoadUsers(eUser)
+    End Sub
+    Public Function DeleteUser(ByVal eUser As IMIS_EN.tblUsers) As Boolean
+        Dim Del As New IMIS_BL.UsersBL
+        Del.DeleteUser(eUser)
+        Return True
+    End Function
 End Class

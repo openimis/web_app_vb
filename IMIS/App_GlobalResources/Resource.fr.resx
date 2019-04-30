@@ -1179,7 +1179,7 @@
   </data>
   <data name="L_FOROGOTPASSWORDHEADING" xml:space="preserve">
     <value>Entrez un e-mail pour récupérer le mot de passe</value>
-    <comment>Enter email id to retrieve password</comment>
+    <comment>Enter username and new password to reset password</comment>
   </data>
   <data name="L_FOUNDBATCH" xml:space="preserve">
     <value>Batchs trouvés</value>
@@ -1306,8 +1306,8 @@
     <comment>Grace Period Renewal</comment>
   </data>
   <data name="L_GROUPTYPE" xml:space="preserve">
-    <value>Type de groupe</value>
-    <comment>Group Type</comment>
+    <value>Type de groupe / famille</value>
+    <comment>Family / Group Type</comment>
   </data>
   <data name="L_GROWTHRATIO" xml:space="preserve">
     <value>Taux de croissance</value>
@@ -1839,7 +1839,7 @@
   </data>
   <data name="L_PASSWORDSENT" xml:space="preserve">
     <value>Votre mot de passe est envoyé à votre identifiant de messagerie électronique</value>
-    <comment>Your password is sent to your email id</comment>
+    <comment>A link has been sent to your email, click on link to confirm new password</comment>
   </data>
   <data name="L_PATIENT" xml:space="preserve">
     <value>Patient</value>
@@ -5600,14 +5600,40 @@ adults/children)</comment>
   </data>
   <data name="L_AGE" xml:space="preserve">
     <value>Âge</value>
-  <comment>Age</comment></data>
+    <comment>Age</comment>
+  </data>
   <data name="L_FSPLEVEL" xml:space="preserve">
-    <value></value>
-  <comment>Level of FSP</comment></data>
-
+    <value />
+    <comment>Level of FSP</comment>
+  </data>
+  <data name="M_LINKSENT" xml:space="preserve">
+    <value>Link sent to email</value>
+  </data>
+  <data name="M_NOUSERSLOGIN" xml:space="preserve">
+    <value>No user found with this username</value>
+  </data>
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Please enter an Main Dg code</comment>
   </data>
-
+  <data name="L_INCLUDELOGIN" xml:space="preserve">
+    <value>Include Login</value>
+    <comment>Include Login</comment>
+  </data>
+  <data name="L_HASLOGIN" xml:space="preserve">
+    <value>Has Login</value>
+    <comment>Has Login</comment>
+  </data>
+  <data name="M_NOTDELETEASSOCIATEDUSER" xml:space="preserve">
+    <value>could not be deleted because is associated</value>
+    <comment>could not be deleted because is associated</comment>
+  </data>
+  <data name="M_DELETEUSERLOGIN" xml:space="preserve">
+    <value>Are you sure you want to delete the User Login?</value>
+    <comment>Are you sure you want to delete the User Login?</comment>
+  </data>
+  <data name="G_CLAIMADMINISTRATORLOGIN" xml:space="preserve">
+    <value>Include User Login</value>
+    <comment>Include User Login</comment>
+  </data>
 </root>

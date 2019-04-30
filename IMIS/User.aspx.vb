@@ -32,7 +32,7 @@ Partial Public Class User
     Private eUsers As New IMIS_EN.tblUsers
     Private imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
-   
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
 
@@ -87,6 +87,8 @@ Partial Public Class User
                     B_SAVE.Visible = False
                 End If
                 ddlHFNAME.SelectedValue = eUsers.HFID.ToString
+                RequiredFieldPassword.Visible = False
+                RequiredFieldConfirmPassoward.Visible = False
             End If
             Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
             If RoleId = 524288 Then
@@ -101,6 +103,9 @@ Partial Public Class User
             End If
             gvRoles.DataBind()
             Assign(gvRoles)
+            If eUsers.IsAssociated IsNot Nothing AndAlso eUsers.IsAssociated = True Then
+                toggleModifingIfUsersClaimOrEnrolment(False)
+            End If
 
             If IMIS_Gen.offlineHF Then
                 ddlHFNAME.SelectedValue = IMIS_Gen.HFID
@@ -111,9 +116,21 @@ Partial Public Class User
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlDistrict, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
+    End Sub
 
-
-
+    Private Sub toggleModifingIfUsersClaimOrEnrolment(enabled As Boolean)
+        txtOtherNames.Enabled = enabled
+        txtLastName.Enabled = enabled
+        txtEmail.Enabled = enabled
+        txtLoginName.Enabled = enabled
+        ddlHFNAME.Enabled = enabled
+        pnlRole.Enabled = enabled
+        Checkbox1.Enabled = enabled
+        chkCheckAllR.Enabled = enabled
+        pnlRegion.Enabled = enabled
+        CheckBox2.Enabled = enabled
+        pnlDistrict.Enabled = enabled
+        txtPhone.Enabled = enabled
     End Sub
 
     Private Sub RunPageSecurity()

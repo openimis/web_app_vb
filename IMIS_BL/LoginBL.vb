@@ -30,8 +30,19 @@ Public Class LoginBL
     Private Login As New IMIS_DAL.LoginDAL
     Public Function GetLogin(ByRef eLogin As IMIS_EN.tblUsers) As DataTable
         Dim dt As New DataTable
+        Dim UserBL As New UsersBL
+        dt = Login.GetLogin(eLogin)
+        If dt.Rows.Count > 0 Then
+            eLogin.StoredPassword = dt.Rows(0)("StoredPassword").ToString
+            eLogin.PrivateKey = dt.Rows(0)("PrivateKey").ToString
 
-        Return Login.GetLogin(eLogin)
+            If UserBL.ValidateLogin(eLogin) Then
+                Return dt
+            Else
+                dt.Rows.RemoveAt(0)
+                Return dt
+            End If
+        End If
     End Function
 
     Public Sub InsertLogTime(ByVal UserID As Integer, ByVal LogAction As Integer)

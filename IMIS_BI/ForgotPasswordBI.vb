@@ -27,8 +27,8 @@
 '
 
 Public Class ForgotPasswordBI
-    Public Function SendPassword(Email As String) As Boolean
+    Public Function SendPassword(LoginName As String, Password As String) As Integer
         Dim FP As New IMIS_BL.ForgotPasswordBL
-        Return FP.SendPassword(Email)
+        Return FP.SendPassword(LoginName, Password)
     End Function
 End Class

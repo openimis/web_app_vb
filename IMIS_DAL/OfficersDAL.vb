@@ -48,8 +48,8 @@ Public Class OfficersDAL
         Dim dr As DataRow
         Dim sSQL As String = ""
         sSQL += " SELECT 	O.Code,O.LastName,O.OtherNames,O.DOB ,O.Phone,O.LocationId,O.OfficerIDSubst,O.WorksTo,O.VEOCode,O.VEOLastName"
-        sSQL += " ,O.VEOOtherNames,O.VEODOB,O.VEOPhone ,O.ValidityTo,O.EmailId ,O.PhoneCommunication, O.PermanentAddress, R.RegionId  FROM tblOfficer  O"
-        sSQL += " INNER JOIN tblDistricts D ON D.DistrictId=   O.LocationId"
+        sSQL += " ,O.VEOOtherNames, O.VEODOB, O.VEOPhone ,O.ValidityTo, O.EmailId ,O.PhoneCommunication, O.PermanentAddress, R.RegionId, O.HasLogin  FROM tblOfficer  O"
+        sSQL += " INNER JOIN tblDistricts D ON D.DistrictId = O.LocationId"
         sSQL += " INNER JOIN tblRegions R ON R.RegionId=D.Region"
         sSQL += " WHERE OfficerID=@OfficerId"
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -82,6 +82,7 @@ Public Class OfficersDAL
             eOfficers.EmailId = dr("EmailId").ToString
             eOfficers.PhoneCommunication = If(dr("PhoneCommunication") Is DBNull.Value, False, dr("PhoneCommunication"))
             eOfficers.PermanentAddress = If(dr("PermanentAddress") Is DBNull.Value, "", dr("PermanentAddress"))
+            eOfficers.HasLogin = If(dr("HasLogin") Is DBNull.Value, Nothing, dr("HasLogin"))
         End If
 
 
@@ -177,7 +178,7 @@ Public Class OfficersDAL
         'sSQL = "select tblOfficer.*,Districtname from tblOfficer left outer join tblDistricts on tblOfficer.LocationId = tblDistricts.DistrictID inner join tblUsersDistricts UD on UD.LocationId = tblOfficer.LocationId and UD.userid = @userid and UD.ValidityTo is null WHERE code like @Code AND  LastName LIKE @LastName AND OtherNames LIKE @OtherNames  AND Phone  like @Phone AND ISNULL(EmailId, '') LIKE @EmailId"
 
         sSQL = " SELECT DISTINCT O.OfficerID,O.Code,O.OtherNames,O.LastName,O.Phone,O.DOB,O.ValidityFrom, O.ValidityTo,"
-        sSQL += " L.RegionName , L.DistrictName"
+        sSQL += " L.RegionName , L.DistrictName, ISNULL(HasLogin,0) HasLogin"
         sSQL += " FROM tblOfficer O"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(O.LocationId, 0) "
         sSQL += " INNER JOIN (SELECT UD.UserId, L.DistrictId, L.RegionId FROM tblUsersDistricts UD"
@@ -240,8 +241,8 @@ Public Class OfficersDAL
     Public Sub DeleteOfficer(ByRef eOfficers As IMIS_EN.tblOfficer)
         Dim data As New ExactSQL
 
-        data.setSQLCommand("INSERT INTO tblOfficer ([Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID], [EmailId], [PhoneCommunication],[PermanentAddress])" _
-      & " select [Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],getdate(),@OfficerID,[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress from tblOfficer where OfficerID = @OfficerID;" _
+        data.setSQLCommand("INSERT INTO tblOfficer ([Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID], [EmailId], [PhoneCommunication],[PermanentAddress],[HasLogin])" _
+      & " select [Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],getdate(),@OfficerID,[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress,HasLogin from tblOfficer where OfficerID = @OfficerID;" _
       & "UPDATE [tblOfficer] SET [ValidityTo]=Getdate(),[AuditUserID] = @AuditUserID WHERE OfficerID = @OfficerID", CommandType.Text)
         data.params("@OfficerID", SqlDbType.Int, eOfficers.OfficerID)
         data.params("@AuditUserID", SqlDbType.Int, eOfficers.AuditUserID)
@@ -251,8 +252,8 @@ Public Class OfficersDAL
     'Corrected
     Public Sub InsertOfficer(ByRef eOfficers As IMIS_EN.tblOfficer)
         Dim data As New ExactSQL
-        data.setSQLCommand("Insert into tblOfficer([Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress)" _
-        & "VALUES(@OfficerCode, @LastName,@OtherNames,@DOB,@Phone,@LocationId,@OfficerIDSubst,@WorksTo,@VEOCode,@VEOLastName,@VEOOtherNames,@VEODOB,@VEOPhone,@AuditUserID, @EmailId,@PhoneCommunication, @PermanentAddress);SELECT @OfficerId = SCOPE_IDENTITY();", CommandType.Text)
+        data.setSQLCommand("Insert into tblOfficer([Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress,HasLogin)" _
+        & "VALUES(@OfficerCode, @LastName,@OtherNames,@DOB,@Phone,@LocationId,@OfficerIDSubst,@WorksTo,@VEOCode,@VEOLastName,@VEOOtherNames,@VEODOB,@VEOPhone,@AuditUserID, @EmailId,@PhoneCommunication, @PermanentAddress,@HasLogin);SELECT @OfficerId = SCOPE_IDENTITY();", CommandType.Text)
         data.params("@OfficerId", SqlDbType.Int, 0, direction:=ParameterDirection.Output)
         data.params("@OfficerCode", SqlDbType.NVarChar, 8, eOfficers.Code)
         data.params("@LastName", SqlDbType.NVarChar, 100, eOfficers.LastName)
@@ -272,6 +273,8 @@ Public Class OfficersDAL
         data.params("@Emailid", SqlDbType.NVarChar, 200, eOfficers.EmailId)
         data.params("@PermanentAddress", SqlDbType.NVarChar, 100, eOfficers.PermanentAddress)
         data.params("@PhoneCommunication", SqlDbType.Bit, eOfficers.PhoneCommunication)
+        data.params("@HasLogin", SqlDbType.Bit, eOfficers.HasLogin)
+
         data.ExecuteCommand()
         eOfficers.OfficerID = data.sqlParameters("@OfficerId")
     End Sub
@@ -281,10 +284,10 @@ Public Class OfficersDAL
 
         Dim data As New ExactSQL
 
-        data.setSQLCommand("INSERT INTO tblOfficer ([Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress)" _
-      & " select [Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],getdate(),@OfficerID,[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress from tblOfficer where OfficerID = @OfficerID;" _
+        data.setSQLCommand("INSERT INTO tblOfficer ([Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress, HasLogin)" _
+      & " select [Code],[LastName],[OtherNames],[DOB],[Phone],[LocationId],[OfficerIDSubst],[WorksTo],[VEOCode],[VEOLastName],[VEOOtherNames],[VEODOB],[VEOPhone],[ValidityFrom],getdate(),@OfficerID,[AuditUserID], [EmailId],PhoneCommunication,PermanentAddress, HasLogin from tblOfficer where OfficerID = @OfficerID;" _
       & "UPDATE [tblOfficer] SET [Code] = @Code,[LastName] = @LastName,[OtherNames] = @OtherNames,[DOB] = @DOB,[Phone] = @Phone,[LocationId] = @LocationId,[OfficerIDSubst] = @OfficerIDSubst,[WorksTo] = @WorksTo" _
-      & ",[VEOCode]=@VEOCode,[VEOLastName]=@VEOLastName,[VEOOtherNames]=@VEOOtherNames,[VEODOB]=@VEODOB,[VEOPhone]=@VEOPhone,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID, EmailId = @EmailId,PhoneCommunication=@PhoneCommunication, PermanentAddress=@PermanentAddress  WHERE OfficerID = @OfficerID", CommandType.Text)
+      & ",[VEOCode]=@VEOCode,[VEOLastName]=@VEOLastName,[VEOOtherNames]=@VEOOtherNames,[VEODOB]=@VEODOB,[VEOPhone]=@VEOPhone,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID, EmailId = @EmailId,PhoneCommunication=@PhoneCommunication, PermanentAddress=@PermanentAddress, HasLogin = @HasLogin  WHERE OfficerID = @OfficerID", CommandType.Text)
         data.params("@OfficerID", SqlDbType.Int, eOfficers.OfficerID)
         data.params("@Code", SqlDbType.NVarChar, 8, eOfficers.Code)
         data.params("@LastName", SqlDbType.NVarChar, 100, eOfficers.LastName)
@@ -305,6 +308,7 @@ Public Class OfficersDAL
         data.params("@Emailid", SqlDbType.NVarChar, 200, eOfficers.EmailId)
         data.params("@PhoneCommunication", SqlDbType.Bit, eOfficers.PhoneCommunication)
         data.params("@PermanentAddress", SqlDbType.NVarChar, 100, eOfficers.PermanentAddress)
+        data.params("@HasLogin", SqlDbType.Bit, eOfficers.HasLogin)
 
         data.ExecuteCommand()
 

@@ -3559,7 +3559,7 @@
     <value>-- Select Subcategory --</value>
   </data>
   <data name="L_GROUPTYPE" xml:space="preserve">
-    <value>Group Type</value>
+    <value>Family / Group Type</value>
   </data>
   <data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
     <value>Antenatal Amount/Claim</value>
@@ -3577,7 +3577,7 @@
     <value>Forgot password</value>
   </data>
   <data name="L_FOROGOTPASSWORDHEADING" xml:space="preserve">
-    <value>Enter email id to retrieve password</value>
+    <value>Enter username and new password to reset password</value>
   </data>
   <data name="L_BACKTOLOGIN" xml:space="preserve">
     <value>Go to Login</value>
@@ -3589,7 +3589,7 @@
     <value>Invalid email id</value>
   </data>
   <data name="L_PASSWORDSENT" xml:space="preserve">
-    <value>Your password is sent to your email id</value>
+    <value>A link has been sent to your email, click on link to confirm new password</value>
   </data>
   <data name="M_WEAKPASSWORD" xml:space="preserve">
     <value>Password must contain at least 8 characters including at  least one number</value>
@@ -4173,16 +4173,35 @@
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
     <value>No Enrollment Found</value>
   </data>
-
   <data name="L_AGE" xml:space="preserve">
     <value>Age</value>
   </data>
   <data name="L_FSPLEVEL" xml:space="preserve">
     <value>Level of FSP</value>
-   </data>
+  </data>
+  <data name="M_LINKSENT" xml:space="preserve">
+    <value>Link sent to email</value>
+  </data>
+  <data name="M_NOUSERSLOGIN" xml:space="preserve">
+    <value>No user found with this username</value>
+  </data>
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value>Please enter an Main Dg code</value>
-
+  </data>
+  <data name="L_INCLUDELOGIN" xml:space="preserve">
+    <value>Include Login</value>
+  </data>
+  <data name="L_HASLOGIN" xml:space="preserve">
+    <value>Has Login</value>
+  </data>
+  <data name="M_NOTDELETEASSOCIATEDUSER" xml:space="preserve">
+    <value>could not be deleted because is associated</value>
+  </data>
+  <data name="M_DELETEUSERLOGIN" xml:space="preserve">
+    <value>Are you sure you want to delete the User Login?</value>
+  </data>
+  <data name="G_CLAIMADMINISTRATORLOGIN" xml:space="preserve">
+    <value>Include User Login</value>
   </data>
   <data name="T_ACCEPTED" xml:space="preserve">
     <value>Accepted</value>

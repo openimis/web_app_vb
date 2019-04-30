@@ -879,6 +879,37 @@ Public Class GeneralBL
             Return ""
         End Try
     End Function
+    Public Function PrivateKey(ByVal maxSize As Integer) As String
+        Dim chars As Char() = New Char(61) {}
+        chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray()
+        Dim data As Byte() = New Byte(0) {}
+
+        Using crypto As RNGCryptoServiceProvider = New RNGCryptoServiceProvider()
+            crypto.GetNonZeroBytes(data)
+            data = New Byte(maxSize - 1) {}
+            crypto.GetNonZeroBytes(data)
+        End Using
+
+        Dim result As StringBuilder = New StringBuilder(maxSize)
+
+        For Each b As Byte In data
+            result.Append(chars(b Mod (chars.Length)))
+        Next
+
+        Return result.ToString()
+    End Function
+    Public Function GenerateSHA256String(ByVal inputString) As String
+        Dim sha256 As SHA256 = SHA256Managed.Create()
+        Dim bytes As Byte() = Encoding.UTF8.GetBytes(inputString)
+        Dim hash As Byte() = sha256.ComputeHash(bytes)
+        Dim stringBuilder As New StringBuilder()
+
+        For i As Integer = 0 To hash.Length - 1
+            stringBuilder.Append(hash(i).ToString("X2"))
+        Next
+
+        Return stringBuilder.ToString()
+    End Function
 
 Public Function GetRejectedReasons(ByVal ReasonId As Integer) As String
         Select Case ReasonId

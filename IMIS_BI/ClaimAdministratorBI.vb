@@ -47,4 +47,17 @@ Public Class ClaimAdministratorBI
         Dim BLClaimAdmin As New IMIS_BL.ClaimAdminBL
         Return BLClaimAdmin.SaveClaimAdmin(eClaimAdmin)
     End Function
+    Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
+        Dim User As New IMIS_BL.UsersBL
+        User.LoadUsers(eUser)
+    End Sub
+    Public Function GetLanguage() As DataTable
+        Dim users As New IMIS_BL.GeneralBL
+        Return users.GetLanguage
+    End Function
+    Public Function DeleteUser(ByVal eUser As IMIS_EN.tblUsers) As Boolean
+        Dim Del As New IMIS_BL.UsersBL
+        Del.DeleteUser(eUser)
+        Return True
+    End Function
 End Class

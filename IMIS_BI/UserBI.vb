@@ -80,4 +80,8 @@ Public Class UserBI
         Dim Region As New IMIS_BL.LocationsBL
         Return Region.GetAllRegions(UserId, False)
     End Function
+    Public Function IsUserExists(ByVal UserID As Integer) As Boolean
+        Dim User As New IMIS_BL.UsersBL
+        Return User.IsUserExists(UserID)
+    End Function
 End Class

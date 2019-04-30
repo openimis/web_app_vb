@@ -40,7 +40,16 @@ Option Explicit On
 
 
 Partial Public Class Officer
-
+    
+    '''<summary>
+    '''hfUserID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfUserID As Global.System.Web.UI.WebControls.HiddenField
+    
     '''<summary>
     '''Panel2 control.
     '''</summary>
@@ -49,7 +58,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Panel2 As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''upWardVillages control.
     '''</summary>
@@ -58,16 +67,16 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents upWardVillages As Global.System.Web.UI.UpdatePanel
-
+    
     '''<summary>
-    '''L_Language control.
+    '''L_CODE control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents L_Language As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents L_CODE As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtCode control.
     '''</summary>
@@ -76,16 +85,16 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCode As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
-    '''RequiredFieldLanguage control.
+    '''RequiredFieldCode control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldLanguage As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    Protected WithEvents RequiredFieldCode As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
     '''<summary>
     '''L_OtherName control.
     '''</summary>
@@ -94,7 +103,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_OtherName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtOtherNames control.
     '''</summary>
@@ -103,7 +112,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtOtherNames As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldOtherNames control.
     '''</summary>
@@ -112,7 +121,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldOtherNames As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''L_LastName control.
     '''</summary>
@@ -121,7 +130,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_LastName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtLastName control.
     '''</summary>
@@ -130,7 +139,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtLastName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldLastName control.
     '''</summary>
@@ -139,7 +148,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldLastName As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''Label1 control.
     '''</summary>
@@ -148,7 +157,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtDob control.
     '''</summary>
@@ -157,7 +166,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDob As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtDob_MaskedEditExtender control.
     '''</summary>
@@ -166,7 +175,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDob_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''Button1 control.
     '''</summary>
@@ -175,7 +184,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''CalendarExtender1 control.
     '''</summary>
@@ -184,7 +193,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender1 As Global.AjaxControlToolkit.CalendarExtender
-
+    
     '''<summary>
     '''RegularExpressionValidatortxtDob control.
     '''</summary>
@@ -193,7 +202,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidatortxtDob As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''L_PHONE control.
     '''</summary>
@@ -202,7 +211,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_PHONE As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtPhone control.
     '''</summary>
@@ -211,7 +220,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhone As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''chkCommunicate control.
     '''</summary>
@@ -220,7 +229,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkCommunicate As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''L_Email control.
     '''</summary>
@@ -229,7 +238,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Email As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtEmail control.
     '''</summary>
@@ -238,7 +247,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator2 control.
     '''</summary>
@@ -247,7 +256,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''L_PERMADDERSS control.
     '''</summary>
@@ -256,7 +265,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_PERMADDERSS As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtpermaddress control.
     '''</summary>
@@ -265,7 +274,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtpermaddress As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''L_REGION control.
     '''</summary>
@@ -274,7 +283,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_REGION As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ddlRegion control.
     '''</summary>
@@ -283,7 +292,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlRegion As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''RequiredFieldRegion control.
     '''</summary>
@@ -292,7 +301,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldRegion As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''L_District control.
     '''</summary>
@@ -301,7 +310,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_District As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''upDistrict control.
     '''</summary>
@@ -310,7 +319,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents upDistrict As Global.System.Web.UI.UpdatePanel
-
+    
     '''<summary>
     '''ddlDistrict control.
     '''</summary>
@@ -319,7 +328,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlDistrict As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''RequiredFieldDistrict control.
     '''</summary>
@@ -328,7 +337,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldDistrict As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''L_SUBSTITUTION control.
     '''</summary>
@@ -337,7 +346,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_SUBSTITUTION As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ddlSubstitution control.
     '''</summary>
@@ -346,7 +355,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlSubstitution As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''L_WorksTo control.
     '''</summary>
@@ -355,7 +364,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_WorksTo As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtWorksTo control.
     '''</summary>
@@ -364,7 +373,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtWorksTo As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtWorksTo_MaskedEditExtender control.
     '''</summary>
@@ -373,7 +382,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtWorksTo_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''Button2 control.
     '''</summary>
@@ -382,7 +391,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''CalendarExtender2 control.
     '''</summary>
@@ -391,7 +400,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
-
+    
     '''<summary>
     '''RegularExpressionValidatortxtWorksTo control.
     '''</summary>
@@ -400,7 +409,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidatortxtWorksTo As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''chkCheckAllWards control.
     '''</summary>
@@ -409,7 +418,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkCheckAllWards As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''pnlWards control.
     '''</summary>
@@ -418,7 +427,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlWards As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''gvWards control.
     '''</summary>
@@ -427,7 +436,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvWards As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''chkCheckAllVillages control.
     '''</summary>
@@ -436,7 +445,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkCheckAllVillages As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''Panel1 control.
     '''</summary>
@@ -445,7 +454,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Panel1 As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''gvVillage control.
     '''</summary>
@@ -454,7 +463,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvVillage As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''pnlVeoOfficer control.
     '''</summary>
@@ -463,7 +472,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlVeoOfficer As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''L_VEOCODE control.
     '''</summary>
@@ -472,7 +481,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_VEOCODE As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtVeoCode control.
     '''</summary>
@@ -481,7 +490,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoCode As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''L_VeoLastName control.
     '''</summary>
@@ -490,7 +499,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_VeoLastName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtVeoLastName control.
     '''</summary>
@@ -499,7 +508,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoLastName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''Label4 control.
     '''</summary>
@@ -508,7 +517,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtVeoOtherName control.
     '''</summary>
@@ -517,7 +526,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoOtherName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''Label5 control.
     '''</summary>
@@ -526,7 +535,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtVeoPhone control.
     '''</summary>
@@ -535,7 +544,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoPhone As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''L_VEODOB control.
     '''</summary>
@@ -544,7 +553,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_VEODOB As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtVeoDOB control.
     '''</summary>
@@ -553,7 +562,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVeoDOB As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''MaskedEditExtender1 control.
     '''</summary>
@@ -562,7 +571,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MaskedEditExtender1 As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''btnVeoDOB control.
     '''</summary>
@@ -571,7 +580,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnVeoDOB As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''CalendarExtender3 control.
     '''</summary>
@@ -580,7 +589,124 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender3 As Global.AjaxControlToolkit.CalendarExtender
-
+    
+    '''<summary>
+    '''pnlOfficeLogin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlOfficeLogin As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''chkOfficerIncludeLogin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkOfficerIncludeLogin As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
+    '''lblLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblLanguage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddlLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlLanguage As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''RequiredFieldLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldLanguage As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''lblPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPassword As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''RequiredFieldPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''rePasswordStrength control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rePasswordStrength As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''lblCOnfirmPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblCOnfirmPassword As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtConfirmPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtConfirmPassword As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''RequiredFieldConfirmPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldConfirmPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''ComparePassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ComparePassword As Global.System.Web.UI.WebControls.CompareValidator
+    
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -589,7 +715,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''B_SAVE control.
     '''</summary>
@@ -598,7 +724,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_SAVE As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -607,7 +733,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''lblmsg control.
     '''</summary>
@@ -616,7 +742,7 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblmsg As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''validationSummary1 control.
     '''</summary>

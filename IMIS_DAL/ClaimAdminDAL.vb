@@ -30,21 +30,27 @@ Public Class ClaimAdminDAL
     Private Query As String = String.Empty
     Private Data As New ExactSQL
     Public Sub LoadClaimAdmin(ByRef eClaimAdmin As IMIS_EN.tblClaimAdmin)
-        Query = "SELECT ClaimAdminId,ClaimAdminCode,LastName,OtherNames,DOB,Phone,EmailId,HFId" & _
-           ",ValidityFrom,ValidityTo,LegacyId,AuditUserId from tblClaimAdmin where ClaimAdminId=@ClaimAdminId"
+        Query = "SELECT CA.ClaimAdminId,CA.ClaimAdminCode,CA.LastName,CA.OtherNames,CA.DOB,CA.Phone,CA.EmailId,CA.HFId" &
+           ",CA.ValidityFrom,CA.ValidityTo,CA.LegacyId,CA.AuditUserId,CA.HasLogin,UserID"
+        Query += " From tblClaimAdmin CA "
+        Query += " LEFT JOIN tblUsers U ON U.LoginName = CA.ClaimAdminCode AND HasLogin = 1 AND U.ValidityTo IS NULL"
+        Query += " WHERE ClaimAdminId=@ClaimAdminId"
         Data.setSQLCommand(Query, CommandType.Text)
         Data.params("@ClaimAdminId", SqlDbType.Int, eClaimAdmin.ClaimAdminId)
         Dim dr As DataRow = Data.Filldata()(0)
         If Not dr Is Nothing Then
             Dim eHF As New IMIS_EN.tblHF
+            eClaimAdmin.eUsers = New IMIS_EN.tblUsers
             If dr("HFId") IsNot DBNull.Value Then eHF.HfID = dr("HFId")
             eClaimAdmin.tblHF = eHF
             eClaimAdmin.ClaimAdminId = dr("ClaimAdminId")
-            eClaimAdmin.ClaimAdminCode = if(dr("ClaimAdminCode") Is DBNull.Value, Nothing, dr("ClaimAdminCode"))
-            eClaimAdmin.LastName = if(dr("LastName") Is DBNull.Value, Nothing, dr("LastName"))
-            eClaimAdmin.OtherNames = if(dr("OtherNames") Is DBNull.Value, Nothing, dr("OtherNames"))
-            eClaimAdmin.DOB = if(dr("DOB") Is DBNull.Value, Nothing, dr("DOB"))
-            eClaimAdmin.Phone = if(dr("Phone") Is DBNull.Value, Nothing, dr("Phone"))
+            eClaimAdmin.ClaimAdminCode = If(dr("ClaimAdminCode") Is DBNull.Value, Nothing, dr("ClaimAdminCode"))
+            eClaimAdmin.LastName = If(dr("LastName") Is DBNull.Value, Nothing, dr("LastName"))
+            eClaimAdmin.OtherNames = If(dr("OtherNames") Is DBNull.Value, Nothing, dr("OtherNames"))
+            eClaimAdmin.DOB = If(dr("DOB") Is DBNull.Value, Nothing, dr("DOB"))
+            eClaimAdmin.Phone = If(dr("Phone") Is DBNull.Value, Nothing, dr("Phone"))
+            eClaimAdmin.HasLogin = If(dr("HasLogin") Is DBNull.Value, Nothing, dr("HasLogin"))
+            eClaimAdmin.eUsers.UserID = If(dr("UserID") Is DBNull.Value, 0, dr("UserID"))
             eClaimAdmin.EmailId = dr("EmailId").ToString
             If Not dr("ValidityTo") Is DBNull.Value Then
                 eClaimAdmin.ValidityTo = dr("ValidityTo").ToString
@@ -54,12 +60,12 @@ Public Class ClaimAdminDAL
 
     'Corrected
     Public Function GetClaimAdmins(ByVal eClaimAdmin As IMIS_EN.tblClaimAdmin, ByVal All As Boolean) As DataTable
-        Query = "select ClaimAdminId,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" & _
-           ",ca.ValidityTo,ca.LegacyId,ca.AuditUserId,tblHF.HfID,tblHF.HFCode, ca.EmailId from tblClaimAdmin ca" & _
-           " inner join tblHF on ca.HFId = tblHF.HfID" & _
-           " inner join tblUsersDistricts ud on tblHF.LocationId = ud.LocationId And ud.UserID = @UserID" & _
-           " WHERE ca.ClaimAdminCode like @Code AND " & _
-           " LastName LIKE @LastName AND OtherNames LIKE @OtherNames  AND ISNULL(ca.Phone,'') LIKE @Phone" & _
+        Query = "select ClaimAdminId,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
+           ",ca.ValidityTo,ca.LegacyId,ca.AuditUserId,tblHF.HfID,tblHF.HFCode, ca.EmailId,ISNULL(ca.HasLogin,0) HasLogin from tblClaimAdmin ca" &
+           " inner join tblHF on ca.HFId = tblHF.HfID" &
+           " inner join tblUsersDistricts ud on tblHF.LocationId = ud.LocationId And ud.UserID = @UserID" &
+           " WHERE ca.ClaimAdminCode like @Code AND " &
+           " LastName LIKE @LastName AND OtherNames LIKE @OtherNames  AND ISNULL(ca.Phone,'') LIKE @Phone" &
            " AND ISNULL(ca.EmailId,'') LIKE @EmailId"
 
         If Not eClaimAdmin.DOBFrom Is Nothing Then
@@ -99,17 +105,17 @@ Public Class ClaimAdminDAL
         Return Data.Filldata
     End Function
     Public Function GetHFClaimAdminCodes(ByVal HFID As Integer)
-        Query = "select ClaimAdminId,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" & _
+        Query = "select ClaimAdminId,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
            ",ca.ValidityTo,ca.LegacyId,ca.AuditUserId,HfID, ca.EmailId from tblClaimAdmin ca where HfID=@HfID And ValidityTo IS NULL"
         Data.setSQLCommand(Query, CommandType.Text)
         Data.params("@HfID", SqlDbType.Int, HFID)
         Return Data.Filldata()
     End Function
     Public Function DeleteClaimAdmin(ByRef eClaimAdmin As IMIS_EN.tblClaimAdmin) As Boolean
-        Query = "INSERT INTO tblClaimAdmin(ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" & _
-           ",ValidityFrom,ValidityTo,LegacyId,AuditUserId, EmailId)" & _
-        " select ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" & _
-        ",ValidityFrom,getdate(),@ClaimAdminId,AuditUserId, EmailId from tblClaimAdmin where ClaimAdminId = @ClaimAdminId;" & _
+        Query = "INSERT INTO tblClaimAdmin(ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" &
+           ",ValidityFrom,ValidityTo,LegacyId,AuditUserId, EmailId)" &
+        " select ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" &
+        ",ValidityFrom,getdate(),@ClaimAdminId,AuditUserId, EmailId from tblClaimAdmin where ClaimAdminId = @ClaimAdminId;" &
         " UPDATE tblClaimAdmin SET [ValidityTo]=Getdate(),[AuditUserID] = @AuditUserID WHERE ClaimAdminId = @ClaimAdminId"
         Data.setSQLCommand(Query, CommandType.Text)
         Data.params("@ClaimAdminId", SqlDbType.Int, eClaimAdmin.ClaimAdminId)
@@ -118,40 +124,43 @@ Public Class ClaimAdminDAL
         Return True
     End Function
     Public Function InsertClaimAdmin(ByRef eClaimAdmin As IMIS_EN.tblClaimAdmin) As Boolean
-        Query = "INSERT INTO tblClaimAdmin(ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" & _
-           ",ValidityFrom,AuditUserId, EmailId)" & _
-        " VALUES(@ClaimAdminCode,@LastName,@OtherNames,@DOB,@Phone,@HFId" & _
-        ",getdate(),@AuditUserId, @EmailId)"
+        Query = "INSERT INTO tblClaimAdmin(ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" &
+           ",ValidityFrom,AuditUserId, EmailId, HasLogin)" &
+        " VALUES(@ClaimAdminCode,@LastName,@OtherNames,@DOB,@Phone,@HFId" &
+        ",getdate(),@AuditUserId, @EmailId, @HasLogin)"
         Data.setSQLCommand(Query, CommandType.Text)
         Data.params("@ClaimAdminCode", SqlDbType.NVarChar, 8, eClaimAdmin.ClaimAdminCode)
         Data.params("@LastName", SqlDbType.NVarChar, 100, eClaimAdmin.LastName)
         Data.params("@OtherNames", SqlDbType.NVarChar, 100, eClaimAdmin.OtherNames)
-        Data.params("@DOB", SqlDbType.DateTime, if(eClaimAdmin.DOB Is Nothing, SqlTypes.SqlDateTime.Null, eClaimAdmin.DOB))
+        Data.params("@DOB", SqlDbType.DateTime, If(eClaimAdmin.DOB Is Nothing, SqlTypes.SqlDateTime.Null, eClaimAdmin.DOB))
         Data.params("@Phone", SqlDbType.NVarChar, 50, eClaimAdmin.Phone)
-        Data.params("@HFId", SqlDbType.Int, if(eClaimAdmin.tblHF.HfID = 0, Nothing, eClaimAdmin.tblHF.HfID))
+        Data.params("@HFId", SqlDbType.Int, If(eClaimAdmin.tblHF.HfID = 0, Nothing, eClaimAdmin.tblHF.HfID))
         Data.params("@AuditUserID", SqlDbType.Int, eClaimAdmin.AuditUserId)
         Data.params("@EmailId", SqlDbType.NVarChar, 200, eClaimAdmin.EmailId)
+        Data.params("@HasLogin", SqlDbType.Bit, eClaimAdmin.HasLogin)
         Data.ExecuteCommand()
         Return True
     End Function
     Public Function UpdateClaimAdmin(ByRef eClaimAdmin As IMIS_EN.tblClaimAdmin) As Boolean
-        Query = "INSERT INTO tblClaimAdmin(ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" & _
-           ",ValidityFrom,ValidityTo,LegacyId,AuditUserId, EmailId)" & _
-           " select ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" & _
-           ",ValidityFrom,getdate(),@ClaimAdminId,AuditUserId, EmailId from tblClaimAdmin where ClaimAdminId = @ClaimAdminId;" & _
-           " UPDATE tblClaimAdmin SET ClaimAdminCode=@ClaimAdminCode,LastName=@LastName,OtherNames=@OtherNames" & _
-           ",DOB=@DOB,Phone=@Phone,HFId=@HFId" & _
-           ",ValidityFrom = GetDate(),[AuditUserID] = @AuditUserID, EmailId = @EmailId  WHERE ClaimAdminId = @ClaimAdminId"
+        Query = "INSERT INTO tblClaimAdmin(ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" &
+           ",ValidityFrom,ValidityTo,LegacyId,AuditUserId, EmailId, HasLogin)" &
+           " select ClaimAdminCode,LastName,OtherNames,DOB,Phone,HFId" &
+           ",ValidityFrom,getdate(),@ClaimAdminId,AuditUserId, EmailId, HasLogin from tblClaimAdmin where ClaimAdminId = @ClaimAdminId;" &
+           " UPDATE tblClaimAdmin SET ClaimAdminCode=@ClaimAdminCode,LastName=@LastName,OtherNames=@OtherNames" &
+           ",DOB=@DOB,Phone=@Phone,HFId=@HFId" &
+           ",ValidityFrom = GetDate(),[AuditUserID] = @AuditUserID, EmailId = @EmailId,HasLogin= @HasLogin  WHERE ClaimAdminId = @ClaimAdminId"
         Data.setSQLCommand(Query, CommandType.Text)
         Data.params("@ClaimAdminId", SqlDbType.Int, eClaimAdmin.ClaimAdminId)
         Data.params("@ClaimAdminCode", SqlDbType.NVarChar, 8, eClaimAdmin.ClaimAdminCode)
         Data.params("@LastName", SqlDbType.NVarChar, 100, eClaimAdmin.LastName)
         Data.params("@OtherNames", SqlDbType.NVarChar, 100, eClaimAdmin.OtherNames)
-        Data.params("@DOB", SqlDbType.SmallDateTime, if(eClaimAdmin.DOB Is Nothing, SqlTypes.SqlDateTime.Null, eClaimAdmin.DOB))
+        Data.params("@DOB", SqlDbType.SmallDateTime, If(eClaimAdmin.DOB Is Nothing, SqlTypes.SqlDateTime.Null, eClaimAdmin.DOB))
         Data.params("@Phone", SqlDbType.NVarChar, 50, eClaimAdmin.Phone)
-        Data.params("@HFId", SqlDbType.Int, if(eClaimAdmin.tblHF.HfID = 0, Nothing, eClaimAdmin.tblHF.HfID))
+        Data.params("@HFId", SqlDbType.Int, If(eClaimAdmin.tblHF.HfID = 0, Nothing, eClaimAdmin.tblHF.HfID))
         Data.params("@AuditUserID", SqlDbType.Int, eClaimAdmin.AuditUserId)
         Data.params("@EmailId", SqlDbType.NVarChar, 200, eClaimAdmin.EmailId)
+        Data.params("@HasLogin", SqlDbType.Bit, eClaimAdmin.HasLogin)
+
         Data.ExecuteCommand()
         Return True
     End Function
