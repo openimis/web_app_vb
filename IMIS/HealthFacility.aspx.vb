@@ -106,9 +106,9 @@ Partial Public Class HealthFacility
                 txtHFCode.Text = eHF.HFCode
                 txtFacilityName.Text = eHF.HFName
                 txtAddress.Text = eHF.HFAddress
-                ddlRegion.SelectedValue = eHF.RegionId
+                ddlRegion.SelectedValue = If(eHF.RegionId IsNot Nothing, eHF.RegionId, 0)
                 FillDistricts()
-                ddlDistrict.SelectedValue = eHF.tblLocations.LocationId
+                ddlDistrict.SelectedValue = If(eHF.tblLocations.LocationId, eHF.tblLocations.LocationId, 0)
                 txtPhone.Text = eHF.Phone
                 txtFax.Text = eHF.Fax
                 txtEmail.Text = eHF.eMail

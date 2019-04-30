@@ -155,6 +155,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Claims Reviewed.
+        '''</summary>
+        Friend Shared ReadOnly Property B_CLAIMSREVIEWS() As String
+            Get
+                Return ResourceManager.GetString("B_CLAIMSREVIEWS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Create.
         '''</summary>
         Friend Shared ReadOnly Property B_CREATE() As String
@@ -722,7 +731,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Administration Period.
+        '''  Looks up a localized string similar to Administration Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_ADMINISTRATIONPERIOD() As String
             Get
@@ -2126,7 +2135,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Disc. Period.
+        '''  Looks up a localized string similar to Enrolment Disc. Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTDISCOUNTPERIOD() As String
             Get
@@ -2729,7 +2738,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter email id to retrieve password.
+        '''  Looks up a localized string similar to Enter username and new password to reset password.
         '''</summary>
         Friend Shared ReadOnly Property L_FOROGOTPASSWORDHEADING() As String
             Get
@@ -2882,7 +2891,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Frequency.
+        '''  Looks up a localized string similar to Frequency (days).
         '''</summary>
         Friend Shared ReadOnly Property L_FREQUENCY() As String
             Get
@@ -3008,7 +3017,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Enrolment.
+        '''  Looks up a localized string similar to Grace Period Enrolment (months).
         '''</summary>
         Friend Shared ReadOnly Property L_GRACEPERIOD() As String
             Get
@@ -3017,7 +3026,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Renewal.
+        '''  Looks up a localized string similar to Grace Period Renewal (months).
         '''</summary>
         Friend Shared ReadOnly Property L_GRACEPERIODRENEWAL() As String
             Get
@@ -3377,7 +3386,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance Period.
+        '''  Looks up a localized string similar to Insurance Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_INSURANCEPERIOD() As String
             Get
@@ -4367,7 +4376,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Your password is sent to your email id.
+        '''  Looks up a localized string similar to A link has been sent to your email, click on link to confirm new password.
         '''</summary>
         Friend Shared ReadOnly Property L_PASSWORDSENT() As String
             Get
@@ -5267,7 +5276,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal Disc. Period.
+        '''  Looks up a localized string similar to Renewal Disc. Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_RENEWALDISCOUNTPERIOD() As String
             Get
@@ -5861,7 +5870,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Antenatal Left.
+        '''  Looks up a localized string similar to Antenatal left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALANTENATALLEFT() As String
             Get
@@ -6239,7 +6248,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Payment.
+        '''  Looks up a localized string similar to Grace Period Payment (months).
         '''</summary>
         Friend Shared ReadOnly Property L_WAITINGPERIOD() As String
             Get
@@ -6716,7 +6725,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The status of this Claim is not ENTERED and thus can&apos;t be deleted.
+        '''  Looks up a localized string similar to The status of this Claim is not ENTERED and thus can not be deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMNOTENTEREDNODELETE() As String
             Get
@@ -6995,7 +7004,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to &lt;/BR&gt;&lt;/BR&gt;You haven\&apos;t selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region..
+        '''  Looks up a localized string similar to &lt;/BR&gt;&lt;/BR&gt;You have not selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region..
         '''</summary>
         Friend Shared ReadOnly Property M_CREATEOFFLINEEXTRACTPROMPT() As String
             Get
@@ -8003,7 +8012,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree is Head of Family/Group, can&apos;t be deleted.
+        '''  Looks up a localized string similar to Insuree is Head of Family/Group, can not be deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_INSUREEHEADFMLYDELETENOT() As String
             Get
@@ -8300,6 +8309,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Link sent to email.
+        '''</summary>
+        Friend Shared ReadOnly Property M_LINKSENT() As String
+            Get
+                Return ResourceManager.GetString("M_LINKSENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Locations uploaded successfully..
         '''</summary>
         Friend Shared ReadOnly Property M_LOCATIONUPLOADED() As String
@@ -8588,7 +8606,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to You don&apos;t have enough permission to access the page.
+        '''  Looks up a localized string similar to You do not have enough permission to access the page.
         '''</summary>
         Friend Shared ReadOnly Property M_NOPAGEACCESSPERMISSION() As String
             Get
@@ -8701,6 +8719,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_NOUSERS() As String
             Get
                 Return ResourceManager.GetString("M_NOUSERS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to No user found with this username.
+        '''</summary>
+        Friend Shared ReadOnly Property M_NOUSERSLOGIN() As String
+            Get
+                Return ResourceManager.GetString("M_NOUSERSLOGIN", resourceCulture)
             End Get
         End Property
         
@@ -8984,7 +9011,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy has Contribution(s), Can&apos;t be deleted.
+        '''  Looks up a localized string similar to Policy has Contribution(s), can not be deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYHASPREMIUMNODELETE() As String
             Get
@@ -11531,6 +11558,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Accepted.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ACCEPTED() As String
+            Get
+                Return ResourceManager.GetString("T_ACCEPTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Active.
         '''</summary>
         Friend Shared ReadOnly Property T_ACTIVE() As String
@@ -11783,6 +11819,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Diagnosis code not in the current list of diagnoses.
+        '''</summary>
+        Friend Shared ReadOnly Property T_DIAGNOSISCODENOTINTHECURRENTLIST() As String
+            Get
+                Return ResourceManager.GetString("T_DIAGNOSISCODENOTINTHECURRENTLIST", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Dispensary.
         '''</summary>
         Friend Shared ReadOnly Property T_DISPENSARY() As String
@@ -12008,6 +12053,88 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Item/service cannot be covered within waiting period.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Item/Service doesn’t comply with type of care constraint.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Item/Service doesn’t comply with frequency constraint.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Item/Service doesn’t comply with limitations on patients (men/women,
+        '''adults/children).
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Item/Service duplicated.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICEDUPLICATED() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICEDUPLICATED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Item/Service is not covered by an active policy of the patient.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICENOTCOVEREDBYPOLICY() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICENOTCOVEREDBYPOLICY", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Item/Service not in the pricelists associated with the health facility.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICENOTINTHEPRICELIST() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICENOTINTHEPRICELIST", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Item/Service not in the registers of medical items/services.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICENOTINTHEREGISTER() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICENOTINTHEREGISTER", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Not valid insurance number.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ITEMSERVICENOTVALIDINSURANCENUMBER() As String
+            Get
+                Return ResourceManager.GetString("T_ITEMSERVICENOTVALIDINSURANCENUMBER", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to January.
         '''</summary>
         Friend Shared ReadOnly Property T_JANUARY() As String
@@ -12089,6 +12216,69 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Maximum number of antenatal contacts exceeded.
+        '''</summary>
+        Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFANTENETALEXCEEDED() As String
+            Get
+                Return ResourceManager.GetString("T_MAXIMUMNUMBEROFANTENETALEXCEEDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Maximum number of consultations exceeded.
+        '''</summary>
+        Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED() As String
+            Get
+                Return ResourceManager.GetString("T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Maximum number of deliveries exceeded.
+        '''</summary>
+        Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED() As String
+            Get
+                Return ResourceManager.GetString("T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Maximum number of in-patient admissions exceeded.
+        '''</summary>
+        Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFINPATIENTEXCEEDED() As String
+            Get
+                Return ResourceManager.GetString("T_MAXIMUMNUMBEROFINPATIENTEXCEEDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Maximum number of out-patient visits exceeded.
+        '''</summary>
+        Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED() As String
+            Get
+                Return ResourceManager.GetString("T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Maximum number of provisions of item/service exceeded.
+        '''</summary>
+        Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED() As String
+            Get
+                Return ResourceManager.GetString("T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Maximum number of surgeries exceeded.
+        '''</summary>
+        Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFSURGERIESEXCEEDED() As String
+            Get
+                Return ResourceManager.GetString("T_MAXIMUMNUMBEROFSURGERIESEXCEEDED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to May.
         '''</summary>
         Friend Shared ReadOnly Property T_MAY() As String
@@ -12139,6 +12329,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_MONTHS() As String
             Get
                 Return ResourceManager.GetString("T_MONTHS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to N/A.
+        '''</summary>
+        Friend Shared ReadOnly Property T_NA() As String
+            Get
+                Return ResourceManager.GetString("T_NA", resourceCulture)
             End Get
         End Property
         
@@ -12463,6 +12662,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_REJECTEDB() As String
             Get
                 Return ResourceManager.GetString("T_REJECTEDB", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Rejected by a medical officer.
+        '''</summary>
+        Friend Shared ReadOnly Property T_REJECTEDBYMEDICALOFFICER() As String
+            Get
+                Return ResourceManager.GetString("T_REJECTEDBYMEDICALOFFICER", resourceCulture)
             End Get
         End Property
         
@@ -12953,6 +13161,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Target date of provision of health care invalid.
+        '''</summary>
+        Friend Shared ReadOnly Property T_TARGETDATEOFPROVISIONHEALTHCAREINVALID() As String
+            Get
+                Return ResourceManager.GetString("T_TARGETDATEOFPROVISIONHEALTHCAREINVALID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Total Rejected Photos.
         '''</summary>
         Friend Shared ReadOnly Property T_TOTALREJECTEDPHOTOS() As String
@@ -13187,7 +13404,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Type--.
+        '''  Looks up a localized string similar to Select Type.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTTYPE() As String
             Get

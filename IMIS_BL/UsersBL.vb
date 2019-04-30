@@ -820,11 +820,15 @@ Public Class UsersBL
             dtRoles = DALRole.GetSystemRoles(eUser.RoleID)
         End If
         If eUser.UserID = 0 Then
+            CreatePassword(eUser)
             users.InsertUser(eUser)
             users.SaveUserRoles(dtRoles, eUser)
             Return 0
         Else
-            
+            If eUser.DummyPwd <> String.Empty Then
+                CreatePassword(eUser)
+            End If
+
             'Check if no changes made not to update.
             Dim UserOrg As New IMIS_EN.tblUsers
             UserOrg.UserID = eUser.UserID
@@ -889,11 +893,51 @@ Public Class UsersBL
 
         Return dt
     End Function
-    Public Sub ChangePassword(ByVal euser As IMIS_EN.tblUsers)
+    Public Function ChangePassword(ByVal euser As IMIS_EN.tblUsers, NewPassword As String) As Integer
         Dim users As New IMIS_DAL.UsersDAL
-        users.ChangePassword(euser)
-    End Sub
+        Dim Gen As New GeneralBL
+        '-1 = Wrong Old Password
+        ' 1 = Saved OK
+        Dim OldPassword As String = euser.DummyPwd
+        LoadUsers(euser)
+        Dim LegacyPassword As String = euser.DummyPwd
+        euser.DummyPwd = OldPassword
+        If ValidateLogin(euser) Or LegacyPassword = OldPassword Then
+            euser.DummyPwd = NewPassword
+            CreatePassword(euser)
+            users.ChangePassword(euser)
+            Return 1
+        End If
+        Return -1
+    End Function
+    Public Function CreateEmailHash(ByRef eUser As IMIS_EN.tblUsers) As String
 
+        Dim Gen As New GeneralBL
+        Return Gen.GenerateSHA256String(eUser.DummyPwd + eUser.EmailId + eUser.PasswordValidity)
+    End Function
+    Public Function ValidateEmailHash(ByRef eUser As IMIS_EN.tblUsers, EmailHash As String) As Boolean
+
+        Dim Gen As New GeneralBL
+        If Gen.GenerateSHA256String(eUser.DummyPwd + eUser.EmailId + eUser.PasswordValidity) = EmailHash Then
+            Return True
+        End If
+        Return False
+
+    End Function
+    Public Sub CreatePassword(ByRef eUser As IMIS_EN.tblUsers)
+
+        Dim Gen As New GeneralBL
+        eUser.PrivateKey = Gen.PrivateKey(256)
+        eUser.StoredPassword = Gen.GenerateSHA256String(eUser.DummyPwd + eUser.PrivateKey)
+    End Sub
+    Public Function ValidateLogin(ByRef eUser As IMIS_EN.tblUsers) As Boolean
+
+        Dim Gen As New GeneralBL
+        If Gen.GenerateSHA256String(eUser.DummyPwd + eUser.PrivateKey) = eUser.StoredPassword Then
+            Return True
+        End If
+        Return False
+    End Function
     Public Function IsUserExists(ByVal UserID As Integer) As Boolean
         Dim User As New IMIS_DAL.UsersDAL
         Return User.IsUserExists(UserID)

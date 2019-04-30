@@ -94,6 +94,7 @@
     <Compile Include="ClaimOverviewBI.vb" />
     <Compile Include="ClaimReviewBI.vb" />
     <Compile Include="EmailSettingsBI.vb" />
+    <Compile Include="EnterNewPasswordBI.vb" />
     <Compile Include="FamilyBI.vb" />
     <Compile Include="FeedbackPromptBI.vb" />
     <Compile Include="FindClaimAdministratorBI.vb" />

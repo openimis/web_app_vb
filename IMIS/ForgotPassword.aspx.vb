@@ -37,16 +37,23 @@ Public Class ForgotPassword
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         Dim FontColor As String = ""
+        msg.Text = ""
         Try
-            If txtEmailId.Text.Trim.Length = 0 Then Exit Sub
+            If txtLoginName.Text.Trim.Length = 0 Then Exit Sub
+            If txtPassword.Text.Trim.Length = 0 Then Exit Sub
 
-            Dim Result As Boolean = ForgotPasswordBI.SendPassword(txtEmailId.Text)
+            Dim Result As Integer = ForgotPasswordBI.SendPassword(txtLoginName.Text.Trim, txtPassword.Text)
 
-            If Result = True Then
+            If Result > 0 Then
                 FontColor = "green"
-                msg.Text = imisgen.getMessage("L_PASSWORDSENT", False)
+                msg.Text = imisgen.getMessage("M_LINKSENT", False)
             Else
-                msg.Text = imisgen.getMessage("X_EMAILSENTFAIL", False)
+                FontColor = "red"
+                If Result = -1 Then
+                    msg.Text = imisgen.getMessage("M_NOUSERSLOGIN", False)
+                Else
+                    msg.Text = imisgen.getMessage("X_EMAILSENTFAIL", False)
+                End If
             End If
 
         Catch ex As Exception

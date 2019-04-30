@@ -48,7 +48,14 @@ Public Partial Class ClaimOverview
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         txtValue.Enabled = chkValue.Checked
+        If Not IsPostBack = True Then
+            If Not HttpContext.Current.Request.QueryString("i") Is Nothing Then
+                txtCHFID.Text = HttpContext.Current.Request.QueryString("i")
+            Else
+                txtCHFID.Text = ""
+            End If
 
+        End If
 
         If Request.Form("__EVENTTARGET") = btnSelectionExecute.ClientID Then
             btnSelectionExecute_Click(sender, New System.EventArgs)
@@ -95,6 +102,10 @@ Public Partial Class ClaimOverview
             ddlClaimStatus.DataValueField = "Code"
             ddlClaimStatus.DataBind()
             ddlClaimStatus.SelectedValue = 4 'Checked default selected Item
+            'ddlICD.DataSource = ClaimOverviews.GetICDCodes(True)
+            'ddlICD.DataTextField = "ICDNAMES"
+            'ddlICD.DataValueField = "ICDID"
+            'ddlICD.DataBind()
 
             FillVisitTypes()
 
@@ -104,6 +115,7 @@ Public Partial Class ClaimOverview
             End If
             '  ClaimCodeTxtControl()
             ButtonDisplayControl(0)
+
             If eHF.HfID = 0 And Request.QueryString("c") = 0 Then
                 Exit Sub
             End If
@@ -244,7 +256,7 @@ Public Partial Class ClaimOverview
             ddl.DataValueField = "Code"
             ddl.DataBind()
             ddl.SelectedValue = gvClaims.DataKeys(row.RowIndex).Values("ReviewStatus")
-          
+
             FilterStatusCombination(ddl)
 
 
@@ -263,7 +275,7 @@ Public Partial Class ClaimOverview
             Dim eICDCodes As New IMIS_EN.tblICDCodes
             Dim eInsuree As New IMIS_EN.tblInsuree
             Dim eBatchRun As New IMIS_EN.tblBatchRun
-           
+
             If (Not Request.QueryString("c") = 0) And (ScriptManager.GetCurrent(Me.Page).IsInAsyncPostBack() = False) Then
 
                 hfClaimID.Value = Request.QueryString("c")
@@ -280,6 +292,7 @@ Public Partial Class ClaimOverview
                 If dic("ICDID") <> "" Then
                     eICDCodes.ICDID = dic("ICDID")
                 End If
+
 
                 If Not dic("CHFNo") = "" Then
                     eInsuree.CHFID = dic("CHFNo")
@@ -356,11 +369,7 @@ Public Partial Class ClaimOverview
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                If Not String.IsNullOrEmpty(hfICDID.Value) Then
-                    eICDCodes.ICDID = CInt(Int(hfICDID.Value))
-                Else
-                    eICDCodes.ICDID = 0
-                End If
+                eICDCodes.ICDID = IIf(hfICDID.Value = "", 0, eICDCodes.ICDID)
                 If Not ddlBatchRun.SelectedValue = "" Then
                     eBatchRun.RunID = ddlBatchRun.SelectedValue
                 End If
@@ -634,7 +643,12 @@ Public Partial Class ClaimOverview
 
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("Home.aspx")
+        If Not HttpContext.Current.Request.QueryString("i") Is Nothing Then
+            Response.Redirect("FindInsuree.aspx")
+        Else
+            Response.Redirect("Home.aspx")
+        End If
+
     End Sub
 
     Protected Sub ddlSelectionType_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ddlSelectionType.SelectedIndexChanged
@@ -700,9 +714,9 @@ Public Partial Class ClaimOverview
     End Sub
 
     Protected Sub chkValue_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkValue.CheckedChanged
-        If chkValue.Checked then 
-            filterGrid()
-         end if
+        If chkValue.Checked Then
+            FilterGrid()
+        End If
     End Sub
     Private Sub ClaimCodeTxtControl()
         If ddlHFCode.SelectedValue = 0 Then

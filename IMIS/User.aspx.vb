@@ -87,7 +87,11 @@ Partial Public Class User
                     B_SAVE.Visible = False
                 End If
                 ddlHFNAME.SelectedValue = eUsers.HFID.ToString
-            End If
+                RequiredFieldPassword.Visible = False
+
+                RequiredFieldConfirmPassword.Visible = False
+            End If 'Added
+
             Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
             Dim dtRoles As New DataTable
             dtRoles = Users.getUserRoles(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
@@ -200,10 +204,16 @@ Partial Public Class User
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
-                'If Not IsValidPassword() Then
-                '    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
-                '    Exit Sub
-                'End If
+                Dim ipassword As Integer = IsValidPassword()
+
+                If ipassword = -1 Then
+                    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
+                    Exit Sub
+                ElseIf ipassword = -2 Then
+
+                    lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                    Exit Sub
+                End If
 
                 If Not checkChecked(gvDistrict) Then
                     lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
@@ -274,8 +284,31 @@ Partial Public Class User
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
     End Sub
-    'Private Function IsValidPassword() As Boolean
-    '    'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
-    '    'Return Parten
-    'End Function
+
+    Private Function IsValidPassword() As Integer
+        If eUsers.UserID = 0 Then
+            If txtPassword.Text = String.Empty Then
+                Return -1
+            Else
+                If txtPassword.Text <> txtConfirmPassword.Text Then
+                    Return -2
+                Else
+                    Return 1
+                End If
+            End If
+        Else
+            If txtPassword.Text <> String.Empty Then
+                If txtPassword.Text <> txtConfirmPassword.Text Then
+                    Return -2
+                Else
+                    Return 1
+                End If
+            Else
+                Return 2
+            End If
+
+        End If
+        'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
+        'Return Parten
+    End Function
 End Class

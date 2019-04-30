@@ -27,32 +27,75 @@
 '
 
 Public Class ForgotPasswordBL
-    Public Function SendPassword(Email As String) As Boolean
+    Public Function SendPassword(LoginName As String, Password As String) As Integer
         Dim EmailHandler As New IMIS_BL.EmailHandler
         Try
             'Check if given email exists in database
             Dim Users As New IMIS_BL.UsersBL
             Dim eUsers As New IMIS_EN.tblUsers
-            eUsers.EmailId = Email
+            eUsers.LoginName = LoginName
             Users.LoadUsers(eUsers)
-
-            If eUsers.DummyPwd = Nothing Then
-                Throw New Exception("Users with this email id does not exist")
+            'Check if the Login name exists
+            If eUsers.UserID = Nothing Then
+                Return -1
             End If
 
             'Send email
+            Dim ValidityDate As Date = Now.AddHours(24)
+            eUsers.PasswordValidity = ValidityDate
+            eUsers.AuditUserID = eUsers.UserID
+            eUsers.DummyPwd = Password
+            Dim EmailHash As String = Users.CreateEmailHash(eUsers)
             Dim Template As String = HttpContext.Current.Server.MapPath("\") & "Templates\ForgotPassword.html"
+            Dim StrPathAndQuery As String = HttpContext.Current.Request.Url.PathAndQuery
+            Dim NewPasswordPage As String = HttpContext.Current.Request.Url.AbsoluteUri.Replace(StrPathAndQuery, "/") & "EnterNewPassword.aspx?h=" & EmailHash
+            'HttpContext.Current.Server.MapPath("\") & "EnterNewPassword.aspx?h=" & EmailHash
 
             Dim Dict As New Dictionary(Of String, String)
             Dict.Add("@@Name", eUsers.OtherNames & " " & eUsers.LastName)
-            Dict.Add("@@LoginName", eUsers.LoginName)
-            Dict.Add("@@Password", eUsers.DummyPwd)
+            Dict.Add("@@NewLink", NewPasswordPage)
+            Dict.Add("@@ValidityDate", ValidityDate)
+            Dim DAL As New IMIS_DAL.UsersDAL
+            DAL.UpdatePasswordValidity(eUsers)
+            Dim emailed As Boolean = EmailHandler.sendEmail(Template, eUsers.EmailId, "IMIS Password Request", Dict, Nothing, "", "", "")
 
-            Return EmailHandler.sendEmail(Template, eUsers.EmailId, "IMIS Password recovery", Dict, Nothing, "", "", "")
+
 
         Catch ex As Exception
             Throw ex
         End Try
-        Return True
+        Return 1
+    End Function
+    Public Function UpdatePassword(LoginName As String, Password As String, EmailHash As String) As Integer
+        Dim EmailHandler As New IMIS_BL.EmailHandler
+        Try
+            'Check if given email exists in database
+            Dim Users As New IMIS_BL.UsersBL
+            Dim eUsers As New IMIS_EN.tblUsers
+            eUsers.LoginName = LoginName
+            Users.LoadUsers(eUsers)
+            eUsers.DummyPwd = Password
+            eUsers.AuditUserID = eUsers.UserID
+            'Check if the email exists
+            If eUsers.UserID = Nothing Then
+                Return -1
+            End If
+            'Check if request is still valid
+            If eUsers.PasswordValidity IsNot Nothing AndAlso Date.Now > eUsers.PasswordValidity Then
+                Return -2
+            End If
+            'Check if password can be validated with the request
+            If Users.ValidateEmailHash(eUsers, EmailHash) = False Then
+                Return -3
+            End If
+            Users.CreatePassword(eUsers)
+
+            Dim DAL As New IMIS_DAL.UsersDAL
+            DAL.ChangePassword(eUsers)
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+        Return 1
     End Function
 End Class

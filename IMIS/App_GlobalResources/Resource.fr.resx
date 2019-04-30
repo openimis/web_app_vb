@@ -374,8 +374,8 @@
     <comment>Administration</comment>
   </data>
   <data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
-    <value>Periode d'administration</value>
-    <comment>Administration Period</comment>
+    <value>Periode d'administration (mois)</value>
+    <comment>Administration Period (months)</comment>
   </data>
   <data name="L_ADULTPREMIUM" xml:space="preserve">
     <value>Cotisation adulte</value>
@@ -942,8 +942,8 @@
     <comment>Enrolment Disc. %</comment>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
-    <value>Rabais d'affiliation (période)</value>
-    <comment>Enrolment Disc. Period</comment>
+    <value>Rabais d'affiliation (période, mois)</value>
+    <comment>Enrolment Disc. Period (months)</comment>
   </data>
   <data name="L_ENROLMENTOFFICERS" xml:space="preserve">
     <value>Agent d'affiliation</value>
@@ -1179,7 +1179,7 @@
   </data>
   <data name="L_FOROGOTPASSWORDHEADING" xml:space="preserve">
     <value>Entrez un e-mail pour récupérer le mot de passe</value>
-    <comment>Enter email id to retrieve password</comment>
+    <comment>Enter username and new password to reset password</comment>
   </data>
   <data name="L_FOUNDBATCH" xml:space="preserve">
     <value>Batchs trouvés</value>
@@ -1246,8 +1246,8 @@
     <comment>Free service price</comment>
   </data>
   <data name="L_FREQUENCY" xml:space="preserve">
-    <value>Fréquence</value>
-    <comment>Frequency</comment>
+    <value>Fréquence (jours)</value>
+    <comment>Frequency (days)</comment>
   </data>
   <data name="L_FROM" xml:space="preserve">
     <value>A partir de</value>
@@ -1298,12 +1298,12 @@
     <comment>Go back to selector.</comment>
   </data>
   <data name="L_GRACEPERIOD" xml:space="preserve">
-    <value>Période de grâce pour l'affiliation</value>
-    <comment>Grace Period Enrolment</comment>
+    <value>Période de grâce pour l'affiliation (mois)</value>
+    <comment>Grace Period Enrolment (months)</comment>
   </data>
   <data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
-    <value>Période de grâce pour le renouvellement</value>
-    <comment>Grace Period Renewal</comment>
+    <value>Période de grâce pour le renouvellement (mois)</value>
+    <comment>Grace Period Renewal (months)</comment>
   </data>
   <data name="L_GROUPTYPE" xml:space="preserve">
     <value>Type de groupe / famille</value>
@@ -1438,8 +1438,8 @@
     <comment>Inserted</comment>
   </data>
   <data name="L_INSURANCEPERIOD" xml:space="preserve">
-    <value>Période d'assurance</value>
-    <comment>Insurance Period</comment>
+    <value>Période d'assurance (mois)</value>
+    <comment>Insurance Period (months)</comment>
   </data>
   <data name="L_INSUREE" xml:space="preserve">
     <value>Assuré</value>
@@ -1839,7 +1839,7 @@
   </data>
   <data name="L_PASSWORDSENT" xml:space="preserve">
     <value>Votre mot de passe est envoyé à votre identifiant de messagerie électronique</value>
-    <comment>Your password is sent to your email id</comment>
+    <comment>A link has been sent to your email, click on link to confirm new password</comment>
   </data>
   <data name="L_PATIENT" xml:space="preserve">
     <value>Patient</value>
@@ -2222,8 +2222,8 @@
     <comment>Renewal Disc. %</comment>
   </data>
   <data name="L_RENEWALDISCOUNTPERIOD" xml:space="preserve">
-    <value>Période de remise suite au renouvellement</value>
-    <comment>Renewal Disc. Period</comment>
+    <value>Période de remise suite au renouvellement (mois)</value>
+    <comment>Renewal Disc. Period (months)</comment>
   </data>
   <data name="L_RENEWALID" xml:space="preserve">
     <value>Numéro d'identification du renouvellement</value>
@@ -2342,7 +2342,7 @@
     <comment>Service Left</comment>
   </data>
   <data name="L_SERVICEMINDATE" xml:space="preserve">
-    <value>Durée minimal de la prestation???</value>
+    <value>Durée minimal de la prestation</value>
     <comment>Service MinDate</comment>
   </data>
   <data name="L_SERVICES" xml:space="preserve">
@@ -2586,8 +2586,8 @@
     <comment>Wait</comment>
   </data>
   <data name="L_WAITINGPERIOD" xml:space="preserve">
-    <value>Période de grâce pour le paiement</value>
-    <comment>Grace Period Payment</comment>
+    <value>Période de grâce pour le paiement (mois)</value>
+    <comment>Grace Period Payment (months)</comment>
   </data>
   <data name="L_WAITINGPERIODADULT" xml:space="preserve">
     <value>Attente adulte</value>
@@ -5023,7 +5023,7 @@
   </data>
   <data name="V_SELECTTYPE" xml:space="preserve">
     <value>Sélectionner le type</value>
-    <comment>--Select Type--</comment>
+    <comment>Select Type</comment>
   </data>
   <data name="V_SUMMARY" xml:space="preserve">
     <value>Veuillez cocher les champs marqués d'un astérisque (*).</value>
@@ -5533,6 +5533,71 @@
     <value />
     <comment>No Enrollment Found</comment>
   </data>
+<data name="T_ACCEPTED" xml:space="preserve">
+<value/>
+    <comment>Accepted</comment>
+  </data>
+  <data name="T_DIAGNOSISCODENOTINTHECURRENTLIST" xml:space="preserve">
+<value/>    <comment>Diagnosis code not in the current list of diagnoses</comment>
+  </data>
+  <data name="T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD" xml:space="preserve">
+    <value/><comment>Item/service cannot be covered within waiting period</comment>
+  </data>
+  <data name="T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT" xml:space="preserve">
+    <value/><comment>Item/Service doesn’t comply with type of care constraint</comment>
+  </data>
+  <data name="T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY" xml:space="preserve">
+    <value/><comment>Item/Service doesn’t comply with frequency constraint</comment>
+  </data>
+  <data name="T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION" xml:space="preserve">
+    <value/><comment>Item/Service doesn’t comply with limitations on patients (men/women,
+adults/children)</comment>
+  </data>
+  <data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
+    <value/><comment>Item/Service duplicated</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
+    <value/><comment>Item/Service is not covered by an active policy of the patient</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
+    <value/><comment>Item/Service not in the pricelists associated with the health facility</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
+    <value/><comment>Item/Service not in the registers of medical items/services</comment>
+  </data>
+  <data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
+    <value/><comment>Not valid insurance number</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of antenatal contacts exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of consultations exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of deliveries exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of in-patient admissions exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of out-patient visits exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of provisions of item/service exceeded</comment>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
+    <value/><comment>Maximum number of surgeries exceeded</comment>
+  </data>
+  <data name="T_NA" xml:space="preserve">
+    <value/><comment>N/A</comment>
+  </data>
+  <data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
+    <value/><comment>Rejected by a medical officer</comment>
+  </data>
+  <data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
+    <value/><comment>Target date of provision of health care invalid</comment>
+  </data>
   <data name="L_AGE" xml:space="preserve">
     <value>Âge</value>
     <comment>Age</comment>
@@ -5540,6 +5605,12 @@
   <data name="L_FSPLEVEL" xml:space="preserve">
     <value />
     <comment>Level of FSP</comment>
+  </data>
+  <data name="M_LINKSENT" xml:space="preserve">
+    <value>Link sent to email</value>
+  </data>
+  <data name="M_NOUSERSLOGIN" xml:space="preserve">
+    <value>No user found with this username</value>
   </data>
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value />
@@ -5557,11 +5628,14 @@
     <value>Roles Found</value>
     <comment>Roles Found</comment>
   </data>
+  <data name="B_CLAIMSREVIEWS" xml:space="preserve">
+    <value />
+    <comment>Claims Reviewed</comment>
+  </data>
   <data name="L_INCLUDELOGIN" xml:space="preserve">
     <value>Include Login</value>
     <comment>Include Login</comment>
   </data>
-  
   <data name="L_HASLOGIN" xml:space="preserve">
     <value>Has Login</value>
     <comment>Has Login</comment>

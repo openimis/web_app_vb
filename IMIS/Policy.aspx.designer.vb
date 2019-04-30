@@ -40,7 +40,7 @@ Option Explicit On
 
 
 Partial Public Class Policy
-
+    
     '''<summary>
     '''hfCheckMaxInsureeCount control.
     '''</summary>
@@ -49,7 +49,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfCheckMaxInsureeCount As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''hfIsRenewalLate control.
     '''</summary>
@@ -58,7 +58,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfIsRenewalLate As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''hfDistrictID control.
     '''</summary>
@@ -67,7 +67,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfDistrictID As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''hfLocationId control.
     '''</summary>
@@ -76,7 +76,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfLocationId As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''hfRegionId control.
     '''</summary>
@@ -85,7 +85,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfRegionId As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''L_FAMILYPANEL control.
     '''</summary>
@@ -94,7 +94,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_FAMILYPANEL As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''lblHeadCHFID control.
     '''</summary>
@@ -103,7 +103,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblHeadCHFID As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtHeadCHFID control.
     '''</summary>
@@ -112,7 +112,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtHeadCHFID As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''L_REGION control.
     '''</summary>
@@ -121,7 +121,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_REGION As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtRegion control.
     '''</summary>
@@ -130,7 +130,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtRegion As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''L_CONFIRMATIONNO0 control.
     '''</summary>
@@ -139,7 +139,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_CONFIRMATIONNO0 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtConfirmationType control.
     '''</summary>
@@ -148,7 +148,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtConfirmationType As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblHeadLastName control.
     '''</summary>
@@ -157,7 +157,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblHeadLastName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtHeadLastName control.
     '''</summary>
@@ -166,7 +166,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtHeadLastName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''L_DISTRICT control.
     '''</summary>
@@ -175,7 +175,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_DISTRICT As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtDistrict control.
     '''</summary>
@@ -184,7 +184,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDistrict As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''L_CONFIRMATIONNO control.
     '''</summary>
@@ -193,7 +193,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_CONFIRMATIONNO As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtConfirmationNo1 control.
     '''</summary>
@@ -202,7 +202,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtConfirmationNo1 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblHeadOtherNames control.
     '''</summary>
@@ -211,7 +211,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblHeadOtherNames As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtHeadOtherNames control.
     '''</summary>
@@ -220,7 +220,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtHeadOtherNames As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''L_WARD control.
     '''</summary>
@@ -229,7 +229,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_WARD As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtWard control.
     '''</summary>
@@ -238,7 +238,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtWard As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''L_ADDRESS0 control.
     '''</summary>
@@ -247,7 +247,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_ADDRESS0 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtPermanentAddress control.
     '''</summary>
@@ -256,7 +256,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPermanentAddress As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblPoverty control.
     '''</summary>
@@ -265,7 +265,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPoverty As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtPoverty control.
     '''</summary>
@@ -274,7 +274,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPoverty As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''L_VILLAGE control.
     '''</summary>
@@ -283,7 +283,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_VILLAGE As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtVillage control.
     '''</summary>
@@ -292,7 +292,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtVillage As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlBody control.
     '''</summary>
@@ -301,7 +301,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlBody As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''upCHFID control.
     '''</summary>
@@ -310,7 +310,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents upCHFID As Global.System.Web.UI.UpdatePanel
-
+    
     '''<summary>
     '''hfInsurancePeriod control.
     '''</summary>
@@ -319,7 +319,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfInsurancePeriod As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''lblEnrolmentDate control.
     '''</summary>
@@ -328,7 +328,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblEnrolmentDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtEnrollmentDate control.
     '''</summary>
@@ -337,7 +337,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEnrollmentDate As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''btnEnrollmentDate control.
     '''</summary>
@@ -346,7 +346,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnEnrollmentDate As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''CalendarExtender2 control.
     '''</summary>
@@ -355,7 +355,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
-
+    
     '''<summary>
     '''txtEnrolDate_MaskedEditExtender control.
     '''</summary>
@@ -364,7 +364,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEnrolDate_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''RegularExpressionValidatortxtDob control.
     '''</summary>
@@ -373,7 +373,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidatortxtDob As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''RequiredfieldValidator1 control.
     '''</summary>
@@ -382,7 +382,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredfieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''lblPolicyStatus control.
     '''</summary>
@@ -391,7 +391,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPolicyStatus As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblProduct control.
     '''</summary>
@@ -400,7 +400,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblProduct As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ddlProduct control.
     '''</summary>
@@ -409,7 +409,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlProduct As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''RequiredfieldValidator3 control.
     '''</summary>
@@ -418,7 +418,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredfieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''RequiredFieldValidatorPackage control.
     '''</summary>
@@ -427,7 +427,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidatorPackage As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''lblEffectiveDate control.
     '''</summary>
@@ -436,7 +436,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblEffectiveDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtEffectiveDate control.
     '''</summary>
@@ -445,7 +445,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEffectiveDate As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CalendarExtender4 control.
     '''</summary>
@@ -454,7 +454,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender4 As Global.AjaxControlToolkit.CalendarExtender
-
+    
     '''<summary>
     '''MaskedEditExtender1 control.
     '''</summary>
@@ -463,7 +463,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MaskedEditExtender1 As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''RegularExpressionValidator1 control.
     '''</summary>
@@ -472,7 +472,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtPolicyStatus control.
     '''</summary>
@@ -481,7 +481,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPolicyStatus As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''lblStartDate control.
     '''</summary>
@@ -490,7 +490,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblStartDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtStartDate control.
     '''</summary>
@@ -499,7 +499,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtStartDate As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CalendarExtender1 control.
     '''</summary>
@@ -508,7 +508,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender1 As Global.AjaxControlToolkit.CalendarExtender
-
+    
     '''<summary>
     '''MaskedEditExtender2 control.
     '''</summary>
@@ -517,7 +517,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MaskedEditExtender2 As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''RegularExpressionValidator2 control.
     '''</summary>
@@ -526,7 +526,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''RequiredfieldValidator2 control.
     '''</summary>
@@ -535,7 +535,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredfieldValidator2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''lblExpiryDate control.
     '''</summary>
@@ -544,7 +544,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblExpiryDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtExpiryDate control.
     '''</summary>
@@ -553,7 +553,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtExpiryDate As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CalendarExtender3 control.
     '''</summary>
@@ -562,7 +562,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender3 As Global.AjaxControlToolkit.CalendarExtender
-
+    
     '''<summary>
     '''MaskedEditExtender3 control.
     '''</summary>
@@ -571,7 +571,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MaskedEditExtender3 As Global.AjaxControlToolkit.MaskedEditExtender
-
+    
     '''<summary>
     '''RegularExpressionValidator3 control.
     '''</summary>
@@ -580,7 +580,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator3 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''lblEnrolementOfficer control.
     '''</summary>
@@ -589,7 +589,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblEnrolementOfficer As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ddlEnrolementOfficer control.
     '''</summary>
@@ -598,7 +598,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlEnrolementOfficer As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''RequiredFieldValidatorRegistrationAuthority control.
     '''</summary>
@@ -607,7 +607,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidatorRegistrationAuthority As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''RequiredfieldValidator4 control.
     '''</summary>
@@ -616,7 +616,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredfieldValidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''UpdatePanel1 control.
     '''</summary>
@@ -625,7 +625,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
-
+    
     '''<summary>
     '''PlnBody3 control.
     '''</summary>
@@ -634,7 +634,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents PlnBody3 As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''lblPolicyValue control.
     '''</summary>
@@ -643,7 +643,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPolicyValue As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblPremiumPaid control.
     '''</summary>
@@ -652,7 +652,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPremiumPaid As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblBalance control.
     '''</summary>
@@ -661,7 +661,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblBalance As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''Label1 control.
     '''</summary>
@@ -670,7 +670,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtPolicyValue control.
     '''</summary>
@@ -679,7 +679,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPolicyValue As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtPremiumPaid control.
     '''</summary>
@@ -688,7 +688,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPremiumPaid As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtBalance control.
     '''</summary>
@@ -697,7 +697,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtBalance As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''PnlBody4 control.
     '''</summary>
@@ -706,7 +706,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents PnlBody4 As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''lblGeneral control.
     '''</summary>
@@ -715,7 +715,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblGeneral As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblInpatient control.
     '''</summary>
@@ -724,7 +724,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblInpatient As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblOutpatient control.
     '''</summary>
@@ -733,7 +733,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblOutpatient As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblDeductable control.
     '''</summary>
@@ -742,7 +742,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblDeductable As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtPaidDeductable control.
     '''</summary>
@@ -751,7 +751,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPaidDeductable As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CompareValidator1 control.
     '''</summary>
@@ -760,7 +760,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator1 As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''txtPaidDeductableIP control.
     '''</summary>
@@ -769,7 +769,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPaidDeductableIP As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CompareValidator2 control.
     '''</summary>
@@ -778,7 +778,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator2 As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''txtPaidDeductableOP control.
     '''</summary>
@@ -787,7 +787,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPaidDeductableOP As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CompareValidator3 control.
     '''</summary>
@@ -796,7 +796,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator3 As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''lblRemuneratedHealthCare control.
     '''</summary>
@@ -805,7 +805,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblRemuneratedHealthCare As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtRemuneratedHealthCare control.
     '''</summary>
@@ -814,7 +814,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtRemuneratedHealthCare As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CompareValidator4 control.
     '''</summary>
@@ -823,7 +823,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator4 As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''txtRemuneratedIP control.
     '''</summary>
@@ -832,7 +832,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtRemuneratedIP As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CompareValidator5 control.
     '''</summary>
@@ -841,7 +841,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator5 As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''txtRemuneratedOP control.
     '''</summary>
@@ -850,7 +850,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtRemuneratedOP As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''CompareValidator6 control.
     '''</summary>
@@ -859,7 +859,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator6 As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''hfFamilyID control.
     '''</summary>
@@ -868,7 +868,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfFamilyID As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''hfPolicyStage control.
     '''</summary>
@@ -877,7 +877,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfPolicyStage As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -886,7 +886,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''B_SAVE control.
     '''</summary>
@@ -895,7 +895,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_SAVE As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -904,7 +904,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''lblMsg control.
     '''</summary>
@@ -913,7 +913,7 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMsg As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''validationSummary control.
     '''</summary>

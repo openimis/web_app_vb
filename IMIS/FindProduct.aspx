@@ -375,7 +375,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <asp:Button 
                     ID="B_ADD" 
                     runat="server" 
-                    Text='<%$ Resources:Resource,B_ADD%>'
+                    Text='<%$ Resources:Resource,B_ADD%>' 
                       />
                 </td>
                 
