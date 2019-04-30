@@ -33,8 +33,8 @@ Imports System.Web
 Public Class InsureeBL
     Private Insuree As New IMIS_DAL.InsureeDAL
     Private imisgen As New GeneralBL
-    Public Function GetInsureesByFamily(ByVal FamilyId As Integer) As DataTable
-        Return Insuree.GetInsureesByFamily(FamilyId)
+    Public Function GetInsureesByFamily(ByVal FamilyId As Integer, Optional Language As String = "en") As DataTable
+        Return Insuree.GetInsureesByFamily(FamilyId, Language)
     End Function
     Public Function SaveInsuree(ByVal eInsuree As IMIS_EN.tblInsuree, ByVal Activate As Boolean) As Integer
         If InsureeExists(eInsuree) Then Return 1
@@ -75,9 +75,11 @@ Public Class InsureeBL
     Public Function GetCHFNumbers() As DataTable
         Return Insuree.GetCHFNumbers()
     End Function
-    Public Function FindInsuree(ByRef eInsuree As IMIS_EN.tblInsuree, Optional ByVal All As Boolean = False, Optional ByVal PhotoAssigned As Int16 = 1)
-
-        Return Insuree.GetInsureeFullSearch(eInsuree, All, PhotoAssigned)
+    Public Function FindInsuree(ByRef eInsuree As IMIS_EN.tblInsuree, Optional ByVal All As Boolean = False, Optional ByVal PhotoAssigned As Int16 = 1, Optional Language As String = "en")
+        Dim dtMarital As New DataTable
+        Dim BLGen As New GeneralBL
+        dtMarital = BLGen.GetMaritalStatus
+        Return Insuree.GetInsureeFullSearch(eInsuree, All, PhotoAssigned, Language, dtMarital)
 
     End Function
     Public Function InsureeExists(ByVal eInsuree As IMIS_EN.tblInsuree) As Boolean

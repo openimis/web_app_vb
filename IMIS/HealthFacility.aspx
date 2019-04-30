@@ -86,7 +86,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorLegalForm" runat="server"
                                         Text="*" ControlToValidate="ddlLegalForm" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
 
                             </tr>
@@ -101,7 +101,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorHFLevel" runat="server"
                                         Text="*" ControlToValidate="ddlHFLevel" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -115,7 +115,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                         Text="*" ControlToValidate="ddlHFLevel" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -129,7 +129,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldHFCode" runat="server"
                                         Text="*" ControlToValidate="txtHFCode" SetFocusOnError="True"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -148,7 +148,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         ID="RequiredFieldOtherNames" runat="server"
                                         ControlToValidate="txtFacilityName"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
@@ -166,7 +166,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorAddress" runat="server"
                                         Text="*" ControlToValidate="txtAddress"
-                                        SetFocusOnError="True" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -183,7 +183,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -197,7 +197,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -241,7 +241,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorType" runat="server"
                                         Text="*"
-                                        ControlToValidate="ddlType" SetFocusOnError="True" ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ControlToValidate="ddlType" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>

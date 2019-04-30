@@ -28,11 +28,18 @@
 
 Public Class InsureeDAL
     Dim data As New ExactSQL
-    Public Function GetInsureesByFamily(ByVal FamilyId As Integer) As DataTable
+    Public Function GetInsureesByFamily(ByVal FamilyId As Integer, Optional Language As String = "en") As DataTable
         Dim data As New ExactSQL
-        data.setSQLCommand("select FamilyID,InsureeId,CHFID,LastName,OtherNames,DOB,Gender,Marital" & _
-                           ",cardIssued,isOffline,validityFrom,ValidityTo from tblInsuree where familyid = @FamilyId" & _
-                           " and LegacyID is null and ValidityTo is null ORDER BY CHFID", CommandType.Text)
+        Dim sSQL As String = ""
+        sSQL += "SELECT FamilyID, InsureeId, CHFID, LastName, OtherNames, DOB,"
+        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += ", Marital,cardIssued, isOffline, validityFrom, ValidityTo,RowID from tblInsuree TB"
+        sSQL += " LEFT JOIN tblGender GE On GE.Code = TB.Gender"
+
+
+        sSQL += " WHERE TB.familyid = @FamilyId"
+        sSQL += " AND TB.LegacyID is null and TB.ValidityTo is null AND RowID > 0  ORDER BY CHFID DESC "
+        data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@FamilyId", SqlDbType.Int, FamilyId)
         Return data.Filldata
     End Function
@@ -73,7 +80,7 @@ Public Class InsureeDAL
 
     'Corrected
 
-    Public Function GetInsureeFullSearch(ByVal eInsuree As IMIS_EN.tblInsuree, Optional ByVal All As Boolean = False, Optional ByVal PhotoAssigned As Int16 = 1) As DataTable
+    Public Function GetInsureeFullSearch(ByVal eInsuree As IMIS_EN.tblInsuree, Optional ByVal All As Boolean = False, Optional ByVal PhotoAssigned As Int16 = 1, Optional Language As String = "en", Optional dtMarital As DataTable = Nothing) As DataTable
         Dim sSQL As String = ""
         'sSQL += " SELECT I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,Gender,Marital,phone,DOB,  I.validityfrom,I.validityTo"
         'sSQL += " FROM tblInsuree I"
@@ -89,42 +96,48 @@ Public Class InsureeDAL
         sSQL += " INNER JOIN tblDistricts L ON L.DistrictId = UD.LocationId  "
         sSQL += " WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)  "
         sSQL += " GROUP BY L.DistrictId, L.Region ) "
-        sSQL += " SELECT I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,Gender,Marital,phone,DOB,  I.validityfrom,I.validityTo  "
+        sSQL += " SELECT I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,"
+        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)") & " Gender"
+        sSQL += ",dtMarital.Name Marital, phone, DOB, I.validityfrom, I.validityTo  "
         sSQL += " FROM tblInsuree I  "
-        sSQL += " INNER JOIN tblFamilies F ON I.FamilyID = F.FamilyID  "
-        sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId,0) = ISNULL(F.LocationId,0)  "
-        sSQL += " LEFT JOIN tblPhotos on I.PhotoID = tblPhotos.PhotoID AND tblPhotos.ValidityTo is null  "
+        sSQL += " INNER JOIN tblFamilies F On I.FamilyID = F.FamilyID  "
+        sSQL += " INNER JOIN uvwLocations L On ISNULL(L.LocationId, 0) = ISNULL(F.LocationId, 0)  "
+        sSQL += " LEFT JOIN tblPhotos On I.PhotoID = tblPhotos.PhotoID And tblPhotos.ValidityTo Is null  "
+        sSQL += " LEFT JOIN tblGender GE On GE.Code = I.Gender"
+        sSQL += " LEFT JOIN @dtMarital dtMarital ON I.Marital = dtMarital.Code"
+        'If (Request.Cookies("CultureInfo").Value = "en", "Education", "AltLanguage") Then
 
+        'End If
 
         Dim strWhere As String = ""
-        strWhere += " WHERE  ((L.RegionId IN (SELECT Region FROM UD)) OR (L.DistrictId IN (SELECT DistrictId FROM UD))) "
+        strWhere += " WHERE  ((L.RegionId In (Select Region FROM UD)) Or (L.DistrictId In (Select DistrictId FROM UD))) "
         If All = False Then
-            strWhere += " AND I.ValidityTo is NULL"
+            strWhere += " And I.ValidityTo Is NULL"
         End If
         If Not eInsuree.tblFamilies1.RegionId = 0 Then
-            strWhere += " AND L.RegionId= @RegionId"
+            strWhere += " And L.RegionId= @RegionId"
         End If
         If Not eInsuree.LastName = Nothing Then
             eInsuree.LastName += "%"
-            strWhere += " AND lastname like @Lastname"
+            strWhere += " And lastname Like @Lastname"
         End If
         If Not eInsuree.OtherNames = Nothing Then
             eInsuree.OtherNames += "%"
-            strWhere += " And othernames like @OtherNames"
+            strWhere += " And othernames Like @OtherNames"
         End If
         If Not eInsuree.CHFID = Nothing Then
             eInsuree.CHFID += "%"
-            strWhere += " AND I.CHFID like @CHFID"
+            strWhere += " And I.CHFID Like @CHFID"
         End If
         If Not eInsuree.Gender = Nothing Then
-            strWhere += " AND Gender = @Gender"
+            strWhere += " And I.Gender = @Gender"
         End If
         If Not eInsuree.Marital = Nothing Then
-            strWhere += " AND Marital = @Marital"
+            strWhere += " And I.Marital = @Marital"
         End If
         If Not eInsuree.Phone = Nothing Then
             eInsuree.Phone += "%"
-            strWhere += " AND isnull(Phone,'') like @Phone"
+            strWhere += " And isnull(Phone,'') like @Phone"
         End If
         If Not eInsuree.tblFamilies1.DistrictId Is Nothing Then
             strWhere += " AND L.DistrictID = @DistrictID"
@@ -161,7 +174,10 @@ Public Class InsureeDAL
 
         sSQL += strWhere
 
-        sSQL += " GROUP BY  I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,Gender,Marital,phone,DOB,  I.validityfrom,I.validityTo"
+        sSQL += " GROUP BY  I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,I.Gender,"
+
+        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)")
+        sSQL += ",dtMarital.Name,phone,DOB,  I.validityfrom,I.validityTo"
         strWhere += " order by LastName,I.ValidityFrom desc ,I.ValidityTo desc"
         Dim data As New ExactSQL
         'changed by amani added timeout:=0 12/12/2017
@@ -176,10 +192,11 @@ Public Class InsureeDAL
         data.params("@Marital", SqlDbType.Char, 1, eInsuree.Marital)
         data.params("@Phone", SqlDbType.NVarChar, 50, eInsuree.Phone)
         data.params("@RegionId", SqlDbType.Int, eInsuree.tblFamilies1.RegionId)
-        data.params("@DistrictID", SqlDbType.Int, eInsuree.tblFamilies1.DistrictID)
+        data.params("@DistrictID", SqlDbType.Int, eInsuree.tblFamilies1.DistrictId)
         data.params("@VillageID", SqlDbType.Int, eInsuree.tblFamilies1.LocationId)
-        data.params("@WardID", SqlDbType.Int, eInsuree.tblFamilies1.WardID)
+        data.params("@WardID", SqlDbType.Int, eInsuree.tblFamilies1.WardId)
         data.params("@Email", SqlDbType.NVarChar, 100, "%" & eInsuree.Email & "%")
+        data.params("@dtMarital", dtMarital, "xAttributeV")
         Return data.Filldata
 
 
@@ -401,12 +418,6 @@ Public Class InsureeDAL
         End Try
     End Sub
     Public Function InsureeExists(ByVal eInsuree As IMIS_EN.tblInsuree) As DataTable
-        'Dim data As New ExactSQL
-        'data.setSQLCommand("select count(*) from tblInsuree where CHFID = @CHFId", CommandType.Text)
-        'data.params("@CHFId", SqlDbType.Char, 9, CHFID)
-        '
-
-
         Dim data As New ExactSQL
         Dim strSQL As String = "select * from tblInsuree where CHFID = @CHFId AND ValidityTo IS NULL"
 
@@ -424,32 +435,24 @@ Public Class InsureeDAL
 
     Public Function FindInsureeByCHFID(ByVal CHFID As String, Optional Language As String = "en") As DataTable
         Dim data As New ExactSQL
-        'Imports System.Web.Configuration.WebConfigurationManager
         Dim UpdatedFolder As String
         UpdatedFolder = System.Web.Configuration.WebConfigurationManager.AppSettings("UpdatedFolder").ToString()
-        Dim sSQL As String = "SELECT I.CHFID, I.LastName, I.OtherNames, CONVERT(VARCHAR,I.DOB,103)DOB, @UpdatedFolder + P.PhotoFileName AS PhotoPath"
-        sSQL += "," & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
-        sSQL += ", (YEAR(GETDATE()) - YEAR(I.DOB)) AS Age"
-        sSQL += ", HF.HFCode + ' ' + HF.HFName AS FirstServicePoint"
-        sSQL += ", CASE HF.HFLevel WHEN 'D' THEN 'Dispensary' WHEN 'C' THEN 'Health Centre' WHEN 'H' THEN 'Hospital' END HFLevel"
-        sSQL += ", R.LocationName RegionOfFSP, D.LocationName DistrictOfFSP "
-        sSQL += " FROM tblInsuree I INNER JOIN tblFamilies F ON I.FamilyID = F.FamilyID"
-        sSQL += " LEFT OUTER JOIN tblPhotos P ON I.PhotoID = P.PhotoID"
+        Dim sSQL As String = " SELECT HF.HFCode+' ' +HF.HFName AS FirstServicePoint, CASE HF.HFLevel WHEN 'D' THEN 'Dispensary' WHEN 'C' THEN 'Health Centre' WHEN 'H' THEN 'Hospital' END HFLevel, R.LocationName RegionOfFSP,D.LocationName DistrictOfFSP, I.CHFID,I.LastName,I.OtherNames,CONVERT(VARCHAR,I.DOB,103)DOB, (YEAR(GETDATE()) - YEAR(I.DOB)) AS Age,"
+        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += ", P.PhotoFileName AS PhotoPath FROM tblInsuree I"
+        sSQL += " INNER JOIN tblFamilies F On I.FamilyID = F.FamilyID"
+        sSQL += " LEFT OUTER JOIN tblPhotos P On I.PhotoID = P.PhotoID"
         sSQL += " LEFT OUTER JOIN tblHF HF On HF.HfID = I.HFID"
         sSQL += " LEFT OUTER JOIN tblLocations D On D.LocationId = HF.LocationId"
         sSQL += " LEFT OUTER JOIN tblLocations R On R.LocationId = D.ParentLocationId"
         sSQL += " LEFT OUTER JOIN tblGender GE On GE.Code = I.Gender"
-        sSQL += " WHERE I.CHFID = @CHFID AND I.ValidityTo IS NULL"
+        sSQL += " WHERE I.CHFID = @CHFID And I.ValidityTo Is NULL"
         sSQL += " And I.ValidityTo Is NULL"
         sSQL += " And D.ValidityTo Is NULL"
         sSQL += " And R.ValidityTo Is NULL"
-
         data.setSQLCommand(sSQL, CommandType.Text)
-
         data.params("@CHFID", SqlDbType.NVarChar, 12, CHFID)
-        'data.params("@UpdatedFolder", SqlDbType.NVarChar, 100, HttpContext.Current.Server.MapPath(UpdatedFolder))
         data.params("@UpdatedFolder", SqlDbType.NVarChar, 100, UpdatedFolder)
-
         Return data.Filldata
 
     End Function

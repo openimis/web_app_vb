@@ -535,7 +535,7 @@
     <value>Care Type</value>
   </data>
   <data name="L_FREQUENCY" xml:space="preserve">
-    <value>Frequency</value>
+    <value>Frequency (days)</value>
   </data>
   <data name="L_PATIENT" xml:space="preserve">
     <value>Patient</value>
@@ -547,7 +547,7 @@
     <value>Please select at least one patient</value>
   </data>
   <data name="V_SELECTTYPE" xml:space="preserve">
-    <value>--Select Type--</value>
+    <value>Select Type</value>
   </data>
   <data name="L_DATE" xml:space="preserve">
     <value>Date</value>
@@ -976,10 +976,10 @@
     <value>Preview</value>
   </data>
   <data name="L_GRACEPERIOD" xml:space="preserve">
-    <value>Grace Period Enrolment</value>
+    <value>Grace Period Enrolment (months)</value>
   </data>
   <data name="L_INSURANCEPERIOD" xml:space="preserve">
-    <value>Insurance Period</value>
+    <value>Insurance Period (months)</value>
   </data>
   <data name="L_DEDUCTABLEINCEILING" xml:space="preserve">
     <value>Deductable (Hospital) Ceiling</value>
@@ -1117,7 +1117,7 @@
     <value>Redirect</value>
   </data>
   <data name="M_NOPAGEACCESSPERMISSION" xml:space="preserve">
-    <value>You don't have enough permission to access the page</value>
+    <value>You do not have enough permission to access the page</value>
   </data>
   <data name="L_EXPIREDATE" xml:space="preserve">
     <value>Expire Date</value>
@@ -1753,7 +1753,7 @@
     <value>The claim was deleted successfully</value>
   </data>
   <data name="M_CLAIMNOTENTEREDNODELETE" xml:space="preserve">
-    <value>The status of this Claim is not ENTERED and thus can't be deleted</value>
+    <value>The status of this Claim is not ENTERED and thus can not be deleted</value>
   </data>
   <data name="M_CLAIMNOTFORFEEDBACKPROCESS" xml:space="preserve">
     <value>The claim status does not allow it to be viewed for feedback process</value>
@@ -2131,13 +2131,13 @@
     <value>Insuree is already in this Family/Group</value>
   </data>
   <data name="M_INSUREEHEADFMLYDELETENOT" xml:space="preserve">
-    <value>Insuree is Head of Family/Group, can't be deleted</value>
+    <value>Insuree is Head of Family/Group, can not be deleted</value>
   </data>
   <data name="M_INSUREENOTDELETED" xml:space="preserve">
     <value>Insuree not deleted</value>
   </data>
   <data name="M_POLICYHASPREMIUMNODELETE" xml:space="preserve">
-    <value>Policy has Contribution(s), Can't be deleted</value>
+    <value>Policy has Contribution(s), can not be deleted</value>
   </data>
   <data name="M_PREMIUMISINUSE" xml:space="preserve">
     <value>Contribution is in use</value>
@@ -2647,7 +2647,7 @@
     <value>Please enter an identifier number</value>
   </data>
   <data name="M_CREATEOFFLINEEXTRACTPROMPT" xml:space="preserve">
-    <value>&lt;/BR&gt;&lt;/BR&gt;You haven\'t selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region.</value>
+    <value>&lt;/BR&gt;&lt;/BR&gt;You have not selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region.</value>
   </data>
   <data name="M_VALIDATEADDBUTTONCLAIMADMIN" xml:space="preserve">
     <value>Please select a Claim Administrator first</value>
@@ -2731,7 +2731,7 @@
     <value>Assembly Lump Sum</value>
   </data>
   <data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
-    <value>Grace Period Renewal</value>
+    <value>Grace Period Renewal (months)</value>
   </data>
   <data name="L_HOSPITALIZATIONS" xml:space="preserve">
     <value>Hospitalizations</value>
@@ -2776,7 +2776,7 @@
     <value>Max Installments</value>
   </data>
   <data name="L_WAITINGPERIOD" xml:space="preserve">
-    <value>Grace Period Payment</value>
+    <value>Grace Period Payment (months)</value>
   </data>
   <data name="M_INVALIDCYCLE1DATE" xml:space="preserve">
     <value>Invalid cycle 1 date</value>
@@ -2962,13 +2962,13 @@
     <value>Confirmation No.</value>
   </data>
   <data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
-    <value>Administration Period</value>
+    <value>Administration Period (months)</value>
   </data>
   <data name="L_RENEWALDISCOUNTPERCENTAGE" xml:space="preserve">
     <value>Renewal Disc. %</value>
   </data>
   <data name="L_RENEWALDISCOUNTPERIOD" xml:space="preserve">
-    <value>Renewal Disc. Period</value>
+    <value>Renewal Disc. Period (months)</value>
   </data>
   <data name="L_STARTCYCLE3" xml:space="preserve">
     <value>Start Cycle 3</value>
@@ -3202,7 +3202,7 @@
     <value>Enrolment Disc. %</value>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
-    <value>Enrolment Disc. Period</value>
+    <value>Enrolment Disc. Period (months)</value>
   </data>
   <data name="M_ENROLDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
     <value>Enrolment discount percentage should be less than or equal to hundred</value>
@@ -3565,7 +3565,7 @@
     <value>Antenatal Amount/Claim</value>
   </data>
   <data name="L_TOTALANTENATALLEFT" xml:space="preserve">
-    <value>Antenatal Left</value>
+    <value>Antenatal left</value>
   </data>
   <data name="T_SELECTMAINDG" xml:space="preserve">
     <value>--Select Main Dg.--</value>
@@ -4188,6 +4188,9 @@
   <data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
     <value>Please enter an Main Dg code</value>
   </data>
+  <data name="B_CLAIMSREVIEWS" xml:space="preserve">
+    <value>Claims Reviewed</value>
+    </data>
   <data name="L_INCLUDELOGIN" xml:space="preserve">
     <value>Include Login</value>
   </data>

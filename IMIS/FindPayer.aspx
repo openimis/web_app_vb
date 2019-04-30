@@ -247,7 +247,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 HeaderStyle-Width ="200px">
                                  <HeaderStyle Width="200px" />
                             </asp:HyperLinkField>
-                        <asp:BoundField DataField="PayerType"  HeaderText='<%$ Resources:Resource,L_TYPE %>' SortExpression="PayerType" 
+                        <asp:BoundField DataField="AltLanguage"  HeaderText='<%$ Resources:Resource,L_TYPE %>' SortExpression="PayerType" 
                                 HeaderStyle-Width ="80px"> 
                         
                             <HeaderStyle Width="80px" />

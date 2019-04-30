@@ -40,7 +40,7 @@ Option Explicit On
 
 
 Partial Public Class ChangePassword
-
+    
     '''<summary>
     '''pnChangePassword control.
     '''</summary>
@@ -49,7 +49,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnChangePassword As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''L_CURRENTPASSWORD control.
     '''</summary>
@@ -58,7 +58,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_CURRENTPASSWORD As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtDummyPasswordHiden control.
     '''</summary>
@@ -67,7 +67,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDummyPasswordHiden As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCurrentPassword control.
     '''</summary>
@@ -76,7 +76,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCurrentPassword As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldCurrentPassword control.
     '''</summary>
@@ -85,7 +85,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldCurrentPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''L_NEWPASSWORD control.
     '''</summary>
@@ -94,7 +94,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_NEWPASSWORD As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtNewPassword control.
     '''</summary>
@@ -103,7 +103,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNewPassword As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldPassword control.
     '''</summary>
@@ -112,7 +112,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rePasswordStrength control.
     '''</summary>
@@ -121,7 +121,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rePasswordStrength As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''L_ConfirmPassword control.
     '''</summary>
@@ -130,7 +130,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_ConfirmPassword As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtConfirmNewPassword control.
     '''</summary>
@@ -139,7 +139,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtConfirmNewPassword As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldConfirmPassoward control.
     '''</summary>
@@ -148,7 +148,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldConfirmPassoward As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''ComparePassword control.
     '''</summary>
@@ -157,7 +157,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ComparePassword As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -166,7 +166,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''B_SAVE control.
     '''</summary>
@@ -175,7 +175,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_SAVE As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -184,7 +184,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''lblMsg control.
     '''</summary>
@@ -193,7 +193,7 @@ Partial Public Class ChangePassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMsg As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''validationSummary control.
     '''</summary>

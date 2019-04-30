@@ -28,9 +28,9 @@
 
 Public Class OverviewFamilyBI
 
-    Public Function GetInsureesByFamilyFiltered(ByVal FamilyId As Integer) As DataTable
+    Public Function GetInsureesByFamilyFiltered(ByVal FamilyId As Integer, Optional Language As String = "en") As DataTable
         Dim Insurees As New IMIS_BL.InsureeBL
-        Return Insurees.GetInsureesByFamily(FamilyId)
+        Return Insurees.GetInsureesByFamily(FamilyId, Language)
     End Function
     Public Function GetPolicybyFamily(ByVal FamilyId As Integer) As DataTable
         Dim Policy As New IMIS_BL.PolicyBL
