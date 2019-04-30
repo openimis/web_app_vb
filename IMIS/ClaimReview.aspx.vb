@@ -193,7 +193,6 @@ Partial Public Class ClaimReview
     End Sub
 
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimReview, Page) Then
             pnlServiceDetails.Enabled = userBI.CheckRoles(IMIS_EN.Enums.Rights.ReviewClaim, UserID)
