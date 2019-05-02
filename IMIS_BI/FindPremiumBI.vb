@@ -27,7 +27,10 @@
 '
 
 Public Class FindPremiumBI
-
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetPremium(ByRef ePremium As IMIS_EN.tblPremium, Optional ByVal ALL As Boolean = False)
         Dim Premium As New IMIS_BL.PremiumBL
         Return Premium.FindPremium(ePremium, ALL)
@@ -39,11 +42,6 @@ Public Class FindPremiumBI
     Public Function GetPayers(ByVal RegionId As Integer, ByVal Districtid As Integer, ByVal userId As Integer, ByVal showSelect As Boolean) As DataTable
         Dim Premimum As New IMIS_BL.PayersBL
         Return Premimum.GetPayers(RegionId, Districtid, userId, True)
-    End Function
-
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
 
      Public Function GetDistricts(ByVal userId As Integer, Optional ByVal showSelect As Boolean = False, Optional ByVal RegionId As Integer = 0) As DataTable

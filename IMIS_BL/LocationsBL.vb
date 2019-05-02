@@ -44,7 +44,7 @@ Public Class LocationsBL
         End If
         Return dt
     End Function
-    Public Function GetDistrictsAll(ByVal userID As Integer, Optional RegionId As Integer = 0, Optional ByVal showSelect As Boolean = False) As DataTable
+    Public Function GetDistrictsAll(ByVal userID As Integer, Optional RegionId As Integer = 0, Optional ByVal showSelect As Boolean = False, Optional Authority As Integer = 0) As DataTable
         Dim Districts As New IMIS_DAL.LocationsDAL
         Dim dt As DataTable = Districts.GetDistrictsALL(userID, RegionId)
         If dt.Rows.Count > 1 Then
@@ -226,7 +226,7 @@ Public Class LocationsBL
         End If
         Return dt
     End Function
-    Public Function GetAllRegions(UserId As Integer, Optional ShowSelect As Boolean = True, Optional IncludeNational As Boolean = False) As DataTable
+    Public Function GetAllRegions(UserId As Integer, Optional ShowSelect As Boolean = True, Optional IncludeNational As Boolean = False, Optional Authority As Integer = 0) As DataTable
         Dim Region As New IMIS_DAL.LocationsDAL
         Dim imisgen As New GeneralBL
         Dim dt As DataTable = Region.getAllRegions(UserId)

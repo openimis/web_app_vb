@@ -64,17 +64,11 @@ Partial Public Class FindUser
             If Not IsPostBack = True Then
 
                 'HIREN: Line below checks for the userid which I think is wrong, should check for the roleId instead
-                'Dim roles As Integer = if(imisGen.getUserId(Session("User")) = 524288, 525184, 1023)
-                Dim roles As Integer
-                If IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF Then
-                    Roles = if(imisGen.getRoleId(Session("User")) = 524288, 525184, 1048584)
-                Else
-                    roles = 1023 'imisGen.getRoleId(Session("User")) 'comment by rogers to get all online roles
-                End If
 
-                ddlRole.DataSource = users.GetUserRoles(roles, True)
-                ddlRole.DataValueField = "Code"
-                ddlRole.DataTextField = "Role"
+
+                ddlRole.DataSource = users.GetRoles(IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
+                ddlRole.DataValueField = "RoleID"
+                ddlRole.DataTextField = "RoleName"
                 ddlRole.DataBind()
                 'here 000
                 Dim dtRegions As DataTable = users.GetRegions(imisGen.getUserId(Session("User")), True)
@@ -111,13 +105,14 @@ Partial Public Class FindUser
     End Sub
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim RoleID As Integer = imisGen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisGen.getUserId(Session("User"))
         If Not ondelete Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindUser, Page) Then
-                B_ADD.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddUser, RoleID)
-                B_EDIT.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditUser, RoleID)
-                B_DELETE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteUser, RoleID)
-
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersAdd, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersEdit, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersDelete, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.UsersSearch, UserID)
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
                 End If
@@ -127,7 +122,7 @@ Partial Public Class FindUser
 
         Else
 
-            If Not userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteUser, RoleID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.UsersDelete, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindUser.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -185,10 +180,10 @@ Partial Public Class FindUser
         End If
 
         eLocations.RegionId = RegionId
-        eLocations.DistrictID = DistrictId
+        eLocations.DistrictId = DistrictId
         eUser.tblLocations = eLocations
-
-        Dim dtUsers As DataTable = users.GetUsers(eUser, chkLegacy.Checked, LocationId)
+        Dim Authority As Integer = imisGen.getUserId(Session("User"))
+        Dim dtUsers As DataTable = users.GetUsers(eUser, chkLegacy.Checked, LocationId, Authority)
         Dim sindex As Integer = 0
         Dim dv As DataView = dtUsers.DefaultView
         If Not IsPostBack = True Then
@@ -251,19 +246,16 @@ Partial Public Class FindUser
 
             B_DELETE.Visible = False
             B_EDIT.Visible = False
-            'B_VIEW.Visible = False
-            B_ADD.Visible = True
+            B_ADD.Visible = B_ADD.Visible
         Else
             If chkLegacy.Checked = True Then
                 B_DELETE.Visible = False
                 B_EDIT.Visible = False
-                'B_VIEW.Visible = True
                 B_ADD.Visible = False
             Else
-                B_DELETE.Visible = True
-                B_EDIT.Visible = True
-                'B_VIEW.Visible = False
-                B_ADD.Visible = True
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_ADD.Visible = B_ADD.Visible
             End If
 
         End If

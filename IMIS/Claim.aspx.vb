@@ -248,9 +248,11 @@ Partial Public Class Claim
         'Addition for Nepal >> End
     End Sub
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Claim, Page) Then
-            B_SAVE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EnterClaim, RoleID)
+            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimAdd, UserID)
+            btnPrint.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimPrint, UserID)
 
             If Not B_SAVE.Visible Then
                 pnlBodyCLM.Attributes.Add("Class", "disabled")

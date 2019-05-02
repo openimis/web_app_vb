@@ -27,13 +27,21 @@
 '
 
 Public Class FindUsersBI
-    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, Optional ByVal All As Boolean = False, Optional ByVal DistrictId As Integer = 0) As DataTable
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
+    Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, Optional ByVal All As Boolean = False, Optional ByVal DistrictId As Integer = 0, Optional Authority As Integer = 0) As DataTable
         Dim users As New IMIS_BL.UsersBL
-        Return users.GetUsers(eUser, All, DistrictId)
+        Return users.GetUsers(eUser, All, DistrictId, Authority:=Authority)
     End Function
     Public Function GetDistricts(ByVal userId As Integer, Optional ByVal showSelect As Boolean = False, Optional ByVal RegionId As Integer = 0) As DataTable
         Dim Districts As New IMIS_BL.LocationsBL
         Return Districts.GetDistricts(userId, True, RegionId)
+    End Function
+    Public Function GetRoles(Offline As Boolean) As DataTable
+        Dim users As New IMIS_BL.UsersBL
+        Return users.GetRoles(Offline)
     End Function
     Public Function GetUserRoles(ByVal RoleId As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim users As New IMIS_BL.UsersBL
@@ -47,10 +55,6 @@ Public Class FindUsersBI
         Dim Del As New IMIS_BL.UsersBL
         Del.DeleteUser(eUser)
         Return True
-    End Function
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
     Public Function GetHFCodes(ByVal UserId As Integer, ByVal LocationId As Integer) As DataTable
         Dim hf As New IMIS_BL.HealthFacilityBL

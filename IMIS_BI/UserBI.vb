@@ -28,30 +28,31 @@
 
 Public Class UserBI
 
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetLanguage() As DataTable
         Dim users As New IMIS_BL.GeneralBL
         Return users.GetLanguage
     End Function
-    Public Function GetDistricts(ByVal userID As Integer) As DataTable
+    Public Function GetDistricts(ByVal userID As Integer, Authority As Integer) As DataTable
         Dim districts As New IMIS_BL.LocationsBL
-        Return districts.GetDistrictsAll(userID)
+        Return districts.GetDistrictsAll(userID, Authority:=Authority)
     End Function
     Public Function GetDistrictForHF(ByVal HFID As Integer, ByVal UserId As Integer) As DataTable
         Dim Loc As New IMIS_BL.LocationsBL
         Return Loc.GetDistrictForHF(HFID, UserId)
     End Function
-    Public Function SaveUser(ByRef eUser As IMIS_EN.tblUsers) As Integer
+    Public Function SaveUser(ByRef eUser As IMIS_EN.tblUsers, dtRoles As DataTable) As Integer
         Dim users As New IMIS_BL.UsersBL
-        Return users.SaveUser(eUser)
+        Return users.SaveUser(eUser, dtRoles)
     End Function
     Public Function SaveUserDistricts(ByVal eUserDistricts As IMIS_EN.tblUsersDistricts) As Integer
         Dim users As New IMIS_BL.UsersBL
         Return users.SaveUserDistricts(eUserDistricts)
     End Function
-    Public Function GetRoles(ByVal RoleId As Integer) As DataTable
-        Dim getDataTable As New IMIS_BL.UsersBL
-        Return getDataTable.getUserRoles(RoleId)
-    End Function
+
     Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
         Dim User As New IMIS_BL.UsersBL
         User.LoadUsers(eUser)
@@ -68,17 +69,13 @@ Public Class UserBI
         Dim user As New IMIS_BL.UsersBL
         Return user.RunPageSecurity(PageName, PageObj)
     End Function
-    Public Function getRoleId(ByVal session As Object) As Integer
-        Dim user As New IMIS_BL.UsersBL
-        Return user.getRoleId(session)
-    End Function
-    Public Function CheckRoles(ByVal Right As IMIS_EN.Enums.Rights, ByVal RoleId As Integer) As Boolean
-        Dim user As New IMIS_BL.UsersBL
-        Return user.CheckRoles(Right, RoleId)
-    End Function
-    Public Function getRegions(UserId As Integer) As DataTable
+    Public Function getRegions(UserId As Integer, Authority As Integer) As DataTable
         Dim Region As New IMIS_BL.LocationsBL
-        Return Region.GetAllRegions(UserId, False)
+        Return Region.GetAllRegions(UserId, False, Authority:=Authority)
+    End Function
+    Public Function getUserRoles(ByVal UserId As Integer, offline As Boolean) As DataTable
+        Dim user As New IMIS_BL.UsersBL
+        Return user.getRolesForUser(UserId, offline)
     End Function
     Public Function IsUserExists(ByVal UserID As Integer) As Boolean
         Dim User As New IMIS_BL.UsersBL

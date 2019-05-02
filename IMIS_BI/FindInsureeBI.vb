@@ -27,7 +27,10 @@
 '
 
 Public Class FindInsureeBI
-
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function FindInsuree(ByRef eInsuree As IMIS_EN.tblInsuree, Optional ByVal All As Boolean = False, Optional ByVal PhotoAssigned As Int16 = 1, Optional Language As String = "en")
         Dim Insuree As New IMIS_BL.InsureeBL
         Return Insuree.FindInsuree(eInsuree, All, PhotoAssigned, Language)
@@ -51,10 +54,6 @@ Public Class FindInsureeBI
     Public Function GetMaritalStatus() As DataTable
         Dim Marital As New IMIS_BL.GeneralBL
         Return Marital.GetMaritalStatus()
-    End Function
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
     Public Function GetPhotoAssigned() As DataTable
         Dim insuree As New IMIS_BL.InsureeBL

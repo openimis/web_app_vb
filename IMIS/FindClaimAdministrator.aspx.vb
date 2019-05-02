@@ -135,13 +135,13 @@ Public Partial Class FindClaimAdministrator
     End Sub
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = ImisGen.getUserId(Session("User"))
         If Not ondelete Then
-            If BIFindClaimAdmin.RunPageSecurity(IMIS_EN.Enums.Pages.FindClaimAdministrator, Page) Then
-                B_ADD.Visible = BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.AddClaimAdministrator, RoleID)
-                B_EDIT.Visible = BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.EditClaimAdministrator, RoleID)
-                B_DELETE.Visible = BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, RoleID)
-
+            If BIFindClaimAdmin.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimAdministrator, Page) Then
+                B_ADD.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.AddClaimAdministrator, UserID)
+                B_EDIT.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.EditClaimAdministrator, UserID)
+                B_DELETE.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, UserID)
+                B_SEARCH.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.FindClaimAdministrator, UserID)
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
                 End If
@@ -149,7 +149,7 @@ Public Partial Class FindClaimAdministrator
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaimAdministrator.ToString & "&retUrl=" & RefUrl)
             End If
         Else
-            If Not BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, RoleID) Then
+            If Not BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaimAdministrator.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -193,13 +193,13 @@ Public Partial Class FindClaimAdministrator
             B_ADD.Visible = True
         Else
             If chkLegacy.Checked = True Then
-                B_DELETE.Visible = False
-                B_EDIT.Visible = False
-                B_ADD.Visible = False
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_ADD.Visible = B_ADD.Visible
             Else
-                B_DELETE.Visible = True
-                B_EDIT.Visible = True
-                B_ADD.Visible = True
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_ADD.Visible = B_ADD.Visible
             End If
         End If
     End Sub

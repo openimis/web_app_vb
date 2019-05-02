@@ -29,7 +29,10 @@
 
 Public Class FindFamilyBI
 
-
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetFamily(ByVal eFamily As IMIS_EN.tblFamilies, ByVal All As Boolean, ByVal Allpoverty As Boolean) As DataTable
 
         Dim Family As New IMIS_BL.FamilyBL
@@ -58,11 +61,6 @@ Public Class FindFamilyBI
     Public Function GetPoverty() As DataTable
         Dim Poverty As New IMIS_BL.GeneralBL
         Return Poverty.GetYesNo
-    End Function
-
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
     Public Function GetSubsidy() As DataTable
         Dim F As New IMIS_BL.FamilyBL

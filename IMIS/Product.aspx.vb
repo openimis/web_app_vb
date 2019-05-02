@@ -632,12 +632,12 @@ Partial Public Class Product
         AssignOriginalValue(gvMedicalItems)
     End Sub
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
-        Dim RefUrl = if(Request.Headers("Referer") Is Nothing, String.Empty, Request.Headers("Referer"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
+        Dim RefUrl = If(Request.Headers("Referer") Is Nothing, String.Empty, Request.Headers("Referer"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Product, Page) Then
-            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddProduct, RoleID)
-            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditProduct, RoleID)
-            Dim View As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.ViewProduct, RoleID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.ProductAdd, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.ProductEdit, UserID)
+            Dim View As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.ProductSearch, UserID)
 
             Dim reg As New Regex("OverviewFamily", RegexOptions.IgnoreCase)
             If reg.IsMatch(RefUrl) Then

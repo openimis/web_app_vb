@@ -189,30 +189,32 @@ Public Partial Class ClaimOverview
     End Sub
     Private Sub RunPageSecurity(Optional ByVal which As Integer = 0)
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         Dim RefUrl = Request.Headers("Referer")
 
         If which = 0 Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimOverview, Page) Then
-                btnUpdateClaims.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.UpdateClaims, RoleID)
-                B_ProcessClaimStatus.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.ProcessClaims, RoleID)
-                pnlMiddle.Enabled = userBI.CheckRoles(IMIS_EN.Enums.Rights.UpdateClaims, RoleID)
-                B_FEEDBACK.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EnterFeedback, RoleID)
-                B_REVIEW.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.ReviewClaim, RoleID)
-
+                btnUpdateClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID)
+                B_ProcessClaimStatus.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimProcess, UserID)
+                pnlMiddle.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID)
+                B_FEEDBACK.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimFeedback, UserID)
+                B_REVIEW.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID)
+                btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
 
                 If Not btnUpdateClaims.Visible And Not B_ProcessClaimStatus.Visible Then
                     pnlBody.Enabled = False
                 End If
+                btnSelectionExecute.Visible = btnUpdateClaims.Visible
 
             Else
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ClaimOverview.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 1 Then
-            If Not ClaimOverviews.checkRoles(IMIS_EN.Enums.Rights.UpdateClaims, RoleID) Then
+            If Not ClaimOverviews.checkRights(IMIS_EN.Enums.Rights.ClaimUpdate, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ClaimOverview.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 2 Then
-            If Not ClaimOverviews.checkRoles(IMIS_EN.Enums.Rights.ProcessClaims, RoleID) Then
+            If Not ClaimOverviews.checkRights(IMIS_EN.Enums.Rights.ClaimProcess, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.ClaimOverview.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -436,12 +438,14 @@ Public Partial Class ClaimOverview
         End Try
     End Sub
     Private Sub ButtonDisplayControl(ByVal GridCount As Integer)
+        RunPageSecurity()
+
         If GridCount > 0 Then
-            B_FEEDBACK.Visible = True
-            B_ProcessClaimStatus.Visible = True
-            B_REVIEW.Visible = True
-            btnUpdateClaims.Visible = True
-            btnSelectionExecute.Visible = True
+            B_FEEDBACK.Visible = B_FEEDBACK.Visible
+            B_ProcessClaimStatus.Visible = B_ProcessClaimStatus.Visible
+            B_REVIEW.Visible = B_REVIEW.Visible
+            btnUpdateClaims.Visible = btnUpdateClaims.Visible
+            btnSelectionExecute.Visible = btnSelectionExecute.Visible
             lblSelectToProcess.Visible = True
             chkboxSelectToProcess.Visible = True
         Else

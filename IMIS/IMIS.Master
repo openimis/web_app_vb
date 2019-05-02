@@ -484,6 +484,9 @@
                                 <li><a id="FindUser" class="candisable" href="FindUser.aspx">
                                     <asp:Label ID="SubUser" runat="server" Text='<%$ Resources:Resource,L_USERS %>'></asp:Label>
                                     </a></li>
+                                <li><a id="FindUserProfile" class="candisable" href="FindProfile.aspx">
+                                    <asp:Label ID="SubUserProfile" runat="server" Text='<%$ Resources:Resource,L_USERPROFILES %>'></asp:Label>
+                                    </a></li>
                                 <li><a id="FindOfficer" class="candisable" href="FindOfficer.aspx">
                                     <asp:Label ID="subOfficer" runat="server" Text='<%$ Resources:Resource,L_OFFICERS %>'></asp:Label>
                                     </a></li>

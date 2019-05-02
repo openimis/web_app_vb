@@ -195,8 +195,8 @@ Partial Public Class ClaimReview
     Private Sub RunPageSecurity()
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimReview, Page) Then
-            pnlServiceDetails.Enabled = userBI.CheckRoles(IMIS_EN.Enums.Rights.ReviewClaim, UserID)
-            pnlItemsDetails.Enabled = userBI.CheckRoles(IMIS_EN.Enums.Rights.ReviewClaim, UserID)
+            pnlServiceDetails.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID)
+            pnlItemsDetails.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID)
 
             If Not pnlServiceDetails.Enabled And Not pnlItemsDetails.Enabled Then
                 B_SAVE.Visible = False

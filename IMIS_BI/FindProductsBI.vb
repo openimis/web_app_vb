@@ -27,6 +27,10 @@
 '
 
 Public Class FindProductsBI
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetProducts(ByVal eProducts As IMIS_EN.tblProduct, Optional ByVal ALL As Boolean = False) As DataTable
         Dim getDataTable As New IMIS_BL.ProductsBL
         Return getDataTable.GetProducts(eProducts, ALL)
@@ -41,11 +45,6 @@ Public Class FindProductsBI
         Dim Del As New IMIS_BL.ProductsBL
         Return Del.DeleteProduct(eProduct)
 
-    End Function
-
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
     Public Function GetRegions(UserId As Integer, Optional ShowSelect As Boolean = True, Optional ByVal IncludeNational As Boolean = False) As DataTable
         Dim BL As New IMIS_BL.LocationsBL

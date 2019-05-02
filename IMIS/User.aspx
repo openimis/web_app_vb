@@ -329,23 +329,31 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             CssClass="panel" GroupingText='<%$ Resources:Resource,L_ROLE%>'>
 
 
-                            <asp:GridView ID="gvRoles" runat="server" AllowPaging="true" PagerSettings-FirstPageText="First Page" PagerSettings-LastPageText="Last Page" PagerSettings-Mode="NumericFirstLast"
-                                AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="Code"
+                            <asp:GridView ID="gvRoles" runat="server" AllowPaging="false" PagerSettings-FirstPageText="First Page" PagerSettings-LastPageText="Last Page" PagerSettings-Mode="NumericFirstLast"
+                                AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="RoleId"
                                 EmptyDataText="No roles found" GridLines="None" PagerStyle-CssClass="pgr"
                                 PageSize="12" ShowSelectButton="true">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Select">
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="chkRoleSelect" runat="server" HeaderStyle-Width="10px" />
+                                            <asp:CheckBox ID="chkRoleSelect" runat="server" HeaderStyle-Width="10px" Checked='<%#Eval("HasRight") %>' />
                                         </ItemTemplate>
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:BoundField DataField="Role" HeaderStyle-Width="110px"
-                                        HeaderText="<%$ Resources:Resource,L_ROLE %>" SortExpression="Role">
+                                    <asp:BoundField DataField="RoleName" HeaderStyle-Width="110px"
+                                        HeaderText="<%$ Resources:Resource,L_ROLE %>" SortExpression="RoleName">
                                         <HeaderStyle Width="200px" />
                                     </asp:BoundField>
+
+                                    <asp:TemplateField HeaderText="">
+                                        <ItemTemplate>
+                                            <asp:HiddenField ID="hfRoleId"  runat="server" value='<%#Eval("RoleId") %>' />
+                                        </ItemTemplate>
+                                        <HeaderTemplate>
+                                        </HeaderTemplate>
+                                    </asp:TemplateField>
 
                                 </Columns>
                                 <PagerStyle CssClass="pgr" />

@@ -27,11 +27,11 @@
 '
 
 Public Class FindClaimsBI
-    Dim Claims_BL As New IMIS_BL.ClaimsBL
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
     End Function
+    Dim Claims_BL As New IMIS_BL.ClaimsBL
     Public Function GetClaims(ByRef eClaims As IMIS_EN.tblClaim, ByVal UserID As Integer) As DataTable
         Return Claims_BL.GetClaims(eClaims, UserID)
     End Function

@@ -116,12 +116,13 @@ Public Partial Class ClaimAdministrator
 #End Region
 #End Region
 #Region "Functions & Procedures"
-    Private Sub RunPageSecurity()
+    Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = ImisGen.getUserId(Session("User"))
+
         If BIClaimAdmin.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimAdministrator, Page) Then
-            Dim Add As Boolean = BIClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.AddClaimAdministrator, RoleID)
-            Dim Edit As Boolean = BIClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.EditClaimAdministrator, RoleID)
+            Dim Add As Boolean = BIClaimAdmin.checkRights(IMIS_EN.Enums.Rights.AddClaimAdministrator, UserID)
+            Dim Edit As Boolean = BIClaimAdmin.checkRights(IMIS_EN.Enums.Rights.EditClaimAdministrator, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False

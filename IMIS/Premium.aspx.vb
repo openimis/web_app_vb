@@ -217,8 +217,9 @@ Partial Public Class Premium
     End Sub
     Private Sub RunPageSecurity()
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Premium, Page) Then
-            B_SAVE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditPremium, RoleID) Or userBI.CheckRoles(IMIS_EN.Enums.Rights.AddPremium, RoleID)
+            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ContributionEdit, UserID) Or userBI.checkRights(IMIS_EN.Enums.Rights.ContributionAdd, UserID)
             If Not B_SAVE.Visible Then
                 pnlBody.Enabled = False
                 L_FAMILYPANEL.Enabled = False

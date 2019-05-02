@@ -35,9 +35,9 @@ Public Class EmailSettings
     Private eEmailSettings As New IMIS_EN.tblEmailSettings
 
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
         Dim RefUrl = Request.Headers("Referer")
-        If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Payer, Page) Then
+        If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.EmailSettings, Page) Then
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.EmailSettings.ToString & "&retUrl=" & RefUrl)
         End If
     End Sub

@@ -119,8 +119,8 @@ Partial Public Class FindFamily
 
     End Sub
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
-        If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindFamily, Page) Then
+        'Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Family, Page) Then
 
             Dim RefUrl = Request.Headers("Referer")
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindFamily.ToString & "&retUrl=" & RefUrl)

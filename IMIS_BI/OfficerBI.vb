@@ -27,6 +27,10 @@
 '
 
 Public Class OfficerBI
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function SaveOfficer(ByRef eOfficer As IMIS_EN.tblOfficer, dtData As DataTable) As Integer
         Dim saveData As New IMIS_BL.OfficersBL
         Return saveData.SaveOfficers(eOfficer, dtData)
@@ -37,7 +41,7 @@ Public Class OfficerBI
     End Function
     Public Function GetOfficers(ByVal DistrictId As Integer, ByVal showSelect As Boolean) As DataTable
         Dim getDataTable As New IMIS_BL.OfficersBL
-        Return getDataTable.GetOfficers(DistrictId, showselect)
+        Return getDataTable.GetOfficers(DistrictId, showSelect)
     End Function
     Public Sub LoadOfficer(ByRef eOfficers As IMIS_EN.tblOfficer)
         Dim loadEntity As New IMIS_BL.OfficersBL
@@ -67,6 +71,14 @@ Public Class OfficerBI
         Dim User As New IMIS_BL.UsersBL
         User.LoadUsers(eUser)
     End Sub
+    Public Function RunPageSecurity(ByVal PageName As IMIS_EN.Enums.Pages, ByRef PageObj As System.Web.UI.Page) As Boolean
+        Dim user As New IMIS_BL.UsersBL
+        Return user.RunPageSecurity(PageName, PageObj)
+    End Function
+    Public Function getRoleId(ByVal session As Object) As Integer
+        Dim user As New IMIS_BL.UsersBL
+        Return user.getRoleId(session)
+    End Function
     Public Function DeleteUser(ByVal eUser As IMIS_EN.tblUsers) As Boolean
         Dim Del As New IMIS_BL.UsersBL
         Del.DeleteUser(eUser)

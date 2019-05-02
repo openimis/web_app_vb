@@ -89,8 +89,9 @@ Partial Public Class FindPremium
     End Sub
     Private Sub RunPageSecurity()
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindPremium, Page) Then
-            B_VIEW.Enabled = userBI.CheckRoles(IMIS_EN.Enums.Rights.ViewPremium, RoleID)
+            B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ContributionSearch, UserID)
         Else
             Dim RefUrl = Request.Headers("Referer")
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindPremium.ToString & "&retUrl=" & RefUrl)

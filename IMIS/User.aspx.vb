@@ -57,7 +57,7 @@ Partial Public Class User
             ddlHFNAME.DataTextField = "HFCode"
             ddlHFNAME.DataBind()
 
-            Dim dtRegion As DataTable = Users.getRegions(eUsers.UserID)
+            Dim dtRegion As DataTable = Users.getRegions(eUsers.UserID, imisgen.getUserId(Session("User")))
             gvRegion.DataSource = dtRegion
             gvRegion.DataBind()
 
@@ -66,7 +66,7 @@ Partial Public Class User
             If IMIS_Gen.offlineHF Then
                 gvDistrict.DataSource = Users.GetDistrictForHF(IMIS_Gen.HFID, eUsers.UserID)
             Else
-                gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID)
+                gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID, imisgen.getUserId(Session("User")))
             End If
             gvDistrict.DataBind()
             Assign(gvDistrict)
@@ -93,18 +93,10 @@ Partial Public Class User
             End If 'Added
 
             Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
-            If RoleId = 524288 Then
-                gvRoles.DataSource = Users.GetRoles(525184)
-            ElseIf RoleId = 1048576 Or RoleId = 1048584 Then
-                gvRoles.DataSource = Users.GetRoles(1048584)
-            Else
-                gvRoles.DataSource = Users.GetRoles(1023)
-            End If
-            If IMIS_Gen.offlineHF Then
-                gvRoles.DataSource = Users.GetRoles(525184)
-            End If
+            Dim dtRoles As New DataTable
+            dtRoles = Users.getUserRoles(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
+            gvRoles.DataSource = dtRoles
             gvRoles.DataBind()
-            Assign(gvRoles)
             If eUsers.IsAssociated IsNot Nothing AndAlso eUsers.IsAssociated = True Then
                 toggleModifingIfUsersClaimOrEnrolment(False)
             End If
@@ -137,10 +129,10 @@ Partial Public Class User
 
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.User, Page) Then
-            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddUser, RoleID)
-            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditUser, RoleID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.UsersAdd, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.UsersEdit, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False
@@ -197,16 +189,7 @@ Partial Public Class User
 
 
     End Function
-    Public Function GetRoles(ByVal grid As GridView) As Integer
-        Dim i As Integer = 0
-        For Each row In grid.Rows
-            Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
-            If chkSelect.Checked Then
-                i += CInt(gvRoles.DataKeys(row.RowIndex)("Code"))
-            End If
-        Next
-        Return i
-    End Function
+
     Private Function checkChecked(ByVal gv As GridView) As Boolean
         Dim checked As Boolean = False
         For Each row In gv.Rows
@@ -247,13 +230,21 @@ Partial Public Class User
                 eUsers.EmailId = txtEmail.Text
                 eUsers.LoginName = txtLoginName.Text
                 eUsers.LanguageID = ddlLanguage.SelectedValue
-                eUsers.RoleID = GetRoles(gvRoles)
                 eUsers.AuditUserID = imisgen.getUserId(Session("User"))
                 If ddlHFNAME.SelectedIndex >= 0 Then
                     eUsers.HFID = ddlHFNAME.SelectedValue
                 End If
-
-                Dim chk As Integer = Users.SaveUser(eUsers)
+                Dim dt As New DataTable
+                dt.Columns.Add("RoleID")
+                dt.Columns.Add("RoleName")
+                For Each row As GridViewRow In gvRoles.Rows
+                    If CType(row.Cells(0).Controls(1), CheckBox).Checked = True Then
+                        Dim dr As DataRow = dt.NewRow
+                        dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dt.Rows.Add(dr)
+                    End If
+                Next
+                Dim chk As Integer = Users.SaveUser(eUsers, dt)
                 If Not chk = 1 Then
                     For Each row In gvDistrict.Rows
                         If CheckDifferenceandSave(gvDistrict, row.RowIndex) = True Then

@@ -99,13 +99,14 @@ Partial Public Class FindPriceListMI
 
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisGen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisGen.getUserId(Session("User"))
         If Not ondelete Then
-            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindPriceListMI, Page) Then
-                B_ADD.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddPriceListMedicalItems, RoleID)
-                B_EDIT.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditPriceListMedicalItems, RoleID)
-                B_DELETE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeletePriceListMedicalItems, RoleID)
-                B_DUPLICATE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DuplicatePriceListMedicalItems, RoleID)
+            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.PriceListMI, Page) Then
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddPriceListMedicalItems, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditPriceListMedicalItems, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DeletePriceListMedicalItems, UserID)
+                B_DUPLICATE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DuplicatePriceListMedicalItems, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindPriceListMedicalItems, UserID)
 
                 If Not B_EDIT.Visible And Not B_DELETE.Visible And Not B_DUPLICATE.Visible Then
                     pnlGrid.Enabled = False
@@ -115,7 +116,7 @@ Partial Public Class FindPriceListMI
             End If
         Else
 
-            If Not userBI.CheckRoles(IMIS_EN.Enums.Rights.DeletePriceListMedicalItems, RoleID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeletePriceListMedicalItems, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindPriceListMI.ToString & "&retUrl=" & RefUrl)
             End If
 
@@ -191,17 +192,17 @@ Partial Public Class FindPriceListMI
             B_DUPLICATE.Visible = False
         Else
             If chkLegacy.Checked = True Then
-                B_DELETE.Visible = False
-                B_EDIT.Visible = False
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
                 'B_VIEW.Visible = True
-                B_ADD.Visible = False
-                B_DUPLICATE.Visible = False
+                B_ADD.Visible = B_ADD.Visible
+                B_DUPLICATE.Visible = B_DUPLICATE.Visible
             Else
-                B_DELETE.Visible = True
-                B_EDIT.Visible = True
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
                 'B_VIEW.Visible = False
-                B_DUPLICATE.Visible = True
-                B_ADD.Visible = True
+                B_DUPLICATE.Visible = B_DUPLICATE.Visible
+                B_ADD.Visible = B_ADD.Visible
             End If
 
         End If

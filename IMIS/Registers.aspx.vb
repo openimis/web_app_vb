@@ -32,7 +32,7 @@ Partial Public Class UploadICD
 
     Private ICD As New IMIS_BI.RegistersBI
     Protected imisgen As New IMIS_Gen
-    Private userBI As New IMIS_BI.UserBI
+
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
@@ -60,9 +60,22 @@ Partial Public Class UploadICD
 
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
-        If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.UploadICD, Page) Then
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
+        If Not ICD.RunPageSecurity(IMIS_EN.Enums.Pages.UploadICD, Page) Then
+
+
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.UploadICD.ToString & "&retUrl=" & RefUrl)
+        Else
+            pnlUploadDiagnoses.Enabled = ICD.checkRights(IMIS_EN.Enums.Rights.DiagnosesUpload, UserID)
+            FileUploadDiagnosis.Enabled = pnlUploadDiagnoses.Enabled
+            pnlDownLoadICD.Enabled = ICD.checkRights(IMIS_EN.Enums.Rights.DiagnosesDownload, UserID)
+            PnlUploadHF.Enabled = ICD.checkRights(IMIS_EN.Enums.Rights.HealthFacilitiesUpload, UserID)
+            FileUploadHF.Enabled = PnlUploadHF.Enabled
+            pnlDownLoadHF.Enabled = ICD.checkRights(IMIS_EN.Enums.Rights.HealthFacilitiesDownload, UserID)
+            pnlUploadLocations.Enabled = ICD.checkRights(IMIS_EN.Enums.Rights.LocationUpload, UserID)
+            FileUploadLocations.Enabled = pnlUploadLocations.Enabled
+            pnlDownLoadLocations.Enabled = ICD.checkRights(IMIS_EN.Enums.Rights.LocationDonwload, UserID)
+
         End If
     End Sub
 

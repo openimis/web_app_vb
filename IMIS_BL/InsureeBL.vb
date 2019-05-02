@@ -80,7 +80,6 @@ Public Class InsureeBL
         Dim BLGen As New GeneralBL
         dtMarital = BLGen.GetMaritalStatus
         Return Insuree.GetInsureeFullSearch(eInsuree, All, PhotoAssigned, Language, dtMarital)
-
     End Function
     Public Function InsureeExists(ByVal eInsuree As IMIS_EN.tblInsuree) As Boolean
         Dim dt As DataTable = Insuree.InsureeExists(eInsuree)
