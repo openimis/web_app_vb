@@ -755,7 +755,8 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
+
+    '''<summary>
     '''pnlButtons control.
     '''</summary>
     '''<remarks>
