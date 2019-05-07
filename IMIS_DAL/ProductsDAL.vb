@@ -409,7 +409,7 @@ Public Class ProductsDAL
         data.params("@ProdID", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@ProductCode", SqlDbType.NVarChar, 8, eProducts.ProductCode)
         data.params("@ProductName", SqlDbType.NVarChar, 100, eProducts.ProductName)
-        data.params("@LocationId", SqlDbType.Int, if(eProducts.tblLocation.LocationId = -1, Nothing, eProducts.tblLocation.LocationId))
+        data.params("@LocationId", SqlDbType.Int, If(eProducts.tblLocation.LocationId = -1, DBNull.Value, eProducts.tblLocation.LocationId)) 'Nothing to DBNull.Value was Changed by Salumu 10-12-2018
         data.params("@DateFrom", SqlDbType.DateTime, eProducts.DateFrom)
         data.params("@DateTo", SqlDbType.SmallDateTime, eProducts.DateTo)
         data.params("@ConversionProdID", SqlDbType.Int, if(eProducts.tblProduct2.ProdID = 0, DBNull.Value, eProducts.tblProduct2.ProdID))

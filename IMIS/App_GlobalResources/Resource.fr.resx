@@ -466,7 +466,7 @@ Fuzzy</comment>
     <comment>Please select a Product Name</comment>
   </data>
   <data name="L_ADMINISTRATION" xml:space="preserve">
-    <value>Administration</value>
+    <value>Admin</value>
     <comment>Administration</comment>
   </data>
   <data name="L_INSUREESANDPOLICIES" xml:space="preserve">
@@ -1486,7 +1486,7 @@ Fuzzy</comment>
     <comment>Combination of deductables/ceilings configured wrongly</comment>
   </data>
   <data name="L_SEARCHCHFNUMBER" xml:space="preserve">
-    <value>Rechercher le numéro d&apos;assurance</value>
+    <value>Recherche</value>
     <comment>Enquiry</comment>
   </data>
   <data name="M_ENTERCHFNUMBER" xml:space="preserve">
