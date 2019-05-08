@@ -4602,7 +4602,7 @@ Fuzzy</comment>
     <comment>Clerk</comment>
   </data>
   <data name="M_HFADMINISTRATOR" xml:space="preserve">
-    <value>Gestionnaire de la établissement de santé</value>
+    <value>Gestionnaire d&apos;établissement de santé</value>
     <comment>HF Administrator</comment>
   </data>
   <data name="M_IMISADMINISTRATOR" xml:space="preserve">
@@ -5748,7 +5748,8 @@ Fuzzy</comment>
     <value>Nouveau mot de passe</value>
   </data>
   <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
-    <value>Entrer</value>
+    <value>Entrez votre nom d&apos;utilisateur et confirmez le nouveau mot de passe</value>
+    <comment>Enter username and confirm new password</comment>
   </data>
   <data name="L_PASSWORDCHANGED" xml:space="preserve">
     <value>Mot de passe changé avec succès</value>
@@ -6281,8 +6282,5 @@ Fuzzy</comment>
   <data name="T_NEWPOLICIES" xml:space="preserve">
     <value>Nouvelle police</value>
     <comment>New Policies</comment>
-  </data>
-  <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
-    <value>Enter username and confirm new password</value>
   </data>
 </root>
