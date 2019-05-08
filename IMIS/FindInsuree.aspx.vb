@@ -297,9 +297,8 @@ Partial Public Class FindInsuree
     End Sub
 
     Protected Sub B_CLAIMSREVIEWS_Click(sender As Object, e As EventArgs) Handles B_CLAIMSREVIEWS.Click
-        If gvInsuree.Rows.Count > 0 And Not gvInsuree.SelectedDataKey Is Nothing Then
-            Dim InsuranceNumber = gvInsuree.SelectedDataKey.Item("CHFID") 'hfInsuranceNumber.Value
-
+        If gvInsuree.Rows.Count > 0 And Not hfInsuranceNumber.Value Is Nothing Then
+            Dim InsuranceNumber = hfInsuranceNumber.Value
             Response.Redirect("ClaimOverview.aspx?i=" & InsuranceNumber)
         End If
     End Sub

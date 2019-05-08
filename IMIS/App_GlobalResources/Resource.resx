@@ -4579,4 +4579,7 @@ adults/children)</value>
   <data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
     <value>Target date of provision of health care invalid</value>
   </data>
+  <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
+    <value>Enter username and confirm new password</value>
+  </data>
 </root>
