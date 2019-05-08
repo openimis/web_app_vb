@@ -6282,4 +6282,7 @@ Fuzzy</comment>
     <value>Nouvelle police</value>
     <comment>New Policies</comment>
   </data>
+  <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
+    <value>Enter username and confirm new password</value>
+  </data>
 </root>
