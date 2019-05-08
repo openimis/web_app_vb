@@ -32,7 +32,7 @@ Partial Public Class User
     Private eUsers As New IMIS_EN.tblUsers
     Private imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
-   
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
 
@@ -57,7 +57,7 @@ Partial Public Class User
             ddlHFNAME.DataTextField = "HFCode"
             ddlHFNAME.DataBind()
 
-            Dim dtRegion As DataTable = Users.getRegions(eUsers.UserID)
+            Dim dtRegion As DataTable = Users.getRegions(eUsers.UserID, imisgen.getUserId(Session("User")))
             gvRegion.DataSource = dtRegion
             gvRegion.DataBind()
 
@@ -66,7 +66,7 @@ Partial Public Class User
             If IMIS_Gen.offlineHF Then
                 gvDistrict.DataSource = Users.GetDistrictForHF(IMIS_Gen.HFID, eUsers.UserID)
             Else
-                gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID)
+                gvDistrict.DataSource = Users.GetDistricts(eUsers.UserID, imisgen.getUserId(Session("User")))
             End If
             gvDistrict.DataBind()
             Assign(gvDistrict)
@@ -80,27 +80,26 @@ Partial Public Class User
                 txtPhone.Text = eUsers.Phone
                 txtEmail.Text = eUsers.EmailId
                 txtLoginName.Text = eUsers.LoginName
-                txtPassword.Attributes.Add("value", eUsers.DummyPwd)
-                txtConfirmPassword.Attributes.Add("value", eUsers.DummyPwd)
+                ' txtPassword.Attributes.Add("value", eUsers.DummyPwd)
+                ' txtConfirmPassword.Attributes.Add("value", eUsers.DummyPwd)
                 If HttpContext.Current.Request.QueryString("r") = 1 Or eUsers.ValidityTo.HasValue Then
                     Panel2.Enabled = False
                     B_SAVE.Visible = False
                 End If
                 ddlHFNAME.SelectedValue = eUsers.HFID.ToString
-            End If
+                RequiredFieldPassword.Visible = False
+
+                RequiredFieldConfirmPassword.Visible = False
+            End If 'Added
+
             Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
-            If RoleId = 524288 Then
-                gvRoles.DataSource = Users.GetRoles(525184)
-            ElseIf RoleId = 1048576 Or RoleId = 1048584 Then
-                gvRoles.DataSource = Users.GetRoles(1048584)
-            Else
-                gvRoles.DataSource = Users.GetRoles(1023)
-            End If
-            If IMIS_Gen.offlineHF Then
-                gvRoles.DataSource = Users.GetRoles(525184)
-            End If
+            Dim dtRoles As New DataTable
+            dtRoles = Users.getUserRoles(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
+            gvRoles.DataSource = dtRoles
             gvRoles.DataBind()
-            Assign(gvRoles)
+            If eUsers.IsAssociated IsNot Nothing AndAlso eUsers.IsAssociated = True Then
+                toggleModifingIfUsersClaimOrEnrolment(False)
+            End If
 
             If IMIS_Gen.offlineHF Then
                 ddlHFNAME.SelectedValue = IMIS_Gen.HFID
@@ -111,17 +110,29 @@ Partial Public Class User
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlDistrict, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
+    End Sub
 
-
-
+    Private Sub toggleModifingIfUsersClaimOrEnrolment(enabled As Boolean)
+        txtOtherNames.Enabled = enabled
+        txtLastName.Enabled = enabled
+        txtEmail.Enabled = enabled
+        txtLoginName.Enabled = enabled
+        ddlHFNAME.Enabled = enabled
+        pnlRole.Enabled = enabled
+        Checkbox1.Enabled = enabled
+        chkCheckAllR.Enabled = enabled
+        pnlRegion.Enabled = enabled
+        CheckBox2.Enabled = enabled
+        pnlDistrict.Enabled = enabled
+        txtPhone.Enabled = enabled
     End Sub
 
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.User, Page) Then
-            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddUser, RoleID)
-            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditUser, RoleID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.UsersAdd, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.UsersEdit, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False
@@ -178,16 +189,7 @@ Partial Public Class User
 
 
     End Function
-    Public Function GetRoles(ByVal grid As GridView) As Integer
-        Dim i As Integer = 0
-        For Each row In grid.Rows
-            Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
-            If chkSelect.Checked Then
-                i += CInt(gvRoles.DataKeys(row.RowIndex)("Code"))
-            End If
-        Next
-        Return i
-    End Function
+
     Private Function checkChecked(ByVal gv As GridView) As Boolean
         Dim checked As Boolean = False
         For Each row In gv.Rows
@@ -202,10 +204,16 @@ Partial Public Class User
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
-                'If Not IsValidPassword() Then
-                '    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
-                '    Exit Sub
-                'End If
+                Dim ipassword As Integer = IsValidPassword()
+
+                If ipassword = -1 Then
+                    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
+                    Exit Sub
+                ElseIf ipassword = -2 Then
+
+                    lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                    Exit Sub
+                End If
 
                 If Not checkChecked(gvDistrict) Then
                     lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
@@ -222,13 +230,21 @@ Partial Public Class User
                 eUsers.EmailId = txtEmail.Text
                 eUsers.LoginName = txtLoginName.Text
                 eUsers.LanguageID = ddlLanguage.SelectedValue
-                eUsers.RoleID = GetRoles(gvRoles)
                 eUsers.AuditUserID = imisgen.getUserId(Session("User"))
                 If ddlHFNAME.SelectedIndex >= 0 Then
                     eUsers.HFID = ddlHFNAME.SelectedValue
                 End If
-
-                Dim chk As Integer = Users.SaveUser(eUsers)
+                Dim dt As New DataTable
+                dt.Columns.Add("RoleID")
+                dt.Columns.Add("RoleName")
+                For Each row As GridViewRow In gvRoles.Rows
+                    If CType(row.Cells(0).Controls(1), CheckBox).Checked = True Then
+                        Dim dr As DataRow = dt.NewRow
+                        dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dt.Rows.Add(dr)
+                    End If
+                Next
+                Dim chk As Integer = Users.SaveUser(eUsers, dt)
                 If Not chk = 1 Then
                     For Each row In gvDistrict.Rows
                         If CheckDifferenceandSave(gvDistrict, row.RowIndex) = True Then
@@ -268,8 +284,31 @@ Partial Public Class User
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
     End Sub
-    'Private Function IsValidPassword() As Boolean
-    '    'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
-    '    'Return Parten
-    'End Function
+
+    Private Function IsValidPassword() As Integer
+        If eUsers.UserID = 0 Then
+            If txtPassword.Text = String.Empty Then
+                Return -1
+            Else
+                If txtPassword.Text <> txtConfirmPassword.Text Then
+                    Return -2
+                Else
+                    Return 1
+                End If
+            End If
+        Else
+            If txtPassword.Text <> String.Empty Then
+                If txtPassword.Text <> txtConfirmPassword.Text Then
+                    Return -2
+                Else
+                    Return 1
+                End If
+            Else
+                Return 2
+            End If
+
+        End If
+        'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
+        'Return Parten
+    End Function
 End Class

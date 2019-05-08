@@ -27,6 +27,14 @@
 '
 
 Public Class RegistersBI
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Dim UserRights As New IMIS_BL.UsersBL
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
+    Public Function RunPageSecurity(ByVal PageName As IMIS_EN.Enums.Pages, ByRef PageObj As System.Web.UI.Page) As Boolean
+        Dim user As New IMIS_BL.UsersBL
+        Return user.RunPageSecurity(PageName, PageObj)
+    End Function
     Public Function UploadICD(ByVal FilePath As String, ByVal StratergyId As Integer, ByVal AuditUserID As Integer, ByRef dtResult As DataTable, ByVal dryRun As Boolean, registerName As String, ByRef LogFile As String) As Dictionary(Of String, Integer)
         Dim Locations As New IMIS_BL.LocationsBL
         Dim ICD As New IMIS_BL.ICDCodesBL

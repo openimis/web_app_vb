@@ -27,6 +27,10 @@
 '
 
 Public Class LocationsBI
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function GetDistricts(ByVal userId As Integer, Optional ByVal showSelect As Boolean = False, Optional RegionId As Integer = 0) As DataTable
         Dim Districts As New IMIS_BL.LocationsBL
         Return Districts.GetDistricts(userId, showSelect, RegionId:=RegionId)
@@ -81,10 +85,6 @@ Public Class LocationsBI
     Public Function UploadLocations(ByVal DistrictsFile As String, ByVal WardsFile As String, ByVal VillagesFile As String) As Integer
         Dim Locations As New IMIS_BL.LocationsBL
         Return Locations.UploadLocations(DistrictsFile, WardsFile, VillagesFile)
-    End Function
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
     End Function
 
     Public Function GetRegions(ByVal UserId As Integer) As DataTable

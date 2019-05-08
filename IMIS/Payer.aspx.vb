@@ -34,12 +34,12 @@ Partial Public Class Payer
     Private userBI As New IMIS_BI.UserBI
 
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         Dim RefUrl = if(Request.Headers("Referer") Is Nothing, String.Empty, Request.Headers("Referer"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Payer, Page) Then
-            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddPayer, RoleID)
-            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditPayer, RoleID)
-            Dim View As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.ViewPayer, RoleID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.AddPayer, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.EditPayer, UserID)
+            Dim View As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.FindPayer, UserID)
 
             Dim reg As New Regex("OverviewFamily", RegexOptions.IgnoreCase)
             If reg.IsMatch(RefUrl) Then

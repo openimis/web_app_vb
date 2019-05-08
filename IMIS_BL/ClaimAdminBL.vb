@@ -56,10 +56,65 @@ Public Class ClaimAdminBL
         '1 - inserted,2 - updated, 3 -  code exists, -1 - unidentified problem
         If DALClaimAdmin.ClaimAdminCodeExists(eClaimAdmin) Then Return 3
         If eClaimAdmin.ClaimAdminId = 0 Then
-            If DALClaimAdmin.InsertClaimAdmin(eClaimAdmin) Then Return 1
+            If DALClaimAdmin.InsertClaimAdmin(eClaimAdmin) Then
+                If eClaimAdmin.HasLogin Then
+                    SaveClaimAdministratorUser(eClaimAdmin)
+                End If
+                Return 1
+            End If
         Else
-            If DALClaimAdmin.UpdateClaimAdmin(eClaimAdmin) Then Return 2
+            Dim eClaimAdminOrg As New IMIS_EN.tblClaimAdmin
+            eClaimAdminOrg.ClaimAdminId = eClaimAdmin.ClaimAdminId
+            DALClaimAdmin.LoadClaimAdmin(eClaimAdminOrg)
+            If (isDirtyClaimAdmin(eClaimAdmin, eClaimAdminOrg)) Then
+                If DALClaimAdmin.UpdateClaimAdmin(eClaimAdmin) Then
+                End If
+
+            End If
+            If eClaimAdmin.HasLogin Then
+                SaveClaimAdministratorUser(eClaimAdmin)
+            End If
+            Return 2
         End If
-        Return -1
+        Return 0
+    End Function
+
+    Private Function isDirtyClaimAdmin(eClaimAdmin As IMIS_EN.tblClaimAdmin, eClaimAdminOrg As IMIS_EN.tblClaimAdmin) As Boolean
+        isDirtyClaimAdmin = True
+        If IIf(eClaimAdmin.LastName Is Nothing, DBNull.Value, eClaimAdmin.LastName).ToString() <> IIf(eClaimAdminOrg.LastName Is Nothing, DBNull.Value, eClaimAdminOrg.LastName).ToString() Then Exit Function
+        If IIf(eClaimAdmin.OtherNames Is Nothing, DBNull.Value, eClaimAdmin.OtherNames).ToString() <> IIf(eClaimAdminOrg.OtherNames Is Nothing, DBNull.Value, eClaimAdminOrg.OtherNames).ToString() Then Exit Function
+        If IIf(eClaimAdmin.Phone Is Nothing, DBNull.Value, eClaimAdmin.Phone).ToString() <> IIf(eClaimAdminOrg.Phone Is Nothing, DBNull.Value, eClaimAdminOrg.Phone).ToString() Then Exit Function
+        If IIf(eClaimAdmin.EmailId Is Nothing, DBNull.Value, eClaimAdmin.EmailId).ToString() <> IIf(eClaimAdminOrg.EmailId Is Nothing, DBNull.Value, eClaimAdminOrg.EmailId).ToString() Then Exit Function
+        If IIf(eClaimAdmin.ClaimAdminCode Is Nothing, DBNull.Value, eClaimAdmin.ClaimAdminCode).ToString() <> IIf(eClaimAdminOrg.ClaimAdminCode Is Nothing, DBNull.Value, eClaimAdminOrg.ClaimAdminCode).ToString() Then Exit Function
+        If IIf(eClaimAdmin.DOB Is Nothing, DBNull.Value, eClaimAdmin.DOB).ToString() <> IIf(eClaimAdminOrg.DOB Is Nothing, DBNull.Value, eClaimAdminOrg.DOB).ToString() Then Exit Function
+        If eClaimAdmin.tblHF.HfID <> eClaimAdminOrg.tblHF.HfID Then Exit Function
+        If IIf(eClaimAdmin.LegacyId Is Nothing, DBNull.Value, eClaimAdmin.LegacyId).ToString() <> IIf(eClaimAdminOrg.LegacyId Is Nothing, DBNull.Value, eClaimAdminOrg.LegacyId).ToString() Then Exit Function
+        If eClaimAdmin.ClaimAdminId <> eClaimAdminOrg.ClaimAdminId Then Exit Function
+        If eClaimAdmin.HasLogin <> eClaimAdminOrg.HasLogin Then Exit Function
+        If IIf(eClaimAdmin.ValidityFrom Is Nothing, DBNull.Value, eClaimAdmin.ValidityFrom).ToString() <> IIf(eClaimAdminOrg.ValidityFrom Is Nothing, DBNull.Value, eClaimAdminOrg.ValidityFrom).ToString() Then Exit Function
+
+        isDirtyClaimAdmin = False
+    End Function
+    Public Function SaveClaimAdministratorUser(eclaimAdmin As IMIS_EN.tblClaimAdmin) As Integer
+        Dim BLUsers As New UsersBL
+        Dim iReturn As Integer = -5
+        If BLUsers.SaveUser(eclaimAdmin.eUsers) >= 0 Then
+
+            Dim eUsersDistricts As New IMIS_EN.tblUsersDistricts
+            Dim eLocations As New IMIS_EN.tblLocations
+            Dim DALUserDistricts As New IMIS_DAL.UsersDistrictsDAL
+            Dim DALHealthFacility As New IMIS_DAL.HealthFacilityDAL
+            eUsersDistricts.AuditUserID = eclaimAdmin.eUsers.AuditUserID
+
+            Dim dtOnlineAdminDistricts As DataTable = DALHealthFacility.getHFUserLocation(eclaimAdmin.AuditUserId, eclaimAdmin.tblHF.HfID)
+            eLocations.LocationId = dtOnlineAdminDistricts.Rows(0)("DistrictId")
+            eUsersDistricts.tblUsers = eclaimAdmin.eUsers
+            eUsersDistricts.UserDistrictID = 0
+            eUsersDistricts.tblLocations = eLocations
+            BLUsers.SaveUserDistricts(eUsersDistricts)
+        Else
+            Return -4
+        End If
+        Return 0
     End Function
 End Class

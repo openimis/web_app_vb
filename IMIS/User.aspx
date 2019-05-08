@@ -203,7 +203,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         ID="RequiredFieldLanguage" runat="server"
                                         ControlToValidate="ddlLanguage"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         InitialValue="-1" Text="*"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
@@ -223,7 +223,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         ID="RequiredFieldOtherNames" runat="server"
                                         ControlToValidate="txtOtherNames"
                                         SetFocusOnError="True"
-                                        ValidationGroup="check"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text="*">
                                     </asp:RequiredFieldValidator>
                                 </td>
@@ -238,7 +238,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldLastName" runat="server"
                                         ControlToValidate="txtLastName" Text="*"
-                                        ValidationGroup="check" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" SetFocusOnError="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -258,11 +258,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td class="FormLabel">
                                     <asp:Label ID="L_EMAIL" runat="server" Text='<%$ Resources:Resource,L_EMAIL%>'></asp:Label></td>
                                 <td class="DataEntry">
-                                    <asp:TextBox ID="txtEmail" runat="server" Width="150px" MaxLength="200"></asp:TextBox>
+                                    <asp:TextBox ID="txtEmail" runat="server" Width="150px" MaxLength="200" TextMode="Email"></asp:TextBox>
                                 </td>
                                 <td style="direction: ltr">
-                                    <asp:RequiredFieldValidator ID="rf2" runat="server" ControlToValidate="txtEmail" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check">*</asp:RegularExpressionValidator>
+                                    <asp:RequiredFieldValidator ID="rf2" runat="server" ControlToValidate="txtEmail" SetFocusOnError="True" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -275,7 +275,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldLoginName" runat="server"
                                         ControlToValidate="txtLoginName" Text="*"
-                                        ValidationGroup="check"></asp:RequiredFieldValidator>
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
 
@@ -289,8 +289,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldPassword" runat="server"
-                                        ValidationGroup="check" ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>
-                                    <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check">*</asp:RegularExpressionValidator>
+                                        ValidationGroup="check" ControlToValidate="txtPassword" Text="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -302,16 +302,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         MaxLength="25" Width="150px"></asp:TextBox>
                                 </td>
                                 <td class="Validate">
-                                    <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassoward" runat="server"
-                                        ControlToValidate="txtConfirmPassword" Text="*" ValidationGroup="check"> </asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassword" runat="server"
+                                        ControlToValidate="txtConfirmPassword" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"> </asp:RequiredFieldValidator>
                                     <asp:CompareValidator ID="ComparePassword" runat="server"
-                                        ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ValidationGroup="check"
+                                        ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'></asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="FormLabel">
-                                    <asp:Label ID="L_HFNAME" runat="server" Text='<%$ Resources:Resource,L_HFNAME%>'></asp:Label>
+                                    <asp:Label ID="L_HFNAME" runat="server" Text='<%$ Resources:Resource,L_HF%>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:DropDownList ID="ddlHFNAME" runat="server"
@@ -329,23 +329,31 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             CssClass="panel" GroupingText='<%$ Resources:Resource,L_ROLE%>'>
 
 
-                            <asp:GridView ID="gvRoles" runat="server" AllowPaging="true" PagerSettings-FirstPageText="First Page" PagerSettings-LastPageText="Last Page" PagerSettings-Mode="NumericFirstLast"
-                                AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="Code"
+                            <asp:GridView ID="gvRoles" runat="server" AllowPaging="false" PagerSettings-FirstPageText="First Page" PagerSettings-LastPageText="Last Page" PagerSettings-Mode="NumericFirstLast"
+                                AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="RoleId"
                                 EmptyDataText="No roles found" GridLines="None" PagerStyle-CssClass="pgr"
                                 PageSize="12" ShowSelectButton="true">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Select">
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="chkRoleSelect" runat="server" HeaderStyle-Width="10px" />
+                                            <asp:CheckBox ID="chkRoleSelect" runat="server" HeaderStyle-Width="10px" Checked='<%#Eval("HasRight") %>' />
                                         </ItemTemplate>
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:BoundField DataField="Role" HeaderStyle-Width="110px"
-                                        HeaderText="<%$ Resources:Resource,L_ROLE %>" SortExpression="Role">
+                                    <asp:BoundField DataField="RoleName" HeaderStyle-Width="110px"
+                                        HeaderText="<%$ Resources:Resource,L_ROLE %>" SortExpression="RoleName">
                                         <HeaderStyle Width="200px" />
                                     </asp:BoundField>
+
+                                    <asp:TemplateField HeaderText="">
+                                        <ItemTemplate>
+                                            <asp:HiddenField ID="hfRoleId"  runat="server" value='<%#Eval("RoleId") %>' />
+                                        </ItemTemplate>
+                                        <HeaderTemplate>
+                                        </HeaderTemplate>
+                                    </asp:TemplateField>
 
                                 </Columns>
                                 <PagerStyle CssClass="pgr" />

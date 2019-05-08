@@ -31,8 +31,8 @@ Public Class ChangePasswordBI
         Dim User As New IMIS_BL.UsersBL
         User.LoadUsers(eUser)
     End Sub
-    Public Sub ChangePassword(ByRef eUser As IMIS_EN.tblUsers)
+    Public Function ChangePassword(ByRef eUser As IMIS_EN.tblUsers, NewPassword As String) As Integer
         Dim User As New IMIS_BL.UsersBL
-        User.ChangePassword(eUser)
-    End Sub
+        Return User.ChangePassword(eUser, NewPassword)
+    End Function
 End Class

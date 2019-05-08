@@ -3,22 +3,22 @@
 The program users must agree to the following terms:
 
 Copyright notices
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU AGPL v3 License as published by the 
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU AGPL v3 License as published by the
 Free Software Foundation, version 3 of the License.
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL v3 License for more details www.gnu.org.
 
 Disclaimer of Warranty
-There is no warranty for the program, to the extent permitted by applicable law; except when otherwise stated in writing the copyright 
-holders and/or other parties provide the program "as is" without warranty of any kind, either expressed or implied, including, but not 
-limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and 
+There is no warranty for the program, to the extent permitted by applicable law; except when otherwise stated in writing the copyright
+holders and/or other parties provide the program "as is" without warranty of any kind, either expressed or implied, including, but not
+limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and
 performance of the program is with you. Should the program prove defective, you assume the cost of all necessary servicing, repair or correction.
 
-Limitation of Liability 
-In no event unless required by applicable law or agreed to in writing will any copyright holder, or any other party who modifies and/or 
-conveys the program as permitted above, be liable to you for damages, including any general, special, incidental or consequential damages 
-arising out of the use or inability to use the program (including but not limited to loss of data or data being rendered inaccurate or losses 
-sustained by you or third parties or a failure of the program to operate with any other programs), even if such holder or other party has been 
+Limitation of Liability
+In no event unless required by applicable law or agreed to in writing will any copyright holder, or any other party who modifies and/or
+conveys the program as permitted above, be liable to you for damages, including any general, special, incidental or consequential damages
+arising out of the use or inability to use the program (including but not limited to loss of data or data being rendered inaccurate or losses
+sustained by you or third parties or a failure of the program to operate with any other programs), even if such holder or other party has been
 advised of the possibility of such damages.
 
 In case of dispute arising out or in relation to the use of the program, it is subject to the public law of Switzerland. The place of jurisdiction is Berne.--%>
@@ -58,19 +58,19 @@ In case of dispute arising out or in relation to the use of the program, it is s
     div.backentry{position:relative;}
     .footer{ bottom:2px;top:auto; }
 
-    
+
   </style>
 
 
 
 
 </asp:Content>
-    
- 
-   
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
 
-    <span id="version">v1.2.0</span>
+    <span id="version">v1.3.0</span>
     <div style="min-height:650px;">
     <div id="UserGreeting">
         <asp:Label ID="L_CURRENTUSER" runat="server" Text='<%$ Resources:Resource,L_WELCOME %>'></asp:Label>
@@ -89,15 +89,15 @@ In case of dispute arising out or in relation to the use of the program, it is s
         </Columns>
 
     </asp:GridView>
-    <asp:GridView  ID="gvRegions" runat="server"  
+    <asp:GridView  ID="gvRegions" runat="server"
                     AutoGenerateColumns="False"
                     ShowSelectButton = "True"
-                    GridLines="None"                   
+                    GridLines="None"
                    EmptyDataText='No Region  found'
                     >
-                   
-                    <Columns>  
-                    <asp:BoundField DataField="RegionName"  HeaderText='<%$ Resources:Resource,L_Region %>' SortExpression="RegionName" HeaderStyle-Width ="110px" HeaderStyle-HorizontalAlign="Left"> </asp:BoundField> 
+
+                    <Columns>
+                    <asp:BoundField DataField="RegionName"  HeaderText='<%$ Resources:Resource,L_Region %>' SortExpression="RegionName" HeaderStyle-Width ="110px" HeaderStyle-HorizontalAlign="Left"> </asp:BoundField>
                     </Columns>
                 </asp:GridView>
     <asp:GridView ID="gvDistrict" runat="server"
@@ -115,7 +115,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
         </div>
     <div style="bottom: 23px; left: 5px; font-size: 14px; margin-bottom: 6px;">
-        <strong>© Swiss Agency for Development and Cooperation</strong>
+        <strong>&copy; Swiss Agency for Development and Cooperation</strong>
         <br />
         distributed under a royalty-free license
         <br />
@@ -125,9 +125,3 @@ In case of dispute arising out or in relation to the use of the program, it is s
         <img src="Images/logo.png" alt="IMIS" style="max-width: 250px;" />
     </div>
 </asp:Content>
-
-
-
-
-
-

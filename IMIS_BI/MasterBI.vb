@@ -27,9 +27,9 @@
 '
 
 Public Class MasterBI
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
     End Function
     Public Function CheckCHFID(ByVal CHFID As String) As Boolean
         Dim insuree As New IMIS_BL.EscapeBL

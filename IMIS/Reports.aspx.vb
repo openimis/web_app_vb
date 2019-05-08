@@ -34,6 +34,7 @@ Partial Public Class Reports
     Private eRelIndex As New IMIS_EN.tblRelIndex
     Public imisgen As New IMIS_Gen
     Private RoleID As Integer
+    Private UserID As Integer
     Private userBI As New IMIS_BI.UserBI
     Private ds As New DataSet
     Private dt As New DataTable
@@ -44,11 +45,13 @@ Partial Public Class Reports
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+
         If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Reports, Page) Then
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Reports.ToString & "&retUrl=" & RefUrl)
         End If
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        UserID = imisgen.getUserId(Session("User"))
         RoleID = imisgen.getRoleId(Session("User"))
         If IsPostBack Then Return
         RunPageSecurity()
@@ -201,7 +204,7 @@ Partial Public Class Reports
         'lblClaimStatus.Attributes("style") = "display:none;"
     End Sub
     Private Sub FillReportTypes()
-        lstboxReportSelector.DataSource = reports.GetReportTypes(RoleID)
+        lstboxReportSelector.DataSource = reports.GetReportTypes(UserID)
         lstboxReportSelector.DataTextField = "Name"
         lstboxReportSelector.DataValueField = "Id"
         lstboxReportSelector.DataBind()

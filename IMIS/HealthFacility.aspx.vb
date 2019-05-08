@@ -106,9 +106,9 @@ Partial Public Class HealthFacility
                 txtHFCode.Text = eHF.HFCode
                 txtFacilityName.Text = eHF.HFName
                 txtAddress.Text = eHF.HFAddress
-                ddlRegion.SelectedValue = eHF.RegionId
+                ddlRegion.SelectedValue = If(eHF.RegionId IsNot Nothing, eHF.RegionId, 0)
                 FillDistricts()
-                ddlDistrict.SelectedValue = eHF.tblLocations.LocationId
+                ddlDistrict.SelectedValue = If(eHF.tblLocations.LocationId, eHF.tblLocations.LocationId, 0)
                 txtPhone.Text = eHF.Phone
                 txtFax.Text = eHF.Fax
                 txtEmail.Text = eHF.eMail
@@ -154,9 +154,10 @@ Partial Public Class HealthFacility
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.HealthFacility, Page) Then
-            Dim Add As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddHealthFacility, RoleID)
-            Dim Edit As Boolean = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditHealthFacility, RoleID)
+            Dim Add As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityAdd, UserID)
+            Dim Edit As Boolean = userBI.checkRights(IMIS_EN.Enums.Rights.HealthFacilityEdit, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False

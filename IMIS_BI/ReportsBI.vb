@@ -27,9 +27,9 @@
 '
 
 Public Class ReportsBI
-    Public Function checkRoles(ByVal Role As IMIS_EN.Enums.Rights, ByVal roleid As Integer) As Boolean
-        Dim roles As New IMIS_BL.UsersBL
-        Return (roles.CheckRoles(Role, roleid))
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
     End Function
     Public Function GetProducts(ByVal UserId, Optional ByVal ShowSelect = False, Optional ByVal RegionId = 0, Optional ByVal DistrictId = 0) As DataTable
         Dim product As New IMIS_BL.ProductsBL
@@ -75,9 +75,9 @@ Public Class ReportsBI
         Dim year As New IMIS_BL.GeneralBL
         Return year.GetYears(start, ending)
     End Function
-    Public Function GetReportTypes(ByVal RoleID As Integer) As DataTable
+    Public Function GetReportTypes(ByVal UserID As Integer) As DataTable
         Dim report As New IMIS_BL.ReportBL
-        Return report.GetReportTypes(RoleID)
+        Return report.GetReportTypes(UserID)
     End Function
     Public Function GetTypeOfPayment(Optional ByVal showSelect As Boolean = True) As DataTable
         Dim getDataTable As New IMIS_BL.PremiumBL

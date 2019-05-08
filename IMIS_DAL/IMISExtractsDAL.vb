@@ -767,7 +767,7 @@ Public Class IMISExtractsDAL
         sSQL += " FROM tblProduct WHERE ValidityTo IS NULL"
         sSQL += " SELECT ProfessionId, Profession, SortOrder, AltLanguage FROM tblProfessions"
         sSQL += " SELECT Relationid, Relation, SortOrder, AltLanguage FROM tblRelations"
-        sSQL += " SELECT RuleName, RuleValue FROM tblIMISDetaulsPhone;"
+        sSQL += " SELECT RuleName, RuleValue FROM tblIMISDefaultsPhone;"
         sSQL += " SELECT Code, Gender, AltLanguage,SortOrder FROM tblGender"
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.FilldataSet()

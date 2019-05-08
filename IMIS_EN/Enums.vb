@@ -33,182 +33,216 @@ Public Class Enums
 
         '************Insuree and Policy
         'Family
-        FindFamily
-        AddFamily
-        EditFamily
-        ChangeFamilyHead
-        MovingInsuree
-        DeleteFamily
-        ViewFamily
-
+        Family = 101000
+        FamilySearch = 101001
+        FamilyAdd = 101002
+        FamilyEdit = 101003
+        FamilyDelete = 101004
         'Insuree
-        FindInsuree
-        AddInsuree
-        EditInsuree
-        DeleteInsuree
-        ViewInsuree
-
+        Insuree = 101100
+        InsureeSearch = 101101
+        InsureeAdd = 101102
+        InsureeEdit = 101103
+        InsureeDelete = 101104
+        InsureeEnquire = 101105
         'Policy
-        FindPolicy
-        AddPolicy
-        EditPolicy
-        DeletePolicy
-        ViewPolicy
+        PolicySearch = 101201
+        PolicyAdd = 101202
+        PolicyEdit = 101203
+        PolicyDelete = 101204
+        PolicyRenew = 101205
+        'Contribution
+        ContributionSearch = 101301
+        ContributionAdd = 101302
+        ContributionEdit = 101303
+        ContributionDelete = 101304
+        'Payment
+        PaymentSearch = 101401
+        PaymentAdd = 101402
+        PaymentEdit = 101403
+        PaymentDelete = 101404
 
-        'Premium
-        FindPremium
-        AddPremium
-        EditPremium
-        DeletePremium
-        ViewPremium
+        '***************************************Claims     11 00 00
 
-        'OverviewFamily
-        OverviewFamily
+        'Claims
+        Claims = 111000
+        ClaimSearch = 111001
+        ClaimAdd = 111002
+        ClaimDelete = 111004
+        ClaimLoad = 111005
+        ClaimPrint = 111006
+        ClaimSubmit = 111007
+        ClaimReview = 111008
+        ClaimFeedback = 111009
+        ClaimUpdate = 111010
+        ClaimProcess = 111011
 
-        '**************Claims
-        'FindClaim
-        FindClaim
-        DeleteClaim
-        ClaimsBatchClosure
+        'Batch
+        Batch = 111100
+        BatchProcess = 111101
+        BatchFilter = 111102
+        BatchPreview = 111103
 
-        'Claim
-        EnterClaim
-        LoadClaim
+        '***************************************Administrations 12 00 00
 
-        'ClaimOverview
-        ClaimOverview
-        SelectClaimForFeedback
-        SelectClaimForReview
-        ProcessClaims
-        UpdateClaims
+        'Product
+        Product = 121000
+        ProductSearch = 121001
+        ProductAdd = 121002
+        ProductEdit = 121003
+        ProductDelete = 121004
+        ProductDuplicate = 121005
 
-        'ClaimReview
-        ReviewClaim
 
-        'ClaimFeedback
-        EnterFeedback
+        'Health Facilities
+        HealthFacility = 121100
+        HealthFacilitySearch = 121101
+        HealthFacilityAdd = 121102
+        HealthFacilityEdit = 121103
+        HealthFacilityDelete = 121104
 
-        'ProcessBatch
-        ValuateClaim
+        'PriceLists Medical Services
+        PriceListMedicalServices = 121200
+        FindPriceListMedicalServices = 121201
+        AddPriceListMedicalServices = 121202
+        EditPriceListMedicalServices = 121203
+        DeletePriceListMedicalServices = 121204
+        DuplicatePriceListMedicalServices = 121205
 
-        '**undefined***
-        PromptingFeedbackCollection
-        CheckClaimPlausibility
-        ClaimXMLUpload
-        DownloadClaimForPayment
+        'Pricelists Medical Items
+        PriceListMedicalItems = 121300
+        FindPriceListMedicalItems = 121301
+        AddPriceListMedicalItems = 121302
+        EditPriceListMedicalItems = 121303
+        DeletePriceListMedicalItems = 121304
+        DuplicatePriceListMedicalItems = 121305
 
-        '*************administration
-        AddUser
-        FindUser
-        EditUser
-        DeleteUser
-        AddOfficer
-        FindOfficer
-        EditOfficer
-        DeleteOfficer
-        AddPayer
-        DeletePayer
-        AddHealthFacility
-        FindHealthFacility
-        EditHealthFacility
-        DeleteHealthFacility
-        FindPayer
-        EditPayer
-        ViewPayer
-        AddMedicalService
-        FindMedicalService
-        EditMedicalService
-        DeleteMedicalService
-        AddMedicalItem
-        FindMedicalItem
-        EditMedicalItem
-        DeleteMedicalItem
-        AddPriceListMedicalServices
-        FindPriceListMedicalServices
-        EditPriceListMedicalServices
-        DeletePriceListMedicalServices
-        DuplicatePriceListMedicalServices
-        AddPriceListMedicalItems
-        FindPriceListMedicalItems
-        EditPriceListMedicalItems
-        DeletePriceListMedicalItems
-        DuplicatePriceListMedicalItems
+        'Medical Services
+        MedicalService = 121400
+        FindMedicalService = 121401
+        AddMedicalService = 121402
+        EditMedicalService = 121403
+        DeleteMedicalService = 121404
+
+        'Medical Item
+        MedicalItem = 122100
+        FindMedicalItem = 122101
+        AddMedicalItem = 122102
+        EditMedicalItem = 122103
+        DeleteMedicalItem = 122104
+
+        'Enrolment Officers
+        Officer = 121500
+        FindOfficer = 121501
+        AddOfficer = 121502
+        EditOfficer = 121503
+        DeleteOfficer = 121504
+
         'claim administrator
-        AddClaimAdministrator
-        FindClaimAdministrator
-        EditClaimAdministrator
-        DeleteClaimAdministrator
+        ClaimAdministrator = 121600
+        FindClaimAdministrator = 121601
+        AddClaimAdministrator = 121602
+        EditClaimAdministrator = 121603
+        DeleteClaimAdministrator = 121604
+
+        'Users
+        Users = 121700
+        UsersSearch = 121701
+        UsersAdd = 121702
+        UsersEdit = 121703
+        UsersDelete = 121704
+
+        'Payers
+        Payer = 121800
+        FindPayer = 121801
+        AddPayer = 121802
+        EditPayer = 121803
+        DeletePayer = 121804
+        ViewPayer = 121801
+
         'locations
-        FindLocations
-        AddDistrict
-        EditDistrict
-        DeleteDistrict
-        AddWard
-        EditWard
-        DeleteWard
-        AddVillage
-        EditVillage
-        DeleteVillage
+        Locations = 121900
+        FindLocations = 121901
+        AddLocations = 121902
+        EditLocations = 121903
+        DeleteLocations = 121904
+        MoveLocations = 121905
 
-        'product
-        ViewProduct
-        AddProduct
-        FindProduct
-        EditProduct
-        DeleteProduct
-        DuplicateProduct
+        'UserProfile
+        userProfiles = 122000
+        FindUserProfile = 122001
+        AddUserProfile = 122002
+        DeleteUserProfile = 122004
+        EditUserProfile = 122003
+        DuplicateUserProfile = 122005
 
-        'Email
-        EmailSettings
+        '****************************************Tools 13 00 00
+        Tools = 130000
+        Registers = 131000
+        DiagnosesUpload = 131001
+        DiagnosesDownload = 131002
 
-        '**************************************************Tools
-        RenewPolicy
-        InquirePolicy
-        FeedbackPrompt
-        UploadICD
-        DownloadDataOnPremiumsToAccounting
-        UploadBatchXMLFile
-        DownloadBatchForPayment
-        UploadAccountingDataOnBatchPayment
-        DownloadToOfflineClient
-        UploadDataFromOfflineClient
-        CreateDataForAccounting
-        CreateDataForReinsurance
-        CreateManagerialStatistics
+        HealthFacilitiesUpload = 131003
+        HealthFacilitiesDownload = 131004
 
-        'ImisExtracts
-        IMISExtracts
-        OfflineExtracts
-        OfflineClaims
-        OfflineEnrolments
-        '/** added, not yet reviewed **/
-        'Utilities
-        Utilities
-        DatabaseBackup
-        DatabaseRestore
-        ExecuteScripts
+        LocationUpload = 131005
+        LocationDonwload = 131006
 
+
+        Extracts = 131100
+        ExtractMasterDataDownload = 131101
+        ExtractPhoneExtractsCreate = 131102
+        ExtractOfflineExtractCreate = 131103
+        ExtractClaimUpload = 131104
+        ExtractEnrolmentsUpload = 131105
+        ExtractFeedbackUpload = 131106
+
+        '****************************************Reports 1312 00
         'Reports
-        Reports
-        PremiumCollection
-        ProductSales
-        Indicators
-        PremiumDistribution
-        UserActivity
-        InsureeWithoutPhotos
-        MatchingFunds
-        ClaimOverviewReport
-        PercentageReferrals
-        FamiliesInsureesOverview
-        StatusOfRegister
-        PendingInsurees
-        Renewals
-        CapitationPayment
-        RejectedPhoto
-        'Report
-        ViewReport
+        Reports = 131200
+        ReportsPrimaryOperationalIndicatorPolicies = 131201
+        ReportsPrimaryOperationalIndicatorsClaims = 131202
+        ReportsDerivedOperationalIndicators = 131203
+        ReportsContributionCollection = 131204
+        ReportsProductSales = 131205
+        ReportsContributionDistribution = 131206
+        ReportsUserActivity = 131207
+        ReportsEnrolmentPerformanceIndicators = 131208
+        ReportsStatusOfRegister = 131209
+        ReportsInsureeWithoutPhotos = 131210
+        ReportsPaymentCategoryOverview = 131211
+        ReportsMatchingFunds = 131212
+        ReportsClaimOverviewReport = 131213
+        ReportsPercentageReferrals = 131214
+        ReportsFamiliesInsureesOverview = 131215
+        ReportsPendingInsurees = 131216
+        ReportsRenewals = 131217
+        ReportsCapitationPayment = 131218
+        ReportRejectedPhoto = 131219
+        ReportsContributionPayment = 131220
+        ReportsControlNumberAssignment = 131221
+        ReportsOverviewOfCommissions = 131222
+        ReportsClaimHistoryReport = 131223
 
-        AddFund
+
+        '****************************************Utilities/Email Setting 131300 
+        Utilities = 131300
+        DatabaseBackup = 131301
+        DatabaseRestore = 131302
+        ExecuteScripts = 131303
+        EmailSettings = 131304
+
+        '****************************************Funding 13 14 00  
+        FundingSave = 131401
+
+
+
+
+
+
+
+
+
     End Enum
 
     Enum Pages
@@ -249,6 +283,8 @@ Public Class Enums
         MedicalService
         FindUser
         User
+        UserProfiles
+        Role
         FindOfficer
         Officer
         FindClaimAdministrator

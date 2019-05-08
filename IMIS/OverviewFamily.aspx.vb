@@ -150,33 +150,35 @@ Partial Public Class OverviewFamily
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
+            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo").Value = "en", eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
             txtConfirmationNo.Text = eFamily.ConfirmationNo
             txtPermanentAddress.Text = eFamily.FamilyAddress
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlPremiums, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message & " : " & ex.StackTrace, EventLogEntryType.Error, 999)
             Return
         End Try
     End Sub
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False, Optional ByVal comm As String = "delete")
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If Not ondelete Then
             If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.OverviewFamily, Page) Then
-                AddFamily.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddFamily, RoleID)
-                EditFamily.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditFamily, RoleID)
-                DeleteFamily.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteFamily, RoleID)
-                AddInsuree.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddInsuree, RoleID)
-                EditInsuree.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditInsuree, RoleID)
-                DeleteInsuree.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteInsuree, RoleID)
-                AddPolicy.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddPolicy, RoleID)
-                EditPolicy.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditPolicy, RoleID)
-                DeletePolicy.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeletePolicy, RoleID)
-                AddPremium.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddPremium, RoleID)
-                EditPremium.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditPremium, RoleID)
-                DeletePremium.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeletePremium, RoleID)
-               
+                AddFamily.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyAdd, UserID)
+                EditFamily.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyEdit, UserID)
+                DeleteFamily.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyDelete, UserID)
+                AddInsuree.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeAdd, UserID)
+                EditInsuree.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeEdit, UserID)
+                DeleteInsuree.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeDelete, UserID)
+                AddPolicy.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.PolicyAdd, UserID)
+                EditPolicy.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.PolicyEdit, UserID)
+                DeletePolicy.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.PolicyDelete, UserID)
+                AddPremium.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ContributionAdd, UserID)
+                EditPremium.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ContributionEdit, UserID)
+                DeletePremium.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ContributionDelete, UserID)
+
                 If Not (AddFamily.Visible Or EditFamily.Visible Or DeleteFamily.Visible) Then
                     L_FAMILYPANEL.Enabled = False
                 End If
@@ -198,19 +200,19 @@ Partial Public Class OverviewFamily
             End If
         Else
             If comm = "deletefamily" Then
-                If Not OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeleteFamily, RoleID) Then
+                If Not OverviewFamily.checkRights(IMIS_EN.Enums.Rights.FamilyDelete, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.OverviewFamily.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf comm = "deleteinsuree" Then
-                If Not OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeleteInsuree, RoleID) Then
+                If Not OverviewFamily.checkRights(IMIS_EN.Enums.Rights.InsureeDelete, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.OverviewFamily.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf comm = "deletepolicy" Then
-                If Not OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeletePolicy, RoleID) Then
+                If Not OverviewFamily.checkRights(IMIS_EN.Enums.Rights.PolicyDelete, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.OverviewFamily.ToString & "&retUrl=" & RefUrl)
                 End If
             ElseIf comm = "deletepremium" Then
-                If Not OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeletePremium, RoleID) Then
+                If Not OverviewFamily.checkRights(IMIS_EN.Enums.Rights.ContributionDelete, UserID) Then
                     Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.OverviewFamily.ToString & "&retUrl=" & RefUrl)
                 End If
             End If
@@ -303,19 +305,20 @@ Partial Public Class OverviewFamily
 
     End Sub
     Private Sub loadSecurity()
-        Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
-        AddFamily.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.AddFamily, RoleId)
-        AddInsuree.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.AddInsuree, RoleId)
-        AddPolicy.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.AddPolicy, RoleId)
-        AddPremium.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.AddPremium, RoleId)
-        EditFamily.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.EditFamily, RoleId)
-        EditInsuree.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.EditInsuree, RoleId)
-        EditPolicy.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.EditPolicy, RoleId)
-        EditPremium.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.EditPremium, RoleId)
-        DeleteFamily.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeleteFamily, RoleId)
-        DeleteInsuree.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeleteInsuree, RoleId)
-        DeletePolicy.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeletePolicy, RoleId)
-        DeletePremium.Visible = OverviewFamily.checkRoles(IMIS_EN.Enums.Rights.DeletePremium, RoleId)
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
+        AddFamily.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.FamilyAdd, UserID)
+        AddInsuree.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.InsureeAdd, UserID)
+        AddPolicy.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.PolicyAdd, UserID)
+        AddPremium.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.ContributionAdd, UserID)
+        EditFamily.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.FamilyEdit, UserID)
+        EditInsuree.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.InsureeEdit, UserID)
+        EditPolicy.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.PolicyEdit, UserID)
+        EditPremium.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.ContributionEdit, UserID)
+        DeleteFamily.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.FamilyDelete, UserID)
+        DeleteInsuree.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.InsureeDelete, UserID)
+        DeletePolicy.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.PolicyDelete, UserID)
+        DeletePremium.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.ContributionDelete, UserID)
+        btnRenewPolicy.Visible = OverviewFamily.checkRights(IMIS_EN.Enums.Rights.PolicyRenew, UserID)
         If Not EditInsuree.Visible Then
             Dim hlink As HyperLinkField = gvInsurees.Columns(1)
             hlink.DataNavigateUrlFormatString = "#"

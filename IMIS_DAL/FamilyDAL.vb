@@ -330,12 +330,14 @@ Public Class FamilyDAL
     Public Sub GetFamilyHeadInfo(ByVal eFamily As IMIS_EN.tblFamilies)
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL += " SELECT TOP 1 F.isOffline,F.ValidityTo,F.FamilyId, ISNULL(L.VillageID,0) VillageID,  ISNULL(L.WardID,0) WardID,L.RegionId, L.RegionName, ISNULL(L.DistrictID,0) DistrictID, DistrictName,WardName,VillageName,F.FamilyType,"
-        sSQL += " F.FamilyAddress,F.Poverty, CT.ConfirmationType, CT.ConfirmationTypeCode, LastName,Othernames,Phone, CHFID,I.InsureeID,I.isOffline AS InsureeIsOffline,"
+        sSQL += " SELECT TOP 1 F.isOffline,F.ValidityTo,F.FamilyId, ISNULL(L.VillageID,0) VillageID,  ISNULL(L.WardID,0) WardID,L.RegionId, L.RegionName, ISNULL(L.DistrictID,0) DistrictID, DistrictName,WardName,VillageName"
+        sSQL += ",FT.FamilyType, ISNULL(FT.AltLanguage, FT.FamilyType) AltLanguage,"
+        sSQL += " F.FamilyAddress,F.Poverty, CT.ConfirmationType, CT.ConfirmationTypeCode, LastName,Othernames,Phone, CHFID,I.InsureeID,I.isOffline As InsureeIsOffline,"
         sSQL += " F.Ethnicity, ConfirmationNo FROM tblInsuree I"
-        sSQL += " INNER JOIN tblFamilies F ON ishead = 1 and I.ValidityTo IS NULL AND I.FamilyId = isnull(F.LegacyID,F.FamilyID)"
-        sSQL += " INNER JOIN uvwLocations L ON ISNULL(F.LocationId,0) = ISNULL(L.LocationId,0)"
-        sSQL += " LEFT JOIN tblConfirmationTypes CT ON CT.ConfirmationTypeCode=F.ConfirmationType WHERE F.FamilyID = @FamilyId"
+        sSQL += " INNER JOIN tblFamilies F On ishead = 1 And I.ValidityTo Is NULL And I.FamilyId = isnull(F.LegacyID,F.FamilyID)"
+        sSQL += " INNER JOIN uvwLocations L On ISNULL(F.LocationId,0) = ISNULL(L.LocationId,0)"
+        sSQL += " LEFT JOIN tblFamilyTypes FT  On FT.FamilyTypeCode = F.FamilyType"
+        sSQL += " LEFT JOIN tblConfirmationTypes CT On CT.ConfirmationTypeCode=F.ConfirmationType WHERE F.FamilyID = @FamilyId"
 
 
 
@@ -371,9 +373,13 @@ Public Class FamilyDAL
             eFamily.WardId = dr("WardID")
             eFamily.WardName = dr("WardName").ToString
             eFamily.tblInsuree = eInsurees
-            eFamily.FamilyType = dr("FamilyType").ToString
+            Dim eFamilyType As New IMIS_EN.tblFamilyTypes
+            eFamilyType.FamilyType = dr("FamilyType").ToString
+            eFamilyType.AltLanguage = dr("AltLanguage").ToString
+            eFamily.tblFamilyTypes = eFamilyType
             eFamily.FamilyAddress = dr("FamilyAddress").ToString
             eFamily.ConfirmationNo = dr("ConfirmationNo").ToString
+
             If Not dr("ValidityTo") Is DBNull.Value Then
                 eFamily.ValidityTo = dr("ValidityTo")
             End If
@@ -384,7 +390,7 @@ Public Class FamilyDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         Dim dt As New DataTable
-        sSQL = "SELECT * FROM tblInsuree WHERE CHFID = '" & CHFID & "' AND ValidityTo IS NULL"
+        sSQL = "Select * FROM tblInsuree WHERE CHFID = '" & CHFID & "' AND ValidityTo IS NULL"
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.Filldata
     End Function

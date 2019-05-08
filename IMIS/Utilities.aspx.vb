@@ -47,9 +47,18 @@ Public Partial Class Utilities
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Utilities, Page) Then
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Utilities.ToString & "&retUrl=" & RefUrl)
         End If
+        'Added by Emmanuel, the security level upon rights
+        btnBackup.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.DatabaseBackup, UserID)
+        txtPath.Enabled = btnBackup.Enabled
+        chkSavePath.Enabled = btnBackup.Enabled
+        btnRestore.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.DatabaseRestore, UserID)
+        txtRestore.Enabled = btnRestore.Enabled
+        btnExecute.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ExecuteScripts, UserID)
+        FileUpload1.Enabled = btnExecute.Enabled
     End Sub
 
     Private Sub btnBackup_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnBackup.Click

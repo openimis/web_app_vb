@@ -30,7 +30,7 @@ Public Partial Class ClaimAdministrator
     Inherits System.Web.UI.Page
 
 #Region "Members"
-    Private ImisGen As New IMIS_Gen
+    Protected ImisGen As New IMIS_Gen
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private BIClaimAdmin As New IMIS_BI.ClaimAdministratorBI
 #End Region
@@ -42,9 +42,16 @@ Public Partial Class ClaimAdministrator
         If HttpContext.Current.Request.QueryString("a") IsNot Nothing Then
             eClaimAdmin.ClaimAdminId = HttpContext.Current.Request.QueryString("a")
         End If
-        If IsPostBack = True Then Return
+
+        If IsPostBack = True Then
+            If Request.Params.Get("__EVENTARGUMENT").ToString = "Delete" Then
+                DeleteLogin()
+            End If
+            Return
+        End If
         Try
             FillHFCodes()
+            FillLanguage()
             If Not eClaimAdmin.ClaimAdminId = 0 Then
                 BIClaimAdmin.LoadClaimAdmin(eClaimAdmin)
                 If eClaimAdmin.ClaimAdminCode IsNot Nothing Then
@@ -68,6 +75,16 @@ Public Partial Class ClaimAdministrator
                 If eClaimAdmin.EmailId IsNot Nothing Then
                     txtEmail.Text = eClaimAdmin.EmailId
                 End If
+                If eClaimAdmin.HasLogin = True Then
+                    eClaimAdmin.eUsers.LoginName = eClaimAdmin.ClaimAdminCode
+                    eClaimAdmin.eUsers.UserID = 0
+                    BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+                    hfUserID.Value = eClaimAdmin.eUsers.UserID
+                    chkIncludeLogin.Checked = True
+                    ddlLanguage.SelectedValue = eClaimAdmin.eUsers.LanguageID
+                End If
+            Else
+                hfUserID.Value = 0
             End If
             If eClaimAdmin.ValidityTo.HasValue Then
                 pnlDetails.Enabled = False
@@ -83,7 +100,7 @@ Public Partial Class ClaimAdministrator
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
-                SetEntity()
+                If SetEntity() = False Then Return
                 If SaveClaimAdmin() = False Then Return
             Catch ex As Exception
                 ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlDetails, alertPopupTitle:="IMIS")
@@ -99,12 +116,13 @@ Public Partial Class ClaimAdministrator
 #End Region
 #End Region
 #Region "Functions & Procedures"
-    Private Sub RunPageSecurity()
+    Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = ImisGen.getUserId(Session("User"))
+
         If BIClaimAdmin.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimAdministrator, Page) Then
-            Dim Add As Boolean = BIClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.AddClaimAdministrator, RoleID)
-            Dim Edit As Boolean = BIClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.EditClaimAdministrator, RoleID)
+            Dim Add As Boolean = BIClaimAdmin.checkRights(IMIS_EN.Enums.Rights.AddClaimAdministrator, UserID)
+            Dim Edit As Boolean = BIClaimAdmin.checkRights(IMIS_EN.Enums.Rights.EditClaimAdministrator, UserID)
 
             If Not Add And Not Edit Then
                 B_SAVE.Visible = False
@@ -121,8 +139,15 @@ Public Partial Class ClaimAdministrator
         ddlHFCode.DataTextField = "HFCODE"
         ddlHFCode.DataBind()
     End Sub
-    Private Sub SetEntity()
+    Private Sub FillLanguage()
+        ddlLanguage.DataSource = BIClaimAdmin.GetLanguage
+        ddlLanguage.DataValueField = "LanguageCode"
+        ddlLanguage.DataTextField = "LanguageName"
+        ddlLanguage.DataBind()
+    End Sub
+    Private Function SetEntity()
         eClaimAdmin = New IMIS_EN.tblClaimAdmin
+        eClaimAdmin.eUsers = New IMIS_EN.tblUsers
         If HttpContext.Current.Request.QueryString("a") IsNot Nothing Then
             eClaimAdmin.ClaimAdminId = HttpContext.Current.Request.QueryString("a")
         End If
@@ -149,7 +174,54 @@ Public Partial Class ClaimAdministrator
         If txtEmail.Text.Trim <> String.Empty Then
             eClaimAdmin.EmailId = txtEmail.Text.Trim
         End If
-    End Sub
+        eClaimAdmin.HasLogin = 0
+        If chkIncludeLogin.Checked = True Then
+            If SetLoginDetails() = False Then
+                Return False
+            End If
+        End If
+        Return True
+    End Function
+    Private Function SetLoginDetails() As Boolean
+        eClaimAdmin.eUsers = New IMIS_EN.tblUsers
+        If hfUserID.Value <> "" Then
+            eClaimAdmin.eUsers.UserID = hfUserID.Value
+        End If
+        If eClaimAdmin.eUsers.UserID > 0 Then
+            BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+            eClaimAdmin.eUsers.LoginName = txtCode.Text
+        Else
+            eClaimAdmin.eUsers.LoginName = txtCode.Text
+            BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+        End If
+        eClaimAdmin.eUsers.AuditUserID = eClaimAdmin.AuditUserId
+        If eClaimAdmin.eUsers.UserID = 0 Then
+            If txtPassword.Text = String.Empty Then
+                lblmsg.Text = ImisGen.getMessage("M_WEAKPASSWORD")
+                Return False
+            End If
+        End If
+        If txtPassword.Text <> txtConfirmPassword.Text Then
+            lblmsg.Text = ImisGen.getMessage("V_CONFIRMPASSWORD")
+            Return False
+        End If
+        eClaimAdmin.eUsers.LastName = txtLastName.Text
+        eClaimAdmin.eUsers.OtherNames = txtOtherNames.Text
+        If txtPassword.Text.Length > 0 Then
+            eClaimAdmin.eUsers.DummyPwd = txtPassword.Text
+        End If
+        eClaimAdmin.eUsers.Phone = txtPhone.Text
+        eClaimAdmin.eUsers.EmailId = txtEmail.Text
+        eClaimAdmin.eUsers.LanguageID = ddlLanguage.SelectedValue
+        eClaimAdmin.eUsers.RoleID = 256
+        eClaimAdmin.eUsers.AuditUserID = ImisGen.getUserId(Session("User"))
+        If ddlHFCode.SelectedIndex >= 0 Then
+            eClaimAdmin.eUsers.HFID = ddlHFCode.SelectedValue
+        End If
+        eClaimAdmin.eUsers.IsAssociated = True
+        eClaimAdmin.HasLogin = 1
+        Return True
+    End Function
     Private Function SaveClaimAdmin() As Boolean
         Dim chk As Integer = BIClaimAdmin.SaveClaimAdmin(eClaimAdmin)
         If chk = 1 Then
@@ -166,5 +238,24 @@ Public Partial Class ClaimAdministrator
         End If
         Return True
     End Function
+    Public Sub DeleteLogin()
+        Try
+            If SetEntity() = False Then
+                Exit Sub
+            End If
+            eClaimAdmin.eUsers.UserID = hfUserID.Value
+            BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+            BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
+            eClaimAdmin.HasLogin = False
+            If Not eClaimAdmin.ClaimAdminId = 0 Then
+                BIClaimAdmin.SaveClaimAdmin(eClaimAdmin)
+            End If
+            Session("msg") = eClaimAdmin.ClaimAdminCode & " " & ImisGen.getMessage("M_DELETED")
+            RequiredFieldLanguage.Visible = False
+        Catch ex As Exception
+            ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlClaimAdmiLogin, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+        End Try
+    End Sub
 #End Region
 End Class

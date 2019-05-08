@@ -43,6 +43,11 @@ Public Class ICDCodesBL
         dt.Rows.InsertAt(dr, 0)
         Return dt
     End Function
+    Public Function getAutoCompleteICDCodes(Optional ByVal showSelect As Boolean = False) As DataTable
+        Dim dt As DataTable
+        dt = icd.getAutoCompleteICDCodes
+        Return dt
+    End Function
     'Public Function getICDIDFromCode(ByVal ICDCODE As String) As Integer
 
     '    Return icd.getICDIDFromCode(ICDCODE)

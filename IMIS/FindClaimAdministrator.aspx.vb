@@ -34,6 +34,7 @@ Public Partial Class FindClaimAdministrator
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private eHF As IMIS_EN.tblHF
     Private BIFindClaimAdmin As New IMIS_BI.FindClaimAdministratorBI
+    Private BIClaimAdmin As New IMIS_BI.ClaimAdministratorBI
 #End Region
 #Region "Events"
 #Region "Page"
@@ -127,20 +128,20 @@ Public Partial Class FindClaimAdministrator
 #Region "Functions & Procedures"
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(8).Text = "&nbsp;" Then
+            If Not row.Cells(9).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
         Next
     End Sub
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = ImisGen.getUserId(Session("User"))
         If Not ondelete Then
-            If BIFindClaimAdmin.RunPageSecurity(IMIS_EN.Enums.Pages.FindClaimAdministrator, Page) Then
-                B_ADD.Visible = BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.AddClaimAdministrator, RoleID)
-                B_EDIT.Visible = BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.EditClaimAdministrator, RoleID)
-                B_DELETE.Visible = BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, RoleID)
-
+            If BIFindClaimAdmin.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimAdministrator, Page) Then
+                B_ADD.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.AddClaimAdministrator, UserID)
+                B_EDIT.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.EditClaimAdministrator, UserID)
+                B_DELETE.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, UserID)
+                B_SEARCH.Visible = BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.FindClaimAdministrator, UserID)
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
                 End If
@@ -148,7 +149,7 @@ Public Partial Class FindClaimAdministrator
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaimAdministrator.ToString & "&retUrl=" & RefUrl)
             End If
         Else
-            If Not BIFindClaimAdmin.CheckRoles(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, RoleID) Then
+            If Not BIFindClaimAdmin.checkRights(IMIS_EN.Enums.Rights.DeleteClaimAdministrator, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaimAdministrator.ToString & "&retUrl=" & RefUrl)
             End If
         End If
@@ -192,13 +193,13 @@ Public Partial Class FindClaimAdministrator
             B_ADD.Visible = True
         Else
             If chkLegacy.Checked = True Then
-                B_DELETE.Visible = False
-                B_EDIT.Visible = False
-                B_ADD.Visible = False
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_ADD.Visible = B_ADD.Visible
             Else
-                B_DELETE.Visible = True
-                B_EDIT.Visible = True
-                B_ADD.Visible = True
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_ADD.Visible = B_ADD.Visible
             End If
         End If
     End Sub
@@ -236,7 +237,11 @@ Public Partial Class FindClaimAdministrator
     Private Function DeleteClaimAdministrator() As Boolean
         lblMsg.Text = ""
         eClaimAdmin.ClaimAdminId = hfClaimAdministratorId.Value
+        eClaimAdmin.ClaimAdminCode = hfClaimAdministratorCode.Value
         eClaimAdmin.AuditUserId = ImisGen.getUserId(Session("User"))
+        If hfHasLogin.Value = "True" Then
+            DeleteAssociatedUser()
+        End If
         Dim Chk As Integer = BIFindClaimAdmin.DeleteClaimAdmin(eClaimAdmin)
         Dim AdminCode As String = hfClaimAdministratorCode.Value
         SetEntity()
@@ -249,5 +254,17 @@ Public Partial Class FindClaimAdministrator
         End If
         Return True
     End Function
+
+    Private Sub DeleteAssociatedUser()
+        Try
+            eClaimAdmin.eUsers = New IMIS_EN.tblUsers
+            eClaimAdmin.eUsers.LoginName = eClaimAdmin.ClaimAdminCode
+            BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+            BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
+        Catch ex As Exception
+            ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+        End Try
+    End Sub
 #End Region
 End Class

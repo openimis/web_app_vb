@@ -40,7 +40,7 @@ Option Explicit On
 
 
 Partial Public Class FindPayer
-
+    
     '''<summary>
     '''hfPayerId control.
     '''</summary>
@@ -49,7 +49,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfPayerId As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''hfPayerName control.
     '''</summary>
@@ -58,7 +58,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfPayerName As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''Label8 control.
     '''</summary>
@@ -67,7 +67,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label8 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlTop control.
     '''</summary>
@@ -76,7 +76,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlTop As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''L_Name control.
     '''</summary>
@@ -85,7 +85,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Name As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtName control.
     '''</summary>
@@ -94,7 +94,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''L_REGION control.
     '''</summary>
@@ -103,7 +103,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_REGION As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ddlRegion control.
     '''</summary>
@@ -112,7 +112,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlRegion As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''L_District control.
     '''</summary>
@@ -121,7 +121,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_District As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ddlDistrict control.
     '''</summary>
@@ -130,7 +130,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlDistrict As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''L_Email control.
     '''</summary>
@@ -139,7 +139,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Email As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtEmail control.
     '''</summary>
@@ -148,7 +148,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''Label1 control.
     '''</summary>
@@ -157,7 +157,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ddlPayerType control.
     '''</summary>
@@ -166,7 +166,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlPayerType As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''L_Phone control.
     '''</summary>
@@ -175,7 +175,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Phone As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtPhone control.
     '''</summary>
@@ -184,7 +184,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhone As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''chkLegacy control.
     '''</summary>
@@ -193,7 +193,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkLegacy As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''B_SEARCH control.
     '''</summary>
@@ -202,7 +202,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_SEARCH As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''L_FOUNDUSERS control.
     '''</summary>
@@ -211,7 +211,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_FOUNDUSERS As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlGrid control.
     '''</summary>
@@ -220,7 +220,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlGrid As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''gvPayers control.
     '''</summary>
@@ -229,7 +229,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvPayers As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -238,7 +238,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''B_ADD control.
     '''</summary>
@@ -247,7 +247,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_ADD As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''B_EDIT control.
     '''</summary>
@@ -256,7 +256,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_EDIT As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''B_DELETE control.
     '''</summary>
@@ -265,7 +265,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_DELETE As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -274,7 +274,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''lblMsg control.
     '''</summary>
@@ -283,7 +283,7 @@ Partial Public Class FindPayer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMsg As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''validationSummary control.
     '''</summary>

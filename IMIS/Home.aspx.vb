@@ -51,11 +51,11 @@ Partial Public Class Home
 
             If Not eUsers.UserID = 0 Then
                 Home.LoadUsers(eUsers)
-                'txtCURRENTUSER.Text = eUsers.OtherNames & " " & eUsers.LastName & " (" & eUsers.LoginName & ")"
-                txtCURRENTUSER.Text = eUsers.OtherNames & " " & eUsers.LastName
+                txtCURRENTUSER.Text = eUsers.OtherNames & " " & eUsers.LastName & " (" & eUsers.LoginName & ")"
+                'txtCURRENTUSER.Text = eUsers.OtherNames & " " & eUsers.LastName
             End If
 
-            gvRoles.DataSource = Home.GetRoles(eUsers.RoleID)
+            gvRoles.DataSource = Home.GetRoles(eUsers.UserID)
             gvRoles.DataBind()
             '  Assign(gvRoles)
         Catch ex As Exception

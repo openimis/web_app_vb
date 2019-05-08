@@ -25,7 +25,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 <%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/IMIS.Master" CodeBehind="Report.aspx.vb" Inherits="IMIS.Report" 
     title='<%$ Resources:Resource,L_REPORTS %>'%>
 
-<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 
 
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">

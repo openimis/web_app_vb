@@ -28,7 +28,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title><%= imisgen.getMessage("T_FORGOTPASSWORD", True ) %></title>
+    <title><%= imisgen.getMessage("T_FORGOTPASSWORD", True) %></title>
     <link href="StyleSheets/Imis.css" rel="stylesheet" />
     <script src="Javascripts/jquery-1.8.2.min.js"></script>
 </head>
@@ -46,10 +46,19 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <asp:ValidationSummary ID="vs" runat="server" DisplayMode="List" ValidationGroup="submit" />
             </div>
             <div class="line">
-                <div class="lbl">Email:</div>
-                <div class="cnt"><asp:TextBox ID="txtEmailId" runat="server" Width="80%" required></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfEmail" runat="server" ControlToValidate="txtEmailId" Display="none" SetFocusOnError="True" ValidationGroup="submit" ErrorMessage='<%$RESOURCES:Resource, L_EMAILREQUIRED %>'></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="reEmail" runat="server" ControlToValidate="txtEmailId" Display="none" SetFocusOnError="True" ValidationGroup="submit" ErrorMessage='<%$RESOURCES:Resource, L_INVALIDEMAIL %>' style="direction: ltr" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                <div class="lbl"><asp:Label ID="L_LoginName" runat="server" Text='<%$ Resources:Resource,L_USERNAME %>'></asp:Label></div>
+                <div class="cnt"><asp:TextBox ID="txtLoginName" runat="server" Width="80%"  ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="submit" 
+                        ControlToValidate="txtLoginName" ErrorMessage="*" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    
+                </div>
+                    
+            </div>
+            <div class="line">
+                <div class="lbl"><asp:Label ID="L_Password" runat="server" Text='<%$ Resources:Resource,L_NEWPASSWORD %>'></asp:Label></div>
+                <div class="cnt"><asp:TextBox ID="txtPassword" runat="server" Width="80%" TextMode="Password" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfPassword" runat="server"  ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>'  ValidationGroup="submit" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="submit">*</asp:RegularExpressionValidator>
                 </div>
                     
             </div>

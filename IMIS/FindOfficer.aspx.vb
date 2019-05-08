@@ -32,6 +32,7 @@ Partial Public Class FindOfficer
     Private Officer As New IMIS_BI.FindOfficersBI
     Protected imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private BIClaimAdmin As New IMIS_BI.ClaimAdministratorBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvOfficers)
@@ -40,7 +41,7 @@ Partial Public Class FindOfficer
     End Sub
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(9).Text = "&nbsp;" Then
+            If Not row.Cells(10).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
             'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
@@ -87,12 +88,13 @@ Partial Public Class FindOfficer
 
     Private Sub RunPageSecurity(Optional ByVal ondelete As Boolean = False)
         Dim RefUrl = Request.Headers("Referer")
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisGen.getUserId(Session("User"))
         If Not ondelete Then
-            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.FindOfficer, Page) Then
-                B_ADD.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddOfficer, RoleID)
-                B_EDIT.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.EditOfficer, RoleID)
-                B_DELETE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteOfficer, RoleID)
+            If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Officer, Page) Then
+                B_ADD.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.AddOfficer, UserID)
+                B_EDIT.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.EditOfficer, UserID)
+                B_DELETE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.DeleteOfficer, UserID)
+                B_SEARCH.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FindOfficer, UserID)
 
                 If Not B_EDIT.Visible And Not B_DELETE.Visible Then
                     pnlGrid.Enabled = False
@@ -101,7 +103,7 @@ Partial Public Class FindOfficer
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindOfficer.ToString & "&retUrl=" & RefUrl)
             End If
         Else
-            If Not userBI.CheckRoles(IMIS_EN.Enums.Rights.DeleteOfficer, RoleID) Then
+            If Not userBI.checkRights(IMIS_EN.Enums.Rights.DeleteOfficer, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindOfficer.ToString & "&retUrl=" & RefUrl)
             End If
 
@@ -220,8 +222,11 @@ Partial Public Class FindOfficer
         Try
             lblMsg.Text = ""
             eofficer.OfficerID = hfOfficerId.Value
-
+            eofficer.Code = hfOfficerCode.Value
             eofficer.AuditUserID = imisGen.getUserId(Session("User"))
+            If hfHasLogin.Value = "True" Then
+                DeleteAssociatedUser()
+            End If
             Officer.DeleteOfficer(eofficer)
             Dim FOfficer As String = hfOfficerCode.Value
             loadGrid()
@@ -232,24 +237,32 @@ Partial Public Class FindOfficer
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
+    Private Sub DeleteAssociatedUser()
+        Try
+            eofficer.eUsers = New IMIS_EN.tblUsers
+            eofficer.eUsers.LoginName = eofficer.Code
+            BIClaimAdmin.LoadUsers(eofficer.eUsers)
+            BIClaimAdmin.DeleteUser(eofficer.eUsers)
+        Catch ex As Exception
+            imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+        End Try
+    End Sub
     Private Sub EnableButtons(ByVal rows As Integer)
         If rows = 0 Then
 
             B_DELETE.Visible = False
             B_EDIT.Visible = False
-            'B_VIEW.Visible = False
             B_ADD.Visible = True
         Else
             If chkLegacy.Checked = True Then
-                B_DELETE.Visible = False
-                B_EDIT.Visible = False
-                'B_VIEW.Visible = True
-                B_ADD.Visible = False
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_ADD.Visible = B_ADD.Visible
             Else
-                B_DELETE.Visible = True
-                B_EDIT.Visible = True
-                'B_VIEW.Visible = False
-                B_ADD.Visible = True
+                B_DELETE.Visible = B_DELETE.Visible
+                B_EDIT.Visible = B_EDIT.Visible
+                B_ADD.Visible = B_ADD.Visible
             End If
 
         End If

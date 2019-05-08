@@ -65,7 +65,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
         var $anchor = $row.find("td").eq(0).find("a");
         var dataNavStringParts = $anchor.attr("href").split("=")
         $("#<%=hfUserId.ClientID%>").val(dataNavStringParts[1]);
-         $("#<%=hfUserName.ClientID%>").val($anchor.html());
+        $("#<%=hfUserName.ClientID%>").val($anchor.html());
+
+        var $IsAssoc = $row.find("td").eq(1).html()
+        $("#<%=hfAssociatedUser.ClientID%>").val($IsAssoc);
     }
     /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
  </script>
@@ -75,7 +78,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
     <div class="divBody" >
      <asp:HiddenField ID="hfUserId" runat="server" />
       <asp:HiddenField ID="hfUserName" runat="server" />
-      
+      <asp:HiddenField ID="hfAssociatedUser" runat="server" />
         <table class="catlabel">
              <tr>
                 <td >
@@ -183,7 +186,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                      <asp:Label                     
                      ID="L_HFNAME" 
                      runat="server" 
-                     Text='<%$ Resources:Resource,L_HFNAME %>'>
+                     Text='<%$ Resources:Resource,L_HF %>'>
                      </asp:Label>
                  </td>
                  <td class="DataEntry">
@@ -261,13 +264,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
             </table>
 
 <asp:Panel ID="pnlGrid" runat="server"  ScrollBars="Auto" CssClass="panelBody">
-    <asp:GridView  ID="gvUsers" runat="server"  AutoGenerateColumns="False" GridLines="None" AllowPaging="true" PagerSettings-FirstPageText = "First Page" PagerSettings-LastPageText = "Last Page" PagerSettings-Mode ="NumericFirstLast" CssClass="mGrid" PageSize="15" DataKeyNames="UserID,LoginName" EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'>
+    <asp:GridView  ID="gvUsers" runat="server"  AutoGenerateColumns="False" GridLines="None" AllowPaging="true" 
+        PagerSettings-FirstPageText = "First Page" PagerSettings-LastPageText = "Last Page" PagerSettings-Mode ="NumericFirstLast" 
+        CssClass="mGrid" PageSize="15" DataKeyNames="UserID,LoginName,IsAssociated" EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'>
         <Columns>        
             <asp:HyperLinkField DataNavigateUrlFields="UserID" 
                 DataNavigateUrlFormatString="User.aspx?u={0}" DataTextField="LoginName"  
                 HeaderText='<%$ Resources:Resource,L_USERNAME %>' HeaderStyle-Width ="60px">
                 <HeaderStyle Width="60px" />
             </asp:HyperLinkField>
+            <asp:BoundField DataField="IsAssociated" HeaderText="IsAssociated" HeaderStyle-Width ="110px"> <ItemStyle CssClass="hidecol"/><HeaderStyle CssClass="hidecol" />
+                <HeaderStyle Width="110px" />
+            </asp:BoundField> 
             <asp:BoundField DataField="LastName"  HeaderText='<%$ Resources:Resource,L_LASTNAME %>' SortExpression="LastName" HeaderStyle-Width ="110px"> 
                 <HeaderStyle Width="110px" />
             </asp:BoundField> 

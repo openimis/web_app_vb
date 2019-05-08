@@ -84,7 +84,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </asp:UpdatePanel>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPremiumPaid1" runat="server" ControlToValidate="ddlProduct" ErrorMessage="*" InitialValue="0" ValidationGroup="check"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPremiumPaid1" runat="server" ControlToValidate="ddlProduct" ErrorMessage="*" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -112,7 +112,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             Text='<%$ Resources:Resource,L_PAYMENTDATE %>'></asp:Label>
                     </td>
                     <td class="DataEntry">
-                        <asp:TextBox ID="txtPaymentDate" runat="server" Width="120px" MaxLength="10"></asp:TextBox>
+                        <asp:TextBox ID="txtPaymentDate" runat="server" Width="132px" MaxLength="10"></asp:TextBox>
 
 
                         <asp:Button ID="Button1" runat="server" Height="20px" Width="20px" />
@@ -122,8 +122,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </td>
                     <td>
 
-                        <asp:RequiredFieldValidator ID="RequiredFieldPaymentDate" runat="server" ControlToValidate="txtPaymentDate" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPaymentDate" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check"></asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldPaymentDate" runat="server" ControlToValidate="txtPaymentDate" SetFocusOnError="True" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPaymentDate" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
 
                     </td>
                 </tr>
@@ -139,7 +139,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </td>
                     <td>
 
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPremiumPaid" runat="server" ControlToValidate="txtPremiumPaid" ErrorMessage="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPremiumPaid" runat="server" ControlToValidate="txtPremiumPaid" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
 
                     </td>
                 </tr>
@@ -155,7 +155,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </td>
                     <td>
 
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorReceiptNumber" runat="server" ControlToValidate="txtReceiptNumber" ErrorMessage="*" ValidationGroup="check"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorReceiptNumber" runat="server" ControlToValidate="txtReceiptNumber" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
 
                     </td>
                 </tr>

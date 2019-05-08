@@ -95,8 +95,9 @@ Public Class AddFunding
     End Sub
     Private Sub RunPageSecurity()
         Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Funding, Page) Then
-            B_SAVE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddFund, RoleID)
+            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FundingSave, UserID)
             If Not B_SAVE.Visible Then
                 pnlBody.Enabled = False
             End If
@@ -127,21 +128,26 @@ Public Class AddFunding
     End Sub
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
         Try
-            SetEntity()
-            Dim Result As Integer = FundBI.AddFund(ePremium, ddlProduct.SelectedValue)
             Dim msg As String = String.Empty
+            If Not String.IsNullOrWhiteSpace(ddlProduct.Text) Then
 
-            Select Case Result
-                Case 0
-                    msg = imisgen.getMessage("M_FUNDADDED")
-                Case 99
-                    msg = imisgen.getMessage("M_AJAXERROR")
-            End Select
+                SetEntity()
+                Dim Result As Integer = FundBI.AddFund(ePremium, ddlProduct.SelectedValue)
+                Select Case Result
+                    Case 0
+                        msg = imisgen.getMessage("M_FUNDADDED")
+                    Case 99
+                        msg = imisgen.getMessage("M_AJAXERROR")
+                End Select
 
-            Session("msg") = msg
-            Response.Redirect("Home.aspx")
+                Session("msg") = msg
+                Response.Redirect("Home.aspx")
+                'Added by Emmanuel
+            Else
+                imisgen.Alert(imisgen.getMessage("M_MUSTFILLPRODUCT"), pnlBody, alertPopupTitle:="IMIS")
+            End If
 
-            'imisgen.Alert(msg, pnlBody, alertPopupTitle:="IMIS-Funding")
+            'imisgen.Alert(msg, pnlBody, alertPopupTitle:="IMIS-Funding"    Commeted by developer initially
 
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")

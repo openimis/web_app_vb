@@ -27,13 +27,13 @@
 '
 
 Public Class ClaimAdministratorBI
+    Public UserRights As New IMIS_BL.UsersBL
+    Public Function checkRights(ByVal Right As IMIS_EN.Enums.Rights, ByVal UserID As Integer) As Boolean
+        Return UserRights.CheckRights(Right, UserID)
+    End Function
     Public Function RunPageSecurity(ByVal PageName As IMIS_EN.Enums.Pages, ByRef PageObj As System.Web.UI.Page) As Boolean
         Dim user As New IMIS_BL.UsersBL
         Return user.RunPageSecurity(PageName, PageObj)
-    End Function
-    Public Function CheckRoles(ByVal Right As IMIS_EN.Enums.Rights, ByVal RoleId As Integer) As Boolean
-        Dim user As New IMIS_BL.UsersBL
-        Return user.CheckRoles(Right, RoleId)
     End Function
     Public Function GetHFCodes(ByVal UserId As Integer, ByVal LocationId As Integer) As DataTable
         Dim hf As New IMIS_BL.HealthFacilityBL
@@ -46,5 +46,18 @@ Public Class ClaimAdministratorBI
     Public Function SaveClaimAdmin(ByRef eClaimAdmin As IMIS_EN.tblClaimAdmin) As Integer
         Dim BLClaimAdmin As New IMIS_BL.ClaimAdminBL
         Return BLClaimAdmin.SaveClaimAdmin(eClaimAdmin)
+    End Function
+    Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
+        Dim User As New IMIS_BL.UsersBL
+        User.LoadUsers(eUser)
+    End Sub
+    Public Function GetLanguage() As DataTable
+        Dim users As New IMIS_BL.GeneralBL
+        Return users.GetLanguage
+    End Function
+    Public Function DeleteUser(ByVal eUser As IMIS_EN.tblUsers) As Boolean
+        Dim Del As New IMIS_BL.UsersBL
+        Del.DeleteUser(eUser)
+        Return True
     End Function
 End Class

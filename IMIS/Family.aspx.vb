@@ -326,9 +326,9 @@ Public Class Family
         End If
     End Sub
     Private Sub RunPageSecurity()
-        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
+        Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Family, Page) Then
-            B_SAVE.Visible = userBI.CheckRoles(IMIS_EN.Enums.Rights.AddFamily, RoleID)
+            B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.FamilyAdd, UserID)
             If Not B_SAVE.Visible Then
                 pnlBody.Enabled = False
                 pnlImages.Enabled = False
