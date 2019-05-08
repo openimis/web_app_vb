@@ -1568,6 +1568,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Enter username and confirm new password.
+        '''</summary>
+        Friend Shared ReadOnly Property L_CONFIRMEMAILANDPASSWORD() As String
+            Get
+                Return ResourceManager.GetString("L_CONFIRMEMAILANDPASSWORD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Confirm Password.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFIRMPASSWORD() As String
