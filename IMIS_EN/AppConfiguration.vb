@@ -128,13 +128,84 @@ Public Class AppConfiguration
         End Get
     End Property
 
-    Public Shared ReadOnly Property ValidationPasswordRegex As String
+    Public Shared ReadOnly Property PasswordValidationMinLength As Integer
         Get
-            Dim Result As String = ConfigurationManager.AppSettings("ValidationPasswordRegex")
-            If Not String.IsNullOrEmpty(Result) Then
-                Return Result
-            End If
-            Throw New Exception("AppSetting ValidationPasswordRegex not found in web.config file.")
+            Try
+                Dim result As String = ConfigurationManager.AppSettings("Password:MinLength")
+                If Not String.IsNullOrEmpty(result) Then
+                    Return Integer.Parse(result)
+                End If
+            Catch ex As Exception
+                EventLog.WriteEntry("IMIS",
+                    "Error during processing the AppSetting 'Password:LowerCaseLetter' occurred (Default value will be used): " & ex.Message,
+                    EventLogEntryType.Warning, 1)
+            End Try
+            Return 1
         End Get
     End Property
+
+    Public Shared ReadOnly Property PasswordValidationLowerCaseLetter As Integer
+        Get
+            Try
+                Dim Result As String = ConfigurationManager.AppSettings("Password:LowerCaseLetter")
+                If Not String.IsNullOrEmpty(Result) Then
+                    Return Integer.Parse(Result)
+                End If
+            Catch ex As Exception
+                EventLog.WriteEntry("IMIS",
+                    "Error during processing the AppSetting 'Password:LowerCaseLetter' occurred (Default value will be used): " & ex.Message,
+                    EventLogEntryType.Warning, 1)
+            End Try
+            Return 0
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property PasswordValidationUpperCaseLetter As Integer
+        Get
+            Try
+                Dim Result As String = ConfigurationManager.AppSettings("Password:UpperCaseLetter")
+                If Not String.IsNullOrEmpty(Result) Then
+                    Return Integer.Parse(Result)
+                End If
+            Catch ex As Exception
+                EventLog.WriteEntry("IMIS",
+                    "Error during processing the AppSetting 'Password:UpperCaseLetter' occurred (Default value will be used): " & ex.Message,
+                    EventLogEntryType.Warning, 1)
+            End Try
+            Return 0
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property PasswordValidationNumber As Integer
+        Get
+            Try
+                Dim Result As String = ConfigurationManager.AppSettings("Password:Number")
+                If Not String.IsNullOrEmpty(Result) Then
+                    Return Integer.Parse(Result)
+                End If
+            Catch ex As Exception
+                EventLog.WriteEntry("IMIS",
+                    "Error during processing the AppSetting 'Password:Number' occurred (Default value will be used): " & ex.Message,
+                    EventLogEntryType.Warning, 1)
+            End Try
+            Return 0
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property PasswordValidationSpecialSymbol As Integer
+        Get
+            Try
+                Dim Result As String = ConfigurationManager.AppSettings("Password:SpecialSymbol")
+                If Not String.IsNullOrEmpty(Result) Then
+                    Return Integer.Parse(Result)
+                End If
+            Catch ex As Exception
+                EventLog.WriteEntry("IMIS",
+                    "Error during processing the AppSetting 'Password:SpecialSymbol' occurred (Default value will be used): " & ex.Message,
+                    EventLogEntryType.Warning, 1)
+            End Try
+            Return 0
+        End Get
+    End Property
+
 End Class

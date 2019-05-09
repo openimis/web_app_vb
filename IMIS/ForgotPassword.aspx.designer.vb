@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class ForgotPassword
-
+    
     '''<summary>
     '''form1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''heading control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents heading As Global.System.Web.UI.WebControls.Literal
-
+    
     '''<summary>
     '''vs control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents vs As Global.System.Web.UI.WebControls.ValidationSummary
-
+    
     '''<summary>
     '''L_LoginName control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_LoginName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtLoginName control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtLoginName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator1 control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''L_Password control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Password As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtPassword control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfPassword control.
     '''</summary>
@@ -93,16 +93,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''rePasswordStrength control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rePasswordStrength As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''Login control.
     '''</summary>
@@ -111,7 +102,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Login As Global.System.Web.UI.WebControls.Literal
-
+    
     '''<summary>
     '''btnSubmit control.
     '''</summary>
@@ -120,7 +111,7 @@ Partial Public Class ForgotPassword
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnSubmit As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''msg control.
     '''</summary>

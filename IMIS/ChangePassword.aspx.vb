@@ -38,6 +38,10 @@ Public Class ChangePassword
                 lblMsg.Text = General.getInvalidPasswordMessage()
                 Exit Sub
             End If
+            If txtNewPassword.Text <> txtConfirmNewPassword.Text Then
+                lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                Exit Sub
+            End If
             eUsers.UserID = imisgen.getUserId(Session("User"))
 
             eUsers.DummyPwd = txtCurrentPassword.Text.ToString

@@ -40,7 +40,10 @@ Public Class EnterNewPassword
         Dim FontColor As String = ""
         msg.Text = ""
         Try
-            If txtPassword.Text.Trim.Length = 0 Then Exit Sub
+            If Not General.isValidPassword(txtPassword.Text) Then
+                msg.Text = General.getInvalidPasswordMessage()
+                Exit Sub
+            End If
             If txtLoginName.Text.Trim.Length = 0 Then Exit Sub
             Dim txtHashString As String = HttpContext.Current.Request.QueryString("h")
 

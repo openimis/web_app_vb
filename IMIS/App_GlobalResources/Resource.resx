@@ -3591,12 +3591,6 @@
   <data name="L_PASSWORDSENT" xml:space="preserve">
     <value>A link has been sent to your email, click on link to confirm new password</value>
   </data>
-  <data name="M_WEAKPASSWORD" xml:space="preserve">
-    <value>Password must contain at least 8 characters including, at least one number, at least one upper and lower case letter, at least one special symbol</value>
-  </data>
-  <data name="M_WEAKPASSWORD_GENERAL" xml:space="preserve">
-    <value>Password is too weak</value>
-  </data>
   <data name="L_MYPROFILE" xml:space="preserve">
     <value>My profile</value>
   </data>
@@ -4584,5 +4578,29 @@ adults/children)</value>
   </data>
   <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
     <value>Enter username and confirm new password</value>
+  </data>
+  <data name="V_PASSWORD_PREFIX" xml:space="preserve">
+    <value>Password must contain</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
+    <value>at least</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
+    <value>characters including</value>
+  </data>
+  <data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
+    <value>at least one lower case letter</value>
+  </data>
+  <data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
+    <value>at least one upper case letter</value>
+  </data>
+  <data name="V_PASSWORD_NUMBER" xml:space="preserve">
+    <value>at least one number</value>
+  </data>
+  <data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
+    <value>at least one special symbol</value>
+  </data>
+  <data name="V_PASSWORDREQUIRED" xml:space="preserve">
+    <value>Password is required</value>
   </data>
 </root>
