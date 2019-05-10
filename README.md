@@ -75,10 +75,10 @@ For deployment please read the [installation manual](http://openimis.readthedocs
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 -->
 
-<!--## Versioning
+## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
--->
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/openimis/web_app_vb/tags). 
+
 
 <!--## Authors
 
@@ -90,6 +90,10 @@ See also the list of [contributors](https://github.com/your/project/contributors
 ## User Manual 
 
 The user manual can be read on [openimis.readthedocs.io](http://openimis.readthedocs.io/en/latest/user_manual.html).
+
+## Issues
+
+To report a bug, request a new features or asking questions about openIMIS, please use the [openIMIS Service Desk](https://openimis.atlassian.net/servicedesk/customer/portal/1). 
 
 ## License
 
