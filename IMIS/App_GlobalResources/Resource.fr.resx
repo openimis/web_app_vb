@@ -4753,10 +4753,6 @@ Fuzzy</comment>
     <value>Votre mot de passe est envoyé à votre identifiant de messagerie électronique</value>
     <comment>Your password is sent to your email id</comment>
   </data>
-  <data name="M_WEAKPASSWORD" xml:space="preserve">
-    <value>Le mot de passe doit contenir au moins 8 caractères dont au moins un numéro</value>
-    <comment>Password must contain at least 8 characters including at  least one number</comment>
-  </data>
   <data name="L_MYPROFILE" xml:space="preserve">
     <value>Mon profil</value>
     <comment>My profile</comment>
@@ -4934,8 +4930,8 @@ Fuzzy</comment>
     <comment>Good Afternoon</comment>
   </data>
   <data name="M_GOODEVENING" xml:space="preserve">
-    <value>Bonsoir</value>
-    <comment>Good Evening</comment>
+      <value>Bonsoir</value>
+      <comment>Good Evening</comment>
   </data>
   <data name="M_GOODMORNING" xml:space="preserve">
     <value>Bonjour</value>
@@ -6282,5 +6278,35 @@ Fuzzy</comment>
   <data name="T_NEWPOLICIES" xml:space="preserve">
     <value>Nouvelle police</value>
     <comment>New Policies</comment>
+  </data>
+  <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
+    <value>Enter username and confirm new password</value>
+  </data>
+  <data name="V_PASSWORD_PREFIX" xml:space="preserve">
+    <value>Password must contain</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
+    <value>at least</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
+    <value>characters</value>
+  </data>
+  <data name="V_PASSWORD_INCLUDING" xml:space="preserve">
+    <value>including</value>
+  </data>
+  <data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
+    <value>at least one lower case letter</value>
+  </data>
+  <data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
+    <value>at least one upper case letter</value>
+  </data>
+  <data name="V_PASSWORD_NUMBER" xml:space="preserve">
+    <value>at least one number</value>
+  </data>
+  <data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
+    <value>at least one special symbol</value>
+  </data>
+  <data name="V_PASSWORDREQUIRED" xml:space="preserve">
+    <value>Password is required</value>
   </data>
 </root>

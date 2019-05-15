@@ -196,8 +196,8 @@ Public Partial Class ClaimAdministrator
         End If
         eClaimAdmin.eUsers.AuditUserID = eClaimAdmin.AuditUserId
         If eClaimAdmin.eUsers.UserID = 0 Then
-            If txtPassword.Text = String.Empty Then
-                lblmsg.Text = ImisGen.getMessage("M_WEAKPASSWORD")
+            If Not General.isValidPassword(txtPassword.Text) Then
+                lblmsg.Text = General.getInvalidPasswordMessage()
                 Return False
             End If
         End If

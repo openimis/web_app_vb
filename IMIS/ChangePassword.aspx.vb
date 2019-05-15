@@ -34,6 +34,14 @@ Public Class ChangePassword
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
         Try
 
+            If Not General.isValidPassword(txtNewPassword.Text) Then
+                lblMsg.Text = General.getInvalidPasswordMessage()
+                Exit Sub
+            End If
+            If txtNewPassword.Text <> txtConfirmNewPassword.Text Then
+                lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                Exit Sub
+            End If
             eUsers.UserID = imisgen.getUserId(Session("User"))
 
             eUsers.DummyPwd = txtCurrentPassword.Text.ToString
@@ -43,8 +51,6 @@ Public Class ChangePassword
             Else
                 lblMsg.Text = imisgen.getMessage("M_INCORRECTCURRENTPASSWORD")
             End If
-
-
         Catch ex As Exception
             lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)

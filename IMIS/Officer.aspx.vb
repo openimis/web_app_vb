@@ -202,6 +202,16 @@ Partial Public Class Officer
             BIOfficer.LoadUsers(eOfficer.eUsers)
         End If
         eOfficer.eUsers.AuditUserID = eOfficer.AuditUserID
+        If eOfficer.eUsers.UserID = 0 Then
+            If Not General.isValidPassword(txtPassword.Text) Then
+                lblmsg.Text = General.getInvalidPasswordMessage()
+                Return False
+            End If
+        End If
+        If txtPassword.Text <> txtConfirmPassword.Text Then
+            lblmsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+            Return False
+        End If
         eOfficer.eUsers.LastName = txtLastName.Text
         eOfficer.eUsers.OtherNames = txtOtherNames.Text
         If txtPassword.Text.Length > 0 Then

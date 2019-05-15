@@ -10064,15 +10064,6 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Password must contain at least 8 characters including at  least one number.
-        '''</summary>
-        Friend Shared ReadOnly Property M_WEAKPASSWORD() As String
-            Get
-                Return ResourceManager.GetString("M_WEAKPASSWORD", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Sum of the weights must be 100%.
         '''</summary>
         Friend Shared ReadOnly Property M_WEIGHTMUSTBE100() As String
@@ -13337,6 +13328,87 @@ Namespace Resources
         Friend Shared ReadOnly Property V_OTHERNAMES() As String
             Get
                 Return ResourceManager.GetString("V_OTHERNAMES", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Password is required.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORDREQUIRED() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORDREQUIRED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to including.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_INCLUDING() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_INCLUDING", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to at least one lower case letter.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_LOWER_CASE() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_LOWER_CASE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to at least.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_MIN_LENGTH_PREFIX() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_MIN_LENGTH_PREFIX", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to characters.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_MIN_LENGTH_SUFFIX() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_MIN_LENGTH_SUFFIX", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to at least one number.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_NUMBER() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_NUMBER", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Password must contain.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_PREFIX() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_PREFIX", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to at least one special symbol.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_SPECIAL_SYMBOL() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_SPECIAL_SYMBOL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to at least one upper case letter.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_UPPER_CASE() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_UPPER_CASE", resourceCulture)
             End Get
         End Property
         
