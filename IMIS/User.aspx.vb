@@ -39,8 +39,10 @@ Partial Public Class User
         Try
             lblMsg.Text = ""
 
-            eUsers.UserUUID = Guid.Parse(HttpContext.Current.Request.QueryString("u"))
-            eUsers.UserID = Users.GetUserIdByUUID(eUsers.UserUUID)
+            If HttpContext.Current.Request.QueryString("u") IsNot Nothing Then
+                eUsers.UserUUID = Guid.Parse(HttpContext.Current.Request.QueryString("u"))
+                eUsers.UserID = Users.GetUserIdByUUID(eUsers.UserUUID)
+            End If
 
             If HttpContext.Current.Request.QueryString("r") = 1 Then
                 Panel2.Enabled = False
