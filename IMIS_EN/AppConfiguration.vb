@@ -130,81 +130,126 @@ Public Class AppConfiguration
 
     Public Shared ReadOnly Property PasswordValidationMinLength As Integer
         Get
+            Dim defaultValue = 1
+            Dim value As Integer = defaultValue
             Try
-                Dim result As String = ConfigurationManager.AppSettings("Password:MinLength")
-                If Not String.IsNullOrEmpty(result) Then
-                    Return Integer.Parse(result)
+                Dim textValue As String = ConfigurationManager.AppSettings("Password:MinLength")
+                If Not String.IsNullOrEmpty(textValue) Then
+                    value = Integer.Parse(textValue)
+                    If value < 1 Then
+                        value = defaultValue
+                        EventLog.WriteEntry("IMIS",
+                            "Error during processing the AppSetting 'Password:MinLength' occurred. 
+                            Value need to be greater than or equal to 1 (Default value will be used).",
+                            EventLogEntryType.Warning, 1)
+                    End If
                 End If
             Catch ex As Exception
                 EventLog.WriteEntry("IMIS",
-                    "Error during processing the AppSetting 'Password:LowerCaseLetter' occurred (Default value will be used): " & ex.Message,
+                    "Error during processing the AppSetting 'Password:MinLength' occurred (Default value will be used): " & ex.Message,
                     EventLogEntryType.Warning, 1)
             End Try
-            Return 1
+            Return value
         End Get
     End Property
 
     Public Shared ReadOnly Property PasswordValidationLowerCaseLetter As Integer
         Get
+            Dim defaultValue = 0
+            Dim value As Integer = defaultValue
             Try
-                Dim Result As String = ConfigurationManager.AppSettings("Password:LowerCaseLetter")
-                If Not String.IsNullOrEmpty(Result) Then
-                    Return Integer.Parse(Result)
+                Dim textValue As String = ConfigurationManager.AppSettings("Password:LowerCaseLetter")
+                If Not String.IsNullOrEmpty(textValue) Then
+                    value = Integer.Parse(textValue)
+                    If value <> 0 AndAlso value <> 1 Then
+                        value = defaultValue
+                        EventLog.WriteEntry("IMIS",
+                            "Error during processing the AppSetting 'Password:LowerCaseLetter' occurred. 
+                            Acceptable values: 0, 1 (Default value will be used).",
+                            EventLogEntryType.Warning, 1)
+                    End If
                 End If
             Catch ex As Exception
                 EventLog.WriteEntry("IMIS",
                     "Error during processing the AppSetting 'Password:LowerCaseLetter' occurred (Default value will be used): " & ex.Message,
                     EventLogEntryType.Warning, 1)
             End Try
-            Return 0
+            Return value
         End Get
     End Property
 
     Public Shared ReadOnly Property PasswordValidationUpperCaseLetter As Integer
         Get
+            Dim defaultValue = 0
+            Dim value As Integer = defaultValue
             Try
-                Dim Result As String = ConfigurationManager.AppSettings("Password:UpperCaseLetter")
-                If Not String.IsNullOrEmpty(Result) Then
-                    Return Integer.Parse(Result)
+                Dim textValue As String = ConfigurationManager.AppSettings("Password:UpperCaseLetter")
+                If Not String.IsNullOrEmpty(textValue) Then
+                    value = Integer.Parse(textValue)
+                    If value <> 0 AndAlso value <> 1 Then
+                        value = defaultValue
+                        EventLog.WriteEntry("IMIS",
+                            "Error during processing the AppSetting 'Password:UpperCaseLetter' occurred. 
+                            Acceptable values: 0, 1 (Default value will be used).",
+                            EventLogEntryType.Warning, 1)
+                    End If
                 End If
             Catch ex As Exception
                 EventLog.WriteEntry("IMIS",
                     "Error during processing the AppSetting 'Password:UpperCaseLetter' occurred (Default value will be used): " & ex.Message,
                     EventLogEntryType.Warning, 1)
             End Try
-            Return 0
+            Return value
         End Get
     End Property
 
     Public Shared ReadOnly Property PasswordValidationNumber As Integer
         Get
+            Dim defaultValue = 0
+            Dim value As Integer = defaultValue
             Try
-                Dim Result As String = ConfigurationManager.AppSettings("Password:Number")
-                If Not String.IsNullOrEmpty(Result) Then
-                    Return Integer.Parse(Result)
+                Dim textValue As String = ConfigurationManager.AppSettings("Password:Number")
+                If Not String.IsNullOrEmpty(textValue) Then
+                    value = Integer.Parse(textValue)
+                    If value <> 0 AndAlso value <> 1 Then
+                        value = defaultValue
+                        EventLog.WriteEntry("IMIS",
+                            "Error during processing the AppSetting 'Password:Number' occurred. 
+                            Acceptable values: 0, 1 (Default value will be used).",
+                            EventLogEntryType.Warning, 1)
+                    End If
                 End If
             Catch ex As Exception
                 EventLog.WriteEntry("IMIS",
                     "Error during processing the AppSetting 'Password:Number' occurred (Default value will be used): " & ex.Message,
                     EventLogEntryType.Warning, 1)
             End Try
-            Return 0
+            Return value
         End Get
     End Property
 
     Public Shared ReadOnly Property PasswordValidationSpecialSymbol As Integer
         Get
+            Dim defaultValue = 0
+            Dim value As Integer = defaultValue
             Try
-                Dim Result As String = ConfigurationManager.AppSettings("Password:SpecialSymbol")
-                If Not String.IsNullOrEmpty(Result) Then
-                    Return Integer.Parse(Result)
+                Dim textValue As String = ConfigurationManager.AppSettings("Password:SpecialSymbol")
+                If Not String.IsNullOrEmpty(textValue) Then
+                    value = Integer.Parse(textValue)
+                    If value <> 0 AndAlso value <> 1 Then
+                        value = defaultValue
+                        EventLog.WriteEntry("IMIS",
+                            "Error during processing the AppSetting 'Password:SpecialSymbol' occurred. 
+                            Acceptable values: 0, 1 (Default value will be used).",
+                            EventLogEntryType.Warning, 1)
+                    End If
                 End If
             Catch ex As Exception
                 EventLog.WriteEntry("IMIS",
                     "Error during processing the AppSetting 'Password:SpecialSymbol' occurred (Default value will be used): " & ex.Message,
                     EventLogEntryType.Warning, 1)
             End Try
-            Return 0
+            Return value
         End Get
     End Property
 

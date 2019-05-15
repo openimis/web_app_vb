@@ -47,9 +47,8 @@ Public Class General
         Dim specialSymbolCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationSpecialSymbol
 
         Dim expression As String = "^"
-        If minLength Then
-            expression += "(?=.{" & minLength.ToString & "})"
-        End If
+        expression += "(?=.{" & minLength.ToString & "})"
+
         If lowerCaseLetterCheck Then
             expression += "(?=[^a-z]*[a-z])"
         End If
@@ -75,12 +74,9 @@ Public Class General
         Dim numberCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationNumber
         Dim specialSymbolCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationSpecialSymbol
 
-        Dim baseCondition As String = ""
+        Dim baseCondition As String = imisgen.getMessage("V_PASSWORD_MIN_LENGTH_PREFIX") & " " &
+                        minLength.ToString & " " & imisgen.getMessage("V_PASSWORD_MIN_LENGTH_SUFFIX")
         Dim listAdditionalOfCondition As List(Of String) = New List(Of String)
-        If minLength Then
-            baseCondition = imisgen.getMessage("V_PASSWORD_MIN_LENGTH_PREFIX") & " " &
-                                minLength.ToString & " " & imisgen.getMessage("V_PASSWORD_MIN_LENGTH_SUFFIX")
-        End If
         If lowerCaseLetterCheck Then
             listAdditionalOfCondition.Add(imisgen.getMessage("V_PASSWORD_LOWER_CASE"))
         End If
@@ -92,11 +88,6 @@ Public Class General
         End If
         If specialSymbolCheck Then
             listAdditionalOfCondition.Add(imisgen.getMessage("V_PASSWORD_SPECIAL_SYMBOL"))
-        End If
-
-        If listAdditionalOfCondition.Count = 0 AndAlso String.IsNullOrEmpty(baseCondition) Then
-            baseCondition = imisgen.getMessage("V_PASSWORD_MIN_LENGTH_PREFIX") &
-                                " 1 " & imisgen.getMessage("V_PASSWORD_MIN_LENGTH_SUFFIX")
         End If
 
         Dim result As String = imisgen.getMessage("V_PASSWORD_PREFIX") & " " & baseCondition
