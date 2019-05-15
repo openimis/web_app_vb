@@ -39,8 +39,9 @@ Partial Public Class User
         Try
             lblMsg.Text = ""
 
+            eUsers.UserUUID = Guid.Parse(HttpContext.Current.Request.QueryString("u"))
+            eUsers.UserID = Users.GetUserIdByUUID(eUsers.UserUUID)
 
-            eUsers.UserID = HttpContext.Current.Request.QueryString("u")
             If HttpContext.Current.Request.QueryString("r") = 1 Then
                 Panel2.Enabled = False
                 B_SAVE.Visible = False

@@ -268,7 +268,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
         PagerSettings-FirstPageText = "First Page" PagerSettings-LastPageText = "Last Page" PagerSettings-Mode ="NumericFirstLast" 
         CssClass="mGrid" PageSize="15" DataKeyNames="UserID,LoginName,IsAssociated" EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'>
         <Columns>        
-            <asp:HyperLinkField DataNavigateUrlFields="UserID" 
+            <asp:HyperLinkField DataNavigateUrlFields="UserUUID" 
                 DataNavigateUrlFormatString="User.aspx?u={0}" DataTextField="LoginName"  
                 HeaderText='<%$ Resources:Resource,L_USERNAME %>' HeaderStyle-Width ="60px">
                 <HeaderStyle Width="60px" />

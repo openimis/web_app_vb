@@ -102,7 +102,7 @@ Public Class UsersDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         'Dim strsql As String = "select distinct tblusers.* from tblUsers inner join tblUsersDistricts on  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID and tblUsersDistricts.ValidityTo is null inner join (select LocationId from tblUsersDistricts where UserID = @userId and ValidityTo is null) userDistricts on userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName LIKE @LastName AND OtherNames LIKE @OtherNames AND LoginName LIKE @LoginName AND CASE WHEN @RoleID = 0 THEN 0 ELSE RoleID & @RoleId END = @RoleID AND  CASE WHEN @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
-        sSQL = " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId, U.EmailId, U.IsAssociated"
+        sSQL = " SELECT U.UserId, U.UserUUID, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId, U.EmailId, U.IsAssociated"
         sSQL += " FROM tblUsers U"
         sSQL += " INNER JOIN tblUsersDistricts UD ON UD.UserId = U.UserId"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(UD.LocationId, 0)"
@@ -127,7 +127,7 @@ Public Class UsersDAL
         End If
 
         sSQL += " GROUP BY U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId,"
-        sSQL += " U.AuditUserId, U.EmailId, IsAssociated"
+        sSQL += " U.AuditUserId, U.EmailId, IsAssociated, U.UserUUID"
         sSQL += " ORDER BY U.LoginName, U.ValidityFrom DESC"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -381,4 +381,15 @@ Public Class UsersDAL
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
         data.ExecuteCommand()
     End Sub
+    Public Function GetUserIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select UserID from tblUsers where UserUUID = @UserUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@UserUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
 End Class
