@@ -4586,7 +4586,10 @@ adults/children)</value>
     <value>at least</value>
   </data>
   <data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
-    <value>characters including</value>
+    <value>characters</value>
+  </data>
+  <data name="V_PASSWORD_INCLUDING" xml:space="preserve">
+    <value>including</value>
   </data>
   <data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
     <value>at least one lower case letter</value>

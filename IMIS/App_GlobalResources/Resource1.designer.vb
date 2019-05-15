@@ -13341,6 +13341,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to including.
+        '''</summary>
+        Friend Shared ReadOnly Property V_PASSWORD_INCLUDING() As String
+            Get
+                Return ResourceManager.GetString("V_PASSWORD_INCLUDING", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to at least one lower case letter.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_LOWER_CASE() As String
@@ -13359,7 +13368,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to characters including.
+        '''  Looks up a localized string similar to characters.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_MIN_LENGTH_SUFFIX() As String
             Get
