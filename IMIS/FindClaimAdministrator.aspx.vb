@@ -75,7 +75,7 @@ Public Partial Class FindClaimAdministrator
         End Try
     End Sub
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
-        Response.Redirect("ClaimAdministrator.aspx?a=0")
+        Response.Redirect("ClaimAdministrator.aspx")
     End Sub
     Protected Sub B_EDIT_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_EDIT.Click
         Response.Redirect("ClaimAdministrator.aspx?a=" & hfClaimAdministratorId.Value)
@@ -236,7 +236,10 @@ Public Partial Class FindClaimAdministrator
     End Sub
     Private Function DeleteClaimAdministrator() As Boolean
         lblMsg.Text = ""
-        eClaimAdmin.ClaimAdminId = hfClaimAdministratorId.Value
+        If HttpContext.Current.Request.QueryString("a") IsNot Nothing Then
+            eClaimAdmin.ClaimAdminUUID = Guid.Parse(hfClaimAdministratorId.Value)
+            eClaimAdmin.ClaimAdminId = BIClaimAdmin.GetClaimAdminIdByUUID(eClaimAdmin.ClaimAdminUUID)
+        End If
         eClaimAdmin.ClaimAdminCode = hfClaimAdministratorCode.Value
         eClaimAdmin.AuditUserId = ImisGen.getUserId(Session("User"))
         If hfHasLogin.Value = "True" Then

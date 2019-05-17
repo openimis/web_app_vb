@@ -60,4 +60,8 @@ Public Class ClaimAdministratorBI
         Del.DeleteUser(eUser)
         Return True
     End Function
+    Public Function GetClaimAdminIdByUUID(ByVal uuid As Guid) As Integer
+        Dim ClaimAdmin As New IMIS_BL.ClaimAdminBL
+        Return ClaimAdmin.GetClaimAdminIdByUUID(uuid)
+    End Function
 End Class

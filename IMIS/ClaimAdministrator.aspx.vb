@@ -39,8 +39,10 @@ Public Partial Class ClaimAdministrator
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
         lblmsg.Text = ""
+
         If HttpContext.Current.Request.QueryString("a") IsNot Nothing Then
-            eClaimAdmin.ClaimAdminId = HttpContext.Current.Request.QueryString("a")
+            eClaimAdmin.ClaimAdminUUID = Guid.Parse(HttpContext.Current.Request.QueryString("a"))
+            eClaimAdmin.ClaimAdminId = BIClaimAdmin.GetClaimAdminIdByUUID(eClaimAdmin.ClaimAdminUUID)
         End If
 
         If IsPostBack = True Then
@@ -149,7 +151,7 @@ Public Partial Class ClaimAdministrator
         eClaimAdmin = New IMIS_EN.tblClaimAdmin
         eClaimAdmin.eUsers = New IMIS_EN.tblUsers
         If HttpContext.Current.Request.QueryString("a") IsNot Nothing Then
-            eClaimAdmin.ClaimAdminId = HttpContext.Current.Request.QueryString("a")
+            eClaimAdmin.ClaimAdminId = eClaimAdmin.ClaimAdminId
         End If
         Dim eHF As New IMIS_EN.tblHF
         If ddlHFCode.SelectedIndex > 0 Then eHF.HfID = ddlHFCode.SelectedValue

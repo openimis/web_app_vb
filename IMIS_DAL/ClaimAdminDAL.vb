@@ -60,7 +60,7 @@ Public Class ClaimAdminDAL
 
     'Corrected
     Public Function GetClaimAdmins(ByVal eClaimAdmin As IMIS_EN.tblClaimAdmin, ByVal All As Boolean) As DataTable
-        Query = "select ClaimAdminId,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
+        Query = "select ClaimAdminId,ClaimAdminUUID,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
            ",ca.ValidityTo,ca.LegacyId,ca.AuditUserId,tblHF.HfID,tblHF.HFCode, ca.EmailId,ISNULL(ca.HasLogin,0) HasLogin from tblClaimAdmin ca" &
            " inner join tblHF on ca.HFId = tblHF.HfID" &
            " inner join tblUsersDistricts ud on tblHF.LocationId = ud.LocationId And ud.UserID = @UserID" &
@@ -165,12 +165,23 @@ Public Class ClaimAdminDAL
         Return True
     End Function
     Public Function ClaimAdminCodeExists(ByVal eClaimAdmin As IMIS_EN.tblClaimAdmin) As Boolean
-        Query = "Select * from tblClaimAdmin where ClaimAdminCode = @ClaimAdminCode and ValidityTo is null" & _
+        Query = "Select * from tblClaimAdmin where ClaimAdminCode = @ClaimAdminCode and ValidityTo is null" &
                 " AND ClaimAdminId <> @ClaimAdminId"
         Data.setSQLCommand(Query, CommandType.Text)
         Data.params("@ClaimAdminCode", SqlDbType.NVarChar, 8, eClaimAdmin.ClaimAdminCode)
         Data.params("@ClaimAdminId", SqlDbType.Int, eClaimAdmin.ClaimAdminId)
         If Data.Filldata().Rows.Count > 0 Then Return True
         Return False
+    End Function
+    Public Function GetClaimAdminIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ClaimAdminId from tblClaimAdmin where ClaimAdminUUID = @ClaimAdminUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ClaimAdminUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
     End Function
 End Class
