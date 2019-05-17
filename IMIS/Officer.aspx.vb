@@ -41,7 +41,11 @@ Partial Public Class Officer
         RunPageSecurity()
         lblmsg.Text = ""
 
-        eOfficer.OfficerID = HttpContext.Current.Request.QueryString("o")
+        If HttpContext.Current.Request.QueryString("o") IsNot Nothing Then
+            eOfficer.OfficerUUID = Guid.Parse(HttpContext.Current.Request.QueryString("o"))
+            eOfficer.OfficerID = BIOfficer.GetOfficerIdByUUID(eOfficer.OfficerUUID)
+        End If
+
         eUsers.UserID = imisgen.getUserId(Session("User"))
         If IsPostBack = True Then
             If Request.Params.Get("__EVENTARGUMENT").ToString = "Delete" Then
@@ -268,7 +272,7 @@ Partial Public Class Officer
         ddlDistrict.DataBind()
 
         If dtDistricts.Rows.Count > 0 Then
-            Dim dtOfficers As DataTable = Officer.GetSubstitutionOfficer(Request.QueryString("o"))
+            Dim dtOfficers As DataTable = Officer.GetSubstitutionOfficer(eOfficer.OfficerID)
             If dtOfficers.Rows.Count > 0 Then
                 ddlSubstitution.DataSource = dtOfficers
                 ddlSubstitution.DataValueField = "OfficerID"
