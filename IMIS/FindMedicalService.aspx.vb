@@ -32,6 +32,7 @@ Partial Public Class FindMedicalService
     Dim Service As New IMIS_BI.FindMedicalServicesBI
     Private imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Dim ServiceBI As New IMIS_BI.MedicalServiceBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvService)
@@ -160,7 +161,10 @@ Partial Public Class FindMedicalService
         RunPageSecurity(True)
         Try
             lblMsg.Text = ""
-            eService.ServiceID = hfServId.Value
+
+            Dim ServiceUUID As Guid = Guid.Parse(hfServId.Value)
+            Dim ServiceId As Integer = ServiceBI.GetServiceIdByUUID(ServiceUUID)
+            eService.ServiceID = ServiceId
 
             eService.AuditUserID = imisGen.getUserId(Session("User"))
             Dim chk As Boolean = Service.DeleteService(eService)
