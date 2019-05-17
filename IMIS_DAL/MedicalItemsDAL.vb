@@ -57,7 +57,7 @@ Public Class MedicalItemsDAL
     End Sub
     Public Function GetMI(ByVal eItems As IMIS_EN.tblItems, ByVal ALL As Boolean, ByVal dtIType As DataTable) As DataTable
         Dim data As New ExactSQL
-        Dim strSQL As String = "select ItemId,ItemCode,ItemName,IType.Name AS ItemType ,ItemPackage,ItemPrice,validityfrom,validityto from tblItems inner join @dtIType IType on Itype.code = tblItems.itemType where ItemCode LIKE @ItemCode AND ItemName LIKE @ItemName AND ItemType LIKE @ItemType and isnull(ItemPackage,'') like @ItemPackage"
+        Dim strSQL As String = "select ItemId,ItemUUID,ItemCode,ItemName,IType.Name AS ItemType ,ItemPackage,ItemPrice,validityfrom,validityto from tblItems inner join @dtIType IType on Itype.code = tblItems.itemType where ItemCode LIKE @ItemCode AND ItemName LIKE @ItemName AND ItemType LIKE @ItemType and isnull(ItemPackage,'') like @ItemPackage"
         If ALL = False Then
             strSQL += " AND ValidityTo is NULL"
         End If
@@ -120,12 +120,23 @@ Public Class MedicalItemsDAL
     End Function
     Public Function CheckIfDelete(ByVal eItem As IMIS_EN.tblItems) As DataTable
         Dim data As New ExactSQL
-        Dim str As String = "select top 1 tblItems.ItemID from tblItems left join tblProductitems on tblItems.ItemID = tblProductitems.itemid and tblProductitems.ValidityTo is null" & _
-                            " left join tblPLItemsDetail on tblPLitemsdetail.ItemID = tblItems.itemid  and tblPLItemsDetail.ValidityTo is null" & _
+        Dim str As String = "select top 1 tblItems.ItemID from tblItems left join tblProductitems on tblItems.ItemID = tblProductitems.itemid and tblProductitems.ValidityTo is null" &
+                            " left join tblPLItemsDetail on tblPLitemsdetail.ItemID = tblItems.itemid  and tblPLItemsDetail.ValidityTo is null" &
                             " where (tblProductItems.ItemID = @ItemID or tblPLItemsDetail.itemid = @ItemID)"
 
         data.setSQLCommand(str, CommandType.Text)
         data.params("@ItemID", SqlDbType.Int, eItem.ItemID)
         Return data.Filldata()
+    End Function
+    Public Function GetItemIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ItemID from tblItems where ItemUUID = @ItemUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ItemUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
     End Function
 End Class

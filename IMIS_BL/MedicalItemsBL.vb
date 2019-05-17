@@ -88,4 +88,8 @@ Public Class MedicalItemsBL
         Dim Items As New IMIS_DAL.MedicalItemsDAL
         Items.LoadItems(eItems)
     End Sub
+    Public Function GetItemIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Item As New IMIS_DAL.MedicalItemsDAL
+        Return Item.GetItemIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class
