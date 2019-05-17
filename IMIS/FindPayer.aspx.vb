@@ -33,6 +33,7 @@ Partial Public Class FindPayer
      Private imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
     Protected Language As String
+    Dim PayerBI As New IMIS_BI.PayerBI
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvPayers)
         If chkLegacy.Checked Then Page.ClientScript.RegisterForEventValidation(B_EDIT.UniqueID)
@@ -197,7 +198,11 @@ Partial Public Class FindPayer
         RunPageSecurity(True)
         Try
             lblMsg.Text = ""
-            epayer.PayerID = hfPayerId.Value
+
+            Dim PayerUUID As Guid = Guid.Parse(hfPayerId.Value)
+            Dim PayerID As Integer = PayerBI.GetPayerIdByUUID(PayerUUID)
+
+            epayer.PayerID = PayerID
             epayer.AuditUserID = imisGen.getUserId(Session("User"))
             payers.DeletePayer(epayer)
             LoadGrid()

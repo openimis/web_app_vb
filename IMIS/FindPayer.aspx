@@ -241,7 +241,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <HeaderStyle CssClass="HideButton" />
                             <ItemStyle CssClass="HideButton" />
                             </asp:CommandField>
-                             <asp:HyperLinkField DataNavigateUrlFields="PayerID" 
+                             <asp:HyperLinkField DataNavigateUrlFields="PayerUUID" 
                                 DataNavigateUrlFormatString="Payer.aspx?p={0}" DataTextField="PayerName"  
                                 HeaderText='<%$ Resources:Resource,L_NAME %>' SortExpression="PayerName" 
                                 HeaderStyle-Width ="200px">

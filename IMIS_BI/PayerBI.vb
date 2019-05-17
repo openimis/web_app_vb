@@ -51,4 +51,8 @@ Public Class PayerBI
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect, IncludeNational:=IncludeNational)
     End Function
+    Public Function GetPayerIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Payer As New IMIS_BL.PayersBL
+        Return Payer.GetPayerIdByUUID(uuid)
+    End Function
 End Class

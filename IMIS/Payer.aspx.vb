@@ -62,7 +62,11 @@ Partial Public Class Payer
         RunPageSecurity()
         Try
             lblMsg.Text = ""
-            epayer.PayerID = HttpContext.Current.Request.QueryString("p")
+
+            If HttpContext.Current.Request.QueryString("p") IsNot Nothing Then
+                epayer.PayerUUID = Guid.Parse(HttpContext.Current.Request.QueryString("p"))
+                epayer.PayerID = Payer.GetPayerIdByUUID(epayer.PayerUUID)
+            End If
 
             If IsPostBack = True Then Return
 
