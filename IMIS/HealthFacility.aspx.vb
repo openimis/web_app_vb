@@ -54,7 +54,12 @@ Partial Public Class HealthFacility
 
         'ViewState("Districts") = gvDistrict.DataSource
         lblMsg.Text = ""
-        eHF.HfID = HttpContext.Current.Request.QueryString("h")
+
+        If HttpContext.Current.Request.QueryString("h") IsNot Nothing Then
+            eHF.HfUUID = Guid.Parse(HttpContext.Current.Request.QueryString("h"))
+            eHF.HfID = HF.GetHfIdByUUID(eHF.HfUUID)
+        End If
+
         If HttpContext.Current.Request.QueryString("r") = 1 Or eHF.ValidityTo.HasValue Then
             Panel2.Enabled = False
             B_SAVE.Visible = False
