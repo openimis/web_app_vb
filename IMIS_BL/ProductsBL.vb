@@ -227,4 +227,8 @@ Public Class ProductsBL
         Dim dt As DataTable = HF.GetHFLevel
         Return DAL.getProductCapitationDetails(ProductId, dt)
     End Function
+    Public Function GetProdIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Prod As New IMIS_DAL.ProductsDAL
+        Return Prod.GetProdIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class

@@ -326,8 +326,8 @@ Public Class ProductsDAL
     Public Function GetProducts(ByVal eProducts As IMIS_EN.tblProduct, ByVal All As Boolean) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        
-        sSQL = "SELECT  Prod.ProdId, Prod.ProductCode , Prod.ProductName , L.RegionName , L.DistrictName, Prod.DateFrom, Prod.DateTo, Prod.MemberCount, Prod.LumpSum, Prod.PremiumAdult, Prod.PremiumChild, Prod.InsurancePeriod, Prod.GracePeriod, Prod.ValidityFrom, Prod.ValidityTo"
+
+        sSQL = "SELECT  Prod.ProdId, Prod.ProdUUID, Prod.ProductCode , Prod.ProductName , L.RegionName , L.DistrictName, Prod.DateFrom, Prod.DateTo, Prod.MemberCount, Prod.LumpSum, Prod.PremiumAdult, Prod.PremiumChild, Prod.InsurancePeriod, Prod.GracePeriod, Prod.ValidityFrom, Prod.ValidityTo"
         sSQL += " FROM tblProduct Prod"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(Prod.LocationId, 0)"
 
@@ -353,7 +353,7 @@ Public Class ProductsDAL
         End If
 
 
-        sSQL += " GROUP BY Prod.ProdId, Prod.ProductCode , Prod.ProductName , L.RegionName , L.DistrictName, Prod.DateFrom, Prod.DateTo, Prod.MemberCount, Prod.LumpSum, Prod.PremiumAdult, Prod.PremiumChild, Prod.InsurancePeriod, Prod.GracePeriod, Prod.ValidityFrom, Prod.ValidityTo "
+        sSQL += " GROUP BY Prod.ProdId, Prod.ProductCode , Prod.ProductName , L.RegionName , L.DistrictName, Prod.DateFrom, Prod.DateTo, Prod.MemberCount, Prod.LumpSum, Prod.PremiumAdult, Prod.PremiumChild, Prod.InsurancePeriod, Prod.GracePeriod, Prod.ValidityFrom, Prod.ValidityTo, Prod.ProdUUID "
         sSQL += " ORDER BY ProdID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -862,6 +862,17 @@ Public Class ProductsDAL
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@ProductId", ProductId)
         data.params("@dtHFlevel", dt, "xAttributeV")
+        Return data.Filldata
+    End Function
+    Public Function GetProdIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ProdId from tblProduct where ProdUUID = @ProdUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ProdUUID", SqlDbType.UniqueIdentifier, uuid)
+
         Return data.Filldata
     End Function
 End Class

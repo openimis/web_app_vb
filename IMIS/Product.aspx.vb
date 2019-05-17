@@ -87,7 +87,10 @@ Partial Public Class Product
         Try
             lblMsg.Text = ""
 
-            eProduct.ProdID = HttpContext.Current.Request.QueryString("p")
+            If HttpContext.Current.Request.QueryString("p") IsNot Nothing Then
+                eProduct.ProdUUID = Guid.Parse(HttpContext.Current.Request.QueryString("p"))
+                eProduct.ProdID = product.GetProdIdByUUID(eProduct.ProdUUID)
+            End If
 
             If IsPostBack = True Then Return
 
