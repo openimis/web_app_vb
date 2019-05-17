@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblClaim
     Public Property ClaimID As Integer
+    Public Property ClaimUUID As Guid
     Public Property InsureeID As Integer
     Public Property ClaimCode As String
     Public Property DateFrom As Date

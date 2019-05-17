@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblPhotos
     Public Property PhotoID As Integer
+    Public Property PhotoUUID As Guid
     Public Property InsureeID As Nullable(Of Integer)
     Public Property CHFID As String
     Public Property PhotoFolder As String

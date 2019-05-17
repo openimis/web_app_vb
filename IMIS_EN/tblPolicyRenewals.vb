@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblPolicyRenewals
     Public Property RenewalID As Integer
+    Public Property RenewalUUID As Guid
     Public Property RenewalPromptDate As Date
     Public Property RenewalDate As Date
     Public Property NewOfficerID As Nullable(Of Integer)

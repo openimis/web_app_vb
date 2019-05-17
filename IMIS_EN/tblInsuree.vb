@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblInsuree
     Public Property InsureeID As Integer
+    Public Property InsureeUUID As Guid
     Public Property FamilyID As Integer
     Public Property CHFID As String
     Public Property LastName As String
