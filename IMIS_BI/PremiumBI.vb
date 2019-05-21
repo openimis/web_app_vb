@@ -78,4 +78,12 @@ Public Class PremiumBI
         Dim Pr As New IMIS_BL.PremiumBL
         Return Pr.isUniqueReceipt(ePremium)
     End Function
+    Public Function GetPremiumIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Premium As New IMIS_BL.PremiumBL
+        Return Premium.GetPremiumIdByUUID(uuid)
+    End Function
+    Public Function GetPremiumnUUIDByID(ByVal id As Integer) As Guid
+        Dim Premium As New IMIS_BL.PremiumBL
+        Return Premium.GetPremiumUUIDByID(id)
+    End Function
 End Class

@@ -117,4 +117,8 @@ Public Class ProductBI
         Dim Prod As New IMIS_BL.ProductsBL
         Return Prod.GetProdIdByUUID(uuid)
     End Function
+    Public Function GetProdUUIDByID(ByVal id As Integer) As Guid
+        Dim Prod As New IMIS_BL.ProductsBL
+        Return Prod.GetProdUUIDByID(id)
+    End Function
 End Class

@@ -354,7 +354,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <HeaderStyle CssClass="HideButton" />
                         <ItemStyle CssClass="HideButton" />
                     </asp:CommandField>
-                    <asp:HyperLinkField DataNavigateUrlFields="FamilyID,PolicyID" 
+                    <asp:HyperLinkField DataNavigateUrlFields="FamilyUUID,PolicyUUID" 
                         DataNavigateUrlFormatString="OverViewFamily.aspx?f={0}&po={1}" 
                         DataTextField="EnrollDate" DataTextFormatString="{0:d}" 
                        HeaderText='<%$ Resources:Resource,L_ENROLDATE %>' 

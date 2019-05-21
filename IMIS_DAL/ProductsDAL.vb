@@ -875,4 +875,15 @@ Public Class ProductsDAL
 
         Return data.Filldata
     End Function
+    Public Function GetProductUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ProdUUID from tblProduct where ProdId = @ProdId"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ProdId", SqlDbType.Int, id)
+
+        Return data.Filldata
+    End Function
 End Class

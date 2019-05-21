@@ -35,6 +35,7 @@ Partial Public Class ChangeFamily
     Private eLocations As New IMIS_EN.tblLocations
     Private eIinsureeNEW As New IMIS_EN.tblInsuree
     Private userBI As New IMIS_BI.UserBI
+    Private familyBI As New IMIS_BI.FamilyBI
 
     Private Sub FormatForm()
         Dim Adjustibility As String = ""
@@ -82,7 +83,12 @@ Partial Public Class ChangeFamily
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblCHFIDToChange.Text = ""
         lblMsg.Text = ""
-        eFamily.FamilyID = HttpContext.Current.Request.QueryString("f")
+
+        If HttpContext.Current.Request.QueryString("f") IsNot Nothing Then
+            eFamily.FamilyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("f"))
+            eFamily.FamilyID = familyBI.GetFamilyIdByUUID(eFamily.FamilyUUID)
+        End If
+
         If IsPostBack = True Then Return
         FormatForm()
         RunPageSecurity()
@@ -241,7 +247,7 @@ Partial Public Class ChangeFamily
         If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.OverviewFamily, Page) Then
             Response.Redirect("FindFamily.aspx")
         ElseIf btnSave.Visible Then
-            Response.Redirect("OverviewFamily.aspx?f=" & hfFamilyIDValue.Value)
+            Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyUUID.ToString())
         Else
             Response.Redirect("FindFamily.aspx")
         End If
@@ -273,7 +279,7 @@ Partial Public Class ChangeFamily
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & hfFamilyIDValue.Value)
+        Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyUUID.ToString())
     End Sub
     Private Sub txtCHFIDToChange_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CHECK.Click
 
@@ -327,7 +333,7 @@ Partial Public Class ChangeFamily
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyID)
+        Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyUUID.ToString())
 
     End Sub
 
@@ -364,7 +370,7 @@ Partial Public Class ChangeFamily
 
             'Display all the policies which already had exceeded the max member count 
             If hfOK.Value = 1 Then
-                
+
                 If dt.Rows.Count > 0 Then
                     If dt.Select("MemberCount <= TotalInsurees").Count > 0 Then
                         If dt.Rows(0)("MemberCount") <> 0 Then
@@ -439,7 +445,13 @@ Partial Public Class ChangeFamily
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & hfFamilyIDValue.Value)
+
+        Dim FamilyUUID As Guid
+        If HttpContext.Current.Request.QueryString("f") IsNot Nothing Then
+            FamilyUUID = familyBI.GetFamilyUUIDByID(hfFamilyIDValue.Value)
+        End If
+
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString())
 
     End Sub
     Private Sub B_CHECKMOVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CHECKMOVE.Click

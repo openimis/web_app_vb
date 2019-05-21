@@ -31,14 +31,14 @@ Public Class InsureeDAL
     Public Function GetInsureesByFamily(ByVal FamilyId As Integer, Optional Language As String = "en") As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL += "SELECT FamilyID, InsureeId, CHFID, LastName, OtherNames, DOB,"
+        sSQL += "SELECT TB.FamilyID, F.FamilyUUID, TB.InsureeId, TB.InsureeUUID, TB.CHFID, TB.LastName, TB.OtherNames, TB.DOB,"
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
-        sSQL += ", Marital,cardIssued, isOffline, validityFrom, ValidityTo,RowID from tblInsuree TB"
+        sSQL += ", TB.Marital,TB.cardIssued, TB.isOffline, TB.validityFrom, TB.ValidityTo,TB.RowID from tblInsuree TB"
         sSQL += " LEFT JOIN tblGender GE On GE.Code = TB.Gender"
-
+        sSQL += " INNER JOIN tblFamilies F On F.FamilyID = TB.FamilyID"
 
         sSQL += " WHERE TB.familyid = @FamilyId"
-        sSQL += " AND TB.LegacyID is null and TB.ValidityTo is null AND RowID > 0  ORDER BY CHFID DESC "
+        sSQL += " AND TB.LegacyID is null and TB.ValidityTo is null AND TB.RowID > 0  ORDER BY TB.CHFID DESC "
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@FamilyId", SqlDbType.Int, FamilyId)
         Return data.Filldata
@@ -96,11 +96,11 @@ Public Class InsureeDAL
         sSQL += " INNER JOIN tblDistricts L ON L.DistrictId = UD.LocationId  "
         sSQL += " WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)  "
         sSQL += " GROUP BY L.DistrictId, L.Region ) "
-        sSQL += " SELECT I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,"
+        sSQL += " SELECT I.isOffline,I.FamilyID,I.InsureeID,I.InsureeUUID,RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,"
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)") & " Gender"
-        sSQL += ",dtMarital.Name Marital, phone, DOB, I.validityfrom, I.validityTo  "
+        sSQL += ",dtMarital.Name Marital, phone, DOB, I.validityfrom, I.validityTo, F.FamilyUUID  "
         sSQL += " FROM tblInsuree I  "
-        sSQL += " INNER JOIN tblFamilies F On I.FamilyID = F.FamilyID  "
+        sSQL += " INNER JOIN tblFamilies F On F.FamilyID = I.FamilyID  "
         sSQL += " INNER JOIN uvwLocations L On ISNULL(L.LocationId, 0) = ISNULL(F.LocationId, 0)  "
         sSQL += " LEFT JOIN tblPhotos On I.PhotoID = tblPhotos.PhotoID And tblPhotos.ValidityTo Is null  "
         sSQL += " LEFT JOIN tblGender GE On GE.Code = I.Gender"
@@ -174,7 +174,7 @@ Public Class InsureeDAL
 
         sSQL += strWhere
 
-        sSQL += " GROUP BY  I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,I.Gender,"
+        sSQL += " GROUP BY  I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,I.Gender, I.InsureeUUID, F.FamilyUUID,"
 
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)")
         sSQL += ",dtMarital.Name,phone,DOB,  I.validityfrom,I.validityTo"
@@ -565,5 +565,28 @@ Public Class InsureeDAL
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@photoFileName", SqlDbType.NVarChar, 100, photoFileName)
         Return data.Filldata.Rows.Count > 0
+    End Function
+
+    Public Function GetInsureeIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select InsureeID from tblInsuree where InsureeUUID = @InsureeUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@InsureeUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetInsureeUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select InsureeUUID from tblInsuree where InsureeId = @InsureeId"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@InsureeId", SqlDbType.Int, id)
+
+        Return data.Filldata
     End Function
 End Class

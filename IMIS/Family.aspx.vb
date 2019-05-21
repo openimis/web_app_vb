@@ -34,6 +34,7 @@ Public Class Family
     Private dtImage As New DataTable
     Private imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Dim FamilyUUID As Guid
 
     Private Sub FormatForm()
         Dim Adjustibility As String = ""
@@ -146,7 +147,10 @@ Public Class Family
 
         FormatForm()
 
-        eFamily.FamilyID = HttpContext.Current.Request.QueryString("f")
+        If HttpContext.Current.Request.QueryString("f") IsNot Nothing Then
+            eFamily.FamilyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("f"))
+            eFamily.FamilyID = Family.GetFamilyIdByUUID(eFamily.FamilyUUID)
+        End If
 
         RunPageSecurity()
         Try
@@ -218,7 +222,7 @@ Public Class Family
             If dtFSPRegion.Rows.Count = 1 Then
                 FillFSPDistricts()
             End If
-           
+
 
             ddlFSPCateogory.DataSource = Family.GetHFLevel
             ddlFSPCateogory.DataValueField = "Code"
@@ -266,8 +270,8 @@ Public Class Family
                 txtAddress.Text = eFamily.FamilyAddress
                 txtConfirmationNo.Text = eFamily.ConfirmationNo
 
-                hfFamilyIsOffline.Value = if(eFamily.isOffline Is Nothing, False, eFamily.isOffline)
-                hfInsureeIsOffline.Value = if(eFamily.tblInsuree.isOffline Is Nothing, False, eFamily.tblInsuree.isOffline)
+                hfFamilyIsOffline.Value = If(eFamily.isOffline Is Nothing, False, eFamily.isOffline)
+                hfInsureeIsOffline.Value = If(eFamily.tblInsuree.isOffline Is Nothing, False, eFamily.tblInsuree.isOffline)
 
 
                 'Addition for Nepal >> Start
@@ -293,7 +297,7 @@ Public Class Family
 
                 'Addition for Nepal >> End
 
-                If eFamily.ValidityTo.HasValue Or ((IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) And Not if(eFamily.isOffline Is Nothing, False, eFamily.isOffline)) Then
+                If eFamily.ValidityTo.HasValue Or ((IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) And Not If(eFamily.isOffline Is Nothing, False, eFamily.isOffline)) Then
                     pnlImages.Enabled = False
                     B_SAVE.Visible = False
                     btnBrowse.Enabled = False
@@ -577,13 +581,17 @@ Public Class Family
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyID)
+
+        FamilyUUID = Family.GetFamilyUUIDByID(eFamily.FamilyID)
+
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString())
 
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
 
         If Not eFamily.FamilyID = 0 And B_SAVE.Visible Then
-            Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyID)
+            FamilyUUID = Family.GetFamilyUUIDByID(eFamily.FamilyID)
+            Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString())
         Else
             Response.Redirect("FindFamily.aspx")
         End If

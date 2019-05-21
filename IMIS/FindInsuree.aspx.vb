@@ -252,7 +252,7 @@ Partial Public Class FindInsuree
             hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={0}"
         Else
             If AllowEdit Then
-                hlink.DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}&i={0}"
+                hlink.DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}&i={1}"
             Else
                 hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={0}"
             End If

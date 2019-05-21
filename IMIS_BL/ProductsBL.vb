@@ -231,4 +231,8 @@ Public Class ProductsBL
         Dim Prod As New IMIS_DAL.ProductsDAL
         Return Prod.GetProdIdByUUID(uuid).Rows(0).Item(0)
     End Function
+    Public Function GetProdUUIDByID(ByVal id As Integer) As Guid
+        Dim Prod As New IMIS_DAL.ProductsDAL
+        Return Prod.GetProductUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

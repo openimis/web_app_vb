@@ -134,7 +134,7 @@ Public Class PayersDAL
         sSQL += " WHERE (L.Regionid = @RegionId OR L.LocationId = 0) "
         sSQL += " AND (L.DistrictId = @DistrictId OR L.DistrictId IS NULL OR  @DistrictId = 0 )" '
         sSQL += " AND P.ValidityTo IS NULL"
-        sSQL += " GROUP BY P.PayerId, P.PayerName ,L.LocationId,L.RegionName,L.DistrictName, L.ParentLocationId"
+        sSQL += " GROUP BY P.PayerId, P.PayerName ,L.LocationId,L.RegionName,L.DistrictName, L.ParentLocationId, P.PayerUUID"
         sSQL += " ORDER BY L.ParentLocationId"
 
         data.setSQLCommand(sSQL, CommandType.Text)

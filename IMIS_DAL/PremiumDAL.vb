@@ -95,9 +95,9 @@ Public Class PremiumDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
 
-        sSQL = "select PremiumID,tblPremium.PolicyID,tblPremium.isOffline,tblFamilies.FamilyId, Amount, PayDate,Receipt, tblPremium.ValidityFrom,"
+        sSQL = "select PremiumID,PremiumUUID,tblPremium.PolicyID,tblPremium.isOffline,tblFamilies.FamilyId, Amount, PayDate,Receipt, tblPremium.ValidityFrom,"
         sSQL += " tblPremium.ValidityTo,PayerName, PT.Name PayType,"
-        sSQL += " C.Name PayCategory"
+        sSQL += " C.Name PayCategory, tblPolicy.PolicyUUID, tblFamilies.FamilyUUID"
         sSQL += " FROM tblPremium"
         sSQL += " INNER JOIN tblPolicy ON tblPremium.PolicyID = tblPolicy.PolicyID"
         sSQL += " INNER JOIN tblFamilies ON tblPolicy.FamilyID = tblFamilies.FamilyID"
@@ -160,8 +160,8 @@ Public Class PremiumDAL
     Public Function GetPremiumsByPolicy(ByVal PolicyId As Integer) As DataTable
 
         Dim data As New ExactSQL
-        data.setSQLCommand("SELECT tblPremium.isOffline,PremiumID,tblPolicy.policyid,tblPolicy.FamilyId,PayDate,PayerName,Amount,CASE PayType WHEN 'M' THEN 'Mobile Phone' WHEN 'C' THEN 'Cash' WHEN 'B' THEN 'Bank Transfer' END as PayType,Receipt, tblPremium.PayerID, tblpolicy.FamilyID,CASE tblPremium.isPhotoFee WHEN 1 THEN N'Photo Fee' ELSE N'Contribution' END PayCategory" & _
-                           " FROM tblPremium LEFT JOIN tblPayer ON tblPremium.PayerID = tblPayer.PayerID inner join tblpolicy on tblpremium.policyid = tblpolicy.policyid where(tblpremium.PolicyId = @PolicyId  AND tblpremium.ValidityTo is null) ORDER BY PayerName", CommandType.Text)
+        data.setSQLCommand("SELECT tblPremium.isOffline,PremiumID,PremiumUUID,tblFamilies.FamilyUUID,tblPolicy.policyid,tblPolicy.PolicyUUID,tblPolicy.FamilyId,PayDate,PayerName,Amount,CASE PayType WHEN 'M' THEN 'Mobile Phone' WHEN 'C' THEN 'Cash' WHEN 'B' THEN 'Bank Transfer' END as PayType,Receipt, tblPremium.PayerID,tblPayer.PayerUUID,tblpolicy.FamilyID,CASE tblPremium.isPhotoFee WHEN 1 THEN N'Photo Fee' ELSE N'Contribution' END PayCategory" &
+                           " FROM tblPremium LEFT JOIN tblPayer ON tblPremium.PayerID = tblPayer.PayerID inner join tblpolicy on tblpremium.policyid = tblpolicy.policyid inner join tblfamilies on tblpolicy.familyId = tblfamilies.familyId where(tblpremium.PolicyId = @PolicyId  AND tblpremium.ValidityTo is null) ORDER BY PayerName", CommandType.Text)
         data.params("@PolicyId", SqlDbType.Int, PolicyId)
         Return data.Filldata
     End Function
@@ -330,7 +330,7 @@ Public Class PremiumDAL
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
 
         data.params("@ProductId", SqlDbType.Int, ProdId)
-        data.params("@PayerId", SqlDbType.Int, if(ePremium.tblPayer.PayerID = 0, DBNull.Value, ePremium.tblPayer.PayerID))
+        data.params("@PayerId", SqlDbType.Int, If(ePremium.tblPayer.PayerID = 0, DBNull.Value, ePremium.tblPayer.PayerID))
         data.params("@PayDate", SqlDbType.Date, ePremium.PayDate)
         data.params("@Amount", SqlDbType.Decimal, ePremium.Amount)
         data.params("@Receipt", SqlDbType.NVarChar, 50, ePremium.Receipt)
@@ -342,6 +342,29 @@ Public Class PremiumDAL
 
         Return data.sqlParameters("@Return")
 
+    End Function
+
+    Public Function GetPremiumIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PremiumID from tblPremium where PremiumUUID = @PremiumUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PremiumUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetPremiumUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PremiumUUID from tblPremium where PremiumID = @PremiumID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PremiumID", SqlDbType.Int, id)
+
+        Return data.Filldata
     End Function
 End Class
 

@@ -96,4 +96,12 @@ Public Class PolicyBI
         Dim Prod As New IMIS_BL.ProductsBL
         Return Prod.GetProductForRenewal(ProdId, EnrollDate)
     End Function
+    Public Function GetPolicyIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Policy As New IMIS_BL.PolicyBL
+        Return Policy.GetPolicyIdByUUID(uuid)
+    End Function
+    Public Function GetPolicyUUIDByID(ByVal id As Integer) As Guid
+        Dim Policy As New IMIS_BL.PolicyBL
+        Return Policy.GetPolicyUUIDByID(id)
+    End Function
 End Class

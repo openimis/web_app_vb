@@ -163,4 +163,12 @@ Public Class FamilyBI
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetAllRegions(UserId, ShowSelect)
     End Function
+    Public Function GetFamilyIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Family As New IMIS_BL.FamilyBL
+        Return Family.GetFamilyIdByUUID(uuid)
+    End Function
+    Public Function GetFamilyUUIDByID(ByVal id As Integer) As Guid
+        Dim Family As New IMIS_BL.FamilyBL
+        Return Family.GetFamilyUUIDByID(id)
+    End Function
 End Class

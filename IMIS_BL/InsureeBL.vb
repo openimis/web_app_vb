@@ -241,4 +241,12 @@ Public Class InsureeBL
         Return dt
     End Function
 
+    Public Function GetInsureeIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Insuree As New IMIS_DAL.InsureeDAL
+        Return Insuree.GetInsureeIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Public Function GetInsureeUUIDByID(ByVal id As Integer) As Guid
+        Dim Insuree As New IMIS_DAL.InsureeDAL
+        Return Insuree.GetInsureeUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

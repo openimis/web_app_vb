@@ -134,4 +134,12 @@ Public Class InsureeBI
         Dim Districts As New IMIS_BL.LocationsBL
         Return Districts.GetDistrictsAll(userID, RegionId, True)
     End Function
+    Public Function GetInsureeIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Insuree As New IMIS_BL.InsureeBL
+        Return Insuree.GetInsureeIdByUUID(uuid)
+    End Function
+    Public Function GetInsureeUUIDByID(ByVal id As Integer) As Guid
+        Dim Insuree As New IMIS_BL.InsureeBL
+        Return Insuree.GetInsureeUUIDByID(id)
+    End Function
 End Class
