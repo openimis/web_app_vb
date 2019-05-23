@@ -34,6 +34,7 @@ Partial Public Class FindPriceListMI
     Private ePL As New IMIS_EN.tblPLItems
     Private imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private PriceListBI As New IMIS_BI.PricelisMIBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvPriceLists)
@@ -226,7 +227,7 @@ Partial Public Class FindPriceListMI
     Private Sub B_DELETE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_DELETE.Click
         RunPageSecurity(True)
         Try
-            ePL.PLItemID = hfPLItemId.Value
+            ePL.PLItemID = PriceListBI.GetPLItemIdByUUID(Guid.Parse(hfPLItemId.Value))
 
             ePL.AuditUserID = imisGen.getUserId(Session("User"))
             Pricelists.DeletePriceListMI(ePL)

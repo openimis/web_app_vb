@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblPLItems
     Public Property PLItemID As Integer
+    Public Property PLItemUUID As Guid
     Public Property PLItemName As String
     Public Property DatePL As Date
     Public Property LocationId As Nullable(Of Integer)

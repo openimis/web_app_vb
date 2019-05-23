@@ -86,5 +86,8 @@ Public Class PriceListMIBL
         End If
 
     End Sub
-
+    Public Function GetPLItemIdByUUID(ByVal uuid As Guid) As Integer
+        Dim PLItem As New IMIS_DAL.PriceListMIDAL
+        Return PLItem.GetPLItemIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class
