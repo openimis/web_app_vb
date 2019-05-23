@@ -290,4 +290,8 @@ Public Class HealthFacilityBL
         Dim Hf As New IMIS_DAL.HealthFacilityDAL
         Return Hf.GetHfIdByUUID(uuid).Rows(0).Item(0)
     End Function
+    Public Function GetHfUUIDByID(ByVal id As Integer) As Guid
+        Dim Hf As New IMIS_DAL.HealthFacilityDAL
+        Return Hf.GetHfUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

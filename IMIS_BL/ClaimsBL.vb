@@ -520,4 +520,12 @@ Public Class ClaimsBL
     Public Function GetItemRejectedReason(ByVal ReasonId As Integer) As String
         Return imisgen.GetRejectedReasons(ReasonId)
     End Function
+    Public Function GetClaimIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Claim As New IMIS_DAL.ClaimsDAL
+        Return Claim.GetClaimIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Public Function GetClaimUUIDByID(ByVal id As Integer) As Guid
+        Dim Claim As New IMIS_DAL.ClaimsDAL
+        Return Claim.GetClaimUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

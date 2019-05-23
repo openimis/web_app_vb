@@ -64,4 +64,8 @@ Public Class ClaimAdministratorBI
         Dim ClaimAdmin As New IMIS_BL.ClaimAdminBL
         Return ClaimAdmin.GetClaimAdminIdByUUID(uuid)
     End Function
+    Public Function GetClaimAdminUUIDByID(ByVal id As Integer) As Guid
+        Dim ClaimAdmin As New IMIS_BL.ClaimAdminBL
+        Return ClaimAdmin.GetClaimAdminUUIDByID(id)
+    End Function
 End Class

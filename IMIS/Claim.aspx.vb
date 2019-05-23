@@ -37,6 +37,9 @@ Partial Public Class Claim
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private userBI As New IMIS_BI.UserBI
     Protected canClearRow As Boolean = True
+    Private hfBI As New IMIS_BI.HealthFacilityBI
+    Private claimBI As New IMIS_BI.ClaimBI
+    Private claimAdminBI As New IMIS_BI.ClaimAdministratorBI
 
     Private Sub FormatForm()
 
@@ -64,12 +67,18 @@ Partial Public Class Claim
         RunPageSecurity()
         FormatForm()
         Try
-            hfClaimID.Value = CType(Request.QueryString("c"), Integer)
+            If Request.QueryString("c") IsNot Nothing Then
+                Dim hfClaimUUID As Guid = Guid.Parse(HttpContext.Current.Request.QueryString("c"))
+                hfClaimID.Value = If(hfClaimUUID.Equals(Guid.Empty), 0, claimBI.GetClaimIdByUUID(hfClaimUUID))
+            Else
+                hfClaimID.Value = 0
+            End If
 
             eClaim.ClaimID = hfClaimID.Value
             If eClaim.ClaimID = 0 Then
-                hfHFID.Value = CType(Request.QueryString("h"), Integer)
+                hfHFID.Value = hfBI.GetHfIdByUUID(Guid.Parse(Request.QueryString("h")))
                 eHF.HfID = hfHFID.Value
+                eHF.HfUUID = Guid.Parse(Request.QueryString("h"))
                 claim.getHFCodeAndName(eHF)
 
                 eClaim.tblHF = eHF
@@ -77,9 +86,12 @@ Partial Public Class Claim
                 txtHFCode.Text = eHF.HFCode
                 txtHFName.Text = eHF.HFName
                 If Request.QueryString("a") IsNot Nothing Then
-                    If IsNumeric(Request.QueryString("a")) Then
-                        hfClaimAdminId.Value = CInt(Request.QueryString("a"))
+                    Dim ClaimAdminId As Integer = claimAdminBI.GetClaimAdminIdByUUID(Guid.Parse(Request.QueryString("a")))
+
+                    If IsNumeric(ClaimAdminId) Then
+                        hfClaimAdminId.Value = ClaimAdminId
                         eClaimAdmin.ClaimAdminId = CInt(hfClaimAdminId.Value)
+                        eClaimAdmin.ClaimAdminUUID = Guid.Parse(Request.QueryString("a"))
                         claim.GetClaimAdminDetails(eClaimAdmin)
                         If eClaimAdmin.ClaimAdminCode IsNot Nothing Then txtClaimAdminCode.Text = eClaimAdmin.ClaimAdminCode.ToString.Trim
                     End If

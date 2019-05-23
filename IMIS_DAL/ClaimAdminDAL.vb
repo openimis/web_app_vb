@@ -105,7 +105,7 @@ Public Class ClaimAdminDAL
         Return Data.Filldata
     End Function
     Public Function GetHFClaimAdminCodes(ByVal HFID As Integer)
-        Query = "select ClaimAdminId,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
+        Query = "select ClaimAdminId,ClaimAdminUUID,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
            ",ca.ValidityTo,ca.LegacyId,ca.AuditUserId,HfID, ca.EmailId from tblClaimAdmin ca where HfID=@HfID And ValidityTo IS NULL"
         Data.setSQLCommand(Query, CommandType.Text)
         Data.params("@HfID", SqlDbType.Int, HFID)
@@ -181,6 +181,17 @@ Public Class ClaimAdminDAL
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@ClaimAdminUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetClaimAdminUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ClaimAdminUUID from tblClaimAdmin where ClaimAdminId = @ClaimAdminId"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ClaimAdminId", SqlDbType.Int, id)
 
         Return data.Filldata
     End Function

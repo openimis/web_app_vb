@@ -104,4 +104,8 @@ Public Class HealthFacilityBI
         Dim Hf As New IMIS_BL.HealthFacilityBL
         Return Hf.GetHfIdByUUID(uuid)
     End Function
+    Public Function GetHfUUIDByID(ByVal id As Integer) As Guid
+        Dim Hf As New IMIS_BL.HealthFacilityBL
+        Return Hf.GetHfUUIDByID(id)
+    End Function
 End Class

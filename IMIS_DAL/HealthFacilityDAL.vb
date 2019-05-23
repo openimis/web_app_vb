@@ -280,7 +280,7 @@ Public Class HealthFacilityDAL
         sSQL = "SELECT @hfid = isnull(hfid,0)"
         sSQL += " FROM tblUsers"
         sSQL += " WHERE UserID = @userid;"
-        sSQL += " SELECT tblhf.HfID,HFCode + ' - ' + HFNAME HFCODE"
+        sSQL += " SELECT tblhf.HfID,tblhf.HfUUID,HFCode + ' - ' + HFNAME HFCODE"
         sSQL += " FROM tblHF"
         sSQL += " INNER JOIN tblusersdistricts on tblhf.LocationId = tblusersdistricts.LocationId"
         sSQL += " AND tblusersdistricts.validityto is null"
@@ -404,6 +404,17 @@ Public Class HealthFacilityDAL
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@HfUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetHfUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select HfUUID from tblHF where HfID = @HfID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@HfID", SqlDbType.Int, id)
 
         Return data.Filldata
     End Function

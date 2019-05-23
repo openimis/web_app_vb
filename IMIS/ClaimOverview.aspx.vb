@@ -35,6 +35,9 @@ Public Partial Class ClaimOverview
     Dim eHF As New IMIS_EN.tblHF
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private userBI As New IMIS_BI.UserBI
+    Private claimBI As New IMIS_BI.ClaimBI
+    Dim ClaimUUID As Guid
+    Dim ClaimID As Integer
 
     Private Sub FormatForm()
 
@@ -67,6 +70,11 @@ Public Partial Class ClaimOverview
         If IsPostBack = True Then Return
         RunPageSecurity()
         FormatForm()
+
+        If Request.QueryString("c") IsNot Nothing Then
+            ClaimUUID = Guid.Parse(Request.QueryString("c"))
+            ClaimID = If(ClaimUUID.Equals(Guid.Empty), 0, claimBI.GetClaimIdByUUID(ClaimUUID))
+        End If
 
         Try
             Dim UserID As Integer
@@ -116,7 +124,7 @@ Public Partial Class ClaimOverview
             '  ClaimCodeTxtControl()
             ButtonDisplayControl(0)
 
-            If eHF.HfID = 0 And Request.QueryString("c") = 0 Then
+            If eHF.HfID = 0 And ClaimID = 0 Then
                 Exit Sub
             End If
             loadGrid()
@@ -276,9 +284,10 @@ Public Partial Class ClaimOverview
             Dim eInsuree As New IMIS_EN.tblInsuree
             Dim eBatchRun As New IMIS_EN.tblBatchRun
 
-            If (Not Request.QueryString("c") = 0) And (ScriptManager.GetCurrent(Me.Page).IsInAsyncPostBack() = False) Then
+            If (Not ClaimID = 0) And (ScriptManager.GetCurrent(Me.Page).IsInAsyncPostBack() = False) Then
 
-                hfClaimID.Value = Request.QueryString("c")
+                hfClaimID.Value = ClaimID
+
                 Dim dic As New Dictionary(Of String, String)
                 If Not Session("ClaimOverviewCriteria") Is Nothing Then
                     dic = CType(Session("ClaimOverviewCriteria"), Dictionary(Of String, String))
@@ -481,11 +490,13 @@ Public Partial Class ClaimOverview
     Private Sub B_REVIEW_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_REVIEW.Click
         GetFilterCriteria()
         If Not hfReview.Value = "" Then Session("ReviewPage") = hfReview.Value
-        Response.Redirect("ClaimReview.aspx?c=" & hfClaimID.Value)
+        Dim ClaimUUID As Guid = claimBI.GetClaimUUIDByID(hfClaimID.Value)
+        Response.Redirect("ClaimReview.aspx?c=" & ClaimUUID.ToString())
     End Sub
     Private Sub B_FEEDBACK_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_FEEDBACK.Click
         GetFilterCriteria()
-        Response.Redirect("ClaimFeedback.aspx?c=" & hfClaimID.Value)
+        Dim ClaimUUID As Guid = claimBI.GetClaimUUIDByID(hfClaimID.Value)
+        Response.Redirect("ClaimFeedback.aspx?c=" & ClaimUUID.ToString())
     End Sub
 
     Public Function CheckDifferenceForUpdate(ByVal grid As GridView, ByVal RowIndex As Integer, ByRef ddl As DropDownList, ByVal ItemStatus As String) As Boolean
