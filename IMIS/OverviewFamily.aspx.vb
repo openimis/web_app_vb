@@ -552,7 +552,7 @@ Partial Public Class OverviewFamily
         Dim InsureeUUID As Guid
         InsureeUUID = insureeBI.GetInsureeUUIDByID(gvInsurees.SelectedDataKey.Value)
 
-        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString() & "&p=" & ePremium.PremiumUUID.ToString())
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
     End Sub
     Private Sub AddPolicy_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles AddPolicy.Click
         Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&stage=N")
@@ -573,7 +573,7 @@ Partial Public Class OverviewFamily
             PolicyUUID = policyBI.GetPolicyUUIDByID(rpo)
         End If
 
-        Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&po=" & po.ToString() & "&stage=R&pd=" & ProdUUID.ToString() & "&ed=" & ed & "&rpo=" & PolicyUUID.ToString())
+        Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&stage=R&pd=" & ProdUUID.ToString() & "&ed=" & ed & "&rpo=" & PolicyUUID.ToString())
     End Sub
 
     Private Sub EditPolicy_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditPolicy.Click
@@ -619,7 +619,7 @@ Partial Public Class OverviewFamily
 
         Dim po As Guid = policyBI.GetPolicyUUIDByID(gvPolicies.SelectedDataKey.Value)
 
-        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & eInsuree.InsureeUUID.ToString() & "&po=" & po.ToString() & "&p=" & ePremium.PremiumUUID.ToString())
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&po=" & po.ToString())
     End Sub
     Private Sub AddPremium_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles AddPremium.Click
         Dim po As Guid
@@ -670,7 +670,7 @@ Partial Public Class OverviewFamily
         Dim p As Guid
         p = premiumBI.GetPremiumnUUIDByID(gvPremiums.SelectedDataKey.Value)
 
-        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & eInsuree.InsureeUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString() & "&p=" & p.ToString())
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString() & "&p=" & p.ToString())
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
 

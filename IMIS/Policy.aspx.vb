@@ -537,7 +537,7 @@ Partial Public Class Policy
     End Sub
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("OverviewFamily.aspx?f=" & efamily.FamilyUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString())
+        Response.Redirect("OverviewFamily.aspx?f=" & efamily.FamilyUUID.ToString())
     End Sub
 
     Private Sub B_SAVE_Command(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.CommandEventArgs) Handles B_SAVE.Command
