@@ -225,7 +225,12 @@
     <Content Include="StyleSheets\grd_alt.png" />
     <Content Include="StyleSheets\grd_head.png" />
     <Content Include="StyleSheets\grd_pgr.png" />
+    <Content Include="StyleSheets\images\ui-anim_basic_16x16.gif" />
+    <Content Include="StyleSheets\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="StyleSheets\images\ui-bg_glass_75_dadada_1x400.png" />
     <Content Include="StyleSheets\Imis.css" />
+    <Content Include="StyleSheets\jquery-ui.css" />
+    <Content Include="StyleSheets\jquery.ui.autocomplete.css" />
     <Content Include="StyleSheets\MainMenu.css" />
     <Content Include="Templates\FamilySMSBeforeExpiry.txt" />
     <Content Include="Templates\ForgotPassword.html" />
