@@ -1197,6 +1197,7 @@ Public Class IMISExtractsBL
             eExtractInfo.ExtractStatus = 0
 
         Catch ex As Exception
+            EventLog.WriteEntry("IMIS", ex.ToString(), EventLogEntryType.Error, 999)
             eExtractInfo.ExtractStatus = -8 'unexpected error 
             FlushWorkFolder()
         End Try
