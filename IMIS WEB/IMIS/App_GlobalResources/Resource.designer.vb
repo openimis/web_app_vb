@@ -1352,7 +1352,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim History Report.
+        '''  Looks up a localized string similar to Claim History.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMHISTORYREPORT() As String
             Get
@@ -5542,6 +5542,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_RECORDTYPE() As String
             Get
                 Return ResourceManager.GetString("L_RECORDTYPE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Recurrence(month).
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECURRENCE() As String
+            Get
+                Return ResourceManager.GetString("L_RECURRENCE", resourceCulture)
             End Get
         End Property
         
@@ -11072,7 +11081,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim History Report.
+        '''  Looks up a localized string similar to Claim History.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMHISTORYREPORT() As String
             Get

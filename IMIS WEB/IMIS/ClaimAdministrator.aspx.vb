@@ -280,11 +280,18 @@ Public Partial Class ClaimAdministrator
         If SetEntity() = False Then
             Exit Sub
         End If
-        BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
-        BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
-        BIClaimAdmin.SaveClaimAdmin(eClaimAdmin)
+        eClaimAdmin.eUsers = New IMIS_EN.tblUsers
+        If hfUserID.Value <> "" Then
+            eClaimAdmin.eUsers.UserID = hfUserID.Value
+            BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+            BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
+            BIClaimAdmin.SaveClaimAdmin(eClaimAdmin)
+        End If
         Session("msg") = eClaimAdmin.ClaimAdminCode & " " & ImisGen.getMessage("M_DELETED")
         RequiredFieldLanguage.Visible = False
+
+
+
     End Sub
 #End Region
 End Class

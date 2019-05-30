@@ -47,9 +47,8 @@ Partial Public Class FindOfficer
         Next
     End Sub
 
-    
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
         Try
             If IsPostBack = True Then
@@ -131,7 +130,7 @@ Partial Public Class FindOfficer
                     Return
                 End If
             End If
-          
+
 
             eofficer.Phone = txtPhone.Text
 
@@ -196,18 +195,13 @@ Partial Public Class FindOfficer
     End Sub
 
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
-
         Response.Redirect("Officer.aspx?o=0")
-       
-
-
-
     End Sub
-  
-    Protected Sub B_EDIT_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_EDIT.Click
-        Response.Redirect("Officer.aspx?o=" & hfOfficerId.Value)
 
-        
+    Protected Sub B_EDIT_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_EDIT.Click
+
+
+        Response.Redirect("Officer.aspx?o=" & hfOfficerId.Value & "=" & hfHasLogin.Value)
 
     End Sub
 

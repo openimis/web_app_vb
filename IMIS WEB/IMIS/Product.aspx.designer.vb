@@ -923,6 +923,24 @@ Partial Public Class Product
     Protected WithEvents txtGenAssemblyFee As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''lblRecurrence control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRecurrence As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtRecurrence control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtRecurrence As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''lblStartCycle1 control.
     '''</summary>
     '''<remarks>

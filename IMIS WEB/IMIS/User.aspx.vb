@@ -93,7 +93,7 @@ Partial Public Class User
                 RequiredFieldPassword.Visible = False
                 RequiredFieldConfirmPassword.Visible = False
             End If 'Added
-            Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
+            Dim UserID As Integer = imisgen.getUserId(Session("User"))
             'If RoleId = 524288 Then
             '    gvRoles.DataSource = Users.GetRoles(525184)
             'ElseIf RoleId = 1048576 Or RoleId = 1048584 Then
@@ -105,7 +105,7 @@ Partial Public Class User
             '    gvRoles.DataSource = Users.GetRoles(525184)
             'End If
             Dim dtRoles As New DataTable
-            dtRoles = Users.getUserRoles(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
+            dtRoles = Users.getRolesForUser(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF, UserID)
             gvRoles.DataSource = dtRoles
             gvRoles.DataBind()
             If eUsers.IsAssociated IsNot Nothing AndAlso eUsers.IsAssociated = True Then
@@ -271,15 +271,42 @@ Partial Public Class User
                 If ddlHFNAME.SelectedIndex >= 0 Then
                     eUsers.HFID = ddlHFNAME.SelectedValue
                 End If
+                
                 Dim dt As New DataTable
-                dt.Columns.Add("RoleID")
-                dt.Columns.Add("RoleName")
+                dt.Columns.Add("UserRoleID", GetType(Integer))
+                dt.Columns.Add("UserID", GetType(Integer))
+                dt.Columns.Add("RoleID", GetType(Integer))
+                dt.Columns.Add("ValidityFrom", GetType(Date))
+                dt.Columns.Add("ValidityTo", GetType(Date))
+                dt.Columns.Add("AuditUserID", GetType(Integer))
+                dt.Columns.Add("LegacyID", GetType(Integer))
+                dt.Columns.Add("Assign", GetType(Integer))
+
+
+
+
+                Dim dr As DataRow
+                Dim UserRoleID As New Object
                 For Each row As GridViewRow In gvRoles.Rows
+                    dr = dt.NewRow
+                    UserRoleID = CType(row.Cells(4).Controls(1), HiddenField).Value
+
+                    If UserRoleID = "" Then UserRoleID = 0
+                    dr("UserID") = eUsers.UserID
+                    dr("UserRoleID") = UserRoleID
+                    dr("Assign") = 0
                     If CType(row.Cells(0).Controls(1), CheckBox).Checked = True Then
-                        Dim dr As DataRow = dt.NewRow
                         dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dr("Assign") = 1
+                    End If
+                    If CType(row.Cells(2).Controls(1), CheckBox).Checked = True Then
+                        dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dr("Assign") = dr("Assign") + 2
+                    End If
+                    If dr("RoleID") IsNot DBNull.Value Then
                         dt.Rows.Add(dr)
                     End If
+
                 Next
                 Dim chk As Integer = Users.SaveUser(eUsers, dt)
                 If Not chk = 1 Then

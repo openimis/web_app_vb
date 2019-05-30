@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b18559d07c064edcb0f72392f817e5af" Name="Diagram1" ZoomLevel="77">
+      <Diagram DiagramId="b18559d07c064edcb0f72392f817e5af" Name="Diagram1" ZoomLevel="106">
         <EntityTypeShape EntityType="IMISModel.tblBatchRun" Width="1.5" PointX="3" PointY="48.5" IsExpanded="true" />
         <EntityTypeShape EntityType="IMISModel.tblCeilingInterpretation" Width="1.5" PointX="8.75" PointY="48.625" IsExpanded="true" />
         <EntityTypeShape EntityType="IMISModel.tblClaim" Width="1.5" PointX="5.25" PointY="44.25" IsExpanded="true" />
@@ -49,7 +49,7 @@
         <EntityTypeShape EntityType="IMISModel.tblPolicyRenewalDetails" Width="1.5" PointX="15.75" PointY="73.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IMISModel.tblPolicyRenewals" Width="1.5" PointX="21.5" PointY="62.25" IsExpanded="true" />
         <EntityTypeShape EntityType="IMISModel.tblPremium" Width="1.5" PointX="18.5" PointY="61.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMISModel.tblProduct" Width="1.5" PointX="11" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMISModel.tblProduct" Width="7.875" PointX="24.75" PointY="47.375" IsExpanded="true" />
         <EntityTypeShape EntityType="IMISModel.tblProductItems" Width="1.5" PointX="16.25" PointY="59.625" IsExpanded="true" />
         <EntityTypeShape EntityType="IMISModel.tblProductServices" Width="1.5" PointX="19.25" PointY="54.625" IsExpanded="true" />
         <EntityTypeShape EntityType="IMISModel.tblProfessions" Width="1.5" PointX="8.25" PointY="80.875" IsExpanded="true" />

@@ -35,4 +35,13 @@ Partial Public Class tblPolicy
     Public Property StartDateTo As Date?
     Public Property EffectiveDateFrom As Date?
     Public Property EffectiveDateTo As Date?
+    Private _RenewalOrder As Integer?
+    Public Property RenewalOrder() As Integer?
+        Get
+            Return _RenewalOrder
+        End Get
+        Set(ByVal value As Integer?)
+            _RenewalOrder = value
+        End Set
+    End Property
 End Class

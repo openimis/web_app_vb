@@ -329,24 +329,6 @@ Partial Public Class Policy
     Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
     
     '''<summary>
-    '''txtEnrolDate_MaskedEditExtender control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtEnrolDate_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
-    
-    '''<summary>
-    '''RegularExpressionValidatortxtDob control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidatortxtDob As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
-    '''<summary>
     '''RequiredfieldValidator1 control.
     '''</summary>
     '''<remarks>
@@ -354,6 +336,15 @@ Partial Public Class Policy
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredfieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''RegularExpressionValidatortxtEnrollmentDate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidatortxtEnrollmentDate As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
     '''lblPolicyStatus control.

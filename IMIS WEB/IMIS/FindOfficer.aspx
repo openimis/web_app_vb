@@ -80,9 +80,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
     }
     function fillSelectedRowData($row) {
         var $anchor = $row.find("td").eq(0).find("a");
+        var $anchor2 = $row.find("td").eq(0).find("a");
         var dataNavStringParts = $anchor.attr("href").split("=")
+       // var dataNavStringParts2 = $anchor.attr("&").split("=")
         $("#<%=hfOfficerId.ClientID%>").val(dataNavStringParts[1]);
-         $("#<%=hfOfficerCode.ClientID%>").val($anchor.html());
+        $("#<%=hfOfficerCode.ClientID%>").val($anchor.html());
+        $("#<%=hfHasLogin.ClientID%>").val(dataNavStringParts[2].split("="));
+      
     }
     /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
  </script>
@@ -107,6 +111,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 <asp:HiddenField ID="hfOfficerId" runat="server" />
       <asp:HiddenField ID="hfOfficerCode" runat="server" />
+    <asp:HiddenField ID="hfHasLogin" runat="server" />
       
   <div class="divBody" >
          <table class="catlabel">
@@ -302,7 +307,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         >
                        
                         <Columns>
-                    <asp:HyperLinkField DataNavigateUrlFields = "OfficerId" DataTextField="Code" DataNavigateUrlFormatString = "Officer.aspx?o={0}" HeaderText='<%$ Resources:Resource,L_Code %>' HeaderStyle-Width ="80px" >
+                    <asp:HyperLinkField DataNavigateUrlFields = "OfficerId,HasLogin" DataTextField="Code"  DataNavigateUrlFormatString = "Officer.aspx?o={0}&hl={1}" HeaderText='<%$ Resources:Resource,L_Code %>' HeaderStyle-Width ="80px" >
 
                         
                     </asp:HyperLinkField> 

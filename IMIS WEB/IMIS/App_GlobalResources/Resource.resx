@@ -4450,7 +4450,7 @@
     <value>Total Prescribed Contributions</value>
   </data>
   <data name="L_CLAIMHISTORYREPORT" xml:space="preserve">
-    <value>Claim History Report</value>
+    <value>Claim History</value>
   </data>
   <data name="L_SCOPE" xml:space="preserve">
     <value>Scope</value>
@@ -4504,7 +4504,7 @@
     <value>Claim Administrators</value>
   </data>
   <data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
-    <value>Claim History Report</value>
+    <value>Claim History</value>
   </data>
   <data name="R_CLAIMOVERVIEW" xml:space="preserve">
     <value>Claim Overview</value>
@@ -4854,5 +4854,8 @@ adults/children)</value>
   </data>
   <data name="L_PLEASESELECTSCOPE" xml:space="preserve">
     <value>Please select scope</value>
+  </data>
+  <data name="L_RECURRENCE" xml:space="preserve">
+    <value>Recurrence(month)</value>
   </data>
 </root>

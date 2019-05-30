@@ -291,7 +291,8 @@ Partial Public Class UploadICD
         If FileUploadHF.HasFile Then
             Dim Output As New Dictionary(Of String, Integer)
             Try
-                Dim FileName As String = Server.MapPath("WorkSpace") & "\" & FileUploadHF.PostedFile.FileName
+                'Dim FileName As String = Server.MapPath("WorkSpace") & "\" & FileUploadHF.PostedFile.FileName
+                Dim FileName As String = FileUploadHF.PostedFile.FileName
                 Dim StrategyId As Integer = ddlUploadStrategyHF.SelectedValue
                 Dim LogFile As String = String.Empty
                 Dim dtResult As New DataTable

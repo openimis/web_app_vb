@@ -185,7 +185,7 @@ Public Class RoleDAL
     Public Function GetSystemRoles(RoleID) As DataTable
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-        sSQL = "SELECT RoleId,RoleName FROM tblRole"
+        sSQL = "SELECT 0,0,RoleId,getdate(),Getdate(),0,0,0 FROM tblRole"
         sSQL += " WHERE (IsSystem & @isSystem) > 0 AND ValidityTo IS NULL"
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@isSystem", SqlDbType.Int, RoleID)

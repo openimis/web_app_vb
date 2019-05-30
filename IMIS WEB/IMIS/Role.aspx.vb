@@ -34,11 +34,19 @@
         tvRoleRights2.ExpandAll()
         tvRoleRights3.ExpandAll()
         tvRoleRights4.ExpandAll()
-        If eRole.IsSystem Then
+        If eRole.IsSystem Or eRole.ValidityTo IsNot Nothing Then
 
-            B_SAVE.Visible = False
-            pnlHeader.Enabled = False
 
+            'pnlHeader.Enabled = False
+            txtRoles.Enabled = False
+            txtAltLanguage.Enabled = False
+            chkIsSystem.Enabled = False
+            If eRole.ValidityTo IsNot Nothing Then
+                chkIsBlocked.Enabled = False
+                B_SAVE.Visible = False
+            Else
+                B_SAVE.Visible = True
+            End If
             tvRoleRights.Enabled = False
             tvRoleRights2.Enabled = False
             tvRoleRights3.Enabled = False
@@ -81,6 +89,10 @@
         eRole.IsSystem = dtRole.Rows(0)("IsSystem")
         eRole.IsBlocked = dtRole.Rows(0)("IsBlocked")
         eRole.AltLanguage = dtRole.Rows(0)("AltLanguage").ToString
+        If eRole.ValidityTo IsNot Nothing Then
+            eRole.ValidityTo = dtRole.Rows(0)("ValidityTo")
+        End If
+
         txtRoles.Text = eRole.RoleName
         txtAltLanguage.Text = eRole.AltLanguage
         chkIsBlocked.Checked = eRole.IsBlocked
@@ -198,11 +210,10 @@
     End Sub
 
 
-
-
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
         Try
             SaveRights()
+            Session("msg") = imisGen.getMessage("M_SAVED")
         Catch ex As Exception
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlHeader, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
@@ -212,6 +223,8 @@
         Response.Redirect("FindProfile.aspx?a=" & txtRoles.Text.Trim)
 
     End Sub
+
+
 
     Protected Sub B_CANCEL_Click(sender As Object, e As EventArgs) Handles B_CANCEL.Click
         Response.Redirect("FindProfile.aspx?")

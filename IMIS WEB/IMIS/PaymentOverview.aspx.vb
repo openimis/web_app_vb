@@ -41,13 +41,13 @@ Public Class PaymentOverview
     Private Sub FormatForm(Optional ByVal status As Integer = 0, Optional ByVal history As Boolean = False)
 
         If status <> 4 Then
-            BtnMatchPayment.Enabled = False
-            BtnMatchPayment.Visible = False
+            'BtnMatchPayment.Enabled = False
+            'BtnMatchPayment.Visible = False
             btnSaveEditedPaymentDetails.Enabled = False
             btnSaveEditedPaymentDetails.Visible = False
         Else
-            BtnMatchPayment.Enabled = True
-            BtnMatchPayment.Visible = True
+            'BtnMatchPayment.Enabled = True
+            'BtnMatchPayment.Visible = True
             btnSaveEditedPaymentDetails.Enabled = True
             btnSaveEditedPaymentDetails.Visible = True
         End If

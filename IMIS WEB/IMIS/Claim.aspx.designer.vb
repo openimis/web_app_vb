@@ -311,15 +311,6 @@ Partial Public Class Claim
     Protected WithEvents ddlICDData As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''RequiredFieldValidator3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
-    '''<summary>
     '''txtICDCode0 control.
     '''</summary>
     '''<remarks>
@@ -327,6 +318,15 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtICDCode0 As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''RequiredFieldValidator3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''lblCLAIMCODE control.

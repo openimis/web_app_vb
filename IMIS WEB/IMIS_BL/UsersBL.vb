@@ -788,9 +788,9 @@ Public Class UsersBL
         Return dtRoles
     End Function
 
-    Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean) As DataTable
+    Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean, Authority As Integer) As DataTable
         Dim UsersDal As New IMIS_DAL.UsersDAL
-        Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline)
+        Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline, Authority)
         For Each row As DataRow In dtRoles.Rows
             If row("IsSystem") > 0 Then
                 row("RoleName") = ReturnRole(row("IsSystem"))

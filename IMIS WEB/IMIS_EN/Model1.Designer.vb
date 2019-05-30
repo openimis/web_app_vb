@@ -17,7 +17,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
-<Assembly: EdmSchemaAttribute("a9614d0e-3bab-42b7-ac1d-46afc6bd2c24")>
+<Assembly: EdmSchemaAttribute("750c3b4a-1ca0-4ef7-b040-e90f7b9788cb")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("IMISModel", "FK_tblBatchRun_tblLocations", "tblLocations", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(tblLocations), "tblBatchRun", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(tblBatchRun), True)>
 <Assembly: EdmRelationshipAttribute("IMISModel", "FK_tblClaim_tblBatchRun", "tblBatchRun", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(tblBatchRun), "tblClaim", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(tblClaim), True)>
@@ -9187,16 +9187,16 @@ Public Partial Class tblHF
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=True)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
     <DataMemberAttribute()>
     Public Property Phone() As Global.System.String
         Get
             Return _Phone
         End Get
         Set
-            OnPhoneChanging(Value)
+            OnPhoneChanging(value)
             ReportPropertyChanging("Phone")
-            _Phone = StructuralObject.SetValidValue(Value, True, "Phone")
+            _Phone = StructuralObject.SetValidValue(value, true, "Phone")
             ReportPropertyChanged("Phone")
             OnPhoneChanged()
         End Set
@@ -15028,31 +15028,6 @@ Public Partial Class tblOfficer
     Private Partial Sub OnPhoneCommunicationChanged()
     End Sub
 
-    ''' <summary>
-    ''' No Metadata Documentation available.
-    ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
-    <DataMemberAttribute()>
-    Public Property PermanentAddress() As Global.System.String
-        Get
-            Return _PermanentAddress
-        End Get
-        Set
-            OnPermanentAddressChanging(value)
-            ReportPropertyChanging("PermanentAddress")
-            _PermanentAddress = StructuralObject.SetValidValue(value, true, "PermanentAddress")
-            ReportPropertyChanged("PermanentAddress")
-            OnPermanentAddressChanged()
-        End Set
-    End Property
-
-    Private _PermanentAddress As Global.System.String
-    Private Partial Sub OnPermanentAddressChanging(value As Global.System.String)
-    End Sub
-
-    Private Partial Sub OnPermanentAddressChanged()
-    End Sub
-
     #End Region
 
     #Region "Navigation Properties"
@@ -19765,11 +19740,10 @@ Public Partial Class tblProduct
     ''' <param name="dateFrom">Initial value of the DateFrom property.</param>
     ''' <param name="dateTo">Initial value of the DateTo property.</param>
     ''' <param name="lumpSum">Initial value of the LumpSum property.</param>
-    ''' <param name="memberCount">Initial value of the MemberCount property.</param>
     ''' <param name="gracePeriod">Initial value of the GracePeriod property.</param>
     ''' <param name="validityFrom">Initial value of the ValidityFrom property.</param>
     ''' <param name="auditUserID">Initial value of the AuditUserID property.</param>
-    Public Shared Function CreatetblProduct(prodID As Global.System.Int32, productCode As Global.System.String, productName As Global.System.String, insurancePeriod As Global.System.Byte, dateFrom As Global.System.DateTime, dateTo As Global.System.DateTime, lumpSum As Global.System.Decimal, memberCount As Global.System.Int16, gracePeriod As Global.System.Int32, validityFrom As Global.System.DateTime, auditUserID As Global.System.Int32) As tblProduct
+    Public Shared Function CreatetblProduct(prodID As Global.System.Int32, productCode As Global.System.String, productName As Global.System.String, insurancePeriod As Global.System.Byte, dateFrom As Global.System.DateTime, dateTo As Global.System.DateTime, lumpSum As Global.System.Decimal, gracePeriod As Global.System.Int32, validityFrom As Global.System.DateTime, auditUserID As Global.System.Int32) As tblProduct
         Dim tblProduct as tblProduct = New tblProduct
         tblProduct.ProdID = prodID
         tblProduct.ProductCode = productCode
@@ -19778,7 +19752,6 @@ Public Partial Class tblProduct
         tblProduct.DateFrom = dateFrom
         tblProduct.DateTo = dateTo
         tblProduct.LumpSum = lumpSum
-        tblProduct.MemberCount = memberCount
         tblProduct.GracePeriod = gracePeriod
         tblProduct.ValidityFrom = validityFrom
         tblProduct.AuditUserID = auditUserID
@@ -20014,31 +19987,6 @@ Public Partial Class tblProduct
     End Sub
 
     Private Partial Sub OnLumpSumChanged()
-    End Sub
-
-    ''' <summary>
-    ''' No Metadata Documentation available.
-    ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
-    <DataMemberAttribute()>
-    Public Property MemberCount() As Global.System.Int16
-        Get
-            Return _MemberCount
-        End Get
-        Set
-            OnMemberCountChanging(value)
-            ReportPropertyChanging("MemberCount")
-            _MemberCount = StructuralObject.SetValidValue(value, "MemberCount")
-            ReportPropertyChanged("MemberCount")
-            OnMemberCountChanged()
-        End Set
-    End Property
-
-    Private _MemberCount As Global.System.Int16
-    Private Partial Sub OnMemberCountChanging(value As Global.System.Int16)
-    End Sub
-
-    Private Partial Sub OnMemberCountChanged()
     End Sub
 
     ''' <summary>

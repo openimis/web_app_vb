@@ -837,7 +837,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:Label ID="lblMaxNoOfMembers" runat="server" Width="140px" Text='<%$ Resources:Resource,L_MEMBERS %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
-                                    <asp:TextBox ID="txtMaxNoOfMembers" runat="server" Style="text-align: right" class="numbersOnly"></asp:TextBox>
+                                    <asp:TextBox ID="txtMaxNoOfMembers" runat="server" Style="text-align: right" class="numbersOnly" MaxLength="9"></asp:TextBox>
                                 </td>
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMaxNoOfMembers" SetFocusOnError="True"
@@ -1488,6 +1488,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtGenAssemblyFee" runat="server" Style="text-align: right; width: 100px;" class="numbersOnly"></asp:TextBox>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="FormLabel">
+                                    <asp:Label ID="lblRecurrence" runat="server" Text="<%$ Resources:Resource,L_RECURRENCE %>" Width="150px"></asp:Label>
+                                </td>
+                                <td class="DataEntry">
+                                    <asp:TextBox ID="txtRecurrence" runat="server" class="numbersOnly" Style="text-align: right; width: 100px;"></asp:TextBox>
+                                </td>
+                                <td class="FormLabel">&nbsp;</td>
+                                <td class="DataEntry">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="FormLabel">

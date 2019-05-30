@@ -50,7 +50,7 @@ Partial Public Class PriceListsMI
 
             If IsPostBack Then Return
 
-            Dim dtRegion As DataTable = PriceList.GetRegions(imisgen.getUserId(Session("User")), True, True)
+            Dim dtRegion As DataTable = PriceList.GetRegions(imisgen.getUserId(Session("User")), True, False)
             ddlRegion.DataSource = dtRegion
             ddlRegion.DataValueField = "RegionId"
             ddlRegion.DataTextField = "RegionName"

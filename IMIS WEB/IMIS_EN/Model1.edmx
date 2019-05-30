@@ -1154,8 +1154,7 @@
           <Property Name="DateFrom" Type="smalldatetime" Nullable="false" />
           <Property Name="DateTo" Type="smalldatetime" Nullable="false" />
           <Property Name="ConversionProdID" Type="int" />
-          <Property Name="LumpSum" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="MemberCount" Type="smallint" Nullable="false" />
+          <Property Name="LumpSum" Type="decimal" Nullable="false" Scale="2" />          
           <Property Name="PremiumAdult" Type="decimal" Scale="2" />
           <Property Name="PremiumChild" Type="decimal" Scale="2" />
           <Property Name="DedInsuree" Type="decimal" Scale="2" />
@@ -3340,7 +3339,7 @@
           <NavigationProperty Name="tblOfficerVillages" Relationship="IMISModel.FK_tblOfficerVillages_tblOfficer" FromRole="tblOfficer" ToRole="tblOfficerVillages" />
           <NavigationProperty Name="tblPolicy" Relationship="IMISModel.FK_tblPolicy_tblOfficer_OfficerID" FromRole="tblOfficer" ToRole="tblPolicy" />
           <NavigationProperty Name="tblPolicyRenewals" Relationship="IMISModel.FK_tblPolicyRenewals_tblOfficer" FromRole="tblOfficer" ToRole="tblPolicyRenewals" />
-          <Property Type="String" Name="PermanentAddress" FixedLength="false" MaxLength="100" Unicode="true" />
+          
         </EntityType>
         <EntityType Name="tblOfficerVillages">
           <Key>
@@ -3575,7 +3574,6 @@
           <Property Name="DateTo" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ConversionProdID" Type="Int32" />
           <Property Name="LumpSum" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="MemberCount" Type="Int16" Nullable="false" />
           <Property Name="PremiumAdult" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PremiumChild" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="DedInsuree" Type="Decimal" Precision="18" Scale="2" />
@@ -5584,7 +5582,6 @@
                 <ScalarProperty Name="DateTo" ColumnName="DateTo" />
                 <ScalarProperty Name="ConversionProdID" ColumnName="ConversionProdID" />
                 <ScalarProperty Name="LumpSum" ColumnName="LumpSum" />
-                <ScalarProperty Name="MemberCount" ColumnName="MemberCount" />
                 <ScalarProperty Name="PremiumAdult" ColumnName="PremiumAdult" />
                 <ScalarProperty Name="PremiumChild" ColumnName="PremiumChild" />
                 <ScalarProperty Name="DedInsuree" ColumnName="DedInsuree" />

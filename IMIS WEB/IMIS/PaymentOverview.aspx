@@ -403,7 +403,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         Text='<%$ Resources:Resource,B_MATCHPAYMENT%>' Visible="false"
                           />
                     </td>
-                     <td align="center">
+                     <td align="left">
                        <asp:Button 
                         ID="btnSaveEditedPaymentDetails" 
                         runat="server" 

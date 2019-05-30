@@ -227,4 +227,5 @@ Public Class ProductsBL
         Dim dt As DataTable = HF.GetHFLevel
         Return DAL.getProductCapitationDetails(ProductId, dt)
     End Function
+
 End Class

@@ -23,6 +23,15 @@ Partial Public Class Officer
     Protected WithEvents hfUserID As Global.System.Web.UI.WebControls.HiddenField
     
     '''<summary>
+    '''hfHasLogin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfHasLogin As Global.System.Web.UI.WebControls.HiddenField
+    
+    '''<summary>
     '''Panel2 control.
     '''</summary>
     '''<remarks>

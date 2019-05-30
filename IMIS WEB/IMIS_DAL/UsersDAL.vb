@@ -44,36 +44,54 @@ Public Class UsersDAL
     Public Function SaveUserRoles(dtRoles As DataTable, eUser As IMIS_EN.tblUsers)
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
+        'Assign Values
+        '0 = Not checked
+        '1 = Checked
+        '2 = Assigned
+        '3 = Checked and Assigned
+        'New Records
+        sSQL = "INSERT INTO tblUserRole ([UserID], [RoleID], [ValidityFrom], [AuditUserId], Assign)"
+        sSQL += " SELECT @UserID,R.RoleID,GETDATE(),@AuditUserID,R.Assign From @Roles R"
+        sSQL += " LEFT JOIN tbluserRole UR ON UR.UserID = @UserID And UR.RoleID = R.RoleID And UR.ValidityTo Is NULL"
+        sSQL += " WHERE R.UserRoleID = 0 And UR.UserID Is NULL And UR.RoleID Is NULL"
+        'Insert Legacy record
+        sSQL += " INSERT INTO tblUserRole ([UserID], [RoleID], [ValidityFrom], [ValidityTo], [AuditUserId], [LegacyID], Assign)"
+        sSQL += " Select UR.[UserID],UR.[RoleID],UR.[ValidityFrom],GETDATE(),UR.[AuditUserId],UR.[LegacyID],UR.Assign FROM tblUserRole UR"
+        sSQL += " INNER JOIN @Roles R ON R.UserRoleID = UR.UserRoleID"
+        sSQL += " WHERE UR.UserRoleID = R.UserRoleID"
+        'Update Deleted value
+        sSQL += " UPDATE tblUserRole set ValidityFrom = GetDate(), ValidityTo = GETDATE(),AuditUserId =@AuditUserID"
+        sSQL += " From tblUserRole UR"
+        sSQL += " INNER Join @Roles R ON R.UserRoleID = UR.UserRoleID"
+        sSQL += " WHERE R.Assign = 0"
+        'Update Changed value
+        sSQL += " UPDATE tblUserRole set ValidityFrom = GETDATE(),AuditUserId =@AuditUserID,Assign = r.Assign"
+        sSQL += " From tblUserRole UR"
+        sSQL += " INNER Join @Roles R ON R.UserRoleID = UR.UserRoleID"
+        sSQL += " WHERE R.Assign > 0"
 
-        sSQL = "INSERT INTO tblUserRole ([RoleID],[UserID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
-        sSQL += " SELECT [RoleID],[UserID],[ValidityFrom],[ValidityTo],[AuditUserId],[UserRoleID] from tblUserRole"
-        sSQL += " WHERE UserID = @UserID AND RoleID NOT IN (SELECT ID from @Roles)"
-
-        sSQL += " UPDATE tblUserRole set ValidityTo = GETDATE(),AuditUserId =@AuditUserID"
-        sSQL += " WHERE UserID = @UserID AND RoleID NOT IN (SELECT ID from @Roles)"
-
-        sSQL += " INSERT INTO tblUserRole ([UserID],[RoleID],[ValidityFrom],[AuditUserId])"
-        sSQL += " SELECT @UserID,ID,GETDATE(),@AuditUserID FROM @Roles WHERE ID NOT IN (SELECT RoleID from tblUserRole WHERE UserID = @UserID  AND ValidityTo IS NULL)"
 
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, eUser.UserID)
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
-        data.params("@Roles", dtRoles, "xAttribute")
+        data.params("@Roles", dtRoles, "xtblUserRole")
         Return data.Filldata
     End Function
-    Public Function getRolesForUser(ByVal UserId As Integer, Offline As Boolean) As DataTable
+    Public Function getRolesForUser(ByVal UserId As Integer, Offline As Boolean, Authority As Integer) As DataTable
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-
-        sSQL = "SELECT tblrole.roleid,RoleName,CAST (case when tblUserRole.userid > 0 THEN 1 ELSE 0 END AS BIT) AS HasRight,IsSystem from tblrole"
+        sSQL = "DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
+        sSQL += " SELECT tblrole.roleid,RoleName,CAST (case when tblUserRole.userid > 0 AND ISNULL(Assign,0) & 1 > 0 THEN 1 ELSE 0 END AS BIT) AS HasRight,IsSystem,"
+        sSQL += " CAST (case when tblUserRole.userid > 0 AND ISNULL(Assign,0) & 2 > 0 THEN 1 ELSE 0 END AS BIT) Assign,tblUserRole.UserRoleID,Assign from tblrole"
         sSQL += " LEFT JOIN tblUserRole ON tblRole.RoleID = tblUserRole.RoleID AND UserID = @UserID AND tblUserRole.ValidityTo IS NULL"
-        sSQL += " WHERE tblrole.ValidityTo Is null And isblocked = 0"
+        sSQL += " WHERE tblrole.ValidityTo Is null And ISNULL(isblocked,0) = 0"
         If Offline = True Then
-            sSQL += " And (IsSystem = 0 Or IsSystem In (524288, 525184, 1048584))"
+            sSQL += " And (IsSystem = 0 Or IsSystem In (524288, 525184, 1048584) OR (@UserID = @Authority AND @Authority = @AdminUser))"
         Else
-            sSQL += " And (IsSystem >= 0  AND isSystem <= 512)"
+            sSQL += " And ((IsSystem >= 0  AND isSystem <= 512) OR (@UserID = @Authority AND @Authority = @AdminUser))"
         End If
+        sSQL += " AND (tblRole.RoleID IN (SELECT RoleID FROM tblUserRole where USERID = @Authority AND ValidityTo IS NULL AND ISNULL(Assign,0) & 2 > 0) OR @Authority = @AdminUser)"
         sSQL += " ORDER BY CASE WHEN issystem = 0 THEN 10000000 + tblrole.roleid ELSE issystem END"
         data.setSQLCommand(sSQL, CommandType.Text)
 
@@ -82,6 +100,7 @@ Public Class UsersDAL
 
 
         data.params("@UserId", SqlDbType.Int, UserId)
+        data.params("@Authority", SqlDbType.Int, Authority)
         Return data.Filldata
     End Function
     Public Function getUserRoles(ByVal UserId As Integer) As DataTable
@@ -109,6 +128,7 @@ Public Class UsersDAL
         If eUser.tblLocations.RegionId > 0 Then
 
         End If
+        sSQL += "DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
         sSQL += "   Select U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,  U.EmailId, IsAssociated"
         sSQL += "  From tblUsers U"
         sSQL += "  Where U.UserID In"
@@ -124,6 +144,7 @@ Public Class UsersDAL
         If eUser.RoleID > 0 Then
             sSQL += " AND U.UserID IN (SELECT UserID FROM tblUserRole WHERE RoleID =@RoleID AND ValidityTo Is NULL)"
         End If
+        sSQL += " AND (UserID <> CASE WHEN @AuthorityID = @AdminUser THEN 0 ELSE @AdminUser END)"
         ''Dim strsql As String = "Select distinct tblusers.* from tblUsers inner join tblUsersDistricts On  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID And tblUsersDistricts.ValidityTo Is null inner join (Select LocationId from tblUsersDistricts where UserID = @userId And ValidityTo Is null) userDistricts On userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName Like @LastName And OtherNames Like @OtherNames And LoginName Like @LoginName And Case When @RoleID = 0 Then 0 Else RoleID & @RoleId End = @RoleID And  Case When @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
         'sSQL = "  DECLARE @RegionIds AS TABLE(RegionId int)"
         'sSQL += " INSERT INTO @RegionIds SELECT DISTINCT L.ParentLocationId FROM tblLocations L INNER JOIN tblUsersDistricts UD ON L.LocationId = UD.LocationId WHERE UD.UserID = @AuthorityID"

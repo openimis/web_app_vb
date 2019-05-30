@@ -278,7 +278,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
     <script  type="text/ecmascript" language="javascript">
         $(document).ready(function () {
                 var chk = document.getElementById('<%= chkOfficerIncludeLogin.ClientID %>');
-            
+     
                 var Password = document.getElementById("OfficerInfo");
             Password.style.display = chk.checked ? "block" : "none";
             var chk = document.getElementById('<%= chkOfficerIncludeLogin.ClientID %>');
@@ -299,7 +299,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
         function fireCheckChanged()
             { 
             var chk = document.getElementById('<%= chkOfficerIncludeLogin.ClientID %>');
-            
+ 
             if (chk.checked) {
                     var Password = document.getElementById("OfficerInfo");
                 Password.style.display = chk.checked ? "block" : "none";
@@ -308,7 +308,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                  ValidatorEnable(document.getElementById("<%=RequiredFieldConfirmPassword.ClientID %>"), true);
             }
             else {
-                    ShowdeletePopUp()        
+                     var hasLogin = $(<%=hfHasLogin.ClientID%>).val();
+                if (hasLogin == "True") {
+                     ShowdeletePopUp()
+                } else {
+                     var Password = document.getElementById("OfficerInfo");
+                    Password.style.display = chk.checked ? "block" : "none";
+                     ValidatorEnable(document.getElementById("<%=RequiredFieldLanguage.ClientID %>"), true);
+                     ValidatorEnable(document.getElementById("<%=RequiredFieldPassword.ClientID %>"), true);
+                     ValidatorEnable(document.getElementById("<%=RequiredFieldConfirmPassword.ClientID %>"), true);
+                }   
             }           
         };
        
@@ -335,6 +344,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
     
     <asp:HiddenField ID="hfUserID" runat="server" />
+    <asp:HiddenField runat="server" ID="hfHasLogin" />
     <div class="divBody">
         <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto"
             CssClass="panel" GroupingText='<%$ Resources:Resource,G_OFFICER %>'>

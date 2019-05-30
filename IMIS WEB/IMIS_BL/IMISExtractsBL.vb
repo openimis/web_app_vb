@@ -1757,6 +1757,7 @@ Public Class IMISExtractsBL
         Dim dtRelations As DataTable = MasterData.Tables(12)
         Dim dtPhoneDefaults As DataTable = MasterData.Tables(13)
         Dim dtGenders As DataTable = MasterData.Tables(14)
+        Dim dtOfficerVillages As DataTable = MasterData.Tables(15)
 
         Dim ConfirmationTypes As String = "{""ConfirmationTypes"":" & GetJsonFromDt(dtConfirmationTypes) & "}"
         Dim Controls As String = "{""Controls"":" & GetJsonFromDt(dtControls) & "}"
@@ -1773,10 +1774,11 @@ Public Class IMISExtractsBL
         Dim Relations As String = "{""Relations"":" & GetJsonFromDt(dtRelations) & "}"
         Dim PhoneDefaults As String = "{""PhoneDefaults"":" & GetJsonFromDt(dtPhoneDefaults) & "}"
         Dim Genders As String = "{""Genders"":" & GetJsonFromDt(dtGenders) & "}"
+        Dim OfficersVillages As String = "{""OfficersVillages"":" & GetJsonFromDt(dtOfficerVillages) & "}"
 
         Dim FileContent As String = "["
         FileContent += ConfirmationTypes + ", " + Controls + ", " + Education + ", " + FamilyTypes + ", " + HF + ", " + IdentificationTypes + ", " + Languages + ", " + Locations + ", " +
-            Officers + ", " + Payers + ", " + Products + ", " + Professions + ", " + Relations + ", " + PhoneDefaults + ", " + Genders
+            Officers + ", " + Payers + ", " + Products + ", " + Professions + ", " + Relations + ", " + PhoneDefaults + ", " + Genders + ", " + OfficersVillages
         FileContent += "]"
 
 

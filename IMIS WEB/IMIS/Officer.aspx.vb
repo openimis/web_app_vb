@@ -48,6 +48,8 @@ Partial Public Class Officer
                 DeleteLogin()
             End If
         End If
+        Dim hasLogin As String = HttpContext.Current.Request.QueryString("hl")
+        hfHasLogin.Value = hasLogin
 
         If IsPostBack = True Then Return
         Try
@@ -375,6 +377,9 @@ Partial Public Class Officer
     End Sub
     Public Sub DeleteLogin()
         Try
+            If hfUserID.Value = "" Then Exit Sub
+
+
             eUsers.UserID = hfUserID.Value
             eOfficer.eUsers = eUsers
             BIOfficer.LoadUsers(eOfficer.eUsers)

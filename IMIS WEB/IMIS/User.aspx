@@ -325,7 +325,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <td>
                         <asp:CheckBox ID="Checkbox1" runat="server" Text='<%$ Resources:Resource,L_CHECKALL%>' margin-left="10px" onClick="toggleCheckRole(this.checked);" />
 
-                        <asp:Panel ID="pnlRole" runat="server" ScrollBars="Auto" Height="320px" Width="175px" 
+                        <asp:Panel ID="pnlRole" runat="server" ScrollBars="Auto" Height="320px" Width="200px" 
                             CssClass="panel" GroupingText='<%$ Resources:Resource,L_ROLE%>'>
 
 
@@ -342,19 +342,32 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </HeaderTemplate>
                                     </asp:TemplateField>
 
+                                    
                                     <asp:BoundField DataField="RoleName" HeaderStyle-Width="110px"
                                         HeaderText="<%$ Resources:Resource,L_ROLE %>" SortExpression="RoleName">
                                         <HeaderStyle Width="200px" />
                                     </asp:BoundField>
-
-                                    <asp:TemplateField HeaderText="">
+                                       <asp:TemplateField HeaderText="A">
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkAssign" runat="server" HeaderStyle-Width="10px" Checked='<%#Eval("Assign") %>' />
+                                        </ItemTemplate>
+                                        <HeaderTemplate>
+                                        </HeaderTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="" >
                                         <ItemTemplate>
                                             <asp:HiddenField ID="hfRoleId"  runat="server" value='<%#Eval("RoleId") %>' />
                                         </ItemTemplate>
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                     </asp:TemplateField>
-
+                                    <asp:TemplateField HeaderText="" >
+                                        <ItemTemplate>
+                                            <asp:HiddenField ID="UserRoleID"  runat="server" value='<%#Eval("UserRoleId") %>' />
+                                        </ItemTemplate>
+                                        <HeaderTemplate>
+                                        </HeaderTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                                
                                 <PagerStyle CssClass="pgr" />
@@ -367,7 +380,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </td>
                     <td>
                         <asp:CheckBox ID="chkCheckAllR" runat="server" Text='<%$ Resources:Resource,L_CHECKALL%>' margin-left="10px" onClick="toggleCheckRegions(this.checked);" />
-                        <asp:Panel ID="pnlRegion" runat="server" ScrollBars="Auto" Height="320px" Width="175px"
+                        <asp:Panel ID="pnlRegion" runat="server" ScrollBars="Auto" Height="320px" Width="200px"
                             CssClass="panel" GroupingText='<%$ Resources:Resource, L_REGION %>'>
                             <asp:GridView ID="gvRegion" runat="server"
                                 AutoGenerateColumns="False"
@@ -387,7 +400,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="">
+                                    <asp:TemplateField HeaderText="" >
                                         <ItemTemplate>
                                             <asp:HiddenField ID="hfRegion"  runat="server" value='<%#Eval("RegionId") %>' />
                                         </ItemTemplate>
@@ -412,7 +425,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </td>
                     <td>
                         <asp:CheckBox ID="CheckBox2" runat="server" Text='<%$ Resources:Resource,L_CHECKALL%>' margin-left="10px" onClick="toggleCheckDistrict(this.checked);" />
-                        <asp:Panel ID="pnlDistrict" runat="server" ScrollBars="Auto" Height="320px" Width="175px"
+                        <asp:Panel ID="pnlDistrict" runat="server" ScrollBars="Auto" Height="320px" Width="200px"
                             CssClass="panel" GroupingText='<%$ Resources:Resource, L_DISTRICT %>'>
                             <asp:GridView ID="gvDistrict" runat="server"
                                 AutoGenerateColumns="False"
@@ -424,7 +437,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 EmptyDataText='No District  found'>
 
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Select">
+                                    <asp:TemplateField HeaderText="Select" >
                                         <ItemTemplate>
                                             <asp:CheckBox ID="chkDistrictSelect"  runat="server" HeaderStyle-Width="30px" />
                                             
@@ -432,7 +445,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="">
+                                    <asp:TemplateField HeaderText="" >
                                         <ItemTemplate>
                                             <asp:HiddenField ID="hfRegion"  runat="server" value='<%#Eval("Region") %>' />
                                         </ItemTemplate>

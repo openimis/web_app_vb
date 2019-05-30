@@ -324,9 +324,9 @@ Public Class HealthFacilityDAL
         data.params("@SentHF", SqlDbType.Int, Nothing, ParameterDirection.Output)
         data.params("@Inserts", SqlDbType.Int, Nothing, ParameterDirection.Output)
         data.params("@Updates", SqlDbType.Int, Nothing, ParameterDirection.Output)
-        'data.params("@sentCatchment", SqlDbType.Int, Nothing, ParameterDirection.Output)
-        'data.params("@InsertCatchment", SqlDbType.Int, Nothing, ParameterDirection.Output)
-        'data.params("@UpdateCatchment", SqlDbType.Int, Nothing, ParameterDirection.Output)
+        data.params("@sentCatchment", SqlDbType.Int, Nothing, ParameterDirection.Output)
+        data.params("@InsertCatchment", SqlDbType.Int, Nothing, ParameterDirection.Output)
+        data.params("@UpdateCatchment", SqlDbType.Int, Nothing, ParameterDirection.Output)
         data.params("@returnValue", SqlDbType.Int, Nothing, ParameterDirection.ReturnValue)
         dtresult = data.Filldata()
 
@@ -335,18 +335,18 @@ Public Class HealthFacilityDAL
         Output.Add("SentHF", 0)
         Output.Add("Inserts", 0)
         Output.Add("Updates", 0)
-        'Output.Add("sentCatchment", 0)
-        'Output.Add("InsertCatchment", 0)
-        'Output.Add("UpdateCatchment", 0)
+        Output.Add("sentCatchment", 0)
+        Output.Add("InsertCatchment", 0)
+        Output.Add("UpdateCatchment", 0)
 
         Output.Add("returnValue", 0)
 
         Output("SentHF") = If(data.sqlParameters("@SentHF") Is DBNull.Value, 0, data.sqlParameters("@SentHF"))
         Output("Inserts") = If(data.sqlParameters("@Inserts") Is DBNull.Value, 0, data.sqlParameters("@Inserts"))
         Output("Updates") = If(data.sqlParameters("@Updates") Is DBNull.Value, 0, data.sqlParameters("@Updates"))
-        'Output("sentCatchment") = If(data.sqlParameters("@sentCatchment") Is DBNull.Value, 0, data.sqlParameters("@sentCatchment"))
-        'Output("InsertCatchment") = If(data.sqlParameters("@InsertCatchment") Is DBNull.Value, 0, data.sqlParameters("@InsertCatchment"))
-        'Output("UpdateCatchment") = If(data.sqlParameters("@UpdateCatchment") Is DBNull.Value, 0, data.sqlParameters("@UpdateCatchment"))
+        Output("sentCatchment") = If(data.sqlParameters("@sentCatchment") Is DBNull.Value, 0, data.sqlParameters("@sentCatchment"))
+        Output("InsertCatchment") = If(data.sqlParameters("@InsertCatchment") Is DBNull.Value, 0, data.sqlParameters("@InsertCatchment"))
+        Output("UpdateCatchment") = If(data.sqlParameters("@UpdateCatchment") Is DBNull.Value, 0, data.sqlParameters("@UpdateCatchment"))
 
         Output("returnValue") = data.sqlParameters("@returnValue")
         Return Output

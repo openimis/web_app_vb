@@ -82,7 +82,7 @@ Partial Public Class IMISExtracts
                 'pnlExtractEntrolment.Visible = True
                 'pnlDownloadEntrolment.Visible = True
             Else
-                Dim dtRegions As DataTable = Extracts.GetRegions(imisgen.getUserId(Session("User")), True, True)
+                Dim dtRegions As DataTable = Extracts.GetRegions(imisgen.getUserId(Session("User")), True, False)
                 pnlOffline.Visible = False
                 pnlOnline.Visible = True
                 ddlRegionPhone.DataSource = dtRegions
@@ -964,7 +964,7 @@ Partial Public Class IMISExtracts
     End Sub
 
 
-    Protected Sub btnDownLoadMasterData_Click(sender As Object, e As EventArgs)
+    Protected Sub btnDownLoadMasterData_Click(sender As Object, e As EventArgs) Handles btnDownLoadMasterData.Click
 
         Dim Extracts As New IMIS_BI.IMISExtractsBI
         Dim strCommand As String = "MasterData.RAR"
