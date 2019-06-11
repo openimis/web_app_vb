@@ -400,7 +400,7 @@ Partial Public Class Claim
 
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindClaims.aspx?c=c")
+        Response.Redirect("FindClaims.aspx")
     End Sub
     Private Function IsClaimChanged(ByRef ClaimTotalValueFlag As Boolean) As Boolean
         Dim EndDate As Date = CType(Session("LoadedVisitDateTo"), Date)
