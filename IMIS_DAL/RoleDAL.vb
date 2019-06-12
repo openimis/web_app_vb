@@ -34,7 +34,7 @@ Public Class RoleDAL
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
 
-        sSQL = "SELECT [RoleID],[RoleName],CASE WHEN [IsSystem] > 0 THEN 'True' Else 'False' END System,isSystem,ISNULL(AltLanguage,RoleName) AltLanguage,"
+        sSQL = "SELECT [RoleID],[RoleUUID],[RoleName],CASE WHEN [IsSystem] > 0 THEN 'True' Else 'False' END System,isSystem,ISNULL(AltLanguage,RoleName) AltLanguage,"
         sSQL += " CASE WHEN [IsBlocked] = 1 THEN 'True' ELSE 'False' END Blocked,[ValidityFrom],[ValidityTo],[AuditUserID],[LegacyID] FROM tblRole"
         sSQL += " WHERE (Rolename like '" & erole.RoleName & "%' OR AltLanguage LIKE '" & erole.AltLanguage & "%') AND (isBlocked = @isBlocked OR @isBlocked IS NULL)"
         If erole.IsSystem IsNot Nothing Then
@@ -201,5 +201,17 @@ Public Class RoleDAL
         Dim dt As DataTable = data.Filldata()
         If dt.Rows.Count = 0 Then Return False
         Return True
+    End Function
+
+    Public Function GetRoleIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select RoleID from tblRole where RoleUUID = @RoleUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@RoleUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
     End Function
 End Class

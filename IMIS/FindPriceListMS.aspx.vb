@@ -33,6 +33,7 @@ Partial Public Class FindPriceListMS
     Dim ePL As New IMIS_EN.tblPLServices
     Private imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private priceListBI As New IMIS_BI.PricelistMSBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvPriceLists)
@@ -234,7 +235,7 @@ Partial Public Class FindPriceListMS
         lblMsg.Text = ""
         RunPageSecurity(True)
         Try
-            ePL.PLServiceID = hfPLServId.Value
+            ePL.PLServiceID = priceListBI.GetPLServiceIdByUUID(Guid.Parse(hfPLServId.Value))
 
             ePL.AuditUserID = imisGen.getUserId(Session("User"))
             Pricelist.DeletePriceListMS(ePL)

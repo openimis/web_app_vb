@@ -9,7 +9,11 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         RunPageSecurity()
 
-        eRole.RoleID = HttpContext.Current.Request.QueryString("r")
+        If HttpContext.Current.Request.QueryString("r") IsNot Nothing Then
+            eRole.RoleUUID = Guid.Parse(HttpContext.Current.Request.QueryString("r"))
+            eRole.RoleID = BI.GetRoleIdByUUID(eRole.RoleUUID)
+        End If
+
         If Not IsPostBack Then
 
             If eRole.RoleID > 0 Then

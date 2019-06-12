@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblFamilies
     Public Property FamilyID As Integer
+    Public Property FamilyUUID As Guid
     Public Property InsureeID As Integer
     Public Property LocationId As Integer
     Public Property Poverty As Nullable(Of Boolean)

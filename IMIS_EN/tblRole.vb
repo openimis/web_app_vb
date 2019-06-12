@@ -28,6 +28,7 @@
 Public Class tblRole
 
     Private _RoleID As Int32
+    Private _RoleUUID As Guid
     Private _RoleName As String
     Private _AltLanguage As String
     Private _IsSystem As Integer?
@@ -44,6 +45,14 @@ Public Class tblRole
         End Get
         Set(Value As Int32)
             _RoleID = Value
+        End Set
+    End Property
+    Public Property RoleUUID As Guid
+        Get
+            RoleUUID = _RoleUUID
+        End Get
+        Set(Value As Guid)
+            _RoleUUID = Value
         End Set
     End Property
     Public Property RoleName As String

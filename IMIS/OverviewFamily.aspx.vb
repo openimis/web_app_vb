@@ -29,6 +29,7 @@
 Partial Public Class OverviewFamily
     Inherits System.Web.UI.Page
     Private FamilyId As Integer = 0
+    Public Property FamilyUUID As Guid
     Private eInsuree As New IMIS_EN.tblInsuree
     Private ePolicy As New IMIS_EN.tblPolicy
     Private ePremium As New IMIS_EN.tblPremium
@@ -36,6 +37,11 @@ Partial Public Class OverviewFamily
     Dim OverviewFamily As New IMIS_BI.OverviewFamilyBI
     Protected imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private familyBI As New IMIS_BI.FamilyBI
+    Private insureeBI As New IMIS_BI.InsureeBI
+    Private policyBI As New IMIS_BI.PolicyBI
+    Private premiumBI As New IMIS_BI.PremiumBI
+    Private productBI As New IMIS_BI.ProductBI
     Private Sub FormatForm()
         Dim Adjustibility As String = ""
      
@@ -68,19 +74,25 @@ Partial Public Class OverviewFamily
         RunPageSecurity()
 
         If Session("User") Is Nothing Then Response.Redirect("Default.aspx")
-        FamilyId = HttpContext.Current.Request.QueryString("f")
 
-        If Not HttpContext.Current.Request.QueryString("i") Is Nothing Then
-            eInsuree.InsureeID = CInt(HttpContext.Current.Request.QueryString("i"))
-
+        If HttpContext.Current.Request.QueryString("f") IsNot Nothing Then
+            FamilyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("f"))
+            FamilyId = If(FamilyUUID.Equals(Guid.Empty), 0, familyBI.GetFamilyIdByUUID(FamilyUUID))
         End If
-        If Not HttpContext.Current.Request.QueryString("po") Is Nothing Then
-            ePolicy.PolicyID = CInt(HttpContext.Current.Request.QueryString("po"))
 
+        If HttpContext.Current.Request.QueryString("i") IsNot Nothing Then
+            eInsuree.InsureeUUID = Guid.Parse(HttpContext.Current.Request.QueryString("i"))
+            eInsuree.InsureeID = If(eInsuree.InsureeUUID.Equals(Guid.Empty), 0, insureeBI.GetInsureeIdByUUID(eInsuree.InsureeUUID))
         End If
-        If Not HttpContext.Current.Request.QueryString("p") Is Nothing Then
-            ePremium.PremiumId = CInt(HttpContext.Current.Request.QueryString("p"))
 
+        If HttpContext.Current.Request.QueryString("po") IsNot Nothing Then
+            ePolicy.PolicyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("po"))
+            ePolicy.PolicyID = If(ePolicy.PolicyUUID.Equals(Guid.Empty), 0, policyBI.GetPolicyIdByUUID(ePolicy.PolicyUUID))
+        End If
+
+        If HttpContext.Current.Request.QueryString("p") IsNot Nothing Then
+            ePremium.PremiumUUID = Guid.Parse(HttpContext.Current.Request.QueryString("p"))
+            ePremium.PremiumId = If(ePremium.PremiumUUID.Equals(Guid.Empty), 0, premiumBI.GetPremiumIdByUUID(ePremium.PremiumUUID))
         End If
 
         If Request.Form("__EVENTTARGET") = AddPremium.ClientID Then
@@ -134,6 +146,7 @@ Partial Public Class OverviewFamily
             DisableEmptyGridEditDeleteButtons(gvPolicies)
 
             eFamily.FamilyID = FamilyId
+            eFamily.FamilyUUID = FamilyUUID
             OverviewFamily.GetFamilyHeadInfo(eFamily)
             txtRegion.Text = eFamily.RegionName
             txtDistrict.Text = eFamily.DistrictName
@@ -398,7 +411,12 @@ Partial Public Class OverviewFamily
     Private Sub gv_PageIndexChanged(sender As Object, e As EventArgs) Handles gvInsurees.PageIndexChanged, gvPolicies.PageIndexChanged, gvPremiums.PageIndexChanged
         Try
             Dim load As New IMIS_BI.OverviewFamilyBI
-            FamilyId = HttpContext.Current.Request.QueryString("f")
+            Dim FamilyUUID As Guid
+            If HttpContext.Current.Request.QueryString("f") IsNot Nothing Then
+                FamilyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("f"))
+                FamilyId = familyBI.GetFamilyIdByUUID(FamilyUUID)
+            End If
+
             Dim dt As DataTable
             Dim gv As GridView = sender
             If gv.ID = gvInsurees.ID Then
@@ -446,7 +464,7 @@ Partial Public Class OverviewFamily
         Response.Redirect("Family.aspx")
     End Sub
     Private Sub EditFamily_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditFamily.Click
-        Response.Redirect("ChangeFamily.aspx?f=" & FamilyId)
+        Response.Redirect("ChangeFamily.aspx?f=" & FamilyUUID.ToString())
     End Sub
     Private Sub DeleteFamily_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles DeleteFamily.Click
         RunPageSecurity(True, "deletefamily")
@@ -474,7 +492,7 @@ Partial Public Class OverviewFamily
                 Return
             ElseIf chk = 1 And eFamily.FamilyID > 0 Then
                 Session("msg") = imisgen.getMessage("M_FAMILYANDHEADOFFLY_") & " " & imisgen.getMessage("M_DELETED")
-                Response.Redirect("FindFamily.aspx?f=" & FamilyId)
+                Response.Redirect("FindFamily.aspx?f=" & FamilyUUID.ToString())
             ElseIf chk = 2 Then
                 Session("msg") = imisgen.getMessage("M_FAMILYSTILLHASDEPENDANTS")
             End If
@@ -486,13 +504,17 @@ Partial Public Class OverviewFamily
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & FamilyId & "&i=" & eInsuree.InsureeID & "&po=" & ePolicy.PolicyID & "&p=" & ePremium.PremiumId)
+        Dim InsureeUUID As Guid
+        InsureeUUID = insureeBI.GetInsureeUUIDByID(gvInsurees.SelectedDataKey.Value)
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString() & "&p=" & ePremium.PremiumUUID.ToString())
     End Sub
     Private Sub AddInsuree_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles AddInsuree.Click
-        Response.Redirect("Insuree.aspx?f=" & FamilyId)
+        Response.Redirect("Insuree.aspx?f=" & FamilyUUID.ToString())
     End Sub
     Private Sub EditInsuree_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditInsuree.Click
-        Response.Redirect("Insuree.aspx?f=" & FamilyId & "&i=" & gvInsurees.SelectedDataKey.Value)
+        Dim InsureeUUID As Guid
+        InsureeUUID = insureeBI.GetInsureeUUIDByID(gvInsurees.SelectedDataKey.Value)
+        Response.Redirect("Insuree.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
     End Sub
     Private Sub DeleteInsuree_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles DeleteInsuree.Click
         RunPageSecurity(True, "deleteinsuree")
@@ -526,32 +548,41 @@ Partial Public Class OverviewFamily
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & FamilyId & "&i=" & eInsuree.InsureeID & "&po=" & ePolicy.PolicyID & "&p=" & ePremium.PremiumId)
+
+        Dim InsureeUUID As Guid
+        InsureeUUID = insureeBI.GetInsureeUUIDByID(gvInsurees.SelectedDataKey.Value)
+
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
     End Sub
     Private Sub AddPolicy_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles AddPolicy.Click
-        Response.Redirect("Policy.aspx?f=" & FamilyId & "&po=0&stage=N")
+        Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&stage=N")
     End Sub
 
     Private Sub btnRenewPolicy_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnRenewPolicy.Click
         Dim pd As Integer = 0
         Dim ed As String = ""
         Dim rpo As Integer = 0
+        Dim ProdUUID As Guid
+        Dim PolicyUUID As Guid
+        Dim po As Guid
         If Not gvPolicies.SelectedDataKey Is Nothing Then
             pd = gvPolicies.SelectedDataKey.Values("ProdID")
+            ProdUUID = productBI.GetProdUUIDByID(pd)
             ed = gvPolicies.SelectedDataKey.Values("ExpiryDate")
             rpo = gvPolicies.SelectedDataKey.Values("PolicyID")
+            PolicyUUID = policyBI.GetPolicyUUIDByID(rpo)
         End If
 
-        Response.Redirect("Policy.aspx?f=" & FamilyId & "&po=0&stage=R&pd=" & pd & "&ed=" & ed & "&rpo=" & rpo)
+        Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&stage=R&pd=" & ProdUUID.ToString() & "&ed=" & ed & "&rpo=" & PolicyUUID.ToString())
     End Sub
 
     Private Sub EditPolicy_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditPolicy.Click
-        Dim po As Integer = 0
+        Dim po As Guid
         If Not gvPolicies.SelectedDataKey Is Nothing Then
-            po = gvPolicies.SelectedDataKey.Values("PolicyID")
+            po = policyBI.GetPolicyUUIDByID(gvPolicies.SelectedDataKey.Values("PolicyID"))
         End If
 
-        Response.Redirect("Policy.aspx?f=" & FamilyId & "&po=" & po & "&stage=")
+        Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&po=" & po.ToString() & "&stage=")
     End Sub
     Private Sub DeletePolicy_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles DeletePolicy.Click
 
@@ -585,25 +616,24 @@ Partial Public Class OverviewFamily
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & FamilyId & "&i=" & eInsuree.InsureeID & "&po=" & ePolicy.PolicyID & "&p=" & ePremium.PremiumId)
+
+        Dim po As Guid = policyBI.GetPolicyUUIDByID(gvPolicies.SelectedDataKey.Value)
+
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&po=" & po.ToString())
     End Sub
     Private Sub AddPremium_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles AddPremium.Click
-        Dim po As Integer = 0
-        If Not gvPolicies.SelectedDataKey Is Nothing Then
-            po = gvPolicies.SelectedDataKey.Values("PolicyID")
-        End If
-        Response.Redirect("Premium.aspx?f=" & FamilyId & "&po=" & po)
+        Dim po As Guid
+        po = policyBI.GetPolicyUUIDByID(gvPolicies.SelectedDataKey.Values("PolicyID"))
+        Response.Redirect("Premium.aspx?f=" & FamilyUUID.ToString() & "&po=" & po.ToString())
     End Sub
     Private Sub EditPremium_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditPremium.Click
-        Dim po As Integer = 0
+
+        Dim p As Guid
         If Not gvPolicies.SelectedDataKey Is Nothing Then
-            po = gvPolicies.SelectedDataKey.Values("PolicyID")
+            p = premiumBI.GetPremiumnUUIDByID(gvPremiums.SelectedDataKey.Value)
         End If
-        Dim p As Integer = 0
-        If Not gvPremiums.SelectedDataKey Is Nothing Then
-            p = gvPremiums.SelectedDataKey.Value
-        End If
-        Response.Redirect("Premium.aspx?f=" & FamilyId & "&p=" & p & "&po=" & po)
+
+        Response.Redirect("Premium.aspx?f=" & FamilyUUID.ToString() & "&p=" & p.ToString() & "&po=" & ePolicy.PolicyUUID.ToString())
     End Sub
     Private Sub DeletePremium_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles DeletePremium.Click
         RunPageSecurity(True, "deletepremium")
@@ -636,7 +666,11 @@ Partial Public Class OverviewFamily
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & FamilyId & "&i=" & eInsuree.InsureeID & "&po=" & ePolicy.PolicyID & "&p=" & ePremium.PremiumId)
+
+        Dim p As Guid
+        p = premiumBI.GetPremiumnUUIDByID(gvPremiums.SelectedDataKey.Value)
+
+        Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString() & "&p=" & p.ToString())
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
 

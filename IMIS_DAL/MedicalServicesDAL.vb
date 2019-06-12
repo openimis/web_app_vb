@@ -68,7 +68,7 @@ Public Class MedicalServicesDAL
     Public Function GetMS(ByVal eService As IMIS_EN.tblServices, dtSType As DataTable, dtServType As DataTable) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL += " select ServiceID,ServCode,ServName,dt.Name ServType ,SL.Name ServLevel,ServPrice,validityfrom,validityto"
+        sSQL += " select ServiceID,ServiceUUID,ServCode,ServName,dt.Name ServType ,SL.Name ServLevel,ServPrice,validityfrom,validityto"
         sSQL += " from tblServices S"
         sSQL += " LEFT OUTER JOIN @dtIType dt ON dt.Code = S.ServType"
         sSQL += " LEFT OUTER JOIN @dtServLevel Sl ON Sl.Code = S.ServLevel"
@@ -184,5 +184,15 @@ Public Class MedicalServicesDAL
         data.params("@ServiceID", SqlDbType.Int, eServices.ServiceID)
         Return data.Filldata
     End Function
+    Public Function GetServiceIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
 
+        sSQL = "select ServiceID from tblServices where ServiceUUID = @ServiceUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ServiceUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
 End Class

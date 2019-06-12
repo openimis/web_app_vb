@@ -48,4 +48,8 @@ Public Class MedicalServiceBI
         Dim Serv As New IMIS_BL.MedicalServicesBL
         Return Serv.GetServiceCategory
     End Function
+    Public Function GetServiceIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Service As New IMIS_BL.MedicalServicesBL
+        Return Service.GetServiceIdByUUID(uuid)
+    End Function
 End Class

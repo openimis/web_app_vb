@@ -113,4 +113,12 @@ Public Class ProductBI
         Dim BL As New IMIS_BL.HealthFacilityBL
         Return BL.GetSublevel()
     End Function
+    Public Function GetProdIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Prod As New IMIS_BL.ProductsBL
+        Return Prod.GetProdIdByUUID(uuid)
+    End Function
+    Public Function GetProdUUIDByID(ByVal id As Integer) As Guid
+        Dim Prod As New IMIS_BL.ProductsBL
+        Return Prod.GetProdUUIDByID(id)
+    End Function
 End Class

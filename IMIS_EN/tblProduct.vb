@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblProduct
     Public Property ProdID As Integer
+    Public Property ProdUUID As Guid
     Public Property ProductCode As String
     Public Property ProductName As String
     Public Property LocationId As Nullable(Of Integer)

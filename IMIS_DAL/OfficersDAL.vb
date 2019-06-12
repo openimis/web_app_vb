@@ -177,7 +177,7 @@ Public Class OfficersDAL
 
         'sSQL = "select tblOfficer.*,Districtname from tblOfficer left outer join tblDistricts on tblOfficer.LocationId = tblDistricts.DistrictID inner join tblUsersDistricts UD on UD.LocationId = tblOfficer.LocationId and UD.userid = @userid and UD.ValidityTo is null WHERE code like @Code AND  LastName LIKE @LastName AND OtherNames LIKE @OtherNames  AND Phone  like @Phone AND ISNULL(EmailId, '') LIKE @EmailId"
 
-        sSQL = " SELECT DISTINCT O.OfficerID,O.Code,O.OtherNames,O.LastName,O.Phone,O.DOB,O.ValidityFrom, O.ValidityTo,"
+        sSQL = " SELECT DISTINCT O.OfficerID,O.OfficerUUID,O.Code,O.OtherNames,O.LastName,O.Phone,O.DOB,O.ValidityFrom, O.ValidityTo,"
         sSQL += " L.RegionName , L.DistrictName, ISNULL(HasLogin,0) HasLogin"
         sSQL += " FROM tblOfficer O"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(O.LocationId, 0) "
@@ -392,5 +392,17 @@ Public Class OfficersDAL
         Dim dt As New DataTable
         dt = data.Filldata
         Return dt.Rows.Count > 0
+    End Function
+
+    Public Function GetOfficerIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select OfficerID from tblOfficer where OfficerUUID = @OfficerUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@OfficerUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
     End Function
 End Class

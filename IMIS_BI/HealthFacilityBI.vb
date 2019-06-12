@@ -100,4 +100,12 @@ Public Class HealthFacilityBI
         Dim Ward As New IMIS_BL.LocationsBL
         Return Ward.GetVillages(WardId, showSelect)
     End Function
+    Public Function GetHfIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Hf As New IMIS_BL.HealthFacilityBL
+        Return Hf.GetHfIdByUUID(uuid)
+    End Function
+    Public Function GetHfUUIDByID(ByVal id As Integer) As Guid
+        Dim Hf As New IMIS_BL.HealthFacilityBL
+        Return Hf.GetHfUUIDByID(id)
+    End Function
 End Class

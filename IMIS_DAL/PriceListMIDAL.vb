@@ -84,7 +84,7 @@ Public Class PriceListMIDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         'Dim strSQL As String = "select tblPLItems.*,'Region' RegionName,Districtname from tblPLItems left outer join tblDistricts on tblPLItems.LocationId = tblDistricts.DistrictId left outer join tblUsersDistricts UD on UD.LocationId = tblPLItems.LocationId and UD.userid = @userid and UD.ValidityTo is NULL "
-        sSQL = "SELECT PL.PLItemID,PL.DatePL, PLItemName,PL.ValidityFrom,PL.ValidityTo, L.RegionName , L.DistrictName"
+        sSQL = "SELECT PL.PLItemID,PL.PLItemUUID,PL.DatePL, PLItemName,PL.ValidityFrom,PL.ValidityTo, L.RegionName , L.DistrictName"
         sSQL += " FROM tblPLItems  PL"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(PL.LocationId, 0)"
         sSQL += " INNER JOIN"
@@ -106,7 +106,7 @@ Public Class PriceListMIDAL
         If Not ePL.DatePL = Nothing Then
             sSQL += " AND DatePL = @DatePL"
         End If
-        sSQL += " GROUP BY PL.PLItemID,PL.DatePL, PLItemName,PL.ValidityFrom,PL.ValidityTo, L.RegionName , L.DistrictName"
+        sSQL += " GROUP BY PL.PLItemID,PL.DatePL, PLItemName,PL.ValidityFrom,PL.ValidityTo,PL.PLItemUUID, L.RegionName , L.DistrictName"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, ePL.AuditUserID)
@@ -260,5 +260,16 @@ Public Class PriceListMIDAL
         data.params("@PLItemName", SqlDbType.NVarChar, 100, ePLItems.PLItemName)
 
         Return data.Filldata()
+    End Function
+    Public Function GetPLItemIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PLItemID from tblPLItems where PLItemUUID = @PLItemUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PLItemUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
     End Function
 End Class

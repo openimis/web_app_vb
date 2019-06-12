@@ -37,6 +37,8 @@ Partial Public Class Premium
     Protected imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
     Private PremiumContribution As Decimal
+    Private familyBI As New IMIS_BI.FamilyBI
+    Private policyBI As New IMIS_BI.PolicyBI
     Private Sub FormatForm()
 
         Dim Adjustibility As String = ""
@@ -73,19 +75,20 @@ Partial Public Class Premium
         RunPageSecurity()
         Try
 
-            If Not HttpContext.Current.Request.QueryString("po") Is Nothing Then
-                ePolicy.PolicyID = Request.QueryString("po")
+            If HttpContext.Current.Request.QueryString("po") IsNot Nothing Then
+                ePolicy.PolicyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("po"))
+                ePolicy.PolicyID = policyBI.GetPolicyIdByUUID(ePolicy.PolicyUUID)
                 hfPolicyID.Value = ePolicy.PolicyID
             End If
 
-            If Not HttpContext.Current.Request.QueryString("f") Is Nothing Then
-
-                eFamily.FamilyID = HttpContext.Current.Request.QueryString("f")
-
+            If HttpContext.Current.Request.QueryString("f") IsNot Nothing Then
+                eFamily.FamilyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("f"))
+                eFamily.FamilyID = familyBI.GetFamilyIdByUUID(eFamily.FamilyUUID)
             End If
 
-            If Not HttpContext.Current.Request.QueryString("p") Is Nothing Then
-                ePremium.PremiumId = HttpContext.Current.Request.QueryString("p")
+            If HttpContext.Current.Request.QueryString("p") IsNot Nothing Then
+                ePremium.PremiumUUID = Guid.Parse(HttpContext.Current.Request.QueryString("p"))
+                ePremium.PremiumId = Premium.GetPremiumIdByUUID(ePremium.PremiumUUID)
             End If
 
             If Request.Form("__EVENTTARGET") = B_SAVE.ClientID Then
@@ -265,7 +268,7 @@ Partial Public Class Premium
 
                 Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
                 Dim StartDate As Date = Date.ParseExact(hfPolicyStartDate.Value, "dd/MM/yyyy", Nothing)
-                Dim EffectiveDate As Date = if(PayDate < StartDate, StartDate, PayDate)
+                Dim EffectiveDate As Date = If(PayDate < StartDate, StartDate, PayDate)
 
 
 
@@ -330,13 +333,15 @@ Partial Public Class Premium
                 Return
             End Try
         End If
-        Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyID & "&p=" & ePremium.PremiumId & "&po=" & ePolicy.PolicyID)
+        Dim PremiumUUID As Guid
+        PremiumUUID = Premium.GetPremiumnUUIDByID(ePremium.PremiumId)
+        Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyUUID.ToString() & "&p=" & PremiumUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString())
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         If B_SAVE.Visible = False Then 'HttpContext.Current.Request.QueryString("po") Is Nothing
-            Response.Redirect("FindPremium.aspx?p=" & ePremium.PremiumId)
+            Response.Redirect("FindPremium.aspx?p=" & ePremium.PremiumUUID.ToString())
         Else
-            Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyID & "&p=" & ePremium.PremiumId & "&po=" & HttpContext.Current.Request.QueryString("po"))
+            Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyUUID.ToString() & "&p=" & ePremium.PremiumUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString())
         End If
     End Sub
 End Class

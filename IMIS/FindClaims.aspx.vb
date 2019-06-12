@@ -35,6 +35,9 @@ Partial Public Class FindClaims
     Dim eHF As New IMIS_EN.tblHF
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private userBI As New IMIS_BI.UserBI
+    Private hfBI As New IMIS_BI.HealthFacilityBI
+    Private claimBI As New IMIS_BI.ClaimBI
+    Private claimAdminBI As New IMIS_BI.ClaimAdministratorBI
 
     Private Sub FormatForm()
 
@@ -49,7 +52,6 @@ Partial Public Class FindClaims
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load, txtICDCode.TextChanged
-
         chkboxSubmitAll.Checked = False
         'ddlBatchRun.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id);")
         'ddlClaimStatus.Attributes.Add("oncontextmenu", "RightClickJSFunction(this.id,31);")
@@ -76,25 +78,19 @@ Partial Public Class FindClaims
         If IsPostBack = False Then RunPageSecurity()
         FormatForm()
 
-
         Try
 
             If IsPostBack = True Then Return
 
-
             Dim UserID As Integer
             UserID = imisgen.getUserId(Session("User"))
-
             FillRegion()
             If Request.QueryString("c") = "c" Then
                 ddlRegion.SelectedValue = CType(Session("RegionSelected"), Integer)
                 FillDistricts()
-                ddlDistrict.SelectedValue = CType(Session("DistrictIDFindClaims"), Integer)
+                'ddlDistrict.SelectedValue = CType(Session("DistrictIDFindClaims"), Integer)
+                ddlDistrict.SelectedValue = 0
             End If
-
-
-
-
             ddlFBStatus.DataSource = FindClaimsB.GetFeedbackStatus()
             ddlFBStatus.DataTextField = "Status"
             ddlFBStatus.DataValueField = "Code"
@@ -122,7 +118,6 @@ Partial Public Class FindClaims
 
 
             FillVisitTypes()
-
             HFCodeAndBatchRunBinding(UserID)
             If ddlHFCode.Items.Count = 1 Then
                 txtHFName.Enabled = False
@@ -130,13 +125,11 @@ Partial Public Class FindClaims
             '  AddButtonControl()
             ' ClaimCodeTxtControl()
 
-
             ButtonDisplayControl(0)
             If eHF.HfID = 0 And Request.QueryString("c") = Nothing Then
                 Exit Sub
             End If
             loadgrid()
-
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
@@ -214,7 +207,6 @@ Partial Public Class FindClaims
         ElseIf Val(ddlRegion.SelectedValue) > 0 Then
             LocationId = Val(ddlRegion.SelectedValue)
         End If
-
         ddlHFCode.DataSource = FindClaimsB.GetHFCodes(UserID, LocationId)
         ddlHFCode.DataValueField = "HfID"
         ddlHFCode.DataTextField = "HFCODE"
@@ -461,11 +453,16 @@ Partial Public Class FindClaims
         Session("DistrictIDFindClaims") = ddlDistrict.SelectedValue
         Session("HFID") = ddlHFCode.SelectedValue
         Session("RegionSelected") = ddlRegion.SelectedValue
-        Response.Redirect("Claim.aspx?c=0&h=" & ddlHFCode.SelectedValue & "&a=" & ddlClaimAdmin.SelectedValue)
+
+        Dim HfUUID As Guid = hfBI.GetHfUUIDByID(ddlHFCode.SelectedValue)
+        Dim ClaimAdminUUID As Guid = claimAdminBI.GetClaimAdminUUIDByID(ddlClaimAdmin.SelectedValue)
+
+        Response.Redirect("Claim.aspx?h=" & HfUUID.ToString() & "&a=" & ClaimAdminUUID.ToString())
     End Sub
     Private Sub B_LOAD_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_LOAD.Click
         GetFilterCriteria()
-        Response.Redirect("Claim.aspx?c=" & hfClaimID.Value)
+        Dim ClaimUUID As Guid = claimBI.GetClaimUUIDByID(hfClaimID.Value)
+        Response.Redirect("Claim.aspx?c=" & ClaimUUID.ToString())
     End Sub
     Private Sub B_DELETE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_DELETE.Click
 

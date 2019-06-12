@@ -214,7 +214,8 @@ Partial Public Class FindUser
     End Sub
     Private Sub B_DELETE_Click(sender As Object, e As EventArgs) Handles B_DELETE.Click, gvUsers.SelectedIndexChanged
         RunPageSecurity(True)
-        Dim UserId As Integer = hfUserId.Value
+        Dim UserUUID As Guid = Guid.Parse(hfUserId.Value)
+        Dim UserId As Integer = userBI.GetUserIdByUUID(UserUUID)
         Dim User As String = hfUserName.Value
         Dim IsAssoc As Boolean = userBI.IsUserExists(UserId)
 
@@ -223,7 +224,7 @@ Partial Public Class FindUser
             Return
         End If
         Try
-            eUser.UserID = hfUserId.Value
+            eUser.UserID = UserId
 
             lblMsg.Text = ""
             eUser.AuditUserID = imisGen.getUserId(Session("User"))

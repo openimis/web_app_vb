@@ -41,9 +41,9 @@ Partial Public Class PriceListsMI
         Try
             lblMsg.Text = ""
 
-
             If Not String.IsNullOrEmpty(HttpContext.Current.Request.QueryString("pi")) Then
-                ePLItems.PLItemID = CInt(HttpContext.Current.Request.QueryString("pi"))
+                ePLItems.PLItemUUID = Guid.Parse(HttpContext.Current.Request.QueryString("pi"))
+                ePLItems.PLItemID = If(ePLItems.PLItemUUID.Equals(Guid.Empty), 0, PriceList.GetPLItemIdByUUID(ePLItems.PLItemUUID))
             Else
                 ePLItems.PLItemID = 0
             End If

@@ -188,11 +188,12 @@ Public Class PolicyDAL
     Public Function GetPolicybyFamily(ByVal FamilyId As Integer, ByVal status As DataTable) As DataTable
 
 
-        data.setSQLCommand("SELECT PolicyId,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,FamilyId" & _
-                           " FROM tblPolicy INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdId" & _
-                           " LEFT OUTER JOIN tblOfficer ON tblPolicy.OfficerId = tblOfficer.OfficerID" & _
-                            " INNER JOIN @Status Status ON Status.id = tblPolicy.PolicyStatus" & _
-                           " WHERE(FamilyId = @FamilyId) AND tblPolicy.ValidityTo IS NULL ", CommandType.Text)
+        data.setSQLCommand("SELECT PolicyId,PolicyUUID,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,tblPolicy.FamilyId,F.FamilyUUID " &
+                           " FROM tblPolicy INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdId" &
+                           " INNER JOIN tblFamilies F On F.FamilyID = tblPolicy.FamilyID " &
+                           " LEFT OUTER JOIN tblOfficer ON tblPolicy.OfficerId = tblOfficer.OfficerID" &
+                            " INNER JOIN @Status Status ON Status.id = tblPolicy.PolicyStatus" &
+                           " WHERE(tblPolicy.FamilyId = @FamilyId) AND tblPolicy.ValidityTo IS NULL ", CommandType.Text)
         data.params("@FamilyId", SqlDbType.Int, FamilyId)
         data.params("@Status", status, "xAttribute")
         Return data.Filldata
@@ -219,7 +220,7 @@ Public Class PolicyDAL
         'sSQL = "SELECT TOP 20 tblPolicy.isOffline,tblPolicy.PolicyId, tblPolicy.FamilyId,EnrollDate,tblInsuree.LastName + ' ' + tblInsuree.OtherNames FamilyName,EffectiveDate,StartDate,ExpiryDate, status.name as PolicyStatus,tblPolicy.PolicyStage,PolicyValue,PolicyValue - isnull(PaidAmount,0) as Balance,ProductCode,tblOfficer.LastName + ' ' + tblOfficer.OtherNames OfficerName,tblPolicy.ValidityFrom,tblPolicy.ValidityTo FROM tblPolicy INNER JOIN tblInsuree ON tblPolicy.FamilyID = tblInsuree.FamilyID and ishead = 1 and tblInsuree.validityto is null INNER JOIN tblFamilies ON tblPolicy.FamilyID = tblFamilies.FamilyID inner join tblUsersDistricts UD on UD.DistrictID = tblFamilies.districtid and UD.userid = @userid and UD.ValidityTo is null INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdID  INNER JOIN tblOfficer ON tblPolicy.OfficerID = tblOfficer.OfficerID  left join (select policyid, sum(Amount) as PaidAmount from tblpremium where ValidityTo is null and isPhotoFee = 0 group by policyid) Premiums on tblPolicy.PolicyID = premiums.policyid  Inner join @Status status on status.ID = tblpolicy.Policystatus "
         Dim sSQL As String
 
-        sSQL = " SELECT PL.isOffline, PL.PolicyId, F.FamilyId,  PL.EnrollDate, I.LastName + ' ' + I.OtherNames FamilyName, PL.EffectiveDate,"
+        sSQL = " SELECT PL.isOffline, PL.PolicyId, PL.PolicyUUID, F.FamilyId, F.FamilyUUID,  PL.EnrollDate, I.LastName + ' ' + I.OtherNames FamilyName, PL.EffectiveDate,"
         sSQL += " PL.StartDate, PL.ExpiryDate,PS.Name PolicyStatus, PL.PolicyStage, PL.PolicyValue, PL.PolicyValue - ISNULL(SUM(PR.Amount), 0) Balance,"
         sSQL += " Prod.ProductCode, O.Lastname + ' ' + O.OtherNames OfficerName, PL.ValidityFrom, PL.ValidityTo"
         sSQL += " FROM tblPolicy  PL"
@@ -313,7 +314,7 @@ Public Class PolicyDAL
 
         sSQL += " GROUP BY PL.isOffline, PL.PolicyId, F.FamilyId, PL.EnrollDate, I.LastName, I.OtherNames, PL.EffectiveDate,"
         sSQL += " PL.StartDate, PL.ExpiryDate, PL.PolicyStage, PL.PolicyValue, Prod.ProductCode, O.OtherNames, O.LastName,"
-        sSQL += " PL.ValidityFrom, PL.ValidityTo,PS.Name"
+        sSQL += " PL.ValidityFrom, PL.ValidityTo,PS.Name, PL.PolicyUUID, F.FamilyUUID"
         If Not ePolicy.PolicyValue Is Nothing Then
             If ePolicy.PolicyValue = 0 Then
                 'sSQL += " and (PolicyValue - isnull(PaidAmount,0)) > @PolicyValue"
@@ -417,4 +418,26 @@ Public Class PolicyDAL
         Return Nothing
     End Function
 
+    Public Function GetPolicyIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PolicyID from tblPolicy where PolicyUUID = @PolicyUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PolicyUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetPolicyUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PolicyUUID from tblPolicy where PolicyId = @PolicyId"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PolicyId", SqlDbType.Int, id)
+
+        Return data.Filldata
+    End Function
 End Class

@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblPayer
     Public Property PayerID As Integer
+    Public Property PayerUUID As Guid
     Public Property PayerType As String
     Public Property PayerName As String
     Public Property PayerAddress As String

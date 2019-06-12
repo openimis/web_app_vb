@@ -84,4 +84,8 @@ Public Class OfficerBI
         Del.DeleteUser(eUser)
         Return True
     End Function
+    Public Function GetOfficerIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Officer As New IMIS_BL.OfficersBL
+        Return Officer.GetOfficerIdByUUID(uuid)
+    End Function
 End Class

@@ -942,4 +942,8 @@ Public Class UsersBL
         Dim User As New IMIS_DAL.UsersDAL
         Return User.IsUserExists(UserID)
     End Function
+    Public Function GetUserIdByUUID(ByVal uuid As Guid) As Integer
+        Dim User As New IMIS_DAL.UsersDAL
+        Return User.GetUserIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class

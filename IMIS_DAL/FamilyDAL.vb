@@ -242,7 +242,7 @@ Public Class FamilyDAL
         sSQL += " INNER JOIN tblDistricts L ON L.DistrictId = UD.LocationId "
         sSQL += " WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)  "
         sSQL += " GROUP BY L.DistrictId, L.Region ) "
-        sSQL += " SELECT F.isOffline, F.FamilyID,I.CHFID, I.LastName, I.OtherNames, L.DistrictName, L.WardName, L.VillageName, F.Poverty,CASE WHEN F.Poverty = 1 THEN 'Yes' ELSE 'No' END PovertyDisplay,F.ConfirmationType,F.Ethnicity,  RegionName,F.validityfrom, F.validityTo  "
+        sSQL += " SELECT F.isOffline, F.FamilyID, F.FamilyUUID, I.CHFID, I.LastName, I.OtherNames, L.DistrictName, L.WardName, L.VillageName, F.Poverty,CASE WHEN F.Poverty = 1 THEN 'Yes' ELSE 'No' END PovertyDisplay,F.ConfirmationType,F.Ethnicity,  RegionName,F.validityfrom, F.validityTo  "
         sSQL += " FROM tblFamilies F INNER JOIN tblInsuree I ON I.InsureeId = F.InsureeID INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(F.LocationId, 0) "
         sSQL += " WHERE (L.RegionId IN (SELECT Region FROM UD) OR (L.DistrictId IN (SELECT DistrictId FROM UD)) OR F.LocationId IS NULL) "
         sSQL += " AND LastName LIKE @Lastname "
@@ -294,7 +294,7 @@ Public Class FamilyDAL
         End If
 
         'sSQL += " GROUP BY  F.isOffline,F.FamilyId,I.CHFID,I.LastName,I.Othernames,L.DistrictName,L.WardName, L.VillageName,F.Poverty ,"
-        sSQL += " GROUP BY F.isOffline, F.FamilyID, I.CHFID, I.LastName, I.OtherNames, L.DistrictName, L.WardName, L.VillageName, F.Poverty,F.ConfirmationType,F.Ethnicity,  RegionName,F.validityfrom, F.validityTo "
+        sSQL += " GROUP BY F.isOffline, F.FamilyID, I.CHFID, I.LastName, I.OtherNames, L.DistrictName, L.WardName, L.VillageName, F.Poverty,F.ConfirmationType,F.Ethnicity,  RegionName,F.validityfrom, F.validityTo, F.FamilyUUID "
         'sSQL += " CASE WHEN F.Poverty = 1 THEN 'Yes' ELSE 'No' END, F.ConfirmationType,F.Ethnicity,  RegionName,F.validityfrom,"
         sSQL += " ,F.validityTo,I.ValidityTo "
         sSQL = sSQL & " ORDER BY Familyid DESC, validityto"
@@ -440,5 +440,27 @@ Public Class FamilyDAL
         data.setSQLCommand(Query, CommandType.Text)
         data.params("@FamilyID", SqlDbType.Int, FamilyID)
         Return CBool(data.Filldata().Rows(0)("isOffline"))
+    End Function
+    Public Function GetFamilyIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select FamilyId from tblFamilies where FamilyUUID = @FamilyUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@FamilyUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetFamilyUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select FamilyUUID from tblFamilies where FamilyId = @FamilyId"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@FamilyId", SqlDbType.Int, id)
+
+        Return data.Filldata
     End Function
 End Class

@@ -181,5 +181,8 @@ Public Class MedicalServicesBL
         Return dt
 
     End Function
-
+    Public Function GetServiceIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Service As New IMIS_DAL.MedicalServicesDAL
+        Return Service.GetServiceIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class

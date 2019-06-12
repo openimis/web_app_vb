@@ -273,7 +273,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         >
                        
                         <Columns>
-                    <asp:HyperLinkField DataNavigateUrlFields = "ClaimAdminID" DataTextField="ClaimAdminCode" DataNavigateUrlFormatString = "ClaimAdministrator.aspx?a={0}" HeaderText='<%$ Resources:Resource,L_Code %>' HeaderStyle-Width ="80px" >
+                    <asp:HyperLinkField DataNavigateUrlFields = "ClaimAdminUUID" DataTextField="ClaimAdminCode" DataNavigateUrlFormatString = "ClaimAdministrator.aspx?a={0}" HeaderText='<%$ Resources:Resource,L_Code %>' HeaderStyle-Width ="80px" >
 
                         
                             <HeaderStyle Width="80px" />

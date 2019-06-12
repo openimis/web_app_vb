@@ -592,7 +592,7 @@ Public Class ClaimsDAL
     Public Function GetClaims(ByRef eClaims As IMIS_EN.tblClaim, ByVal claimStatus As DataTable, ByVal FeedbackStatus As DataTable, ByVal ReviewStatus As DataTable, ByVal UserID As Integer) As DataTable
 
         Dim sSQL As String = ""
-        sSQL += " SELECT tblClaim.ClaimID,claimcode,DateClaimed,Claimed,CASE WHEN ClaimStatus = 2 THEN Approved ELSE ISNULL(Approved, Claimed) END Approved,"
+        sSQL += " SELECT tblClaim.ClaimID,tblClaim.ClaimUUID,claimcode,DateClaimed,Claimed,CASE WHEN ClaimStatus = 2 THEN Approved ELSE ISNULL(Approved, Claimed) END Approved,"
         sSQL += " tblClaim.HfID,ClaimSt.name AS ClaimStatus,FeedbackSt.name AS FeedbackStatus, ReviewSt.name AS ReviewStatus ,tblClaim.RowID,"
         sSQL += " tblHF.HFCode,HFName,tblClaim.HfID,Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames,  VisitType "
         sSQL += " FROM tblClaim"
@@ -962,22 +962,22 @@ Public Class ClaimsDAL
         Return data.Filldata
     End Function
     Public Function GetClaim(ByVal ClaimID As Integer) As DataTable
-        Dim Query As String = "SELECT C.ClaimID,H.HFID,H.HFCode, H.HFName,H.HFCareType,C.ICDID,C.InsureeId,I.CHFID" & _
-              ",I.LastName,I.OtherNames,C.DateFrom,C.DateTo,C.ClaimCode,C.DateClaimed,C.DateProcessed" & _
-              ",IC.ICDCode,C.Claimed,C.Approved,C.Explanation,C.Valuated,C.Explanation,C.Adjustment" & _
-              ",C.ClaimStatus,C.ReviewStatus,C.FeedbackStatus,FB.FeedbackID,FB.FeedbackDate,FB.CareRendered" & _
-              ",FB.DrugPrescribed,FB.DrugReceived,FB.PaymentAsked,FB.Asessment,FB.CHFOfficerCode" & _
-              ",Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames" & _
-              " ,C.ICDID1, C.ICDID2, C.ICDID3, C.ICDID4, C.VisitType,IC1.ICDCode ICDCode1,IC2.ICDCode ICDCode2,IC3.ICDCode ICDCode3,IC4.ICDCode ICDCode4,GuaranteeId" & _
-              " FROM tblClaim C" & _
-              " INNER JOIN tblInsuree I ON C.InsureeID = I.InsureeID INNER JOIN tblHF H ON C.HfID = H.HfID" & _
-              " INNER JOIN tblICDCodes IC ON C.ICDID = IC.ICDID" & _
-              " LEFT JOIN tblICDCodes IC1 ON C.ICDID1 = IC1.ICDID" & _
-              " LEFT JOIN tblICDCodes IC2 ON C.ICDID2 = IC2.ICDID" & _
-              " LEFT JOIN tblICDCodes IC3 ON C.ICDID3 = IC3.ICDID" & _
-              " LEFT JOIN tblICDCodes IC4 ON C.ICDID4 = IC4.ICDID" & _
-              " LEFT JOIN tblFeedback FB ON C.ClaimID = FB.ClaimID" & _
-              " LEFT JOIN tblClaimAdmin Cadm ON Cadm.ClaimAdminId = C.ClaimAdminId" & _
+        Dim Query As String = "SELECT C.ClaimID,C.ClaimUUID,H.HFID,H.HFCode, H.HFName,H.HFCareType,C.ICDID,C.InsureeId,I.CHFID" &
+              ",I.LastName,I.OtherNames,C.DateFrom,C.DateTo,C.ClaimCode,C.DateClaimed,C.DateProcessed" &
+              ",IC.ICDCode,C.Claimed,C.Approved,C.Explanation,C.Valuated,C.Explanation,C.Adjustment" &
+              ",C.ClaimStatus,C.ReviewStatus,C.FeedbackStatus,FB.FeedbackID,FB.FeedbackDate,FB.CareRendered" &
+              ",FB.DrugPrescribed,FB.DrugReceived,FB.PaymentAsked,FB.Asessment,FB.CHFOfficerCode" &
+              ",Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames" &
+              " ,C.ICDID1, C.ICDID2, C.ICDID3, C.ICDID4, C.VisitType,IC1.ICDCode ICDCode1,IC2.ICDCode ICDCode2,IC3.ICDCode ICDCode3,IC4.ICDCode ICDCode4,GuaranteeId" &
+              " FROM tblClaim C" &
+              " INNER JOIN tblInsuree I ON C.InsureeID = I.InsureeID INNER JOIN tblHF H ON C.HfID = H.HfID" &
+              " INNER JOIN tblICDCodes IC ON C.ICDID = IC.ICDID" &
+              " LEFT JOIN tblICDCodes IC1 ON C.ICDID1 = IC1.ICDID" &
+              " LEFT JOIN tblICDCodes IC2 ON C.ICDID2 = IC2.ICDID" &
+              " LEFT JOIN tblICDCodes IC3 ON C.ICDID3 = IC3.ICDID" &
+              " LEFT JOIN tblICDCodes IC4 ON C.ICDID4 = IC4.ICDID" &
+              " LEFT JOIN tblFeedback FB ON C.ClaimID = FB.ClaimID" &
+              " LEFT JOIN tblClaimAdmin Cadm ON Cadm.ClaimAdminId = C.ClaimAdminId" &
               " WHERE C.ClaimID = @ClaimID"
         data.setSQLCommand(Query, CommandType.Text)
         data.params("@ClaimID", SqlDbType.Int, ClaimID)
@@ -1009,4 +1009,26 @@ Public Class ClaimsDAL
 
         data.ExecuteCommand()
     End Sub
+    Public Function GetClaimIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ClaimID from tblClaim where ClaimUUID = @ClaimUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ClaimUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetClaimUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ClaimUUID from tblClaim where ClaimID = @ClaimID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ClaimID", SqlDbType.Int, id)
+
+        Return data.Filldata
+    End Function
 End Class

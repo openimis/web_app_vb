@@ -203,7 +203,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <HeaderStyle CssClass="HideButton" />
                         <ItemStyle CssClass="HideButton" />
                     </asp:CommandField>
-                    <asp:HyperLinkField DataNavigateUrlFields="PLServiceID" DataTextField="PLServName" DataNavigateUrlFormatString="PriceListMS.aspx?ps={0}" HeaderText='<%$ Resources:Resource,L_NAME %>' HeaderStyle-Width="200px"></asp:HyperLinkField>
+                    <asp:HyperLinkField DataNavigateUrlFields="PLServiceUUID" DataTextField="PLServName" DataNavigateUrlFormatString="PriceListMS.aspx?ps={0}" HeaderText='<%$ Resources:Resource,L_NAME %>' HeaderStyle-Width="200px"></asp:HyperLinkField>
                     <asp:BoundField DataField="DatePL" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_DATE %>' SortExpression="DatePL" HeaderStyle-Width="70px"></asp:BoundField>
                     <asp:BoundField DataField="RegionName" HeaderText='<%$ Resources:Resource,L_REGION %>' SortExpression="RegionName" HeaderStyle-Width="110px"></asp:BoundField>
                     <asp:BoundField DataField="DistrictName" HeaderText='<%$ Resources:Resource,L_DISTRICT %>' SortExpression="DistrictName" HeaderStyle-Width="110px"></asp:BoundField>

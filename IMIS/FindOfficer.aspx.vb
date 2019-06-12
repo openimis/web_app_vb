@@ -33,6 +33,7 @@ Partial Public Class FindOfficer
     Protected imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
     Private BIClaimAdmin As New IMIS_BI.ClaimAdministratorBI
+    Private OfficerBI As New IMIS_BI.OfficerBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvOfficers)
@@ -198,8 +199,8 @@ Partial Public Class FindOfficer
 
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
 
-        Response.Redirect("Officer.aspx?o=0")
-       
+        Response.Redirect("Officer.aspx")
+
 
 
 
@@ -221,7 +222,11 @@ Partial Public Class FindOfficer
         RunPageSecurity(True)
         Try
             lblMsg.Text = ""
-            eofficer.OfficerID = hfOfficerId.Value
+
+            Dim OfficerUUID As Guid = Guid.Parse(hfOfficerId.Value)
+            Dim OfficerID As Integer = OfficerBI.GetOfficerIdByUUID(OfficerUUID)
+
+            eofficer.OfficerID = OfficerID
             eofficer.Code = hfOfficerCode.Value
             eofficer.AuditUserID = imisGen.getUserId(Session("User"))
             If hfHasLogin.Value = "True" Then

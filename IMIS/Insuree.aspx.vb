@@ -36,6 +36,8 @@ Partial Public Class Insuree
     Private dtImage As New DataTable
     Private imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private Family As New IMIS_BI.FamilyBI
+    Private InsureeUUID As Guid
 
     Private Sub FormatForm()
         Dim Adjustibility As String = ""
@@ -143,8 +145,17 @@ Partial Public Class Insuree
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        eInsuree.InsureeID = HttpContext.Current.Request.QueryString("i")
-        efamily.FamilyID = HttpContext.Current.Request.QueryString("f")
+
+        If HttpContext.Current.Request.QueryString("i") IsNot Nothing Then
+            eInsuree.InsureeUUID = Guid.Parse(HttpContext.Current.Request.QueryString("i"))
+            eInsuree.InsureeID = Insuree.GetInsureeIdByUUID(eInsuree.InsureeUUID)
+        End If
+
+        If HttpContext.Current.Request.QueryString("f") IsNot Nothing Then
+            efamily.FamilyUUID = Guid.Parse(HttpContext.Current.Request.QueryString("f"))
+            efamily.FamilyID = Family.GetFamilyIdByUUID(efamily.FamilyUUID)
+        End If
+
         lblMsg.Text = ""
         If IsPostBack = True Then Return
 
@@ -518,7 +529,7 @@ Partial Public Class Insuree
             hfCheckMaxInsureeCount.Value = 0
             hfOK.Value = 0
 
-            Dim Activate As Boolean = if(hfActivate.Value = 0, False, True)
+            Dim Activate As Boolean = If(hfActivate.Value = 0, False, True)
 
             Dim chk As Integer = Insuree.SaveInsuree(eInsuree, Activate)
             If Not chk = 1 Then
@@ -544,12 +555,20 @@ Partial Public Class Insuree
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 2)
             Return
         End Try
-        Response.Redirect("OverviewFamily.aspx?f=" & Request.QueryString("f") & "&i=" & eInsuree.InsureeID)
+
+        InsureeUUID = Insuree.GetInsureeUUIDByID(eInsuree.InsureeID)
+
+        Response.Redirect("OverviewFamily.aspx?f=" & efamily.FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
 
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         If B_SAVE.Visible = True Then
-            Response.Redirect("OverviewFamily.aspx?f=" & hfFamilyId.Value & "&i=" & eInsuree.InsureeID)
+            If eInsuree.InsureeID > 0 Then
+                InsureeUUID = Insuree.GetInsureeUUIDByID(eInsuree.InsureeID)
+                Response.Redirect("OverviewFamily.aspx?f=" & efamily.FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
+            Else
+                Response.Redirect("OverviewFamily.aspx?f=" & efamily.FamilyUUID.ToString())
+            End If
         Else
             Response.Redirect("FindInsuree.aspx")
         End If

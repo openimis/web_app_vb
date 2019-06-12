@@ -219,7 +219,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <HeaderStyle CssClass="HideButton" />
                         <ItemStyle CssClass="HideButton" />
                     </asp:CommandField>
-                    <asp:HyperLinkField DataNavigateUrlFields="FamilyID,PremiumId,PolicyID" DataTextFormatString="{0:d}"
+                    <asp:HyperLinkField DataNavigateUrlFields="FamilyUUID,PremiumUUID,PolicyUUID" DataTextFormatString="{0:d}"
                         DataNavigateUrlFormatString="OverviewFamily.aspx?p={1}&f={0}&po={2}"
                         DataTextField="PayDate" HeaderText='<%$ Resources:Resource,L_PAYDATE %>' />
                     <asp:BoundField DataField="Amount" HeaderText='<%$ Resources:Resource,L_PREMIUMPAID %>'

@@ -101,7 +101,10 @@ lblDirty:   Try
         Try
             lblMsg.Text = ""
 
-            eService.ServiceID = HttpContext.Current.Request.QueryString("s")
+            If HttpContext.Current.Request.QueryString("s") IsNot Nothing Then
+                eService.ServiceUUID = Guid.Parse(HttpContext.Current.Request.QueryString("s"))
+                eService.ServiceID = Service.GetServiceIdByUUID(eService.ServiceUUID)
+            End If
 
             If IsPostBack = False Then
                 Dim Serv As New IMIS_BI.MedicalServiceBI

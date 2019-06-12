@@ -59,4 +59,8 @@ Public Class PricelistMSBI
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect, IncludeNational)
     End Function
+    Public Function GetPLServiceIdByUUID(ByVal uuid As Guid) As Integer
+        Dim PLService As New IMIS_BL.PricelistMSBL
+        Return PLService.GetPLServiceIdByUUID(uuid)
+    End Function
 End Class

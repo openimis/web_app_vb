@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblOfficer
     Public Property OfficerID As Integer
+    Public Property OfficerUUID As Guid
     Public Property Code As String
     Public Property LastName As String
     Public Property OtherNames As String

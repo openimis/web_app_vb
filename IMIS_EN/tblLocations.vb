@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblLocations
     Public Property LocationId As Integer
+    Public Property LocationUUID As Guid
     Public Property LocationCode As String
     Public Property LocationName As String
     Public Property ParentLocationId As Nullable(Of Integer)

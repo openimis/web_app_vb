@@ -27,4 +27,9 @@
     '    Dim user As New IMIS_BL.UsersBL
     '    Return user.CheckRoles(Right, RoleId)
     'End Function
+
+    Public Function GetRoleIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Role As New IMIS_BL.RoleBL
+        Return Role.GetRoleIdByUUID(uuid)
+    End Function
 End Class

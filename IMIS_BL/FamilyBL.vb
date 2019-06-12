@@ -159,5 +159,12 @@ Public Class FamilyBL
 
         Return dt
     End Function
-
+    Public Function GetFamilyIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Family As New IMIS_DAL.FamilyDAL
+        Return Family.GetFamilyIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Public Function GetFamilyUUIDByID(ByVal id As Integer) As Guid
+        Dim Family As New IMIS_DAL.FamilyDAL
+        Return Family.GetFamilyUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

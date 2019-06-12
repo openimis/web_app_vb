@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblExtracts
     Public Property ExtractID As Integer
+    Public Property ExtractUUID As Guid
     Public Property ExtractDirection As Byte
     Public Property ExtractType As Byte
     Public Property ExtractSequence As Integer

@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblPolicy
     Public Property PolicyID As Integer
+    Public Property PolicyUUID As Guid
     Public Property FamilyID As Integer
     Public Property EnrollDate As Date
     Public Property StartDate As Date

@@ -35,6 +35,7 @@ Partial Public Class ClaimReview
     Private userBI As New IMIS_BI.UserBI
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private eExtra As New Dictionary(Of String, Object)
+    Private claimBI As New IMIS_BI.ClaimBI
 
     Private Sub FormatForm()
 
@@ -55,7 +56,12 @@ Partial Public Class ClaimReview
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMsg.Text = ""
-        eClaim.ClaimID = CType(Request.QueryString("c"), Integer)
+
+        If Request.QueryString("c") IsNot Nothing Then
+            eClaim.ClaimUUID = Guid.Parse(HttpContext.Current.Request.QueryString("c"))
+            eClaim.ClaimID = If(eClaim.ClaimUUID.Equals(Guid.Empty), 0, claimBI.GetClaimIdByUUID(eClaim.ClaimUUID))
+        End If
+
         If IsPostBack = True Then Return
         RunPageSecurity()
         FormatForm()
@@ -400,7 +406,7 @@ Partial Public Class ClaimReview
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimID)
+        Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimUUID.ToString())
     End Sub
 
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
@@ -416,7 +422,7 @@ Partial Public Class ClaimReview
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
-        Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimID)
+        Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimUUID.ToString())
     End Sub
     Private Sub AfterSaveMessage(ByVal chkSaveClmReview As Boolean, ByVal chkSaveClmItemsReview As Boolean, ByVal chkSaveClmServicesReview As Boolean)
 
@@ -438,7 +444,7 @@ Partial Public Class ClaimReview
     End Sub
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimID)
+        Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimUUID.ToString())
     End Sub
 
     Protected Sub gvService_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvService.RowDataBound

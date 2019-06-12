@@ -48,4 +48,8 @@ Public Class MedicalItemBI
         Dim getDataTable As New IMIS_BL.MedicalItemsBL
         Return getDataTable.GetItemType()
     End Function
+    Public Function GetItemIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Item As New IMIS_BL.MedicalItemsBL
+        Return Item.GetItemIdByUUID(uuid)
+    End Function
 End Class

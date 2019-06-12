@@ -583,7 +583,7 @@ Partial Public Class Report
                         rpt.DataSources.Add(ds)
                     Case "c"
                         Dim _ds As DataSet = Session("report")
-                        Back.HRef = "Claim.aspx?c=" & _ds.Tables("Claim").Rows(0)("ClaimID")
+                        Back.HRef = "Claim.aspx?c=" & _ds.Tables("Claim").Rows(0)("ClaimUUID").ToString()
                         rpt.ReportPath = "Reports\rptClaim.rdlc"
                         Page.Title = imisgen.getMessage("T_CLAIM")
 

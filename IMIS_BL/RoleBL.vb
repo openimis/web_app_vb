@@ -28,4 +28,8 @@
         'Dim BL As New UsersBL
         'Dim dtRoles As DataTable = DAL.GetRoles(erole)
     End Function
+    Public Function GetRoleIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Role As New IMIS_DAL.RoleDAL
+        Return Role.GetRoleIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class

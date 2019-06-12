@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblClaimAdmin
     Public Property ClaimAdminId As Integer
+    Public Property ClaimAdminUUID As Guid
     Public Property ClaimAdminCode As String
     Public Property LastName As String
     Public Property OtherNames As String

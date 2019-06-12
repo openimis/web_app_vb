@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblUsers
     Public Property UserID As Integer
+    Public Property UserUUID As Guid
     Public Property LanguageID As String
     Public Property LastName As String
     Public Property OtherNames As String
