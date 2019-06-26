@@ -32,12 +32,12 @@ Public Class PolicyDAL
     Public Sub UpdatePolicy(ByVal ePolicy As IMIS_EN.tblPolicy)
 
         Dim str As String = "INSERT INTO tblPolicy (FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, ValidityTo, LegacyID, AuditUserID,RenewalOrder)" _
-           & "SELECT FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, GetDate(), @PolicyID, AuditUserID,@RenewalOrder from tblPolicy where PolicyID = @PolicyID;"
-        If Not ePolicy.StartDate = Nothing And ePolicy.PolicyStatus Is Nothing Then 'When on policy page
+           & "SELECT FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, GetDate(), @PolicyID, AuditUserID,RenewalOrder from tblPolicy where PolicyID = @PolicyID;"
+        If Not ePolicy.StartDate = Nothing And (ePolicy.PolicyStatus Is Nothing) Then 'When on policy page
             str += " UPDATE tblPolicy set FamilyID=@FamilyID, EnrollDate=@EnrollDate, StartDate=@StartDate, EffectiveDate=@EffectiveDate, ExpiryDate=@ExpiryDate, ProdID=@ProdID, OfficerID=@OfficerID,PolicyStage = @PolicyStage "
         ElseIf ePolicy.PolicyStatus = 2 Then 'When on premium page ( enforcing policy to active on prompt/premium matches policy value
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus ,EffectiveDate=@EffectiveDate " ',ExpiryDate=@ExpiryDate  "
-        ElseIf Not ePolicy.PolicyValue Is Nothing And ePolicy.PolicyStatus Is Nothing Then 'When on overviewfamily page, policy value have changed
+        ElseIf Not ePolicy.PolicyValue Is Nothing And (ePolicy.PolicyStatus Is Nothing Or ePolicy.PolicyStatus <> 4) Then 'When on overviewfamily page, policy value have changed
             str += " UPDATE tblPolicy set PolicyValue=@PolicyValue"
         ElseIf ePolicy.PolicyStatus = 4 Then
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus"
@@ -69,7 +69,7 @@ Public Class PolicyDAL
             data.params("@EffectiveDate", SqlDbType.Date, ePolicy.EffectiveDate)
             'data.params("@ExpiryDate", SqlDbType.Date, ePolicy.ExpiryDate)
             data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
-        ElseIf Not ePolicy.PolicyValue Is Nothing And ePolicy.PolicyStatus Is Nothing Then
+        ElseIf Not ePolicy.PolicyValue Is Nothing And (ePolicy.PolicyStatus Is Nothing Or ePolicy.PolicyStatus = 1) Then
             data.params("@PolicyValue", SqlDbType.Decimal, ePolicy.PolicyValue)
 
         ElseIf ePolicy.PolicyStatus = 4 Then  'When suspending policy from premium page
@@ -179,10 +179,10 @@ Public Class PolicyDAL
     Public Function GetPolicybyFamily(ByVal FamilyId As Integer, ByVal status As DataTable) As DataTable
 
 
-        data.setSQLCommand("SELECT PolicyId,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,FamilyId" & _
-                           " FROM tblPolicy INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdId" & _
-                           " LEFT OUTER JOIN tblOfficer ON tblPolicy.OfficerId = tblOfficer.OfficerID" & _
-                            " INNER JOIN @Status Status ON Status.id = tblPolicy.PolicyStatus" & _
+        data.setSQLCommand("SELECT PolicyId,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,FamilyId,tblPolicy.PolicyStatus as PolicyStatusID" &
+                           " FROM tblPolicy INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdId" &
+                           " LEFT OUTER JOIN tblOfficer ON tblPolicy.OfficerId = tblOfficer.OfficerID" &
+                            " INNER JOIN @Status Status ON Status.id = tblPolicy.PolicyStatus" &
                            " WHERE(FamilyId = @FamilyId) AND tblPolicy.ValidityTo IS NULL ", CommandType.Text)
         data.params("@FamilyId", SqlDbType.Int, FamilyId)
         data.params("@Status", status, "xAttribute")

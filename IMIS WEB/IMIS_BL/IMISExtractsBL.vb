@@ -605,7 +605,6 @@ Public Class IMISExtractsBL
 
 
 
-
     Public Function CreateOffLineExtracts(ByRef eExtractInfo As IMIS_EN.eExtractInfo) As Boolean
 
         Dim Extract As New IMIS_DAL.IMISExtractsDAL
@@ -760,7 +759,10 @@ Public Class IMISExtractsBL
 
             Extract.GetExportOfflineExtract4(eExtractInfo, eExtract.RowID, dtPhotos, 3)
             EncryptData(strFile & "/xPhotos.xml", "Photos", dtPhotos)
-            eExtractInfo.PhotoCS = dtPhotos.Rows.Count
+            'Added by Salumu 12-06-2019 for counting number of extracted photos
+            Dim photoCount() As DataRow = dtPhotos.Select("PhotoFileName <> '' AND PhotoFileName <> 'null' ", "")
+
+            eExtractInfo.PhotoCS = photoCount.Count 'dtPhotos.Rows.Count
             dtPhotos = New DataTable()
 
 
@@ -853,7 +855,6 @@ Public Class IMISExtractsBL
             DeleteWorkingFolder(strFile)
         End Try
     End Function
-
 
 
     Public Function NewSequenceNumber(ByVal LocationId As Integer) As Integer

@@ -227,6 +227,10 @@ Partial Public Class User
 
     Private Function checkChecked(ByVal gv As GridView) As Boolean
         Dim checked As Boolean = False
+        If gv.ID = gvRoles.ID Then
+            If txtLoginName.Text = "Admin" Then Return True
+        End If
+
         For Each row In gv.Rows
             Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
             If chkSelect.Checked Then

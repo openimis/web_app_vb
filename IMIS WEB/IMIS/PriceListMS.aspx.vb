@@ -43,7 +43,7 @@ Partial Public Class PriceListMS
             ePLServices.PLServiceID = HttpContext.Current.Request.QueryString("ps")
 
             If IsPostBack = True Then Return
-            Dim dtRegions As DataTable = PriceList.GetRegions(imisgen.getUserId(Session("User")), True, False)
+            Dim dtRegions As DataTable = PriceList.GetRegions(imisgen.getUserId(Session("User")), True, True)
             ddlRegion.DataSource = dtRegions
             ddlRegion.DataValueField = "RegionId"
             ddlRegion.DataTextField = "RegionName"

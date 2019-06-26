@@ -33,7 +33,7 @@ Public Class UsersDAL
 
         sSQL = "select RightID from tblUserRole UR"
         sSQL += " INNER JOIN tblRoleRight RR ON RR.RoleID = UR.RoleID"
-        sSQL += " INNER JOIN tblRole ROLES ON ROLES.RoleID = UR.RoleID"
+        sSQL += " INNER JOIN tblRole ROLES ON ROLES.RoleID = UR.RoleID AND ISNULL(UR.Assign,0) & 1 > 0"
         sSQL += " WHERE UserID = @UserID AND UR.ValidityTO IS NULL AND ISNULL(ROLES.IsBlocked,0) = 0 AND RR.ValidityTo IS NULL"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -49,27 +49,27 @@ Public Class UsersDAL
         '1 = Checked
         '2 = Assigned
         '3 = Checked and Assigned
-        'New Records
-        sSQL = "INSERT INTO tblUserRole ([UserID], [RoleID], [ValidityFrom], [AuditUserId], Assign)"
-        sSQL += " SELECT @UserID,R.RoleID,GETDATE(),@AuditUserID,R.Assign From @Roles R"
-        sSQL += " LEFT JOIN tbluserRole UR ON UR.UserID = @UserID And UR.RoleID = R.RoleID And UR.ValidityTo Is NULL"
-        sSQL += " WHERE R.UserRoleID = 0 And UR.UserID Is NULL And UR.RoleID Is NULL"
+
         'Insert Legacy record
-        sSQL += " INSERT INTO tblUserRole ([UserID], [RoleID], [ValidityFrom], [ValidityTo], [AuditUserId], [LegacyID], Assign)"
+        sSQL = " INSERT INTO tblUserRole ([UserID], [RoleID], [ValidityFrom], [ValidityTo], [AuditUserId], [LegacyID], Assign)"
         sSQL += " Select UR.[UserID],UR.[RoleID],UR.[ValidityFrom],GETDATE(),UR.[AuditUserId],UR.[LegacyID],UR.Assign FROM tblUserRole UR"
         sSQL += " INNER JOIN @Roles R ON R.UserRoleID = UR.UserRoleID"
         sSQL += " WHERE UR.UserRoleID = R.UserRoleID"
         'Update Deleted value
         sSQL += " UPDATE tblUserRole set ValidityFrom = GetDate(), ValidityTo = GETDATE(),AuditUserId =@AuditUserID"
         sSQL += " From tblUserRole UR"
-        sSQL += " INNER Join @Roles R ON R.UserRoleID = UR.UserRoleID"
-        sSQL += " WHERE R.Assign = 0"
+        sSQL += " LEFT JOIN @Roles R ON R.UserRoleID = UR.UserRoleID INNER JOIN tblRole RO ON RO.RoleID = UR.RoleID"
+        sSQL += " WHERE R.Assign IS NULL AND RO.isSystem <> -1 AND UR.UserID =@UserID"
         'Update Changed value
         sSQL += " UPDATE tblUserRole set ValidityFrom = GETDATE(),AuditUserId =@AuditUserID,Assign = r.Assign"
         sSQL += " From tblUserRole UR"
         sSQL += " INNER Join @Roles R ON R.UserRoleID = UR.UserRoleID"
         sSQL += " WHERE R.Assign > 0"
-
+        'New Records
+        sSQL += "INSERT INTO tblUserRole ([UserID], [RoleID], [ValidityFrom], [AuditUserId], Assign)"
+        sSQL += " SELECT @UserID,R.RoleID,GETDATE(),@AuditUserID,R.Assign From @Roles R"
+        sSQL += " LEFT JOIN tbluserRole UR ON UR.UserID = @UserID And UR.RoleID = R.RoleID And UR.ValidityTo Is NULL"
+        sSQL += " WHERE R.UserRoleID = 0 And UR.UserID Is NULL And UR.RoleID Is NULL"
 
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -85,9 +85,9 @@ Public Class UsersDAL
         sSQL += " SELECT tblrole.roleid,RoleName,CAST (case when tblUserRole.userid > 0 AND ISNULL(Assign,0) & 1 > 0 THEN 1 ELSE 0 END AS BIT) AS HasRight,IsSystem,"
         sSQL += " CAST (case when tblUserRole.userid > 0 AND ISNULL(Assign,0) & 2 > 0 THEN 1 ELSE 0 END AS BIT) Assign,tblUserRole.UserRoleID,Assign from tblrole"
         sSQL += " LEFT JOIN tblUserRole ON tblRole.RoleID = tblUserRole.RoleID AND UserID = @UserID AND tblUserRole.ValidityTo IS NULL"
-        sSQL += " WHERE tblrole.ValidityTo Is null And ISNULL(isblocked,0) = 0"
+        sSQL += " WHERE tblrole.ValidityTo Is null And ISNULL(isblocked,0) = 0 AND IsSystem >= 0"
         If Offline = True Then
-            sSQL += " And (IsSystem = 0 Or IsSystem In (524288, 525184, 1048584) OR (@UserID = @Authority AND @Authority = @AdminUser))"
+            sSQL += " And (IsSystem In (256, 128) OR (@UserID = @Authority AND @Authority = @AdminUser)) AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,8,16,32,64,512,1048576))"
         Else
             sSQL += " And ((IsSystem >= 0  AND isSystem <= 512) OR (@UserID = @Authority AND @Authority = @AdminUser))"
         End If

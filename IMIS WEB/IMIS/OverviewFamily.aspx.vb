@@ -267,8 +267,13 @@ Partial Public Class OverviewFamily
                 eproduct = New IMIS_EN.tblProduct
                 epolicy = New IMIS_EN.tblPolicy
                 policyValueCurrent = 0
+                epolicy.PolicyStatus = dr("PolicyStatusID")
+                epolicy.ExpiryDate = dr("ExpiryDate")
+                If epolicy.PolicyStatus > 1 Then
+                    Continue For
+                End If
 
-                If dr("PolicyStage") = "R" Then
+            If dr("PolicyStage") = "R" Then
                     For i As Integer = 0 To dt.Rows.Count
                         If dr("PolicyID") = newPolicyID And dr("PolicyStage") = "R" Then
                             If HttpContext.Current.Request.QueryString("prp") Is Nothing Then

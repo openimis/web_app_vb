@@ -566,9 +566,11 @@ Public Class UsersBL
                 PageRights.Add(Rights.ClaimAdd)
                 PageRights.Add(Rights.ClaimPrint)
                 PageRights.Add(Rights.ClaimLoad)
+                PageRights.Add(Rights.ClaimSearch)
             Case IMIS_EN.Enums.Pages.ClaimFeedback
                 PageRights.Add(Rights.ClaimFeedback)
             Case IMIS_EN.Enums.Pages.ClaimReview
+                PageRights.Add(Rights.ClaimSearch)
                 PageRights.Add(Rights.ClaimReview)
             Case IMIS_EN.Enums.Pages.ProcessBatches
                 PageRights.Add(Rights.BatchProcess)

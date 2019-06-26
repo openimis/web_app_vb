@@ -43,6 +43,8 @@ Public Class RoleDAL
             Else
                 sSQL += " AND isSystem = 0"
             End If
+        Else
+            sSQL += " AND isSystem >= 0"
         End If
         If erole.LegacyID Is Nothing Then
             sSQL += " AND ValidityTo IS NULL"
@@ -186,7 +188,7 @@ Public Class RoleDAL
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
         sSQL = "SELECT 0,0,RoleId,getdate(),Getdate(),0,0,0 FROM tblRole"
-        sSQL += " WHERE (IsSystem & @isSystem) > 0 AND ValidityTo IS NULL"
+        sSQL += " WHERE (IsSystem & @isSystem) > 0 AND ValidityTo IS NULL And IsSystem > 0"
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@isSystem", SqlDbType.Int, RoleID)
         Return data.Filldata()

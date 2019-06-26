@@ -449,16 +449,16 @@ Public Class IMISExtractsDAL
         dsResult = data.FilldataSet()
 
 
-        eExtractInfo.FamiliesIns = data.sqlParameters("@FamiliesIns")
-        eExtractInfo.FamiliesUpd = data.sqlParameters("@FamiliesUpd")
+        eExtractInfo.FamiliesIns = If(data.sqlParameters("@FamiliesIns") Is DBNull.Value, 0, data.sqlParameters("@FamiliesIns"))
+        eExtractInfo.FamiliesUpd = If(data.sqlParameters("@FamiliesUpd") Is DBNull.Value, 0, data.sqlParameters("@FamiliesUpd"))
         eExtractInfo.InsureeIns = If(data.sqlParameters("@InsureeIns") Is DBNull.Value, 0, data.sqlParameters("@InsureeIns"))
-        eExtractInfo.InsureeUpd = data.sqlParameters("@InsureeUpd")
-        eExtractInfo.PhotoIns = data.sqlParameters("@PhotoIns")
-        eExtractInfo.PhotoUpd = data.sqlParameters("@PhotoUpd")
+        eExtractInfo.InsureeUpd = If(data.sqlParameters("@InsureeUpd") Is DBNull.Value, 0, data.sqlParameters("@InsureeUpd"))
+        eExtractInfo.PhotoIns = If(data.sqlParameters("@PhotoIns") Is DBNull.Value, 0, data.sqlParameters("@PhotoIns"))
+        eExtractInfo.PhotoUpd = If(data.sqlParameters("@PhotoUpd") Is DBNull.Value, 0, data.sqlParameters("@PhotoUpd"))
         eExtractInfo.PolicyIns = If(data.sqlParameters("@PolicyIns") Is DBNull.Value, 0, data.sqlParameters("@PolicyIns"))
-        eExtractInfo.PolicyUpd = data.sqlParameters("@PolicyUpd")
-        eExtractInfo.PremiumIns = data.sqlParameters("@PremiumIns")
-        eExtractInfo.PremiumUpd = data.sqlParameters("@PremiumUpd")
+        eExtractInfo.PolicyUpd = If(data.sqlParameters("@PolicyUpd") Is DBNull.Value, 0, data.sqlParameters("@PolicyUpd"))
+        eExtractInfo.PremiumIns = If(data.sqlParameters("@PremiumIns") Is DBNull.Value, 0, data.sqlParameters("@PremiumIns"))
+        eExtractInfo.PremiumUpd = If(data.sqlParameters("@PremiumUpd") Is DBNull.Value, 0, data.sqlParameters("@PremiumUpd"))
 
         Return True
     End Function
@@ -552,6 +552,7 @@ Public Class IMISExtractsDAL
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@XML", Xml.InnerXml)
+        data.params("@ByPassSubmit", 1)
 
         data.ExecuteCommand()
     End Sub

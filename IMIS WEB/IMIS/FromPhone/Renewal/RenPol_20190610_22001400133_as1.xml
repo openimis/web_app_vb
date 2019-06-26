@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Policy>
+  <RenewalId>3605</RenewalId>
+  <Officer>BA5</Officer>
+  <CHFID>22001400133</CHFID>
+  <ReceiptNo>as1</ReceiptNo>
+  <ProductCode>H/H Bda</ProductCode>
+  <Amount>1000</Amount>
+  <Date>20190610</Date>
+  <Discontinue>false</Discontinue>
+  <PayerId>0</PayerId>
+</Policy>

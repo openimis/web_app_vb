@@ -155,10 +155,10 @@ Public Class InsureeDAL
             strWhere += " AND DOB <= @DOBTo"
         End If
         If PhotoAssigned = 2 Then
-            strWhere += " AND PhotoFileName <> ''"
+            strWhere += " AND (PhotoFileName <> '' AND Photofilename <> 'NULL')"
         End If
         If PhotoAssigned = 3 Then
-            strWhere += " AND PhotoFileName = ''"
+            strWhere += " AND (PhotoFileName = ''  AND Photofilename <> 'NULL')"
         End If
         If eInsuree.isOffline IsNot Nothing Then
             If eInsuree.isOffline Then
@@ -439,7 +439,7 @@ Public Class InsureeDAL
         UpdatedFolder = System.Web.Configuration.WebConfigurationManager.AppSettings("UpdatedFolder").ToString()
         Dim sSQL As String = " SELECT HF.HFCode+' ' +HF.HFName AS FirstServicePoint, CASE HF.HFLevel WHEN 'D' THEN 'Dispensary' WHEN 'C' THEN 'Health Centre' WHEN 'H' THEN 'Hospital' END HFLevel, R.LocationName RegionOfFSP,D.LocationName DistrictOfFSP, I.CHFID,I.LastName,I.OtherNames,CONVERT(VARCHAR,I.DOB,103)DOB, (YEAR(GETDATE()) - YEAR(I.DOB)) AS Age,"
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
-        sSQL += ", P.PhotoFileName AS PhotoPath FROM tblInsuree I"
+        sSQL += ",CASE WHEN LEFT(P.PhotoFolder,1) = '/' THEN SUBSTRING(REPLACE(P.PhotoFolder,'/','\'),2,LEN(P.PhotoFolder)) ELSE REPLACE(P.PhotoFolder,'/','\') END + '' + P.PhotoFileName AS PhotoPath FROM tblInsuree I"
         sSQL += " INNER JOIN tblFamilies F On I.FamilyID = F.FamilyID"
         sSQL += " LEFT OUTER JOIN tblPhotos P On I.PhotoID = P.PhotoID"
         sSQL += " LEFT OUTER JOIN tblHF HF On HF.HfID = I.HFID"

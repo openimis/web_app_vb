@@ -552,7 +552,7 @@
                         <li><a href="Logout.aspx">
                             <asp:Label ID="lblLogout" runat="server" Text='<%$ Resources:Resource,L_LOGOUT %>'></asp:Label>
                             </a></li>
-                        <li><a style="width: 240px" class="search">
+                        <li><a style="width: 220px" class="search">
                             <div style="position: relative; background-color: White; overflow: hidden; width: 145px; float: left; font-weight: normal;">
                                 <asp:Label ID="lblWaterMark" runat="server" Text='<%$ Resources:Resource,L_SEARCHCHFNUMBER %>' CssClass="WaterMark"></asp:Label>
                                 <asp:TextBox ID="txtSearch" runat="server" CssClass="numbersOnly" AutoPostBack="False" Height="14px" Style="background: none; z-index: 2; position: relative; font-size: small; float: left; width: 145px" MaxLength="12"></asp:TextBox>

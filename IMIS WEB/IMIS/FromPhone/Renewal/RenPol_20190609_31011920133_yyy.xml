@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Policy>
+  <RenewalId>4436</RenewalId>
+  <Officer>kuo01</Officer>
+  <CHFID>31011920133</CHFID>
+  <ReceiptNo>yyy</ReceiptNo>
+  <ProductCode>HHJUNKBO</ProductCode>
+  <Amount>17000</Amount>
+  <Date>20190609</Date>
+  <Discontinue>false</Discontinue>
+  <PayerId>74</PayerId>
+</Policy>

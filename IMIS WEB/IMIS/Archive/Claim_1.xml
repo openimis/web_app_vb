@@ -1,0 +1,29 @@
+<Claim>
+  <Details>
+    <ClaimDate>18/06/2019</ClaimDate>
+    <HFCode>HF02</HFCode>
+    <ClaimCode>t56re</ClaimCode>
+    <CHFID>00001</CHFID>
+    <StartDate>18/06/2019</StartDate>
+    <EndDate>18/06/2019</EndDate>
+    <ICDCode>A03</ICDCode>
+    <Comment />
+    <Total>500.00</Total>
+    <ClaimAdmin>Cl02</ClaimAdmin>
+    <VisitType>E</VisitType>
+  </Details>
+  <Items>
+    <Item>
+      <ItemCode>Y200</ItemCode>
+      <ItemPrice>400.00</ItemPrice>
+      <ItemQuantity>1.00</ItemQuantity>
+    </Item>
+  </Items>
+  <Services>
+    <Service>
+      <ServiceCode>X108</ServiceCode>
+      <ServicePrice>100.00</ServicePrice>
+      <ServiceQuantity>1.00</ServiceQuantity>
+    </Service>
+  </Services>
+</Claim>

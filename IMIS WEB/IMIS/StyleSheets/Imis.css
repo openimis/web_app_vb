@@ -667,9 +667,8 @@ input[type="text"], input[type="password"]
     width: 175px;
 }
 
-.InsureeByCHFID
-{
-    width: 530px;
+.InsureeByCHFID {
+    width: 530px;  
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -khtml-border-radius: 15px;

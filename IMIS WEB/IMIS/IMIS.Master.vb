@@ -192,7 +192,7 @@ Public Class IMIS
         SubMS.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalService, UserID)
         SUBMI.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalItem, UserID)
         SubUser.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Users, UserID)
-        SubUserProfile.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.userProfiles, UserID)
+        SubUserProfile.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.userProfiles, UserID) And Not (IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
         subOfficer.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Officer, UserID)
         SubClaimAdministrator.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimAdministrator, UserID)
         subPayer.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Payer, UserID)
@@ -342,7 +342,9 @@ Public Class IMIS
             ' Region Of FSP
             Adjustibility = General.getControlSetting("RegionOfFSP")
             Dim RegionOFSP As Label = (TryCast(item.FindControl("regionalFSP"), Label))
+            Dim L_FSPREGION As Label = (TryCast(item.FindControl("L_FSPREGION"), Label))
             RegionOFSP.Visible = Not (Adjustibility = "N")
+            L_FSPREGION.Visible = Not (Adjustibility = "N")
 
             'Other Names
             Adjustibility = General.getControlSetting("OtherNames")
@@ -352,7 +354,10 @@ Public Class IMIS
             'District OF FSP
             Adjustibility = General.getControlSetting("DistrictOfFSP")
             Dim DistrictOfFSP As Label = TryCast(item.FindControl("district_of_fsp"), Label)
+            Dim L_FSPDISTRICT As Label = TryCast(item.FindControl("L_FSPDISTRICT"), Label)
             DistrictOfFSP.Visible = Not (Adjustibility = "N")
+            L_FSPDISTRICT.Visible = Not (Adjustibility = "N")
+
 
             'Date Of Birth
             Adjustibility = General.getControlSetting("DOB")
@@ -367,7 +372,9 @@ Public Class IMIS
             'HF Level
             Adjustibility = General.getControlSetting("HFLevel")
             Dim HFLevel As Label = TryCast(item.FindControl("hfLevel"), Label)
+            Dim L_FSPLEVEL As Label = TryCast(item.FindControl("L_FSPLEVEL"), Label)
             HFLevel.Visible = Not (Adjustibility = "N")
+            L_FSPLEVEL.Visible = Not (Adjustibility = "N")
 
             'Gender
             Adjustibility = General.getControlSetting("Gender")
@@ -377,7 +384,11 @@ Public Class IMIS
             'FSP
             Adjustibility = General.getControlSetting("FirstServicePoint")
             Dim FSP As Label = TryCast(item.FindControl("fsp"), Label)
+            Dim L_FSP As Label = TryCast(item.FindControl("L_FSP"), Label)
             FSP.Visible = Not (Adjustibility = "N")
+            L_FSP.Visible = Not (Adjustibility = "N")
+
+
         End If
     End Sub
 End Class
