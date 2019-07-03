@@ -42,12 +42,11 @@ Imports IMIS_EN
 
 Public Class IMISExtractsBL
 
+    Private DB3_PWD As String = System.Configuration.ConfigurationManager.AppSettings.GetValues("DB3_PWD").ToString()
+    Private DB_PWD As String = System.Configuration.ConfigurationManager.AppSettings.GetValues("DB_PWD").ToString()
 
-    Private Const DB3_PWD As String = "%^Klp)*3"
-    Private Const DB_PWD As String = "%^Klp)*3"
-
-    Private Const DESKEY As String = ":-+A7V@="
-    Private Const RARPWD As String = ")(#$1HsD"
+    Private DESKEY As String = System.Configuration.ConfigurationManager.AppSettings.GetValues("DESKEY").ToString()
+    Private RARPWD As String = System.Configuration.ConfigurationManager.AppSettings.GetValues("RARPWD").ToString()
 
     Private dtblIn As New DataTable
     Private dtblOut As New DataTable
