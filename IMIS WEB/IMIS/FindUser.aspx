@@ -72,6 +72,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
        var $IsAssoc = $row.find("td").eq(1).html()
        $("#<%=hfAssociatedUser.ClientID%>").val($IsAssoc);
     }
+
+
     /** Ruzo Grid Row Selection 29 Aug 2014 >> End **/
  </script>
  </asp:Content>
@@ -240,7 +242,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 </td>
                 <td>
                     <br />
-                     <asp:CheckBox class="checkbox" AutoPostBack="True" ID="chkLegacy" runat="server" Text='<%$ Resources:Resource,L_ALL %>' />
+                     <asp:CheckBox class="checkbox" AutoPostBack="True" ID="chkLegacy" runat="server"  Text='<%$ Resources:Resource,L_ALL %>' />
                       <br />
                       <br />
                    <asp:Button class="button" ID="B_SEARCH" runat="server" 
@@ -297,6 +299,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <HeaderStyle Width="70px" />
             </asp:BoundField>
             <asp:BoundField DataField="UserId" ><ItemStyle CssClass="hidecol"/><HeaderStyle CssClass="hidecol" />  </asp:BoundField>
+            
             
         </Columns>
         <PagerStyle CssClass="pgr" />

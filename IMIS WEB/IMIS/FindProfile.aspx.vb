@@ -122,6 +122,7 @@ Partial Public Class FindProfile
         End Try
     End Sub
     Private Sub getGridData()
+        '2/7/2019 - Salum - Provided change to include the roleID from previous form, such that the row could be re-selected.
         eRole.RoleName = txtRolename.Text
         eRole.AltLanguage = txtRolename.Text
         If ddlBlocked.SelectedIndex > 0 Then
@@ -151,11 +152,11 @@ Partial Public Class FindProfile
         Dim sindex As Integer = 0
         Dim dv As DataView = dtRole.DefaultView
         If Not IsPostBack = True Then
-            If Not HttpContext.Current.Request.QueryString("u") Is Nothing Then
-                eRole.RoleID = HttpContext.Current.Request.QueryString("u")
+            If Not HttpContext.Current.Request.QueryString("r") Is Nothing Then
+                eRole.RoleID = HttpContext.Current.Request.QueryString("r")
             End If
-            If Not eRole.RoleName = "" Then
-                dv.Sort = "RoleName"
+            If Not eRole.RoleID = 0 Then
+                dv.Sort = "RoleID"
                 Dim x As Integer = dv.Find(eRole.RoleID)
                 If x >= 0 Then
                     gvRole.PageIndex = Int(x / 15)

@@ -34,13 +34,13 @@ Public Class RoleRightDAL
         Dim data As New ExactSQL
         sSQL = "SELECT RoleId,RoleName,isSystem,isBlocked,AltLanguage,ValidityTo From tblRole WHERE RoleID = @RoleID"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) = 10"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 10"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) = 11"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 11"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) = 12"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 12"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) > 12"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) > 12"
 
 
         data.setSQLCommand(sSQL, CommandType.Text)

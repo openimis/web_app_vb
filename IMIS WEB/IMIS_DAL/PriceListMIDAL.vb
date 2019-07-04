@@ -42,7 +42,7 @@ Public Class PriceListMIDAL
     'Corrected
     Public Sub InsertPriceListMI(ByRef ePLItem As IMIS_EN.tblPLItems)
         Dim data As New ExactSQL
-        Dim sSQL As String = "INSERT INTO tblPLItems(PLItemName,DatePL,LocationId,AuditUserID)" & _
+        Dim sSQL As String = "INSERT INTO tblPLItems(PLItemName,DatePL,LocationId,AuditUserID)" &
             " VALUES(@PLItemName,@DatePL,@LocationId,@AuditUserID); select @PLItemID = scope_identity()"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -50,7 +50,7 @@ Public Class PriceListMIDAL
         data.params("@PLItemID", SqlDbType.Int, ePLItem.PLItemID, ParameterDirection.Output)
         data.params("@PLItemName", SqlDbType.NVarChar, 100, ePLItem.PLItemName)
         data.params("@DatePL", SqlDbType.SmallDateTime, ePLItem.DatePL)
-        data.params("@LocationId", SqlDbType.Int, if(ePLItem.tblLocations.LocationId = -1, Nothing, ePLItem.tblLocations.LocationId))
+        data.params("@LocationId", SqlDbType.Int, IIf(ePLItem.tblLocations.LocationId = -1, Nothing, ePLItem.tblLocations.LocationId))
         data.params("@AuditUserID", SqlDbType.Int, ePLItem.AuditUserID)
         data.ExecuteCommand()
         ePLItem.PLItemID = data.sqlParameters("@PLItemID")

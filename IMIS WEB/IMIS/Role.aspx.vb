@@ -89,9 +89,10 @@
         eRole.IsSystem = dtRole.Rows(0)("IsSystem")
         eRole.IsBlocked = dtRole.Rows(0)("IsBlocked")
         eRole.AltLanguage = dtRole.Rows(0)("AltLanguage").ToString
-        If eRole.ValidityTo IsNot Nothing Then
+        If dtRole.Rows(0)("ValidityTo") IsNot DBNull.Value Then
             eRole.ValidityTo = dtRole.Rows(0)("ValidityTo")
         End If
+
 
         txtRoles.Text = eRole.RoleName
         txtAltLanguage.Text = eRole.AltLanguage
@@ -211,6 +212,7 @@
 
 
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
+        '2/7/2019 - Salum - Pass the RoleID in the redirect.
         Try
             SaveRights()
             Session("msg") = imisGen.getMessage("M_SAVED")
@@ -220,13 +222,13 @@
             Return
         End Try
 
-        Response.Redirect("FindProfile.aspx?a=" & txtRoles.Text.Trim)
+        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleID)
 
     End Sub
 
 
 
     Protected Sub B_CANCEL_Click(sender As Object, e As EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindProfile.aspx?")
+        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleID)
     End Sub
 End Class

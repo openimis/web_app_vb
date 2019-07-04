@@ -216,7 +216,7 @@ Public Class PricelistMSDAL
     'Corrected  
     Public Sub InsertPriceListMS(ByRef ePLService As IMIS_EN.tblPLServices)
         Dim data As New ExactSQL
-        Dim sSQL As String = "INSERT INTO tblPLServices(PLServName,DatePL,LocationId,AuditUserID)" & _
+        Dim sSQL As String = "INSERT INTO tblPLServices(PLServName,DatePL,LocationId,AuditUserID)" &
             " VALUES(@PLServName,@DatePL,@LocationId,@AuditUserID); select @PLServiceID = scope_identity()"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -224,7 +224,7 @@ Public Class PricelistMSDAL
         data.params("@PLServiceID", SqlDbType.Int, ePLService.PLServiceID, ParameterDirection.Output)
         data.params("@PLServName", SqlDbType.NVarChar, 100, ePLService.PLServName)
         data.params("@DatePL", SqlDbType.SmallDateTime, ePLService.DatePL)
-        data.params("@LocationId", SqlDbType.Int, if(ePLService.tblLocations.LocationId = -1, Nothing, ePLService.tblLocations.LocationId))
+        data.params("@LocationId", SqlDbType.Int, IIf(ePLService.tblLocations.LocationId = -1, Nothing, ePLService.tblLocations.LocationId))
         data.params("@AuditUserID", SqlDbType.Int, ePLService.AuditUserID)
         data.ExecuteCommand()
         ePLService.PLServiceID = data.sqlParameters("@PLServiceID")
@@ -233,7 +233,7 @@ Public Class PricelistMSDAL
 
     Public Function CheckIfPLServiceExists(ByVal ePLService As IMIS_EN.tblPLServices) As Boolean
         Dim data As New ExactSQL
-        Dim strSQL As String = "Select Count(*) from tblPLServices where PLServName = @PLServName AND LegacyID <> @PLServiceID"
+        Dim strSQL As String = "Select Count(*) from tblPLServices where PLServName = @PLServName AND ValidityTo IS NULL"
 
         If Not ePLService.PLServiceID = 0 Then
             strSQL += " AND PLServiceID <> @PLServiceID"

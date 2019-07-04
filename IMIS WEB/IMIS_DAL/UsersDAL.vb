@@ -326,7 +326,7 @@ Public Class UsersDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         sSQL = " select UserID,LanguageID,LastName,OtherNames,Phone,LoginName,RoleID,HFID,ValidityTo, EmailId,StoredPassword,PrivateKey,PasswordValidity,isAssociated from tblUsers"
-        sSQL += " where (UserID= @UserID OR EmailId = @EmailId OR LoginName = @LoginName) AND ValidityTo IS NULL"
+        sSQL += " where (UserID= @UserID OR EmailId = @EmailId OR LoginName = @LoginName)"
 
 
         data.setSQLCommand(sSQL, CommandType.Text)

@@ -137,9 +137,13 @@ Public Class RoleDAL
 
     Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-
-        sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID,AltLanguage)"
+        sSQL = "DECLARE @LegacyRoleID INT "
+        sSQL += " INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID,AltLanguage)"
         sSQL += " SELECT RoleName,IsSystem,IsBlocked,ValidityFrom,GETDATE(),AuditUserID,RoleID,AltLanguage FROM tblRole WHERE RoleID=@RoleID"
+        sSQL += " SELECT @LegacyRoleID = SCOPE_IDENTITY()"
+        sSQL += " INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
+        sSQL += " SELECT @LegacyRoleID,[RightID],[ValidityFrom],GETDATE(),[AuditUserId],[RoleRightID] from tblRoleRight"
+        sSQL += " WHERE RoleID = @RoleID AND ValidityTo IS NULL"
         sSQL += " UPDATE tblRole SET RoleName = @RoleName ,IsSystem = @IsSystem ,IsBlocked = @IsBlocked ,ValidityFrom ="
         sSQL += " GETDATE() ,AuditUserID = @AuditUserID, AltLanguage = @AltLanguage WHERE RoleID = @RoleID"
 
@@ -151,6 +155,7 @@ Public Class RoleDAL
         data.params("@IsBlocked", SqlDbType.Bit, eRole.IsBlocked)
         data.params("@AuditUserID", SqlDbType.Int, eRole.AuditUserID)
         data.params("@AltLanguage", SqlDbType.NVarChar, 50, eRole.AltLanguage)
+
 
 
 
