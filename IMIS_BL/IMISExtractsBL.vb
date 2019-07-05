@@ -42,11 +42,9 @@ Imports IMIS_EN
 
 Public Class IMISExtractsBL
 
-    Private DB3_PWD As String = System.Configuration.ConfigurationManager.AppSettings("DB3_PWD").ToString()
-    Private DB_PWD As String = System.Configuration.ConfigurationManager.AppSettings("DB_PWD").ToString()
-
-    Private DESKEY As String = System.Configuration.ConfigurationManager.AppSettings("DESKEY").ToString()
-    Private RARPWD As String = System.Configuration.ConfigurationManager.AppSettings("RARPWD").ToString()
+    Private DB3_PWD As String = System.Configuration.ConfigurationManager.AppSettings("Offline:SQLite:Password").ToString()
+    Private DESKEY As String = System.Configuration.ConfigurationManager.AppSettings("Offline:Encryption:Password").ToString()
+    Private RARPWD As String = System.Configuration.ConfigurationManager.AppSettings("Offline:RAR:Password").ToString()
 
     Private dtblIn As New DataTable
     Private dtblOut As New DataTable
