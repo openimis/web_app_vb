@@ -35,4 +35,11 @@
       </customErrors>
     -->
   </system.web>
+  
+  <appSettings>
+    <add key="Offline:SQLite:Password" value="%^Klp)*3" xdt:Transform="Insert" xdt:Locator="Match(key)"/>
+    <add key="Offline:Encryption:Password" value=":-+A7V@=" xdt:Transform="Insert" xdt:Locator="Match(key)"/>
+    <add key="Offline:RAR:Password" value=")(#$1HsD" xdt:Transform="Insert" xdt:Locator="Match(key)"/>
+  </appSettings>
+  
 </configuration>
