@@ -151,7 +151,7 @@
   </data>
   <data name="L_ROLENAME" xml:space="preserve">
     <value>Nom du rôle</value>
-    <comment>je crois qu&apos;ici il s&apos;agit de la fonction/position.</comment>
+    <comment>je crois qu'ici il s'agit de la fonction/position.</comment>
   </data>
   <data name="L_OTHERNAMES" xml:space="preserve">
     <value>Prénoms</value>
@@ -171,7 +171,7 @@
 Fuzzy</comment>
   </data>
   <data name="L_CHFID" xml:space="preserve">
-    <value>Numéro d&apos;assurance</value>
+    <value>Numéro d'assurance</value>
     <comment>Insurance Number</comment>
   </data>
   <data name="L_POVERTY" xml:space="preserve">
@@ -203,7 +203,7 @@ Fuzzy</comment>
     <value>Bloqué</value>
   </data>
   <data name="L_PASSPORT" xml:space="preserve">
-    <value>Numéro d&apos;identification</value>
+    <value>Numéro d'identification</value>
     <comment>Identification Number
 Fuzzy</comment>
   </data>
@@ -252,7 +252,7 @@ Fuzzy</comment>
     <comment>Please state if a Beneficiary Card has been issued.</comment>
   </data>
   <data name="V_CHFID" xml:space="preserve">
-    <value>Veuillez sélectionner un numéro d&apos;assurance</value>
+    <value>Veuillez sélectionner un numéro d'assurance</value>
     <comment>Please select Insurance Number.</comment>
   </data>
   <data name="V_DISTRICT" xml:space="preserve">
@@ -269,7 +269,7 @@ Fuzzy</comment>
     <comment>Please enter Last Name</comment>
   </data>
   <data name="V_MARITAL" xml:space="preserve">
-    <value>Veuillez sélectionner l&apos;état civil/matrimonial</value>
+    <value>Veuillez sélectionner l'état civil/matrimonial</value>
     <comment>Please select Marital Status</comment>
   </data>
   <data name="V_OTHERNAMES" xml:space="preserve">
@@ -359,7 +359,7 @@ Fuzzy</comment>
     <comment>Medical Items</comment>
   </data>
   <data name="L_OFFICERS" xml:space="preserve">
-    <value>Agents d&apos;affiliation</value>
+    <value>Agents d'affiliation</value>
     <comment>Enrolment Officers
 Fuzzy</comment>
   </data>
@@ -396,7 +396,7 @@ Fuzzy</comment>
     <value>Système</value>
   </data>
   <data name="L_FOUNDPRODUCTS" xml:space="preserve">
-    <value>Produits d&apos;assurances trouvés</value>
+    <value>Produits d'assurances trouvés</value>
     <comment>Products Found</comment>
   </data>
   <data name="L_PRODUCTCODE" xml:space="preserve">
@@ -490,7 +490,7 @@ Fuzzy</comment>
     <comment>Items Found</comment>
   </data>
   <data name="L_FOUNDOFFICERS" xml:space="preserve">
-    <value>Agents d&apos;affiliation trouvés</value>
+    <value>Agents d'affiliation trouvés</value>
     <comment>Enrolment Officers Found</comment>
   </data>
   <data name="L_FOUNDPAYERS" xml:space="preserve">
@@ -626,11 +626,11 @@ Fuzzy</comment>
     <comment>Valid From</comment>
   </data>
   <data name="L_VALIDTO" xml:space="preserve">
-    <value>Valide jusqu&apos;au</value>
+    <value>Valide jusqu'au</value>
     <comment>Valid To</comment>
   </data>
   <data name="L_ADDRESS" xml:space="preserve">
-    <value>Détails de l&apos;adresse</value>
+    <value>Détails de l'adresse</value>
     <comment>Address Details</comment>
   </data>
   <data name="L_PACKAGE" xml:space="preserve">
@@ -654,11 +654,11 @@ Fuzzy</comment>
     <comment>Please select at least one role</comment>
   </data>
   <data name="V_SUMMARY" xml:space="preserve">
-    <value>Veuillez cocher les champs marqués d&apos;un astérisque (*).</value>
+    <value>Veuillez cocher les champs marqués d'un astérisque (*).</value>
     <comment>Please check fields marked with an asterisk (*).</comment>
   </data>
   <data name="G_OFFICER" xml:space="preserve">
-    <value>Détails des agents d&apos;affiliation</value>
+    <value>Détails des agents d'affiliation</value>
     <comment>Enrolment Officers Details</comment>
   </data>
   <data name="G_PAYER" xml:space="preserve">
@@ -666,7 +666,7 @@ Fuzzy</comment>
     <comment>Payer Details</comment>
   </data>
   <data name="G_USER" xml:space="preserve">
-    <value>Détails de l&apos;utilisateur</value>
+    <value>Détails de l'utilisateur</value>
     <comment>User Details</comment>
   </data>
   <data name="G_MEDICALITEM" xml:space="preserve">
@@ -834,7 +834,7 @@ Fuzzy</comment>
     <comment>Batches Found</comment>
   </data>
   <data name="L_HFCODE" xml:space="preserve">
-    <value>Code de l&apos;établissement de santé</value>
+    <value>Code de l'établissement de santé</value>
     <comment>HF Code</comment>
   </data>
   <data name="L_HFNAME" xml:space="preserve">
@@ -842,7 +842,7 @@ Fuzzy</comment>
     <comment>HF Name</comment>
   </data>
   <data name="L_INSUREEID" xml:space="preserve">
-    <value>ID  de l&apos;assuré</value>
+    <value>ID  de l'assuré</value>
     <comment>Insuree ID</comment>
   </data>
   <data name="L_PERIODFROM" xml:space="preserve">
@@ -850,7 +850,7 @@ Fuzzy</comment>
     <comment>Period From</comment>
   </data>
   <data name="L_PERIODTO" xml:space="preserve">
-    <value>Période jusqu&apos;à</value>
+    <value>Période jusqu'à</value>
     <comment>Period To</comment>
   </data>
   <data name="B_UPDATE" xml:space="preserve">
@@ -1018,7 +1018,7 @@ Fuzzy</comment>
     <comment>Batch Feedback Selection</comment>
   </data>
   <data name="M_NOCLAIMS" xml:space="preserve">
-    <value>Aucun remboursement n&apos;a été trouvé</value>
+    <value>Aucun remboursement n'a été trouvé</value>
     <comment>No Claims found</comment>
   </data>
   <data name="L_CLAIMPAGETITLE" xml:space="preserve">
@@ -1210,7 +1210,7 @@ Fuzzy</comment>
     <comment>Feedback Collector Details</comment>
   </data>
   <data name="L_WORKSTO" xml:space="preserve">
-    <value>Date de fin d&apos;emploi</value>
+    <value>Date de fin d'emploi</value>
     <comment>Works To</comment>
   </data>
   <data name="L_EXTRACTS" xml:space="preserve">
@@ -1270,11 +1270,11 @@ Fuzzy</comment>
     <comment>Preview</comment>
   </data>
   <data name="L_GRACEPERIOD" xml:space="preserve">
-    <value>Période de grâce pour l&apos;affiliation</value>
+    <value>Période de grâce pour l'affiliation</value>
     <comment>Grace Period Enrolment</comment>
   </data>
   <data name="L_INSURANCEPERIOD" xml:space="preserve">
-    <value>Période d&apos;assurance</value>
+    <value>Période d'assurance</value>
     <comment>Insurance Period</comment>
   </data>
   <data name="L_DEDUCTABLEINCEILING" xml:space="preserve">
@@ -1290,11 +1290,11 @@ Fuzzy</comment>
     <comment>F for Fixed C for Co-insurance (Other)</comment>
   </data>
   <data name="M_PRICEORIGIN" xml:space="preserve">
-    <value>[P] = Tarif de l&apos;organisation [O]= Tarif des fournisseurs [R]= Tarif relatif</value>
+    <value>[P] = Tarif de l'organisation [O]= Tarif des fournisseurs [R]= Tarif relatif</value>
     <comment>[P] = Scheme price [O]= Providers Own price [R]= Relative price</comment>
   </data>
   <data name="M_INUSE" xml:space="preserve">
-    <value>Est encore utilisé ailleurs dans l&apos;application et ne peut donc pas être supprimé.</value>
+    <value>Est encore utilisé ailleurs dans l'application et ne peut donc pas être supprimé.</value>
     <comment>is still in use elsewhere in the application and can therefore not be deleted.</comment>
   </data>
   <data name="M_WRONGDATEFORMAT" xml:space="preserve">
@@ -1306,7 +1306,7 @@ Fuzzy</comment>
     <comment>Deductable (General) Ceiling</comment>
   </data>
   <data name="L_ENROLMENTOFFICERS" xml:space="preserve">
-    <value>Agent d&apos;affiliation</value>
+    <value>Agent d'affiliation</value>
     <comment>Enrolment Officer</comment>
   </data>
   <data name="L_BALANCE" xml:space="preserve">
@@ -1318,11 +1318,11 @@ Fuzzy</comment>
     <comment>Effective Date</comment>
   </data>
   <data name="L_EXPIRYDATE" xml:space="preserve">
-    <value>Date d&apos;expiration</value>
+    <value>Date d'expiration</value>
     <comment>Expiry Date</comment>
   </data>
   <data name="L_ENROLMENTDATE" xml:space="preserve">
-    <value>Date d&apos;affiliation</value>
+    <value>Date d'affiliation</value>
     <comment>Enrolment Date</comment>
   </data>
   <data name="L_GENERAL" xml:space="preserve">
@@ -1338,7 +1338,7 @@ Fuzzy</comment>
     <comment>Remunerated Health Care</comment>
   </data>
   <data name="L_ENROLDATE" xml:space="preserve">
-    <value>Date d&apos;affiliation</value>
+    <value>Date d'affiliation</value>
     <comment>Enrol Date</comment>
   </data>
   <data name="L_POLICYVALUE" xml:space="preserve">
@@ -1354,11 +1354,11 @@ Fuzzy</comment>
     <comment>Move</comment>
   </data>
   <data name="L_ENTERCHFIDOFINSUREE" xml:space="preserve">
-    <value>Entrer le numéro d&apos;assurance de l&apos;assuré pour continuer</value>
+    <value>Entrer le numéro d'assurance de l'assuré pour continuer</value>
     <comment>Enter the Insurance Number of Insuree to move</comment>
   </data>
   <data name="L_ENTERNEWHEADCHFID" xml:space="preserve">
-    <value>Entrer le numéro d&apos;assurance du nouveau chef de famille/groupe</value>
+    <value>Entrer le numéro d'assurance du nouveau chef de famille/groupe</value>
     <comment>Enter the new Head of Family/Group Insurance Number</comment>
   </data>
   <data name="M_PREMIUMCOVEREDPROMPT" xml:space="preserve">
@@ -1374,11 +1374,11 @@ Fuzzy</comment>
     <comment>Price of the policy not covered yet</comment>
   </data>
   <data name="M_PREMIUMEXCEEDSPOLICY" xml:space="preserve">
-    <value>La cotisation dépasse le tarif de la police d&apos;assurance</value>
+    <value>La cotisation dépasse le tarif de la police d'assurance</value>
     <comment>Contribution exceeds the price of the policy</comment>
   </data>
   <data name="M_PREMIUMMATCHESPOLICY" xml:space="preserve">
-    <value>La cotisation correspond au tarif de la police d&apos;assurance</value>
+    <value>La cotisation correspond au tarif de la police d'assurance</value>
     <comment>Contribution matches the price of the policy</comment>
   </data>
   <data name="B_CHECK" xml:space="preserve">
@@ -1414,27 +1414,27 @@ Fuzzy</comment>
     <comment>Yes</comment>
   </data>
   <data name="M_INVALIDDEDUCTABLEVALUES" xml:space="preserve">
-    <value>La combinaison de la valeur plafond de la franchise renseignée n&apos;est pas correcte</value>
+    <value>La combinaison de la valeur plafond de la franchise renseignée n'est pas correcte</value>
     <comment>Combination of Deductable Ceiling Value Filling is not Correct</comment>
   </data>
   <data name="M_CANNOTCHANGEFAMILYHEAD" xml:space="preserve">
-    <value>Le numéro d&apos;assurance sélectionné est déjà attribué au un chef de famille et ne peut pas être attribué au chef de famille/groupe</value>
+    <value>Le numéro d'assurance sélectionné est déjà attribué au un chef de famille et ne peut pas être attribué au chef de famille/groupe</value>
     <comment>Selected  Insurance Number is already a Head of Family can not change Head of Family/Group</comment>
   </data>
   <data name="M_CHFNUMBERFEWCHARACTERS" xml:space="preserve">
-    <value>Le numéro d&apos;assurance est court, il devrait être de 9 caractères</value>
+    <value>Le numéro d'assurance est court, il devrait être de 9 caractères</value>
     <comment>Insurance  Number is short, should be 9 characters</comment>
   </data>
   <data name="M_CHFNUMBERMEMBEREXISTS" xml:space="preserve">
-    <value>Le chef de famille/groupe avec ce numéro d&apos;assurance existe déjà dans le système</value>
+    <value>Le chef de famille/groupe avec ce numéro d'assurance existe déjà dans le système</value>
     <comment>Head of Family/Group with that  Insurance Number already exists in system</comment>
   </data>
   <data name="M_CHFNUMBERNOTEXISTS" xml:space="preserve">
-    <value>Le numéro d&apos;assurance sélectionné n&apos;existe pas!</value>
+    <value>Le numéro d'assurance sélectionné n'existe pas!</value>
     <comment>Selected Insurance Number does not exist !</comment>
   </data>
   <data name="M_INVALIDCHFNUMBER" xml:space="preserve">
-    <value>Le numéro d&apos;assurance sélectionné n&apos;est pas valide!</value>
+    <value>Le numéro d'assurance sélectionné n'est pas valide!</value>
     <comment>Selected Insurance Number is not valid !</comment>
   </data>
   <data name="L_ADULTPREMIUM" xml:space="preserve">
@@ -1458,11 +1458,11 @@ Fuzzy</comment>
     <comment>Redirect</comment>
   </data>
   <data name="M_NOPAGEACCESSPERMISSION" xml:space="preserve">
-    <value>Vous n&apos;avez pas assez d&apos;autorisations pour accéder à la page</value>
-    <comment>You don&apos;t have enough permission to access the page</comment>
+    <value>Vous n'avez pas assez d'autorisations pour accéder à la page</value>
+    <comment>You don't have enough permission to access the page</comment>
   </data>
   <data name="L_EXPIREDATE" xml:space="preserve">
-    <value>Date d&apos;expiration</value>
+    <value>Date d'expiration</value>
     <comment>Expire Date</comment>
   </data>
   <data name="L_HCEILING" xml:space="preserve">
@@ -1490,11 +1490,11 @@ Fuzzy</comment>
     <comment>Enquiry</comment>
   </data>
   <data name="M_ENTERCHFNUMBER" xml:space="preserve">
-    <value>Veuillez entrer un numéro d&apos;assurance</value>
+    <value>Veuillez entrer un numéro d'assurance</value>
     <comment>Please enter a Insurance  Number</comment>
   </data>
   <data name="P_FINDUSERS" xml:space="preserve">
-    <value>Tableau de bord de l&apos;utilisateur</value>
+    <value>Tableau de bord de l'utilisateur</value>
     <comment>User Control Panel</comment>
   </data>
   <data name="M_WRONGCONVERSIONPRODUCTCODE" xml:space="preserve">
@@ -1502,15 +1502,15 @@ Fuzzy</comment>
     <comment>Conversion product can not be the same as the current product</comment>
   </data>
   <data name="M_ERRORMESSAGE" xml:space="preserve">
-    <value>Cette action n&apos;a pas pu être effectuée. Veuillez appeler votre centre d&apos;assistance pour plus d&apos;informations.</value>
+    <value>Cette action n'a pas pu être effectuée. Veuillez appeler votre centre d'assistance pour plus d'informations.</value>
     <comment>Action could not be completed. Please call your help desk for further information.</comment>
   </data>
   <data name="M_PASSWOERDMATCH" xml:space="preserve">
-    <value>Le nom d&apos;utilisateur ou le mot de passe ne correspondent pas.</value>
+    <value>Le nom d'utilisateur ou le mot de passe ne correspondent pas.</value>
     <comment>User name or password did not match.</comment>
   </data>
   <data name="M_PASSWORDERROR" xml:space="preserve">
-    <value>Une erreur s&apos;est produite. Veuillez réessayer après un certain temps.</value>
+    <value>Une erreur s'est produite. Veuillez réessayer après un certain temps.</value>
     <comment>Error occured. Please try again after sometime.</comment>
   </data>
   <data name="L_HOSPITAL" xml:space="preserve">
@@ -1542,15 +1542,15 @@ Fuzzy</comment>
     <comment>Value of policy with the enrolment date:</comment>
   </data>
   <data name="M_NOTVALIDCHFNUMBER" xml:space="preserve">
-    <value>Numéro d&apos;assurance invalide</value>
+    <value>Numéro d'assurance invalide</value>
     <comment>is not a valid Insurance Number</comment>
   </data>
   <data name="M_VILLAGESINWARD" xml:space="preserve">
-    <value>Veuillez d&apos;abord supprimer le village dans la municipalité</value>
+    <value>Veuillez d'abord supprimer le village dans la municipalité</value>
     <comment>Please delete Villages in Municipality first</comment>
   </data>
   <data name="M_WARDSINDISTRICT" xml:space="preserve">
-    <value>Veuillez d&apos;abord supprimer les municipalités dans le district</value>
+    <value>Veuillez d'abord supprimer les municipalités dans le district</value>
     <comment>Please delete Municipality in District first</comment>
   </data>
   <data name="M_CHANGEHEAD" xml:space="preserve">
@@ -1562,11 +1562,11 @@ Fuzzy</comment>
     <comment>successfully moved to Family/Group</comment>
   </data>
   <data name="M_EXTR_PHONENOK" xml:space="preserve">
-    <value>L&apos;extraction des téléphones n&apos;a pas pu être créé pour le moment. Veuillez consulter l&apos;assistance technique.</value>
+    <value>L'extraction des téléphones n'a pas pu être créé pour le moment. Veuillez consulter l'assistance technique.</value>
     <comment>Phone extract could NOT be created at this time. Please consult the helpdesk.</comment>
   </data>
   <data name="M_EXTR_PHONEOK" xml:space="preserve">
-    <value>L&apos;extraction des téléphones est créée. Cliquez sur le lien TÉLÉCHARGER.</value>
+    <value>L'extraction des téléphones est créée. Cliquez sur le lien TÉLÉCHARGER.</value>
     <comment>Phone extract created. Please click the DOWNLOAD link.</comment>
   </data>
   <data name="L_CHECKALL" xml:space="preserve">
@@ -1574,7 +1574,7 @@ Fuzzy</comment>
     <comment>Check All</comment>
   </data>
   <data name="L_PRODUCTDETAILS" xml:space="preserve">
-    <value>Détails du produit d&apos;assurance</value>
+    <value>Détails du produit d'assurance</value>
     <comment>Insurance Product details</comment>
   </data>
   <data name="P_FINDFAMILY" xml:space="preserve">
@@ -1594,7 +1594,7 @@ Fuzzy</comment>
     <comment>Medical Services Control Panel</comment>
   </data>
   <data name="P_FINDOFFICER" xml:space="preserve">
-    <value>Tableau de bord des agents d&apos;affiliation</value>
+    <value>Tableau de bord des agents d'affiliation</value>
     <comment>Enrolment Officers Control Panel</comment>
   </data>
   <data name="P_FINDPAYER" xml:space="preserve">
@@ -1750,7 +1750,7 @@ Fuzzy</comment>
     <comment>Hospital</comment>
   </data>
   <data name="T_HOSPITALCASE" xml:space="preserve">
-    <value>Cas d&apos;hospitalisation</value>
+    <value>Cas d'hospitalisation</value>
     <comment>Hospital case</comment>
   </data>
   <data name="T_ICDCODE" xml:space="preserve">
@@ -1769,9 +1769,9 @@ Fuzzy</comment>
     <value>Homme</value>
     <comment>Man</comment>
   </data>
-  <data name="T_MEDICALPROSTHESES" xml:space="preserve">
-    <value>Prothèses médicales</value>
-    <comment>Medical Prostheses</comment>
+  <data name="T_MEDICALCONSUMABLE" xml:space="preserve">
+    <value>Consommable médical</value>
+    <comment>Medical consumable</comment>
   </data>
   <data name="T_MOBILEPHONE" xml:space="preserve">
     <value>Téléphone portable</value>
@@ -1874,7 +1874,7 @@ Fuzzy</comment>
     <comment>-- Select Level--</comment>
   </data>
   <data name="T_SELECTOFFICER" xml:space="preserve">
-    <value> Sélectionner un agent d&apos;affiliation </value>
+    <value> Sélectionner un agent d'affiliation </value>
     <comment>-- Select Enrolment Officer --</comment>
   </data>
   <data name="T_SELECTPATIENT" xml:space="preserve">
@@ -1890,7 +1890,7 @@ Fuzzy</comment>
     <comment>-- Select Price List --</comment>
   </data>
   <data name="T_SELECTPRODUCT" xml:space="preserve">
-    <value>- Produit d&apos;assurance -</value>
+    <value>- Produit d'assurance -</value>
     <comment>--Select Product--</comment>
   </data>
   <data name="T_SELECTSERVICETYPE" xml:space="preserve">
@@ -1930,31 +1930,31 @@ Fuzzy</comment>
     <comment>Yes</comment>
   </data>
   <data name="M_InsureeCHF" xml:space="preserve">
-    <value>Numéro d&apos;assuré</value>
+    <value>Numéro d'assuré</value>
     <comment>Insuree  Number</comment>
   </data>
   <data name="M_POLICYENROLEDATE" xml:space="preserve">
-    <value>Police: date d&apos;affiliation</value>
+    <value>Police: date d'affiliation</value>
     <comment>Policy: enroll date</comment>
   </data>
   <data name="M_DATEERROR1" xml:space="preserve">
-    <value>La date d&apos;affiliation ne peut être postérieure à la date d&apos;entrée en vigueur</value>
+    <value>La date d'affiliation ne peut être postérieure à la date d'entrée en vigueur</value>
     <comment>Enrolment date can not be after Effective date</comment>
   </data>
   <data name="M_DATEERROR2" xml:space="preserve">
-    <value>La date d&apos;affiliation ne peut être postérieure à la date d&apos;expiration</value>
+    <value>La date d'affiliation ne peut être postérieure à la date d'expiration</value>
     <comment>Enrolment date can not be after Expiry date</comment>
   </data>
   <data name="M_DATEERROR4" xml:space="preserve">
-    <value>La date d&apos;expiration ne peut être antérieure à la date d&apos;affiliation</value>
+    <value>La date d'expiration ne peut être antérieure à la date d'affiliation</value>
     <comment>Expiry date can not be before Enrolment date</comment>
   </data>
   <data name="M_DATEERROR5" xml:space="preserve">
-    <value>La date d&apos;expiration ne peut être antérieure à la date d&apos;entrée en vigueur</value>
+    <value>La date d'expiration ne peut être antérieure à la date d'entrée en vigueur</value>
     <comment>Expiry date can not be before Effective date</comment>
   </data>
   <data name="M_DATEERROR6" xml:space="preserve">
-    <value>La date d&apos;expiration ne peut être antérieure à la date d&apos;entrée en vigueur</value>
+    <value>La date d'expiration ne peut être antérieure à la date d'entrée en vigueur</value>
     <comment>Expiry date can not be before Start date</comment>
   </data>
   <data name="M_POLICYNOTADDED" xml:space="preserve">
@@ -2022,27 +2022,27 @@ Fuzzy</comment>
     <comment>RESTORE</comment>
   </data>
   <data name="M_EXTR_BUSY" xml:space="preserve">
-    <value>Un autre utilisateur travaille actuellement sur les extractions de compte. Merci d&apos;essayer plus tard.</value>
+    <value>Un autre utilisateur travaille actuellement sur les extractions de compte. Merci d'essayer plus tard.</value>
     <comment>Another user is currently operating on extracts. Please try later.</comment>
   </data>
   <data name="M_EXTR_IMPERR1" xml:space="preserve">
-    <value>L&apos;identification de la établissement de santé non fixé par défaut</value>
+    <value>L'identification de la établissement de santé non fixé par défaut</value>
     <comment>HF ID NOT set in defaults</comment>
   </data>
   <data name="M_EXTR_IMPERR2" xml:space="preserve">
-    <value>En-tête de l&apos;extrait non valide</value>
+    <value>En-tête de l'extrait non valide</value>
     <comment>Extract Header not Valid</comment>
   </data>
   <data name="M_EXTR_IMPERR3" xml:space="preserve">
-    <value>Extrait d&apos;un autre district</value>
+    <value>Extrait d'un autre district</value>
     <comment>Extract from other District</comment>
   </data>
   <data name="M_EXTR_IMPERR4" xml:space="preserve">
-    <value>L&apos;extrait a une version de base de données différente. Veuillez consulter le service d&apos;assistance IMIS.</value>
+    <value>L'extrait a une version de base de données différente. Veuillez consulter le service d'assistance IMIS.</value>
     <comment>Extract has a different database version. Please consult the IMIS help desk.</comment>
   </data>
   <data name="M_EXTR_IMPERR5" xml:space="preserve">
-    <value>La première extraction à charger doit être une extraction complète. Veuillez consulter le service d&apos;assistance IMIS.</value>
+    <value>La première extraction à charger doit être une extraction complète. Veuillez consulter le service d'assistance IMIS.</value>
     <comment>First extract to be loaded has to be a FULL extract. Please consult the IMIS help desk.</comment>
   </data>
   <data name="M_EXTR_IMPERR6" xml:space="preserve">
@@ -2050,7 +2050,7 @@ Fuzzy</comment>
     <comment>The data in this extract is already uploaded</comment>
   </data>
   <data name="M_EXTR_IMPERR7" xml:space="preserve">
-    <value>Vous manquez un ou plusieurs extractions de séquences. Veuillez consulter l&apos;assistance technique IMIS</value>
+    <value>Vous manquez un ou plusieurs extractions de séquences. Veuillez consulter l'assistance technique IMIS</value>
     <comment>You are missing one or more extract sequences. Please consult the IMIS helpdesk</comment>
   </data>
   <data name="M_EXTR_IMPOK" xml:space="preserve">
@@ -2062,15 +2062,15 @@ Fuzzy</comment>
     <comment>No download file selected OR download file has already been deleted from the server.</comment>
   </data>
   <data name="M_EXTR_NOPHOTOFILE" xml:space="preserve">
-    <value>Nombre de photos disponibles pour l&apos;exportation</value>
+    <value>Nombre de photos disponibles pour l'exportation</value>
     <comment>No Photos available for export.</comment>
   </data>
   <data name="M_EXTR_OFFLINEFULL" xml:space="preserve">
-    <value>La TOTALITÉ de l&apos;extraction est sélectionné. Le message suivant fournira le résultat de l&apos;extraction en sa TOTALITÉ.</value>
+    <value>La TOTALITÉ de l'extraction est sélectionné. Le message suivant fournira le résultat de l'extraction en sa TOTALITÉ.</value>
     <comment>The FULL extract is selected. The next message will provide the result of the FULL extract.</comment>
   </data>
   <data name="M_EXTR_OFFLINENOK" xml:space="preserve">
-    <value>L&apos;extraitraction hors ligne n&apos;a pas pu être créé pour le moment. Veuillez consulter l&apos;assitance technique.</value>
+    <value>L'extraitraction hors ligne n'a pas pu être créé pour le moment. Veuillez consulter l'assitance technique.</value>
     <comment>Offline extract could NOT be created at this time. Please consult the helpdesk.</comment>
   </data>
   <data name="M_EXTR_OFFLINEOK" xml:space="preserve">
@@ -2078,11 +2078,11 @@ Fuzzy</comment>
     <comment>Offline extract created. Please click the DOWNLOAD link.</comment>
   </data>
   <data name="M_EXTR_PHONENOK1" xml:space="preserve">
-    <value>L&apos;extraction des téléphones n&apos;a pas pu être créé pour le moment. Veuillez consulter l&apos;assistance technique.</value>
+    <value>L'extraction des téléphones n'a pas pu être créé pour le moment. Veuillez consulter l'assistance technique.</value>
     <comment>Phone extract could NOT be created at this time. Please consult the helpdesk.</comment>
   </data>
   <data name="M_EXTR_PHONEOK1" xml:space="preserve">
-    <value>L&apos;extraction des téléphones est créée. Cliquez sur le lien TÉLÉCHARGER.</value>
+    <value>L'extraction des téléphones est créée. Cliquez sur le lien TÉLÉCHARGER.</value>
     <comment>Phone extract created. Please click the DOWNLOAD link.</comment>
   </data>
   <data name="L_DETAILS" xml:space="preserve">
@@ -2090,7 +2090,7 @@ Fuzzy</comment>
     <comment>Details</comment>
   </data>
   <data name="L_EXTR_IMPORTEXTRACT" xml:space="preserve">
-    <value>Importer l&apos;extrait</value>
+    <value>Importer l'extrait</value>
     <comment>Import Extract</comment>
   </data>
   <data name="L_EXTR_IMPORTPHOTOS" xml:space="preserve">
@@ -2126,7 +2126,7 @@ Fuzzy</comment>
     <comment>Health Facility</comment>
   </data>
   <data name="M_OFFLINEHFID" xml:space="preserve">
-    <value>Veuillez entrer le numéro d&apos;identification de la établissement de santé qui vous est fourni par l&apos;administrateur</value>
+    <value>Veuillez entrer le numéro d'identification de la établissement de santé qui vous est fourni par l'administrateur</value>
     <comment>Please enter the Health Facility ID, provided to you by the administrator</comment>
   </data>
   <data name="B_UPLOAD" xml:space="preserve">
@@ -2154,7 +2154,7 @@ Fuzzy</comment>
     <comment>Please select all the files to import data.</comment>
   </data>
   <data name="M_EXTR_IMPERR8" xml:space="preserve">
-    <value>Échec d&apos;importation inattendu rencontré.</value>
+    <value>Échec d'importation inattendu rencontré.</value>
     <comment>Unexpected import failure encountered.</comment>
   </data>
   <data name="L_PHOTOS" xml:space="preserve">
@@ -2246,7 +2246,7 @@ Fuzzy</comment>
     <comment>Visit Date From</comment>
   </data>
   <data name="L_HFCLAIM" xml:space="preserve">
-    <value>Remboursement de l&apos;établissement de santé</value>
+    <value>Remboursement de l'établissement de santé</value>
     <comment>Health Facility Claims</comment>
   </data>
   <data name="L_REPORTINDICATORS" xml:space="preserve">
@@ -2254,7 +2254,7 @@ Fuzzy</comment>
     <comment>Report Indicators</comment>
   </data>
   <data name="L_PERFORMDELETION" xml:space="preserve">
-    <value>Supprimer les codes existants, si le code n&apos;est pas dans le fichier source (envoyé) ?</value>
+    <value>Supprimer les codes existants, si le code n'est pas dans le fichier source (envoyé) ?</value>
     <comment>Delete existing codes, if the code is not in the source (upload) file?</comment>
   </data>
   <data name="T_SELECTEDFORREVIEW" xml:space="preserve">
@@ -2286,7 +2286,7 @@ Fuzzy</comment>
     <comment>Please add at least one Item or Service to proceed</comment>
   </data>
   <data name="M_CHFIDNOTFOUND" xml:space="preserve">
-    <value>Numéro d&apos;assurance introuvable!</value>
+    <value>Numéro d'assurance introuvable!</value>
     <comment>Insurance  Number not Found!</comment>
   </data>
   <data name="M_CLAIMCODEEXISTS" xml:space="preserve">
@@ -2294,7 +2294,7 @@ Fuzzy</comment>
     <comment>Claim Code Already exists</comment>
   </data>
   <data name="M_CLAIMDATENOTAFTERTODAY" xml:space="preserve">
-    <value>La date du remboursement ne peut-être postérieure à la date d&apos;aujourd&apos;hui</value>
+    <value>La date du remboursement ne peut-être postérieure à la date d'aujourd'hui</value>
     <comment>Claimed date can not be after today</comment>
   </data>
   <data name="M_CLAIMDATENOTBEFOREVISITDATE" xml:space="preserve">
@@ -2306,8 +2306,8 @@ Fuzzy</comment>
     <comment>The claim was deleted successfully</comment>
   </data>
   <data name="M_CLAIMNOTENTEREDNODELETE" xml:space="preserve">
-    <value>La situation de ce remboursement n&apos;est pas RENSEIGNÉ et ne peut donc pas être supprimé</value>
-    <comment>The status of this Claim is not ENTERED and thus can&apos;t be deleted</comment>
+    <value>La situation de ce remboursement n'est pas RENSEIGNÉ et ne peut donc pas être supprimé</value>
+    <comment>The status of this Claim is not ENTERED and thus can't be deleted</comment>
   </data>
   <data name="M_CLAIMNOTFORFEEDBACKPROCESS" xml:space="preserve">
     <value>Le statut du remboursement ne permet pas de le soumettre pour contrôle</value>
@@ -2322,7 +2322,7 @@ Fuzzy</comment>
     <comment>The number of claims exceed the limit allowed to be loaded in one go, Please use the filter criteria to narrow your selection</comment>
   </data>
   <data name="M_CLAIMSTATUSCHANGEDFROMENTERED" xml:space="preserve">
-    <value>La situation de ce remboursement a été modifié depuis l&apos;enregistrement par un autre utilisateur</value>
+    <value>La situation de ce remboursement a été modifié depuis l'enregistrement par un autre utilisateur</value>
     <comment>The status of this Claim has been changed from entered by another user</comment>
   </data>
   <data name="M_CONFIRMCLAIMDELETE" xml:space="preserve">
@@ -2370,7 +2370,7 @@ Fuzzy</comment>
     <comment>Review status were updated successfully</comment>
   </data>
   <data name="M_SELECTHFCODE" xml:space="preserve">
-    <value>Veuillez sélectionner un code d&apos;ötablissement de santé</value>
+    <value>Veuillez sélectionner un code d'ötablissement de santé</value>
     <comment>Please select a health facility code</comment>
   </data>
   <data name="M_SELECTICDCODE" xml:space="preserve">
@@ -2386,15 +2386,15 @@ Fuzzy</comment>
     <comment>Please select either Review or Feedback to proceed</comment>
   </data>
   <data name="M_VISITDATENOTAFTERCLAIMDATE" xml:space="preserve">
-    <value>La &quot;date de visite à partir de&quot; ne peut pas être ultérieure à la date de remboursement</value>
+    <value>La "date de visite à partir de" ne peut pas être ultérieure à la date de remboursement</value>
     <comment>Visit date from can not be after claimed date</comment>
   </data>
   <data name="M_VISITDATENOTAFTERTODAY" xml:space="preserve">
-    <value>La &quot;date de visite à partir de&quot; ne peut pas être après aujourd&apos;hui</value>
+    <value>La "date de visite à partir de" ne peut pas être après aujourd'hui</value>
     <comment>Visit date from can not be after today</comment>
   </data>
   <data name="M_VISITDATETONOTBEFOREVISITDATEFROM" xml:space="preserve">
-    <value>La &quot;date de visite au&quot; ne peut être avant la &quot;date de visite à partir de&quot;</value>
+    <value>La "date de visite au" ne peut être avant la "date de visite à partir de"</value>
     <comment>Visit date to can not be before visit date from</comment>
   </data>
   <data name="T_CHECKED" xml:space="preserve">
@@ -2478,11 +2478,11 @@ Fuzzy</comment>
     <comment>Items were Saved successfully</comment>
   </data>
   <data name="M_NOCHANGEMADETOCLAIM" xml:space="preserve">
-    <value>Aucune modification n&apos;a été apportée à ce remboursement</value>
+    <value>Aucune modification n'a été apportée à ce remboursement</value>
     <comment>There was no change made to the Claim</comment>
   </data>
   <data name="M_NOCLMTOBEPROCESSED" xml:space="preserve">
-    <value>Il n&apos;y a aucun remboursement sélectionné pour être traité</value>
+    <value>Il n'y a aucun remboursement sélectionné pour être traité</value>
     <comment>There are no claims selected to be processed</comment>
   </data>
   <data name="M_ONEMORECLMFDPENDING" xml:space="preserve">
@@ -2490,11 +2490,11 @@ Fuzzy</comment>
     <comment>One or more claims have feedback pending.</comment>
   </data>
   <data name="M_ONEMORECLMNOTREVIEWED" xml:space="preserve">
-    <value>Un ou plusieurs remboursements n&apos;ont pas été vérifiés.</value>
+    <value>Un ou plusieurs remboursements n'ont pas été vérifiés.</value>
     <comment>One or more claims have not been reviewed.</comment>
   </data>
   <data name="M_ONEMORENOTREVIEWEDFDPENDS" xml:space="preserve">
-    <value>Un ou plusieurs remboursements n&apos;ont pas été vérifiés et des comptes rendus de contrôle sont en attente.</value>
+    <value>Un ou plusieurs remboursements n'ont pas été vérifiés et des comptes rendus de contrôle sont en attente.</value>
     <comment>One or more claims have not been reviewed and their feedback is pending.</comment>
   </data>
   <data name="M_REVIEW" xml:space="preserve">
@@ -2526,11 +2526,11 @@ Fuzzy</comment>
     <comment>Please select a District, a health facility code and claim administrator to be able to add a claim</comment>
   </data>
   <data name="M_VALIDATEFEEDBACKSAVE" xml:space="preserve">
-    <value>Aucune modification n&apos;a été apportée à ce remboursement, veuillez apporter des modifications pour enregistrer ou appuyer sur le bouton annuler</value>
+    <value>Aucune modification n'a été apportée à ce remboursement, veuillez apporter des modifications pour enregistrer ou appuyer sur le bouton annuler</value>
     <comment>There are no feedback changes made to this claim, please do some changes to save or press the cancel button</comment>
   </data>
   <data name="M_VALIDATESUBMITCLAIMS" xml:space="preserve">
-    <value>Il n&apos;y a aucun remboursement sélectionné pour être soumis</value>
+    <value>Il n'y a aucun remboursement sélectionné pour être soumis</value>
     <comment>There are no claims selected to be submitted</comment>
   </data>
   <data name="M_CHANGED" xml:space="preserve">
@@ -2626,15 +2626,15 @@ Fuzzy</comment>
     <comment>Feedback Prompts</comment>
   </data>
   <data name="M_WRONGITEMCODENAME" xml:space="preserve">
-    <value>La combinaison code produit et dénomination, dans un ou plusieurs produits médicaux, n&apos;existe pas.</value>
+    <value>La combinaison code produit et dénomination, dans un ou plusieurs produits médicaux, n'existe pas.</value>
     <comment>The combination of the item code and its name in one or more items does not exit</comment>
   </data>
   <data name="M_WRONGSERVICECODENAME" xml:space="preserve">
-    <value>La combinaison du code de la prestation et de son nom dans une ou plusieurs prestations n&apos;existe pas</value>
+    <value>La combinaison du code de la prestation et de son nom dans une ou plusieurs prestations n'existe pas</value>
     <comment>The combination of the service code and its name in one or more services does not exit</comment>
   </data>
   <data name="M_FEEDBACKSAVEDSUCCESSFULLY" xml:space="preserve">
-    <value>La compte rendu a été enregistré avec succès et l&apos;état du remboursement est mis à jour pour être envoyé</value>
+    <value>La compte rendu a été enregistré avec succès et l'état du remboursement est mis à jour pour être envoyé</value>
     <comment>The feedback was saved successfully and the status of the claim updated to delivered</comment>
   </data>
   <data name="M_FEEDBACKUPDATEDSUCCESSFULLY" xml:space="preserve">
@@ -2642,7 +2642,7 @@ Fuzzy</comment>
     <comment>The feedback was updated successfully</comment>
   </data>
   <data name="M_MANNUALNOUPDATE" xml:space="preserve">
-    <value>Aucune modification n&apos;a été apportée à ce remboursement</value>
+    <value>Aucune modification n'a été apportée à ce remboursement</value>
     <comment>There were no changes made to the claim</comment>
   </data>
   <data name="T_SELECTBATCH" xml:space="preserve">
@@ -2678,7 +2678,7 @@ Fuzzy</comment>
     <comment>The claim item details were changed successfully</comment>
   </data>
   <data name="M_CANNOTPASSITEMREJECTED" xml:space="preserve">
-    <value>Impossible de définir le statut à &apos;Accepter&apos; pour les produits médicaux rejetés par le système</value>
+    <value>Impossible de définir le statut à 'Accepter' pour les produits médicaux rejetés par le système</value>
     <comment>Cannot set status to passed for system rejected Items</comment>
   </data>
   <data name="M_CANNOTPASSSERVICEREJECTED" xml:space="preserve">
@@ -2694,7 +2694,7 @@ Fuzzy</comment>
     <comment>Batch Process has already been run for the current selection</comment>
   </data>
   <data name="M_ERRORWHILEPROCESSING" xml:space="preserve">
-    <value>Une erreur s&apos;est produite lors du traitement</value>
+    <value>Une erreur s'est produite lors du traitement</value>
     <comment>Error occured while processing</comment>
   </data>
   <data name="M_PROCESSEDSUCCESSFULLY" xml:space="preserve">
@@ -2790,7 +2790,7 @@ Fuzzy</comment>
     <comment>Payment Type</comment>
   </data>
   <data name="M_CANNOTCHANGECHFNOISHEADFMLY" xml:space="preserve">
-    <value>Ne peut pas changer, le numéro d&apos;assurance sélectionné est déjà Chef de famille/groupe</value>
+    <value>Ne peut pas changer, le numéro d'assurance sélectionné est déjà Chef de famille/groupe</value>
     <comment>Can not change, selected Insurance Number is already Head of Family/Group</comment>
   </data>
   <data name="M_FAMILYANDHEADOFFLY_" xml:space="preserve">
@@ -2806,12 +2806,12 @@ Fuzzy</comment>
     <comment>Family/Group to be deleted still has some dependants</comment>
   </data>
   <data name="M_INSUREEALREADYINFAMILY" xml:space="preserve">
-    <value>L&apos;assuré est déjà dans cette famille/ce groupe</value>
+    <value>L'assuré est déjà dans cette famille/ce groupe</value>
     <comment>Insuree is already in this Family/Group</comment>
   </data>
   <data name="M_INSUREEHEADFMLYDELETENOT" xml:space="preserve">
-    <value>L&apos;assuré est le chef de famille/groupe, ne peut pas être supprimé</value>
-    <comment>Insuree is Head of Family/Group, can&apos;t be deleted</comment>
+    <value>L'assuré est le chef de famille/groupe, ne peut pas être supprimé</value>
+    <comment>Insuree is Head of Family/Group, can't be deleted</comment>
   </data>
   <data name="M_INSUREENOTDELETED" xml:space="preserve">
     <value>Assuré non supprimé</value>
@@ -2819,7 +2819,7 @@ Fuzzy</comment>
   </data>
   <data name="M_POLICYHASPREMIUMNODELETE" xml:space="preserve">
     <value>Cette police contient des cotisations, ne peut pas être supprimée</value>
-    <comment>Policy has Contribution(s), Can&apos;t be deleted</comment>
+    <comment>Policy has Contribution(s), Can't be deleted</comment>
   </data>
   <data name="M_PREMIUMISINUSE" xml:space="preserve">
     <value>La cotisation est utilisée</value>
@@ -2830,7 +2830,7 @@ Fuzzy</comment>
     <comment>Contribution not deleted</comment>
   </data>
   <data name="M_SELECTEDCHFNONOTEXIT" xml:space="preserve">
-    <value>Le numéro d&apos;assurance sélectionné n&apos;existe pas!</value>
+    <value>Le numéro d'assurance sélectionné n'existe pas!</value>
     <comment>Selected Insurance Number does not exist !</comment>
   </data>
   <data name="L_AMOUNT" xml:space="preserve">
@@ -2898,7 +2898,7 @@ Fuzzy</comment>
     <comment>Invalid Main Dg Code</comment>
   </data>
   <data name="M_NODISTRIBUTION" xml:space="preserve">
-    <value>Aucune distribution n&apos;a encore été définie!</value>
+    <value>Aucune distribution n'a encore été définie!</value>
     <comment>No distribution has been defined yet!</comment>
   </data>
   <data name="L_POLICYRENEWALPROMPTJ" xml:space="preserve">
@@ -2926,7 +2926,7 @@ Fuzzy</comment>
     <comment>Renewal Date</comment>
   </data>
   <data name="L_RENEWALID" xml:space="preserve">
-    <value>Numéro d&apos;identification du renouvellement</value>
+    <value>Numéro d'identification du renouvellement</value>
     <comment>Renewal ID</comment>
   </data>
   <data name="L_SMSSTATUS" xml:space="preserve">
@@ -3150,7 +3150,7 @@ Fuzzy</comment>
     <comment>Policies Found</comment>
   </data>
   <data name="L_POLICYHOLDER_" xml:space="preserve">
-    <value>Titulaire de la police d&apos;assurance</value>
+    <value>Titulaire de la police d'assurance</value>
     <comment>Policy Holder</comment>
   </data>
   <data name="L_SUBSTITUTION" xml:space="preserve">
@@ -3162,11 +3162,11 @@ Fuzzy</comment>
     <comment>No Data for Report</comment>
   </data>
   <data name="L_ANDYEAR" xml:space="preserve">
-    <value>Et l&apos;année</value>
+    <value>Et l'année</value>
     <comment>And Year</comment>
   </data>
   <data name="L_RUNID" xml:space="preserve">
-    <value>Exécuter le numéro d&apos;identification</value>
+    <value>Exécuter le numéro d'identification</value>
     <comment>Run ID</comment>
   </data>
   <data name="T_BANK" xml:space="preserve">
@@ -3182,7 +3182,7 @@ Fuzzy</comment>
     <comment>Please select a District</comment>
   </data>
   <data name="L_OFFICER" xml:space="preserve">
-    <value>Agents d&apos;affiliation</value>
+    <value>Agents d'affiliation</value>
     <comment>Enrolment Officers</comment>
   </data>
   <data name="L_ON" xml:space="preserve">
@@ -3190,7 +3190,7 @@ Fuzzy</comment>
     <comment>On</comment>
   </data>
   <data name="M_AJAXERROR" xml:space="preserve">
-    <value>Une erreur inattendue s&apos;est produite, veuillez réessayer après quelques instants</value>
+    <value>Une erreur inattendue s'est produite, veuillez réessayer après quelques instants</value>
     <comment>An unexpected error occurred, please try again after a few moments</comment>
   </data>
   <data name="T_EXPIRY" xml:space="preserve">
@@ -3210,7 +3210,7 @@ Fuzzy</comment>
     <comment>Please select the to date.</comment>
   </data>
   <data name="M_TODATEGREATER" xml:space="preserve">
-    <value>La date &quot;à ce jour&quot; doit être supérieur à la date &quot;à partir de&quot;</value>
+    <value>La date "à ce jour" doit être supérieur à la date "à partir de"</value>
     <comment>To date must be greater than From date</comment>
   </data>
   <data name="M_DATEFORMAT" xml:space="preserve">
@@ -3302,7 +3302,7 @@ Fuzzy</comment>
     <comment>Primary Operational Indicators-policies</comment>
   </data>
   <data name="T_USERACTIVITYREPORT" xml:space="preserve">
-    <value>Rapport d&apos;activité de l&apos;utilisateur</value>
+    <value>Rapport d'activité de l'utilisateur</value>
     <comment>User Activity Report</comment>
   </data>
   <data name="L_CLAIMADMIN" xml:space="preserve">
@@ -3310,19 +3310,19 @@ Fuzzy</comment>
     <comment>Claim Administrator</comment>
   </data>
   <data name="L_ACTIONTIME" xml:space="preserve">
-    <value>Temps d&apos;action</value>
+    <value>Temps d'action</value>
     <comment>Action Time</comment>
   </data>
   <data name="L_ACTIONTYPE" xml:space="preserve">
-    <value>Type d&apos;action</value>
+    <value>Type d'action</value>
     <comment>Action Type</comment>
   </data>
   <data name="L_RECORDIDENTITY" xml:space="preserve">
-    <value>Identifier l&apos;identité</value>
+    <value>Identifier l'identité</value>
     <comment>Record Identity</comment>
   </data>
   <data name="L_RECORDTYPE" xml:space="preserve">
-    <value>Type d&apos;identification</value>
+    <value>Type d'identification</value>
     <comment>Record Type</comment>
   </data>
   <data name="T_ENROLMENTPERFORMANCEINDICATORS" xml:space="preserve">
@@ -3334,11 +3334,11 @@ Fuzzy</comment>
     <comment>Status of Registers</comment>
   </data>
   <data name="T_USERNAME" xml:space="preserve">
-    <value>Nom d&apos;utilisateur</value>
+    <value>Nom d'utilisateur</value>
     <comment>User Name</comment>
   </data>
   <data name="L_NOOFENROLMENTOFFICERS" xml:space="preserve">
-    <value>Nombre d&apos;agents d&apos;affiliation.</value>
+    <value>Nombre d'agents d'affiliation.</value>
     <comment>No of Enrolment Officers</comment>
   </data>
   <data name="L_NOOFHEALTHFACILITIES" xml:space="preserve">
@@ -3346,7 +3346,7 @@ Fuzzy</comment>
     <comment>No of Health Facilities</comment>
   </data>
   <data name="L_NOOFINSURANCEPRODUCTS" xml:space="preserve">
-    <value>Nombre de produits d&apos;assurance</value>
+    <value>Nombre de produits d'assurance</value>
     <comment>No of Insurance Products</comment>
   </data>
   <data name="L_NOOFITEMPRICELIST" xml:space="preserve">
@@ -3370,7 +3370,7 @@ Fuzzy</comment>
     <comment>No of Services</comment>
   </data>
   <data name="L_NOOFUSERS" xml:space="preserve">
-    <value>Nombre d&apos;utilisateur</value>
+    <value>Nombre d'utilisateur</value>
     <comment>No of Users</comment>
   </data>
   <data name="L_TOTALFOR" xml:space="preserve">
@@ -3394,7 +3394,7 @@ Fuzzy</comment>
     <comment>Start date should be less than end date</comment>
   </data>
   <data name="T_SELECTUSERNAME" xml:space="preserve">
-    <value>Sél. un nom d&apos;utilisateur</value>
+    <value>Sél. un nom d'utilisateur</value>
     <comment>--Select UserName--</comment>
   </data>
   <data name="T_SELECTCLAIMADMIN" xml:space="preserve">
@@ -3402,15 +3402,15 @@ Fuzzy</comment>
     <comment>Select Claim Admin</comment>
   </data>
   <data name="L_OFFICERCODE" xml:space="preserve">
-    <value>Code des agents d&apos;affiliation</value>
+    <value>Code des agents d'affiliation</value>
     <comment>Enrolment Officers Code</comment>
   </data>
   <data name="L_EXTR_OFFLINENROLMENT" xml:space="preserve">
-    <value>Télécharger l&apos;affiliation XMLs</value>
+    <value>Télécharger l'affiliation XMLs</value>
     <comment>Download Enrolments</comment>
   </data>
   <data name="M_NOENROLMENTFOUND" xml:space="preserve">
-    <value>Aucune nouvelle affiliation n&apos;a été trouvée.</value>
+    <value>Aucune nouvelle affiliation n'a été trouvée.</value>
     <comment>No new enrolment found.</comment>
   </data>
   <data name="L_CANCEL" xml:space="preserve">
@@ -3490,27 +3490,27 @@ Fuzzy</comment>
     <comment>Upload failed on following records</comment>
   </data>
   <data name="M_UPLOADENROLALERT" xml:space="preserve">
-    <value>Cette action remplacera toutes les modifications effectuées depuis la dernière importation des extractions. Assurez-vous d&apos;avoir déjà importé le dernier décompte des affiliations hors ligne sur le serveur direct. &lt;/BR&gt; Voulez-vous continuer?</value>
+    <value>Cette action remplacera toutes les modifications effectuées depuis la dernière importation des extractions. Assurez-vous d'avoir déjà importé le dernier décompte des affiliations hors ligne sur le serveur direct. &lt;/BR&gt; Voulez-vous continuer?</value>
     <comment>This action will overwrite all the changes made since last extracts were uploaded. Please make sure that you already have uploaded the last offline enrolment to the live server. &lt;/BR&gt; Do you want to continue?</comment>
   </data>
   <data name="M_OFFLINECHFID" xml:space="preserve">
-    <value>Veuillez entrer un numéro d&apos;identification</value>
+    <value>Veuillez entrer un numéro d'identification</value>
     <comment>Please enter an identifier number</comment>
   </data>
   <data name="M_CREATEOFFLINEEXTRACTPROMPT" xml:space="preserve">
-    <value>&lt;/BR&gt;&lt;/BR&gt;Vous n&apos;avez sélectionné aucun district.&lt;/BR&gt;&lt;/BR&gt;Voulez-vous vraiment créer une extraction à l&apos;échelle du pays?&lt;/BR&gt;&lt;/BR&gt;Cliquez sur OUI pour continuer ou cliquez sur NON pour revenir en arrière et sélectionnez un district.</value>
-    <comment>&lt;/BR&gt;&lt;/BR&gt;You haven\&apos;t selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region.</comment>
+    <value>&lt;/BR&gt;&lt;/BR&gt;Vous n'avez sélectionné aucun district.&lt;/BR&gt;&lt;/BR&gt;Voulez-vous vraiment créer une extraction à l'échelle du pays?&lt;/BR&gt;&lt;/BR&gt;Cliquez sur OUI pour continuer ou cliquez sur NON pour revenir en arrière et sélectionnez un district.</value>
+    <comment>&lt;/BR&gt;&lt;/BR&gt;You haven\'t selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region.</comment>
   </data>
   <data name="M_VALIDATEADDBUTTONCLAIMADMIN" xml:space="preserve">
-    <value>Veuillez d&apos;abord sélectionner un gestionnaire de remboursement</value>
+    <value>Veuillez d'abord sélectionner un gestionnaire de remboursement</value>
     <comment>Please select a Claim Administrator first</comment>
   </data>
   <data name="M_VALIDATEADDBUTTONDISTRICT" xml:space="preserve">
-    <value>Veuillez d&apos;abord sélectionner un district</value>
+    <value>Veuillez d'abord sélectionner un district</value>
     <comment>Please select a District first</comment>
   </data>
   <data name="M_VALIDATEADDBUTTONHFCode" xml:space="preserve">
-    <value>Veuillez d&apos;abord sélectionner un code de établissement de santé</value>
+    <value>Veuillez d'abord sélectionner un code de établissement de santé</value>
     <comment>Please select a Health Facility Code first</comment>
   </data>
   <data name="M_POLICYNOTDELETED" xml:space="preserve">
@@ -3534,11 +3534,11 @@ Fuzzy</comment>
     <comment>IsHead</comment>
   </data>
   <data name="L_OFFICERLASTNAME" xml:space="preserve">
-    <value>Nom des agents d&apos;affiliation</value>
+    <value>Nom des agents d'affiliation</value>
     <comment>Enrolment Officers Last Name</comment>
   </data>
   <data name="L_OFFICEROTHERNAMES" xml:space="preserve">
-    <value>Prénom des agents d&apos;affiliation</value>
+    <value>Prénom des agents d'affiliation</value>
     <comment>Enrolment Officers First Name</comment>
   </data>
   <data name="T_INSUREESWITHOUTPHOTOS" xml:space="preserve">
@@ -3558,7 +3558,7 @@ Fuzzy</comment>
     <comment>Relationship</comment>
   </data>
   <data name="M_SELECTEDUCATION" xml:space="preserve">
-    <value>Sélectionner le niveau d&apos;étude</value>
+    <value>Sélectionner le niveau d'étude</value>
     <comment>--Select Education--</comment>
   </data>
   <data name="M_SELECTPROFESSION" xml:space="preserve">
@@ -3622,11 +3622,11 @@ Fuzzy</comment>
     <comment>Number</comment>
   </data>
   <data name="L_REGISTRATIONFEE" xml:space="preserve">
-    <value>Frais d&apos;affiliation</value>
+    <value>Frais d'affiliation</value>
     <comment>Registration Fee</comment>
   </data>
   <data name="L_REGISTRATIONLUMPSUM" xml:space="preserve">
-    <value>Montant forfaitaire d&apos;affiliation</value>
+    <value>Montant forfaitaire d'affiliation</value>
     <comment>Registration Lump Sum</comment>
   </data>
   <data name="L_SURGERIES" xml:space="preserve">
@@ -3682,7 +3682,7 @@ Fuzzy</comment>
     <comment>Invalid cycle 2 date</comment>
   </data>
   <data name="M_LATEPAYMENT" xml:space="preserve">
-    <value>La date de paiement est en dehors de la période d&apos;attente de la police</value>
+    <value>La date de paiement est en dehors de la période d'attente de la police</value>
     <comment>The payment date falls outside the policy wait period</comment>
   </data>
   <data name="M_MAXINSTALLMENTEXCEED" xml:space="preserve">
@@ -3762,7 +3762,7 @@ Fuzzy</comment>
     <comment>Waiting Child</comment>
   </data>
   <data name="M_EXPIRYPOLICYNOPAY" xml:space="preserve">
-    <value>Le paiement d&apos;une police expirée n&apos;est pas autorisé.</value>
+    <value>Le paiement d'une police expirée n'est pas autorisé.</value>
     <comment>Payment on expired policy is not allowed.</comment>
   </data>
   <data name="M_NOADVSEARCHPRODUCTDETAILS" xml:space="preserve">
@@ -3874,15 +3874,15 @@ Fuzzy</comment>
     <comment>Do you want to continue?</comment>
   </data>
   <data name="M_MAXMEMBERCOUNTREACHED" xml:space="preserve">
-    <value>Les polices avec les dates d&apos;affiliation suivantes ont atteint le maximum du nombre de membres et donc cet(te) assuré(e) ne sera pas couvert par les polices cependant l&apos;assuré(e) sera ajouté(e) à la famille :</value>
+    <value>Les polices avec les dates d'affiliation suivantes ont atteint le maximum du nombre de membres et donc cet(te) assuré(e) ne sera pas couvert par les polices cependant l'assuré(e) sera ajouté(e) à la famille :</value>
     <comment>Policies with the following enrolment dates have reached to their maximum number of members count and therefore this insuree will not be covered by these policies however the insuree will be added to the family :</comment>
   </data>
   <data name="M_LASTINSTALLMENT" xml:space="preserve">
-    <value>Il s&apos;agit du dernière paiement selon la définition du produit.</value>
+    <value>Il s'agit du dernière paiement selon la définition du produit.</value>
     <comment>This is the last installment according to the product definition.</comment>
   </data>
   <data name="M_PROMPTPOLICYADD" xml:space="preserve">
-    <value>La famille a plus d&apos;assurés que le nombre maximum &lt;br/&gt; de membres autorisés dans le produit sélectionné. &lt;br/&gt; Voulez-vous continuer?</value>
+    <value>La famille a plus d'assurés que le nombre maximum &lt;br/&gt; de membres autorisés dans le produit sélectionné. &lt;br/&gt; Voulez-vous continuer?</value>
     <comment>The family has more Insurees than the maximum number &lt;br/&gt; of members allowed in the  selected product.&lt;br/&gt;Do you want to continue?</comment>
   </data>
   <data name="M_LATEPOLICYRENEWAL" xml:space="preserve">
@@ -3894,7 +3894,7 @@ Fuzzy</comment>
     <comment>Ethnicity</comment>
   </data>
   <data name="L_IDTYPE" xml:space="preserve">
-    <value>Type d&apos;identification</value>
+    <value>Type d'identification</value>
     <comment>Identification Type</comment>
   </data>
   <data name="L_FSP" xml:space="preserve">
@@ -3914,7 +3914,7 @@ Fuzzy</comment>
     <comment>Confirmation No.</comment>
   </data>
   <data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
-    <value>Période d&apos;administration</value>
+    <value>Période d'administration</value>
     <comment>Administration Period</comment>
   </data>
   <data name="L_RENEWALDISCOUNTPERCENTAGE" xml:space="preserve">
@@ -3986,7 +3986,7 @@ Fuzzy</comment>
     <comment>F for Fixed C for Co-insurance (Referal)</comment>
   </data>
   <data name="M_CEILING" xml:space="preserve">
-    <value>H pour hôpital exclu N pour non-hôpital exclu B pour l&apos;exclusion des deux</value>
+    <value>H pour hôpital exclu N pour non-hôpital exclu B pour l'exclusion des deux</value>
     <comment>H for Exclusion Hospital N for Exclusion Non-hospital B for Exclusion Both</comment>
   </data>
   <data name="T_MATCHINGFUNDS" xml:space="preserve">
@@ -4002,7 +4002,7 @@ Fuzzy</comment>
     <comment>Please select a product</comment>
   </data>
   <data name="M_REPORTINGDATECHANGED" xml:space="preserve">
-    <value>La génération du rapport d&apos;un point de vue antérieur pourrait entraîner une duplication de la demande de subvention. &lt;br/&gt; Voulez-vous continuer?</value>
+    <value>La génération du rapport d'un point de vue antérieur pourrait entraîner une duplication de la demande de subvention. &lt;br/&gt; Voulez-vous continuer?</value>
     <comment>Generating of the report from past perspective may result in duplication of request for matching funds. &lt;br/&gt; Do you want to continue?</comment>
   </data>
   <data name="L_ICD1" xml:space="preserve">
@@ -4042,7 +4042,7 @@ Fuzzy</comment>
     <comment>Adj.Qty</comment>
   </data>
   <data name="R_CHFID" xml:space="preserve">
-    <value>Numéro d&apos;assurance</value>
+    <value>Numéro d'assurance</value>
     <comment>Insurance Number</comment>
   </data>
   <data name="R_CLAIMADMINNAME" xml:space="preserve">
@@ -4126,7 +4126,7 @@ Fuzzy</comment>
     <comment>Visit From</comment>
   </data>
   <data name="R_VISITTO" xml:space="preserve">
-    <value>Visite jusqu&apos;au</value>
+    <value>Visite jusqu'au</value>
     <comment>Visit To</comment>
   </data>
   <data name="T_CLAIMOVERVIEW" xml:space="preserve">
@@ -4206,7 +4206,7 @@ Fuzzy</comment>
     <comment>Service</comment>
   </data>
   <data name="M_WAITINGPERIOD" xml:space="preserve">
-    <value>Période d&apos;attente</value>
+    <value>Période d'attente</value>
     <comment>Waiting Period</comment>
   </data>
   <data name="T_HEALTHPOST" xml:space="preserve">
@@ -4230,15 +4230,15 @@ Fuzzy</comment>
     <comment>Community/NGO</comment>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERC" xml:space="preserve">
-    <value>Rabais d&apos;affiliation (%)</value>
+    <value>Rabais d'affiliation (%)</value>
     <comment>Enrolment Disc. %</comment>
   </data>
   <data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
-    <value>Rabais d&apos;affiliation (période)</value>
+    <value>Rabais d'affiliation (période)</value>
     <comment>Enrolment Disc. Period</comment>
   </data>
   <data name="M_ENROLDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
-    <value>Le rabais d&apos;affiliation (%) doit être inférieur ou égal à cent</value>
+    <value>Le rabais d'affiliation (%) doit être inférieur ou égal à cent</value>
     <comment>Enrolment discount percentage should be less than or equal to hundred</comment>
   </data>
   <data name="L_CDISTRICT" xml:space="preserve">
@@ -4246,7 +4246,7 @@ Fuzzy</comment>
     <comment>Current District</comment>
   </data>
   <data name="L_CURRENTADDRESS" xml:space="preserve">
-    <value>Détails de l&apos;adresse actuelle</value>
+    <value>Détails de l'adresse actuelle</value>
     <comment>Current Address Details</comment>
   </data>
   <data name="L_CVDC" xml:space="preserve">
@@ -4282,7 +4282,7 @@ Fuzzy</comment>
     <comment>Referral(OP)</comment>
   </data>
   <data name="M_MAXTHRESHOLDCOUNTREACHED" xml:space="preserve">
-    <value>Les polices suivantes avec date d&apos;affiliation vont dépasser le nombre maximum d&apos;assuré(e)s. &lt;br /&gt; Voulez-vous activer cet(te) assuré(e)?</value>
+    <value>Les polices suivantes avec date d'affiliation vont dépasser le nombre maximum d'assuré(e)s. &lt;br /&gt; Voulez-vous activer cet(te) assuré(e)?</value>
     <comment>Following policies with enrolment date will exceed the maximum number of threshold Insurees. &lt;br /&gt; Do you want to activate this insuree?</comment>
   </data>
   <data name="T_SUBCATEGORYA" xml:space="preserve">
@@ -4346,23 +4346,23 @@ Fuzzy</comment>
     <comment>In background</comment>
   </data>
   <data name="L_WITHINSUREE" xml:space="preserve">
-    <value>Avec l&apos;assuré</value>
+    <value>Avec l'assuré</value>
     <comment>With Insuree</comment>
   </data>
   <data name="M_INVALIDBACKPATH" xml:space="preserve">
-    <value>Le chemin d&apos;accès n&apos;existe pas ou vous n&apos;avez pas les d&apos;autorisations suffisantes pour accéder au chemin</value>
+    <value>Le chemin d'accès n'existe pas ou vous n'avez pas les d'autorisations suffisantes pour accéder au chemin</value>
     <comment>The path does not exist or you do not have enough permission to access the path</comment>
   </data>
   <data name="M_SELECTIDENTITY" xml:space="preserve">
-    <value>Sélectionner le type d&apos;identité</value>
+    <value>Sélectionner le type d'identité</value>
     <comment>--Select identity type--</comment>
   </data>
   <data name="M_ERROROCCURED" xml:space="preserve">
-    <value>Une erreur s&apos;est produite lors de l&apos;exécution du script</value>
+    <value>Une erreur s'est produite lors de l'exécution du script</value>
     <comment>Error occured while executing the script</comment>
   </data>
   <data name="M_ETHNICITY" xml:space="preserve">
-    <value>Sél. l&apos;ethnie</value>
+    <value>Sél. l'ethnie</value>
     <comment>--Select Ethnicity--</comment>
   </data>
   <data name="M_HealthFacility" xml:space="preserve">
@@ -4410,7 +4410,7 @@ Fuzzy</comment>
     <comment>TestC</comment>
   </data>
   <data name="M_VERSION" xml:space="preserve">
-    <value>Votre version d&apos;arrière-plan est plus élevée que la version script</value>
+    <value>Votre version d'arrière-plan est plus élevée que la version script</value>
     <comment>Your backend version is higher than the script version</comment>
   </data>
   <data name="M_QUARTER1" xml:space="preserve">
@@ -4430,7 +4430,7 @@ Fuzzy</comment>
     <comment>Quarter 4</comment>
   </data>
   <data name="P_ACCCODE" xml:space="preserve">
-    <value>Code d&apos;accès :</value>
+    <value>Code d'accès :</value>
     <comment>Acc Code :</comment>
   </data>
   <data name="P_COLLECTION" xml:space="preserve">
@@ -4450,7 +4450,7 @@ Fuzzy</comment>
     <comment>Total Family</comment>
   </data>
   <data name="L_TOTALINSUREE" xml:space="preserve">
-    <value>Total de l&apos;assuré</value>
+    <value>Total de l'assuré</value>
     <comment>Total Insuree</comment>
   </data>
   <data name="L_ADJUSTED" xml:space="preserve">
@@ -4482,7 +4482,7 @@ Fuzzy</comment>
     <comment>All Claims</comment>
   </data>
   <data name="R_ENROLLMENTOFFICER" xml:space="preserve">
-    <value>Agent d&apos;affiliation</value>
+    <value>Agent d'affiliation</value>
     <comment>Enrollment Officer</comment>
   </data>
   <data name="R_EXTRACT" xml:space="preserve">
@@ -4498,11 +4498,11 @@ Fuzzy</comment>
     <comment>Insert</comment>
   </data>
   <data name="R_INSURANCEPRODUCT" xml:space="preserve">
-    <value>Produit d&apos;assurance</value>
+    <value>Produit d'assurance</value>
     <comment>Insurance Product</comment>
   </data>
   <data name="R_LOGIN" xml:space="preserve">
-    <value>S&apos;identifier</value>
+    <value>S'identifier</value>
     <comment>Login</comment>
   </data>
   <data name="R_MEDICALITEM" xml:space="preserve">
@@ -4558,7 +4558,7 @@ Fuzzy</comment>
     <comment>Contribution Category</comment>
   </data>
   <data name="L_PARMANENTADDRESS" xml:space="preserve">
-    <value>Détails de l&apos;adresse permanente</value>
+    <value>Détails de l'adresse permanente</value>
     <comment>Permanent Address Details</comment>
   </data>
   <data name="L_PARTIENTNAME" xml:space="preserve">
@@ -4602,7 +4602,7 @@ Fuzzy</comment>
     <comment>Clerk</comment>
   </data>
   <data name="M_HFADMINISTRATOR" xml:space="preserve">
-    <value>Gestionnaire d&apos;établissement de santé</value>
+    <value>Gestionnaire d'établissement de santé</value>
     <comment>HF Administrator</comment>
   </data>
   <data name="M_IMISADMINISTRATOR" xml:space="preserve">
@@ -4626,7 +4626,7 @@ Fuzzy</comment>
     <comment>Receptionist</comment>
   </data>
   <data name="M_SCHEMEADMINISTRATOR" xml:space="preserve">
-    <value>Administrateur du régime d&apos;assurance</value>
+    <value>Administrateur du régime d'assurance</value>
     <comment>Scheme Administrator</comment>
   </data>
   <data name="L_SHOWCLAIM" xml:space="preserve">
@@ -4666,7 +4666,7 @@ Fuzzy</comment>
     <comment>Find Claim Administrators</comment>
   </data>
   <data name="L_FINDINSUREE" xml:space="preserve">
-    <value>Rechercher l&apos;assuré(e)</value>
+    <value>Rechercher l'assuré(e)</value>
     <comment>Find Insuree</comment>
   </data>
   <data name="L_FINDMEDICALITEM" xml:space="preserve">
@@ -4678,7 +4678,7 @@ Fuzzy</comment>
     <comment>Find Medical Services</comment>
   </data>
   <data name="L_FINDOFFICER" xml:space="preserve">
-    <value>Rechercher les agents d&apos;affiliation</value>
+    <value>Rechercher les agents d'affiliation</value>
     <comment>Find Enrolment Officers</comment>
   </data>
   <data name="L_FINDPREMIUM" xml:space="preserve">
@@ -4742,7 +4742,7 @@ Fuzzy</comment>
     <comment>Go to Login</comment>
   </data>
   <data name="L_EMAILREQUIRED" xml:space="preserve">
-    <value>L&apos;adresse e-mail est obligatoire</value>
+    <value>L'adresse e-mail est obligatoire</value>
     <comment>Email id is required</comment>
   </data>
   <data name="L_INVALIDEMAIL" xml:space="preserve">
@@ -4774,7 +4774,7 @@ Fuzzy</comment>
     <comment>Incorrect current password</comment>
   </data>
   <data name="X_EMAILSENTFAIL" xml:space="preserve">
-    <value>Nous n&apos;avons pas pu envoyer d&apos;e-mail. Veuillez réessayer plus tard.</value>
+    <value>Nous n'avons pas pu envoyer d'e-mail. Veuillez réessayer plus tard.</value>
     <comment>We could not send email. Please try again later.</comment>
   </data>
   <data name="L_REGION" xml:space="preserve">
@@ -4790,7 +4790,7 @@ Fuzzy</comment>
     <comment>Photo Date</comment>
   </data>
   <data name="R_TOTALINSUREES" xml:space="preserve">
-    <value>Nombre total d&apos;assurés</value>
+    <value>Nombre total d'assurés</value>
     <comment>Total Insurees</comment>
   </data>
   <data name="L_REGIONNAME" xml:space="preserve">
@@ -4802,7 +4802,7 @@ Fuzzy</comment>
     <comment>Are you sure you want to delete Region?</comment>
   </data>
   <data name="M_DISTRICTINREGION" xml:space="preserve">
-    <value>Veuillez supprimer d&apos;abord les district de la région</value>
+    <value>Veuillez supprimer d'abord les district de la région</value>
     <comment>Please delete District in region first</comment>
   </data>
   <data name="NOREGIONSPECIFIED" xml:space="preserve">
@@ -4818,7 +4818,7 @@ Fuzzy</comment>
     <comment>families/group affected</comment>
   </data>
   <data name="M_INVALIDLOCATIONTYPE" xml:space="preserve">
-    <value>Type d&apos;emplacement invalide</value>
+    <value>Type d'emplacement invalide</value>
     <comment>Invalidy location type</comment>
   </data>
   <data name="M_PLEASESELECTAREGION" xml:space="preserve">
@@ -4846,7 +4846,7 @@ Fuzzy</comment>
     <comment>Sorting</comment>
   </data>
   <data name="M_PLEASESELECTOFFICER" xml:space="preserve">
-    <value>Veuillez sélectionner un responsable d&apos;affiliation</value>
+    <value>Veuillez sélectionner un responsable d'affiliation</value>
     <comment>Please select an enrolment officer</comment>
   </data>
   <data name="L_BIRTHDATEFROM" xml:space="preserve">
@@ -4854,31 +4854,31 @@ Fuzzy</comment>
     <comment>Birth Date From</comment>
   </data>
   <data name="L_BIRTHDATETO" xml:space="preserve">
-    <value>Date de naissance jusqu&apos;à</value>
+    <value>Date de naissance jusqu'à</value>
     <comment>Birth Date To</comment>
   </data>
   <data name="L_EFFECTIVEDATEFROM" xml:space="preserve">
-    <value>Date d&apos;effective à partir de</value>
+    <value>Date d'effective à partir de</value>
     <comment>Effective Date From</comment>
   </data>
   <data name="L_EFFECTIVEDATETO" xml:space="preserve">
-    <value>Date d&apos;effective jusqu&apos;à</value>
+    <value>Date d'effective jusqu'à</value>
     <comment>Effective Date To</comment>
   </data>
   <data name="L_ENROLMENTDATEFROM" xml:space="preserve">
-    <value>Date d&apos;affiliation à partir de</value>
+    <value>Date d'affiliation à partir de</value>
     <comment>Enrolment Date From</comment>
   </data>
   <data name="L_ENROLMENTDATETO" xml:space="preserve">
-    <value>Date d&apos;affiliation jusqu&apos;à</value>
+    <value>Date d'affiliation jusqu'à</value>
     <comment>Enrolment Date To</comment>
   </data>
   <data name="L_EXPIRYDATEFROM" xml:space="preserve">
-    <value>Date d&apos;expiration à partir de</value>
+    <value>Date d'expiration à partir de</value>
     <comment>Expiry Date From</comment>
   </data>
   <data name="L_EXPIRYDATETO" xml:space="preserve">
-    <value>Date d&apos;expiration jusqu&apos;à</value>
+    <value>Date d'expiration jusqu'à</value>
     <comment>Expiry Date To</comment>
   </data>
   <data name="L_PAYDATEFROM" xml:space="preserve">
@@ -4886,7 +4886,7 @@ Fuzzy</comment>
     <comment>Payment Date From</comment>
   </data>
   <data name="L_PAYDATETO" xml:space="preserve">
-    <value>Date de paiement jusqu&apos;à</value>
+    <value>Date de paiement jusqu'à</value>
     <comment>Payment Date To</comment>
   </data>
   <data name="L_STARTDATEFROM" xml:space="preserve">
@@ -4894,7 +4894,7 @@ Fuzzy</comment>
     <comment>Start Date From</comment>
   </data>
   <data name="L_STARTDATETO" xml:space="preserve">
-    <value>Date de début jusqu&apos;à</value>
+    <value>Date de début jusqu'à</value>
     <comment>Start Date To</comment>
   </data>
   <data name="M_AND" xml:space="preserve">
@@ -4930,8 +4930,8 @@ Fuzzy</comment>
     <comment>Good Afternoon</comment>
   </data>
   <data name="M_GOODEVENING" xml:space="preserve">
-      <value>Bonsoir</value>
-      <comment>Good Evening</comment>
+    <value>Bonsoir</value>
+    <comment>Good Evening</comment>
   </data>
   <data name="M_GOODMORNING" xml:space="preserve">
     <value>Bonjour</value>
@@ -5038,7 +5038,7 @@ Fuzzy</comment>
     <comment>Click here to load medical services</comment>
   </data>
   <data name="M_BGEXTRACTCOMPLETED" xml:space="preserve">
-    <value>Votre requête a été soumisse et l&apos;extrait est en train d&apos;être généré. Dès que celui-ci sera prêt, vous  recevrez un courriel  avec le lien de téléchargement. En attendant, vous pouvez quitter cette page.</value>
+    <value>Votre requête a été soumisse et l'extrait est en train d'être généré. Dès que celui-ci sera prêt, vous  recevrez un courriel  avec le lien de téléchargement. En attendant, vous pouvez quitter cette page.</value>
     <comment>Your request is submitted and the requested extract is being created now. Once the task is completed, you will receive an email with the download link. Meanwhile you can leave this page and continue with other work.</comment>
   </data>
   <data name="T_NOPOLICY" xml:space="preserve">
@@ -5134,7 +5134,7 @@ Fuzzy</comment>
     <comment>Population</comment>
   </data>
   <data name="L_PERMADDERESS" xml:space="preserve">
-    <value>Détails de l&apos;adresse permanente</value>
+    <value>Détails de l'adresse permanente</value>
     <comment>Permanent address details</comment>
   </data>
   <data name="M_SHAREDCONTRIBUTIONPARCENT" xml:space="preserve">
@@ -5190,7 +5190,7 @@ Fuzzy</comment>
     <comment>District Code in excel Already Exists in Database</comment>
   </data>
   <data name="M_DISTRICTCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value>Le code du district spécifié dans municipalité n&apos;existe ni dans le fichier ni dans la base de donnée</value>
+    <value>Le code du district spécifié dans municipalité n'existe ni dans le fichier ni dans la base de donnée</value>
     <comment>District Code specified in Ward Does not exists in Either Database or District Excel</comment>
   </data>
   <data name="M_DUPLICATEDISTRICTCODEINEXCEL" xml:space="preserve">
@@ -5210,19 +5210,19 @@ Fuzzy</comment>
     <comment>Duplicate Village Code in excel</comment>
   </data>
   <data name="M_INVALIDDISTRICTFILEINEXCEL" xml:space="preserve">
-    <value>Ficher de district invalide (soit le nom de l&apos;onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
+    <value>Ficher de district invalide (soit le nom de l'onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
     <comment>Invalid District File(Either Tab name or Column names or inputs are invalid)</comment>
   </data>
   <data name="M_INVALIDMUNICIPALITYFILEINEXCEL" xml:space="preserve">
-    <value>Ficher de municipalité invalide (soit le nom de l&apos;onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
+    <value>Ficher de municipalité invalide (soit le nom de l'onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
     <comment>Invalid Municipality File(Either Tab name or Column names or inputs are invalid)</comment>
   </data>
   <data name="M_INVALIDREGIONFILEINEXCEL" xml:space="preserve">
-    <value>Ficher de région invalide (soit le nom de l&apos;onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
+    <value>Ficher de région invalide (soit le nom de l'onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
     <comment>Invalid Region File(Either Tab name or Column names or inputs are invalid)!</comment>
   </data>
   <data name="M_INVALIDVILLAGEFILEINEXCEL" xml:space="preserve">
-    <value>Ficher de village invalide (soit le nom de l&apos;onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
+    <value>Ficher de village invalide (soit le nom de l'onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
     <comment>Invalid Village File(Either Tab name or Column names or inputs are invalid)</comment>
   </data>
   <data name="M_INVALIDVILLAGEPOPULATIONINEXCEL" xml:space="preserve">
@@ -5250,7 +5250,7 @@ Fuzzy</comment>
     <comment>Municipality Code in excel Already Exist in Database</comment>
   </data>
   <data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value>Municipalité du ficher  Village n&apos;existe ni dans la base de donnée in dans le fichier municipalité</value>
+    <value>Municipalité du ficher  Village n'existe ni dans la base de donnée in dans le fichier municipalité</value>
     <comment>Wardcode in Village Excel Does not exist in Either  Database or Ward Excel</comment>
   </data>
   <data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
@@ -5258,11 +5258,11 @@ Fuzzy</comment>
     <comment>Region Code in excel Already Exists in Database</comment>
   </data>
   <data name="M_REGIONCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-    <value>Le code de région spécifié dans district n&apos;existe ni dans le fichier région ni dans la base de donnée</value>
+    <value>Le code de région spécifié dans district n'existe ni dans le fichier région ni dans la base de donnée</value>
     <comment>Region Code specified in District Does not exist in Either  Database or Region Excel</comment>
   </data>
   <data name="M_UNEXPECTEDERRORONIMPORTLOCATIONS" xml:space="preserve">
-    <value>Erreur inconnue rencontrée lors de l&apos;import des lieux</value>
+    <value>Erreur inconnue rencontrée lors de l'import des lieux</value>
     <comment>Unexpected Error when Importing Locations</comment>
   </data>
   <data name="M_VILLAGECODEEXISTSINDB" xml:space="preserve">
@@ -5330,7 +5330,7 @@ Fuzzy</comment>
     <comment>Health facilite(s) uploaded successfully.</comment>
   </data>
   <data name="M_UNEXPECTEDERRORONUPLOADHF" xml:space="preserve">
-    <value>Erreur inconnue rencontrée lors de l&apos;import des établissements de santé</value>
+    <value>Erreur inconnue rencontrée lors de l'import des établissements de santé</value>
     <comment>Unexpected Error when Uploading Health facities</comment>
   </data>
   <data name="M_UPLOADEDHF" xml:space="preserve">
@@ -5350,7 +5350,7 @@ Fuzzy</comment>
     <comment>Fatal Error</comment>
   </data>
   <data name="M_UNEXPECTEDERRORONUPLOADICD" xml:space="preserve">
-    <value>Erreur inconnue rencontrée lors de l&apos;import des diagnostics</value>
+    <value>Erreur inconnue rencontrée lors de l'import des diagnostics</value>
     <comment>Unexpected Error when Uploading Diagnoses</comment>
   </data>
   <data name="L_INSERTANDUPDATE" xml:space="preserve">
@@ -5462,7 +5462,7 @@ Fuzzy</comment>
     <comment>Upload Renewal</comment>
   </data>
   <data name="M_CLAIMNOTEXIST" xml:space="preserve">
-    <value>Remboursement n&apos;existe pas</value>
+    <value>Remboursement n'existe pas</value>
     <comment>Claim does not exist</comment>
   </data>
   <data name="M_DUPLICATEDRECEIPTFOUND" xml:space="preserve">
@@ -5478,7 +5478,7 @@ Fuzzy</comment>
     <comment>The grace perios of the given policy is over</comment>
   </data>
   <data name="M_INVALIDCHFID" xml:space="preserve">
-    <value>N° d&apos;assuré invalide</value>
+    <value>N° d'assuré invalide</value>
     <comment>Invalid CHFID</comment>
   </data>
   <data name="M_INVALIDFEEDBACKFILE" xml:space="preserve">
@@ -5486,7 +5486,7 @@ Fuzzy</comment>
     <comment>Invalid feedBack file</comment>
   </data>
   <data name="M_INVALIDOFFICERCODE" xml:space="preserve">
-    <value>code d&apos;agent invalide</value>
+    <value>code d'agent invalide</value>
     <comment>Invalid officer code</comment>
   </data>
   <data name="M_INVALIDRENEWALFILE" xml:space="preserve">
@@ -5522,7 +5522,7 @@ Fuzzy</comment>
     <comment>Upload Renewal</comment>
   </data>
   <data name="M_NOENROLLMENTFOUND" xml:space="preserve">
-    <value>Pas d&apos;affiliation trouvée</value>
+    <value>Pas d'affiliation trouvée</value>
     <comment>No Enrollment Found</comment>
   </data>
   <data name="L_PAYMENTS" xml:space="preserve">
@@ -5578,7 +5578,7 @@ Fuzzy</comment>
     <comment>Payment Overview</comment>
   </data>
   <data name="L_POLICYSTAGE" xml:space="preserve">
-    <value>Etape de Police d&apos;assurance</value>
+    <value>Etape de Police d'assurance</value>
     <comment>Policy Stage</comment>
   </data>
   <data name="L_RECEIVEDAMOUNT" xml:space="preserve">
@@ -5605,7 +5605,7 @@ Fuzzy</comment>
     <comment>Matching Date From</comment>
   </data>
   <data name="L_MATCHINGDATETO" xml:space="preserve">
-    <value>Date - jusqu&apos;à</value>
+    <value>Date - jusqu'à</value>
     <comment>Matching Date To</comment>
   </data>
   <data name="L_PAYMENTDATEFROM" xml:space="preserve">
@@ -5613,7 +5613,7 @@ Fuzzy</comment>
     <comment>Payment Date From</comment>
   </data>
   <data name="L_PAYMENTDATETO" xml:space="preserve">
-    <value>Paiement Date jusqu&apos;à</value>
+    <value>Paiement Date jusqu'à</value>
     <comment>Payment Date To</comment>
   </data>
   <data name="L_PAYMENTORIGIN" xml:space="preserve">
@@ -5625,7 +5625,7 @@ Fuzzy</comment>
     <comment>Received Amount From</comment>
   </data>
   <data name="L_RECEIVEDAMOUNTTO" xml:space="preserve">
-    <value>Montant reçu jusqu&apos;à</value>
+    <value>Montant reçu jusqu'à</value>
     <comment>Received Amount To</comment>
   </data>
   <data name="L_RECEIVINGDATEFROM" xml:space="preserve">
@@ -5633,7 +5633,7 @@ Fuzzy</comment>
     <comment>Receiving Date From</comment>
   </data>
   <data name="L_RECEIVINGDATETO" xml:space="preserve">
-    <value>Reçu jusqu&apos;à</value>
+    <value>Reçu jusqu'à</value>
     <comment>Receiving Date To</comment>
   </data>
   <data name="L_TRANSACTIONNUMBER" xml:space="preserve">
@@ -5673,11 +5673,11 @@ Fuzzy</comment>
     <comment>Contribution Payment</comment>
   </data>
   <data name="L_ASSIGNMENTSTATUS" xml:space="preserve">
-    <value>Statut de l&apos;assignement</value>
+    <value>Statut de l'assignement</value>
     <comment>Assignment Status</comment>
   </data>
   <data name="L_POSTINGSTATUS" xml:space="preserve">
-    <value>Statut d&apos;envoi</value>
+    <value>Statut d'envoi</value>
     <comment>Posting Status</comment>
   </data>
   <data name="T_ASSIGNED" xml:space="preserve">
@@ -5744,8 +5744,7 @@ Fuzzy</comment>
     <value>Nouveau mot de passe</value>
   </data>
   <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
-    <value>Entrez votre nom d&apos;utilisateur et confirmez le nouveau mot de passe</value>
-    <comment>Enter username and confirm new password</comment>
+    <value>Enter username and confirm new password</value>
   </data>
   <data name="L_PASSWORDCHANGED" xml:space="preserve">
     <value>Mot de passe changé avec succès</value>
@@ -5761,7 +5760,7 @@ Fuzzy</comment>
 </value>
   </data>
   <data name="M_VALIDITYEXPIRED" xml:space="preserve">
-    <value>Il n&apos;y a pas de demande de réinitialisation de mot de passe pendant la période de validité de la demande.</value>
+    <value>Il n'y a pas de demande de réinitialisation de mot de passe pendant la période de validité de la demande.</value>
   </data>
   <data name="M_MUSTFILLPRODUCT" xml:space="preserve">
     <value>Veuillez entrer un produit</value>
@@ -5790,7 +5789,7 @@ Fuzzy</comment>
     <value>Rôles trouvés</value>
   </data>
   <data name="L_USERNAME" xml:space="preserve">
-    <value>Nom d&apos;utilisateur</value>
+    <value>Nom d'utilisateur</value>
     <comment>Login Name</comment>
   </data>
   <data name="G_CLAIMADMINISTRATORLOGIN" xml:space="preserve">
@@ -5800,7 +5799,7 @@ Fuzzy</comment>
     <value>Inclure les identifiants</value>
   </data>
   <data name="B_DELETELOGIN" xml:space="preserve">
-    <value>Supprimer l&apos;identifiant</value>
+    <value>Supprimer l'identifiant</value>
   </data>
   <data name="L_HASLOGIN" xml:space="preserve">
     <value>a un identifiant</value>
@@ -5824,7 +5823,7 @@ Fuzzy</comment>
     <value>Remboursement vérifié</value>
   </data>
   <data name="M_NOTDELETEASSOCIATEDROLM_NOTDELETEASSOCIATEDROLE" xml:space="preserve">
-    <value>Le rôle ne peut être supprimé tant qu&apos;il est utilisé par des utilisateurs</value>
+    <value>Le rôle ne peut être supprimé tant qu'il est utilisé par des utilisateurs</value>
   </data>
   <data name="M_DELETEUSERLOGIN" xml:space="preserve">
     <value>Etes vous sûr de vouloir supprimer cet identifiant?</value>
@@ -5863,7 +5862,7 @@ Fuzzy</comment>
     <value>Total Contribution prescrites</value>
   </data>
   <data name="L_CLAIMHISTORYREPORT" xml:space="preserve">
-    <value>Rapport d&apos;historique des remboursements</value>
+    <value>Rapport d'historique des remboursements</value>
   </data>
   <data name="L_SCOPE" xml:space="preserve">
     <value>Périmètre</value>
@@ -5881,13 +5880,13 @@ Fuzzy</comment>
     <value>Sél Périmètre</value>
   </data>
   <data name="T_CLAIMHISTORYREPORT" xml:space="preserve">
-    <value>Rapport d&apos;historique des remboursements</value>
+    <value>Rapport d'historique des remboursements</value>
   </data>
   <data name="L_INSURANCENUMBERNOTFOUND" xml:space="preserve">
-    <value>Numéro d&apos;assuré non trouvé</value>
+    <value>Numéro d'assuré non trouvé</value>
   </data>
   <data name="L_PLEASEENTERINSURANCENUMBER" xml:space="preserve">
-    <value>Veuillez entrer votre numéro d&apos;assuré</value>
+    <value>Veuillez entrer votre numéro d'assuré</value>
   </data>
   <data name="G_OFFICERLOGIN" xml:space="preserve">
     <value>Inclure les identifiants</value>
@@ -5917,7 +5916,7 @@ Fuzzy</comment>
     <value>Gestionnaire des remboursements</value>
   </data>
   <data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
-    <value>Rapport d&apos;historique des remboursements</value>
+    <value>Rapport d'historique des remboursements</value>
   </data>
   <data name="R_CLAIMOVERVIEW" xml:space="preserve">
     <value>Synthèse des remboursements</value>
@@ -5971,10 +5970,10 @@ Fuzzy</comment>
     <value>Recherche</value>
   </data>
   <data name="R_ENROLMENTOFFICER" xml:space="preserve">
-    <value>Agents d&apos;affiliation</value>
+    <value>Agents d'affiliation</value>
   </data>
   <data name="R_ENROLMENTPERFORMANCEI" xml:space="preserve">
-    <value>Indicateurs de rendement en matière d&apos;affiliation</value>
+    <value>Indicateurs de rendement en matière d'affiliation</value>
   </data>
   <data name="R_ENROLMENTS" xml:space="preserve">
     <value>Affiliation</value>
@@ -6127,7 +6126,7 @@ Fuzzy</comment>
     <value>Téléverser</value>
   </data>
   <data name="R_USERACTIVITYREPORT" xml:space="preserve">
-    <value>Rapport d&apos;activité utilisateur</value>
+    <value>Rapport d'activité utilisateur</value>
   </data>
   <data name="R_USERPROFILES" xml:space="preserve">
     <value>Rôles utilisateur</value>
@@ -6196,7 +6195,7 @@ Fuzzy</comment>
     <value>Contribution</value>
   </data>
   <data name="M_PREVIOUSCOMMISSIONREPORT" xml:space="preserve">
-    <value>La production du rapport du point de vue du passé peut entraîner une duplication de la demande d&apos;Aperçu des commissions. &lt;br/&gt; Voulez-vous continuer ?</value>
+    <value>La production du rapport du point de vue du passé peut entraîner une duplication de la demande d'Aperçu des commissions. &lt;br/&gt; Voulez-vous continuer ?</value>
   </data>
   <data name="L_ALTLANGUAGE" xml:space="preserve">
     <value>Langue alternative</value>
@@ -6205,34 +6204,34 @@ Fuzzy</comment>
     <value>Accepter</value>
   </data>
   <data name="T_DIAGNOSISCODENOTINTHECURRENTLIST" xml:space="preserve">
-    <value>le code du diagnostic n&apos;est pas dans la liste des diagnostics</value>
+    <value>le code du diagnostic n'est pas dans la liste des diagnostics</value>
   </data>
   <data name="T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD" xml:space="preserve">
-    <value>Produit médical/prestation ne peut pas être couvert(e) pendant la période d&apos;attente</value>
+    <value>Produit médical/prestation ne peut pas être couvert(e) pendant la période d'attente</value>
   </data>
   <data name="T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT" xml:space="preserve">
-    <value>Produit médical/prestation n&apos;est pas compatible avec le type de soin</value>
+    <value>Produit médical/prestation n'est pas compatible avec le type de soin</value>
   </data>
   <data name="T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY" xml:space="preserve">
-    <value>Produit médical/prestation n&apos;est pas compatible avec la fréquence</value>
+    <value>Produit médical/prestation n'est pas compatible avec la fréquence</value>
   </data>
   <data name="T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION" xml:space="preserve">
-    <value>Produit médical/prestation n&apos;est pas compatible avec le patients (limitation pour homme ou femme, adulte/enfant)</value>
+    <value>Produit médical/prestation n'est pas compatible avec le patients (limitation pour homme ou femme, adulte/enfant)</value>
   </data>
   <data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
     <value>Produit médical/prestation en double</value>
   </data>
   <data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
-    <value>Produit médical/prestation n&apos;est pas compatible avec la police du patient</value>
+    <value>Produit médical/prestation n'est pas compatible avec la police du patient</value>
   </data>
   <data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
-    <value>Produit médical/prestation n&apos;est pas dans la liste de prix de l&apos;établissement de santé</value>
+    <value>Produit médical/prestation n'est pas dans la liste de prix de l'établissement de santé</value>
   </data>
   <data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
-    <value>Produit médical/prestation n&apos;est pas connue (pas dans les registres de produit médical/prestation)</value>
+    <value>Produit médical/prestation n'est pas connue (pas dans les registres de produit médical/prestation)</value>
   </data>
   <data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
-    <value>N° d&apos;assuré invalide</value>
+    <value>N° d'assuré invalide</value>
   </data>
   <data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
     <value>Nombre maximum de visites anténatal dépassé</value>
@@ -6241,7 +6240,7 @@ Fuzzy</comment>
     <value>Nombre maximum de consultations dépassé</value>
   </data>
   <data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
-    <value> Nombre maximum d&apos;accouchement dépassé</value>
+    <value> Nombre maximum d'accouchement dépassé</value>
   </data>
   <data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
     <value> Nombre maximum de séjours hospitalier dépassé</value>
@@ -6253,7 +6252,7 @@ Fuzzy</comment>
     <value> Nombre maximum de visites provisions of item/service dépassé</value>
   </data>
   <data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
-    <value> Nombre maximum d&apos;opérations dépassé</value>
+    <value> Nombre maximum d'opérations dépassé</value>
   </data>
   <data name="T_NA" xml:space="preserve">
     <value>N/A</value>
@@ -6278,9 +6277,6 @@ Fuzzy</comment>
   <data name="T_NEWPOLICIES" xml:space="preserve">
     <value>Nouvelle police</value>
     <comment>New Policies</comment>
-  </data>
-  <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
-    <value>Enter username and confirm new password</value>
   </data>
   <data name="V_PASSWORD_PREFIX" xml:space="preserve">
     <value>Password must contain</value>

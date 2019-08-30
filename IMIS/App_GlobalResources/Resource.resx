@@ -1350,8 +1350,8 @@
   <data name="T_MAN" xml:space="preserve">
     <value>Man</value>
   </data>
-  <data name="T_MEDICALPROSTHESES" xml:space="preserve">
-    <value>Medical Prostheses</value>
+  <data name="T_MEDICALCONSUMABLE" xml:space="preserve">
+    <value>Medical consumable</value>
   </data>
   <data name="T_MOBILEPHONE" xml:space="preserve">
     <value>Mobile Phone</value>

@@ -143,7 +143,7 @@ lblDirty:   Dim chk As Integer = 0
         If itemtype = "D" Then
             rbDrug.Checked = True
         Else
-            rbMedicalProstheses.Checked = True
+            rbMedicalConsumable.Checked = True
         End If
 
     End Sub
@@ -152,7 +152,7 @@ lblDirty:   Dim chk As Integer = 0
         If rbDrug.Checked = True Then
             itemTypeValue = "D"
         End If
-        If rbMedicalProstheses.Checked = True Then
+        If rbMedicalConsumable.Checked = True Then
             itemTypeValue = "M"
         End If
         If String.IsNullOrEmpty(itemTypeValue) Then

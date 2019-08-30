@@ -22,10 +22,12 @@ sustained by you or third parties or a failure of the program to operate with an
 advised of the possibility of such damages.
 
 In case of dispute arising out or in relation to the use of the program, it is subject to the public law of Switzerland. The place of jurisdiction is Berne.--%>
-<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/IMIS.Master" CodeBehind="MedicalService.aspx.vb" Inherits="IMIS.MedicalService" 
-    title= '<%$ Resources:Resource,L_MEDICALSERVICES%>'  %>
-    <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
+
+<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/IMIS.Master" CodeBehind="MedicalService.aspx.vb" Inherits="IMIS.MedicalService"
+    Title='<%$ Resources:Resource,L_MEDICALSERVICES%>' %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
 
     <script type="text/javascript">
         var rbnPreventive = null;
@@ -37,35 +39,35 @@ In case of dispute arising out or in relation to the use of the program, it is s
         var chkBxWoman = null;
         var chkBxAdult = null;
         var chkBxChild = null;
-        
-       
-        function validateForm(){     
-           PatientSelected();
-           CareTypeSelected();
-           PatientSelected();
+
+
+        function validateForm() {
+            PatientSelected();
+            CareTypeSelected();
+            PatientSelected();
             TypeSelected();
         }
-        
-       
-        function TypeSelected(){
-        
+
+
+        function TypeSelected() {
+
             rbnPreventive = document.getElementById('<%=Me.rbPreventive.ClientID%>');
             rbnCurative = document.getElementById('<%=Me.rbCurative.ClientID%>');;
-                    
-            
-            if(rbnPreventive.checked == false && rbnCurative.checked == false){
-            //if (rbPreventive.checked == false && rbCurative.checked == false) {
-               errMsgType.innerHTML = "<asp:Literal runat='Server' Text='<%$ Resources:Resource,V_SELECTTYPE%>' />"; 
-               return false;
-            } 
-            else{
-               errMsgType.innerHTML = ""
-               return true;
-            } 
+
+
+            if (rbnPreventive.checked == false && rbnCurative.checked == false) {
+                //if (rbPreventive.checked == false && rbCurative.checked == false) {
+                errMsgType.innerHTML = "<asp:Literal runat='Server' Text='<%$ Resources:Resource,V_SELECTTYPE%>' />";
+                return false;
+            }
+            else {
+                errMsgType.innerHTML = ""
+                return true;
+            }
         }
-        
-                
-        function CareTypeSelected(){
+
+
+        function CareTypeSelected() {
             rbnOutPatient = document.getElementById('<%=Me.rbOutPatient.ClientID%>');
             rbInPatient = document.getElementById('<%=Me.rbInPatient.ClientID%>');
             rbnBoth = document.getElementById('<%=Me.rbBoth.ClientID%>');
@@ -75,259 +77,250 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 errMsgCareType.innerHTML = "<asp:Literal runat='Server' Text='<%$ Resources:Resource,V_SELECTCARETYPE%>' />";
                 return false;
             }
-            else{
-                 errMsgCareType.innerHTML = "";
-                 return true;
-            }               
+            else {
+                errMsgCareType.innerHTML = "";
+                return true;
+            }
         }
-        function PatientSelected(){
-                 
-                  chkBxMan = document.getElementById('<%=Me.chkMan.ClientID%>');
-                  chkBxWoman = document.getElementById('<%=Me.chkWoman.ClientID%>');
-                  chkBxAdult = document.getElementById('<%=Me.chkAdult.ClientID%>');
-                  chkBxChild = document.getElementById('<%=Me.chkChild.ClientID%>');
-                  
-            
-            if(chkBxMan.checked == false && chkBxWoman.checked == false && chkBxAdult.checked == false && chkBxChild.checked == false){
-            
+        function PatientSelected() {
+
+            chkBxMan = document.getElementById('<%=Me.chkMan.ClientID%>');
+            chkBxWoman = document.getElementById('<%=Me.chkWoman.ClientID%>');
+            chkBxAdult = document.getElementById('<%=Me.chkAdult.ClientID%>');
+            chkBxChild = document.getElementById('<%=Me.chkChild.ClientID%>');
+
+
+            if (chkBxMan.checked == false && chkBxWoman.checked == false && chkBxAdult.checked == false && chkBxChild.checked == false) {
+
                 errMsgPatient.innerHTML = "<asp:Literal runat='Server' Text='<%$ Resources:Resource,V_SELECTPATIENT%>' />";
                 return false;
             }
-            else{
+            else {
                 errMsgPatient.innerHTML = "";
-                 return true;
+                return true;
             }
         }
-    </script><div class="divBody" >  
-         <asp:Panel ID="Panel2" runat="server"  
-        CssClass="panel" GroupingText='<%$ Resources:Resource,G_MEDICALSERVICE %>'>
-                    <table class="style15">
-                    <tr>
-                        <td class="FormLabel">
-                            <asp:Label ID="L_Code" runat="server" Text='<%$ Resources:Resource,L_Code %>'></asp:Label>
-                        </td>
-                        <td class ="auto-style3">
-                            <asp:TextBox ID="txtCode" runat="server" width="150px" MaxLength="6"></asp:TextBox>
-                         <asp:RequiredFieldValidator 
-                        ID="RequiredFieldCode" runat="server" 
-                        ControlToValidate="txtCode" 
-                        SetFocusOnError="True" 
-                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                        Text="*"></asp:RequiredFieldValidator>
-                        </td>
-                        <td>
-                       
-                            </td>
-                    </tr>
-                        <tr>
-                            <td class="FormLabel">
-                                <asp:Label ID="L_ServName" runat="server" Text='<%$ Resources:Resource,L_NAME %>'></asp:Label>
-                            </td>
-                            <td class="auto-style4">
-                                <asp:TextBox ID="txtName" runat="server" width="150px" MaxLength="100"></asp:TextBox>
-                             <asp:RequiredFieldValidator 
-                                ID="RequiredFieldValidatorName" runat="server" 
-                                ControlToValidate="txtName" 
-                                SetFocusOnError="True" 
-                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                Text="*">
-                             </asp:RequiredFieldValidator>
-                            </td>
-                            <td>
-                           
-                                </td>
-                        </tr>
-                    <tr>
-                        <td class="FormLabel">
-                        <asp:Label 
-                        ID="L_ServType"
-                        runat="server" 
-                        Text='<%$ Resources:Resource,L_TYPE %>'></asp:Label>
-                        </td>
-             
-                        <td class ="auto-style3" id="chkType">
-                             <asp:RadioButton ID="rbPreventive" runat="server" Text='<%$ Resources:Resource,T_PREVENTIVE %>'
-                                GroupName="Type" />
-                            <asp:RadioButton ID="rbCurative" runat="server" Text='<%$ Resources:Resource,T_CURATIVE %>'
-                                GroupName="Type" />
-                            &nbsp
+    </script>
+    <div class="divBody">
+        <asp:Panel ID="Panel2" runat="server"
+            CssClass="panel" GroupingText='<%$ Resources:Resource,G_MEDICALSERVICE %>'>
+            <table class="style15">
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label ID="L_Code" runat="server" Text='<%$ Resources:Resource,L_Code %>'></asp:Label>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:TextBox ID="txtCode" runat="server" Width="150px" MaxLength="6"></asp:TextBox>
+                        <asp:RequiredFieldValidator
+                            ID="RequiredFieldCode" runat="server"
+                            ControlToValidate="txtCode"
+                            SetFocusOnError="True"
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                            Text="*"></asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label ID="L_ServName" runat="server" Text='<%$ Resources:Resource,L_NAME %>'></asp:Label>
+                    </td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="txtName" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
+                        <asp:RequiredFieldValidator
+                            ID="RequiredFieldValidatorName" runat="server"
+                            ControlToValidate="txtName"
+                            SetFocusOnError="True"
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                            Text="*">
+                        </asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label
+                            ID="L_ServType"
+                            runat="server"
+                            Text='<%$ Resources:Resource,L_TYPE %>'></asp:Label>
+                    </td>
+
+                    <td class="auto-style3" id="chkType">
+                        <asp:RadioButton ID="rbPreventive" runat="server" Text='<%$ Resources:Resource,T_PREVENTIVE %>'
+                            GroupName="Type" />
+                        <asp:RadioButton ID="rbCurative" runat="server" Text='<%$ Resources:Resource,T_CURATIVE %>'
+                            GroupName="Type" />
+                        &nbsp
                             
-                        </td>
-                        <td class="auto-style2"> 
-                            <span style="color: Red" id="errMsgType" />
-                      </td>
-                    </tr>
-                    <tr>
-                        <td class="FormLabel">
-                        <asp:Label 
-                        ID="Label1"
-                        runat="server" 
-                        Text='<%$ Resources:Resource,L_CATEGORY %>'></asp:Label>
-                        </td>
-                        <td class ="auto-style3">
-                            <asp:DropDownList ID="ddlCategory" runat="server">                                
-                            </asp:DropDownList>
-                             <%--<asp:RequiredFieldValidator 
+                    </td>
+                    <td class="auto-style2">
+                        <span style="color: Red" id="errMsgType" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label
+                            ID="Label1"
+                            runat="server"
+                            Text='<%$ Resources:Resource,L_CATEGORY %>'></asp:Label>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:DropDownList ID="ddlCategory" runat="server">
+                        </asp:DropDownList>
+                        <%--<asp:RequiredFieldValidator 
                                 ID="RequiredFieldValidator1" runat="server" 
                                 ControlToValidate="ddServiceLevel" 
                                 SetFocusOnError="True" 
                                 ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                 Text="*">
                              </asp:RequiredFieldValidator>--%>
-                        </td>
-                        <td>
-                       
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="FormLabel">
-                        <asp:Label 
-                        ID="L_Level"
-                        runat="server" 
-                        Text='<%$ Resources:Resource,L_LEVEL %>' style="direction: ltr"></asp:Label>
-                        </td>
-                        <td class ="auto-style3">
-                            <asp:DropDownList ID="ddServiceLevel" width="150px" runat="server">
-                            </asp:DropDownList>
-                        <asp:RequiredFieldValidator 
-                            ID="RequiredFieldValidatorLevel" runat="server" 
-                            ControlToValidate="ddServiceLevel" 
-                            SetFocusOnError="True" 
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label
+                            ID="L_Level"
+                            runat="server"
+                            Text='<%$ Resources:Resource,L_LEVEL %>' Style="direction: ltr"></asp:Label>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:DropDownList ID="ddServiceLevel" Width="150px" runat="server">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator
+                            ID="RequiredFieldValidatorLevel" runat="server"
+                            ControlToValidate="ddServiceLevel"
+                            SetFocusOnError="True"
                             ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                             Text="*">
                         </asp:RequiredFieldValidator>
-                        </td>
-                        <td>
-                       
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="FormLabel">
-                            <asp:Label ID="L_Price" runat="server" Text='<%$ Resources:Resource,L_PRICE %>'></asp:Label>
-                        </td>
-                       <td class ="auto-style3">
-                            <asp:TextBox ID="txtPrice" runat="server"  class="numbersOnly" style="text-align:right; "></asp:TextBox> <%--width="150px" padding-right:4px--%>
-                             <asp:RequiredFieldValidator 
-                                ID="RequiredFieldValidatorPrice" runat="server" 
-                                ControlToValidate="txtPrice" 
-                                SetFocusOnError="True" 
-                                ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                Text="*">
-                             </asp:RequiredFieldValidator>
-                             <%--<asp:MaskedEditExtender ID="txtPrice_MaskedEditExtender" runat="server" 
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label ID="L_Price" runat="server" Text='<%$ Resources:Resource,L_PRICE %>'></asp:Label>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:TextBox ID="txtPrice" runat="server" class="numbersOnly" Style="text-align: right;"></asp:TextBox>
+                        <%--width="150px" padding-right:4px--%>
+                        <asp:RequiredFieldValidator
+                            ID="RequiredFieldValidatorPrice" runat="server"
+                            ControlToValidate="txtPrice"
+                            SetFocusOnError="True"
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                            Text="*">
+                        </asp:RequiredFieldValidator>
+                        <%--<asp:MaskedEditExtender ID="txtPrice_MaskedEditExtender" runat="server" 
                                 CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="TZS" 
                                 CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="." 
                                 CultureThousandsPlaceholder="," CultureTimePlaceholder="" Enabled="True" 
                                 Mask="999,999,999.99" MaskType="Number" TargetControlID="txtPrice" 
                                 InputDirection="RightToLeft" PromptCharacter=" " >
                             </asp:MaskedEditExtender>--%>
-<%--                             <asp:CompareValidator ControlToValidate="txtPrice" ID="CompareValidator6"  runat="server" SetFocusOnError ="true"  Type="Currency"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>--%>
-                        </td>
-                          
-                        
-                        <td>
-                       
-                            </td>
-                    </tr>
-                   
-                        <tr>
-                            <td class="FormLabel">
-                                <asp:Label ID="L_CareType" runat="server" Text='<%$ Resources:Resource,L_CARETYPE %>'></asp:Label>
-                            </td>
-                           <td class="auto-style4" id="rbCareType">
-                                <asp:RadioButton ID="rbOutPatient" GroupName = "CareType"  runat="server" Text='<%$ Resources:Resource,L_OUTPATIENT %>' />
-                                <asp:RadioButton ID="rbInPatient" GroupName = "CareType" runat="server" Text='<%$ Resources:Resource,L_INPATIENT %>' />
-                                <asp:RadioButton ID="rbBoth" GroupName = "CareType" runat="server" Text='<%$ Resources:Resource,L_BOTH %>' />
-                                &nbsp
+                        <%--                             <asp:CompareValidator ControlToValidate="txtPrice" ID="CompareValidator6"  runat="server" SetFocusOnError ="true"  Type="Currency"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check"> </asp:CompareValidator>--%>
+                    </td>
+
+
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label ID="L_CareType" runat="server" Text='<%$ Resources:Resource,L_CARETYPE %>'></asp:Label>
+                    </td>
+                    <td class="auto-style4" id="rbCareType">
+                        <asp:RadioButton ID="rbOutPatient" GroupName="CareType" runat="server" Text='<%$ Resources:Resource,L_OUTPATIENT %>' />
+                        <asp:RadioButton ID="rbInPatient" GroupName="CareType" runat="server" Text='<%$ Resources:Resource,L_INPATIENT %>' />
+                        <asp:RadioButton ID="rbBoth" GroupName="CareType" runat="server" Text='<%$ Resources:Resource,L_BOTH %>' />
+                        &nbsp
                                
-                           </td>
-                            <td>                            
-                                <span style="color: Red" id="errMsgCareType" /> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="FormLabel">
-                                <asp:Label ID="L_Frequency" runat="server" Text='<%$ Resources:Resource,L_FREQUENCY %>'></asp:Label>
-                            </td>
-                            <td class="auto-style3">
-                                <asp:TextBox ID="txtFrequency" runat="server" class="numbersOnly" style="text-align:right; "></asp:TextBox> <%--width="150px" padding-right:4px--%>
-                              <asp:CompareValidator ControlToValidate="txtFrequency" ID="CompareValidator1"  runat="server" SetFocusOnError ="true"  Type="Integer"  Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup ="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
-                              <asp:RequiredFieldValidator 
-                                    ID="RequiredFieldValidatorFrequency" runat="server" 
-                                    ControlToValidate="txtFrequency" 
-                                    SetFocusOnError="True" 
-                                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                    Text="*">
-                                 </asp:RequiredFieldValidator>
-                            </td>
-                            <td>
-                          
-                                </td>
-                        </tr>
-                        <tr>
-                            <td class="FormLabel" valign="middle">
-                                <asp:Label ID="L_Patient" runat="server" Text='<%$ Resources:Resource,L_PATIENT %>'></asp:Label>
-                            </td>
-                            <td class="auto-style4" id="chkPatient">
-                                 <asp:CheckBox ID="chkMan" runat="server" Text=  '<%$ Resources:Resource,T_MAN %>' />
-                                <asp:CheckBox ID="chkWoman" runat="server" Text= '<%$ Resources:Resource,T_WOMAN %>' />
-                                <asp:CheckBox ID="chkAdult" runat="server" Text= '<%$ Resources:Resource,T_ADULT %>' />
-                                <asp:CheckBox ID="chkChild" runat="server" Text= '<%$ Resources:Resource,T_CHILD %>' />
-                                &nbsp
+                    </td>
+                    <td>
+                        <span style="color: Red" id="errMsgCareType" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label ID="L_Frequency" runat="server" Text='<%$ Resources:Resource,L_FREQUENCY %>'></asp:Label>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:TextBox ID="txtFrequency" runat="server" class="numbersOnly" Style="text-align: right;"></asp:TextBox>
+                        <%--width="150px" padding-right:4px--%>
+                        <asp:CompareValidator ControlToValidate="txtFrequency" ID="CompareValidator1" runat="server" SetFocusOnError="true" Type="Integer" Operator="DataTypeCheck" ErrorMessage="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"> </asp:CompareValidator>
+                        <asp:RequiredFieldValidator
+                            ID="RequiredFieldValidatorFrequency" runat="server"
+                            ControlToValidate="txtFrequency"
+                            SetFocusOnError="True"
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                            Text="*">
+                        </asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="FormLabel" valign="middle">
+                        <asp:Label ID="L_Patient" runat="server" Text='<%$ Resources:Resource,L_PATIENT %>'></asp:Label>
+                    </td>
+                    <td class="auto-style4" id="chkPatient">
+                        <asp:CheckBox ID="chkMan" runat="server" Text='<%$ Resources:Resource,T_MAN %>' />
+                        <asp:CheckBox ID="chkWoman" runat="server" Text='<%$ Resources:Resource,T_WOMAN %>' />
+                        <asp:CheckBox ID="chkAdult" runat="server" Text='<%$ Resources:Resource,T_ADULT %>' />
+                        <asp:CheckBox ID="chkChild" runat="server" Text='<%$ Resources:Resource,T_CHILD %>' />
+                        &nbsp
                                 
-                            </td>
-                                <td>                                
-                                    <span style="color: Red" id="errMsgPatient" />
-                                </td>
-                        </tr>
-                        
-                </table>            
-         </asp:Panel> 
-         </div>
-         <asp:Panel ID="pnlButtons" runat="server"  CssClass="panelbuttons" >
-                <table width="100%" cellpadding="10 10 10 10">
-                 <tr>
-                        
-                         <td align="left" >
-                        
-                               <asp:Button 
-                            
-                            ID="B_SAVE" 
-                            runat="server" 
-                            Text='<%$ Resources:Resource,B_SAVE%>'
-                            ValidationGroup="check" OnClientClick="validateForm();" />
-                        </td>
-                        
-                        
-                        <td  align="right">
-                       <asp:Button 
-                            
-                            ID="B_CANCEL" 
-                            runat="server" 
-                            Text='<%$ Resources:Resource,B_CANCEL%>'
-                              />
-                        </td>
-                        
-                    </tr>
-                </table>             
-         </asp:Panel>  
-         <asp:HiddenField ID="hfMS" runat="server" />  
+                    </td>
+                    <td>
+                        <span style="color: Red" id="errMsgPatient" />
+                    </td>
+                </tr>
+
+            </table>
+        </asp:Panel>
+    </div>
+    <asp:Panel ID="pnlButtons" runat="server" CssClass="panelbuttons">
+        <table width="100%" cellpadding="10 10 10 10">
+            <tr>
+
+                <td align="left">
+
+                    <asp:Button
+                        ID="B_SAVE"
+                        runat="server"
+                        Text='<%$ Resources:Resource,B_SAVE%>'
+                        ValidationGroup="check" OnClientClick="validateForm();" />
+                </td>
+
+
+                <td align="right">
+                    <asp:Button
+                        ID="B_CANCEL"
+                        runat="server"
+                        Text='<%$ Resources:Resource,B_CANCEL%>' />
+                </td>
+
+            </tr>
+        </table>
+    </asp:Panel>
+    <asp:HiddenField ID="hfMS" runat="server" />
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="Footer" Runat="Server">
-    <asp:Label text="" runat="server" ID="lblMsg"> </asp:Label>
+<asp:Content ID="Content3" ContentPlaceHolderID="Footer" runat="Server">
+    <asp:Label Text="" runat="server" ID="lblMsg"> </asp:Label>
     <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText='<%$ Resources:Resource,V_SUMMARY%>' ValidationGroup="check" />
 </asp:Content>
-<asp:Content ID="Content4" runat="server" contentplaceholderid="head">
+<asp:Content ID="Content4" runat="server" ContentPlaceHolderID="head">
     <style type="text/css">
         .auto-style2 {
             height: 27px;
         }
+
         .auto-style3 {
-            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/;
+            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/
+            ;
             height: 27px;
             direction: ltr;
             width: 218px;
         }
+
         .auto-style4 {
             width: 218px;
         }

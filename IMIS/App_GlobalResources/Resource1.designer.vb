@@ -12279,11 +12279,11 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Prostheses.
+        '''  Looks up a localized string similar to Medical consumable.
         '''</summary>
-        Friend Shared ReadOnly Property T_MEDICALPROSTHESES() As String
+        Friend Shared ReadOnly Property T_MEDICALCONSUMABLE() As String
             Get
-                Return ResourceManager.GetString("T_MEDICALPROSTHESES", resourceCulture)
+                Return ResourceManager.GetString("T_MEDICALCONSUMABLE", resourceCulture)
             End Get
         End Property
         
