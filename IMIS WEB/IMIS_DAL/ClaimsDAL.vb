@@ -208,8 +208,8 @@ Public Class ClaimsDAL
                            & ",[Valuated],[DateClaimed],[DateProcessed],[Feedback],[FeedbackID],[Explanation],[FeedbackStatus],[ReviewStatus],[ApprovalStatus]," _
                            & "[RejectionReason],[ValidityFrom],getdate(),[ClaimID],[AuditUserID],[RunID],[ClaimAdminId],[ICDID1],[ICDID2],[ICDID3],[ICDID4],[VisitType],GuaranteeId FROM tblClaim WHERE ClaimID=@ClaimID;" _
                            & " UPDATE [tblClaim] SET [ClaimCode]= @ClaimCode,[InsureeId]= @InsureeId,[ICDID]= @ICDId,[DateFrom]= @DateFrom,[DateTo]= @DateTo,[DateClaimed]= @DateClaimed,[Explanation]= @Explanation," _
-                           & "[Claimed] = @Claimed,[ValidityFrom] = Getdate(),[AuditUserID] = @AuditUserID,ClaimAdminID = @ClaimAdminID " & _
-                           " ,ICDID1 = @ICDID1,ICDID2 = @ICDID2,ICDID3 = @ICDID3,ICDID4 = @ICDID4,VisitType = @VisitType,GuaranteeId = @GuaranteeId " & _
+                           & "[Claimed] = @Claimed,[ValidityFrom] = Getdate(),[AuditUserID] = @AuditUserID,[ClaimStatus]=@ClaimStatus,ClaimAdminID = @ClaimAdminID " &
+                           " ,ICDID1 = @ICDID1,ICDID2 = @ICDID2,ICDID3 = @ICDID3,ICDID4 = @ICDID4,VisitType = @VisitType,GuaranteeId = @GuaranteeId " &
                            " WHERE claimID = @claimID", CommandType.Text)
 
         data.params("@claimID", SqlDbType.Int, eClaim.ClaimID)
@@ -229,6 +229,7 @@ Public Class ClaimsDAL
         data.params("@ICDID4", SqlDbType.Int, eClaim.ICDID4)
         data.params("@VisitType", SqlDbType.Char, 1, eClaim.VisitType)
         data.params("@GuaranteeId", SqlDbType.NVarChar, 50, eClaim.GuaranteeId)
+        data.params("@ClaimStatus", SqlDbType.TinyInt, eClaim.ClaimStatus)
 
         data.ExecuteCommand()
     End Sub

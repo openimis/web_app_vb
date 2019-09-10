@@ -135,30 +135,18 @@ Public Class UsersDAL
         sSQL += " (SELECT DISTINCT UD.Userid FROM tblUsersDistricts AD"
         sSQL += "  INNER Join tblUsersDistricts UD ON UD.LocationId = AD.LocationId And AD.ValidityTo Is NULL And UD.ValidityTo Is NULL"
         sSQL += "  WHERE AD.UserID =@AuthorityID AND (AD.LocationID = @DistrictID Or @DistrictID =0)"
+        'Below was a self join of tblLocation on LocationID, changed by Salumu on the 7th Aug 2019, joined with tblRegion
         If eUser.tblLocations.RegionId > 0 And eUser.tblLocations.DistrictId = 0 Then
             sSQL += " AND  UD.LocationId IN (SELECT DI.LocationID FROM tblLocations DI
-   INNER JOIN tbllocations RE ON RE.LocationId = DI.ParentLocationId AND RE.ValidityTo IS NULL
-   WHERE RE.LocationID = 1 AND DI.ValidityTo IS NULL)"
+   INNER JOIN tblRegions RE ON RE.RegionId = DI.ParentLocationId AND RE.ValidityTo IS NULL
+   WHERE RE.RegionId = @RegionId AND DI.ValidityTo IS NULL)"
         End If
         sSQL += ")"
         If eUser.RoleID > 0 Then
             sSQL += " AND U.UserID IN (SELECT UserID FROM tblUserRole WHERE RoleID =@RoleID AND ValidityTo Is NULL)"
         End If
         sSQL += " AND (UserID <> CASE WHEN @AuthorityID = @AdminUser THEN 0 ELSE @AdminUser END)"
-        ''Dim strsql As String = "Select distinct tblusers.* from tblUsers inner join tblUsersDistricts On  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID And tblUsersDistricts.ValidityTo Is null inner join (Select LocationId from tblUsersDistricts where UserID = @userId And ValidityTo Is null) userDistricts On userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName Like @LastName And OtherNames Like @OtherNames And LoginName Like @LoginName And Case When @RoleID = 0 Then 0 Else RoleID & @RoleId End = @RoleID And  Case When @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
-        'sSQL = "  DECLARE @RegionIds AS TABLE(RegionId int)"
-        'sSQL += " INSERT INTO @RegionIds SELECT DISTINCT L.ParentLocationId FROM tblLocations L INNER JOIN tblUsersDistricts UD ON L.LocationId = UD.LocationId WHERE UD.UserID = @AuthorityID"
-        'sSQL += " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,"
-        'sSQL += "  U.EmailId, IsAssociated"
-        'sSQL += " FROM tblUsers U"
-        'sSQL += " INNER JOIN tblUsersDistricts UD ON UD.UserId = U.UserId"
-        'sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(UD.LocationId, 0)"
-        '' sSQL += " WHERE (L.Regionid = @RegionId OR @RegionId = 0 OR L.LocationId = 0)"
-        ''sSQL += " AND (L.DistrictId = @DistrictId OR @DistrictId = 0 OR L.DistrictId IS NULL)"
-        'sSQL += " INNER JOIN @RegionIds RID ON RID.RegionId = L.ParentLocationId"
 
-        'sSQL += " WHERE UD.LocationID IN (SELECT LocationID FROM tblUsersDistricts WHERE UserID =@AuthorityID AND UD.ValidityTo IS NULL)"
-        'sSQL += " AND UD.ValidityTo IS NULL"
         sSQL += " AND U.LastName LIKE @lastName"
         sSQL += " AND U.OtherNames LIKE @OtherNames"
         sSQL += " AND U.LoginName LIKE @LoginName"
@@ -172,9 +160,7 @@ Public Class UsersDAL
             sSQL += " AND U.ValidityTo is null"
         End If
 
-        'sSQL += " GROUP BY U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId,"
-        'sSQL += " U.AuditUserId, U.DummyPwd, U.EmailId, IsAssociated"
-        'sSQL += " ORDER BY U.LoginName, U.ValidityFrom DESC"
+
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, eUser.AuditUserID)
@@ -192,6 +178,76 @@ Public Class UsersDAL
         data.params("@AuthorityID", SqlDbType.Int, Authority)
         Return data.Filldata
     End Function
+    ' Public Function GetUsers(ByVal eUser As IMIS_EN.tblUsers, ByVal All As Boolean, ByVal LocationId As Integer, Authority As Integer) As DataTable
+    '     Dim data As New ExactSQL
+    '     Dim sSQL As String = ""
+    '     If eUser.tblLocations.RegionId > 0 Then
+
+    '     End If
+    '     sSQL += "DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
+    '     sSQL += "   Select U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,  U.EmailId, IsAssociated"
+    '     sSQL += "  From tblUsers U"
+    '     sSQL += "  Where U.UserID In"
+    '     sSQL += " (SELECT DISTINCT UD.Userid FROM tblUsersDistricts AD"
+    '     sSQL += "  INNER Join tblUsersDistricts UD ON UD.LocationId = AD.LocationId And AD.ValidityTo Is NULL And UD.ValidityTo Is NULL"
+    '     sSQL += "  WHERE AD.UserID =@AuthorityID AND (AD.LocationID = @DistrictID Or @DistrictID =0)"
+    '     If eUser.tblLocations.RegionId > 0 And eUser.tblLocations.DistrictId = 0 Then
+    '         sSQL += " AND  UD.LocationId IN (SELECT DI.LocationID FROM tblLocations DI
+    'INNER JOIN tbllocations RE ON RE.LocationId = DI.ParentLocationId AND RE.ValidityTo IS NULL
+    'WHERE RE.LocationID = 1 AND DI.ValidityTo IS NULL)"
+    '     End If
+    '     sSQL += ")"
+    '     If eUser.RoleID > 0 Then
+    '         sSQL += " AND U.UserID IN (SELECT UserID FROM tblUserRole WHERE RoleID =@RoleID AND ValidityTo Is NULL)"
+    '     End If
+    '     sSQL += " AND (UserID <> CASE WHEN @AuthorityID = @AdminUser THEN 0 ELSE @AdminUser END)"
+    '     ''Dim strsql As String = "Select distinct tblusers.* from tblUsers inner join tblUsersDistricts On  ISNULL(tblUsers.LegacyID,tblUsers.UserID) = tblUsersDistricts.UserID And tblUsersDistricts.ValidityTo Is null inner join (Select LocationId from tblUsersDistricts where UserID = @userId And ValidityTo Is null) userDistricts On userdistricts.LocationId = tblUsersDistricts.LocationId WHERE LastName Like @LastName And OtherNames Like @OtherNames And LoginName Like @LoginName And Case When @RoleID = 0 Then 0 Else RoleID & @RoleId End = @RoleID And  Case When @LanguageID = '-1' THEN '-1' ELSE LanguageID END = @LanguageID AND isnull(Phone,'')  like @Phone  AND ISNULL(EmailId,'') LIKE @EmailId"
+    '     'sSQL = "  DECLARE @RegionIds AS TABLE(RegionId int)"
+    '     'sSQL += " INSERT INTO @RegionIds SELECT DISTINCT L.ParentLocationId FROM tblLocations L INNER JOIN tblUsersDistricts UD ON L.LocationId = UD.LocationId WHERE UD.UserID = @AuthorityID"
+    '     'sSQL += " SELECT U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId, U.AuditUserId,"
+    '     'sSQL += "  U.EmailId, IsAssociated"
+    '     'sSQL += " FROM tblUsers U"
+    '     'sSQL += " INNER JOIN tblUsersDistricts UD ON UD.UserId = U.UserId"
+    '     'sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(UD.LocationId, 0)"
+    '     '' sSQL += " WHERE (L.Regionid = @RegionId OR @RegionId = 0 OR L.LocationId = 0)"
+    '     ''sSQL += " AND (L.DistrictId = @DistrictId OR @DistrictId = 0 OR L.DistrictId IS NULL)"
+    '     'sSQL += " INNER JOIN @RegionIds RID ON RID.RegionId = L.ParentLocationId"
+
+    '     'sSQL += " WHERE UD.LocationID IN (SELECT LocationID FROM tblUsersDistricts WHERE UserID =@AuthorityID AND UD.ValidityTo IS NULL)"
+    '     'sSQL += " AND UD.ValidityTo IS NULL"
+    '     sSQL += " AND U.LastName LIKE @lastName"
+    '     sSQL += " AND U.OtherNames LIKE @OtherNames"
+    '     sSQL += " AND U.LoginName LIKE @LoginName"
+    '     ' sSQL += " AND (U.RoleID & @RoleId = @RoleId OR @RoleId = 0)"
+    '     sSQL += " AND (U.LanguageID = @languageId OR @languageId = '-1')"
+    '     sSQL += " AND ISNULL(U.Phone, '') LIKE @Phone"
+    '     sSQL += " AND ISNULL(U.EmailId, '') LIKE @EmailId"
+    '     sSQL += " AND (U.HFID = @HFID OR @HFID = 0)"
+
+    '     If All = False Then
+    '         sSQL += " AND U.ValidityTo is null"
+    '     End If
+
+    '     'sSQL += " GROUP BY U.UserId, U.LanguageID, U.LastName, U.OtherNames, U.Phone, U.LoginName, U.RoleId, U.HFID, U.ValidityFrom, U.ValidityTo, U.LegacyId,"
+    '     'sSQL += " U.AuditUserId, U.DummyPwd, U.EmailId, IsAssociated"
+    '     'sSQL += " ORDER BY U.LoginName, U.ValidityFrom DESC"
+
+    '     data.setSQLCommand(sSQL, CommandType.Text)
+    '     data.params("@UserId", SqlDbType.Int, eUser.AuditUserID)
+    '     data.params("@LocationId", SqlDbType.Int, LocationId)
+    '     data.params("@LastName", SqlDbType.NVarChar, 100, eUser.LastName)
+    '     data.params("@OtherNames", SqlDbType.NVarChar, 100, eUser.OtherNames)
+    '     data.params("@Phone", SqlDbType.NVarChar, 50, eUser.Phone)
+    '     data.params("@RoleID", SqlDbType.Int, eUser.RoleID)
+    '     data.params("@LoginName", SqlDbType.NVarChar, 100, eUser.LoginName)
+    '     data.params("@LanguageID", SqlDbType.NVarChar, 2, eUser.LanguageID)
+    '     data.params("@RegionId", SqlDbType.Int, eUser.tblLocations.RegionId)
+    '     data.params("@DistrictId", SqlDbType.Int, eUser.tblLocations.DistrictId)
+    '     data.params("@HFID", SqlDbType.Int, If(eUser.HFID Is Nothing, 0, eUser.HFID))
+    '     data.params("@EmailId", SqlDbType.NVarChar, 200, eUser.EmailId)
+    '     data.params("@AuthorityID", SqlDbType.Int, Authority)
+    '     Return data.Filldata
+    ' End Function
 
     Public Function CheckIfUserExists(ByVal eUser As IMIS_EN.tblUsers) As DataTable
         Dim data As New ExactSQL
@@ -405,4 +461,69 @@ Public Class UsersDAL
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
         data.ExecuteCommand()
     End Sub
+    Function GetUserDistricts(ByVal CurrentUserID As Integer, ByVal SelectedUserID As Integer) As DataSet
+        Dim data As New ExactSQL
+        Dim ds As New DataSet
+        Dim sSQL1 As String = ""
+        Dim dtCurrentUserDistricts As New DataTable("CurrentUserDistricts")
+        Dim dtSelectedUserDistricts As New DataTable("SelectedUserDistricts")
+
+        Dim dtCurrentUserRegions As New DataTable("CurrentUserRegions")
+        Dim dtSelectedUserRegions As New DataTable("SelectedUserRegions")
+
+        'Returning District(s) for Current user
+        sSQL1 = " SELECT DISTINCT D.DistrictId, d.DistrictName FROM  tblUsers  U"
+        sSQL1 += " INNER JOIN tblUsersDistricts UD ON UD.UserID = U.UserID AND UD.ValidityTo IS NULL AND U.ValidityTo IS NULL"
+        sSQL1 += " INNER JOIN tblDistricts D ON D.DistrictId = UD.LocationId AND D.ValidityTo IS NULL"
+
+        sSQL1 += " WHERE U.UserID = @CurrentUserID"
+        data.setSQLCommand(sSQL1, CommandType.Text)
+        data.params("@CurrentUserID", SqlDbType.Int, CurrentUserID)
+        dtCurrentUserDistricts = data.Filldata()
+        dtCurrentUserDistricts.TableName = "CurrentUserDistricts"
+
+        'Returning District(s) for Selected user
+        Dim sSQL2 As String = ""
+        sSQL2 = " SELECT DISTINCT  D.DistrictId, d.DistrictName FROM  tblUsers  U"
+        sSQL2 += " INNER JOIN tblUsersDistricts UD ON UD.UserID = U.UserID AND UD.ValidityTo IS NULL AND U.ValidityTo IS NULL"
+        sSQL2 += " INNER JOIN tblDistricts D ON D.DistrictId = UD.LocationId AND D.ValidityTo IS NULL"
+
+        sSQL2 += " WHERE U.UserID = @SelectedUserID"
+        data.setSQLCommand(sSQL2, CommandType.Text)
+        data.params("@SelectedUserID", SqlDbType.Int, SelectedUserID)
+        dtSelectedUserDistricts = data.Filldata()
+        dtSelectedUserDistricts.TableName = "SelectedUserDistricts"
+
+        'Region(s) for Current user
+        Dim sSQL3 As String = ""
+        sSQL3 = " SELECT DISTINCT  R.LocationName, R.LocationType FROM  tblUsers  U"
+        sSQL3 += " INNER JOIN tblUsersDistricts UD ON UD.UserID = U.UserID AND UD.ValidityTo IS NULL AND U.ValidityTo IS NULL"
+        sSQL3 += " INNER JOIN tblDistricts D ON D.DistrictId = UD.LocationId AND D.ValidityTo IS NULL"
+        sSQL3 += " INNER JOIN tblLocations R ON R.LocationId = D.Region AND R.ValidityTo IS NULL"
+        sSQL3 += " WHERE U.UserID = @CurrentUserID"
+
+        data.setSQLCommand(sSQL3, CommandType.Text)
+        data.params("@CurrentUserID", SqlDbType.Int, CurrentUserID)
+        dtCurrentUserRegions = data.Filldata()
+        dtCurrentUserRegions.TableName = "CurrentUserRegions"
+        'Region for Selected user
+        Dim sSQL4 As String = ""
+        sSQL4 = " SELECT DISTINCT  R.LocationName, R.LocationType FROM  tblUsers  U"
+        sSQL4 += " INNER JOIN tblUsersDistricts UD ON UD.UserID = U.UserID AND UD.ValidityTo IS NULL AND U.ValidityTo IS NULL"
+        sSQL4 += " INNER JOIN tblDistricts D ON D.DistrictId = UD.LocationId AND D.ValidityTo IS NULL"
+        sSQL4 += " INNER JOIN tblLocations R ON R.LocationId = D.Region AND R.ValidityTo IS NULL"
+        sSQL4 += " WHERE U.UserID = @SelectedUserID"
+
+        data.setSQLCommand(sSQL4, CommandType.Text)
+        data.params("@SelectedUserID", SqlDbType.Int, SelectedUserID)
+        dtSelectedUserRegions = data.Filldata()
+        dtSelectedUserRegions.TableName = "SelectedUserRegions"
+
+
+        ds.Tables.Add(dtCurrentUserDistricts)
+        ds.Tables.Add(dtSelectedUserDistricts)
+        ds.Tables.Add(dtSelectedUserRegions)
+        ds.Tables.Add(dtCurrentUserRegions)
+        Return ds
+    End Function
 End Class

@@ -88,11 +88,36 @@ Partial Public Class ProcessRelIndex
         PreviewControls.Add("ddlHF", ddlHF.SelectedValue)
         PreviewControls.Add("ddlHFLevel", ddlHFLevel.SelectedValue)
         PreviewControls.Add("ddlBatchAAC", ddlBatchAAC.SelectedValue)
-        PreviewControls.Add("txtSTARTData", txtSTARTData.Text)
-        PreviewControls.Add("txtENDData", txtENDData.Text)
+        'Commented by Salumu on 14 Aug 2019
+        'PreviewControls.Add("txtSTARTData", txtSTARTData.Text)
+        ' PreviewControls.Add("txtENDData", txtENDData.Text)
         PreviewControls.Add("chkClaims", chkClaims.Checked)
 
     End Sub
+    'Private Sub RegisterControlsForCaching()
+    '    ProcessControls.Add("ddlDistrictsBatch", ddlDistrictsBatch.SelectedValue)
+    '    ProcessControls.Add("ddlMonthProcess", ddlMonthProcess.SelectedValue)
+    '    ProcessControls.Add("ddlYearProcess", ddlYearProcess.SelectedValue)
+
+    '    FilterControls.Add("ddlPeriod", ddlPeriod.SelectedValue)
+    '    FilterControls.Add("ddlYearFilter", ddlYearFilter.SelectedValue)
+    '    FilterControls.Add("ddlMonthFilter", ddlMonthFilter.SelectedValue)
+    '    FilterControls.Add("ddlDistrictFilter", ddlDistrictFilter.SelectedValue)
+    '    FilterControls.Add("ddlProductFilter", ddlProductFilter.SelectedValue)
+    '    FilterControls.Add("ddlHFLevelFilter", ddlHFLevelFilter.SelectedValue)
+
+    '    PreviewControls.Add("rbHF", rbHF.Checked.ToString())
+    '    PreviewControls.Add("rbProduct", rbProduct.Checked.ToString())
+    '    PreviewControls.Add("ddlDistrictACC", ddlDistrictACC.SelectedValue)
+    '    PreviewControls.Add("ddlProductAAC", ddlProductAAC.SelectedValue)
+    '    PreviewControls.Add("ddlHF", ddlHF.SelectedValue)
+    '    PreviewControls.Add("ddlHFLevel", ddlHFLevel.SelectedValue)
+    '    PreviewControls.Add("ddlBatchAAC", ddlBatchAAC.SelectedValue)
+    '    PreviewControls.Add("txtSTARTData", txtSTARTData.Text)
+    '    PreviewControls.Add("txtENDData", txtENDData.Text)
+    '    PreviewControls.Add("chkClaims", chkClaims.Checked)
+
+    'End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Request.Form("__EVENTTARGET") = btnProcess.ClientID Then
             btnProcess_Click(sender, New System.EventArgs)

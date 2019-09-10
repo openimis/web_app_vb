@@ -28,19 +28,39 @@
 
 Public Class RoleRightDAL
 
+    'Public Function GetRoleRights(RoleID As Integer) As DataSet
+
+    '    Dim sSQL As String = String.Empty
+    '    Dim data As New ExactSQL
+    '    sSQL = "SELECT RoleId,RoleName,isSystem,isBlocked,AltLanguage,ValidityTo From tblRole WHERE RoleID = @RoleID"
+    '    sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
+    '    sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 10"
+    '    sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
+    '    sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 11"
+    '    sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
+    '    sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 12"
+    '    sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
+    '    sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) > 12"
+
+
+    '    data.setSQLCommand(sSQL, CommandType.Text)
+    '    data.params("@RoleID", SqlDbType.Int, RoleID)
+    '    Return data.FilldataSet
+
+    'End Function
     Public Function GetRoleRights(RoleID As Integer) As DataSet
 
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
         sSQL = "SELECT RoleId,RoleName,isSystem,isBlocked,AltLanguage,ValidityTo From tblRole WHERE RoleID = @RoleID"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 10"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 10 AND ValidityTo IS NULL"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 11"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 11 AND ValidityTo IS NULL"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 12"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 12 AND ValidityTo IS NULL"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) > 12"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) > 12 AND ValidityTo IS NULL"
 
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -53,7 +73,7 @@ Public Class RoleRightDAL
         Dim data As New ExactSQL
 
         sSQL = "INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
-        sSQL += " SELECT [RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[RoleRightID] from tblRoleRight"
+        sSQL += " SELECT [RoleID],[RightID],[ValidityFrom],GETDATE(),[AuditUserId],[RoleRightID] from tblRoleRight"
         sSQL += " WHERE RoleID = @RoleID AND RightID NOT IN (SELECT ID from @Rights) AND ValidityTo IS NULL"
 
         sSQL += " UPDATE tblRoleRight set ValidityTo = GETDATE(),AuditUserId =@AuditUserID"
@@ -71,6 +91,29 @@ Public Class RoleRightDAL
         data.params("@Rights", dtRights, "xAttribute")
         Return data.Filldata
     End Function
+    'Public Function SaveRights(dtRights As DataTable, eRole As IMIS_EN.tblRole)
+    '    Dim sSQL As String = String.Empty
+    '    Dim data As New ExactSQL
+
+    '    sSQL = "INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
+    '    sSQL += " SELECT [RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[RoleRightID] from tblRoleRight"
+    '    sSQL += " WHERE RoleID = @RoleID AND RightID NOT IN (SELECT ID from @Rights) AND ValidityTo IS NULL"
+
+    '    sSQL += " UPDATE tblRoleRight set ValidityTo = GETDATE(),AuditUserId =@AuditUserID"
+    '    sSQL += " WHERE RoleID = @RoleID AND RightID NOT IN (SELECT ID from @Rights) AND ValidityTo IS NULL"
+
+    '    sSQL += " INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[AuditUserId])"
+    '    sSQL += " SELECT @RoleID,ID,GETDATE(),@AuditUserID FROM @Rights"
+    '    sSQL += " WHERE ID NOT IN (SELECT RightID from tblRoleRight WHERE RoleID = @RoleID  AND ValidityTo IS NULL)"
+
+
+
+    '    data.setSQLCommand(sSQL, CommandType.Text)
+    '    data.params("@RoleID", SqlDbType.Int, eRole.RoleID)
+    '    data.params("@AuditUserID", SqlDbType.Int, eRole.AuditUserID)
+    '    data.params("@Rights", dtRights, "xAttribute")
+    '    Return data.Filldata
+    'End Function
     Public Function GetRoleRight(ByRef eRoleRight As IMIS_EN.tblRoleRight) As Datatable
 
 Dim sSQL As String = String.Empty

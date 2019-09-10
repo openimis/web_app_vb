@@ -37,6 +37,7 @@ Partial Public Class Claim
     Private eClaimAdmin As New IMIS_EN.tblClaimAdmin
     Private userBI As New IMIS_BI.UserBI
     Protected canClearRow As Boolean = True
+    Protected RestoreMode As Boolean = True
 
     Private Sub FormatForm()
 
@@ -258,6 +259,7 @@ Partial Public Class Claim
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Claim, Page) Then
             B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimAdd, UserID)
             btnPrint.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimPrint, UserID)
+            btnRestore.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimRestore, UserID)    'RFC 111 06/09/2019
 
             If Not B_SAVE.Visible Then
                 pnlBodyCLM.Attributes.Add("Class", "disabled")
@@ -533,16 +535,25 @@ Partial Public Class Claim
                 End If
 
                 If Not eClaim.ClaimID = 0 Then
-                    If claim.IsClaimStatusChanged(eClaim) Then
-                        lblMsg.Text = imisgen.getMessage("M_CLAIMSTATUSCHANGEDFROMENTERED")
-                        Return
+                    'Added by Salumu 05092019 
+                    'Starts
+                    If CInt(Session("RestoreMode")) = True Then
+
+                        eClaim.ClaimStatus = 2
+                        eClaim.ClaimCode = txtCLAIMCODEData.Text
+                        'Ends
+                    Else
+                        If claim.IsClaimStatusChanged(eClaim) Then
+                            lblMsg.Text = imisgen.getMessage("M_CLAIMSTATUSCHANGEDFROMENTERED")
+                            Return
+                        End If
                     End If
                 End If
 
                 eClaim.AuditUserID = imisgen.getUserId(Session("User"))
                 Dim CLMTotalValueFlag As Boolean
 
-                If eClaim.ClaimID = 0 Or IsClaimChanged(CLMTotalValueFlag) = True Or CLMTotalValueFlag = True Then
+                If eClaim.ClaimID = 0 Or IsClaimChanged(CLMTotalValueFlag) = True Or CLMTotalValueFlag = True Or Session("RestoreMode") = True Then
                     If CLMTotalValueFlag = True Then
                         eClaim.Claimed = hfClaimTotalValue.Value
                         claim.UpdateClaimTotalValue(eClaim)
@@ -568,23 +579,23 @@ Partial Public Class Claim
                         If Not txtICDCode3.Text = "" Then eClaim.ICDID3 = If(hfICDID3.Value = "", 0, CInt(Int(hfICDID3.Value)))
                         If Not txtICDCode4.Text = "" Then eClaim.ICDID4 = If(hfICDID4.Value = "", 0, CInt(Int(hfICDID4.Value)))
                         If ddlVisitType.SelectedValue.Trim <> "" Then eClaim.VisitType = ddlVisitType.SelectedValue
-                            'Addition for Nepal >> End
+                        'Addition for Nepal >> End
 
-                            eClaim.tblICDCodes = eICDCodes
-                            eClaim.Explanation = txtEXPLANATION.Text
-                            If hfClaimAdminId.Value.Trim <> String.Empty Then
-                                eClaimAdmin.ClaimAdminId = CInt(hfClaimAdminId.Value)
-                            End If
-                            eClaim.tblClaimAdmin = eClaimAdmin
-                            eClaim.GuaranteeId = txtGuaranteeId.Text
-                            chkSaveClaim = claim.SaveClaim(eClaim)
-                            hfClaimID.Value = eClaim.ClaimID
-                            txtCLAIMCODEData.Attributes.Add("ClaimCodetag", eClaim.ClaimCode)
-                            If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
-                            StoreClaimDetails()
+                        eClaim.tblICDCodes = eICDCodes
+                        eClaim.Explanation = txtEXPLANATION.Text
+                        If hfClaimAdminId.Value.Trim <> String.Empty Then
+                            eClaimAdmin.ClaimAdminId = CInt(hfClaimAdminId.Value)
                         End If
-
+                        eClaim.tblClaimAdmin = eClaimAdmin
+                        eClaim.GuaranteeId = txtGuaranteeId.Text
+                        chkSaveClaim = claim.SaveClaim(eClaim)
+                        hfClaimID.Value = eClaim.ClaimID
+                        txtCLAIMCODEData.Attributes.Add("ClaimCodetag", eClaim.ClaimCode)
+                        If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
+                        StoreClaimDetails()
                     End If
+
+                End If
 
             Catch ex As Exception
                 'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
@@ -740,6 +751,8 @@ Partial Public Class Claim
             ServiceItemGridBinding()
             AfterSaveMessages(chkSaveClaim, chkSaveClaimItems, chkSaveClaimServices)
             tdPrintW.Visible = eClaim.ClaimID > 0
+            'Added by Salumu to kill session
+            Session("RestoreMode") = Nothing
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
@@ -747,6 +760,232 @@ Partial Public Class Claim
             Return
         End Try
     End Sub
+    'Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
+    '    Dim chkSaveClaimItems, chkSaveClaim, chkSaveClaimServices As Integer
+    '    eClaim.ClaimID = hfClaimID.Value
+
+    '    If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
+
+    '        Try
+    '            If ClaimValidation() = "Exit" Then
+    '                Return
+    '            End If
+
+    '            If Not eClaim.ClaimID = 0 Then
+    '                If claim.IsClaimStatusChanged(eClaim) Then
+    '                    lblMsg.Text = imisgen.getMessage("M_CLAIMSTATUSCHANGEDFROMENTERED")
+    '                    Return
+    '                End If
+    '            End If
+
+    '            eClaim.AuditUserID = imisgen.getUserId(Session("User"))
+    '            Dim CLMTotalValueFlag As Boolean
+
+    '            If eClaim.ClaimID = 0 Or IsClaimChanged(CLMTotalValueFlag) = True Or CLMTotalValueFlag = True Then
+    '                If CLMTotalValueFlag = True Then
+    '                    eClaim.Claimed = hfClaimTotalValue.Value
+    '                    claim.UpdateClaimTotalValue(eClaim)
+    '                Else
+    '                    Dim eInsuree As New IMIS_EN.tblInsuree
+    '                    eInsuree.InsureeID = hfInsureeId.Value
+    '                    eClaim.tblInsuree = eInsuree
+    '                    eClaim.DateClaimed = Date.ParseExact(txtClaimDate.Text, "dd/MM/yyyy", Nothing)
+    '                    eClaim.DateFrom = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+    '                    If txtENDData.Text.Length > 0 Then
+    '                        eClaim.DateTo = Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)
+    '                    Else
+    '                        eClaim.DateTo = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+    '                    End If
+    '                    eClaim.Claimed = hfClaimTotalValue.Value
+
+    '                    Dim eICDCodes As New IMIS_EN.tblICDCodes
+    '                    eICDCodes.ICDID = If(hfICDID0.Value = "", 0, CInt(Int(hfICDID0.Value)))
+
+    '                    'Addition for Nepal >> Start
+    '                    If Not txtICDCode1.Text = "" Then eClaim.ICDID1 = If(hfICDID1.Value = "", 0, CInt(Int(hfICDID1.Value)))
+    '                    If Not txtICDCode2.Text = "" Then eClaim.ICDID2 = If(hfICDID2.Value = "", 0, CInt(Int(hfICDID2.Value)))
+    '                    If Not txtICDCode3.Text = "" Then eClaim.ICDID3 = If(hfICDID3.Value = "", 0, CInt(Int(hfICDID3.Value)))
+    '                    If Not txtICDCode4.Text = "" Then eClaim.ICDID4 = If(hfICDID4.Value = "", 0, CInt(Int(hfICDID4.Value)))
+    '                    If ddlVisitType.SelectedValue.Trim <> "" Then eClaim.VisitType = ddlVisitType.SelectedValue
+    '                    'Addition for Nepal >> End
+
+    '                    eClaim.tblICDCodes = eICDCodes
+    '                    eClaim.Explanation = txtEXPLANATION.Text
+    '                    If hfClaimAdminId.Value.Trim <> String.Empty Then
+    '                        eClaimAdmin.ClaimAdminId = CInt(hfClaimAdminId.Value)
+    '                    End If
+    '                    eClaim.tblClaimAdmin = eClaimAdmin
+    '                    eClaim.GuaranteeId = txtGuaranteeId.Text
+    '                    chkSaveClaim = claim.SaveClaim(eClaim)
+    '                    hfClaimID.Value = eClaim.ClaimID
+    '                    txtCLAIMCODEData.Attributes.Add("ClaimCodetag", eClaim.ClaimCode)
+    '                    If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
+    '                    StoreClaimDetails()
+    '                End If
+
+    '            End If
+
+    '        Catch ex As Exception
+    '            'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
+    '            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+    '            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+    '            Return
+    '        End Try
+    '    End If
+    '    Try
+    '        Dim eItem As New IMIS_EN.tblItems
+    '        Dim eService As New IMIS_EN.tblServices
+    '        Dim eClaimItems As New IMIS_EN.tblClaimItems
+    '        Dim eClaimServices As New IMIS_EN.tblClaimServices
+
+
+    '        For Each row As GridViewRow In gvItems.Rows
+    '            If Not gvItems.DataKeys.Item(row.RowIndex).Values("ItemCode") Is DBNull.Value Then
+    '                If Not gvItems.DataKeys.Item(row.RowIndex).Values("ItemCode") = CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text Then
+    '                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("QtyProvided") = CType(gvItems.Rows(row.RowIndex).Cells(1).Controls(1), TextBox).Text Then
+    '                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("PriceAsked") = CType(gvItems.Rows(row.RowIndex).Cells(2).Controls(1), TextBox).Text Then
+    '                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("Explanation").ToString = CType(gvItems.Rows(row.RowIndex).Cells(3).Controls(1), TextBox).Text Then
+    '                Else
+    '                    Continue For
+    '                End If
+    '            End If
+    '            If Not gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId") Is DBNull.Value Then
+    '                'eItem.ItemID = gvItems.DataKeys.Item(row.RowIndex).Values("ItemID")
+    '                eClaimItems.ClaimItemID = gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId")
+    '                'Ruzo:start:Added on 2 July 13 - On update of items, new item id should be ready
+    '                Dim ItemCod As String = CType(row.Cells(0).Controls(1), TextBox).Text
+    '                If ItemCod.Trim <> String.Empty Then
+    '                    For Each r As GridViewRow In gvHiddenItemCodes.Rows
+    '                        If ItemCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+    '                            eItem.ItemID = gvHiddenItemCodes.DataKeys(r.RowIndex).Values("ItemID")
+    '                            Exit For
+    '                        End If
+    '                    Next
+    '                    If eItem.ItemID = 0 Then
+    '                        imisgen.Alert(imisgen.getMessage("M_WRONGITEMCODENAME"), pnlButtons, alertPopupTitle:="IMIS")
+    '                        Return
+    '                    End If
+    '                Else
+    '                    eItem.ItemID = gvItems.DataKeys.Item(row.RowIndex).Values("ItemID")
+    '                End If
+    '                'Ruzo:end
+    '            Else
+    '                If Not CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+    '                    eClaimItems.tblClaim = eClaim
+    '                    Dim ItemCod As String = CType(row.Cells(0).Controls(1), TextBox).Text
+    '                    For Each r As GridViewRow In gvHiddenItemCodes.Rows
+    '                        If ItemCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+    '                            eItem.ItemID = gvHiddenItemCodes.DataKeys(r.RowIndex).Values("ItemID")
+    '                            eClaimItems.ClaimItemID = 0
+    '                            Exit For
+    '                        End If
+    '                    Next
+    '                    If eItem.ItemID = 0 Then
+    '                        imisgen.Alert(imisgen.getMessage("M_WRONGITEMCODENAME"), pnlButtons, alertPopupTitle:="IMIS")
+    '                        Return
+    '                    End If
+    '                End If
+    '            End If
+    '            If Not CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Or Not gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId") Is DBNull.Value Then
+    '                eClaimItems.tblItems = eItem
+    '                eClaimItems.AuditUserID = eClaim.AuditUserID
+    '                If CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+
+    '                    If Not hfClaimItemID.Value = gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId") Then
+    '                        claim.DeleteClaimItems(eClaimItems)
+    '                        chkSaveClaimItems = 3
+    '                        hfClaimItemID.Value = gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId")
+    '                        'lblMsg.Text = "The Item were deleted successfully"
+    '                    End If
+
+    '                Else
+    '                    eClaimItems.QtyProvided = CType(row.Cells(1).Controls(1), TextBox).Text
+    '                    eClaimItems.PriceAsked = CType(row.Cells(2).Controls(1), TextBox).Text
+    '                    eClaimItems.Explanation = CType(row.Cells(3).Controls(1), TextBox).Text
+    '                    chkSaveClaimItems = claim.SaveClaimItems(eClaimItems)
+    '                End If
+
+    '            End If
+    '        Next
+
+    '        For Each row In gvService.Rows
+    '            If Not gvService.DataKeys.Item(row.RowIndex).Values("ServCode") Is DBNull.Value Then
+    '                If Not gvService.DataKeys.Item(row.RowIndex).Values("ServCode") = CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text Then
+    '                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("QtyProvided") = CType(gvService.Rows(row.RowIndex).Cells(1).Controls(1), TextBox).Text Then
+    '                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("PriceAsked") = CType(gvService.Rows(row.RowIndex).Cells(2).Controls(1), TextBox).Text Then
+    '                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("Explanation").ToString = CType(gvService.Rows(row.RowIndex).Cells(3).Controls(1), TextBox).Text Then
+    '                Else
+    '                    Continue For
+    '                End If
+    '            End If
+    '            If Not gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId") Is DBNull.Value Then
+    '                'eService.ServiceID = gvService.DataKeys.Item(row.RowIndex).Values("ServiceID")
+    '                eClaimServices.ClaimServiceID = gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId")
+    '                'Ruzo:start:Added on 2 July 13 - On update of services, new service id should be ready
+    '                Dim ServiceCod As String = CType(row.cells(0).controls(1), TextBox).Text
+    '                If ServiceCod.Trim <> String.Empty Then
+    '                    For Each r As GridViewRow In gvHiddenServiceCodes.Rows
+    '                        If ServiceCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+    '                            eService.ServiceID = gvHiddenServiceCodes.DataKeys(r.RowIndex).Values("ServiceID")
+    '                            Exit For
+    '                        End If
+    '                    Next
+    '                    If eService.ServiceID = 0 Then
+    '                        imisgen.Alert(imisgen.getMessage("M_WRONGSERVICECODENAME"), pnlButtons, alertPopupTitle:="IMIS")
+    '                        Return
+    '                    End If
+    '                Else
+    '                    eService.ServiceID = gvService.DataKeys.Item(row.RowIndex).Values("ServiceID")
+    '                End If
+    '                'Ruzo:end
+    '            Else
+    '                If Not CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+    '                    eClaimServices.tblClaim = eClaim
+    '                    Dim ServiceCod As String = CType(row.cells(0).controls(1), TextBox).Text
+    '                    For Each r As GridViewRow In gvHiddenServiceCodes.Rows
+    '                        Dim str As String = (r.Cells(1).Text.ToString)
+    '                        If ServiceCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+    '                            eService.ServiceID = gvHiddenServiceCodes.DataKeys(r.RowIndex).Values("ServiceID")
+    '                            eClaimServices.ClaimServiceID = 0
+    '                            Exit For
+    '                        End If
+    '                    Next
+    '                    If eService.ServiceID = 0 Then
+    '                        imisgen.Alert(imisgen.getMessage("M_WRONGSERVICECODENAME"), pnlButtons, alertPopupTitle:="IMIS")
+    '                        Return
+    '                    End If
+    '                End If
+    '            End If
+    '            If Not CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Or Not gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId") Is DBNull.Value Then
+    '                eClaimServices.tblServices = eService
+    '                eClaimServices.AuditUserID = eClaim.AuditUserID
+    '                If CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+    '                    If Not hfClaimServiceID.Value = gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId") Then
+    '                        claim.DeleteClaimService(eClaimServices)
+    '                        chkSaveClaimServices = 3
+    '                        hfClaimServiceID.Value = gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId")
+    '                        'lblMsg.Text = "The Services were deleted successfully"
+    '                    End If
+
+    '                Else
+    '                    eClaimServices.QtyProvided = CType(row.cells(1).controls(1), TextBox).Text
+    '                    eClaimServices.PriceAsked = CType(row.cells(2).controls(1), TextBox).Text
+    '                    eClaimServices.Explanation = CType(row.cells(3).controls(1), TextBox).Text
+    '                    chkSaveClaimServices = claim.SaveClaimServices(eClaimServices)
+    '                End If
+    '            End If
+    '        Next
+
+    '        ServiceItemGridBinding()
+    '        AfterSaveMessages(chkSaveClaim, chkSaveClaimItems, chkSaveClaimServices)
+    '        tdPrintW.Visible = eClaim.ClaimID > 0
+    '    Catch ex As Exception
+    '        'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
+    '        imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+    '        EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+    '        Return
+    '    End Try
+    'End Sub
     Private Sub AfterSaveMessages(ByVal chkSaveClaim As Integer, ByVal chkSaveClaimItems As Integer, ByVal chkSaveClaimServices As Integer)
         'UPDATING OF A CLAIM AND SERVICE OR ITEM
         If chkSaveClaim = 0 And chkSaveClaimItems = 0 And chkSaveClaimServices = 0 Then
@@ -912,5 +1151,36 @@ Partial Public Class Claim
             Exit Sub
         End Try
         Response.Redirect(Url)
+    End Sub
+    Protected Sub btnRestore_Click(sender As Object, e As EventArgs) Handles btnRestore.Click
+        Try
+            hfClaimID.Value = CInt(Int(Request.QueryString("c")))
+
+            eClaim.ClaimID = hfClaimID.Value
+            claim.LoadClaim(eClaim)
+            If Not eClaim.ClaimStatus = 1 Then
+                txtCHFIDData.Text = ""
+            End If
+
+            pnlBodyCLM.Attributes.Add("Class", "enabled")
+            pnlBodyCLM.Enabled = True
+            pnlServiceDetails.Enabled = True
+            pnlItemsDetails.Enabled = True
+            B_ADD.Visible = True
+            B_SAVE.Visible = True
+            canClearRow = True
+            RestoreMode = True
+            btnPrint.Visible = False
+
+
+            Session("RestoreMode") = RestoreMode
+            If Session("RestoreMode") = True Then
+                txtCLAIMCODEData.Text = "@" + eClaim.ClaimCode
+            End If
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            Return
+        End Try
     End Sub
 End Class

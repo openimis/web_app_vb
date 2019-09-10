@@ -178,11 +178,45 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
             });
 
+              $('[id*=gvRoles] tr').each(function () {
+                var toolTip = $(this).attr("title");
+                $(this).find("td").eq(2).each(function () {
+                    $(this).simpletip({
+                        content: '<%= Resources.Resource.M_ASSIGNROLE %>'
+                    });
+                });
+
+                $(this).removeAttr("title");
+            });
 
         });
 
 
     </script>
+    <style type="text/css" >
+    .footer{top:665px;}
+     /*.backentry{ height:629px; }*/
+     .panelbuttons{ position:relative;top:0px;}
+
+     .tooltip
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        display: none;
+        background-color: rgb(102, 102, 102);
+        color: White;
+        padding: 5px;
+        font-size: 10pt;
+        font-family: Arial;
+    }
+    td
+    {
+        cursor: pointer;
+    }
+
+</style>
     <div class="divBody">
         <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto"
             CssClass="panel" GroupingText='<%$ Resources:Resource,G_USER %>'>

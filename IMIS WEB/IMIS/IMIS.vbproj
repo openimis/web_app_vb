@@ -285,6 +285,11 @@
       <DesignTime>True</DesignTime>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="App_GlobalResources\Resource.sw.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.sw.resx</DependentUpon>
+    </Compile>
     <Compile Include="AutoCompleteHandlers\AutoCompleteHandler.ashx.vb">
       <DependentUpon>AutoCompleteHandler.ashx</DependentUpon>
     </Compile>
@@ -779,6 +784,10 @@
       <LastGenOutput>Resource.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_GlobalResources\Resource.sw.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -832,14 +841,14 @@
       <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Reports\rptClaimHistoryReport.rdlc" />
-    <EmbeddedResource Include="Reports\rptClaimOverviewAllClaims.rdlc" />
-    <EmbeddedResource Include="Reports\rptClaimOverviewAllDetails.rdlc" />
-    <EmbeddedResource Include="Reports\rptClaimOverviewRejecteServItem.rdlc" />
-    <EmbeddedResource Include="Reports\rptContributionPayment.rdlc">
+    <Content Include="Reports\rptClaimOverviewAllClaims.rdlc" />
+    <Content Include="Reports\rptClaimOverviewAllDetails.rdlc" />
+    <Content Include="Reports\rptClaimOverviewRejecteServItem.rdlc" />
+    <Content Include="Reports\rptContributionPayment.rdlc">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\rptControlNumberAssignment.rdlc" />
-    <EmbeddedResource Include="Reports\rptOverviewOfCommissions.rdlc" />
+    </Content>
+    <Content Include="Reports\rptControlNumberAssignment.rdlc" />
+    <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />

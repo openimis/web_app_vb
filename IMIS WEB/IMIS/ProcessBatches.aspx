@@ -478,8 +478,9 @@ table tr td.FormLabel{width:auto;}
                                 <asp:TextBox ID="txtSTARTData" runat="server" size="10" Width="120px"></asp:TextBox>
                                 <ajax:CalendarExtender ID="txtSTARTData_CalendarExtender" runat="server" Format="dd/MM/yyyy" PopupButtonID="btnSTARTData" TargetControlID="txtSTARTData">
                                 </ajax:CalendarExtender>
-                                <ajax:MaskedEditExtender ID="txtSTARTData_MaskedEditExtender" runat="server" CultureDateFormat="dd/MM/YYYY" Mask="99/99/9999" MaskType="Date" TargetControlID="txtSTARTData" UserDateFormat="DayMonthYear">
-                                </ajax:MaskedEditExtender>
+                                <%--Commented by Salumu on 14 Aug 2019 --%>
+                              <%--  <ajax:MaskedEditExtender ID="txtSTARTData_MaskedEditExtender" runat="server" CultureDateFormat="dd/MM/YYYY" Mask="99/99/9999" MaskType="Date" TargetControlID="txtSTARTData" UserDateFormat="DayMonthYear">
+                                </ajax:MaskedEditExtender>--%>
                                 <asp:Button ID="btnSTARTData" runat="server" class="dateButton" padding-bottom="3px" />
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtSTARTData" ErrorMessage="*" SetFocusOnError="True" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" ValidationGroup="check"></asp:RegularExpressionValidator>
                                 <%-- <asp:RequiredFieldValidator ID="txtSTARTData_RequiredFieldValidator" 
@@ -497,8 +498,9 @@ table tr td.FormLabel{width:auto;}
                                 </asp:RegularExpressionValidator>
                                 <ajax:CalendarExtender ID="txtENDData_CalendarExtender" runat="server" Format="dd/MM/yyyy" PopupButtonID="btnENDData" TargetControlID="txtENDData">
                                 </ajax:CalendarExtender>
-                                <ajax:MaskedEditExtender ID="txtENDData_MaskedEditExtender" runat="server" CultureDateFormat="dd/MM/YYYY" Mask="99/99/9999" MaskType="Date" TargetControlID="txtENDData" UserDateFormat="DayMonthYear">
-                                </ajax:MaskedEditExtender>
+                                  <%--Commented by Salumu on 14 Aug 2019 --%>
+                              <%--  <ajax:MaskedEditExtender ID="txtENDData_MaskedEditExtender" runat="server" CultureDateFormat="dd/MM/YYYY" Mask="99/99/9999" MaskType="Date" TargetControlID="txtENDData" UserDateFormat="DayMonthYear">
+                                </ajax:MaskedEditExtender>--%>
                             </td>
 
                             <td align="right">

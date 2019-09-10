@@ -72,7 +72,7 @@ Partial Public Class User
             End If
             gvDistrict.DataBind()
             Assign(gvDistrict)
-
+            Dim LoggedInUser As Integer = imisgen.getUserId(Session("User"))
             If Not eUsers.UserID = 0 Then
 
                 Users.LoadUsers(eUsers)
@@ -89,11 +89,20 @@ Partial Public Class User
                     Panel2.Enabled = False
                     B_SAVE.Visible = False
                 End If
+                Dim CurrentUserID As Integer = imisgen.getUserId(Session("User"))
+                Dim result = Users.GetUserDistricts(LoggedInUser, eUsers.UserID)
+
+
+                If result = 1 Then
+                    imisgen.Alert(imisgen.getMessage("M_USERCANNOTBEEDITED"), pnlDistrict, alertPopupTitle:="IMIS")
+                    Panel2.Enabled = False
+                    B_SAVE.Visible = False
+                End If
                 ddlHFNAME.SelectedValue = eUsers.HFID.ToString
                 RequiredFieldPassword.Visible = False
                 RequiredFieldConfirmPassword.Visible = False
             End If 'Added
-            Dim UserID As Integer = imisgen.getUserId(Session("User"))
+
             'If RoleId = 524288 Then
             '    gvRoles.DataSource = Users.GetRoles(525184)
             'ElseIf RoleId = 1048576 Or RoleId = 1048584 Then
@@ -105,17 +114,14 @@ Partial Public Class User
             '    gvRoles.DataSource = Users.GetRoles(525184)
             'End If
             Dim dtRoles As New DataTable
-            dtRoles = Users.getRolesForUser(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF, UserID)
+            dtRoles = Users.getRolesForUser(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF, LoggedInUser)
             gvRoles.DataSource = dtRoles
             gvRoles.DataBind()
             If eUsers.IsAssociated IsNot Nothing AndAlso eUsers.IsAssociated = True Then
 
                 DisabledIfUsersClaimorEnrolment()
-                '    'B_SAVE.Enabled = False
-                'Else
-                '    EnabledIfUsersClaimorEnrolment()
-                '    'B_SAVE.Enabled = True
-                'End If
+                B_SAVE.Enabled = False
+
             End If
 
 

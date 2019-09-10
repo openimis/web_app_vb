@@ -1271,7 +1271,7 @@ Partial Public Class Reports
         Dim PayerID As Integer?
         Dim Year As Integer?
         Dim LocationId As Integer?
-        Dim Mode As Integer
+        Dim Mode As Integer = -1
         Dim OfficerID As Integer?
         Dim ReportingID As Integer?
         Dim CommissionRate As Decimal?
@@ -1312,8 +1312,8 @@ Partial Public Class Reports
 
             If ddlMode.SelectedIndex > 0 Then
                 Mode = ddlMode.SelectedValue
-            Else
-                Mode = 0
+            ElseIf ReportingID > 0 Then
+                Mode = -1
             End If
             If ddlEnrolmentOfficer.SelectedIndex > 0 Then OfficerID = ddlEnrolmentOfficer.SelectedValue
             CommissionRate = Val(txtCommissionRate.Text)
@@ -1348,7 +1348,8 @@ Partial Public Class Reports
                     'EndDate = dtRep.Rows(0)("EndDate")
                 End If
             End If
-            '  IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_PRODUCT") & " : " & dt.Rows(0)("ProductCode") & " - " & dt.Rows(0)("ProductName") & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt.Rows(0)("DistrictName") & " | " & imisgen.getMessage("L_PERIOD") & " " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
+            'Return True
+            'IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_PRODUCT") & " : " & dt.Rows(0)("ProductCode") & " - " & dt.Rows(0)("ProductName") & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt.Rows(0)("DistrictName") & " | " & imisgen.getMessage("L_PERIOD") & " " & imisgen.getMessage("L_FROM") & " " & Month & " " & imisgen.getMessage("L_TO") & " " & Month
         Else
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
             hfCompleted.Value = 0

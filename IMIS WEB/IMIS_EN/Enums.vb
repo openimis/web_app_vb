@@ -76,6 +76,7 @@ Public Class Enums
         ClaimFeedback = 111009
         ClaimUpdate = 111010
         ClaimProcess = 111011
+        ClaimRestore = 111012         'RFC 111 06/09/2019
 
         'Batch
         Batch = 111100

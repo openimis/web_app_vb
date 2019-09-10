@@ -322,7 +322,7 @@ Public Class ReportDAL
         Data.params("@EndDate", SqlDbType.Date, EndDate)
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
         Data.params("@Scope", SqlDbType.Int, Scope)
-        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        'Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")
@@ -634,7 +634,7 @@ Public Class ReportDAL
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")
         ErrorMessage = Data.sqlParameters("@ErrorMessage").ToString
-        Return Data.Filldata
+        Return dt
 
     End Function
     Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByRef oReturn As Integer) As DataTable

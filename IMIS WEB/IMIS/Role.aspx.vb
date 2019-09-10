@@ -190,8 +190,16 @@
             LoadNodes(tnLevel1.ChildNodes)
         Next
         eRole.AuditUserID = imisGen.getUserId(Session("User"))
+        If dtRights.Rows.Count = 0 Then
+            Dim msg As String = imisGen.getMessage("M_NORIGHTSSELECTED")
+            imisGen.Alert(msg, pnlButtons, alertPopupTitle:="IMIS")
+            Return False
+
+        End If
+
 
         BI.SaveRights(dtRights, eRole)
+        Return True
     End Function
 
     Private Sub LoadNodes(ByVal tnc As TreeNodeCollection)
@@ -214,7 +222,7 @@
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
         '2/7/2019 - Salum - Pass the RoleID in the redirect.
         Try
-            SaveRights()
+            If SaveRights() = False Then Exit Sub
             Session("msg") = imisGen.getMessage("M_SAVED")
         Catch ex As Exception
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlHeader, alertPopupTitle:="IMIS")

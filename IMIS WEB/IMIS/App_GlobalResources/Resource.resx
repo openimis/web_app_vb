@@ -4858,4 +4858,22 @@ adults/children)</value>
   <data name="L_RECURRENCE" xml:space="preserve">
     <value>Recurrence(month)</value>
   </data>
+  <data name="M_NORIGHTSSELECTED" xml:space="preserve">
+    <value>Please select at least one security right</value>
+  </data>
+  <data name="M_USERCANNOTBEEDITED" xml:space="preserve">
+    <value>You have no authority to edit the selected user.</value>
+  </data>
+  <data name="M_ASSIGNROLE" xml:space="preserve">
+    <value>Allow assignement of Role</value>
+  </data>
+  <data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
+    <value>Claimed date cannot be in future</value>
+  </data>
+  <data name="B_RESTORE" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="M_USERCANNOTBEDELETED" xml:space="preserve">
+    <value>You have no authority to delete the selected user.</value>
+  </data>
 </root>

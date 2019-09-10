@@ -146,89 +146,7 @@ Public Class LocationsDAL
         data.params("@DistrictID", SqlDbType.Int, DistrictID)
         Return data.Filldata
     End Function
-    'Corrected
-    'Public Sub SaveWards(ByRef eWards As IMIS_EN.tblLocations)
-    '    Dim data As New ExactSQL
-    '    Dim sSQL As String = ""
-    '    sSQL = "INSERT INTO tblLocations(ParentLocationId, LocationName,LocationCode, LocationType,AuditUserID)VALUES(@DistrictId,@WardName,@WardCode, @LocationType,@AuditUserID);SELECT @WardID = SCOPE_IDENTITY()"
 
-    '    data.setSQLCommand(sSQL, CommandType.Text)
-
-    '    data.params("@WardID", SqlDbType.Int, 0, ParameterDirection.Output)
-    '    data.params("@DistrictId", SqlDbType.Int, eWards.ParentLocationId)
-    '    data.params("@WardName", SqlDbType.NVarChar, 50, eWards.LocationName) 'eDistricts.Region)
-    '    data.params("@WardCode", SqlDbType.NVarChar, 8, eWards.LocationCode)
-    '    data.params("@LocationType", SqlDbType.NVarChar, 1, eWards.LocationType)
-    '    data.params("@AuditUserID", SqlDbType.Int, eWards.AuditUserId)
-
-
-
-    '    data.ExecuteCommand()
-
-    '    eWards.LocationId = data.sqlParameters("@WardID")
-
-    'End Sub
-    'Corrected
-    'Public Sub UpdateWards(ByVal eWards As IMIS_EN.tblLocations)
-    '    Dim data As New ExactSQL
-    '    Dim sSQL As String = ""
-    '    sSQL = "INSERT INTO tblLocations(ParentLocationId,LocationName,LocationCode, LocationType,ValidityFrom,ValidityTo,LegacyID,AuditUserID)" & _
-    '           " SELECT ParentLocationID,LocationName,LocationCode, LocationType,ValidityFrom,GETDATE(),LocationID,AuditUserID FROM tblLocations WHERE LocationID = @WardID;" & _
-    '           " UPDATE tblLocations SET LocationName=@WardName,LocationCode=@WardCode,ValidityFrom=GETDATE(), LocationType = @LocationType,AuditUserID=@AuditUserID WHERE LocationID = @WardID;"
-
-    '    data.setSQLCommand(sSQL, CommandType.Text)
-
-    '    data.params("@WardID", SqlDbType.Int, eWards.LocationId)
-    '    data.params("@WardName", SqlDbType.NVarChar, 50, eWards.LocationName)
-    '    data.params("@WardCode", SqlDbType.NVarChar, 8, eWards.LocationCode)
-    '    data.params("@LocationType", SqlDbType.NVarChar, 1, eWards.LocationType)
-    '    data.params("@AuditUserID", SqlDbType.Int, eWards.AuditUserId)
-
-    '    data.ExecuteCommand()
-
-    'End Sub
-    'Corrected
-    'Public Sub SaveVillage(ByRef eVillage As IMIS_EN.tblLocations)
-    '    Dim data As New ExactSQL
-    '    Dim sSQL As String = ""
-    '    sSQL = "INSERT INTO tblLocations(ParentLocationID,LocationName,LocationCode, LocationType,AuditUserID)VALUES(@WardID,@VillageName,@VillageCode, @LocationType,@AuditUserID);SELECT @VillageID = SCOPE_IDENTITY()"
-
-    '    data.setSQLCommand(sSQL, CommandType.Text)
-
-    '    data.params("@VillageID", SqlDbType.Int, 0, ParameterDirection.Output)
-    '    data.params("@WardId", SqlDbType.Int, eVillage.ParentLocationId)
-    '    data.params("@VillageName", SqlDbType.NVarChar, 50, eVillage.LocationName)
-    '    data.params("@VillageCode", SqlDbType.NVarChar, 8, eVillage.LocationCode)
-    '    data.params("@LocationType", SqlDbType.NVarChar, 1, eVillage.LocationType)
-    '    data.params("@AuditUserID", SqlDbType.Int, eVillage.AuditUserId)
-
-    '    data.ExecuteCommand()
-
-    '    eVillage.LocationId = data.sqlParameters("@VillageID")
-
-    'End Sub
-    'Corrected
-    'Public Sub UpdateVillage(ByRef eVillage As IMIS_EN.tblLocations)
-    '    Dim data As New ExactSQL
-    '    Dim sSQL As String = ""
-
-    '    sSQL = "INSERT INTO tblLocations(ParentLocationID,LocationName,LocationCode, LocationType,ValidityFrom,ValidityTo,LegacyID,AuditUserID)" & _
-    '           " SELECT ParentLocationId,LocationName,LocationCode, LocationType,ValidityFrom,GETDATE(),LocationID,AuditUserID FROM tblLocations WHERE LocationID = @VillageID;" & _
-    '           " UPDATE tblLocations SET LocationName=@VillageName,LocationCode=@VillageCode, LocationType = @LocationType,ValidityFrom=GETDATE(),AuditUserID = @AuditUserID  WHERE LocationID = @VillageID;" & _
-    '           " SELECT @VillageID = SCOPE_IDENTITY()"
-
-    '    data.setSQLCommand(sSQL, CommandType.Text)
-
-    '    data.params("@VillageID", SqlDbType.Int, eVillage.LocationId)
-    '    data.params("@VillageName", SqlDbType.NVarChar, 50, eVillage.LocationName)
-    '    data.params("@VillageCode", SqlDbType.NVarChar, 8, eVillage.LocationCode)
-    '    data.params("@LocationType", SqlDbType.NVarChar, 1, eVillage.LocationType)
-    '    data.params("@AuditUserID", SqlDbType.Int, eVillage.AuditUserId)
-
-    '    data.ExecuteCommand()
-
-    'End Sub
-    'Corrected
     Public Function DeleteLocation(ByVal eLocations As IMIS_EN.tblLocations) As Boolean
         Dim data As New ExactSQL
         Dim sSQL As String = ""
@@ -245,8 +163,6 @@ Public Class LocationsDAL
 
         Return True
     End Function
-
-    'Corrected
     Public Function CheckCanBeDeleted(ByVal DistrictID As Integer) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
@@ -256,13 +172,31 @@ Public Class LocationsDAL
         sSQL += " INNER JOIN tblWards W ON W.WardId = V.WardId"
         sSQL += " INNER JOIN tblDistricts D ON D.DistrictID = W.DistrictId"
         sSQL += " WHERE F.ValidityTo IS NULL"
-        sSQL += " AND D.DistrictID = @DistrictId"
+        'changed by Salumu 14 Aug 2019 From D.DistrictID to V.VillageId
+        sSQL += " AND V.VillageId = @DistrictId"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@DistrictID", SqlDbType.Int, DistrictID)
 
         Return data.Filldata()
     End Function
+    'Corrected
+    'Public Function CheckCanBeDeleted(ByVal DistrictID As Integer) As DataTable
+    '    Dim data As New ExactSQL
+    '    Dim sSQL As String = ""
+    '    sSQL = "SELECT D.DistrictId"
+    '    sSQL += " FROM tblFamilies F"
+    '    sSQL += " INNER JOIN tblVillages V ON F.LocationId = V.VillageId"
+    '    sSQL += " INNER JOIN tblWards W ON W.WardId = V.WardId"
+    '    sSQL += " INNER JOIN tblDistricts D ON D.DistrictID = W.DistrictId"
+    '    sSQL += " WHERE F.ValidityTo IS NULL"
+    '    sSQL += " AND D.DistrictID = @DistrictId"
+
+    '    data.setSQLCommand(sSQL, CommandType.Text)
+    '    data.params("@DistrictID", SqlDbType.Int, DistrictID)
+
+    '    Return data.Filldata()
+    'End Function
 
     'Corrected
     Public Function CheckIfCanDeleteWard(ByVal eWards As IMIS_EN.tblLocations) As DataTable

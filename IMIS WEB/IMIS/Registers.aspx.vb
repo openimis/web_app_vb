@@ -291,12 +291,16 @@ Partial Public Class UploadICD
         If FileUploadHF.HasFile Then
             Dim Output As New Dictionary(Of String, Integer)
             Try
-                'Dim FileName As String = Server.MapPath("WorkSpace") & "\" & FileUploadHF.PostedFile.FileName
-                Dim FileName As String = FileUploadHF.PostedFile.FileName
+                Dim FileName As String = Server.MapPath("WorkSpace") & "\" & FileUploadHF.FileName
+                FileUploadHF.SaveAs(FileName)
+                'Dim FileName As String = Server.MapPath("WorkSpace") & "\" & FileUploadHF.FileName
+                ' Dim FileName As String = FileUploadHF.PostedFile.FileName
                 Dim StrategyId As Integer = ddlUploadStrategyHF.SelectedValue
                 Dim LogFile As String = String.Empty
                 Dim dtResult As New DataTable
-                FileUploadHF.SaveAs(FileName)
+
+
+                ' FileUploadHF.SaveAs(FileName)
                 Dim registerName As String
                 registerName = imisgen.getMessage("L_HF")
                 Output = ICD.UploadHF(FileName, StrategyId, imisgen.getUserId(Session("User")), dtResult, chkDryRunHF.Checked, registerName, LogFile)

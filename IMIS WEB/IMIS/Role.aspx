@@ -9,14 +9,14 @@
             var src = window.event != window.undefined ? window.event.srcElement : evt.target;
             var chk = document.getElementById('<%= chkIsSystem.ClientID %>');
             var isChkBoxClick = (src.tagName.toLowerCase() == "input" && src.type == "checkbox");
-             
+              console.log(EventTarget.target);
             if(isChkBoxClick)
             {
                 
                 var parentTable = GetParentByTagName("table", src);
                 var nxtSibling = parentTable.nextSibling;
                 //check if nxt sibling is not null & is an element node
-                
+               
                 if(nxtSibling && nxtSibling.nodeType == 1)
                 {
                 //if node has children 
@@ -35,7 +35,7 @@
 
          function CheckUncheckChildren(childContainer, check)
          {
-              
+             
             var childChkBoxes = childContainer.getElementsByTagName("input");
             var childChkBoxCount = childChkBoxes.length;
             for(var i=0;i<childChkBoxCount;i++)
@@ -45,8 +45,7 @@
         }
 
         function CheckUncheckParents(srcChild, check) 
-             
-            {
+        {
                
             var parentDiv = GetParentByTagName("div", srcChild);
             var parentNodeTable = parentDiv.previousSibling;
@@ -212,7 +211,8 @@
                                     <asp:TreeNode Text="<%$ Resources:Resource,R_SEARCH %>" Value="101401" SelectAction="None">  </asp:TreeNode>
                                     <asp:TreeNode Text="<%$ Resources:Resource,R_ADD %>" Value="101402" SelectAction="None"></asp:TreeNode>
                                     <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="101403" SelectAction="None"></asp:TreeNode>
-                                    <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="101404" SelectAction="None"></asp:TreeNode>                                                            
+                                   <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="101404" SelectAction="None"></asp:TreeNode> 
+                                    <asp:TreeNode Text="Test" Value="112" SelectAction="None"></asp:TreeNode>                                                            
                                 </asp:TreeNode>
 
                             </asp:TreeNode>  
@@ -239,6 +239,7 @@
                            <%--             <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="111003" SelectAction="None"></asp:TreeNode>--%>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="111004" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_LOAD %>" Value="111005" SelectAction="None"></asp:TreeNode>
+                                        <asp:TreeNode Text="<%$ Resources:Resource,R_RESTORE %>" Value="111012" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_PRINT %>" Value="111006" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_SUBMIT %>" Value="111007" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMREVIEW %>" Value="111008" SelectAction="None"></asp:TreeNode>

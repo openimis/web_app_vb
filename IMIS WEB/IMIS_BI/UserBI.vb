@@ -83,4 +83,8 @@ Public Class UserBI
         Dim User As New IMIS_BL.UsersBL
         Return User.IsUserExists(UserID)
     End Function
+    Function GetUserDistricts(ByVal CurrenctUserID As Integer, ByVal SelectedUserID As Integer) As Integer
+        Dim User As New IMIS_BL.UsersBL
+        Return User.GetUserDistricts(CurrenctUserID, SelectedUserID)
+    End Function
 End Class

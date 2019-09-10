@@ -66,10 +66,19 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
         $(document).ready(function () {
              $('[id*=gvService] tr').each(function () {
-            var toolTip = $(this).attr("title");
-            $(this).find("td").each(function () {
+                 var toolTip = $(this).attr("title");
+                 var toolTip = $(this).attr("title");
+                 if(toolTip == null)
+                {
+                     toolTip = '<%= Resources.Resource.M_NOMESSAGETOBEDESPLAYED %>';
+                }
+                else
+                {
+                     toolTip = toolTip;
+                }
+            $(this).find("td").eq(9).each(function () {
                 $(this).simpletip({
-                    content: toolTip
+                     content: toolTip
                 });
             });
 
@@ -78,10 +87,19 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
              $('[id*=gvItems] tr').each(function () {
-            var toolTip = $(this).attr("title");
-            $(this).find("td").each(function () {
+                 var toolTip = $(this).attr("title");
+                 if(toolTip == null)
+                {
+                     toolTip = '<%= Resources.Resource.M_NOMESSAGETOBEDESPLAYED %>';
+                }
+                else
+                {
+                    toolTip =  toolTip;
+                }
+                 
+            $(this).find("td").eq(9).each(function () {
                 $(this).simpletip({
-                    content: toolTip
+                   content:toolTip
                 });
             });
 
@@ -141,8 +159,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
         left: 0;
         z-index: 3;
         display: none;
-        background-color: rgb(102, 102, 102)
-;;
+        background-color: rgb(102, 102, 102);
         color: White;
         padding: 5px;
         font-size: 10pt;

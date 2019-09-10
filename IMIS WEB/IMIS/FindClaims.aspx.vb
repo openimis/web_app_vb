@@ -189,7 +189,7 @@ Partial Public Class FindClaims
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         ElseIf which = 2 Then
-            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID) Then
+            If Not FindClaimsB.checkRights(IMIS_EN.Enums.Rights.ClaimSubmit, UserID) Then
                 Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.FindClaim.ToString & "&retUrl=" & RefUrl)
             End If
         End If

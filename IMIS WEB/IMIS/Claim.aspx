@@ -131,9 +131,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
             ClaimedDateFill();
             if (isValidDate(new Date(ClaimedDate))) {
                 var ServerDate = '<%= Format(Date.Today, "MM/dd/yyyy") %>';
-                if (new Date(ClaimedDate) > new Date(ServerDate)) {
+                if (new Date(ClaimedDate) >= new Date(ServerDate)) {
                     //$('#<%=txtClaimDate.ClientID %>').val("");
-                    $("#<%=lblMsg.ClientID %>").html('<%= imisgen.getMessage("M_CLAIMDATENOTAFTERTODAY", True ) %>');
+                    $("#<%=lblMsg.ClientID %>").html('<%= imisgen.getMessage("M_CLAIMDATENOTINFUTURE", True) %>');
                     return 0;
                 }
                 return 1;
@@ -1092,9 +1092,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <td align="center">
                     <asp:Button ID="B_ADD" runat="server" Text='<%$ Resources:Resource,B_ADD%>' />
                 </td>
+                   <td align="right" id="td1" runat="server" visible="true">
+                    <asp:Button ID="btnRestore" runat="server" Text='<%$ Resources:Resource,B_RESTORE%>' />
+                </td>
                 <td align="right" id="tdPrintW" runat="server" visible="false">
                     <asp:Button ID="btnPrint" runat="server" Text='<%$ Resources:Resource,B_PRINT%>' />
                 </td>
+              
                 <td align="right">
                     <asp:Button ID="B_CANCEL" runat="server" Text='<%$ Resources:Resource,B_CANCEL%>' />
                 </td>

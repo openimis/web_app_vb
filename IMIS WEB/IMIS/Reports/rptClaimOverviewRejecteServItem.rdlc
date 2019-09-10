@@ -1749,7 +1749,6 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>ds_dtGetClaimOverview</DataSetName>
-                              <Top>0cm</Top>
                               <Left>12.46671cm</Left>
                               <Height>0.8cm</Height>
                               <Width>12.8649cm</Width>
@@ -2288,7 +2287,6 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>ds_dtGetClaimOverview</DataSetName>
-                              <Top>0cm</Top>
                               <Left>0.01042in</Left>
                               <Height>0.8cm</Height>
                               <Width>12.36811cm</Width>
@@ -2315,7 +2313,6 @@
                           </Style>
                         </Rectangle>
                         <ColSpan>12</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
