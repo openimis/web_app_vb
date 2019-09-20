@@ -48,7 +48,7 @@ Public Class UsersDAL
         '0 = Not checked
         '1 = Checked
         '2 = Assigned
-        '3 = Checked and Assigned
+        '3 = Checked and Assigned 
 
         'Insert Legacy record
         sSQL = " INSERT INTO tblUserRole ([UserID], [RoleID], [ValidityFrom], [ValidityTo], [AuditUserId], [LegacyID], Assign)"
@@ -79,6 +79,7 @@ Public Class UsersDAL
         Return data.Filldata
     End Function
     Public Function getRolesForUser(ByVal UserId As Integer, Offline As Boolean, Authority As Integer) As DataTable
+
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
         sSQL = "DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
@@ -107,7 +108,7 @@ Public Class UsersDAL
         Dim data As New ExactSQL
         data.setSQLCommand("Select tblrole.roleid,RoleName Role,IsSystem Code  FROM tblRole" &
                            " INNER JOIN tblUserRole On tblRole.RoleID = tblUserRole.RoleID And UserID = @UserID And tblUserRole.ValidityTo Is NULL" &
-                         " WHERE tblrole.ValidityTo Is null And isblocked = 0", CommandType.Text)
+                         " WHERE tblrole.ValidityTo Is null And isblocked = 0 AND ISNULL(Assign,0) & 1 > 0 ", CommandType.Text)
         data.params("@UserId", SqlDbType.Int, UserId)
         Return data.Filldata
     End Function

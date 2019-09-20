@@ -988,7 +988,7 @@ Partial Public Class Report
                         rpt.ReportPath = "Reports\rptOverviewOfCommissions.rdlc"
                         ds.Name = "ds_uspSSRSGetOverviewCommissions"
                         Page.Title = imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS")
-                        Dim Param(23) As ReportParameter
+                        Dim Param(18) As ReportParameter
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramUAMainTitle", imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS", False))
                         Param(2) = New ReportParameter("paramUAPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
@@ -1009,33 +1009,33 @@ Partial Public Class Report
                         Param(15) = New ReportParameter("Grouping", IMIS_EN.eReports.Grouping)
 
 
-                        Dim dtView As DataView = dt.DefaultView
-                        Dim dtDistinct As DataTable = dtView.ToTable(True, New String() {"PremiumId", "TotlaPrescribedContribution", "TotlActualPayment", "CommissionRate", "PolicyID"})
+                        'Dim dtView As DataView = dt.DefaultView
+                        'Dim dtDistinct As DataTable = dtView.ToTable(True, New String() {"PremiumId", "TotlaPrescribedContribution", "TotlActualPayment", "CommissionRate", "PolicyID"})
 
-                        Dim TotalPolicies As Object = dtDistinct.Compute("SUM(PolicyID)", "1=1")
-                        If TotalPolicies Is DBNull.Value Then TotalPolicies = 0
+                        'Dim TotalPolicies As Object = dtDistinct.Compute("SUM(PolicyID)", "1=1")
+                        'If TotalPolicies Is DBNull.Value Then TotalPolicies = 0
 
-                        Dim TotalPrescribedAmount As Object = dtDistinct.Compute("SUM(TotlaPrescribedContribution)", "1=1")
-                        If TotalPrescribedAmount Is DBNull.Value Then TotalPrescribedAmount = 0
+                        'Dim TotalPrescribedAmount As Object = dtDistinct.Compute("SUM(TotlaPrescribedContribution)", "1=1")
+                        'If TotalPrescribedAmount Is DBNull.Value Then TotalPrescribedAmount = 0
 
-                        Dim TotalActualPaymentAmount As Object = dtDistinct.Compute("SUM(TotlActualPayment)", "1=1")
-                        If TotalActualPaymentAmount Is DBNull.Value Then TotalActualPaymentAmount = 0
+                        'Dim TotalActualPaymentAmount As Object = dtDistinct.Compute("SUM(TotlActualPayment)", "1=1")
+                        'If TotalActualPaymentAmount Is DBNull.Value Then TotalActualPaymentAmount = 0
 
-                        ' Dim TotalPaymentAmount As Object = dtDistinct.Compute("SUM(PaymentAmount)", "1=1")
-                        'If TotalPaymentAmount Is DBNull.Value Then TotalPaymentAmount = 0
+                        '' Dim TotalPaymentAmount As Object = dtDistinct.Compute("SUM(PaymentAmount)", "1=1")
+                        ''If TotalPaymentAmount Is DBNull.Value Then TotalPaymentAmount = 0
 
-                        Dim CommissionRate As Object = dtDistinct.Compute("SUM(CommissionRate)", "1=1")
-                        ' Dim TotalCommissionRate = TotalPrescribedAmount * CommissionRate
-                        'If TotalCommissionRate Is DBNull.Value Then TotalCommissionRate = 0
+                        'Dim CommissionRate = dtDistinct.Rows(0)("CommissionRate")
+                        'Dim TotalCommissionRate = dtDistinct.Compute("SUM(CommissionRate)", "1=1")
+                        ' If TotalCommissionRate Is DBNull.Value Then TotalCommissionRate = 0
 
-                        Param(16) = New ReportParameter("paramTotalPolicies", TotalPolicies.ToString)
-                        Param(17) = New ReportParameter("paramTotalPrescribedAmount", TotalPrescribedAmount.ToString)
-                        Param(18) = New ReportParameter("TotalActualPaymentAmount", TotalActualPaymentAmount.ToString)
-                        Param(19) = New ReportParameter("TotalPolicies", imisgen.getMessage("L_TOTALNUMBEROFPOLICIES", False))
-                        Param(20) = New ReportParameter("TotalCommissionRate", CommissionRate.ToString)
-                        Param(21) = New ReportParameter("paramTotalCommissionRate", imisgen.getMessage("L_TOTALCOMMISSIONRATE", False))
-                        Param(22) = New ReportParameter("prmWard", imisgen.getMessage("L_WARD", False))
-                        Param(23) = New ReportParameter("prmVillage", imisgen.getMessage("L_VILLAGE", False))
+                        'Param(16) = New ReportParameter("paramTotalPolicies", TotalPolicies.ToString)
+                        'Param(17) = New ReportParameter("paramTotalPrescribedAmount", TotalPrescribedAmount.ToString)
+                        'Param(18) = New ReportParameter("TotalActualPaymentAmount", TotalActualPaymentAmount.ToString)
+                        'Param(19) = New ReportParameter("TotalPolicies", imisgen.getMessage("L_TOTALNUMBEROFPOLICIES", False))
+                        'Param(20) = New ReportParameter("TotalCommissionRate", CommissionRate.ToString)
+                        Param(16) = New ReportParameter("prmWard", imisgen.getMessage("L_WARD", False))
+                        Param(17) = New ReportParameter("prmVillage", imisgen.getMessage("L_VILLAGE", False))
+                        Param(18) = New ReportParameter("paramTotalCommissionRate", imisgen.getMessage("L_TOTALCOMMISSIONRATE", False))
                         rpt.SetParameters(Param)
                         ds.Value = dt
                         rpt.DataSources.Add(ds)

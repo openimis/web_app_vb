@@ -196,7 +196,7 @@
                   <Width>1.31041cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.12224cm</Width>
+                  <Width>1.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.51889cm</Width>
@@ -923,14 +923,15 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PaymentDate">
+                        <Textbox Name="EnrollDate">
                           <CanGrow>true</CanGrow>
+                          <HideDuplicates>PolicyID</HideDuplicates>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(Fields!PolicyStage.Value="R", Fields!EnrollDate.Value,"")</Value>
+                                  <Value>=Fields!EnrollDate.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <Format>dd/MM/yyyy</Format>
@@ -942,7 +943,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PaymentDate</rd:DefaultName>
+                          <rd:DefaultName>EnrollDate</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1078,7 +1079,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>TransactionNo</rd:DefaultName>
@@ -1108,10 +1111,13 @@
                                   <Value>=Fields!PaymentDate.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
+                                    <Format>d</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>PaymentDate1</rd:DefaultName>
@@ -1381,7 +1387,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>="Total Prescribed contributions for" &amp; Fields!Product.Value</Value>
+                                  <Value>="Total Prescribed contributions for " &amp; Fields!Product.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1662,7 +1668,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!PrescribedContribution.Value)*Parameters!paramCommissionRate.Value</Value>
+                                  <Value>=Sum(Fields!CommissionRate.Value)</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2194,7 +2200,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!PrescribedContribution.Value)*Parameters!paramCommissionRate.Value</Value>
+                                  <Value>=Sum(Fields!CommissionRate.Value)</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2762,7 +2768,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=CountDistinct(Fields!ProdID.Value)</Value>
+                                  <Value>=CountDistinct(Fields!PolicyID.Value,"ds_uspSSRSGetOverviewCommissions")</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -3122,7 +3128,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!PrescribedContribution.Value) * Parameters!paramCommissionRate.Value</Value>
+                                  <Value>=Sum(Fields!CommissionRate.Value)</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -3329,7 +3335,7 @@
             <DataSetName>ds_uspSSRSGetOverviewCommissions</DataSetName>
             <Top>1.1557cm</Top>
             <Height>10.30371cm</Height>
-            <Width>24.45717cm</Width>
+            <Width>24.83493cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -3341,7 +3347,7 @@
         <Height>4.67824in</Height>
         <Style />
       </Body>
-      <Width>13.04832in</Width>
+      <Width>9.77753in</Width>
       <Page>
         <PageHeader>
           <Height>0.91017cm</Height>
@@ -3556,50 +3562,9 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="paramTotal">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
     <ReportParameter Name="Grouping">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="TotalPolicies">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="paramTotalPolicies">
-      <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="TotalCommissionRate">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="paramTotalCommissionRate">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="TotalActualPaymentAmount">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="paramTotalPrescribedAmount">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="prmWard">
@@ -3617,6 +3582,18 @@
     <ReportParameter Name="paramCommissionRate">
       <DataType>Float</DataType>
       <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="paramTotal">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="paramTotalCommissionRate">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
@@ -3696,44 +3673,9 @@
           <ParameterName>paramEnrollmentDate</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>3</RowIndex>
-          <ParameterName>paramTotal</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>3</RowIndex>
           <ParameterName>Grouping</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>4</RowIndex>
-          <ParameterName>TotalPolicies</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>4</RowIndex>
-          <ParameterName>paramTotalPolicies</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>4</RowIndex>
-          <ParameterName>TotalCommissionRate</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>4</RowIndex>
-          <ParameterName>paramTotalCommissionRate</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>5</RowIndex>
-          <ParameterName>TotalActualPaymentAmount</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>5</RowIndex>
-          <ParameterName>paramTotalPrescribedAmount</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
@@ -3749,6 +3691,16 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>6</RowIndex>
           <ParameterName>paramCommissionRate</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>paramTotal</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>paramTotalCommissionRate</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

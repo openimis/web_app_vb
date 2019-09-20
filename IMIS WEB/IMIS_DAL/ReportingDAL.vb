@@ -51,10 +51,9 @@ Public Class ReportingDAL
     End Function
     Public Function GetPreviousOvervireOfCommissiosReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?) As DataTable
         Query = "SELECT RP.ReportingId,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" &
-  "+ '  ' + Dis.DistrictName + '  ' + Prod.ProductCode " &
+  "+ '  ' + Dis.DistrictName " &
   "+ '  ' + CONVERT(NVARCHAR,RP.StartDate,103) + '  ' + CONVERT(NVARCHAR,RP.EndDate,103)" &
   "+ '  ' + ISNULL(PY.PayerName,'') Display FROM tblReporting RP" &
-  " INNER JOIN  tblProduct Prod ON Prod.ProdID = RP.ProdId" &
   " INNER JOIN tblDistricts Dis ON Dis.DistrictID = RP.LocationId" &
   " LEFT OUTER JOIN tblPayer PY ON PY.PayerID = RP.PayerId" &
   " INNER JOIN tblUsersDistricts UD ON Dis.DistrictID = UD.LocationId" &

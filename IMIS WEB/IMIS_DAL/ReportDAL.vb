@@ -322,7 +322,7 @@ Public Class ReportDAL
         Data.params("@EndDate", SqlDbType.Date, EndDate)
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
         Data.params("@Scope", SqlDbType.Int, Scope)
-        'Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")
@@ -563,8 +563,8 @@ Public Class ReportDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         sSQL = " SELECT CONVERT(NVARCHAR(12), CN.RequestedDate) RequestedDate,CASE PD.PolicyStage WHEN 'N' THEN 'Yes' ELSE 'No' END AS PolicyStage, PY.OfficerCode,O.LastName, PY.PhoneNumber,  "
-        sSQL += " CASE PY.PaymentStatus WHEN 1 THEN 'Not yet Confirmed' WHEN 2 THEN 'Posted' WHEN 3 THEN 'Posted' WHEN 4 THEN  'Posted' WHEN 5 THEN 'Posted' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' END PostingStatus,   "
-        sSQL += " PY.RejectedReason PostingRejectedReason, CASE PY.PaymentStatus WHEN 3 THEN 'Assigned' WHEN 4 THEN 'Assigned' WHEN 5 THEN 'Assigned' WHEN 1 THEN 'Not yet assigned' WHEN 2 THEN 'Not yet assigned' WHEN -3 THEN 'Rejected' END AssigmentStatus,"
+        sSQL += " CASE PY.PaymentStatus WHEN 1 THEN 'Not yet Confirmed' WHEN 2 THEN 'Posted' WHEN 3 THEN 'Posted' WHEN 4 THEN  'Posted' WHEN 5 THEN 'Posted' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3 THEN 'Rejected' END PostingStatus,   "
+        sSQL += " PY.RejectedReason PostingRejectedReason, CASE PY.PaymentStatus WHEN 3 THEN 'Assigned' WHEN 4 THEN 'Assigned' WHEN 5 THEN 'Assigned' WHEN 1 THEN 'Not yet assigned' WHEN 2 THEN 'Not yet assigned' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3  THEN 'Rejected' END AssigmentStatus,"
         sSQL += " PY.ExpectedAmount,PY.TransferFee,PY.TypeOfPayment, "
         sSQL += " CN.Comment CAssignmentRejectedReason, cn.ControlNumber,NULL PaymenyStatusName FROM tblControlNumber CN "
         sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = CN.PaymentID"
@@ -599,7 +599,7 @@ Public Class ReportDAL
         End If
         'Rejected posting status are -1,-2,-3
         If PostingStatus = "Rejected" Then
-            sSQL += " AND  PY.PaymentStatus = -1 OR  PY.PaymentStatus = -2 OR  PY.PaymentStatus = -3"
+            sSQL += " AND  PY.PaymentStatus = -1 OR  PY.PaymentStatus = -2"
         End If
         If PostingStatus = "Not yet confirmed" Then
             sSQL += " AND  PY.PaymentStatus =1 "
@@ -628,7 +628,7 @@ Public Class ReportDAL
         Data.params("@ProdId", SqlDbType.Int, ProductId)
         Data.params("@PayerId", SqlDbType.Int, PayerId)
         Data.params("@ReportingId", SqlDbType.Int, ReportingID)
-        Data.params("@CommissionRate", SqlDbType.Decimal, 0)
+        Data.params("@CommissionRate", SqlDbType.Decimal, CommissionRate)
         Data.params("@ErrorMessage", SqlDbType.NVarChar, 200, "", ParameterDirection.Output)
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()

@@ -55,6 +55,8 @@ Partial Public Class Reports
         RoleID = imisgen.getRoleId(Session("User"))
         If IsPostBack Then Return
         RunPageSecurity()
+        txtCommissionRate.Text = 10
+
         'Try
         FillRegions()
         FillRegionsWoNational()
@@ -1271,16 +1273,16 @@ Partial Public Class Reports
         Dim PayerID As Integer?
         Dim Year As Integer?
         Dim LocationId As Integer?
-        Dim Mode As Integer = -1
+        Dim Mode As Integer
         Dim OfficerID As Integer?
         Dim ReportingID As Integer?
-        Dim CommissionRate As Decimal?
+        Dim CommissionRate As Decimal
         If ddlPreviousReportDateCommission.SelectedValue > 0 Then
             ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
         Else
             ReportingID = Nothing
         End If
-
+        CommissionRate = Val(txtCommissionRate.Text)
         If ReportingID Is Nothing Then
             DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
 
@@ -1316,7 +1318,7 @@ Partial Public Class Reports
                 Mode = -1
             End If
             If ddlEnrolmentOfficer.SelectedIndex > 0 Then OfficerID = ddlEnrolmentOfficer.SelectedValue
-            CommissionRate = Val(txtCommissionRate.Text)
+
             If ddlPayer.SelectedIndex > 0 Then PayerID = ddlPayer.SelectedValue
         End If
         Dim ErrorMessage As String = ""

@@ -1,14 +1,51 @@
 ﻿Imports System.Net
 Imports System.IO
 Imports System.Xml
-
+Imports Newtonsoft.Json
 Public Class EscapeBL
     Public Function isValidInsuranceNumber(ByVal InsuranceNumber As String) As Boolean
+        Return True
         If Not InsuranceNumber.ToString.Length = 9 Then Return False
         Dim n As String = Left(InsuranceNumber.ToString, 8)
         Dim Checksum As String = Right(InsuranceNumber.ToString, 1)
         If CInt(n) = Checksum And Checksum = 0 Then Return False
         If Checksum = n - (Int(n / 7) * 7) Then Return True
+        Return False
+    End Function
+    Public Function MatchPayments(DomainUrl As String) As Boolean
+
+        Dim webClient As New WebClient()
+        Dim resByte As Byte()
+        Dim resString As String
+        Dim reqString() As Byte
+        Dim MatchApi As String = DomainUrl & "restapi/api/webmatchpayment" 'HttpContext.Current.Request.Url.AbsolutePath & "restapi/api/matchpayment"
+
+        'MatchApi = "http://localhost:63401/api/webmatchpayment"
+        Dim dt As New Dictionary(Of String, Object)
+        dt.Add("internal_identifier", DBNull.Value)
+        dt.Add("audit_user_id", "0")
+        dt.Add("api_key", "Xdfg8796021ff89Df4654jfjHeHidas987vsdg97e54ggdfHjdt")
+
+        Try
+            webClient.Headers("content-type") = "application/json"
+            webClient.Headers("User-Agent") = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; EasyBits GO v1.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; Tablet PC 2.0; InfoPath.3)"
+            webClient.Proxy = WebRequest.DefaultWebProxy
+            reqString = Encoding.Default.GetBytes(JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented))
+            resByte = webClient.UploadData(MatchApi, "post", reqString)
+            resString = Encoding.Default.GetString(resByte)
+
+
+            'Return resString
+            Return True
+        Catch ex As WebException
+            Dim res As WebResponse = ex.Response
+            Dim sr As New IO.StreamReader(res.GetResponseStream)
+            Dim geterror As String = sr.ReadToEnd()
+            Debug.Print(geterror)
+            Throw ex
+        Finally
+            webClient.Dispose()
+        End Try
         Return False
     End Function
     Public Function SendSMS(ByVal Message As String) As String

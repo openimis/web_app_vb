@@ -133,7 +133,7 @@ Public Class Global_asax
             ' Exit Sub
         End If
 
-        Dim Interval As Integer = 360
+        Dim Interval As Integer = 300
 
         HttpContext.Current.Cache.Add(ServiceCacheItemKey, CurrentDomainurl,
                      Nothing, DateTime.MaxValue, TimeSpan.FromSeconds(Interval), CacheItemPriority.Normal,
@@ -141,8 +141,8 @@ Public Class Global_asax
     End Sub
     Public Sub CacheItemRemovedCallback(key As String, value As Object, reason As CacheItemRemovedReason)
         Try
-            If value = "Start" Then Exit Sub
-            If Not IsServiceOn Then Exit Sub
+                If value = "Start" Then Exit Sub
+            ' If Not IsServiceOn Then Exit Sub
             HitPage(value)
             Debug.Print(Date.Now)
             EventLog.WriteEntry("IMIS", "Service background tasks start", EventLogEntryType.Information, 166)

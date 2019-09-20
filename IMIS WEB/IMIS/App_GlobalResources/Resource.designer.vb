@@ -9164,6 +9164,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to No Message to be displayed.
+        '''</summary>
+        Friend Shared ReadOnly Property M_NOMESSAGETOBEDESPLAYED() As String
+            Get
+                Return ResourceManager.GetString("M_NOMESSAGETOBEDESPLAYED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to You do not have enough permission to access the page.
         '''</summary>
         Friend Shared ReadOnly Property M_NOPAGEACCESSPERMISSION() As String
@@ -10528,15 +10537,6 @@ Namespace Resources
         Friend Shared ReadOnly Property M_UPLOADENROLALERT() As String
             Get
                 Return ResourceManager.GetString("M_UPLOADENROLALERT", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to You have no authority to delete the selected user..
-        '''</summary>
-        Friend Shared ReadOnly Property M_USERCANNOTBEDELETED() As String
-            Get
-                Return ResourceManager.GetString("M_USERCANNOTBEDELETED", resourceCulture)
             End Get
         End Property
         
