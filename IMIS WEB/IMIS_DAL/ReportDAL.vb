@@ -312,22 +312,26 @@ Public Class ReportDAL
     End Function
 
     Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
-        Dim Data As New ExactSQL
-        Data.setSQLCommand("uspSSRSGetClaimOverView", CommandType.StoredProcedure)
-        Data.params("@HfID", SqlDbType.Int, HfID)
-        Data.params("@LocationId", SqlDbType.Int, LocationId)
-        Data.params("@ProdID", SqlDbType.Int, ProdID)
+        If Scope = 0 Then
 
-        Data.params("@StartDate", SqlDbType.Date, StartDate)
-        Data.params("@EndDate", SqlDbType.Date, EndDate)
-        Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
-        Data.params("@Scope", SqlDbType.Int, Scope)
-        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
-        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
-        Dim dt As DataTable = Data.Filldata()
-        oReturn = Data.sqlParameters("@RV")
 
-        Return dt
+            Dim Data As New ExactSQL
+            Data.setSQLCommand("uspSSRSGetClaimOverView", CommandType.StoredProcedure)
+            Data.params("@HfID", SqlDbType.Int, HfID)
+            Data.params("@LocationId", SqlDbType.Int, LocationId)
+            Data.params("@ProdID", SqlDbType.Int, ProdID)
+
+            Data.params("@StartDate", SqlDbType.Date, StartDate)
+            Data.params("@EndDate", SqlDbType.Date, EndDate)
+            Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
+            ' Data.params("@Scope", SqlDbType.Int, Scope)
+            ' Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+            Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+            Dim dt As DataTable = Data.Filldata()
+            oReturn = Data.sqlParameters("@RV")
+            Return dt
+        End If
+
     End Function
 
     'Corrected

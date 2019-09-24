@@ -131,7 +131,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
             ClaimedDateFill();
             if (isValidDate(new Date(ClaimedDate))) {
                 var ServerDate = '<%= Format(Date.Today, "MM/dd/yyyy") %>';
-                if (new Date(ClaimedDate) >= new Date(ServerDate)) {
+                if (new Date(ClaimedDate) > new Date(ServerDate)) {
                     //$('#<%=txtClaimDate.ClientID %>').val("");
                     $("#<%=lblMsg.ClientID %>").html('<%= imisgen.getMessage("M_CLAIMDATENOTINFUTURE", True) %>');
                     return 0;

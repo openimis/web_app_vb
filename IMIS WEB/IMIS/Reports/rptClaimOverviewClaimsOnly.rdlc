@@ -1560,7 +1560,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!paramTotalClaimedT.Value &amp; " : "</Value>
+                                  <Value>=Fields!DateClaimed.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>

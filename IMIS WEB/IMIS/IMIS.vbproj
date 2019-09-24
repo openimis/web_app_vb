@@ -846,7 +846,7 @@
       <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Reports\rptClaimHistoryReport.rdlc" />
-    <Content Include="Reports\rptClaimOverviewAllClaims.rdlc" />
+    <Content Include="Reports\rptClaimOverviewClaimsOnly.rdlc" />
     <Content Include="Reports\rptClaimOverviewAllDetails.rdlc" />
     <Content Include="Reports\rptClaimOverviewRejecteServItem.rdlc" />
     <Content Include="Reports\rptContributionPayment.rdlc">
