@@ -13,7 +13,7 @@ Public Class EscapeBL
         Return False
     End Function
     Public Function MatchPayments(DomainUrl As String) As Boolean
-
+        Return True
         Dim webClient As New WebClient()
         Dim resByte As Byte()
         Dim resString As String

@@ -146,7 +146,40 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
 
     
     function InitAutoCompl() {
-        $("#<%=txtICDCode.ClientID %>").focus(function () {
+         $("#<%=txtICDCode.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                       url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode.ClientID %>").val() },
+                   
+                        dataType: "json",
+                        type: "POST",
+                      
+                        success: function (data)
+                        {
+                            response($.map(data, function (item, id)
+                            {
+                                   return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID};
+                            }));
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                     $('#<% = hfICDID.ClientID%>').val(u.item.id);
+                       
+                },
+                minLength: 1
+            });
+
+
+       <%-- $("#<%=txtICDCode.ClientID %>").focus(function () {
             var datasource;
             $.ajax({
                 url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
@@ -180,7 +213,7 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                     $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
                 }
             });
-        });
+        });--%>
 
     }
     // ICDCode AutoComplete TextBox Control End

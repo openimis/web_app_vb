@@ -165,17 +165,54 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
             // after update occur on UpdatePanel re-init the Autocomplete
             InitAutoCompl();
         }
+      function InitAutoCompl() {
+            $("#<%=txtICDCode.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                       url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode.ClientID %>").val() },
+                   
+                        dataType: "json",
+                        type: "POST",
+                      
+                        success: function (data)
+                        {
+                            response($.map(data, function (item, id)
+                            {
+                                   return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID};
+                            }));
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                     $('#<% = hfICDID.ClientID%>').val(u.item.id);
+                        $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
+                },
+                minLength: 1
+            });
 
-        function InitAutoCompl() {
+        }
+
+
+
+  <%--function InitAutoCompl() {
             $("#<%=txtICDCode.ClientID %>").focus(function () {
                 var datasource;
                 $.ajax({
                     url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
                     // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode.ClientID %>").val() },
                     dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
+                    type: "POST",
+                    //async: false,
+                    //cache: false,
 
                     success: function (data) {
                         // console.log(data);
@@ -204,8 +241,8 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                 });
             });
         }
-         
-    
+         --%>
+
 
  
    

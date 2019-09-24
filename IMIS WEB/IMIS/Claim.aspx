@@ -446,7 +446,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
             InitAutoCompl();
         }
         function InitAutoCompl() {
-            $("#<%=txtICDCode0.ClientID %>").focus(function () {
+           <%-- $("#<%=txtICDCode0.ClientID %>").focus(function () {
                 var datasource;
                 $.ajax({
                     url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
@@ -480,148 +480,167 @@ In case of dispute arising out or in relation to the use of the program, it is s
                           
                     }
                 });
-            });
-
-            $("#<%=txtICDCode1.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-
-                    success: function (data) {
+            });--%>
+             $("#<%=txtICDCode0.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                       url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode0.ClientID %>").val() },
+                   
+                        dataType: "json",
+                        type: "POST",
+                      
+                        success: function (data)
+                        {
+                            response($.map(data, function (item, id)
+                            {
+                                   return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID};
+                            }));
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                     $('#<% = hfICDID0.ClientID%>').val(u.item.id);
                        
-                        datasource = data;
-                    }
-
-                });
-                var ds = new AutoCompletedataSource(datasource);
-
-                $("#<%=txtICDCode1.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-
-                        response($.map(data, function (item, id) {
-
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID1.ClientID%>').val(u.item.id);
-                    }
-                });
+                },
+                minLength: 1
             });
 
-            $("#<%=txtICDCode2.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-
-                    success: function (data) {
-                        
-                        datasource = data;
-                    }
-
-                });
-                var ds = new AutoCompletedataSource(datasource);
-
-                $("#<%=txtICDCode2.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-
-                        response($.map(data, function (item, id) {
-
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID2.ClientID%>').val(u.item.id);
-                    }
-                });
+             $("#<%=txtICDCode1.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                       url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode1.ClientID %>").val() },
+                   
+                        dataType: "json",
+                        type: "POST",
+                      
+                        success: function (data)
+                        {
+                            response($.map(data, function (item, id)
+                            {
+                                   return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID};
+                            }));
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                     $('#<% = hfICDID1.ClientID%>').val(u.item.id);
+                       
+                },
+                minLength: 1
             });
 
-            $("#<%=txtICDCode3.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-
-                    success: function (data) {
-                        
-                        datasource = data;
-                    }
-
-                });
-                var ds = new AutoCompletedataSource(datasource);
-
-                $("#<%=txtICDCode3.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-
-                        response($.map(data, function (item, id) {
-
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID3.ClientID%>').val(u.item.id);
-                           
-                    }
-                });
+                  $("#<%=txtICDCode2.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                       url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode2.ClientID %>").val() },
+                   
+                        dataType: "json",
+                        type: "POST",
+                      
+                        success: function (data)
+                        {
+                            response($.map(data, function (item, id)
+                            {
+                                   return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID};
+                            }));
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                     $('#<% = hfICDID2.ClientID%>').val(u.item.id);
+                       
+                },
+                minLength: 1
+            });
+                 $("#<%=txtICDCode3.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                       url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode3.ClientID %>").val() },
+                   
+                        dataType: "json",
+                        type: "POST",
+                      
+                        success: function (data)
+                        {
+                            response($.map(data, function (item, id)
+                            {
+                                   return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID};
+                            }));
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                     $('#<% = hfICDID3.ClientID%>').val(u.item.id);
+                       
+                },
+                minLength: 1
             });
 
-            $("#<%=txtICDCode4.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-
-                    success: function (data) {
-                        datasource = data;
-                    }
-
-                });
-                var ds = new AutoCompletedataSource(datasource);
-
-                $("#<%=txtICDCode4.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-
-                        response($.map(data, function (item, id) {
-
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID4.ClientID%>').val(u.item.id);
-                          
-                    }
-                });
+                  $("#<%=txtICDCode4.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                       url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode4.ClientID %>").val() },
+                   
+                        dataType: "json",
+                        type: "POST",
+                      
+                        success: function (data)
+                        {
+                            response($.map(data, function (item, id)
+                            {
+                                   return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID};
+                            }));
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                     $('#<% = hfICDID4.ClientID%>').val(u.item.id);
+                       
+                },
+                minLength: 1
             });
+
+            
         }
        // ICDCode Autocomplete textbox controls End
     </script>
