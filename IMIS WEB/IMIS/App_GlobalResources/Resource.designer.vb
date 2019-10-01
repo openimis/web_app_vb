@@ -1082,6 +1082,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Calculated Commission.
+        '''</summary>
+        Friend Shared ReadOnly Property L_CALCULATEDCOMMISSION() As String
+            Get
+                Return ResourceManager.GetString("L_CALCULATEDCOMMISSION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Calculated Commission for.
+        '''</summary>
+        Friend Shared ReadOnly Property L_CALCULATEDCOMMISSIONFOR() As String
+            Get
+                Return ResourceManager.GetString("L_CALCULATEDCOMMISSIONFOR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Cancel.
         '''</summary>
         Friend Shared ReadOnly Property L_CANCEL() As String
@@ -6068,7 +6086,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Share of Contribution.
+        '''  Looks up a localized string similar to Share of Contribution Details.
         '''</summary>
         Friend Shared ReadOnly Property L_SHAREOFCONTRIBUTION() As String
             Get
@@ -6347,6 +6365,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Total Actual Payments for.
+        '''</summary>
+        Friend Shared ReadOnly Property L_TOTALACTUALPAYMENTSFOR() As String
+            Get
+                Return ResourceManager.GetString("L_TOTALACTUALPAYMENTSFOR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Admissions Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALADMISSIONSLEFT() As String
@@ -6428,11 +6455,29 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Total number of policies for.
+        '''</summary>
+        Friend Shared ReadOnly Property L_TOTALNUMBEROFPOLICIESFOR() As String
+            Get
+                Return ResourceManager.GetString("L_TOTALNUMBEROFPOLICIESFOR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Total Prescribed Contributions.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALPRESCRIBEDCONTRIBUTION() As String
             Get
                 Return ResourceManager.GetString("L_TOTALPRESCRIBEDCONTRIBUTION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Total Prescribed contributions for.
+        '''</summary>
+        Friend Shared ReadOnly Property L_TOTALPRESCRIBEDCONTRIBUTIONFOR() As String
+            Get
+                Return ResourceManager.GetString("L_TOTALPRESCRIBEDCONTRIBUTIONFOR", resourceCulture)
             End Get
         End Property
         

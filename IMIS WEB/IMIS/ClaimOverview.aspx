@@ -171,7 +171,7 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
                         }
                     });
                 },
-                select: function (e, i) {
+                select: function (e, u) {
                      $('#<% = hfICDID.ClientID%>').val(u.item.id);
                        
                 },

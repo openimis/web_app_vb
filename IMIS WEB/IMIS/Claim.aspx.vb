@@ -540,6 +540,8 @@ Partial Public Class Claim
                     If CInt(Session("RestoreMode")) = True Then
 
                         eClaim.ClaimStatus = 2
+                        eClaim.ReviewStatus = 1
+                        eClaim.FeedbackStatus = 1
                         eClaim.ClaimCode = txtCLAIMCODEData.Text
                         'Ends
                     Else
@@ -1176,6 +1178,7 @@ Partial Public Class Claim
             Session("RestoreMode") = RestoreMode
             If Session("RestoreMode") = True Then
                 txtCLAIMCODEData.Text = "@" + eClaim.ClaimCode
+                btnRestore.Visible = False
             End If
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")

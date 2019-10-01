@@ -3826,7 +3826,7 @@
     <value>Level 4</value>
   </data>
   <data name="L_SHAREOFCONTRIBUTION" xml:space="preserve">
-    <value>Share of Contribution</value>
+    <value>Share of Contribution Details</value>
   </data>
   <data name="L_SUBLEVEL1" xml:space="preserve">
     <value>Sub Level 1</value>
@@ -4875,5 +4875,20 @@ adults/children)</value>
   </data>
   <data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
     <value>No Message to be displayed</value>
+  </data>
+  <data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
+    <value>Calculated Commission</value>
+  </data>
+  <data name="L_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
+    <value>Calculated Commission for</value>
+  </data>
+  <data name="L_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
+    <value>Total Actual Payments for</value>
+  </data>
+  <data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+    <value>Total number of policies for</value>
+  </data>
+  <data name="L_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+    <value>Total Prescribed contributions for</value>
   </data>
 </root>

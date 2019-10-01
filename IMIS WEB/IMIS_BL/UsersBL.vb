@@ -850,7 +850,8 @@ Public Class UsersBL
             Dim DALRole As New IMIS_DAL.RoleDAL
             dtRoles = DALRole.GetSystemRoles(eUser.RoleID)
         End If
-        If eUser.UserID = 0 Then
+        If eUser.UserID = 0 Or eUser.ValidityTo IsNot Nothing Then
+            eUser.UserID = 0
             CreatePassword(eUser)
             users.InsertUser(eUser)
             users.SaveUserRoles(dtRoles, eUser)

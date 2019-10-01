@@ -82,7 +82,7 @@ Public Partial Class ClaimAdministrator
                     If eClaimAdmin.EmailId IsNot Nothing Then
                         txtEmail.Text = eClaimAdmin.EmailId
                     End If
-
+                    hfUserID.Value = 0
                     If eClaimAdmin.HasLogin = True Then
 
                         hfUserID.Value = eClaimAdmin.eUsers.UserID
@@ -90,7 +90,7 @@ Public Partial Class ClaimAdministrator
                         chkIncludeLogin.Checked = True
                         ddlLanguage.SelectedValue = eClaimAdmin.eUsers.LanguageID
                     End If
-                    hfUserID.Value = 0
+
                 End If
 
                 If eClaimAdmin.ValidityTo.HasValue Then

@@ -191,9 +191,9 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                         }
                     });
                 },
-                select: function (e, i) {
+                select: function (e, u) {
                      $('#<% = hfICDID.ClientID%>').val(u.item.id);
-                        $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
+                     
                 },
                 minLength: 1
             });
