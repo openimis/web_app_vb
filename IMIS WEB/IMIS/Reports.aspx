@@ -571,7 +571,7 @@ table tr td.FormLabel{width:auto;}
                                 <asp:Label ID="lblEnrolmentOfficer" runat="server" Text='<%$ Resources:Resource,L_ENROLMENTOFFICERS%>' CssClass="FormLabel"></asp:Label>
                                 <asp:DropDownList ID="ddlEnrolmentOfficer"  Width="150px" runat="server"></asp:DropDownList>
                             </li>
-                              <li class="co">
+                              <li class="co chr">
                                 <asp:Label ID="lblScope" runat="server"  Text='<%$ Resources:Resource,L_SCOPE%>' CssClass="FormLabel"></asp:Label>
                                 <asp:DropDownList ID="ddlScope" runat="server"></asp:DropDownList>
                             </li>

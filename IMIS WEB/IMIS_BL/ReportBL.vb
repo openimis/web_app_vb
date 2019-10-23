@@ -220,6 +220,7 @@ Public Class ReportBL
         Dim DAL As New IMIS_DAL.ReportDAL
         Return DAL.GetMatchingFunds(DistrictID, ProdID, PayerID, StartDate, EndDate, ReportingID, ErrorMessage, oReturn)
     End Function
+
     Public Function GetClaimOverview(ByVal DistrictID As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByRef oReturn As Integer) As DataTable
         Dim DAL As New IMIS_DAL.ReportDAL
         Dim imisgen As New GeneralBL
@@ -349,6 +350,9 @@ Public Class ReportBL
     End Function
     Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByRef oReturn As Integer) As DataTable
         Dim DAL As New IMIS_DAL.ReportDAL
-        Return DAL.GetClaimHistoryReport(LocationId, ProdID, HfID, StartDate, EndDate, ClaimStatus, InsuranceNumber, Scope, oReturn)
+        Dim imisgen As New GeneralBL
+        Dim dtRejReasons = New DataTable
+        dtRejReasons = imisgen.GetAllRejectedReasons()
+        Return DAL.GetClaimHistoryReport(LocationId, ProdID, HfID, StartDate, EndDate, ClaimStatus, InsuranceNumber, Scope, dtRejReasons, oReturn)
     End Function
 End Class

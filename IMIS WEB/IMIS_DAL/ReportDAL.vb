@@ -312,26 +312,27 @@ Public Class ReportDAL
     End Function
 
     Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
+
+        Dim Data As New ExactSQL
         If Scope = 0 Then
-
-
-            Dim Data As New ExactSQL
-            Data.setSQLCommand("uspSSRSGetClaimOverView", CommandType.StoredProcedure)
-            Data.params("@HfID", SqlDbType.Int, HfID)
-            Data.params("@LocationId", SqlDbType.Int, LocationId)
-            Data.params("@ProdID", SqlDbType.Int, ProdID)
-
-            Data.params("@StartDate", SqlDbType.Date, StartDate)
-            Data.params("@EndDate", SqlDbType.Date, EndDate)
-            Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
-            ' Data.params("@Scope", SqlDbType.Int, Scope)
-            ' Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
-            Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
-            Dim dt As DataTable = Data.Filldata()
-            oReturn = Data.sqlParameters("@RV")
-            Return dt
+            Data.setSQLCommand("uspSSRSGetClaimOverViewClaimsOnly", CommandType.StoredProcedure)
+        ElseIf Scope = 1 Then
+            Data.setSQLCommand("uspSSRSGetClaimOverViewRejectedServiceItem", CommandType.StoredProcedure)
+        Else
+            Data.setSQLCommand("uspSSRSGetClaimOverViewClaimsAllDetails", CommandType.StoredProcedure)
         End If
 
+        Data.params("@HfID", SqlDbType.Int, HfID)
+        Data.params("@LocationId", SqlDbType.Int, LocationId)
+        Data.params("@ProdID", SqlDbType.Int, ProdID)
+        Data.params("@StartDate", SqlDbType.Date, StartDate)
+        Data.params("@EndDate", SqlDbType.Date, EndDate)
+        Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
+        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        Dim dt As DataTable = Data.Filldata()
+        oReturn = Data.sqlParameters("@RV")
+        Return dt
     End Function
 
     'Corrected
@@ -508,7 +509,6 @@ Public Class ReportDAL
 
     End Function
 
-
     Public Function getCatchmentArea(RegionId As Integer, DistrictId As Integer, ByVal ProductId As Integer, ByVal Year As Integer, ByVal Month As Integer, ByVal dt As DataTable) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = "uspSSRSCapitationPayment"
@@ -641,9 +641,15 @@ Public Class ReportDAL
         Return dt
 
     End Function
-    Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByRef oReturn As Integer) As DataTable
+    Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
         Dim Data As New ExactSQL
-        Data.setSQLCommand("uspSSRSGetClaimHistoryReport", CommandType.StoredProcedure)
+        If Scope = 2 Or Scope = -1 Then
+            Data.setSQLCommand("uspSSRSGetClaimHistoryClaimsAllDetails", CommandType.StoredProcedure)
+        ElseIf Scope = 0 Then
+            Data.setSQLCommand("uspSSRSGetClaimHistoryClaimsOnly", CommandType.StoredProcedure)
+        Else
+            Data.setSQLCommand("uspSSRSGetClaimHistoryClaimsAndRejectionDetails", CommandType.StoredProcedure)
+        End If
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdID", SqlDbType.Int, ProdID)
         Data.params("@HfID", SqlDbType.Int, HfID)
@@ -652,8 +658,8 @@ Public Class ReportDAL
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
         Data.params("@InsuranceNumber", SqlDbType.NVarChar, 12, InsuranceNumber)
         Data.params("@Scope", SqlDbType.Int, Scope)
+        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
-
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")
         Return dt

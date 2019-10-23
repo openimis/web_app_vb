@@ -180,11 +180,11 @@
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="ItemRejReason">
-          <DataField>ItemRejReason</DataField>
+          <DataField>ItemRejectionReason</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ServiceRejReasion">
-          <DataField>ServiceRejReasion</DataField>
+          <DataField>ServiceRejectionReason</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
