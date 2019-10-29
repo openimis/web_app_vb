@@ -42,5 +42,6 @@ Partial Public Class tblIMISDefaults
     Public Property SMSDlr As Nullable(Of Integer)
     Public Property SMSType As Nullable(Of Integer)
     Public Property AppVersionFeedbackRenewal As Nullable(Of Decimal)
+    Public Property APIKey As String
 
 End Class

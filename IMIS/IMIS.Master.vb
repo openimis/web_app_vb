@@ -124,6 +124,7 @@ Public Class IMIS
         SubFindInsuree.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.InsureeSearch, UserID)
         SubFindPolicy.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PolicySearch, UserID)
         SubFindPremium.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.ContributionSearch, UserID)
+        SubFindPayment.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.PaymentSearch, UserID)
 
         ''Claims 
         SubClaimOverview.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Claims, UserID)

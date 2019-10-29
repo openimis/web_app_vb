@@ -259,6 +259,7 @@ Public Class Enums
         Policy
         FindPremium
         Premium
+        FindPayment
 
         'claims
         FindClaim
