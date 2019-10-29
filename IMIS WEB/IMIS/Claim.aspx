@@ -818,7 +818,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                      
                        <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="12" Size="11"  width="125px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" 
-                       runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0" InitialValue="0"
+                       runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0"
                        ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator> 
                </td>
             

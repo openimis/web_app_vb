@@ -49,7 +49,7 @@ Public Class ReportingDAL
         data.params("@LocationId", SqlDbType.Int, LocationId)
         Return data.Filldata()
     End Function
-    Public Function GetPreviousOvervireOfCommissiosReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?) As DataTable
+    Public Function GetPreviousOvervireOfCommissiosReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
         Query = "SELECT RP.ReportingId,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" &
   "+ '  ' + Dis.DistrictName " &
   "+ '  ' + CONVERT(NVARCHAR,RP.StartDate,103) + '  ' + CONVERT(NVARCHAR,RP.EndDate,103)" &
@@ -59,12 +59,16 @@ Public Class ReportingDAL
   " INNER JOIN tblUsersDistricts UD ON Dis.DistrictID = UD.LocationId" &
   " WHERE RP.ReportingId = CASE WHEN @ReportingID IS NULL THEN RP.ReportingID ELSE @ReportingID END" &
   " AND RP.ReportType =2" &
+   " AND Year(RP.StartDate) = @Year AND Month(RP.StartDate)  =@Month" &
    " AND UD.ValidityTo IS NULL AND UD.UserID = @UserId" &
   " AND RP.LocationId = CASE WHEN @LocationId = 0 THEN RP.LocationId ELSE @LocationId END ORDER BY ReportingId DESC"
         data.setSQLCommand(Query, CommandType.Text)
         data.params("@ReportingID", SqlDbType.Int, ReportingID)
         data.params("@UserID", SqlDbType.Int, UserID)
         data.params("@LocationId", SqlDbType.Int, LocationId)
+        data.params("@Year", SqlDbType.Int, Year)
+        data.params("@Month", SqlDbType.Int, Month)
+
         Return data.Filldata()
     End Function
 End Class

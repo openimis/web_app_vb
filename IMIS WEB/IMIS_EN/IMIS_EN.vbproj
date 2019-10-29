@@ -119,6 +119,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Renewal.vb" />
+    <Compile Include="tblClaim.vb" />
     <Compile Include="tblClaimAdmin.vb" />
     <Compile Include="tblFamilies.vb" />
     <Compile Include="tblHF.vb" />

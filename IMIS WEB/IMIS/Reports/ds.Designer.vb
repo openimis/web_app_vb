@@ -1036,7 +1036,6 @@ Partial Public Class ds
             Me.columnClaimAdminName.ReadOnly = true
             Me.columnClaimAdminName.MaxLength = 201
             Me.columnDateFrom.AllowDBNull = false
-            Me.columnCHFID.AllowDBNull = false
             Me.columnCHFID.MaxLength = 9
             Me.columnInsureeName.ReadOnly = true
             Me.columnInsureeName.MaxLength = 201
@@ -3788,7 +3787,11 @@ Partial Public Class ds
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property CHFID() As String
             Get
-                Return CType(Me(Me.tableuspSSRSGetClaimOverView.CHFIDColumn),String)
+                Try 
+                    Return CType(Me(Me.tableuspSSRSGetClaimOverView.CHFIDColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CHFID' in table 'uspSSRSGetClaimOverView' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableuspSSRSGetClaimOverView.CHFIDColumn) = value
@@ -4120,6 +4123,18 @@ Partial Public Class ds
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetDateToNull()
             Me(Me.tableuspSSRSGetClaimOverView.DateToColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCHFIDNull() As Boolean
+            Return Me.IsNull(Me.tableuspSSRSGetClaimOverView.CHFIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCHFIDNull()
+            Me(Me.tableuspSSRSGetClaimOverView.CHFIDColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6625,7 +6640,7 @@ Namespace dsTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HFID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DistrictId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LocationId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProdId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StartDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6636,15 +6651,15 @@ Namespace dsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As ds.uspSSRSGetClaimOverViewDataTable, ByVal HFID As Global.System.Nullable(Of Integer), ByVal DistrictId As Global.System.Nullable(Of Integer), ByVal ProdId As Global.System.Nullable(Of Integer), ByVal StartDate As Global.System.Nullable(Of Date), ByVal EndDate As Global.System.Nullable(Of Date), ByVal ClaimStatus As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As ds.uspSSRSGetClaimOverViewDataTable, ByVal HFID As Global.System.Nullable(Of Integer), ByVal LocationId As Global.System.Nullable(Of Integer), ByVal ProdId As Global.System.Nullable(Of Integer), ByVal StartDate As Global.System.Nullable(Of Date), ByVal EndDate As Global.System.Nullable(Of Date), ByVal ClaimStatus As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (HFID.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(HFID.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (DistrictId.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DistrictId.Value,Integer)
+            If (LocationId.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(LocationId.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -6679,15 +6694,15 @@ Namespace dsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal HFID As Global.System.Nullable(Of Integer), ByVal DistrictId As Global.System.Nullable(Of Integer), ByVal ProdId As Global.System.Nullable(Of Integer), ByVal StartDate As Global.System.Nullable(Of Date), ByVal EndDate As Global.System.Nullable(Of Date), ByVal ClaimStatus As Global.System.Nullable(Of Integer)) As ds.uspSSRSGetClaimOverViewDataTable
+        Public Overloads Overridable Function GetData(ByVal HFID As Global.System.Nullable(Of Integer), ByVal LocationId As Global.System.Nullable(Of Integer), ByVal ProdId As Global.System.Nullable(Of Integer), ByVal StartDate As Global.System.Nullable(Of Date), ByVal EndDate As Global.System.Nullable(Of Date), ByVal ClaimStatus As Global.System.Nullable(Of Integer)) As ds.uspSSRSGetClaimOverViewDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (HFID.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(HFID.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (DistrictId.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DistrictId.Value,Integer)
+            If (LocationId.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(LocationId.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If

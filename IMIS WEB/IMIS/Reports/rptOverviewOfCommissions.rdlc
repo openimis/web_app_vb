@@ -1268,7 +1268,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!prmTotalNumberOfPoliciesFor.Value &amp; " "  &amp; Fields!Product.Value</Value>
+                                  <Value>=Parameters!prmTotalNumberOfPoliciesFor.Value &amp; iif(cbool(Parameters!Grouping.Value And 1) = 1, Fields!Officer.Value &amp;" ", " " ) &amp; Fields!Product.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1822,6 +1822,7 @@
                           </Style>
                         </Textbox>
                         <ColSpan>8</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -2182,7 +2183,6 @@
                           </Style>
                         </Textbox>
                         <ColSpan>8</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />

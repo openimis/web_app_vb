@@ -847,13 +847,18 @@
     </Content>
     <EmbeddedResource Include="Reports\rptClaimHistoryReport.rdlc" />
     <Content Include="Reports\rptClaimOverviewClaimsOnly.rdlc" />
-    <Content Include="Reports\rptClaimOverviewAllDetails.rdlc" />
+    <Content Include="Reports\rptClaimOverviewAllDetails.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Reports\rptClaimOverviewRejecteServItem.rdlc" />
     <Content Include="Reports\rptContributionPayment.rdlc">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Reports\rptControlNumberAssignment.rdlc" />
     <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryAllDetails.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryClaimsOnly.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryRejecteServItem.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />

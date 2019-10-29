@@ -412,6 +412,7 @@ Partial Public Class Claim
 
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
+        Session("RestoreMode") = Nothing
         Response.Redirect("FindClaims.aspx")
     End Sub
     Private Function IsClaimChanged(ByRef ClaimTotalValueFlag As Boolean) As Boolean
@@ -535,14 +536,16 @@ Partial Public Class Claim
                 End If
 
                 If Not eClaim.ClaimID = 0 Then
-                    'Added by Salumu 05092019 
+                    'Added by Salumu 05092019 setting claim status to entered, review and feedback to idle for rejected claims
                     'Starts
                     If CInt(Session("RestoreMode")) = True Then
+                        If Not eClaim.ClaimStatus = 1 Then
+                            eClaim.ClaimStatus = 2
+                            eClaim.ReviewStatus = 1
+                            eClaim.FeedbackStatus = 1
+                            eClaim.ClaimCode = txtCLAIMCODEData.Text
+                        End If
 
-                        eClaim.ClaimStatus = 2
-                        eClaim.ReviewStatus = 1
-                        eClaim.FeedbackStatus = 1
-                        eClaim.ClaimCode = txtCLAIMCODEData.Text
                         'Ends
                     Else
                         If claim.IsClaimStatusChanged(eClaim) Then
@@ -753,7 +756,7 @@ Partial Public Class Claim
             ServiceItemGridBinding()
             AfterSaveMessages(chkSaveClaim, chkSaveClaimItems, chkSaveClaimServices)
             tdPrintW.Visible = eClaim.ClaimID > 0
-            'Added by Salumu to kill session
+            'Added by Salumu to kill the session
             Session("RestoreMode") = Nothing
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
@@ -1161,7 +1164,11 @@ Partial Public Class Claim
             eClaim.ClaimID = hfClaimID.Value
             claim.LoadClaim(eClaim)
             If Not eClaim.ClaimStatus = 1 Then
-                txtCHFIDData.Text = ""
+                If Not (eClaim.ClaimItems.RejectionReason = 0 Or eClaim.ClaimServices.RejectionReason = 0) Then
+                    txtCHFIDData.Text = ""
+                    txtNAMEData.Text = ""
+                    txtNAMEData.Enabled = True
+                End If
             End If
 
             pnlBodyCLM.Attributes.Add("Class", "enabled")

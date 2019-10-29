@@ -483,7 +483,7 @@ Partial Public Class Reports
         ddlPreviousReportDate.DataBind()
     End Sub
     Private Sub FillPreviousReportsDateForOverviewOfCommissions()
-        Dim dt As DataTable = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), If(Val(ddlDistrictWoNational.SelectedValue) = 0, -1, ddlDistrictWoNational.SelectedValue), Nothing)
+        Dim dt As DataTable = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), If(Val(ddlDistrictWoNational.SelectedValue) = 0, -1, ddlDistrictWoNational.SelectedValue), Nothing, ddlYear.SelectedValue, ddlMonth.SelectedValue)
         ddlPreviousReportDateCommission.DataSource = dt
         ddlPreviousReportDateCommission.DataValueField = "ReportingId"
         ddlPreviousReportDateCommission.DataTextField = "Display"
@@ -1351,7 +1351,7 @@ Partial Public Class Reports
         dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             If ReportingID > 0 Then
-                Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID)
+                Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID, ddlYear.SelectedValue, ddlMonth.SelectedValue)
                 If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
                     'StartDate = dtRep.Rows(0)("StartDate")
                     'EndDate = dtRep.Rows(0)("EndDate")

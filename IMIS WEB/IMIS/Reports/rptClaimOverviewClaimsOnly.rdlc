@@ -71,10 +71,7 @@
           <DataField>ClaimStatus</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RejectionReason">
-          <DataField>RejectionReason</DataField>
-          <rd:TypeName>System.Byte</rd:TypeName>
-        </Field>
+    
         <Field Name="Claimed">
           <DataField>Claimed</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>

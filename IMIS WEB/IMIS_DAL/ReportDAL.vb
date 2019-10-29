@@ -328,7 +328,9 @@ Public Class ReportDAL
         Data.params("@StartDate", SqlDbType.Date, StartDate)
         Data.params("@EndDate", SqlDbType.Date, EndDate)
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
-        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        If Not Scope = 0 Then
+            Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        End If
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")
@@ -658,7 +660,9 @@ Public Class ReportDAL
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
         Data.params("@InsuranceNumber", SqlDbType.NVarChar, 12, InsuranceNumber)
         Data.params("@Scope", SqlDbType.Int, Scope)
-        Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        If Not Scope = 0 Then
+            Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        End If
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")

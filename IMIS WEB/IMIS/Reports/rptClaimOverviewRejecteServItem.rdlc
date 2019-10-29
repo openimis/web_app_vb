@@ -206,43 +206,40 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.09524cm</Width>
+                  <Width>1.19749cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.64524cm</Width>
+                  <Width>1.74749cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.91966cm</Width>
+                  <Width>3.02191cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.3433cm</Width>
+                  <Width>1.44555cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.64524cm</Width>
+                  <Width>1.74749cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.95932cm</Width>
+                  <Width>2.06157cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.49057cm</Width>
+                  <Width>2.59282cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.31414cm</Width>
+                  <Width>1.41639cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.45474cm</Width>
+                  <Width>1.38128cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.27903cm</Width>
+                  <Width>2.29166cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.18941cm</Width>
+                  <Width>7.55271cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.99571cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.8588cm</Width>
+                  <Width>0.96105cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -512,40 +509,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>textbox29</rd:DefaultName>
-                          <Style>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox26">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Parameters!paramRejectionCode.Value</Value>
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>textbox26</rd:DefaultName>
                           <Style>
                             <BottomBorder>
                               <Style>None</Style>
@@ -996,45 +959,6 @@
                               </TextRuns>
                               <Style>
                                 <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox43">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!RejectionReason.Value</Value>
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -2312,10 +2236,9 @@
                             </RightBorder>
                           </Style>
                         </Rectangle>
-                        <ColSpan>12</ColSpan>
+                        <ColSpan>11</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -2391,10 +2314,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>12</ColSpan>
+                        <ColSpan>11</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -2696,48 +2618,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox67">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Parameters!paramTotalClaimedT.Value &amp; " : "</Value>
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <TopBorder>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="textbox68">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2915,7 +2795,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -2938,18 +2817,15 @@
                   </SortExpressions>
                   <TablixMembers>
                     <TablixMember>
-                      <KeepWithGroup>After</KeepWithGroup>
                       <KeepTogether>true</KeepTogether>
                     </TablixMember>
                     <TablixMember>
                       <Visibility>
                         <Hidden>=SUM(if(Trim(Fields!AdjustedService.Value) = "",0,1)) + SUM(if(Trim(Fields!RejectedService.Value) = "",0,1)) + SUM(if(Trim(Fields!AdjustedItem.Value) = "",0,1)) + SUM(if(Trim(Fields!RejectedItem.Value) = "",0,1)) = 0</Hidden>
                       </Visibility>
-                      <KeepWithGroup>Before</KeepWithGroup>
                       <KeepTogether>true</KeepTogether>
                     </TablixMember>
                     <TablixMember>
-                      <KeepWithGroup>Before</KeepWithGroup>
                       <KeepTogether>true</KeepTogether>
                     </TablixMember>
                   </TablixMembers>
@@ -2962,7 +2838,7 @@
             </TablixRowHierarchy>
             <DataSetName>ds_dtGetClaimOverview</DataSetName>
             <Height>4cm</Height>
-            <Width>26.1904cm</Width>
+            <Width>27.41737cm</Width>
             <Style>
               <FontSize>6pt</FontSize>
             </Style>
@@ -3001,7 +2877,7 @@
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Left>0.01042in</Left>
               <Height>0.75cm</Height>
-              <Width>25.5cm</Width>
+              <Width>27.3909cm</Width>
               <Style>
                 <Border>
                   <Color>DarkSlateBlue</Color>
@@ -3033,7 +2909,7 @@
               <Top>0.75cm</Top>
               <Left>0.01042in</Left>
               <Height>0.5cm</Height>
-              <Width>26.19849cm</Width>
+              <Width>27.3909cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -3052,7 +2928,7 @@
           <Style />
         </PageHeader>
         <PageFooter>
-          <Height>0.55608cm</Height>
+          <Height>0.57739cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3075,8 +2951,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>textbox2</rd:DefaultName>
-              <Top>0.15608cm</Top>
-              <Left>22.96164cm</Left>
+              <Top>0.17739cm</Top>
+              <Left>24.86447cm</Left>
               <Height>0.4cm</Height>
               <Width>2.5529cm</Width>
               <Style>
@@ -3119,7 +2995,7 @@
               <Top>0.06481cm</Top>
               <Left>0.02646cm</Left>
               <Height>0cm</Height>
-              <Width>25.52116cm</Width>
+              <Width>27.39091cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>

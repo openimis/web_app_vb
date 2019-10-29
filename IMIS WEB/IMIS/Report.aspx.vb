@@ -987,7 +987,7 @@ Partial Public Class Report
                         rpt.ReportPath = "Reports\rptOverviewOfCommissions.rdlc"
                         ds.Name = "ds_uspSSRSGetOverviewCommissions"
                         Page.Title = imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS")
-                        Dim Param(18) As ReportParameter
+                        Dim Param(26) As ReportParameter
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramUAMainTitle", imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS", False))
                         Param(2) = New ReportParameter("paramUAPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
@@ -1003,38 +1003,18 @@ Partial Public Class Report
                         Param(12) = New ReportParameter("paramPayer", imisgen.getMessage("L_PAYERS", False))
                         Param(13) = New ReportParameter("paramEnrollmentDate", imisgen.getMessage("L_ENROLDATE", False))
                         Param(14) = New ReportParameter("paramTotal", imisgen.getMessage("L_TOTAL", False))
-
-
                         Param(15) = New ReportParameter("Grouping", IMIS_EN.eReports.Grouping)
-
-
-                        'Dim dtView As DataView = dt.DefaultView
-                        'Dim dtDistinct As DataTable = dtView.ToTable(True, New String() {"PremiumId", "TotlaPrescribedContribution", "TotlActualPayment", "CommissionRate", "PolicyID"})
-
-                        'Dim TotalPolicies As Object = dtDistinct.Compute("SUM(PolicyID)", "1=1")
-                        'If TotalPolicies Is DBNull.Value Then TotalPolicies = 0
-
-                        'Dim TotalPrescribedAmount As Object = dtDistinct.Compute("SUM(TotlaPrescribedContribution)", "1=1")
-                        'If TotalPrescribedAmount Is DBNull.Value Then TotalPrescribedAmount = 0
-
-                        'Dim TotalActualPaymentAmount As Object = dtDistinct.Compute("SUM(TotlActualPayment)", "1=1")
-                        'If TotalActualPaymentAmount Is DBNull.Value Then TotalActualPaymentAmount = 0
-
-                        '' Dim TotalPaymentAmount As Object = dtDistinct.Compute("SUM(PaymentAmount)", "1=1")
-                        ''If TotalPaymentAmount Is DBNull.Value Then TotalPaymentAmount = 0
-
-                        'Dim CommissionRate = dtDistinct.Rows(0)("CommissionRate")
-                        'Dim TotalCommissionRate = dtDistinct.Compute("SUM(CommissionRate)", "1=1")
-                        ' If TotalCommissionRate Is DBNull.Value Then TotalCommissionRate = 0
-
-                        'Param(16) = New ReportParameter("paramTotalPolicies", TotalPolicies.ToString)
-                        'Param(17) = New ReportParameter("paramTotalPrescribedAmount", TotalPrescribedAmount.ToString)
-                        'Param(18) = New ReportParameter("TotalActualPaymentAmount", TotalActualPaymentAmount.ToString)
-                        'Param(19) = New ReportParameter("TotalPolicies", imisgen.getMessage("L_TOTALNUMBEROFPOLICIES", False))
-                        'Param(20) = New ReportParameter("TotalCommissionRate", CommissionRate.ToString)
                         Param(16) = New ReportParameter("prmWard", imisgen.getMessage("L_WARD", False))
                         Param(17) = New ReportParameter("prmVillage", imisgen.getMessage("L_VILLAGE", False))
                         Param(18) = New ReportParameter("paramTotalCommissionRate", imisgen.getMessage("L_TOTALCOMMISSIONRATE", False))
+                        Param(19) = New ReportParameter("prmTotalNumberOfPolicies", imisgen.getMessage("L_TOTALNUMBEROFPOLICIES", False))
+                        Param(20) = New ReportParameter("prmTotalPrescribedContribution", imisgen.getMessage("R_TOTALOFALLPRESCRIBEDCONTRIBUTION", False))
+                        Param(21) = New ReportParameter("prmTotalActualPayment", imisgen.getMessage("R_TOTALOFALLACTUALPAYMENTS", False))
+                        Param(22) = New ReportParameter("prmCalculatedCommission", imisgen.getMessage("R_CALCULATEDCOMMISSION", False))
+                        Param(23) = New ReportParameter("prmTotalNumberOfPoliciesFor", imisgen.getMessage("L_TOTALNUMBEROFPOLICIESFOR", False))
+                        Param(24) = New ReportParameter("prmTotalPrescribedContributionFor", imisgen.getMessage("R_TOTALPRESCRIBEDCONTRIBUTIONFOR", False))
+                        Param(25) = New ReportParameter("prmTotalActualPaymentsFor", imisgen.getMessage("R_TOTALACTUALPAYMENTSFOR", False))
+                        Param(26) = New ReportParameter("prmCalculatedCommissionFor", imisgen.getMessage("R_CALCULATEDCOMMISSIONFOR", False))
                         rpt.SetParameters(Param)
                         ds.Value = dt
                         rpt.DataSources.Add(ds)
@@ -1045,7 +1025,7 @@ Partial Public Class Report
                         'rpt.ReportPath = "Reports\rptClaimHistoryReport.rdlc"
                         ds.Name = "ds_uspSSRSGetClaimHistoryReport"
                         Page.Title = imisgen.getMessage("T_CLAIMHISTORYREPORT")
-                        Dim Param(33) As ReportParameter
+                        Dim Param(26) As ReportParameter
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramUAMainTitle", imisgen.getMessage("T_CLAIMHISTORYREPORT", False))
                         Param(2) = New ReportParameter("paramUAPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
@@ -1073,6 +1053,8 @@ Partial Public Class Report
                         Param(24) = New ReportParameter("paramAdjustedItems", imisgen.getMessage("R_ADJUSTEDITEMS", False))
                         Param(25) = New ReportParameter("paramTotalClaimedT", imisgen.getMessage("R_TOTALCLAIMED", False))
                         Param(26) = New ReportParameter("paramTotalClaimsT", imisgen.getMessage("R_TOTALCLAIMS", False))
+
+
 
                         If (Session("Scope") = 2 Or Session("Scope") = -1) Then
                             rpt.ReportPath = "Reports\rptClaimHistoryReport.rdlc"
