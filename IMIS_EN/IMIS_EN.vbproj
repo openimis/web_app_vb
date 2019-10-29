@@ -245,6 +245,8 @@
     <Compile Include="tblPayerType.vb">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblPayment.vb" />
+    <Compile Include="tblPaymentDetail.vb" />
     <Compile Include="tblPhotos.vb">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -140,6 +140,7 @@
     <Compile Include="OfficerVillagesDAL.vb" />
     <Compile Include="PayersDAL.vb" />
     <Compile Include="PayerTypeDAL.vb" />
+    <Compile Include="PaymentDAL.vb" />
     <Compile Include="PolicyDAL.vb" />
     <Compile Include="PolicyRenewalDAL.vb" />
     <Compile Include="PremiumDAL.vb" />
@@ -187,6 +188,9 @@
       <Project>{a57fc2fd-3b24-4f9e-9514-cf370e411401}</Project>
       <Name>IMIS_EN</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PaymentDAL.vb.txt" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
