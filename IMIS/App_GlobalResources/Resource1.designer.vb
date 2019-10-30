@@ -12278,6 +12278,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Failed.
+        '''</summary>
+        Friend Shared ReadOnly Property T_FAILEDSTATUS() As String
+            Get
+                Return ResourceManager.GetString("T_FAILEDSTATUS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Families and Insurees Overview.
         '''</summary>
         Friend Shared ReadOnly Property T_FAMILIESINSUREESOVERVIEW() As String
