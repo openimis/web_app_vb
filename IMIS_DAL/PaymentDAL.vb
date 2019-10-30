@@ -297,5 +297,16 @@ Public Class PaymentDAL
         data.ExecuteCommand()
 
     End Sub
+    Public Function GetPaymentIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PaymentID from tblPayment where PaymentUUID = @PaymentUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PaymentUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
 End Class
 

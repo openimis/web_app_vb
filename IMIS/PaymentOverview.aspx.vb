@@ -42,13 +42,9 @@ Public Class PaymentOverview
     Private Sub FormatForm(Optional ByVal status As Integer = 0, Optional ByVal history As Boolean = False)
 
         If status <> 4 Then
-            'BtnMatchPayment.Enabled = False
-            'BtnMatchPayment.Visible = False
             btnSaveEditedPaymentDetails.Enabled = False
             btnSaveEditedPaymentDetails.Visible = False
         Else
-            'BtnMatchPayment.Enabled = True
-            'BtnMatchPayment.Visible = True
             btnSaveEditedPaymentDetails.Enabled = True
             btnSaveEditedPaymentDetails.Visible = True
         End If
@@ -159,7 +155,7 @@ Public Class PaymentOverview
             Dim AuditUserID As Integer
             dtUser = Session("User")
             AuditUserID = dtUser.Rows(0)("UserID").ToString
-            isMatched = BI.MatchPayment(PaymentId, AuditUserID)
+            isMatched = BI.MatchPayment(PaymentUUID, AuditUserID)
             lblMsg.Text = ""
             If isMatched Then
                 lblMsg.Text = imisgen.getMessage("M_PAYMENTMATCHED")
@@ -231,7 +227,6 @@ Public Class PaymentOverview
 
         Catch ex As Exception
             lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
-            ' imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Throw New ArgumentException(ex.Message)
             Return

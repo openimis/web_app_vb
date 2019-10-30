@@ -45,7 +45,6 @@ Partial Public Class FindPayment
         For Each row As GridViewRow In gv.Rows
             row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
             If Not row.Cells(12).Text = "&nbsp;" Then
-                'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
 
@@ -67,7 +66,6 @@ Partial Public Class FindPayment
                 End If
 
                 FillPaymentStatus()
-                'FillDistrict()
                 Session("ParentUrl") = "FindPayment.aspx"
             End If
 
@@ -91,9 +89,6 @@ Partial Public Class FindPayment
         ddlDistrict.DataValueField = "DistrictId"
         ddlDistrict.DataTextField = "DistrictName"
         ddlDistrict.DataBind()
-        'If dtDistricts.Rows.Count = 1 Then
-        '    GetWards()
-        'End If
     End Sub
 
     Private Sub RunPageSecurity()

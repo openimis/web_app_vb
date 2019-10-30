@@ -77,7 +77,12 @@ Public Class PaymentBL
         Return Payment.LoadPaymentDetails(ePayment, PaymentDetails)
     End Function
 
-    Public Function MatchPaymentAPI(ByVal PaymentID As Integer, ByVal AuditUserID As Integer) As Boolean
+    Public Function GetPaymentIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Payment As New IMIS_DAL.PaymentDAL
+        Return Payment.GetPaymentIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+
+    Public Function MatchPaymentAPI(ByVal PaymentUUID As String, ByVal AuditUserID As Integer) As Boolean
         Dim Gen As New GeneralBL
         Dim IMISDefault As New IMISDefaultsBL
         Dim eDefaults As New IMIS_EN.tblIMISDefaults
@@ -87,17 +92,23 @@ Public Class PaymentBL
         Dim resByte As Byte()
         Dim resString As String
         Dim reqString() As Byte
-        Dim APIObject = New With {.paymentId = PaymentID, .auditUserId = AuditUserID}
-        Dim APIresponse As New Object
+
+        Dim PaymentID As Integer = GetPaymentIdByUUID(Guid.Parse(PaymentUUID))
+        Dim APIObject = New With {.internal_identifier = PaymentID, .audit_user_id = AuditUserID}
         Dim urlToPost As String = ConfigurationManager.AppSettings("RestfullURL")
+
+        Dim APIresponse As New Object
         Dim serializer As New System.Web.Script.Serialization.JavaScriptSerializer()
         Json = serializer.Serialize(APIObject)
         IMISDefault.GetDefaults(eDefaults)
         APIKey = eDefaults.APIKey
 
+        webClient.Headers("Authorization") = "Bearer " + APIKey
         webClient.Headers("content-type") = "application/json"
+        webClient.Headers("api-version") = "1"
+
         reqString = Encoding.Default.GetBytes(Json)
-        resByte = webClient.UploadData(urlToPost + "MatchPayment?APIKey=" + APIKey, "post", reqString)
+        resByte = webClient.UploadData(urlToPost + "MatchPayment", "post", reqString)
         resString = Encoding.Default.GetString(resByte)
         APIresponse = serializer.Deserialize(Of Object)(resString)
         isMatched = Boolean.Parse(APIresponse.item("isMatched"))

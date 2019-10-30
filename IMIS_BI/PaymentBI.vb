@@ -63,7 +63,7 @@ Public Class PaymentBI
         Dim BL As New IMIS_BL.PaymentBL
         Return BL.LoadPaymentDetails(ePayment, PaymentDetails)
     End Function
-    Public Function MatchPayment(ByVal PaymentID As Integer, ByVal AuditUserID As Integer) As Boolean
+    Public Function MatchPayment(ByVal PaymentID As String, ByVal AuditUserID As Integer) As Boolean
         Dim Payment As New IMIS_BL.PaymentBL
         Return Payment.MatchPaymentAPI(PaymentID, AuditUserID)
     End Function
