@@ -4729,4 +4729,16 @@ adults/children)</value>
   <data name="R_PAYMENT" xml:space="preserve">
     <value>Payment</value>
   </data>
+  <data name="T_PAYMENTMATCHED" xml:space="preserve">
+    <value>Matched</value>
+  </data>
+  <data name="T_PAYMENTREQUESTED" xml:space="preserve">
+    <value>Requested</value>
+  </data>
+  <data name="T_PAYMENTRPAID" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="T_UNMATCHED" xml:space="preserve">
+    <value>Unmatched</value>
+  </data>
 </root>

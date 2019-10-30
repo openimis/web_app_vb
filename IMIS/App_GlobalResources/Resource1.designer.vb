@@ -12819,6 +12819,33 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Matched.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTMATCHED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTMATCHED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Requested.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTREQUESTED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTREQUESTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Paid.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTRPAID() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTRPAID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to -- Payment Type --.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTTYPE() As String
@@ -13535,6 +13562,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_TOTALREJECTEDPHOTOS() As String
             Get
                 Return ResourceManager.GetString("T_TOTALREJECTEDPHOTOS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Unmatched.
+        '''</summary>
+        Friend Shared ReadOnly Property T_UNMATCHED() As String
+            Get
+                Return ResourceManager.GetString("T_UNMATCHED", resourceCulture)
             End Get
         End Property
         
