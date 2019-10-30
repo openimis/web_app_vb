@@ -34,7 +34,7 @@ Public Class PaymentBL
         Dim Payment As New IMIS_DAL.PaymentDAL
         Return Payment.GetPayment(ePayment)
     End Function
-    Public Function getPayment(PaymentId As Integer) As IMIS_EN.tblPayment
+    Public Function getPayment(PaymentId As String) As IMIS_EN.tblPayment
         Dim PaymentDAL As New IMIS_DAL.PaymentDAL
         Dim dtStatus As DataTable
         Dim gen As New GeneralBL

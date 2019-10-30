@@ -430,7 +430,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                        AllowPaging="true" PagerSettings-FirstPageText = "First Page" PagerSettings-LastPageText = "Last Page" PagerSettings-Mode ="NumericFirstLast" PageSize="15"
                         CssClass="mGrid"
                         PagerStyle-CssClass="pgr"
-                        DataKeyNames="PaymentID" 
+                        DataKeyNames="PaymentID, PaymentUUID" 
                         EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'>
                        
                         <Columns>

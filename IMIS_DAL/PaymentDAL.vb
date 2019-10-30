@@ -89,18 +89,17 @@ Public Class PaymentDAL
         ePremium.tblPolicy = ePolicy
         ePremium.tblPolicy.tblProduct = eProduct
     End Sub
-    Public Function getPayment(PaymentId As Integer, dtPaymentStatus As DataTable) As DataTable
+    Public Function getPayment(PaymentId As String, dtPaymentStatus As DataTable) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-
         sSQL = " SELECT py.PaymentID,PD.InsuranceNumber, PY.OfficerCode, PY.ExpectedAmount,PS.StatusID, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber,  PY.PaymentDate, CONVERT(DATE, PY.ReceivedDate,103) ReceivedDate, CONVERT(DATE, PY.MatchedDate,103) MatchedDate,     PY.ReceivedAmount, PD.ProductCode, CASE  WHEN PY.PaymentStatus < 0 THEN 'Failed' ELSE PS.PaymenyStatusName END AS PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo FROM tblPaymentDetails PD"
         sSQL += " INNER Join tblPayment PY ON PY.PaymentID = PD.PaymentID"
         sSQL += " Left OUTER JOIN tblControlNumber CN ON CN.PaymentID = PY.PaymentID"
         sSQL += " Left OUTER JOIN @dtPaymentStatus PS ON PS.StatusID = PY.PaymentStatus"
         sSQL += " WHERE"
-        sSQL += "  py.PaymentID = @PaymentId"
+        sSQL += "  py.PaymentUUID = @PaymentUUID"
         data.setSQLCommand(sSQL, CommandType.Text)
-        data.params("@PaymentId", SqlDbType.Int, PaymentId)
+        data.params("@PaymentUUID", PaymentId)
         data.params("@dtPaymentStatus", dtPaymentStatus, "xPayementStatus")
         Return data.Filldata
     End Function
@@ -111,7 +110,7 @@ Public Class PaymentDAL
         sSQL += " INNER JOIN tblDistricts L ON L.DistrictId = UD.LocationId"
         sSQL += "  WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)"
         sSQL += " GROUP BY L.DistrictId, L.Region )"
-        sSQL = " SELECT py.PaymentID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo  FROM tblPaymentDetails PD "
+        sSQL = " SELECT py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo  FROM tblPaymentDetails PD "
         sSQL += " INNER Join tblPayment PY ON PY.PaymentID = PD.PaymentID"
         sSQL += "  INNER JOIN tblInsuree I ON I.CHFID = PD.InsuranceNumber"
         sSQL += "  INNER JOIN tblFamilies F ON F.FamilyID =  I.FamilyID"
@@ -190,7 +189,7 @@ Public Class PaymentDAL
             End If
 
         End If
-        sSQL += " GROUP BY  py.PaymentID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate , PY.ReceivedAmount,PY.ExpectedAmount,  PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo"
+        sSQL += " GROUP BY  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate , PY.ReceivedAmount,PY.ExpectedAmount,  PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo"
         sSQL += " ORDER BY PaymentID DESC "
         'If ePayment.LocationID IsNot Nothing Then
         'sSQL += " AND PD.LocationID = @LocationID"
@@ -237,15 +236,14 @@ Public Class PaymentDAL
         sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = PD.PaymentID"
         sSQL += " LEFT OUTER JOIN @dtPaymentStatus PS ON PY.PaymentStatus = PS.StatusID"
         sSQL += " LEFT OUTER JOIN tblControlNumber CN ON CN.PaymentID = PY.PaymentID  AND CN.ValidityTo IS NULL "
-        sSQL += " WHERE PY.PaymentID = @PaymentID"
+        sSQL += " WHERE PY.PaymentUUID = @PaymentUUID"
         If ePayment.Legacy = False Then
             sSQL += " AND PD.ValidityTo IS NULL"
         End If
 
         data.setSQLCommand(sSQL, CommandType.Text)
-        data.params("@PaymentID", SqlDbType.Int, ePayment.PaymentID)
+        data.params("@PaymentUUID", SqlDbType.UniqueIdentifier, Guid.Parse(ePayment.PaymentUUID.ToString()))
         data.params("@dtPaymentStatus", ePayment.dtPaymentStatus, "xPayementStatus")
-
         Return data.Filldata
     End Function
     Public Function LoadPaymentDetails(ByVal ePayment As IMIS_EN.tblPayment, ByVal PaymentDetailsID As Integer) As DataTable

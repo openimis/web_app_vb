@@ -33,7 +33,7 @@ Partial Public Class FindPayment
     Inherits System.Web.UI.Page
 
 
-    Public payment_id As Integer
+    Public payment_id As String
     Private ePayment As New IMIS_EN.tblPayment
     Private Payment As New IMIS_BI.PaymentBI
     Protected imisgen As New IMIS_Gen
@@ -239,7 +239,7 @@ Partial Public Class FindPayment
         If gvPayments.SelectedDataKey Is Nothing Then
             Response.Redirect("PaymentOverview.aspx?p=0")
         End If
-        payment_id = gvPayments.SelectedDataKey.Values("PaymentID")
+        payment_id = gvPayments.SelectedDataKey.Values("PaymentUUID").ToString()
         Response.Redirect("PaymentOverview.aspx?p=" & payment_id)
     End Sub
 

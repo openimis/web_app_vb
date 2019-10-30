@@ -30,6 +30,7 @@
 Public Class tblPayment
 
     Private _PaymentID As Integer?
+    Private _PaymentUUID As String
     Private _ControlNumber As String
     Private _ExpectedAmount As Decimal?
     Private _ReceivedAmount As Global.System.Decimal?
@@ -68,6 +69,14 @@ Public Class tblPayment
         End Get
         Set(ByVal value As Integer)
             _PaymentID = value
+        End Set
+    End Property
+    Public Property PaymentUUID() As String
+        Get
+            Return _PaymentUUID
+        End Get
+        Set(ByVal value As String)
+            _PaymentUUID = value
         End Set
     End Property
     Public Property RegionId() As Integer

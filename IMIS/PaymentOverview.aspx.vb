@@ -32,6 +32,7 @@
 Public Class PaymentOverview
     Inherits System.Web.UI.Page
     Private PaymentId As Integer = 0
+    Private PaymentUUID As String
 
     Dim BI As New IMIS_BI.PaymentBI
     Dim ePaymentDetails As New IMIS_EN.tblPaymentDetail
@@ -60,11 +61,9 @@ Public Class PaymentOverview
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load, chkLegacy.CheckedChanged
         If Session("User") Is Nothing Then Response.Redirect("Default.aspx")
-
-
-        PaymentId = HttpContext.Current.Request.QueryString("p")
+        PaymentUUID = HttpContext.Current.Request.QueryString("p")
         With ePayment
-            .PaymentID = PaymentId
+            .PaymentUUID = PaymentUUID
             .InsuranceNumber = Nothing
             .OfficerCode = Nothing
             .PaymentStatus = -1
@@ -76,7 +75,6 @@ Public Class PaymentOverview
 
         If Page.IsPostBack = True Then Return
         Try
-
             FillHeader()
             Dim dtStage As New DataTable()
             dtStage = BI.GetPolicyType()
@@ -84,9 +82,7 @@ Public Class PaymentOverview
             ddlPolicyStage.DataValueField = "TypeId"
             ddlPolicyStage.DataTextField = "Type"
             ddlPolicyStage.DataBind()
-
             loadGrid()
-
         Catch ex As Exception
             lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
@@ -130,10 +126,8 @@ Public Class PaymentOverview
     End Sub
     Private Sub FillHeader()
 
-
-        Dim payment_id As Integer = HttpContext.Current.Request.QueryString("p")
+        Dim payment_id As String = HttpContext.Current.Request.QueryString("p")
         Dim entities = BI.getPayment(payment_id)
-
         FormatForm(If(entities.PaymentStatus IsNot Nothing, entities.PaymentStatus, 0))
         txtPhoneNo.Text = entities.PhoneNumber
         txtMatchedDate.Text = If(entities.MatchedDate Is Nothing, "", entities.MatchedDate)
@@ -160,7 +154,7 @@ Public Class PaymentOverview
 
         Try
             Dim isMatched As Boolean
-            ePayment.PaymentID = HttpContext.Current.Request.QueryString("p")
+            ePayment.PaymentUUID = HttpContext.Current.Request.QueryString("p")
             Dim dtUser As New DataTable
             Dim AuditUserID As Integer
             dtUser = Session("User")

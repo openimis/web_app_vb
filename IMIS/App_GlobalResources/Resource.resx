@@ -1515,15 +1515,6 @@
   <data name="L_EXECUTESCRIPT" xml:space="preserve">
     <value>EXECUTE SCRIPT</value>
   </data>
-  <data name="L_EXTRACT11" xml:space="preserve">
-    <value>Policy XML Extracts</value>
-  </data>
-  <data name="L_EXTRACT21" xml:space="preserve">
-    <value>Items/Service XML Extracts</value>
-  </data>
-  <data name="L_EXTRACTS1" xml:space="preserve">
-    <value>IMIS Extracts</value>
-  </data>
   <data name="L_EXTR_ZIPPEDPHOTOS" xml:space="preserve">
     <value>Zipped Pictures</value>
   </data>
@@ -4642,32 +4633,8 @@ adults/children)</value>
   <data name="L_MATCHINGDATETO" xml:space="preserve">
     <value>Matching Date To</value>
   </data>
-  <data name="L_PAYCATEGORY1" xml:space="preserve">
-    <value>Pay Category</value>
-  </data>
-  <data name="L_PAYDATE1" xml:space="preserve">
-    <value>Payment Date</value>
-  </data>
-  <data name="L_PAYDATEFROM1" xml:space="preserve">
-    <value>Payment Date From</value>
-  </data>
-  <data name="L_PAYDATETO1" xml:space="preserve">
-    <value>Payment Date To</value>
-  </data>
   <data name="L_PAYMENT" xml:space="preserve">
     <value>Payment</value>
-  </data>
-  <data name="L_PAYMENT1" xml:space="preserve">
-    <value>Payment</value>
-  </data>
-  <data name="L_PAYMENTASKED1" xml:space="preserve">
-    <value>Payment Asked</value>
-  </data>
-  <data name="L_PAYMENTDATE1" xml:space="preserve">
-    <value>Payment Date</value>
-  </data>
-  <data name="L_PAYMENTDATEFROM" xml:space="preserve">
-    <value>Payment Date From</value>
   </data>
   <data name="L_PAYMENTDATETO" xml:space="preserve">
     <value>Payment Date To</value>
@@ -4692,12 +4659,6 @@ adults/children)</value>
   </data>
   <data name="L_PAYMENTSTATUS" xml:space="preserve">
     <value>Payment Status</value>
-  </data>
-  <data name="L_PAYMENTTYPE1" xml:space="preserve">
-    <value>Payment Type</value>
-  </data>
-  <data name="L_PAYMETHOD1" xml:space="preserve">
-    <value>Pay Method</value>
   </data>
   <data name="L_POLICYSTAGE" xml:space="preserve">
     <value>Policy Stage</value>

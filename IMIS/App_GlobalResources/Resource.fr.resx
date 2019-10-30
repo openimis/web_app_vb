@@ -5608,10 +5608,6 @@ Fuzzy</comment>
     <value>Date - jusqu'à</value>
     <comment>Matching Date To</comment>
   </data>
-  <data name="L_PAYMENTDATEFROM" xml:space="preserve">
-    <value>Paiement Date depuis</value>
-    <comment>Payment Date From</comment>
-  </data>
   <data name="L_PAYMENTDATETO" xml:space="preserve">
     <value>Paiement Date jusqu'à</value>
     <comment>Payment Date To</comment>

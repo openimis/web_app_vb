@@ -27,7 +27,7 @@
 '
 
 Public Class PaymentBI
-    Public Function getPayment(PaymentId As Integer) As IMIS_EN.tblPayment
+    Public Function getPayment(PaymentId As String) As IMIS_EN.tblPayment
         Dim PaymentBL As New IMIS_BL.PaymentBL
         Return PaymentBL.getPayment(PaymentId)
     End Function
