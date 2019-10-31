@@ -151,6 +151,7 @@
     <Compile Include="OfficerBI.vb" />
     <Compile Include="OverviewFamilyBI.vb" />
     <Compile Include="PayerBI.vb" />
+    <Compile Include="PaymentBI.vb" />
     <Compile Include="PolicyBI.vb" />
     <Compile Include="PolicyRenewalBI.vb" />
     <Compile Include="PremiumBI.vb" />

@@ -430,6 +430,9 @@
                                 <li><a id="FindPremium" class="candisable" href="FindPremium.aspx">
                                     <asp:Label ID="SubFindPremium" runat="server" Text='<%$ Resources:Resource,L_PREMIUMS %>'></asp:Label>
                                     </a></li>
+                                <li><a id="FindPayment" class="candisable" href="FindPayment.aspx">
+                                    <asp:Label ID="SubFindPayment" runat="server" Text='<%$ Resources:Resource,L_PAYMENTS %>'></asp:Label>
+                                    </a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void 0">

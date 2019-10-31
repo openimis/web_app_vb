@@ -156,6 +156,7 @@
     <Content Include="FindMedicalService.aspx" />
     <Content Include="FindOfficer.aspx" />
     <Content Include="FindPayer.aspx" />
+    <Content Include="FindPayment.aspx" />
     <Content Include="FindPolicy.aspx" />
     <Content Include="FindPremium.aspx" />
     <Content Include="FindPriceListMI.aspx" />
@@ -197,6 +198,7 @@
     <Content Include="Officer.aspx" />
     <Content Include="OverviewFamily.aspx" />
     <Content Include="Payer.aspx" />
+    <Content Include="PaymentOverview.aspx" />
     <Content Include="Policy.aspx" />
     <Content Include="PolicyRenewal.aspx" />
     <Content Include="Premium.aspx" />
@@ -456,6 +458,13 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>FindPayer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindPayment.aspx.designer.vb">
+      <DependentUpon>FindPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPayment.aspx.vb">
+      <DependentUpon>FindPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="FindPolicy.aspx.designer.vb">
       <DependentUpon>FindPolicy.aspx</DependentUpon>
     </Compile>
@@ -633,6 +642,13 @@
     <Compile Include="Payer.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Payer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentOverview.aspx.designer.vb">
+      <DependentUpon>PaymentOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentOverview.aspx.vb">
+      <DependentUpon>PaymentOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Policy.aspx.designer.vb">
       <DependentUpon>Policy.aspx</DependentUpon>

@@ -203,6 +203,15 @@ Partial Public Class IMIS
     Protected WithEvents SubFindPremium As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''SubFindPayment control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SubFindPayment As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''lblClaimsLink control.
     '''</summary>
     '''<remarks>

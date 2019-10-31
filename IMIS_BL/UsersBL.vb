@@ -704,6 +704,9 @@ Public Class UsersBL
                 PageRights.Add(Rights.ClaimReview)
             Case IMIS_EN.Enums.Pages.EmailSettings
                 PageRights.Add(Rights.EmailSettings)
+            Case IMIS_EN.Enums.Pages.FindPayment
+                PageRights.Add(Rights.PaymentSearch)
+                PageRights.Add(Rights.PaymentEdit)
         End Select
 
         Return PageRights

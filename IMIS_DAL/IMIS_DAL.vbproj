@@ -140,6 +140,7 @@
     <Compile Include="OfficerVillagesDAL.vb" />
     <Compile Include="PayersDAL.vb" />
     <Compile Include="PayerTypeDAL.vb" />
+    <Compile Include="PaymentDAL.vb" />
     <Compile Include="PolicyDAL.vb" />
     <Compile Include="PolicyRenewalDAL.vb" />
     <Compile Include="PremiumDAL.vb" />

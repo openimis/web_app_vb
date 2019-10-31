@@ -326,6 +326,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Match.
+        '''</summary>
+        Friend Shared ReadOnly Property B_MATCHPAYMENT() As String
+            Get
+                Return ResourceManager.GetString("B_MATCHPAYMENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Modify Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property B_MODIFYFAMILY() As String
@@ -1622,6 +1631,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Control No..
+        '''</summary>
+        Friend Shared ReadOnly Property L_CONTROLNUMBER() As String
+            Get
+                Return ResourceManager.GetString("L_CONTROLNUMBER", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Conversion.
         '''</summary>
         Friend Shared ReadOnly Property L_CONVERSION() As String
@@ -2000,6 +2018,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Edit Payment Details.
+        '''</summary>
+        Friend Shared ReadOnly Property L_EDITPAYMENTDETAILS() As String
+            Get
+                Return ResourceManager.GetString("L_EDITPAYMENTDETAILS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Education.
         '''</summary>
         Friend Shared ReadOnly Property L_EDUCATION() As String
@@ -2234,6 +2261,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Expected Amount.
+        '''</summary>
+        Friend Shared ReadOnly Property L_EXPECTEDAMOUNT() As String
+            Get
+                Return ResourceManager.GetString("L_EXPECTEDAMOUNT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Expire Date.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPIREDATE() As String
@@ -2306,15 +2342,6 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy XML Extracts.
-        '''</summary>
-        Friend Shared ReadOnly Property L_EXTRACT11() As String
-            Get
-                Return ResourceManager.GetString("L_EXTRACT11", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Items/Service XML Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACT2() As String
@@ -2324,29 +2351,11 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items/Service XML Extracts.
-        '''</summary>
-        Friend Shared ReadOnly Property L_EXTRACT21() As String
-            Get
-                Return ResourceManager.GetString("L_EXTRACT21", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACTS() As String
             Get
                 Return ResourceManager.GetString("L_EXTRACTS", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to IMIS Extracts.
-        '''</summary>
-        Friend Shared ReadOnly Property L_EXTRACTS1() As String
-            Get
-                Return ResourceManager.GetString("L_EXTRACTS1", resourceCulture)
             End Get
         End Property
         
@@ -2702,6 +2711,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Find Payments.
+        '''</summary>
+        Friend Shared ReadOnly Property L_FINDPAYMENT() As String
+            Get
+                Return ResourceManager.GetString("L_FINDPAYMENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Find Contributions.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDPREMIUM() As String
@@ -2833,6 +2851,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_FOUNDPAYERS() As String
             Get
                 Return ResourceManager.GetString("L_FOUNDPAYERS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payments Found.
+        '''</summary>
+        Friend Shared ReadOnly Property L_FOUNDPAYMENTS() As String
+            Get
+                Return ResourceManager.GetString("L_FOUNDPAYMENTS", resourceCulture)
             End Get
         End Property
         
@@ -3440,6 +3467,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Internal ID.
+        '''</summary>
+        Friend Shared ReadOnly Property L_INTERNALID() As String
+            Get
+                Return ResourceManager.GetString("L_INTERNALID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Invalid email id.
         '''</summary>
         Friend Shared ReadOnly Property L_INVALIDEMAIL() As String
@@ -3814,6 +3850,51 @@ Namespace Resources
         Friend Shared ReadOnly Property L_MARITAL() As String
             Get
                 Return ResourceManager.GetString("L_MARITAL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Matched Amount.
+        '''</summary>
+        Friend Shared ReadOnly Property L_MATCHEDAMOUNT() As String
+            Get
+                Return ResourceManager.GetString("L_MATCHEDAMOUNT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Matched Date.
+        '''</summary>
+        Friend Shared ReadOnly Property L_MATCHEDDATED() As String
+            Get
+                Return ResourceManager.GetString("L_MATCHEDDATED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Matching Date.
+        '''</summary>
+        Friend Shared ReadOnly Property L_MATCHINGDATE() As String
+            Get
+                Return ResourceManager.GetString("L_MATCHINGDATE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Matching Date From.
+        '''</summary>
+        Friend Shared ReadOnly Property L_MATCHINGDATEFROM() As String
+            Get
+                Return ResourceManager.GetString("L_MATCHINGDATEFROM", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Matching Date To.
+        '''</summary>
+        Friend Shared ReadOnly Property L_MATCHINGDATETO() As String
+            Get
+                Return ResourceManager.GetString("L_MATCHINGDATETO", resourceCulture)
             End Get
         End Property
         
@@ -4466,6 +4547,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Payment.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENT() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Payment Asked.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTASKED() As String
@@ -4480,6 +4570,78 @@ Namespace Resources
         Friend Shared ReadOnly Property L_PAYMENTDATE() As String
             Get
                 Return ResourceManager.GetString("L_PAYMENTDATE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payment Date To.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTDATETO() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTDATETO", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payment Details.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTDETAILS() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTDETAILS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Matched Payments.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTGRIDVIEW() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTGRIDVIEW", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payment ID.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTID() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payment Origin.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTORIGIN() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTORIGIN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payment Overview.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTOVERVIEW() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTOVERVIEW", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payments.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTS() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Payment Status.
+        '''</summary>
+        Friend Shared ReadOnly Property L_PAYMENTSTATUS() As String
+            Get
+                Return ResourceManager.GetString("L_PAYMENTSTATUS", resourceCulture)
             End Get
         End Property
         
@@ -4669,6 +4831,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_POLICYRENEWALS() As String
             Get
                 Return ResourceManager.GetString("L_POLICYRENEWALS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Policy Stage.
+        '''</summary>
+        Friend Shared ReadOnly Property L_POLICYSTAGE() As String
+            Get
+                Return ResourceManager.GetString("L_POLICYSTAGE", resourceCulture)
             End Get
         End Property
         
@@ -5101,6 +5272,69 @@ Namespace Resources
         Friend Shared ReadOnly Property L_RECEIPT_() As String
             Get
                 Return ResourceManager.GetString("L_RECEIPT_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Received Amount.
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECEIVEDAMOUNT() As String
+            Get
+                Return ResourceManager.GetString("L_RECEIVEDAMOUNT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Received Amount From.
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECEIVEDAMOUNTFROM() As String
+            Get
+                Return ResourceManager.GetString("L_RECEIVEDAMOUNTFROM", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Received Amount To.
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECEIVEDAMOUNTTO() As String
+            Get
+                Return ResourceManager.GetString("L_RECEIVEDAMOUNTTO", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Receive Date.
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECEIVEDATE() As String
+            Get
+                Return ResourceManager.GetString("L_RECEIVEDATE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Received Date.
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECEIVEDDATE() As String
+            Get
+                Return ResourceManager.GetString("L_RECEIVEDDATE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Receiving Date From.
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECEIVINGDATEFROM() As String
+            Get
+                Return ResourceManager.GetString("L_RECEIVINGDATEFROM", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Receiving Date To.
+        '''</summary>
+        Friend Shared ReadOnly Property L_RECEIVINGDATETO() As String
+            Get
+                Return ResourceManager.GetString("L_RECEIVINGDATETO", resourceCulture)
             End Get
         End Property
         
@@ -5974,6 +6208,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_TOTALVISITSLEFT() As String
             Get
                 Return ResourceManager.GetString("L_TOTALVISITSLEFT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Transaction No..
+        '''</summary>
+        Friend Shared ReadOnly Property L_TRANSACTIONNUMBER() As String
+            Get
+                Return ResourceManager.GetString("L_TRANSACTIONNUMBER", resourceCulture)
             End Get
         End Property
         
@@ -11108,6 +11351,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Payment.
+        '''</summary>
+        Friend Shared ReadOnly Property R_PAYMENT() As String
+            Get
+                Return ResourceManager.GetString("R_PAYMENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Payment Category Overview.
         '''</summary>
         Friend Shared ReadOnly Property R_PAYMENTCATEGORYOVERVIEW() As String
@@ -11909,6 +12161,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Failed.
+        '''</summary>
+        Friend Shared ReadOnly Property T_FAILEDSTATUS() As String
+            Get
+                Return ResourceManager.GetString("T_FAILEDSTATUS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Families and Insurees Overview.
         '''</summary>
         Friend Shared ReadOnly Property T_FAMILIESINSUREESOVERVIEW() As String
@@ -12446,6 +12707,33 @@ Namespace Resources
         Friend Shared ReadOnly Property T_PAYMENTCATEGORYOVERVIEW() As String
             Get
                 Return ResourceManager.GetString("T_PAYMENTCATEGORYOVERVIEW", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Matched.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTMATCHED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTMATCHED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Requested.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTREQUESTED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTREQUESTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Paid.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTRPAID() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTRPAID", resourceCulture)
             End Get
         End Property
         
@@ -13166,6 +13454,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_TOTALREJECTEDPHOTOS() As String
             Get
                 Return ResourceManager.GetString("T_TOTALREJECTEDPHOTOS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Unmatched.
+        '''</summary>
+        Friend Shared ReadOnly Property T_UNMATCHED() As String
+            Get
+                Return ResourceManager.GetString("T_UNMATCHED", resourceCulture)
             End Get
         End Property
         
