@@ -1163,13 +1163,13 @@ Partial Public Class Claim
 
             eClaim.ClaimID = hfClaimID.Value
             claim.LoadClaim(eClaim)
-            If Not eClaim.ClaimStatus = 1 Then
-                If Not (eClaim.ClaimItems.RejectionReason = 0 Or eClaim.ClaimServices.RejectionReason = 0) Then
-                    txtCHFIDData.Text = ""
-                    txtNAMEData.Text = ""
-                    txtNAMEData.Enabled = True
-                End If
+
+            If (eClaim.ClaimItems.RejectionReason = 0 And eClaim.ClaimServices.RejectionReason = 0) Then
+                txtCHFIDData.Text = ""
+                txtNAMEData.Text = ""
+                txtNAMEData.Enabled = True
             End If
+
 
             pnlBodyCLM.Attributes.Add("Class", "enabled")
             pnlBodyCLM.Enabled = True
