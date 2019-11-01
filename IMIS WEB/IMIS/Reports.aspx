@@ -646,10 +646,10 @@ table tr td.FormLabel{width:auto;}
                                   </div>
                                 </div>
                               
-                                <div class="oc " style="position:relative;display:none;">
-                                  <div style="position:absolute;right:109px;top:0px;">
+                                <div class="oc " style="position:relative;display:none; margin-left:200px">
+                                  <div style="position:absolute;top:0px;right:100px;">
                                      <asp:Label ID="lblPreviousReportCommission" class="FormLabel oc" runat="server" Text='<%$ Resources:Resource,L_PREVIOUS %>'></asp:Label>
-                                     <asp:DropDownList ID="ddlPreviousReportDateCommission" class="oc" runat="server"></asp:DropDownList>
+                                     <asp:DropDownList ID="ddlPreviousReportDateCommission" class="oc" runat="server" AutoPostBack="True" Width="450px"></asp:DropDownList>
                                   </div>
                                 </div>
                            </ContentTemplate>

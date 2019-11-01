@@ -31,7 +31,7 @@ Public Class ReportingDAL
     Private Query As String = ""
     'Corrected
     Public Function GetPreviousMatchingFundsReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?) As DataTable
-        Query = "SELECT RP.ReportingID,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" &
+        Query = "SELECT  RP.ReportingID,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" &
   "+ '  ' + Dis.DistrictName + '  ' + Prod.ProductCode " &
   "+ '  ' + CONVERT(NVARCHAR,RP.StartDate,103) + '  ' + CONVERT(NVARCHAR,RP.EndDate,103)" &
   "+ '  ' + ISNULL(PY.PayerName,'') Display FROM tblReporting RP" &
@@ -49,14 +49,20 @@ Public Class ReportingDAL
         data.params("@LocationId", SqlDbType.Int, LocationId)
         Return data.Filldata()
     End Function
+    'Update by Salumu 31-10-2019 to pupulate revious report combobox
     Public Function GetPreviousOvervireOfCommissiosReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
-        Query = "SELECT RP.ReportingId,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" &
-  "+ '  ' + Dis.DistrictName " &
-  "+ '  ' + CONVERT(NVARCHAR,RP.StartDate,103) + '  ' + CONVERT(NVARCHAR,RP.EndDate,103)" &
+        Query = "SELECT  RP.LocationId,RP.CommissionRate,R.RegionId,RP.OfficerID,RP.PayerId, RP.ProdId,Prod.ProductCode+' ' +Prod.ProductName ProductCode,RP.ReportMode,RP.CommissionRate,RP.ReportingId,RP.StartDate,RP.EndDate,CONCAT(FORMAT(RP.StartDate,'MMMM','en-US') , ' ' ,Year(RP.StartDate)) " &
+  " + ' ' + CASE RP.ReportMode  WHEN 0 THEN 'Prescribed Contributions' WHEN 1 THEN 'Actually Paid Contributions' ELSE ''  END" &
+  " + ' ' + CAST(RP.CommissionRate AS nvarchar)+'% ' + ' ' + ISNULL(Prod.ProductCode,'') + ' ' +ISNULL(O.LastName,'')+' '+ ISNULL(O.OtherNames,'')" &
+ " + ' ' +R.RegionName+ '  ' + Dis.DistrictName " &
+  "+ '  ' + CAST(RP.ReportingDate AS CHAR(20))" &
   "+ '  ' + ISNULL(PY.PayerName,'') Display FROM tblReporting RP" &
   " INNER JOIN tblDistricts Dis ON Dis.DistrictID = RP.LocationId" &
+  " INNER JOIN tblRegions R ON R.RegionId = Dis.Region" &
+  " LEFT JOIN tblProduct Prod ON Prod.ProdID = RP.ProdId" &
   " LEFT OUTER JOIN tblPayer PY ON PY.PayerID = RP.PayerId" &
   " INNER JOIN tblUsersDistricts UD ON Dis.DistrictID = UD.LocationId" &
+   " LEFT JOIN tblOfficer O ON O.OfficerID = RP.OfficerID" &
   " WHERE RP.ReportingId = CASE WHEN @ReportingID IS NULL THEN RP.ReportingID ELSE @ReportingID END" &
   " AND RP.ReportType =2" &
    " AND Year(RP.StartDate) = @Year AND Month(RP.StartDate)  =@Month" &
