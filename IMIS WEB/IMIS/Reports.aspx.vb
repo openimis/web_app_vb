@@ -1323,7 +1323,7 @@ Partial Public Class Reports
         CommissionRate = Val(txtCommissionRate.Text)
         If ReportingID Is Nothing Then
 
-            If ddlProduct.SelectedValue > 0 Then
+            If Val(ddlProduct.SelectedValue) <> 0 Then
                 ProdID = CInt(ddlProduct.SelectedValue)
             Else
                 ProdID = Nothing
@@ -1389,8 +1389,8 @@ Partial Public Class Reports
                     ReportMode = ""
             End Select
 
-            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & If(Commission = "", txtCommissionRate.Text, Commission) & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
-            IMIS_EN.eReports.SubTitle += vbNewLine & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlProduct.SelectedValue > 0, dt(0)("Product"), Product) & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt(0)("DistrictName") & " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & ddlEnrolmentOfficer.SelectedItem.Text
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & Commission * 100 & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
+            IMIS_EN.eReports.SubTitle += vbNewLine & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlProduct.SelectedIndex = 0, "", ddlProduct.SelectedItem.Text) & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt(0)("DistrictName") & " | " & imisgen.getMessage("L_PAYER") & " : " & If(ddlPayer.SelectedIndex = 0, "", ddlPayer.SelectedItem.Text) & " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & If(ddlEnrolmentOfficer.SelectedIndex = 0, "", ddlEnrolmentOfficer.SelectedItem.Text)
         Else
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
             hfCompleted.Value = 0
@@ -1496,6 +1496,17 @@ Partial Public Class Reports
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTADISTRICT")
                     Return
                 End If
+                If ddlPreviousReportDateCommission.SelectedValue <= 0 Then
+                    If ddlMode.SelectedIndex = 0 Then
+                        lblMsg.Text = imisgen.getMessage("M_PLEASESELECTMODE")
+                        Return
+                    End If
+                    If txtCommissionRate.Text = "" Then
+                        lblMsg.Text = imisgen.getMessage("M_PLEASESELECTCOMMISSIONRATE")
+                        Return
+                    End If
+                End If
+
             End If
 
             If SelectedValueID = 23 Then
@@ -1743,8 +1754,8 @@ Partial Public Class Reports
             ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
 
             If ReportingID > 0 Then
-                    Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID, ddlYear.SelectedValue, ddlMonth.SelectedValue)
-                    If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
+                Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID, ddlYear.SelectedValue, ddlMonth.SelectedValue)
+                If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
                     Dim Mode As Integer
                     If (CInt(dtRep.Rows(0)("ReportMode")) = 0) Then
                         Mode = 1
@@ -1758,9 +1769,30 @@ Partial Public Class Reports
                     ddlEnrolmentOfficer.SelectedValue = If(dtRep.Rows(0)("OfficerID") Is DBNull.Value, 0, dtRep.Rows(0)("OfficerID"))
 
                     ddlProduct.SelectedIndex = dtRep.Rows(0)("ProdId")
-                    txtCommissionRate.Text = dtRep.Rows(0)("CommissionRate")
+                    txtCommissionRate.Text = (100 * dtRep.Rows(0)("CommissionRate"))
+
+                    txtCommissionRate.Enabled = False
+                    ddlMode.Enabled = False
+                    ddlMonth.Enabled = False
+                    ddlYear.Enabled = False
+                    ddlRegionWoNational.Enabled = False
+                    ddlDistrictWoNational.Enabled = False
+                    ddlProduct.Enabled = False
+                    ddlEnrolmentOfficer.Enabled = False
+                    ddlPayer.Enabled = False
+
                 End If
-                End If
+            Else
+                txtCommissionRate.Enabled = True
+                ddlMode.Enabled = True
+                ddlMonth.Enabled = True
+                ddlYear.Enabled = True
+                ddlRegionWoNational.Enabled = True
+                ddlDistrictWoNational.Enabled = True
+                ddlProduct.Enabled = True
+                ddlEnrolmentOfficer.Enabled = True
+                ddlPayer.Enabled = True
+            End If
         Catch ex As Exception
 
         End Try

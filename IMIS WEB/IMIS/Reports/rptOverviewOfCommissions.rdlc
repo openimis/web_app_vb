@@ -1268,7 +1268,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!prmTotalNumberOfPoliciesFor.Value &amp; iif(cbool(Parameters!Grouping.Value And 1) = 1, Fields!Officer.Value &amp;" ", " " ) &amp; Fields!Product.Value</Value>
+                                  <Value>=Parameters!prmTotalNumberOfPoliciesFor.Value &amp; " "  &amp;  Fields!Officer.Value &amp; " | "  &amp; Fields!Product.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1387,7 +1387,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!prmTotalPrescribedContribution.Value &amp; " "  &amp; Fields!Product.Value</Value>
+                                  <Value>=Parameters!prmTotalPrescribedContribution.Value &amp; " "  &amp; Fields!Officer.Value  &amp; " | "  &amp; Fields!Product.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1506,7 +1506,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!prmTotalActualPaymentsFor.Value &amp; " "  &amp; Fields!Product.Value</Value>
+                                  <Value>=Parameters!prmTotalActualPaymentsFor.Value &amp; " "  &amp; Fields!Officer.Value  &amp; " | "  &amp; Fields!Product.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1625,7 +1625,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!prmCalculatedCommissionFor.Value &amp; " "  &amp;  Fields!Product.Value</Value>
+                                  <Value>=Parameters!prmCalculatedCommissionFor.Value &amp; " " &amp; Fields!Officer.Value &amp; " | "  &amp;  Fields!Product.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1822,7 +1822,6 @@
                           </Style>
                         </Textbox>
                         <ColSpan>8</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -3320,19 +3319,32 @@
                   <KeepWithGroup>Before</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
+                  <Visibility>
+                    <Hidden>=not (Parameters!Grouping.Value = 3)</Hidden>
+                  </Visibility>
                   <KeepWithGroup>Before</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
+                  <Visibility>
+                    <Hidden>=not (Parameters!Grouping.Value = 3)</Hidden>
+                  </Visibility>
                   <KeepWithGroup>Before</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
+                  <Visibility>
+                    <Hidden>=not (Parameters!Grouping.Value = 3)</Hidden>
+                  </Visibility>
                   <KeepWithGroup>Before</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
+                  <Visibility>
+                    <Hidden>=not (Parameters!Grouping.Value = 3)</Hidden>
+                  </Visibility>
                   <KeepWithGroup>Before</KeepWithGroup>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>ds_uspSSRSGetOverviewCommissions</DataSetName>
             <Top>1.1557cm</Top>
             <Height>10.30371cm</Height>

@@ -6527,6 +6527,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Total number of policies for.
+        '''</summary>
+        Friend Shared ReadOnly Property L_TOTALNUMBEROFPOLICIESFOR() As String
+            Get
+                Return ResourceManager.GetString("L_TOTALNUMBEROFPOLICIESFOR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Total Prescribed Contributions.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALPRESCRIBEDCONTRIBUTION() As String
@@ -9695,11 +9704,29 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Please select commission rate.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PLEASESELECTCOMMISSIONRATE() As String
+            Get
+                Return ResourceManager.GetString("M_PLEASESELECTCOMMISSIONRATE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Please select health facility.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTHEALTHFACILITY() As String
             Get
                 Return ResourceManager.GetString("M_PLEASESELECTHEALTHFACILITY", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Please select mode.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PLEASESELECTMODE() As String
+            Get
+                Return ResourceManager.GetString("M_PLEASESELECTMODE", resourceCulture)
             End Get
         End Property
         
@@ -12319,6 +12346,15 @@ Namespace Resources
         Friend Shared ReadOnly Property R_TOTALOFALLPRESCRIBEDCONTRIBUTION() As String
             Get
                 Return ResourceManager.GetString("R_TOTALOFALLPRESCRIBEDCONTRIBUTION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Total Prescribed Contribution for.
+        '''</summary>
+        Friend Shared ReadOnly Property R_TOTALPRESCRIBEDCONTRIBUTIONFOR() As String
+            Get
+                Return ResourceManager.GetString("R_TOTALPRESCRIBEDCONTRIBUTIONFOR", resourceCulture)
             End Get
         End Property
         

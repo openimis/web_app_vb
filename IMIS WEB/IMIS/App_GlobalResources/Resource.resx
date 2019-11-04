@@ -4954,4 +4954,16 @@ adults/children)</value>
   <data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
     <value>Total Prescribed Contributions for</value>
   </data>
+  <data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+    <value>Total number of policies for</value>
+  </data>
+  <data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+    <value>Total Prescribed Contribution for</value>
+  </data>
+  <data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
+    <value>Please select commission rate</value>
+  </data>
+  <data name="M_PLEASESELECTMODE" xml:space="preserve">
+    <value>Please select mode</value>
+  </data>
 </root>
