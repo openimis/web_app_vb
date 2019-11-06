@@ -236,7 +236,7 @@
                   <Width>2.29166cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.55271cm</Width>
+                  <Width>6.77006cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.96105cm</Width>
@@ -1155,7 +1155,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.34007cm</Width>
+                                    <Width>1.84646cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.08183cm</Width>
@@ -1673,9 +1673,9 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>ds_dtGetClaimOverview</DataSetName>
-                              <Left>12.46671cm</Left>
+                              <Left>12.30242cm</Left>
                               <Height>0.8cm</Height>
-                              <Width>12.8649cm</Width>
+                              <Width>13.37129cm</Width>
                               <Visibility>
                                 <Hidden>=SUM(if(Trim(Fields!AdjustedItem.Value) = "",0,1)) = 0</Hidden>
                               </Visibility>
@@ -1690,7 +1690,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.20101cm</Width>
+                                    <Width>1.43743cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.69614cm</Width>
@@ -1699,7 +1699,7 @@
                                     <Width>1.14737cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.43717cm</Width>
+                                    <Width>1.32737cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.33211cm</Width>
@@ -1708,7 +1708,7 @@
                                     <Width>1.68197cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>4.87234cm</Width>
+                                    <Width>4.55484cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -2213,7 +2213,7 @@
                               <DataSetName>ds_dtGetClaimOverview</DataSetName>
                               <Left>0.01042in</Left>
                               <Height>0.8cm</Height>
-                              <Width>12.36811cm</Width>
+                              <Width>12.17723cm</Width>
                               <ZIndex>1</ZIndex>
                               <Visibility>
                                 <Hidden>=SUM(if(Trim(Fields!AdjustedService.Value) = "",0,1))  = 0</Hidden>
@@ -2423,134 +2423,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox52">
+                        <Textbox Name="textbox79">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox56">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox57">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox61">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>6pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox62">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Parameters!paramTotalClaimsT.Value &amp;" : "</Value>
+                                  <Value>=Parameters!paramTotalClaimsT.Value &amp; " : "</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2582,7 +2462,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox66">
+                        <Textbox Name="textbox80">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -2618,7 +2498,47 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox68">
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Parameters!paramTotalClaimsT.Value &amp; " : "</Value>
+                                  <Style>
+                                    <FontSize>6pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -2633,10 +2553,11 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
                           <Style>
                             <TopBorder>
                               <Style>Solid</Style>
@@ -2654,7 +2575,47 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Approved1">
+                        <Textbox Name="Textbox124">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Parameters!prmTotalApproved.Value &amp; " : "</Value>
+                                  <Style>
+                                    <FontSize>6pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox124</rd:DefaultName>
+                          <Style>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox125">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -2662,6 +2623,89 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Parameters!paramTotalApproved.Value</Value>
+                                  <Style>
+                                    <FontSize>6pt</FontSize>
+                                    <Format>#,##0.00</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox125</rd:DefaultName>
+                          <Style>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox68">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Parameters!prmTotalAdjustedAmount.Value &amp; " : "</Value>
+                                  <Style>
+                                    <FontSize>6pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>#,##0.00</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Dotted</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Approved1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Parameters!paramTotalAdjustedAmount.Value</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
                                     <Format>#,##0.00</Format>
@@ -2685,8 +2729,11 @@
                               <Style>Solid</Style>
                             </BottomBorder>
                             <LeftBorder>
-                              <Style>Solid</Style>
+                              <Style>Dotted</Style>
                             </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2704,9 +2751,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!paramTotalAdjustedAmount.Value</Value>
+                                  <Value>=Parameters!prmTotalPaid.Value &amp; " : "</Value>
                                   <Style>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,##0.00</Format>
                                   </Style>
                                 </TextRun>
@@ -2717,6 +2765,9 @@
                             </Paragraph>
                           </Paragraphs>
                           <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
                             <TopBorder>
                               <Style>Solid</Style>
                             </TopBorder>
@@ -2727,7 +2778,7 @@
                               <Style>Solid</Style>
                             </LeftBorder>
                             <RightBorder>
-                              <Style>Solid</Style>
+                              <Style>Dotted</Style>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2838,7 +2889,7 @@
             </TablixRowHierarchy>
             <DataSetName>ds_dtGetClaimOverview</DataSetName>
             <Height>4cm</Height>
-            <Width>27.41737cm</Width>
+            <Width>26.63476cm</Width>
             <Style>
               <FontSize>6pt</FontSize>
             </Style>
@@ -2847,7 +2898,7 @@
         <Height>4cm</Height>
         <Style />
       </Body>
-      <Width>27.41737cm</Width>
+      <Width>26.70299cm</Width>
       <Page>
         <PageHeader>
           <Height>1.2619cm</Height>
@@ -2877,7 +2928,7 @@
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Left>0.01042in</Left>
               <Height>0.75cm</Height>
-              <Width>27.3909cm</Width>
+              <Width>26.60829cm</Width>
               <Style>
                 <Border>
                   <Color>DarkSlateBlue</Color>
@@ -2909,7 +2960,7 @@
               <Top>0.75cm</Top>
               <Left>0.01042in</Left>
               <Height>0.5cm</Height>
-              <Width>27.3909cm</Width>
+              <Width>26.12094cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2928,7 +2979,7 @@
           <Style />
         </PageHeader>
         <PageFooter>
-          <Height>0.57739cm</Height>
+          <Height>0.65677cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2951,8 +3002,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>textbox2</rd:DefaultName>
-              <Top>0.17739cm</Top>
-              <Left>24.86447cm</Left>
+              <Top>0.03628cm</Top>
+              <Left>23.59451cm</Left>
               <Height>0.4cm</Height>
               <Width>2.5529cm</Width>
               <Style>
@@ -2993,9 +3044,9 @@
             </Textbox>
             <Line Name="line1">
               <Top>0.06481cm</Top>
-              <Left>0.02646cm</Left>
+              <Left>0.02647cm</Left>
               <Height>0cm</Height>
-              <Width>27.39091cm</Width>
+              <Width>26.60829cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -3477,11 +3528,29 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="prmTotalApproved">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="prmTotalAdjustedAmount">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="prmTotalPaid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>24</NumberOfRows>
+      <NumberOfRows>26</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -3722,6 +3791,21 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>23</RowIndex>
           <ParameterName>prmValuated</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>24</RowIndex>
+          <ParameterName>prmTotalApproved</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>24</RowIndex>
+          <ParameterName>prmTotalAdjustedAmount</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>25</RowIndex>
+          <ParameterName>prmTotalPaid</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

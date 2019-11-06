@@ -4966,4 +4966,13 @@ adults/children)</value>
   <data name="M_PLEASESELECTMODE" xml:space="preserve">
     <value>Please select mode</value>
   </data>
+  <data name="R_TOTALAPPROVED" xml:space="preserve">
+    <value>Total Approved</value>
+  </data>
+  <data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
+    <value>Total Adjusted Amount</value>
+  </data>
+  <data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
+    <value>Total Paid Amount</value>
+  </data>
 </root>

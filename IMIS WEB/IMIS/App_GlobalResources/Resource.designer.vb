@@ -12296,11 +12296,29 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Total Adjusted Amount.
+        '''</summary>
+        Friend Shared ReadOnly Property R_TOTALADJUSTEDAMOUINT() As String
+            Get
+                Return ResourceManager.GetString("R_TOTALADJUSTEDAMOUINT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Total Covered.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALADJUSTEDAMOUNT() As String
             Get
                 Return ResourceManager.GetString("R_TOTALADJUSTEDAMOUNT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Total Approved.
+        '''</summary>
+        Friend Shared ReadOnly Property R_TOTALAPPROVED() As String
+            Get
+                Return ResourceManager.GetString("R_TOTALAPPROVED", resourceCulture)
             End Get
         End Property
         
@@ -12346,6 +12364,15 @@ Namespace Resources
         Friend Shared ReadOnly Property R_TOTALOFALLPRESCRIBEDCONTRIBUTION() As String
             Get
                 Return ResourceManager.GetString("R_TOTALOFALLPRESCRIBEDCONTRIBUTION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Total Paid Amount.
+        '''</summary>
+        Friend Shared ReadOnly Property R_TOTALPAIDAMOUNT() As String
+            Get
+                Return ResourceManager.GetString("R_TOTALPAIDAMOUNT", resourceCulture)
             End Get
         End Property
         

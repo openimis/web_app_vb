@@ -957,6 +957,7 @@ Partial Public Class Reports
 
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_HFACILITY") & " : " & dt.Rows(0)("HFCode") & " - " & dt.Rows(0)("HFName") & If(ddlAllProducts.SelectedValue > 0, " | " & imisgen.getMessage("L_PRODUCT") & " : " & ddlAllProducts.SelectedItem.Text, "") & " | " & LocationName & " | " & imisgen.getMessage("L_PERIOD") & "  " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
+            IMIS_EN.eReports.SubTitle += vbNewLine & " | " & imisgen.getMessage("L_SCOPE") & " : " & ddlScope.SelectedItem.Text
         Else
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
             hfCompleted.Value = 0
@@ -1323,7 +1324,7 @@ Partial Public Class Reports
         CommissionRate = Val(txtCommissionRate.Text)
         If ReportingID Is Nothing Then
 
-            If Val(ddlProduct.SelectedValue) <> 0 Then
+            If Val(ddlProduct.SelectedValue) > 0 Then
                 ProdID = CInt(ddlProduct.SelectedValue)
             Else
                 ProdID = Nothing
@@ -1389,7 +1390,7 @@ Partial Public Class Reports
                     ReportMode = ""
             End Select
 
-            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & Commission * 100 & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & txtCommissionRate.Text & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
             IMIS_EN.eReports.SubTitle += vbNewLine & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlProduct.SelectedIndex = 0, "", ddlProduct.SelectedItem.Text) & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt(0)("DistrictName") & " | " & imisgen.getMessage("L_PAYER") & " : " & If(ddlPayer.SelectedIndex = 0, "", ddlPayer.SelectedItem.Text) & " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & If(ddlEnrolmentOfficer.SelectedIndex = 0, "", ddlEnrolmentOfficer.SelectedItem.Text)
         Else
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
@@ -1427,8 +1428,32 @@ Partial Public Class Reports
             lblMsg.Text = imisgen.getMessage("L_INSURANCENUMBERNOTFOUND")
             Return False
         End If
+        Dim sSubTitle As String = ""
+
+
+        If Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 0
+        ElseIf Val(ddlRegionWoNational.SelectedValue) > 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 1
+        ElseIf Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) > 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 2
+        ElseIf Val(ddlRegionWoNational.SelectedValue) > 0 And Val(ddlDistrictWoNational.SelectedValue) > 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 3
+        ElseIf Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) > 0 Then
+            IMIS_EN.eReports.Grouping = 4
+        ElseIf Val(ddlRegionWoNational.SelectedValue) > 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) > 0 Then
+            IMIS_EN.eReports.Grouping = 5
+        ElseIf Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) > 0 And Val(ddlHF.SelectedValue) > 0 Then
+            IMIS_EN.eReports.Grouping = 6
+        Else
+            IMIS_EN.eReports.Grouping = 7
+        End If
+
+        IMIS_EN.eReports.SubTitle = sSubTitle
+
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
-            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_CHFID") & " : " & dt.Rows(0)("CHFID") & " | " & imisgen.getMessage("L_REGION") & " : " & If(ddlRegionWoNational.SelectedIndex > 0, ddlRegionWoNational.Text, "") & " | " & imisgen.getMessage("L_DISTRICT") & " : " & If(ddlDistrictWoNational.SelectedIndex > 0, ddlDistrictWoNational.Text, "") & " | " & imisgen.getMessage("L_HFACILITY") & " : " & If(ddlHF.SelectedIndex > 0, ddlHF.Text, "") & " - " & dt.Rows(0)("HFName") & " | " & imisgen.getMessage("L_PRODUCT") & " : " & dt.Rows(0)("Product") & " | " & imisgen.getMessage("L_PERIOD") & "  " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_CHFID") & " : " & dt.Rows(0)("CHFID") & " | " & imisgen.getMessage("L_NAME") & " : " & dt.Rows(0)("InsureeName") & " | " & imisgen.getMessage("L_DOB") & " : " & dt.Rows(0)("DateOfBirth") & " | " & imisgen.getMessage("L_REGION") & " : " & If(ddlRegionWoNational.SelectedIndex > 0, ddlRegionWoNational.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_DISTRICT") & " : " & If(ddlDistrictWoNational.SelectedIndex > 0, ddlDistrictWoNational.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_HFACILITY") & " : " & If(ddlHF.SelectedIndex > 0, ddlHF.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlAllProducts.SelectedIndex > 0, ddlAllProducts.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_PERIOD") & "  " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
+            IMIS_EN.eReports.SubTitle += vbNewLine & " | " & imisgen.getMessage("L_SCOPE") & " : " & ddlScope.SelectedItem.Text
         Else
 
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
@@ -1512,6 +1537,10 @@ Partial Public Class Reports
             If SelectedValueID = 23 Then
                 If txtInsuranceNumber.Text = "" Then
                     lblMsg.Text = imisgen.getMessage("L_PLEASEENTERINSURANCENUMBER")
+                    Return
+                End If
+                If ddlScope.SelectedIndex = 0 Then
+                    lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
                     Return
                 End If
             End If

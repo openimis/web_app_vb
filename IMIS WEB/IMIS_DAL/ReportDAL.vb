@@ -314,7 +314,13 @@ Public Class ReportDAL
     Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
 
         Dim Data As New ExactSQL
+        Dim sSQL As String = ""
+        sSQL = ""
         If Scope = 0 Then
+
+
+
+
             Data.setSQLCommand("uspSSRSGetClaimOverViewClaimsOnly", CommandType.StoredProcedure)
         ElseIf Scope = 1 Then
             Data.setSQLCommand("uspSSRSGetClaimOverViewRejectedServiceItem", CommandType.StoredProcedure)
@@ -645,12 +651,226 @@ Public Class ReportDAL
     End Function
     Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
         Dim Data As New ExactSQL
+        Dim sSQL As String = ""
         If Scope = 2 Or Scope = -1 Then
-            Data.setSQLCommand("uspSSRSGetClaimHistoryClaimsAllDetails", CommandType.StoredProcedure)
+
+            sSQL = "
+     /*DECLARE @HFID INT,
+	    @LocationId INT ,
+	    @ProdId INT, 
+	    @StartDate DATE, 
+	    @EndDate DATE,
+	    @ClaimStatus INT = NULL,
+	    @InsuranceNumber NVARCHAR(12),
+	    @Scope INT= NULL
+     */
+    --@ClaimRejReason xClaimRejReasons READONLY
+
+        /*
+		RESPONSE CODES
+			1 - Insurance number not found
+			0 - Success 
+			-1 Unknown Error
+		*/
+		
+
+       -- Check Insurance number if exsists
+
+    --IF NOT EXISTS(SELECT 1 FROM tblInsuree WHERE CHFID=@InsuranceNumber AND ValidityTo IS NULL) 
+		-- RETURN 1 
+
+	    ;WITH TotalForItems AS
+	    (
+		    SELECT C.ClaimId, SUM(CI.PriceAsked * CI.QtyProvided)Claimed,
+		    SUM(ISNULL(CI.PriceApproved, CI.PriceAsked) * ISNULL(CI.QtyApproved, CI.QtyProvided)) Approved,
+		    SUM(CI.PriceValuated)Adjusted,
+		    SUM(CI.RemuneratedAmount)Remunerated
+		    FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+		    WHERE C.ValidityTo IS NULL
+		    AND CI.ValidityTo IS NULL
+		    GROUP BY C.ClaimID
+	    ), TotalForServices AS
+	    (
+		    SELECT C.ClaimId, SUM(CS.PriceAsked * CS.QtyProvided)Claimed,
+		    SUM(ISNULL(CS.PriceApproved, CS.PriceAsked) * ISNULL(CS.QtyApproved, CS.QtyProvided)) Approved,
+		    SUM(CS.PriceValuated)Adjusted,
+		    SUM(CS.RemuneratedAmount)Remunerated
+		    FROM tblClaim C 
+		    LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+		    WHERE C.ValidityTo IS NULL
+		    AND CS.ValidityTo IS NULL
+		    GROUP BY C.ClaimID
+	    )
+
+	    SELECT  HF.HFCode+' ' + HF.HFName HFCodeName, L.ParentLocationId AS RegionId,l.LocationId as DistrictID, R.RegionName,D.DistrictName,  C.DateClaimed,PROD.ProductCode +' ' + PROD.ProductName Product, C.ClaimID, I.ItemId, S.ServiceID, HF.HFCode, HF.HFName, C.ClaimCode, C.DateClaimed, CA.LastName + ' ' + CA.OtherNames ClaimAdminName,
+			    C.DateFrom, C.DateTo, Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsureeName,Ins.DOB DateOfBirth,
+	    CASE C.ClaimStatus WHEN 1 THEN N'Rejected' WHEN 2 THEN N'Entered' WHEN 4 THEN N'Checked' WHEN 8 THEN N'Processed' WHEN 16 THEN N'Valuated' END ClaimStatus,
+	    C.RejectionReason, COALESCE(TFI.Claimed + TFS.Claimed, TFI.Claimed, TFS.Claimed) Claimed, 
+	    COALESCE(TFI.Approved + TFS.Approved, TFI.Approved, TFS.Approved) Approved,
+	    COALESCE(TFI.Adjusted + TFS.Adjusted, TFI.Adjusted, TFS.Adjusted) Adjusted,
+	    COALESCE(TFI.Remunerated + TFS.Remunerated, TFI.Remunerated, TFS.Remunerated)Paid,
+	    CASE WHEN CI.RejectionReason <> 0 THEN I.ItemCode ELSE NULL END RejectedItem, CI.RejectionReason ItemRejectionCode,
+	    CASE WHEN CS.RejectionReason > 0 THEN S.ServCode ELSE NULL END RejectedService, CS.RejectionReason ServiceRejectionCode,
+	    CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN I.ItemCode+' '+I.ItemName ELSE NULL END AdjustedItem,
+	    CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN CI.QtyProvided ELSE NULL END OrgQtyItem,
+	    CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved ,CI.QtyProvided)  THEN CI.QtyApproved ELSE NULL END AdjQtyItem,
+	    CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)  THEN S.ServCode+'		'+S.ServName ELSE NULL END AdjustedService,
+	    CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)   THEN CS.QtyProvided ELSE NULL END OrgQtyService,
+	    CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved ,CS.QtyProvided)   THEN CS.QtyApproved ELSE NULL END AdjQtyService,
+	    C.Explanation
+	    ,CS.QtyApproved ServiceQtyApproved, CI.QtyApproved ItemQtyApproved,cs.PriceAsked ServicePrice, CI.PriceAsked ItemPrice
+	    ,cs.PriceApproved ServiceAppPrice,ci.PriceApproved ItemAppPrice, cs.Justification ServiceJustification,
+	    CI.Justification ItemJustification,cs.ClaimServiceID,CI.ClaimItemID,
+	     XCS.Name ServiceRejectionReason, XCI.Name ItemRejectionReason,CS.RejectionReason [Services] ,ci.RejectionReason Items
+
+	    FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+	    LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+	    LEFT OUTER JOIN tblProduct PROD ON PROD.ProdID =@ProdId
+	    LEFT OUTER JOIN tblItems I ON CI.ItemId = I.ItemID
+	    LEFT OUTER JOIN tblServices S ON CS.ServiceID = S.ServiceID
+	    INNER JOIN tblHF HF ON C.HFID = HF.HfID
+	    INNER JOIN tblLocations L ON L.LocationId = HF.LocationId
+	    INNER JOIN tblRegions R ON R.RegionId = L.ParentLocationId
+	    INNER JOIN tblDistricts D ON D.DistrictId = L.LocationId
+	    LEFT OUTER JOIN tblClaimAdmin CA ON C.ClaimAdminId = CA.ClaimAdminId
+	    INNER JOIN tblInsuree Ins ON C.InsureeId = Ins.InsureeId
+	    LEFT OUTER JOIN TotalForItems TFI ON C.ClaimId = TFI.ClaimID
+	    LEFT OUTER JOIN TotalForServices TFS ON C.ClaimId = TFS.ClaimId
+	    LEFT OUTER JOIN @ClaimRejReason XCI ON XCI.ID = CI.RejectionReason
+	    LEFT OUTER JOIN @ClaimRejReason XCS ON XCS.ID = CS.RejectionReason
+	    WHERE C.ValidityTo IS NULL
+	    AND ISNULL(C.DateTo,C.DateFrom) BETWEEN @StartDate AND @EndDate
+	    AND (C.ClaimStatus = @ClaimStatus OR @ClaimStatus IS NULL)
+	    AND (HF.LocationId = @LocationId OR @LocationId = 0)
+	    AND (Ins.CHFID = @InsuranceNumber)
+	    AND (HF.HFID = @HFID OR @HFID = 0)
+	    AND (CI.ProdID = @ProdId OR CS.ProdID = @ProdId  OR COALESCE(CS.ProdID, CI.ProdId) IS NULL OR @ProdId = 0) "
+            Data.setSQLCommand(sSQL, CommandType.Text)
         ElseIf Scope = 0 Then
-            Data.setSQLCommand("uspSSRSGetClaimHistoryClaimsOnly", CommandType.StoredProcedure)
+            sSQL = ";WITH TotalForItems AS
+			(
+				SELECT C.ClaimId, SUM(CI.PriceAsked * CI.QtyProvided)Claimed,
+				SUM(ISNULL(CI.PriceApproved, CI.PriceAsked) * ISNULL(CI.QtyApproved, CI.QtyProvided)) Approved,
+				SUM(CI.PriceValuated)Adjusted,
+				SUM(CI.RemuneratedAmount)Remunerated
+				FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+				WHERE C.ValidityTo IS NULL
+				AND CI.ValidityTo IS NULL
+				GROUP BY C.ClaimID
+			), TotalForServices AS
+			(
+				SELECT C.ClaimId, SUM(CS.PriceAsked * CS.QtyProvided)Claimed,
+				SUM(ISNULL(CS.PriceApproved, CS.PriceAsked) * ISNULL(CS.QtyApproved, CS.QtyProvided)) Approved,
+				SUM(CS.PriceValuated)Adjusted,
+				SUM(CS.RemuneratedAmount)Remunerated
+				FROM tblClaim C 
+				LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+				WHERE C.ValidityTo IS NULL
+				AND CS.ValidityTo IS NULL
+				GROUP BY C.ClaimID
+			)
+
+			SELECT --R.RegionId,R.RegionName,D.DistrictId,D.DistrictName,
+			HF.HFCode+' ' + HF.HFName HFCodeName, L.ParentLocationId AS RegionId,l.LocationId as DistrictID, R.RegionName,D.DistrictName, C.DateClaimed,PROD.ProductCode +' ' + PROD.ProductName Product, C.ClaimID, I.ItemId, S.ServiceID, HF.HFCode, HF.HFName, C.ClaimCode, C.DateClaimed, CA.LastName + ' ' + CA.OtherNames ClaimAdminName,
+			C.DateFrom, C.DateTo, Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsureeName,Ins.DOB DateOfBirth,
+			CASE C.ClaimStatus WHEN 1 THEN N'Rejected' WHEN 2 THEN N'Entered' WHEN 4 THEN N'Checked' WHEN 8 THEN N'Processed' WHEN 16 THEN N'Valuated' END ClaimStatus,
+			COALESCE(TFI.Claimed + TFS.Claimed, TFI.Claimed, TFS.Claimed) Claimed, 
+			COALESCE(TFI.Approved + TFS.Approved, TFI.Approved, TFS.Approved) Approved,
+			COALESCE(TFI.Adjusted + TFS.Adjusted, TFI.Adjusted, TFS.Adjusted) Adjusted,
+			COALESCE(TFI.Remunerated + TFS.Remunerated, TFI.Remunerated, TFS.Remunerated)Paid
+
+			FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+			LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+			LEFT OUTER JOIN tblProduct PROD ON PROD.ProdID =@ProdId
+			LEFT OUTER JOIN tblItems I ON CI.ItemId = I.ItemID
+			LEFT OUTER JOIN tblServices S ON CS.ServiceID = S.ServiceID
+			INNER JOIN tblHF HF ON C.HFID = HF.HfID
+			INNER JOIN tblLocations L ON L.LocationId = HF.LocationId
+			INNER JOIN tblRegions R ON R.RegionId = L.ParentLocationId
+	        INNER JOIN tblDistricts D ON D.DistrictId = L.LocationId
+			LEFT OUTER JOIN tblClaimAdmin CA ON C.ClaimAdminId = CA.ClaimAdminId
+			INNER JOIN tblInsuree Ins ON C.InsureeId = Ins.InsureeId
+			LEFT OUTER JOIN TotalForItems TFI ON C.ClaimId = TFI.ClaimID
+			LEFT OUTER JOIN TotalForServices TFS ON C.ClaimId = TFS.ClaimId
+			WHERE C.ValidityTo IS NULL
+			AND ISNULL(C.DateTo,C.DateFrom) BETWEEN @StartDate AND @EndDate
+			AND (C.ClaimStatus = @ClaimStatus OR @ClaimStatus IS NULL)
+			AND (HF.LocationId = @LocationId OR @LocationId = 0)
+			AND (CI.ProdID = @ProdId OR CS.ProdID = @ProdId  OR COALESCE(CS.ProdID, CI.ProdId) IS NULL OR @ProdId = 0) 
+			AND (Ins.CHFID = @InsuranceNumber)
+			AND (HF.HFID = @HFID OR @HFID = 0)"
+            Data.setSQLCommand(sSQL, CommandType.Text)
         Else
-            Data.setSQLCommand("uspSSRSGetClaimHistoryClaimsAndRejectionDetails", CommandType.StoredProcedure)
+            sSQL = ";WITH TotalForItems AS
+		(
+			SELECT C.ClaimId, SUM(CI.PriceAsked * CI.QtyProvided)Claimed,
+			SUM(ISNULL(CI.PriceApproved, CI.PriceAsked) * ISNULL(CI.QtyApproved, CI.QtyProvided)) Approved,
+			SUM(CI.PriceValuated)Adjusted,
+			SUM(CI.RemuneratedAmount)Remunerated
+			FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+			WHERE C.ValidityTo IS NULL
+			AND CI.ValidityTo IS NULL
+			GROUP BY C.ClaimID
+		), TotalForServices AS
+		(
+			SELECT C.ClaimId, SUM(CS.PriceAsked * CS.QtyProvided)Claimed,
+			SUM(ISNULL(CS.PriceApproved, CS.PriceAsked) * ISNULL(CS.QtyApproved, CS.QtyProvided)) Approved,
+			SUM(CS.PriceValuated)Adjusted,
+			SUM(CS.RemuneratedAmount)Remunerated
+			FROM tblClaim C 
+			LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+			WHERE C.ValidityTo IS NULL
+			AND CS.ValidityTo IS NULL
+			GROUP BY C.ClaimID
+		)
+
+		SELECT  HF.HFCode+' ' + HF.HFName HFCodeName, L.ParentLocationId AS RegionId,l.LocationId as DistrictID, R.RegionName,D.DistrictName, C.DateClaimed,PROD.ProductCode +' ' + PROD.ProductName Product, C.ClaimID, I.ItemId, S.ServiceID, HF.HFCode, HF.HFName, C.ClaimCode, C.DateClaimed, CA.LastName + ' ' + CA.OtherNames ClaimAdminName,
+			C.DateFrom, C.DateTo, Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsureeName,Ins.DOB DateOfBirth,
+		CASE C.ClaimStatus WHEN 1 THEN N'Rejected' WHEN 2 THEN N'Entered' WHEN 4 THEN N'Checked' WHEN 8 THEN N'Processed' WHEN 16 THEN N'Valuated' END ClaimStatus,
+		C.RejectionReason, COALESCE(TFI.Claimed + TFS.Claimed, TFI.Claimed, TFS.Claimed) Claimed, 
+		COALESCE(TFI.Approved + TFS.Approved, TFI.Approved, TFS.Approved) Approved,
+		COALESCE(TFI.Adjusted + TFS.Adjusted, TFI.Adjusted, TFS.Adjusted) Adjusted,
+		COALESCE(TFI.Remunerated + TFS.Remunerated, TFI.Remunerated, TFS.Remunerated)Paid,
+		CASE WHEN CI.RejectionReason <> 0 THEN I.ItemCode ELSE NULL END RejectedItem, CI.RejectionReason ItemRejectionCode,
+		CASE WHEN CS.RejectionReason > 0 THEN S.ServCode ELSE NULL END RejectedService, CS.RejectionReason ServiceRejectionCode,
+		CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN I.ItemCode+' '+I.ItemName ELSE NULL END AdjustedItem,
+		CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN CI.QtyProvided ELSE NULL END OrgQtyItem,
+		CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved ,CI.QtyProvided)  THEN CI.QtyApproved ELSE NULL END AdjQtyItem,
+		CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)  THEN S.ServCode+' '+S.ServName ELSE NULL END AdjustedService,
+		CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)   THEN CS.QtyProvided ELSE NULL END OrgQtyService,
+		CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved ,CS.QtyProvided)   THEN CS.QtyApproved ELSE NULL END AdjQtyService,
+		C.Explanation
+		,CS.QtyApproved ServiceQtyApproved, CI.QtyApproved ItemQtyApproved,cs.PriceAsked ServicePrice, CI.PriceAsked ItemPrice
+		,ISNULL(cs.PriceApproved,0) ServicePriceApproved,ISNULL(ci.PriceApproved,0) ItemPriceApproved, ISNULL(cs.Justification,NULL) ServiceJustification,
+		ISNULL(CI.Justification,NULL) ItemJustification,cs.ClaimServiceID,CI.ClaimItemID
+		,CONCAT(CS.RejectionReason,' - ', XCS.Name) ServiceRejectionReason,CONCAT(CI.RejectionReason, ' - ', XCI.Name) ItemRejectionReason
+
+
+		FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+		LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID 
+		LEFT OUTER JOIN tblProduct PROD ON PROD.ProdID =@ProdId
+		LEFT OUTER JOIN tblItems I ON CI.ItemId = I.ItemID 
+		LEFT OUTER JOIN tblServices S ON CS.ServiceID = S.ServiceID 
+		INNER JOIN tblHF HF ON C.HFID = HF.HfID
+		INNER JOIN tblLocations L ON L.LocationId = HF.LocationId
+		INNER JOIN tblRegions R ON R.RegionId = L.ParentLocationId
+	    INNER JOIN tblDistricts D ON D.DistrictId = L.LocationId
+		LEFT OUTER JOIN tblClaimAdmin CA ON C.ClaimAdminId = CA.ClaimAdminId
+		INNER JOIN tblInsuree Ins ON C.InsureeId = Ins.InsureeId
+		LEFT OUTER JOIN TotalForItems TFI ON C.ClaimId = TFI.ClaimID
+		LEFT OUTER JOIN TotalForServices TFS ON C.ClaimId = TFS.ClaimId
+		INNER JOIN @ClaimRejReason XCI ON XCI.ID = CI.RejectionReason
+		INNER JOIN @ClaimRejReason XCS ON XCS.ID = CS.RejectionReason
+		WHERE C.ValidityTo IS NULL
+		AND CI.RejectionReason > 0
+		AND CS.RejectionReason > 0
+		AND ISNULL(C.DateFrom,C.DateTo) BETWEEN @StartDate AND @EndDate
+		AND (C.ClaimStatus = @ClaimStatus OR @ClaimStatus IS NULL)
+		AND (HF.LocationId = @LocationId OR @LocationId = 0)
+		AND (Ins.CHFID = @InsuranceNumber)
+		AND (HF.HFID = @HFID OR @HFID = 0)
+		AND (CI.ProdID = @ProdId OR CS.ProdID = @ProdId  OR COALESCE(CS.ProdID, CI.ProdId) IS NULL OR @ProdId = 0) "
+            Data.setSQLCommand(sSQL, CommandType.Text)
         End If
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdID", SqlDbType.Int, ProdID)
