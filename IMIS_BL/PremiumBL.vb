@@ -189,4 +189,12 @@ Public Class PremiumBL
         Dim Fund As New IMIS_DAL.PremiumDAL
         Return Fund.AddFund(ePremium, ProdId)
     End Function
+    Public Function GetPremiumIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Premium As New IMIS_DAL.PremiumDAL
+        Return Premium.GetPremiumIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Public Function GetPremiumUUIDByID(ByVal id As Integer) As Guid
+        Dim Premium As New IMIS_DAL.PremiumDAL
+        Return Premium.GetPremiumUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

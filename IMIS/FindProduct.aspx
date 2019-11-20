@@ -284,7 +284,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <HeaderStyle CssClass="HideButton" />
                         <ItemStyle CssClass="HideButton" />
                     </asp:CommandField>
-                    <asp:HyperLinkField DataNavigateUrlFields="ProdID"
+                    <asp:HyperLinkField DataNavigateUrlFields="ProdUUID"
                         DataNavigateUrlFormatString="Product.aspx?p={0}" DataTextField="ProductCode"
                         HeaderText='<%$ Resources:Resource,L_PRODUCTCODE %>' HeaderStyle-Width="150px">
                         <HeaderStyle Width="100px" />

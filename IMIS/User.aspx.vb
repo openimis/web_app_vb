@@ -39,8 +39,11 @@ Partial Public Class User
         Try
             lblMsg.Text = ""
 
+            If HttpContext.Current.Request.QueryString("u") IsNot Nothing Then
+                eUsers.UserUUID = Guid.Parse(HttpContext.Current.Request.QueryString("u"))
+                eUsers.UserID = Users.GetUserIdByUUID(eUsers.UserUUID)
+            End If
 
-            eUsers.UserID = HttpContext.Current.Request.QueryString("u")
             If HttpContext.Current.Request.QueryString("r") = 1 Then
                 Panel2.Enabled = False
                 B_SAVE.Visible = False
@@ -204,13 +207,11 @@ Partial Public Class User
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
-                Dim ipassword As Integer = IsValidPassword()
-
-                If ipassword = -1 Then
-                    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
+                If Not General.isValidPassword(txtPassword.Text) Then
+                    lblMsg.Text = General.getInvalidPasswordMessage()
                     Exit Sub
-                ElseIf ipassword = -2 Then
-
+                End If
+                If txtPassword.Text <> txtConfirmPassword.Text Then
                     lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
                     Exit Sub
                 End If
@@ -252,7 +253,7 @@ Partial Public Class User
                             Dim eLocations As New IMIS_EN.tblLocations
                             eLocations.LocationId = gvDistrict.DataKeys(row.RowIndex)("DistrictId")
                             eUsersDistricts.tblUsers = eUsers
-                            eUsersDistricts.UserDistrictID = if(gvDistrict.DataKeys(row.RowIndex)("UserDistrictId") Is System.DBNull.Value, 0, gvDistrict.DataKeys(row.RowIndex)("UserDistrictId"))
+                            eUsersDistricts.UserDistrictID = If(gvDistrict.DataKeys(row.RowIndex)("UserDistrictId") Is System.DBNull.Value, 0, gvDistrict.DataKeys(row.RowIndex)("UserDistrictId"))
                             eUsersDistricts.AuditUserID = imisgen.getUserId(Session("User"))
                             eUsersDistricts.tblLocations = eLocations
                             Users.SaveUserDistricts(eUsersDistricts)
@@ -280,35 +281,9 @@ Partial Public Class User
 
         Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
     End Sub
-    
+
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
     End Sub
 
-    Private Function IsValidPassword() As Integer
-        If eUsers.UserID = 0 Then
-            If txtPassword.Text = String.Empty Then
-                Return -1
-            Else
-                If txtPassword.Text <> txtConfirmPassword.Text Then
-                    Return -2
-                Else
-                    Return 1
-                End If
-            End If
-        Else
-            If txtPassword.Text <> String.Empty Then
-                If txtPassword.Text <> txtConfirmPassword.Text Then
-                    Return -2
-                Else
-                    Return 1
-                End If
-            Else
-                Return 2
-            End If
-
-        End If
-        'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
-        'Return Parten
-    End Function
 End Class

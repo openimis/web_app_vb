@@ -32,6 +32,7 @@ Partial Public Class FindProduct
     Private EpRODUCTS As New IMIS_EN.tblProduct
     Public imisgen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Private productBI As New IMIS_BI.ProductBI
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvProducts)
         If chkLegacy.Checked Then Page.ClientScript.RegisterForEventValidation(B_EDIT.UniqueID)
@@ -205,7 +206,7 @@ Partial Public Class FindProduct
     End Sub
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
         Try
-            Response.Redirect("Product.aspx?p=" & 0)
+            Response.Redirect("Product.aspx")
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
@@ -219,7 +220,9 @@ Partial Public Class FindProduct
         RunPageSecurity(True)
         Try
             lblMsg.Text = ""
-            EpRODUCTS.ProdID = hfProdId.Value
+            Dim ProdUUID As Guid = Guid.Parse(hfProdId.Value)
+            Dim ProdId As Integer = productBI.GetProdIdByUUID(ProdUUID)
+            EpRODUCTS.ProdID = ProdId
             EpRODUCTS.AuditUserID = imisgen.getUserId(Session("User"))
             Dim productCode As String = hfProdCode.Value
             Dim Msg As String = ""
@@ -239,7 +242,7 @@ Partial Public Class FindProduct
         Server.Transfer("Home.aspx")
     End Sub
     Private Sub B_DUPLICATE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_DUPLICATE.Click
-        Response.Redirect("Product.aspx?p=" & if(IsNumeric(hfProdId.Value), hfProdId.Value, 0) & "&r=0&action=duplicate")
+        Response.Redirect("Product.aspx?p=" & hfProdId.Value & "&r=0&action=duplicate")
     End Sub
 
     Private Sub ddlRegion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegion.SelectedIndexChanged

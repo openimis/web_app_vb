@@ -40,7 +40,10 @@ Public Class ForgotPassword
         msg.Text = ""
         Try
             If txtLoginName.Text.Trim.Length = 0 Then Exit Sub
-            If txtPassword.Text.Trim.Length = 0 Then Exit Sub
+            If Not General.isValidPassword(txtPassword.Text) Then
+                msg.Text = General.getInvalidPasswordMessage()
+                Exit Sub
+            End If
 
             Dim Result As Integer = ForgotPasswordBI.SendPassword(txtLoginName.Text.Trim, txtPassword.Text)
 

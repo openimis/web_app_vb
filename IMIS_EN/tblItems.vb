@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblItems
     Public Property ItemID As Integer
+    Public Property ItemUUID As Guid
     Public Property ItemCode As String
     Public Property ItemName As String
     Public Property ItemType As String

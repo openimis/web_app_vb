@@ -42,12 +42,9 @@ Imports IMIS_EN
 
 Public Class IMISExtractsBL
 
-
-    Private Const DB3_PWD As String = "%^Klp)*3"
-    Private Const DB_PWD As String = "%^Klp)*3"
-
-    Private Const DESKEY As String = ":-+A7V@="
-    Private Const RARPWD As String = ")(#$1HsD"
+    Private DB3_PWD As String = System.Configuration.ConfigurationManager.AppSettings("Offline:SQLite:Password").ToString()
+    Private DESKEY As String = System.Configuration.ConfigurationManager.AppSettings("Offline:Encryption:Password").ToString()
+    Private RARPWD As String = System.Configuration.ConfigurationManager.AppSettings("Offline:RAR:Password").ToString()
 
     Private dtblIn As New DataTable
     Private dtblOut As New DataTable

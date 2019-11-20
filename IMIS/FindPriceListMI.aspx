@@ -259,7 +259,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <HeaderStyle CssClass="HideButton" />
                 <ItemStyle CssClass="HideButton" />
                 </asp:CommandField>
-                <asp:HyperLinkField DataNavigateUrlFields = "PLItemID" DataTextField="PLItemName" DataNavigateUrlFormatString = "PriceListMI.aspx?pi={0}" HeaderText='<%$ Resources:Resource,L_NAME %>' HeaderStyle-Width ="200px" > </asp:HyperLinkField>  
+                <asp:HyperLinkField DataNavigateUrlFields = "PLItemUUID" DataTextField="PLItemName" DataNavigateUrlFormatString = "PriceListMI.aspx?pi={0}" HeaderText='<%$ Resources:Resource,L_NAME %>' HeaderStyle-Width ="200px" > </asp:HyperLinkField>  
                 <asp:BoundField DataField="DatePL"  HeaderText='<%$ Resources:Resource,L_DATE %>'     
                     SortExpression="DatePL" DataFormatString="{0:d}" HeaderStyle-Width ="110px"> 
                 <HeaderStyle Width="110px" />

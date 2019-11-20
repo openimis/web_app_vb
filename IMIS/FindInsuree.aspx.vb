@@ -252,7 +252,7 @@ Partial Public Class FindInsuree
             hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={0}"
         Else
             If AllowEdit Then
-                hlink.DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}&i={0}"
+                hlink.DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}&i={1}"
             Else
                 hlink.DataNavigateUrlFormatString = "Insuree.aspx?f={0}&i={0}"
             End If
@@ -289,7 +289,6 @@ Partial Public Class FindInsuree
     Protected Sub B_CLAIM_Click(sender As Object, e As EventArgs) Handles B_CLAIM.Click
         If gvInsuree.Rows.Count > 0 Then
             Dim InsuranceNumber = hfInsuranceNumber.Value
-
             Response.Redirect("FindClaims.aspx?i=" & InsuranceNumber)
         End If
 

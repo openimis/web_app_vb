@@ -42,6 +42,9 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.Framework.14.3.0\lib\net45\Microsoft.Build.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -148,6 +151,7 @@
     <Compile Include="OfficerBI.vb" />
     <Compile Include="OverviewFamilyBI.vb" />
     <Compile Include="PayerBI.vb" />
+    <Compile Include="PaymentBI.vb" />
     <Compile Include="PolicyBI.vb" />
     <Compile Include="PolicyRenewalBI.vb" />
     <Compile Include="PremiumBI.vb" />
@@ -182,6 +186,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IMIS_BL\IMIS_BL.vbproj">

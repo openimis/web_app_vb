@@ -911,7 +911,7 @@ Public Class GeneralBL
         Return stringBuilder.ToString()
     End Function
 
-Public Function GetRejectedReasons(ByVal ReasonId As Integer) As String
+    Public Function GetRejectedReasons(ByVal ReasonId As Integer) As String
         Select Case ReasonId
             Case -1 : Return getMessage("T_REJECTEDBYMEDICALOFFICER")
             Case 0 : Return getMessage("T_ACCEPTED")
@@ -936,5 +936,62 @@ Public Function GetRejectedReasons(ByVal ReasonId As Integer) As String
             Case 19 : Return getMessage("T_MAXIMUMNUMBEROFANTENETALEXCEEDED")
             Case Else : Return ""
         End Select
+    End Function
+
+    Public Function GetPaymentStatusNames() As DataTable
+
+        Dim dtStatus As New DataTable
+        dtStatus.Columns.Add("StatusID", GetType(Integer))
+        dtStatus.Columns.Add("PaymenyStatusName", GetType(String))
+
+        dtStatus.Rows.Add(-1, getMessage("T_REJECTEDPOSTED"))
+        dtStatus.Rows.Add(-3, getMessage("T_REJECTEDPOSTED"))
+        dtStatus.Rows.Add(-2, getMessage("T_REJECTEDPOSTED"))
+        dtStatus.Rows.Add(2, getMessage("T_POSTED"))
+        dtStatus.Rows.Add(1, getMessage("T_NOTYETCONFIRMED"))
+        dtStatus.Rows.Add(3, getMessage("T_ASSIGNED"))
+        dtStatus.Rows.Add(4, getMessage("T_UNMATCHED"))
+        dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
+
+        Return dtStatus
+    End Function
+
+    Public Function GetPaymentStatus(Optional Include As Boolean = False, Optional ForReport As Boolean = False) As DataTable
+
+        Dim dtStatus As New DataTable
+        dtStatus.Columns.Add("StatusID", GetType(Integer))
+        dtStatus.Columns.Add("PaymenyStatusName", GetType(String))
+        If Include = True Then
+            dtStatus.Rows.Add(-1, getMessage("L_SELECTPAYMENTSTATUS"))
+        End If
+        If Not ForReport Then
+            If Include = False Then
+                'dtStatus.Rows.Add(-1, getMessage("T_FAILEDSTATUS"))
+                'dtStatus.Rows.Add(-2, getMessage("T_FAILEDSTATUS"))
+                'dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
+                'dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
+                'dtStatus.Rows.Add(2, getMessage("T_PAYMENTREQUESTED"))
+                'dtStatus.Rows.Add(3, getMessage("T_PAYMENTREQUESTED"))
+                'dtStatus.Rows.Add(4, getMessage("T_PAYMENTRPAID"))
+                'dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
+
+                dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
+                dtStatus.Rows.Add(4, getMessage("T_UNMATCHED"))
+            Else
+                'dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
+                'dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
+                'dtStatus.Rows.Add(4, getMessage("T_PAYMENTRPAID"))
+                'dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
+
+                dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
+                dtStatus.Rows.Add(4, getMessage("T_UNMATCHED"))
+            End If
+
+        Else
+            dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
+            dtStatus.Rows.Add(1, getMessage("T_UNMATCHED"))
+        End If
+
+        Return dtStatus
     End Function
 End Class

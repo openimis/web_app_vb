@@ -75,7 +75,7 @@ Public Class HealthFacilityDAL
         Dim sSQL As String = ""
         'Dim strSQL As String = "select tblHF.*,'Region' RegionName,DistrictName,HFCareTypes.Name as HFCareType2, LEGAL.LegalForms as Legal, HFLEVEL.Name as HFLevelName from tblHF inner join tblDistricts on tblHF.LocationId = tblDistricts.DistrictID inner join tblUsersDistricts UD on UD.LocationId = tblHF.LocationId and UD.userid = @userid and UD.ValidityTo is null inner join @dtHFLevel HFLEVEL on tblHF.HFLevel = HFLEVEL.CODE inner join @dtHFCareType HFCareTypes on HFCareTypes.Code = tblHF.HFCareType  inner join tblLegalforms LEGAL on tblHF.LegalForm = LEGAL.LegalFormCode WHERE CASE WHEN @DistrictID = 0 THEN 0 ELSE tblHF.LocationId END = @DistrictID "
 
-        sSQL = " SELECT HF.HfID,HF.HFCode, HF.HFName,   CASE U.LanguageID WHEN 'EN' THEN LEGAL.LegalForms   ELSE LEGAL.AltLanguage END Legal  , HFLEVEL.Name  HFLevelName, HF.Phone,HFCareTypes.Name  HFCareType2, HF.ValidityFrom, HF.ValidityTo, L.RegionName , L.DistrictName "
+        sSQL = " SELECT HF.HfID,HF.HfUUID,HF.HFCode, HF.HFName,   CASE U.LanguageID WHEN 'EN' THEN LEGAL.LegalForms   ELSE LEGAL.AltLanguage END Legal  , HFLEVEL.Name  HFLevelName, HF.Phone,HFCareTypes.Name  HFCareType2, HF.ValidityFrom, HF.ValidityTo, L.RegionName , L.DistrictName "
         sSQL += " FROM tblHF HF"
         sSQL += " INNER JOIN @dtHFLevel HFLEVEL on HF.HFLevel = HFLEVEL.CODE INNER JOIN @dtHFCareType HFCareTypes on HFCareTypes.Code = HF.HFCareType"
         sSQL += " INNER JOIN tblLegalforms LEGAL on HF.LegalForm = LEGAL.LegalFormCode"
@@ -123,7 +123,7 @@ Public Class HealthFacilityDAL
             sSQL += " AND LegalForm LIKE @HFLegal + '%'"
         End If
 
-        sSQL += " GROUP BY HF.HfID,HF.HFCode, HF.HFName, CASE U.LanguageID WHEN 'EN' THEN LEGAL.LegalForms ELSE LEGAL.AltLanguage END, HFLEVEL.Name, HF.Phone,HFCareTypes.Name , HF.ValidityFrom, HF.ValidityTo, L.RegionName , L.DistrictName "
+        sSQL += " GROUP BY HF.HfID,HF.HFCode, HF.HFName, CASE U.LanguageID WHEN 'EN' THEN LEGAL.LegalForms ELSE LEGAL.AltLanguage END, HFLEVEL.Name, HF.Phone,HFCareTypes.Name , HF.ValidityFrom, HF.ValidityTo, L.RegionName , L.DistrictName, HF.HfUUID "
 
         sSQL += " ORDER BY  HF.HFCode,HF.ValidityFrom DESC"
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -280,7 +280,7 @@ Public Class HealthFacilityDAL
         sSQL = "SELECT @hfid = isnull(hfid,0)"
         sSQL += " FROM tblUsers"
         sSQL += " WHERE UserID = @userid;"
-        sSQL += " SELECT tblhf.HfID,HFCode + ' - ' + HFNAME HFCODE"
+        sSQL += " SELECT tblhf.HfID,tblhf.HfUUID,HFCode + ' - ' + HFNAME HFCODE"
         sSQL += " FROM tblHF"
         sSQL += " INNER JOIN tblusersdistricts on tblhf.LocationId = tblusersdistricts.LocationId"
         sSQL += " AND tblusersdistricts.validityto is null"
@@ -393,6 +393,28 @@ Public Class HealthFacilityDAL
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, UserId)
         data.params("@HfID", SqlDbType.Int, Hfid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetHfIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select HfID from tblHF where HfUUID = @HfUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@HfUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
+    Public Function GetHfUUIDByID(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select HfUUID from tblHF where HfID = @HfID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@HfID", SqlDbType.Int, id)
 
         Return data.Filldata
     End Function

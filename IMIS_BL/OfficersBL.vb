@@ -130,4 +130,8 @@ Public Class OfficersBL
 
         Return dtOfficer
     End Function
+    Public Function GetOfficerIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Officer As New IMIS_DAL.OfficersDAL
+        Return Officer.GetOfficerIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class

@@ -173,7 +173,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <HeaderStyle CssClass="HideButton" />
                             <ItemStyle CssClass="HideButton" />
                             </asp:CommandField>
-                              <asp:HyperLinkField DataNavigateUrlFields="ServiceID" DataNavigateUrlFormatString="MedicalService.aspx?s={0}" DataTextField="ServCode"  HeaderText='<%$ Resources:Resource,L_Code %>' SortExpression="ServCode" HeaderStyle-Width ="60px"/>
+                              <asp:HyperLinkField DataNavigateUrlFields="ServiceUUID" DataNavigateUrlFormatString="MedicalService.aspx?s={0}" DataTextField="ServCode"  HeaderText='<%$ Resources:Resource,L_Code %>' SortExpression="ServCode" HeaderStyle-Width ="60px"/>
                         <asp:BoundField DataField="ServName"  HeaderText='<%$ Resources:Resource,L_NAME %>' SortExpression="ServName"> 
                        
                         </asp:BoundField> 

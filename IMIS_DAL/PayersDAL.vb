@@ -81,7 +81,7 @@ Public Class PayersDAL
         Dim data As New ExactSQL
         Dim sSql As String = ""
 
-        sSql += " SELECT P.PayerId, P.PayerName, P.PayerAddress, P.Phone, P.ValidityFrom, P.ValidityTo,"
+        sSql += " SELECT P.PayerId, P.PayerUUID, P.PayerUUID, P.PayerName, P.PayerAddress, P.Phone, P.ValidityFrom, P.ValidityTo,"
         sSql += " L.RegionName , L.DistrictName,"
         sSql += " P.PayerType, PayerType.AltLanguage, L.RegionId, L.DistrictId"
         sSql += " FROM tblPayer P"
@@ -102,7 +102,7 @@ Public Class PayersDAL
        
         If Not All Then sSql += " AND P.ValidityTo is NULL"
 
-        sSql += " GROUP BY P.PayerId, P.PayerName, P.PayerAddress, P.Phone, P.ValidityFrom, P.ValidityTo, L.RegionName , L.DistrictName, P.PayerType,  L.RegionId, L.DistrictId, PayerType.AltLanguage,L.ParentLocationId"
+        sSql += " GROUP BY P.PayerId, P.PayerName, P.PayerAddress, P.Phone, P.ValidityFrom, P.ValidityTo, L.RegionName , L.DistrictName, P.PayerType,  L.RegionId, L.DistrictId, PayerType.AltLanguage,L.ParentLocationId, P.PayerUUID"
 
         sSql += " ORDER BY  L.ParentLocationId,PayerName, P.ValidityTo"
 
@@ -124,7 +124,7 @@ Public Class PayersDAL
     Public Function GetPayers(ByVal RegionId As Integer, ByVal DistrictId As Integer, ByVal UserId As Integer) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL += " SELECT  P.PayerId, P.PayerName ,L.LocationId,L.RegionName,L.DistrictName"
+        sSQL += " SELECT  P.PayerId, P.PayerUUID, P.PayerName ,L.LocationId,L.RegionName,L.DistrictName"
         sSQL += " FROM tbLpayer P"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(P.LocationId, 0)"
         sSQL += " INNER JOIN ( SELECT L.DistrictId, L.RegionId FROM tblUsersDistricts UD"
@@ -134,7 +134,7 @@ Public Class PayersDAL
         sSQL += " WHERE (L.Regionid = @RegionId OR L.LocationId = 0) "
         sSQL += " AND (L.DistrictId = @DistrictId OR L.DistrictId IS NULL OR  @DistrictId = 0 )" '
         sSQL += " AND P.ValidityTo IS NULL"
-        sSQL += " GROUP BY P.PayerId, P.PayerName ,L.LocationId,L.RegionName,L.DistrictName, L.ParentLocationId"
+        sSQL += " GROUP BY P.PayerId, P.PayerName ,L.LocationId,L.RegionName,L.DistrictName, L.ParentLocationId, P.PayerUUID"
         sSQL += " ORDER BY L.ParentLocationId"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -184,7 +184,7 @@ Public Class PayersDAL
         data.params("@PayerType", SqlDbType.Char, 1, ePayers.PayerType)
         data.params("@PayerName", SqlDbType.NVarChar, 100, ePayers.PayerName)
         data.params("@PayerAddress", SqlDbType.NVarChar, 100, ePayers.PayerAddress)
-        data.params("@LocationId", SqlDbType.Int, if(ePayers.tblLocations.LocationId = -1, Nothing, ePayers.tblLocations.LocationId))
+        data.params("@LocationId", SqlDbType.Int, If(ePayers.tblLocations.LocationId = -1, Nothing, ePayers.tblLocations.LocationId))
         data.params("@Phone", SqlDbType.NVarChar, 50, ePayers.Phone)
         data.params("@Fax", SqlDbType.NVarChar, 50, ePayers.Fax)
         data.params("@eMail", SqlDbType.NVarChar, 50, ePayers.eMail)
@@ -193,4 +193,16 @@ Public Class PayersDAL
         data.ExecuteCommand()
 
     End Sub
+
+    Public Function GetPayerIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PayerID from tblPayer where PayerUUID = @PayerUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PayerUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
 End Class

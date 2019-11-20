@@ -32,6 +32,7 @@ Partial Public Class FindMedicalItem
     Dim eItems As New IMIS_EN.tblItems
     Private imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Dim MedicalItemBI As New IMIS_BI.MedicalItemBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvMedicalItems)
@@ -150,7 +151,9 @@ Partial Public Class FindMedicalItem
         RunPageSecurity(True)
         Try
             lblMsg.Text = ""
-            eItems.ItemID = hfItemId.Value
+            Dim ItemUUID As Guid = Guid.Parse(hfItemId.Value)
+            Dim ItemId As Integer = MedicalItemBI.GetItemIdByUUID(ItemUUID)
+            eItems.ItemID = ItemId
 
             eItems.AuditUserID = imisGen.getUserId(Session("User"))
             Dim chk As Boolean = MedicalItems.DeleteItem(eItems)

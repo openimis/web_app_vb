@@ -316,7 +316,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <HeaderStyle CssClass="HideButton" />
                         <ItemStyle CssClass="HideButton" />
                     </asp:CommandField>--%>
-                    <asp:HyperLinkField DataNavigateUrlFields="FamilyId,InsureeID," DataTextField="CHFID"
+                    <asp:HyperLinkField DataNavigateUrlFields="FamilyUUID,InsureeUUID" DataTextField="CHFID"
                         DataNavigateUrlFormatString="OverviewFamily.aspx?f={0}&i={1}" HeaderText='<%$ Resources:Resource,L_CHFID %>'
                         HeaderStyle-Width="100px">
 

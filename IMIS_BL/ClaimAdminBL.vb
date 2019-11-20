@@ -117,4 +117,12 @@ Public Class ClaimAdminBL
         End If
         Return 0
     End Function
+    Public Function GetClaimAdminIdByUUID(ByVal uuid As Guid) As Integer
+        Dim ClaimAdmin As New IMIS_DAL.ClaimAdminDAL
+        Return ClaimAdmin.GetClaimAdminIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Public Function GetClaimAdminUUIDByID(ByVal id As Integer) As Guid
+        Dim ClaimAdmin As New IMIS_DAL.ClaimAdminDAL
+        Return ClaimAdmin.GetClaimAdminUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

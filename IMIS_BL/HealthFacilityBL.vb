@@ -286,4 +286,12 @@ Public Class HealthFacilityBL
         ICDXML.Save(path)
         Return path
     End Function
+    Public Function GetHfIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Hf As New IMIS_DAL.HealthFacilityDAL
+        Return Hf.GetHfIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Public Function GetHfUUIDByID(ByVal id As Integer) As Guid
+        Dim Hf As New IMIS_DAL.HealthFacilityDAL
+        Return Hf.GetHfUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class

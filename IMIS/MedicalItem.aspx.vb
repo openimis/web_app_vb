@@ -56,8 +56,11 @@ Partial Public Class MedicalItem
         RunPageSecurity()
         Try
             lblMsg.Text = ""
-            eItem.ItemID = HttpContext.Current.Request.QueryString("i")
 
+            If HttpContext.Current.Request.QueryString("i") IsNot Nothing Then
+                eItem.ItemUUID = Guid.Parse(HttpContext.Current.Request.QueryString("i"))
+                eItem.ItemID = Item.GetItemIdByUUID(eItem.ItemUUID)
+            End If
 
             If IsPostBack = True Then Return
             hfMI.Value = 2
@@ -140,7 +143,7 @@ lblDirty:   Dim chk As Integer = 0
         If itemtype = "D" Then
             rbDrug.Checked = True
         Else
-            rbMedicalProstheses.Checked = True
+            rbMedicalConsumable.Checked = True
         End If
 
     End Sub
@@ -149,7 +152,7 @@ lblDirty:   Dim chk As Integer = 0
         If rbDrug.Checked = True Then
             itemTypeValue = "D"
         End If
-        If rbMedicalProstheses.Checked = True Then
+        If rbMedicalConsumable.Checked = True Then
             itemTypeValue = "M"
         End If
         If String.IsNullOrEmpty(itemTypeValue) Then

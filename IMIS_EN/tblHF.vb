@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblHF
     Public Property HfID As Integer
+    Public Property HfUUID As Guid
     Public Property HFCode As String
     Public Property HFName As String
     Public Property LegalForm As String

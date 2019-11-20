@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblPremium
     Public Property PremiumId As Integer
+    Public Property PremiumUUID As Guid
     Public Property PolicyID As Integer
     Public Property PayerID As Nullable(Of Integer)
     Public Property Amount As Decimal

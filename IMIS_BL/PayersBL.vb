@@ -115,4 +115,8 @@ Public Class PayersBL
         Return dtbl
     End Function
 
+    Public Function GetPayerIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Payer As New IMIS_DAL.PayersDAL
+        Return Payer.GetPayerIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 End Class

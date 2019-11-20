@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblFeedback
     Public Property FeedbackID As Integer
+    Public Property FeedbackUUID As Guid
     Public Property ClaimID As Integer
     Public Property CareRendered As Nullable(Of Boolean)
     Public Property PaymentAsked As Nullable(Of Boolean)

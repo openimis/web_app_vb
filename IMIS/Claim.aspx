@@ -784,10 +784,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                <td class ="DataEntry">
                <%--<asp:TextBox ID="txtICDCode" size="10" runat="server" MaxLength="6"></asp:TextBox>--%>
                    <asp:DropDownList ID="ddlICDData" runat="server" width="130px" Visible="False"></asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" 
-                       runat="server" ErrorMessage="*" ControlToValidate="ddlICDData" InitialValue="0"
+                   <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8" width="125px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0"
                        ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                   <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                </td>
             
                <td class="FormLabel">

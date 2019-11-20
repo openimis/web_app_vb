@@ -250,7 +250,7 @@
 <asp:Panel ID="pnlGrid" runat="server"  ScrollBars="Auto" CssClass="panelBody">
     <asp:GridView  ID="gvRole" runat="server"  AutoGenerateColumns="False" GridLines="None" AllowPaging="true" PagerSettings-FirstPageText = "First Page" PagerSettings-LastPageText = "Last Page" PagerSettings-Mode ="NumericFirstLast" CssClass="mGrid" PageSize="15" DataKeyNames="RoleID,RoleName" EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'>
         <Columns>        
-            <asp:HyperLinkField DataNavigateUrlFields="RoleID" 
+            <asp:HyperLinkField DataNavigateUrlFields="RoleUUID" 
                 DataNavigateUrlFormatString="Role.aspx?r={0}" DataTextField="RoleName"  
                 HeaderText='<%$ Resources:Resource,L_ROLENAME %>' HeaderStyle-Width ="60px">
                 <HeaderStyle Width="60px" />

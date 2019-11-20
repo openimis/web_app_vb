@@ -40,7 +40,10 @@ Partial Public Class PriceListMS
         Try
             lblMsg.Text = ""
 
-            ePLServices.PLServiceID = HttpContext.Current.Request.QueryString("ps")
+            If HttpContext.Current.Request.QueryString("ps") IsNot Nothing Then
+                ePLServices.PLServiceUUID = Guid.Parse(HttpContext.Current.Request.QueryString("ps"))
+                ePLServices.PLServiceID = If(ePLServices.PLServiceUUID.Equals(Guid.Empty), 0, PriceList.GetPLServiceIdByUUID(ePLServices.PLServiceUUID))
+            End If
 
             If IsPostBack = True Then Return
             Dim dtRegions As DataTable = PriceList.GetRegions(imisgen.getUserId(Session("User")), True, True)

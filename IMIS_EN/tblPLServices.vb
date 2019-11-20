@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class tblPLServices
     Public Property PLServiceID As Integer
+    Public Property PLServiceUUID As Guid
     Public Property PLServName As String
     Public Property DatePL As Date
     Public Property LocationId As Nullable(Of Integer)

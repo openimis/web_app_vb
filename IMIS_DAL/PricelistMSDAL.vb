@@ -87,7 +87,7 @@ Public Class PricelistMSDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
 
-        sSQL = "SELECT PL.PLServiceID,PL.PLServName,PL.DatePL,PL.ValidityFrom,PL.ValidityTo, L.RegionName , L.DistrictName"
+        sSQL = "SELECT PL.PLServiceID,PL.PLServiceUUID,PL.PLServName,PL.DatePL,PL.ValidityFrom,PL.ValidityTo, L.RegionName , L.DistrictName"
         sSQL += " FROM tblPLServices  PL"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(PL.LocationId, 0)"
         sSQL += " INNER JOIN"
@@ -110,7 +110,7 @@ Public Class PricelistMSDAL
             sSQL += " AND DatePL = @DatePL"
         End If
 
-        sSQL += " GROUP BY PL.PLServiceID,PL.PLServName,PL.DatePL,PL.ValidityFrom,PL.ValidityTo, L.RegionName , L.DistrictName "
+        sSQL += " GROUP BY PL.PLServiceID,PL.PLServName,PL.DatePL,PL.ValidityFrom,PL.ValidityTo,PL.PLServiceUUID, L.RegionName , L.DistrictName "
         sSQL += " ORDER BY  PL.PLServName,PL.ValidityTo DESC,PL.ValidityFrom DESC"
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, ePL.AuditUserID)
@@ -245,4 +245,15 @@ Public Class PricelistMSDAL
         Return data.ExecuteScalar()
     End Function
 
+    Public Function GetPLServiceIdByUUID(ByVal uuid As Guid) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select PLServiceID from tblPLServices where PLServiceUUID = @PLServiceUUID"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PLServiceUUID", SqlDbType.UniqueIdentifier, uuid)
+
+        Return data.Filldata
+    End Function
 End Class

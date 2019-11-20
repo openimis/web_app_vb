@@ -298,7 +298,7 @@ title='<%$ Resources:Resource,L_Family%>'%>
                         <HeaderStyle CssClass="HideButton" />
                         <ItemStyle CssClass="HideButton" />
                     </asp:CommandField>
-                    <asp:HyperLinkField DataNavigateUrlFields = "FamilyId" DataTextField="CHFID" DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}" HeaderText='<%$ Resources:Resource,L_CHFID %>' HeaderStyle-Width ="100px" >
+                    <asp:HyperLinkField DataNavigateUrlFields = "FamilyUUID" DataTextField="CHFID" DataNavigateUrlFormatString = "OverviewFamily.aspx?f={0}" HeaderText='<%$ Resources:Resource,L_CHFID %>' HeaderStyle-Width ="100px" >
 
                         <HeaderStyle Width="100px" />
 

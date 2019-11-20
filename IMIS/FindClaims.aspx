@@ -578,7 +578,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                 SelectedRowStyle-CssClass="srs" PageSize="15" >
                 <Columns>
                   
-                    <asp:HyperLinkField DataNavigateUrlFields = "ClaimID" DataTextField="ClaimCode" DataNavigateUrlFormatString = "Claim.aspx?c={0}" HeaderText='<%$ Resources:Resource,L_CLAIMCODE %>' HeaderStyle-Width ="100px"  >
+                    <asp:HyperLinkField DataNavigateUrlFields = "ClaimUUID" DataTextField="ClaimCode" DataNavigateUrlFormatString = "Claim.aspx?c={0}" HeaderText='<%$ Resources:Resource,L_CLAIMCODE %>' HeaderStyle-Width ="100px"  >
                          <HeaderStyle Width="50px" />
                      </asp:HyperLinkField>
                       <asp:BoundField DataField="HFName"  HeaderText='<%$ Resources:Resource,L_HFName %>' SortExpression="HFName" HeaderStyle-Width="150px">  

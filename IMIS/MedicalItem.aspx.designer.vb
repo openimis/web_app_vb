@@ -95,13 +95,13 @@ Partial Public Class MedicalItem
     Protected WithEvents rbDrug As Global.System.Web.UI.WebControls.RadioButton
     
     '''<summary>
-    '''rbMedicalProstheses control.
+    '''rbMedicalConsumable control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rbMedicalProstheses As Global.System.Web.UI.WebControls.RadioButton
+    Protected WithEvents rbMedicalConsumable As Global.System.Web.UI.WebControls.RadioButton
     
     '''<summary>
     '''L_Package control.

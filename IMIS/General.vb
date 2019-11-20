@@ -38,4 +38,63 @@ Public Class General
         Return dr(0)("Adjustibility").ToString.ToUpper
 
     End Function
+
+    Public Shared Function isValidPassword(password As String) As Boolean
+        Dim minLength As Integer = IMIS_EN.AppConfiguration.PasswordValidationMinLength
+        Dim lowerCaseLetterCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationLowerCaseLetter
+        Dim upperCaseLetterCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationUpperCaseLetter
+        Dim numberCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationNumber
+        Dim specialSymbolCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationSpecialSymbol
+
+        Dim expression As String = "^"
+        expression += "(?=.{" & minLength.ToString & "})"
+
+        If lowerCaseLetterCheck Then
+            expression += "(?=[^a-z]*[a-z])"
+        End If
+        If upperCaseLetterCheck Then
+            expression += "(?=[^A-Z]*[A-Z])"
+        End If
+        If numberCheck Then
+            expression += "(?=[^\d]*[\d])"
+        End If
+        If specialSymbolCheck Then
+            expression += "(?=[^\W]*[\W])"
+        End If
+        expression += "[A-Za-z0-9\W]+$"
+
+        Return Regex.IsMatch(password, expression)
+    End Function
+
+    Public Shared Function getInvalidPasswordMessage() As String
+        Dim imisgen As New IMIS_Gen
+        Dim minLength As Integer = IMIS_EN.AppConfiguration.PasswordValidationMinLength
+        Dim lowerCaseLetterCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationLowerCaseLetter
+        Dim upperCaseLetterCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationUpperCaseLetter
+        Dim numberCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationNumber
+        Dim specialSymbolCheck As Integer = IMIS_EN.AppConfiguration.PasswordValidationSpecialSymbol
+
+        Dim baseCondition As String = imisgen.getMessage("V_PASSWORD_MIN_LENGTH_PREFIX") & " " &
+                        minLength.ToString & " " & imisgen.getMessage("V_PASSWORD_MIN_LENGTH_SUFFIX")
+        Dim listAdditionalOfCondition As List(Of String) = New List(Of String)
+        If lowerCaseLetterCheck Then
+            listAdditionalOfCondition.Add(imisgen.getMessage("V_PASSWORD_LOWER_CASE"))
+        End If
+        If upperCaseLetterCheck Then
+            listAdditionalOfCondition.Add(imisgen.getMessage("V_PASSWORD_UPPER_CASE"))
+        End If
+        If numberCheck Then
+            listAdditionalOfCondition.Add(imisgen.getMessage("V_PASSWORD_NUMBER"))
+        End If
+        If specialSymbolCheck Then
+            listAdditionalOfCondition.Add(imisgen.getMessage("V_PASSWORD_SPECIAL_SYMBOL"))
+        End If
+
+        Dim result As String = imisgen.getMessage("V_PASSWORD_PREFIX") & " " & baseCondition
+        If listAdditionalOfCondition.Count > 0 Then
+            result += " " & imisgen.getMessage("V_PASSWORD_INCLUDING") & ", " & String.Join(", ", listAdditionalOfCondition)
+        End If
+
+        Return result
+    End Function
 End Class

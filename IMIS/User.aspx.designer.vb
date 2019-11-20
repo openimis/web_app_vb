@@ -230,15 +230,6 @@ Partial Public Class User
     Protected WithEvents RequiredFieldPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
-    '''rePasswordStrength control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rePasswordStrength As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
-    '''<summary>
     '''L_ConfirmPassword control.
     '''</summary>
     '''<remarks>

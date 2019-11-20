@@ -52,4 +52,8 @@ Public Class PricelisMIBI
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect:=ShowSelect, IncludeNational:=IncludeNational)
     End Function
+    Public Function GetPLItemIdByUUID(ByVal uuid As Guid) As Integer
+        Dim PLItem As New IMIS_BL.PriceListMIBL
+        Return PLItem.GetPLItemIdByUUID(uuid)
+    End Function
 End Class

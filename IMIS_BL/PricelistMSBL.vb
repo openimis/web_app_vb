@@ -70,9 +70,6 @@ Public Class PricelistMSBL
         End If
         Return dtbl
 
-
-
-
     End Function
     Public Sub SavePLServicesDetail(ByVal ePLServicesDetail As IMIS_EN.tblPLServicesDetail, ByVal action As Integer)
         Dim Item As New IMIS_DAL.PricelistMSDAL
@@ -85,5 +82,10 @@ Public Class PricelistMSBL
         End If
 
     End Sub
+
+    Public Function GetPLServiceIdByUUID(ByVal uuid As Guid) As Integer
+        Dim PLService As New IMIS_DAL.PricelistMSDAL
+        Return PLService.GetPLServiceIdByUUID(uuid).Rows(0).Item(0)
+    End Function
 
 End Class

@@ -24,13 +24,13 @@ Partial Public Class IMISExtracts
 
             pnlCreateOfflineExtracts.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractOfflineExtractCreate, UserID)
 
-            pnlUploadClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractClaimUpload, UserID) And IMIS_Gen.OfflineCHF
-            pnlOnlineClaims.Visible = pnlUploadClaims.Visible And IMIS_Gen.OfflineCHF
+            pnlUploadClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractClaimUpload, UserID) And Not IMIS_Gen.offlineHF
+            pnlOnlineClaims.Visible = pnlUploadClaims.Visible
 
             pnlExtractEntrolment.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And IMIS_Gen.OfflineCHF
 
-            pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And IMIS_Gen.OfflineCHF
-            pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
+            pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And Not IMIS_Gen.OfflineCHF
+            'pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
 
 
 

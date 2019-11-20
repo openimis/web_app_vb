@@ -35,6 +35,7 @@ Partial Public Class FindProfile
     Dim eRole As New IMIS_EN.tblRole
     Private imisGen As New IMIS_Gen
     Private BIFindRole As New IMIS_BI.FindProfileBI
+    Private roleBI As New IMIS_BI.RoleRightBI
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvRole)
@@ -179,7 +180,8 @@ Partial Public Class FindProfile
 
     Private Sub B_DELETE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_DELETE.Click, gvRole.SelectedIndexChanged
         RunPageSecurity(True)
-        Dim RoleId As Integer = hfRoleId.Value
+        Dim RoleUUID As Guid = Guid.Parse(hfRoleId.Value)
+        Dim RoleId As Integer = roleBI.GetRoleIdByUUID(RoleUUID)
         Dim Role As String = hfRoleName.Value
         Dim IsAssoc As Boolean = BIFindRole.IsRoleInUse(RoleId)
 
@@ -189,7 +191,7 @@ Partial Public Class FindProfile
         End If
         Try
 
-            eRole.RoleID = hfRoleId.Value
+            eRole.RoleID = RoleId
 
             lblMsg.Text = ""
             eRole.AuditUserID = imisGen.getUserId(Session("User"))
@@ -237,6 +239,6 @@ Partial Public Class FindProfile
     End Sub
 
     Private Sub B_DUPLICATE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_DUPLICATE.Click
-        Response.Redirect("role.aspx?r=" & If(IsNumeric(hfRoleId.Value), hfRoleId.Value, 0) & "&action=duplicate")
+        Response.Redirect("role.aspx?r=" & hfRoleId.Value & "&action=duplicate")
     End Sub
 End Class

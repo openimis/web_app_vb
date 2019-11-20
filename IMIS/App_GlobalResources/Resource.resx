@@ -1350,8 +1350,8 @@
   <data name="T_MAN" xml:space="preserve">
     <value>Man</value>
   </data>
-  <data name="T_MEDICALPROSTHESES" xml:space="preserve">
-    <value>Medical Prostheses</value>
+  <data name="T_MEDICALCONSUMABLE" xml:space="preserve">
+    <value>Medical consumable</value>
   </data>
   <data name="T_MOBILEPHONE" xml:space="preserve">
     <value>Mobile Phone</value>
@@ -1514,15 +1514,6 @@
   </data>
   <data name="L_EXECUTESCRIPT" xml:space="preserve">
     <value>EXECUTE SCRIPT</value>
-  </data>
-  <data name="L_EXTRACT11" xml:space="preserve">
-    <value>Policy XML Extracts</value>
-  </data>
-  <data name="L_EXTRACT21" xml:space="preserve">
-    <value>Items/Service XML Extracts</value>
-  </data>
-  <data name="L_EXTRACTS1" xml:space="preserve">
-    <value>IMIS Extracts</value>
   </data>
   <data name="L_EXTR_ZIPPEDPHOTOS" xml:space="preserve">
     <value>Zipped Pictures</value>
@@ -3591,9 +3582,6 @@
   <data name="L_PASSWORDSENT" xml:space="preserve">
     <value>A link has been sent to your email, click on link to confirm new password</value>
   </data>
-  <data name="M_WEAKPASSWORD" xml:space="preserve">
-    <value>Password must contain at least 8 characters including at  least one number</value>
-  </data>
   <data name="L_MYPROFILE" xml:space="preserve">
     <value>My profile</value>
   </data>
@@ -4581,5 +4569,140 @@ adults/children)</value>
   </data>
   <data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
     <value>Enter username and confirm new password</value>
+  </data>
+  <data name="V_PASSWORD_PREFIX" xml:space="preserve">
+    <value>Password must contain</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
+    <value>at least</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
+    <value>characters</value>
+  </data>
+  <data name="V_PASSWORD_INCLUDING" xml:space="preserve">
+    <value>including</value>
+  </data>
+  <data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
+    <value>at least one lower case letter</value>
+  </data>
+  <data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
+    <value>at least one upper case letter</value>
+  </data>
+  <data name="V_PASSWORD_NUMBER" xml:space="preserve">
+    <value>at least one number</value>
+  </data>
+  <data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
+    <value>at least one special symbol</value>
+  </data>
+  <data name="V_PASSWORDREQUIRED" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="B_MATCHPAYMENT" xml:space="preserve">
+    <value>Match</value>
+  </data>
+  <data name="L_CONTROLNUMBER" xml:space="preserve">
+    <value>Control No.</value>
+  </data>
+  <data name="L_EDITPAYMENTDETAILS" xml:space="preserve">
+    <value>Edit Payment Details</value>
+  </data>
+  <data name="L_EXPECTEDAMOUNT" xml:space="preserve">
+    <value>Expected Amount</value>
+  </data>
+  <data name="L_FINDPAYMENT" xml:space="preserve">
+    <value>Find Payments</value>
+  </data>
+  <data name="L_FOUNDPAYMENTS" xml:space="preserve">
+    <value>Payments Found</value>
+  </data>
+  <data name="L_INTERNALID" xml:space="preserve">
+    <value>Internal ID</value>
+  </data>
+  <data name="L_MATCHEDAMOUNT" xml:space="preserve">
+    <value>Matched Amount</value>
+  </data>
+  <data name="L_MATCHEDDATED" xml:space="preserve">
+    <value>Matched Date</value>
+  </data>
+  <data name="L_MATCHINGDATE" xml:space="preserve">
+    <value>Matching Date</value>
+  </data>
+  <data name="L_MATCHINGDATEFROM" xml:space="preserve">
+    <value>Matching Date From</value>
+  </data>
+  <data name="L_MATCHINGDATETO" xml:space="preserve">
+    <value>Matching Date To</value>
+  </data>
+  <data name="L_PAYMENT" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="L_PAYMENTDATETO" xml:space="preserve">
+    <value>Payment Date To</value>
+  </data>
+  <data name="L_PAYMENTDETAILS" xml:space="preserve">
+    <value>Payment Details</value>
+  </data>
+  <data name="L_PAYMENTGRIDVIEW" xml:space="preserve">
+    <value>Matched Payments</value>
+  </data>
+  <data name="L_PAYMENTID" xml:space="preserve">
+    <value>Payment ID</value>
+  </data>
+  <data name="L_PAYMENTORIGIN" xml:space="preserve">
+    <value>Payment Origin</value>
+  </data>
+  <data name="L_PAYMENTOVERVIEW" xml:space="preserve">
+    <value>Payment Overview</value>
+  </data>
+  <data name="L_PAYMENTS" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="L_PAYMENTSTATUS" xml:space="preserve">
+    <value>Payment Status</value>
+  </data>
+  <data name="L_POLICYSTAGE" xml:space="preserve">
+    <value>Policy Stage</value>
+  </data>
+  <data name="L_RECEIVEDAMOUNT" xml:space="preserve">
+    <value>Received Amount</value>
+  </data>
+  <data name="L_RECEIVEDAMOUNTFROM" xml:space="preserve">
+    <value>Received Amount From</value>
+  </data>
+  <data name="L_RECEIVEDAMOUNTTO" xml:space="preserve">
+    <value>Received Amount To</value>
+  </data>
+  <data name="L_RECEIVEDATE" xml:space="preserve">
+    <value>Receive Date</value>
+  </data>
+  <data name="L_RECEIVEDDATE" xml:space="preserve">
+    <value>Received Date</value>
+  </data>
+  <data name="L_RECEIVINGDATEFROM" xml:space="preserve">
+    <value>Receiving Date From</value>
+  </data>
+  <data name="L_RECEIVINGDATETO" xml:space="preserve">
+    <value>Receiving Date To</value>
+  </data>
+  <data name="L_TRANSACTIONNUMBER" xml:space="preserve">
+    <value>Transaction No.</value>
+  </data>
+  <data name="R_PAYMENT" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="T_PAYMENTMATCHED" xml:space="preserve">
+    <value>Matched</value>
+  </data>
+  <data name="T_PAYMENTREQUESTED" xml:space="preserve">
+    <value>Requested</value>
+  </data>
+  <data name="T_PAYMENTRPAID" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="T_UNMATCHED" xml:space="preserve">
+    <value>Unmatched</value>
+  </data>
+  <data name="T_FAILEDSTATUS" xml:space="preserve">
+    <value>Failed</value>
   </data>
 </root>

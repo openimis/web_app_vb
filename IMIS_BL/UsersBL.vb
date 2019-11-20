@@ -704,6 +704,9 @@ Public Class UsersBL
                 PageRights.Add(Rights.ClaimReview)
             Case IMIS_EN.Enums.Pages.EmailSettings
                 PageRights.Add(Rights.EmailSettings)
+            Case IMIS_EN.Enums.Pages.FindPayment
+                PageRights.Add(Rights.PaymentSearch)
+                PageRights.Add(Rights.PaymentEdit)
         End Select
 
         Return PageRights
@@ -941,5 +944,9 @@ Public Class UsersBL
     Public Function IsUserExists(ByVal UserID As Integer) As Boolean
         Dim User As New IMIS_DAL.UsersDAL
         Return User.IsUserExists(UserID)
+    End Function
+    Public Function GetUserIdByUUID(ByVal uuid As Guid) As Integer
+        Dim User As New IMIS_DAL.UsersDAL
+        Return User.GetUserIdByUUID(uuid).Rows(0).Item(0)
     End Function
 End Class

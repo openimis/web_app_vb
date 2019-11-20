@@ -113,4 +113,12 @@ Public Class ClaimBI
         Dim Policy As New IMIS_BL.PolicyBL
         Return Policy.FindInsureeByCHFIDGrid(CHFID)
     End Function
+    Public Function GetClaimIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Claim As New IMIS_BL.ClaimsBL
+        Return Claim.GetClaimIdByUUID(uuid)
+    End Function
+    Public Function GetClaimUUIDByID(ByVal id As Integer) As Guid
+        Dim Claim As New IMIS_BL.ClaimsBL
+        Return Claim.GetClaimUUIDByID(id)
+    End Function
 End Class

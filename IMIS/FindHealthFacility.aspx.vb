@@ -32,6 +32,7 @@ Partial Public Class FindHealthFacility
     Dim eHF As New IMIS_EN.tblHF
     Private imisGen As New IMIS_Gen
     Private userBI As New IMIS_BI.UserBI
+    Dim hfBI As New IMIS_BI.HealthFacilityBI
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
         AddRowSelectToGridView(gvHF)
         If chkLegacy.Checked Then Page.ClientScript.RegisterForEventValidation(B_EDIT.UniqueID)
@@ -209,7 +210,7 @@ Partial Public Class FindHealthFacility
 
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
 
-        Response.Redirect("HealthFacility.aspx?h=0")
+        Response.Redirect("HealthFacility.aspx")
     End Sub
 
     Protected Sub B_EDIT_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_EDIT.Click
@@ -248,8 +249,9 @@ Partial Public Class FindHealthFacility
         Try
             lblMsg.Text = ""
 
-
-            eHF.HfID = hfHFId.Value
+            Dim HfUUID As Guid = Guid.Parse(hfHFId.Value)
+            Dim HfId As Integer = hfBI.GetHfIdByUUID(HfUUID)
+            eHF.HfID = HfId
 
             eHF.AuditUserID = imisGen.getUserId(Session("User"))
             hf.DeleteHealthFacility(eHF)

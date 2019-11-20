@@ -205,4 +205,12 @@ Public Class PolicyBL
         If _date < EnrolDate Then Return True
         Return False
     End Function
+    Public Function GetPolicyIdByUUID(ByVal uuid As Guid) As Integer
+        Dim Policy As New IMIS_DAL.PolicyDAL
+        Return Policy.GetPolicyIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Public Function GetPolicyUUIDByID(ByVal id As Integer) As Guid
+        Dim Policy As New IMIS_DAL.PolicyDAL
+        Return Policy.GetPolicyUUIDByID(id).Rows(0).Item(0)
+    End Function
 End Class
