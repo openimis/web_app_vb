@@ -205,16 +205,20 @@ Partial Public Class User
         Return checked
     End Function
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
+        If txtPassword.Text <> String.Empty Then
+            If Not General.isValidPassword(txtPassword.Text) Then
+                lblMsg.Text = General.getInvalidPasswordMessage()
+                Exit Sub
+            End If
+            If txtPassword.Text <> txtConfirmPassword.Text Then
+                lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                Exit Sub
+            End If
+            eUsers.DummyPwd = txtPassword.Text
+        End If
+
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
-                If Not General.isValidPassword(txtPassword.Text) Then
-                    lblMsg.Text = General.getInvalidPasswordMessage()
-                    Exit Sub
-                End If
-                If txtPassword.Text <> txtConfirmPassword.Text Then
-                    lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
-                    Exit Sub
-                End If
 
                 If Not checkChecked(gvDistrict) Then
                     lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
@@ -226,7 +230,7 @@ Partial Public Class User
                 End If
                 eUsers.LastName = txtLastName.Text
                 eUsers.OtherNames = txtOtherNames.Text
-                eUsers.DummyPwd = txtPassword.Text
+
                 eUsers.Phone = txtPhone.Text
                 eUsers.EmailId = txtEmail.Text
                 eUsers.LoginName = txtLoginName.Text
