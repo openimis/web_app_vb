@@ -655,7 +655,7 @@ table tr td.FormLabel{width:auto;}
                            </ContentTemplate>
                           
                       </asp:UpdatePanel>
-                      <asp:ListBox ID="lstboxReportSelector" runat="server" Height="380px" Width="364px" CssClass="panel"> 
+                      <asp:ListBox ID="lstboxReportSelector" runat="server" Height="380px" Width="364px" CssClass="panel" ClientIDMode="Static" > 
                       </asp:ListBox>
 
                   

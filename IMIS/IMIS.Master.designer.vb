@@ -48,7 +48,7 @@ Partial Public Class IMIS
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlDisablePage As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''ToolkitScriptManager1 control.
     '''</summary>
@@ -56,8 +56,8 @@ Partial Public Class IMIS
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ToolkitScriptManager1 As Global.AjaxControlToolkit.ToolkitScriptManager
-    
+    Protected WithEvents ToolkitScriptManager1 As Global.System.Web.UI.ScriptManager
+
     '''<summary>
     '''hfDirty control.
     '''</summary>

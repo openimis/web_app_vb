@@ -41,6 +41,8 @@ Partial Public Class Reports
     Private isClaimOverView As Boolean = False
     Private LocationName As String = ""
     Private dtLevel As DataTable
+    Private selectedReport As Integer
+
     ' Private LocationId As Integer?
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
@@ -56,6 +58,7 @@ Partial Public Class Reports
         If IsPostBack Then Return
         RunPageSecurity()
 
+        selectedReport = 1 ' first report type selected by default
 
 
 
@@ -63,53 +66,53 @@ Partial Public Class Reports
 
         'Try
         FillRegions()
-        FillRegionsWoNational()
-        'FillDistricts()
-        'FillDistrictsWoNational()
-        FillProducts()
-        FillHF(ddlDistrictWoNational)
+        'FillRegionsWoNational()
+        ''FillDistricts()
+        ''FillDistrictsWoNational()
+        'FillProducts()
+        'FillHF(ddlDistrictWoNational)
         FillReportTypes()
         FillMonth()
-        FillQuarter()
-        FillUserName()
+        'FillQuarter()
+        'FillUserName()
         FillYear()
-        FillPaymentType()
-        FillEnrolmentOfficer(ddlDistrictWoNational)
-        FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
-        FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
-        FillClaimStatus()
-        FillPolicyStatus()
-        FillEntities()
-        FillActions()
+        'FillPaymentType()
+        'FillEnrolmentOfficer(ddlDistrictWoNational)
+        'FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
+        'FillPreviousReportsDate()
+        'FillPreviousReportsDateForOverviewOfCommissions()
+        'FillClaimStatus()
+        'FillPolicyStatus()
+        'FillEntities()
+        'FillActions()
         FillALLProducts()
-        FillSorting()
+        'FillSorting()
 
-        FillPaymentStatus()
-        FillPostingStatus()
-        FillAssignmentStatus()
+        'FillPaymentStatus()
+        'FillPostingStatus()
+        'FillAssignmentStatus()
 
-        FillMode()
-        FillScope()
+        'FillMode()
+        'FillScope()
 
-        ReselectCachedCriteria()
-        Dim SelectedValue As String = ddlProduct.SelectedValue
-        Dim selectedValueStrict As String = Val(ddlProductStrict.SelectedValue)
-        FillProducts()
-        ddlProduct.SelectedValue = SelectedValue
-        ddlProductStrict.SelectedValue = selectedValueStrict
+        'ReselectCachedCriteria()
+        'Dim SelectedValue As String = ddlProduct.SelectedValue
+        'Dim selectedValueStrict As String = Val(ddlProductStrict.SelectedValue)
+        'FillProducts()
+        'ddlProduct.SelectedValue = SelectedValue
+        'ddlProductStrict.SelectedValue = selectedValueStrict
 
-        SelectedValue = ddlHF.SelectedValue
-        FillHF(ddlDistrictWoNational)
-        ddlHF.SelectedValue = SelectedValue
-        SelectedValue = ddlPayer.SelectedValue
-        FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
-        ddlPayer.SelectedValue = SelectedValue
-        SelectedValue = ddlPreviousReportDate.SelectedValue
-        FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
-        ddlPreviousReportDate.SelectedValue = SelectedValue
-        QuarterSelector()
+        'SelectedValue = ddlHF.SelectedValue
+        'FillHF(ddlDistrictWoNational)
+        'ddlHF.SelectedValue = SelectedValue
+        'SelectedValue = ddlPayer.SelectedValue
+        'FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
+        'ddlPayer.SelectedValue = SelectedValue
+        'SelectedValue = ddlPreviousReportDate.SelectedValue
+        'FillPreviousReportsDate()
+        'FillPreviousReportsDateForOverviewOfCommissions()
+        'ddlPreviousReportDate.SelectedValue = SelectedValue
+        'QuarterSelector()
         HideCriteriaControls()
         'Catch ex As Exception
         'Session("Msg") = ex.Message 'imisgen.getMessage("M_ERRORMESSAGE")
@@ -252,10 +255,14 @@ Partial Public Class Reports
         ddlDistrict.DataBind()
         FillProducts()
         'If dtDistricts.Rows.Count > 0 Then
-        FillHF(ddlDistrict)
-        FillPayer(ddlRegion, ddlDistrict)
-        FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
+        If lstboxReportSelector.SelectedValue <> 18 Then
+            FillHF(ddlDistrict)
+            FillPayer(ddlRegion, ddlDistrict)
+            FillPreviousReportsDate()
+            FillPreviousReportsDateForOverviewOfCommissions()
+        End If
+
+
         ' FillWards()
         ' End If
 
@@ -1751,7 +1758,10 @@ Partial Public Class Reports
 
     Private Sub ddlRegion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegion.SelectedIndexChanged
         FillDistricts()
-        FillHF(sender)
+        If lstboxReportSelector.SelectedValue <> 18 Then
+            FillHF(sender)
+        End If
+
     End Sub
 
     Private Sub ddlRegionWoNational_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegionWoNational.SelectedIndexChanged
@@ -1825,6 +1835,10 @@ Partial Public Class Reports
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub lstboxReportSelector_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstboxReportSelector.SelectedIndexChanged
+        selectedReport = lstboxReportSelector.SelectedValue
     End Sub
 
 

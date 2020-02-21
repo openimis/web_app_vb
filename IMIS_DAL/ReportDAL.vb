@@ -2209,8 +2209,8 @@ Public Class ReportDAL
 
     Public Function getCatchmentArea(RegionId As Integer, DistrictId As Integer, ByVal ProductId As Integer, ByVal Year As Integer, ByVal Month As Integer, ByVal dt As DataTable) As DataTable
         Dim data As New ExactSQL
-        'Dim sSQL As String = "uspSSRSCapitationPayment"
-        Dim sSQL As String = "DECLARE @Level1 CHAR(1) = NULL,
+        Dim sSQL As String = "uspSSRSCapitationPayment"
+        Dim sSQLfull As String = "DECLARE @Level1 CHAR(1) = NULL,
 			    @Sublevel1 CHAR(1) = NULL,
 			    @Level2 CHAR(1) = NULL,
 			    @Sublevel2 CHAR(1) = NULL,
@@ -2455,7 +2455,8 @@ Public Class ReportDAL
 	 GROUP BY HFCode
 
 "
-        data.setSQLCommand(sSQL, CommandType.Text, timeout:=0)
+        'data.setSQLCommand(sSQLfull, CommandType.Text, timeout:=0)
+        data.setSQLCommand(sSQL, CommandType.StoredProcedure, timeout:=0)
         data.params("@RegionId", SqlDbType.Int, If(RegionId = -1, DBNull.Value, RegionId))
         data.params("@DistrictId", SqlDbType.Int, If(DistrictId = 0, DBNull.Value, DistrictId)) ' DistrictId)
         data.params("@ProdId", SqlDbType.Int, ProductId)

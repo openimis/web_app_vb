@@ -40,6 +40,10 @@ Public Class ExactSQL
     Private _TableName As String = ""
     Private _SQLCommand As New SqlClient.SqlCommand
 
+    Public Sub New()
+        _SQLCommand.CommandTimeout = 120
+    End Sub
+
 
     Public ReadOnly Property sqlParameters(Optional ByVal Paramname As String = "") As Object
         Get

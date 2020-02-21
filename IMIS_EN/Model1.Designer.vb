@@ -17,7 +17,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
-<Assembly: EdmSchemaAttribute("750c3b4a-1ca0-4ef7-b040-e90f7b9788cb")>
+<Assembly: EdmSchemaAttribute("b0f358df-d71b-4a13-bf7a-24d0e37a52e1")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("IMISModel", "FK_tblBatchRun_tblLocations", "tblLocations", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(tblLocations), "tblBatchRun", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(tblBatchRun), True)>
 <Assembly: EdmRelationshipAttribute("IMISModel", "FK_tblClaim_tblBatchRun", "tblBatchRun", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(tblBatchRun), "tblClaim", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(tblClaim), True)>

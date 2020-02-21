@@ -398,8 +398,8 @@
 
         <asp:Panel ID="pnlDisablePage" runat="server" Style="display: none" CssClass="pnlDisablePage"></asp:Panel>
 
-        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-        </asp:ToolkitScriptManager>
+        <asp:ScriptManager ID="ToolkitScriptManager1" runat="server">
+        </asp:ScriptManager>
         <asp:HiddenField ID="hfDirty" runat="server" Value="False" />
 
 
