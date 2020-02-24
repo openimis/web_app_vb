@@ -66,53 +66,53 @@ Partial Public Class Reports
 
         'Try
         FillRegions()
-        'FillRegionsWoNational()
-        ''FillDistricts()
-        ''FillDistrictsWoNational()
-        'FillProducts()
-        'FillHF(ddlDistrictWoNational)
+        FillRegionsWoNational()
+        'FillDistricts()
+        'FillDistrictsWoNational()
+        FillProducts()
+        FillHF(ddlDistrictWoNational)
         FillReportTypes()
         FillMonth()
-        'FillQuarter()
-        'FillUserName()
+        FillQuarter()
+        FillUserName()
         FillYear()
-        'FillPaymentType()
-        'FillEnrolmentOfficer(ddlDistrictWoNational)
-        'FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
-        'FillPreviousReportsDate()
-        'FillPreviousReportsDateForOverviewOfCommissions()
-        'FillClaimStatus()
-        'FillPolicyStatus()
-        'FillEntities()
-        'FillActions()
+        FillPaymentType()
+        FillEnrolmentOfficer(ddlDistrictWoNational)
+        FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
+        FillPreviousReportsDate()
+        FillPreviousReportsDateForOverviewOfCommissions()
+        FillClaimStatus()
+        FillPolicyStatus()
+        FillEntities()
+        FillActions()
         FillALLProducts()
-        'FillSorting()
+        FillSorting()
 
-        'FillPaymentStatus()
-        'FillPostingStatus()
-        'FillAssignmentStatus()
+        FillPaymentStatus()
+        FillPostingStatus()
+        FillAssignmentStatus()
 
-        'FillMode()
-        'FillScope()
+        FillMode()
+        FillScope()
 
-        'ReselectCachedCriteria()
-        'Dim SelectedValue As String = ddlProduct.SelectedValue
-        'Dim selectedValueStrict As String = Val(ddlProductStrict.SelectedValue)
-        'FillProducts()
-        'ddlProduct.SelectedValue = SelectedValue
-        'ddlProductStrict.SelectedValue = selectedValueStrict
+        ReselectCachedCriteria()
+        Dim SelectedValue As String = ddlProduct.SelectedValue
+        Dim selectedValueStrict As String = Val(ddlProductStrict.SelectedValue)
+        FillProducts()
+        ddlProduct.SelectedValue = SelectedValue
+        ddlProductStrict.SelectedValue = selectedValueStrict
 
-        'SelectedValue = ddlHF.SelectedValue
-        'FillHF(ddlDistrictWoNational)
-        'ddlHF.SelectedValue = SelectedValue
-        'SelectedValue = ddlPayer.SelectedValue
-        'FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
-        'ddlPayer.SelectedValue = SelectedValue
-        'SelectedValue = ddlPreviousReportDate.SelectedValue
-        'FillPreviousReportsDate()
-        'FillPreviousReportsDateForOverviewOfCommissions()
-        'ddlPreviousReportDate.SelectedValue = SelectedValue
-        'QuarterSelector()
+        SelectedValue = ddlHF.SelectedValue
+        FillHF(ddlDistrictWoNational)
+        ddlHF.SelectedValue = SelectedValue
+        SelectedValue = ddlPayer.SelectedValue
+        FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
+        ddlPayer.SelectedValue = SelectedValue
+        SelectedValue = ddlPreviousReportDate.SelectedValue
+        FillPreviousReportsDate()
+        FillPreviousReportsDateForOverviewOfCommissions()
+        ddlPreviousReportDate.SelectedValue = SelectedValue
+        QuarterSelector()
         HideCriteriaControls()
         'Catch ex As Exception
         'Session("Msg") = ex.Message 'imisgen.getMessage("M_ERRORMESSAGE")

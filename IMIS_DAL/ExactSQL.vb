@@ -40,9 +40,6 @@ Public Class ExactSQL
     Private _TableName As String = ""
     Private _SQLCommand As New SqlClient.SqlCommand
 
-    Public Sub New()
-        _SQLCommand.CommandTimeout = 120
-    End Sub
 
 
     Public ReadOnly Property sqlParameters(Optional ByVal Paramname As String = "") As Object
@@ -66,7 +63,7 @@ Public Class ExactSQL
         _SQLCommand.Parameters.Add(param, type, Size).Value = if(paramvalue Is Nothing, DBNull.Value, paramvalue)
         _SQLCommand.Parameters(param).Direction = direction
     End Sub
-    Public Sub setSQLCommand(ByVal cmd As String, ByVal cmdtype As CommandType, Optional ByVal ConString As String = "IMISConnectionString", Optional ByVal timeout As Integer = 60)
+    Public Sub setSQLCommand(ByVal cmd As String, ByVal cmdtype As CommandType, Optional ByVal ConString As String = "IMISConnectionString", Optional ByVal timeout As Integer = 300)
         _SQLCommand = New SqlClient.SqlCommand
         'If ConString = "" Then
         '    ConString = Web.Configuration.WebConfigurationManager.ConnectionStrings("IMISConnectionString").ConnectionString
@@ -98,6 +95,7 @@ Public Class ExactSQL
             _TableName = TableName
             _IdentityKey = IdentityColumn
             _sqladapter = New SqlClient.SqlDataAdapter
+            _SQLCommand.CommandTimeout = 120
             _sqladapter.SelectCommand = _SQLCommand
             _dtbl = New DataTable
             _sqladapter.Fill(_dtbl)
