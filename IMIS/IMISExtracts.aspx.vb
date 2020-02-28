@@ -968,20 +968,25 @@ Partial Public Class IMISExtracts
 
         Dim Extracts As New IMIS_BI.IMISExtractsBI
         Dim strCommand As String = "MasterData.RAR"
-        Dim FileName As String = Extracts.DownloadMasterData()
-        Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
-        If FileName.Length > 0 Then
+        Try
+            Dim FileName As String = Extracts.DownloadMasterData()
+            Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+            If FileName.Length > 0 Then
 
-            strCommand = "attachment;filename=" & FileName
-            Response.AppendHeader("Content-Disposition", strCommand)
-            Response.ContentType = "application/octet-stream"
-            Response.WriteFile(Path & FileName)
-            Response.Flush()
-            IO.File.Delete(Path & FileName)
-            Response.End()
-        Else
-            lblmsg.Text = imisgen.getMessage("M_NOENROLMENTSFOUND")
-        End If
+                strCommand = "attachment;filename=" & FileName
+                Response.AppendHeader("Content-Disposition", strCommand)
+                Response.ContentType = "application/octet-stream"
+                Response.WriteFile(Path & FileName)
+                Response.Flush()
+                IO.File.Delete(Path & FileName)
+                Response.End()
+            Else
+                lblmsg.Text = imisgen.getMessage("M_NODATAFOUND")
+            End If
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
+        End Try
     End Sub
 
     'Protected Sub BtnUploadPhotosFromPhone_Click(sender As Object, e As EventArgs) Handles BtnUploadPhotosFromPhone.Click
