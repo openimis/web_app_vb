@@ -224,7 +224,7 @@ Public Class PricelistMSDAL
         data.params("@PLServiceID", SqlDbType.Int, ePLService.PLServiceID, ParameterDirection.Output)
         data.params("@PLServName", SqlDbType.NVarChar, 100, ePLService.PLServName)
         data.params("@DatePL", SqlDbType.SmallDateTime, ePLService.DatePL)
-        data.params("@LocationId", SqlDbType.Int, if(ePLService.tblLocations.LocationId = -1, Nothing, ePLService.tblLocations.LocationId))
+        data.params("@LocationId", SqlDbType.Int, If(ePLService.tblLocations.LocationId = -1, DBNull.Value, ePLService.tblLocations.LocationId))
         data.params("@AuditUserID", SqlDbType.Int, ePLService.AuditUserID)
         data.ExecuteCommand()
         ePLService.PLServiceID = data.sqlParameters("@PLServiceID")
