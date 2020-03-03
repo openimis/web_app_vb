@@ -22,32 +22,33 @@ sustained by you or third parties or a failure of the program to operate with an
 advised of the possibility of such damages.
 
 In case of dispute arising out or in relation to the use of the program, it is subject to the public law of Switzerland. The place of jurisdiction is Berne.--%>
+
 <%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/IMIS.Master" CodeBehind="PriceListMS.aspx.vb" Inherits="IMIS.PriceListMS" EnableEventValidation="false"
- title='<%$ Resources:Resource,G_PRICELISTSMS %>' %>
+    Title='<%$ Resources:Resource,G_PRICELISTSMS %>' %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-<asp:Content ID="HeadContent" ContentPlaceHolderID="head" Runat="Server">
-   <script type="text/javascript" language="javascript">
-       function toggleCheck(status) {
-           $('.mGrid input').each(function() {
-               $(this).attr("checked", status);
-           });
-       }
-       $(document).ready(function() {
-           $('.mGrid input').click(function() {
-               $('.mGrid input').each(function() {
-                   if (this.checked != true) {
-                       $('#<%= checkbox1.ClientId %>').attr("checked", false);
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript" language="javascript">
+        function toggleCheck(status) {
+            $('.mGrid input').each(function () {
+                $(this).attr("checked", status);
+            });
+        }
+        $(document).ready(function () {
+            $('.mGrid input').click(function () {
+                $('.mGrid input').each(function () {
+                    if (this.checked != true) {
+                        $('#<%= checkbox1.ClientId %>').attr("checked", false);
                        return false;
                    } else {
                        $('#<%= checkbox1.ClientId %>').attr("checked", true);
                    }
                });
            });
-     
-       /**** switching textbox and labels in the grid column ***/
-           $(".switch").click(function() {
+
+           /**** switching textbox and labels in the grid column ***/
+           $(".switch").click(function () {
                $(".label").show();
                $(".textbox").hide();
                $label = $(this).find(".label");
@@ -55,213 +56,210 @@ In case of dispute arising out or in relation to the use of the program, it is s
                $label.hide();
                $txtbox.show().focus();
            });
-           $(".textbox").change(function() {
+           $(".textbox").change(function () {
                $label = $(this).prev();
                $label.html($(this).val());
                $(this).hide();
                $label.show();
            });
-         /**** ....end of switching textbox and labels in the grid column ***/
+           /**** ....end of switching textbox and labels in the grid column ***/
        });
-        
+
     </script>
 </asp:Content>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
 
-    <div class="divBody" >  
-         <asp:Panel ID="pnlPriceLists" runat="server" 
-        CssClass="panel" GroupingText='<%$ Resources:Resource,G_PRICELISTSMS %>'>
-        <table>
-            <tr>
-                <td >  </td>
-                <td> <asp:CheckBox ID="CheckBox1" runat="server" Text='<%$ Resources:Resource,L_CHECKALL%>' margin-left="10px" onClick="toggleCheck(this.checked);"/> </td>
-                
-            </tr>
-            <tr>
-                <td valign="top">
-                    <table>
-                    <tr>
-                        <td class="FormLabel">
-                            <asp:Label ID="L_Name" runat="server" Text='<%$ Resources:Resource,L_NAME %>'></asp:Label>
-                        </td>
-                        <td class ="DataEntryWide">
-                            
-                            <asp:TextBox ID="txtName" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
-                            
-                        </td>
-                        <td>
-                        <asp:RequiredFieldValidator 
-                        ID="RequiredFieldName" runat="server" 
-                        ControlToValidate="txtName" 
-                        SetFocusOnError="True" 
-                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                        Text='*'></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="FormLabel">
-                                <asp:Label ID="L_Date" runat="server" Text='<%$ Resources:Resource,L_DATE %>'></asp:Label>
-                            </td>
-                            <td class="DataEntry">
-                             <asp:TextBox ID="txtDate" runat="server" Width="125px" MaxLength="10" ></asp:TextBox>
-                             <asp:MaskedEditExtender ID="txtDate_MaskedEditExtender" runat="server" 
-                            CultureDateFormat="dd/MM/YYYY"                             
-                            TargetControlID="txtDate" Mask="99/99/9999" MaskType="Date" 
-                            UserDateFormat="DayMonthYear">
-                        </asp:MaskedEditExtender>
-                        <asp:Button ID="btnDate" runat="server" Height="20px" 
-                            Width="20px" />
-                             <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDate" PopupButtonID="btnDate" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                            </td>
-                            <td>
-                      <asp:RegularExpressionValidator ID="RegularExpressionValidatorDate" runat="server" 
-                    ControlToValidate="txtDate" Text="*" SetFocusOnError="True" 
-                    ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
-                    ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+    <div class="divBody">
+        <asp:Panel ID="pnlPriceLists" runat="server"
+            CssClass="panel" GroupingText='<%$ Resources:Resource,G_PRICELISTSMS %>'>
+            <table>
+                <tr>
+                    <td></td>
+                    <td>
+                        <asp:CheckBox ID="CheckBox1" runat="server" Text='<%$ Resources:Resource,L_CHECKALL%>' margin-left="10px" onClick="toggleCheck(this.checked);" />
                     </td>
-                        </tr>
-                    <tr>
-                    <td class="FormLabel">
-                    <asp:Label ID="L_REGION" runat="server" Text='<%$ Resources:Resource,L_REGION %>'></asp:Label>
+
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <table>
+                            <tr>
+                                <td class="FormLabel">
+                                    <asp:Label ID="L_Name" runat="server" Text='<%$ Resources:Resource,L_NAME %>'></asp:Label>
+                                </td>
+                                <td class="DataEntryWide">
+
+                                    <asp:TextBox ID="txtName" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
+
+                                </td>
+                                <td>
+                                    <asp:RequiredFieldValidator
+                                        ID="RequiredFieldName" runat="server"
+                                        ControlToValidate="txtName"
+                                        SetFocusOnError="True"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="FormLabel">
+                                    <asp:Label ID="L_Date" runat="server" Text='<%$ Resources:Resource,L_DATE %>'></asp:Label>
+                                </td>
+                                <td class="DataEntry">
+                                    <asp:TextBox ID="txtDate" runat="server" Width="125px" MaxLength="10"></asp:TextBox>
+                                    <asp:MaskedEditExtender ID="txtDate_MaskedEditExtender" runat="server"
+                                        CultureDateFormat="dd/MM/YYYY"
+                                        TargetControlID="txtDate" Mask="99/99/9999" MaskType="Date"
+                                        UserDateFormat="DayMonthYear"></asp:MaskedEditExtender>
+                                    <asp:Button ID="btnDate" runat="server" Height="20px"
+                                        Width="20px" />
+                                    <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDate" PopupButtonID="btnDate" Format="dd/MM/yyyy"></asp:CalendarExtender>
+                                </td>
+                                <td>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorDate" runat="server"
+                                        ControlToValidate="txtDate" Text="*" SetFocusOnError="True"
+                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
+                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+                                    <asp:RequiredFieldValidator ID="txtDate_RequiredFieldValidator"
+                                        runat="server" ErrorMessage="*" ControlToValidate="txtDate"
+                                        ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="FormLabel">
+                                    <asp:Label ID="L_REGION" runat="server" Text='<%$ Resources:Resource,L_REGION %>'></asp:Label>
+                                </td>
+                                <td class="DataEntry">
+                                    <asp:UpdatePanel runat="server">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="ddlRegion" runat="server" AutoPostBack="True">
+                                            </asp:DropDownList>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+
+                                </td>
+                                <td>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <td>&nbsp;</td>
+                            </tr>
+
+                            <tr>
+                                <td class="FormLabel">
+                                    <asp:Label ID="L_District" runat="server" Text="<%$ Resources:Resource,L_DISTRICT %>"></asp:Label>
+                                </td>
+                                <td class="DataEntry">
+                                    <asp:UpdatePanel runat="server" ID="UpDistrict">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="ddlDistrict" runat="server">
+                                            </asp:DropDownList>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+
+                                </td>
+                                <td>
+                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>--%>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+
+                        </table>
                     </td>
-                    <td class ="DataEntry">
-                        <asp:UpdatePanel runat="server">
-                            <ContentTemplate>
-                                <asp:DropDownList ID="ddlRegion" runat="server" AutoPostBack="True">
-                        </asp:DropDownList>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                        
-                        </td>
-                        <td>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" Text="*" ValidationGroup="check" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                   
-                        <tr>
-                            <td class="FormLabel">
-                                <asp:Label ID="L_District" runat="server" Text="<%$ Resources:Resource,L_DISTRICT %>"></asp:Label>
-                            </td>
-                            <td class="DataEntry">
-                                <asp:UpdatePanel runat="server" ID="UpDistrict">
-                                    <ContentTemplate>
-                                        <asp:DropDownList ID="ddlDistrict" runat="server">
-                                </asp:DropDownList>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                                
-                            </td>
-                            <td>
-                                <%--<asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" SetFocusOnError="True" Text="*" ValidationGroup="check"></asp:RequiredFieldValidator>--%>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                   
-                </table>
-                </td>
-                <td>
-                <%--<asp:UpdatePanel ID="upPricelistMS" runat="server" ><ContentTemplate>--%>
-                
-               
-                 <asp:Panel ID="pnlMedicalServices" runat="server" ScrollBars="Auto" height="500px" width="650px"
-                       
-         CssClass="panel" GroupingText='<%$ Resources:Resource, L_MEDICALSERVICES %>'>
-            <asp:GridView  ID="gvMedicalServices" runat="server"  
-                    AutoGenerateColumns="False"
+                    <td>
+                        <%--<asp:UpdatePanel ID="upPricelistMS" runat="server" ><ContentTemplate>--%>
 
-                    GridLines="None"
-                   
-                    CssClass="mGrid"
-                    PagerStyle-CssClass="pgr" 
-                    EmptyDataText='<%$ Resources:Resource, M_NOMEDICALITEMS %>' 
-                                  DataKeyNames="Checked,PriceOverule,ServiceID,PLServiceDetailID">
 
-                        <Columns>
-                       
-                       
-                           <asp:TemplateField HeaderText="Select" HeaderStyle-Width="20px">
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="chkSelect" runat="server" />
-                                </ItemTemplate>
-                                <HeaderTemplate>
-                                </HeaderTemplate>
-                            </asp:TemplateField>
-                           <asp:BoundField DataField="ServCode"  HeaderText='<%$ Resources:Resource,L_CODE %>' SortExpression="ServCode">  
-                                <HeaderStyle Width="50px" />
-                            </asp:BoundField>              
-                            <asp:BoundField DataField="ServName"  HeaderText='<%$ Resources:Resource,L_NAME %>' SortExpression="ServName"> 
-                                <HeaderStyle Width="200px" />
-                            </asp:BoundField> 
-                            <asp:BoundField DataField="ServType"  HeaderText='<%$ Resources:Resource,L_TYPE %>'     
-                                SortExpression="ServType" HeaderStyle-Width ="60px" ApplyFormatInEditMode ="true"> 
-                            <HeaderStyle Width="60px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="ServPrice" HeaderText='<%$ Resources:Resource,L_PRICE %>' 
-                            SortExpression="ServPrice" HeaderStyle-Width ="60px" 
-                               DataFormatString="{0:n2}" ItemStyle-HorizontalAlign="Right">
-                            <HeaderStyle Width="60px" />
-                                <ItemStyle HorizontalAlign="Right" />
-                            </asp:BoundField>
-                           <asp:TemplateField HeaderText='<%$ Resources:Resource,L_OVERRULEPRICE %>' HeaderStyle-Width="60px" >
-                                <ItemTemplate >
-                                    <asp:Label ID="Label1" runat="server" class="label"
-                                        Text='<%# Bind("PriceOverule", "{0:n2}") %>'></asp:Label>
-                                        <asp:TextBox class="textbox numbersOnly" ID="TextBox1" runat="server" Text='<%# Bind("PriceOverule") %>' width="50px" Height="12px"  style="text-align:right;display:none;"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Right" CssClass="switch" />
-                                    
-                            </asp:TemplateField>
-                            
-                        </Columns>
-               
-                    <PagerStyle CssClass="pgr" />
-                    <AlternatingRowStyle CssClass="alt" />
-                    <SelectedRowStyle CssClass="srs" />
-                   
-                </asp:GridView>
+                        <asp:Panel ID="pnlMedicalServices" runat="server" ScrollBars="Auto" Height="500px" Width="650px"
+                            CssClass="panel" GroupingText='<%$ Resources:Resource, L_MEDICALSERVICES %>'>
+                            <asp:GridView ID="gvMedicalServices" runat="server"
+                                AutoGenerateColumns="False"
+                                GridLines="None"
+                                CssClass="mGrid"
+                                PagerStyle-CssClass="pgr"
+                                EmptyDataText='<%$ Resources:Resource, M_NOMEDICALITEMS %>'
+                                DataKeyNames="Checked,PriceOverule,ServiceID,PLServiceDetailID">
+
+                                <Columns>
+
+
+                                    <asp:TemplateField HeaderText="Select" HeaderStyle-Width="20px">
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkSelect" runat="server" />
+                                        </ItemTemplate>
+                                        <HeaderTemplate>
+                                        </HeaderTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="ServCode" HeaderText='<%$ Resources:Resource,L_CODE %>' SortExpression="ServCode">
+                                        <HeaderStyle Width="50px" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="ServName" HeaderText='<%$ Resources:Resource,L_NAME %>' SortExpression="ServName">
+                                        <HeaderStyle Width="200px" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="ServType" HeaderText='<%$ Resources:Resource,L_TYPE %>'
+                                        SortExpression="ServType" HeaderStyle-Width="60px" ApplyFormatInEditMode="true">
+                                        <HeaderStyle Width="60px" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="ServPrice" HeaderText='<%$ Resources:Resource,L_PRICE %>'
+                                        SortExpression="ServPrice" HeaderStyle-Width="60px"
+                                        DataFormatString="{0:n2}" ItemStyle-HorizontalAlign="Right">
+                                        <HeaderStyle Width="60px" />
+                                        <ItemStyle HorizontalAlign="Right" />
+                                    </asp:BoundField>
+                                    <asp:TemplateField HeaderText='<%$ Resources:Resource,L_OVERRULEPRICE %>' HeaderStyle-Width="60px">
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" class="label"
+                                                Text='<%# Bind("PriceOverule", "{0:n2}") %>'></asp:Label>
+                                            <asp:TextBox class="textbox numbersOnly" ID="TextBox1" runat="server" Text='<%# Bind("PriceOverule") %>' Width="50px" Height="12px" Style="text-align: right; display: none;"></asp:TextBox>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Right" CssClass="switch" />
+
+                                    </asp:TemplateField>
+
+                                </Columns>
+
+                                <PagerStyle CssClass="pgr" />
+                                <AlternatingRowStyle CssClass="alt" />
+                                <SelectedRowStyle CssClass="srs" />
+
+                            </asp:GridView>
+                        </asp:Panel>
+                        <%-- </ContentTemplate></asp:UpdatePanel>--%>
+                    </td>
+
+                </tr>
+            </table>
+
         </asp:Panel>
-<%-- </ContentTemplate></asp:UpdatePanel>--%>
+    </div>
+    <asp:Panel ID="pnlButtons" runat="server" CssClass="panelbuttons">
+        <table width="100%" cellpadding="10 10 10 10">
+            <tr>
+
+                <td align="left">
+
+                    <asp:Button
+                        ID="B_SAVE"
+                        runat="server"
+                        Text='<%$ Resources:Resource,B_SAVE%>'
+                        ValidationGroup="check" />
                 </td>
-               
+
+
+                <td align="right">
+
+                    <asp:Button
+                        ID="B_CANCEL"
+                        runat="server"
+                        Text='<%$ Resources:Resource,B_CANCEL%>' />
+                </td>
+
             </tr>
         </table>
-                                
-         </asp:Panel> 
-         </div>
-         <asp:Panel ID="pnlButtons" runat="server"  CssClass="panelbuttons" >
-                <table width="100%" cellpadding="10 10 10 10">
-                 <tr>
-                        
-                         <td align="left" >
-                        
-                               <asp:Button 
-                            
-                            ID="B_SAVE" 
-                            runat="server" 
-                            Text='<%$ Resources:Resource,B_SAVE%>'
-                            ValidationGroup="check"  />
-                        </td>
-                        
-                        
-                        <td  align="right">
-                                                    
-                               <asp:Button 
-                            
-                            ID="B_CANCEL" 
-                            runat="server" 
-                            Text='<%$ Resources:Resource,B_CANCEL%>'
-                             />
-                        </td>
-                        
-                    </tr>
-                </table>             
-         </asp:Panel>       
+    </asp:Panel>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Footer" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="Footer" runat="Server">
     <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText='<%$ Resources:Resource,V_SUMMARY%>' ValidationGroup="check" />
-    <asp:HiddenField ID="hfCancel" runat="server" /> 
-     <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+    <asp:HiddenField ID="hfCancel" runat="server" />
+    <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
 </asp:Content>
 
