@@ -354,8 +354,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <asp:BoundField DataField="ValidityTo" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_VALIDTO %>' SortExpression="ValidityTo" HeaderStyle-Width="70px">
                         <HeaderStyle Width="70px" />
                     </asp:BoundField>
-
-
+                    <%-- Insuree Enquiry Button --%>
+                     <asp:TemplateField HeaderText="View">
+                    <ItemTemplate>
+                        <asp:Image ID="viewButton" runat="server" ImageUrl="~/Images/GoLtr.bmp" AlternateText='<%# Bind("CHFID") %>'/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                     <%-- Insuree Enquiry Button --%>
 
                 </Columns>
                 <PagerStyle CssClass="pgr" />

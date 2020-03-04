@@ -37,7 +37,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
      function GreetUser() {
          var hourOfTheDay = new Date().getHours();
-         var morning = '<%=imisgen.getMessage("M_GOODMORNING",True )%>';
+         var morning = '<%=imisgen.getMessage("M_GOODMORNING", True)%>';
          var afternoon = '<%=imisgen.getMessage("M_GOODAFTERNOON", True)%>';
          var evening = '<%=imisgen.getMessage("M_GOODEVENING", True)%>';
          var greeting = '<%=imisgen.getMessage("L_WELCOME", True)%>';
@@ -54,6 +54,25 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
  </script>
+    <%-- Load notice from Another Server --%>
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            var noticeurl = "<%=System.Configuration.ConfigurationManager.AppSettings("NoticeURL").ToString()%>";
+            $.ajax({
+                type: "POST",
+                url: noticeurl,
+                success: function (data) {
+                    $("#showNotice").html(data.notice);
+
+                    $("#showNoticeDate").html(data.date);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                },
+                dataType: "json"
+            });
+        });
+        </script>
+    <%-- Load notice from Another Server --%>
 <style type="text/css">
     div.backentry{position:relative;}
     .footer{ bottom:2px;top:auto; }
@@ -114,6 +133,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
     </asp:GridView>
 
         </div>
+    <%-- Show Notice Div --%>
+     <div style="position:absolute;top:50px;left:170px;width:800px;height:527px; text-align:center" id="getNotice">
+        <h2 style="color: red;">Notice</h2>
+        
+        <p id="showNoticeDate" style="text-align:left;color: blue;"></p>
+       <p id="showNotice" style="color: green;font-size: medium;text-align: justify;"></p>
+        </div>
+    <%-- Show Notice Div --%>
     <div style="bottom: 23px; left: 5px; font-size: 14px; margin-bottom: 6px;">
         <strong>&copy; Swiss Agency for Development and Cooperation</strong>
         <br />

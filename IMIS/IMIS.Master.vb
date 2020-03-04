@@ -1,4 +1,4 @@
-''Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
+﻿''Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
 ''
 ''The program users must agree to the following terms:
 ''
@@ -28,6 +28,7 @@
 
 Imports IMIS_BI
 Imports IMIS_EN
+Imports System.Data.SqlClient
 
 Public Class IMIS
     Inherits System.Web.UI.MasterPage
@@ -172,7 +173,7 @@ Public Class IMIS
     Private Sub BindData()
         FillRepeater()
         FillPolicyGrid()
-        FillProductDetails()
+        'FillProductDetails()
     End Sub
 
     'Private Sub FillRepeater()
@@ -200,6 +201,19 @@ Public Class IMIS
             hf.Value = "No"
         End If
 
+        ' Get Family List
+        Dim str As String = Web.Configuration.WebConfigurationManager.ConnectionStrings("IMISConnectionString").ConnectionString
+        Dim con As New SqlConnection(str)
+        Dim com As String = "select i.CHFID, concat(i.OtherNames,' ',i.LastName, CASE IsHead WHEN 1 THEN ' (Head)' ELSE '' END ) MemberName, Phone from tblInsuree i   " &
+            "where ValidityTo is null and FamilyID in (select FamilyID from tblInsuree where CHFID='" & txtSearch.Text & "' and ValidityTo is null) order by insureeid "
+        Dim Adpt As New SqlDataAdapter(com, con)
+        Dim ds As New DataSet()
+        Adpt.Fill(ds, "Capped")
+        If ds.Tables(0).Rows.Count > 0 Then
+            grdFamilyDetail.DataSource = ds.Tables(0)
+            grdFamilyDetail.DataBind()
+        End If
+        ' Get Family List
     End Sub
     Private Sub FillPolicyGrid()
         If Not IsNumeric(txtSearch.Text) Then Return
@@ -229,47 +243,71 @@ Public Class IMIS
         If Not IsNumeric(txtSearch.Text) Then Return
         BindData()
     End Sub
-    Private Sub FillProductDetails()
-        If IsNumeric(txtSearch.Text) Then
-            Dim oDict As New Dictionary(Of String, Object)
-            Dim dt As DataTable = MasterBI.GetInsureeProductDetails(oDict, txtSearch.Text, txtItemCode.Value, txtServiceCode.Value)
-            lblItemCode.Visible = (txtItemCode.Value.Trim <> String.Empty)
-            lblItemCodeL.Visible = (txtItemCode.Value.Trim <> String.Empty)
-            lblItemLeft.Visible = (txtItemCode.Value.Trim <> String.Empty)
-            lblItemLeftL.Visible = (txtItemCode.Value.Trim <> String.Empty)
-            lblItemMinDate.Visible = (txtItemCode.Value.Trim <> String.Empty)
-            lblItemMinDateL.Visible = (txtItemCode.Value.Trim <> String.Empty)
-            imgItemIsOk.Visible = (Not if(oDict("IsItemOk").ToString = String.Empty, False, oDict("IsItemOk")) And txtItemCode.Value.Trim <> String.Empty)
+    Protected Sub btnProfiles_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnProfiles.Click
+        Dim cappedURL As String = "InsureeProfile.aspx?nshid=" + txtSearch.Text
+        Response.Redirect(cappedURL)
+    End Sub
+    Protected Sub btnCapped_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCapped.Click
+        Dim cappedURL As String = "CappedItemService.aspx?nshid=" + txtSearch.Text
+        Response.Redirect(cappedURL)
+    End Sub
+    Protected Sub btnProfile_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnProfile.Click
+        Dim cappedURL As String = "InsureeProfile.aspx?nshid=" + txtSearch.Text
+        Response.Redirect(cappedURL)
+    End Sub
+    Protected Sub gvPolicy_RowDataBound(sender As Object, e As GridViewRowEventArgs)
 
-            lblItemCode.Text = txtItemCode.Value
-            lblItemLeft.Text = if(oDict("ItemLeft").ToString.Trim = String.Empty, ".....", oDict("ItemLeft").ToString)
-            If oDict("MinDateItem").ToString.Trim <> String.Empty Then
-                lblItemMinDate.Text = Format(CDate(oDict("MinDateItem")), "dd/MM/yyyy")
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            Dim statusCell As TableCell = e.Row.Cells(3)
+            If statusCell.Text = "क्रियाशिल" Then
+                statusCell.ForeColor = Drawing.Color.Green
             Else
-                lblItemMinDate.Text = "....."
+                statusCell.ForeColor = Drawing.Color.Red
             End If
 
-            lblServiceCode.Visible = (txtServiceCode.Value.Trim <> String.Empty)
-            lblServiceCodeL.Visible = (txtServiceCode.Value.Trim <> String.Empty)
-            lblServiceLeft.Visible = (txtServiceCode.Value.Trim <> String.Empty)
-            lblServiceLeftL.Visible = (txtServiceCode.Value.Trim <> String.Empty)
-            lblServiceMinDate.Visible = (txtServiceCode.Value.Trim <> String.Empty)
-            lblServiceMinDateL.Visible = (txtServiceCode.Value.Trim <> String.Empty)
-            imgServiceIsOk.Visible = (Not if(oDict("IsServiceOk").ToString = String.Empty, False, oDict("IsServiceOk")) And txtServiceCode.Value.Trim <> String.Empty)
-
-            lblServiceCode.Text = txtServiceCode.Value
-            lblServiceLeft.Text = if(oDict("ServiceLeft").ToString.Trim = String.Empty, ".....", oDict("ServiceLeft").ToString)
-            If oDict("MinDateService").ToString.Trim <> String.Empty Then
-                lblServiceMinDate.Text = Format(CDate(oDict("MinDateService")), "dd/MM/yyyy")
-            Else
-                lblServiceMinDate.Text = "....."
-            End If
-
-            gvProduct.DataSource = dt
-            gvProduct.DataBind()
-
-            Dim hf As HiddenField = CType(upDL.FindControl("hfPanelHasData"), HiddenField)
         End If
     End Sub
+    'Private Sub FillProductDetails()
+    '    If IsNumeric(txtSearch.Text) Then
+    '        Dim oDict As New Dictionary(Of String, Object)
+    '        Dim dt As DataTable = MasterBI.GetInsureeProductDetails(oDict, txtSearch.Text, txtItemCode.Value, txtServiceCode.Value)
+    '        lblItemCode.Visible = (txtItemCode.Value.Trim <> String.Empty)
+    '        lblItemCodeL.Visible = (txtItemCode.Value.Trim <> String.Empty)
+    '        lblItemLeft.Visible = (txtItemCode.Value.Trim <> String.Empty)
+    '        lblItemLeftL.Visible = (txtItemCode.Value.Trim <> String.Empty)
+    '        lblItemMinDate.Visible = (txtItemCode.Value.Trim <> String.Empty)
+    '        lblItemMinDateL.Visible = (txtItemCode.Value.Trim <> String.Empty)
+    '        imgItemIsOk.Visible = (Not if(oDict("IsItemOk").ToString = String.Empty, False, oDict("IsItemOk")) And txtItemCode.Value.Trim <> String.Empty)
+
+    '        lblItemCode.Text = txtItemCode.Value
+    '        lblItemLeft.Text = if(oDict("ItemLeft").ToString.Trim = String.Empty, ".....", oDict("ItemLeft").ToString)
+    '        If oDict("MinDateItem").ToString.Trim <> String.Empty Then
+    '            lblItemMinDate.Text = Format(CDate(oDict("MinDateItem")), "dd/MM/yyyy")
+    '        Else
+    '            lblItemMinDate.Text = "....."
+    '        End If
+
+    '        lblServiceCode.Visible = (txtServiceCode.Value.Trim <> String.Empty)
+    '        lblServiceCodeL.Visible = (txtServiceCode.Value.Trim <> String.Empty)
+    '        lblServiceLeft.Visible = (txtServiceCode.Value.Trim <> String.Empty)
+    '        lblServiceLeftL.Visible = (txtServiceCode.Value.Trim <> String.Empty)
+    '        lblServiceMinDate.Visible = (txtServiceCode.Value.Trim <> String.Empty)
+    '        lblServiceMinDateL.Visible = (txtServiceCode.Value.Trim <> String.Empty)
+    '        imgServiceIsOk.Visible = (Not if(oDict("IsServiceOk").ToString = String.Empty, False, oDict("IsServiceOk")) And txtServiceCode.Value.Trim <> String.Empty)
+
+    '        lblServiceCode.Text = txtServiceCode.Value
+    '        lblServiceLeft.Text = if(oDict("ServiceLeft").ToString.Trim = String.Empty, ".....", oDict("ServiceLeft").ToString)
+    '        If oDict("MinDateService").ToString.Trim <> String.Empty Then
+    '            lblServiceMinDate.Text = Format(CDate(oDict("MinDateService")), "dd/MM/yyyy")
+    '        Else
+    '            lblServiceMinDate.Text = "....."
+    '        End If
+
+    '        gvProduct.DataSource = dt
+    '        gvProduct.DataBind()
+
+    '        Dim hf As HiddenField = CType(upDL.FindControl("hfPanelHasData"), HiddenField)
+    '    End If
+    'End Sub
 
 End Class
