@@ -40,7 +40,7 @@ Partial Public Class FindPremium
     End Sub
     Private Sub AddRowSelectToGridView(ByVal gv As GridView)
         For Each row As GridViewRow In gv.Rows
-            If Not row.Cells(7).Text = "&nbsp;" Then
+            If Not row.Cells(8).Text = "&nbsp;" Then
                 row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
             End If
             'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
@@ -160,8 +160,27 @@ Partial Public Class FindPremium
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
-        End If
+            If ePremium.PayDateTo > System.DateTime.Now Then
 
+                lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
+            End If
+        End If
+        If Trim(txtMatchedDateFrom.Text).Length > 0 Then
+            If IsDate(txtMatchedDateFrom.Text) Then
+                ePremium.MatchedDateFrom = Date.Parse(txtMatchedDateFrom.Text)
+            Else
+                imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
+                Return
+            End If
+        End If
+        If Trim(txtMatchedDateTo.Text).Length > 0 Then
+            If IsDate(txtMatchedDateTo.Text) Then
+                ePremium.MatchedDateTo = Date.Parse(txtMatchedDateTo.Text)
+            Else
+                imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
+                Return
+            End If
+        End If
 
 
 
