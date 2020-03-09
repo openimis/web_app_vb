@@ -30,7 +30,7 @@ Partial Public Class IMISExtracts
             pnlExtractEntrolment.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID)
 
             pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID)
-            pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
+            'pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
 
 
 
