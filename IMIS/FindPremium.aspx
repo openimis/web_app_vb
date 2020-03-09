@@ -162,7 +162,71 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <td class="DataEntry">
                                             <asp:TextBox ID="txtPremiumPaid" runat="server"></asp:TextBox>
                                         </td>
+                                        <td class="FormLabel">
+                                            <asp:Label ID="Label1" runat="server" Text='<%$ Resources:Resource,L_MATCHINGDATEFROM %>'></asp:Label>
+                                             <td class="DataEntry">
+                                            <asp:TextBox
+                                                ID="txtMatchedDateFrom"
+                                                runat="server"
+                                                Width="120px"
+                                                CssClass="dateCheck">
+                                            </asp:TextBox>
+                                            <asp:Button
+                                                ID="btnMatchedDateFrom"
+                                                runat="server"
+                                                Class="dateButton"
+                                                padding-bottom="3px" />
 
+                                            <asp:CalendarExtender
+                                                ID="CalendarExtender4"
+                                                runat="server"
+                                                TargetControlID="txtMatchedDateFrom"
+                                                Format="dd/MM/yyyy"
+                                                PopupButtonID="btnMatchedDateFrom" ClearTime="True">
+                                            </asp:CalendarExtender>
+
+                                        </td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="FormLabel">
+                                           <%-- <asp:Label ID="Label1" runat="server" Text='<%$ Resources:Resource, L_RECEIPT %>'></asp:Label>--%>
+                                        </td>
+                                        <td class="DataEntry">
+                                           <%-- <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
+                                        </td>
+                                        <td class="FormLabel">
+                                           <%-- <asp:Label ID="Label2" runat="server" Text="<%$ Resources:Resource,L_PREMIUMPAID %>"></asp:Label>--%>
+                                        </td>
+                                        <td class="DataEntry">
+                                          <%--  <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>--%>
+                                        </td>
+                                          
+                                            <td class="FormLabel">
+                                            <asp:Label ID="Label2" runat="server" Text='<%$ Resources:Resource,L_MATCHINGDATETO %>'></asp:Label>
+                                             <td class="DataEntry">
+                                            <asp:TextBox
+                                                ID="txtMatchedDateTo"
+                                                runat="server"
+                                                Width="120px"
+                                                CssClass="dateCheck">
+                                            </asp:TextBox>
+                                            <asp:Button
+                                                ID="btnMatchedDateTo"
+                                                runat="server"
+                                                Class="dateButton"
+                                                padding-bottom="3px" />
+
+                                            <asp:CalendarExtender
+                                                ID="CalendarExtender2"
+                                                runat="server"
+                                                TargetControlID="txtMatchedDateTo"
+                                                Format="dd/MM/yyyy"
+                                                PopupButtonID="btnMatchedDateTo" ClearTime="True">
+                                            </asp:CalendarExtender>
+
+                                        </td>
                                         <td class="FormLabel"></td>
                                         <td class="DataEntry"></td>
                                     </tr>
@@ -209,7 +273,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'
                 PagerStyle-CssClass="pgr" PageSize="15"
                 AlternatingRowStyle-CssClass="alt"
-                SelectedRowStyle-CssClass="srs" DataKeyNames="FamilyID,PremiumID">
+                SelectedRowStyle-CssClass="srs" DataKeyNames="FamilyID,PremiumUUID">
                 <Columns>
                     <%--  <asp:BoundField DataField="Gender" HeaderText="GENDER" SortExpression="Gender" />
                     <asp:BoundField DataField="DOB" DataFormatString="{0:d}" HeaderText="DATE OF BIRTH" SortExpression="DOB" />
@@ -235,6 +299,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         SortExpression="PayType" />
                     <asp:BoundField DataField="Receipt" HeaderText='<%$ Resources:Resource,L_RECEIPT %>'
                         SortExpression="Receipt" />
+                    <asp:BoundField DataField="MatchedAmount" HeaderText='<%$ Resources:Resource,L_MATCHEDAMOUNT %>'
+                        SortExpression="MatchedAmount" />
 
                     <asp:BoundField DataField="ValidityFrom" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_VALIDFROM %>' SortExpression="ValidityFrom" HeaderStyle-Width="70px">
                         <HeaderStyle Width="70px" />
