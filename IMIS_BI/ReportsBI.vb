@@ -200,4 +200,48 @@ Public Class ReportsBI
         Dim Rep As New IMIS_BL.ReportBL
         Return Rep.getRejectedPhoto(startDate, endDate)
     End Function
+
+    Public Function GetPaymentContribution(startDate As Date?, endDate As Date?, controlNumber As String, productCode As String, paymentStutus As Integer)
+        Dim Rep As New IMIS_BL.ReportBL
+        Return Rep.GetPaymentContribution(startDate, endDate, controlNumber, productCode, paymentStutus)
+        Return True
+    End Function
+
+    Public Function GetControlNumberAssignment(startDate As Date, endDate As Date, PostingStatus As String, AssignmentStatus As String, RegionId As Integer, DistrictId As Integer)
+        Dim Rep As New IMIS_BL.ReportBL
+        Return Rep.GetControlNumberAssignment(startDate, endDate, PostingStatus, AssignmentStatus, RegionId, DistrictId)
+    End Function
+    Public Function GetPayementStatus(Optional Include As Boolean = False, Optional ForReport As Boolean = False) As DataTable
+        Dim gen As New IMIS_BL.GeneralBL
+        Return gen.GetPaymentStatus(Include, ForReport)
+    End Function
+    Public Function GetPostingStatus(Optional Include As Boolean = False) As DataTable
+        Dim gen As New IMIS_BL.GeneralBL
+        Return gen.GetPostingStatus(Include)
+    End Function
+    Public Function GetAssignmentStatus(Optional Include As Boolean = False) As DataTable
+        Dim gen As New IMIS_BL.GeneralBL
+        Return gen.GetAssignmentStatus(Include)
+    End Function
+    Public Function FillMode() As DataTable
+        Dim gen As New IMIS_BL.GeneralBL
+        Return gen.GetMode()
+    End Function
+    Public Function GetPreviousOverviewOfCommissionsReportDates(ByVal UserID As Integer, ByVal DistrictID As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
+        Dim Rep As New IMIS_BL.ReportingBL
+        Return Rep.GetPreviousOverviewOfCommissionsReportDates(UserID, DistrictID, ReportingID, Year, Month)
+    End Function
+
+    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
+        Dim Rep As New IMIS_BL.ReportBL
+        Return Rep.GetOverviewOfCommissions(LocationId, ProductId, Month, Year, PayerId, OfficerId, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
+    End Function
+    Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByRef oReturn As Integer) As DataTable
+        Dim BL As New IMIS_BL.ReportBL
+        Return BL.GetClaimHistoryReport(LocationId, ProdID, HfID, StartDate, EndDate, ClaimStatus, InsuranceNumber, Scope, oReturn)
+    End Function
+    Public Function GetScope() As DataTable
+        Dim gen As New IMIS_BL.GeneralBL
+        Return gen.GetScope()
+    End Function
 End Class

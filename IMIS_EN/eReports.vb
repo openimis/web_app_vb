@@ -33,7 +33,7 @@ Public Class eReports
     Private _HfId As Integer
     Private _CareType As Integer
     Private Shared _SubTitle As String
-
+    Public Shared Grouping As Integer
 
     Public Shared Property SubTitle() As String
         Get

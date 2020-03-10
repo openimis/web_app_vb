@@ -505,4 +505,486 @@ Public Class ReportDAL
         data.params("@HFLevel", dt, "xAttributeV")
         Return data.Filldata
     End Function
+
+    Public Function GetPaymentContribution(startDate As Date?, endDate As Date?, controlNumber As String, productCode As String, PaymentStatus As Integer) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = ""
+        Dim myDate = New DateTime()
+
+        sSQL = " SELECT PY.TypeOfPayment,CASE row_number() OVER (Partition BY PY.PaymentID ORDER BY PY.PaymentID) WHEN 1 THEN PY.TransferFee ELSE NULL END TransferFee, PD.Amount MatchedAmount, PY.PaymentID, CN.ControlNumber, PY.TransactionNo,PY.ReceiptNo,PY.MatchedDate MatchingDate, CASE row_number() OVER (Partition BY PY.PaymentID ORDER BY PY.PaymentID) WHEN 1 THEN PY.ReceivedAmount ELSE NULL END ReceivedAmount, PY.PaymentDate,PY.ReceivedDate, PY.PaymentOrigin, PY.OfficerCode "
+        sSQL += " ,CASE WHEN Paymentstatus = 5 THEN PR.Receipt ELSE NULL END Receipt,CASE WHEN Paymentstatus = 5 THEN PD.InsuranceNumber ELSE NULL END InsuranceNumber,CASE WHEN Paymentstatus = 5 THEN PD.ProductCode ELSE NULL END ProductCode"
+        sSQL += " FROM tblPayment PY"
+        sSQL += " INNER JOIN tblPaymentDetails PD ON PD.PaymentID = PY.PaymentID AND PD.ValidityTo IS NULL"
+        sSQL += " INNER JOIN tblControlNumber CN ON CN.PaymentID = PY.PaymentID AND CN.ValidityTo IS NULL"
+        sSQL += " LEFT JOIN tblpremium PR ON PD.PremiumID = PR.PremiumID AND PR.ValidityTo IS NULL"
+
+
+        sSQL += " WHERE PY.PaymentDate IS NOT NULL"
+        sSQL += " AND PY.ValidityTo IS NULL"
+        sSQL += " AND (PD.ProductCode = @ProductCode OR @ProductCode IS NULL)"
+        sSQL += " AND ((PY.PaymentDate >= @FromDate OR @FromDate IS NULL) AND (PY.PaymentDate <= @ToDate OR @ToDate IS NULL))"
+
+        If PaymentStatus > 0 Then
+            If PaymentStatus = 1 Then
+                sSQL += " AND PY.PaymentStatus < 5"
+            Else
+                sSQL += " AND PY.PaymentStatus = @PaymentStatus"
+            End If
+
+        End If
+
+
+        If controlNumber <> "" Then
+            sSQL += " AND CN.ControlNumber LIKE @ControlNumber"
+        End If
+
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ProductCode", SqlDbType.NVarChar, 8, productCode)
+        data.params("@FromDate", SqlDbType.Date, startDate)
+        data.params("@ToDate", SqlDbType.Date, endDate)
+        data.params("@PaymentStatus", SqlDbType.Int, PaymentStatus)
+        data.params("@ControlNumber", SqlDbType.NVarChar, 50, controlNumber + "%")
+
+        Return data.Filldata
+    End Function
+
+    Public Function GetControlNumberAssignment(startDate As Date, endDate As Date, PostingStatus As String, AssignmentStatus As String, RegionId As Integer, DistrictId As Integer, dtpaymentStatus As DataTable) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = ""
+        sSQL = " SELECT CONVERT(NVARCHAR(12), CN.RequestedDate) RequestedDate,CASE PD.PolicyStage WHEN 'N' THEN 'Yes' ELSE 'No' END AS PolicyStage, PY.OfficerCode,O.LastName, PY.PhoneNumber,  "
+        sSQL += " CASE PY.PaymentStatus WHEN 1 THEN 'Not yet Confirmed' WHEN 2 THEN 'Posted' WHEN 3 THEN 'Posted' WHEN 4 THEN  'Posted' WHEN 5 THEN 'Posted' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3 THEN 'Rejected' END PostingStatus,   "
+        sSQL += " PY.RejectedReason PostingRejectedReason, CASE PY.PaymentStatus WHEN 3 THEN 'Assigned' WHEN 4 THEN 'Assigned' WHEN 5 THEN 'Assigned' WHEN 1 THEN 'Not yet assigned' WHEN 2 THEN 'Not yet assigned' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3  THEN 'Rejected' END AssigmentStatus,"
+        sSQL += " PY.ExpectedAmount,PY.TransferFee,PY.TypeOfPayment, "
+        sSQL += " CN.Comment CAssignmentRejectedReason, cn.ControlNumber,NULL PaymenyStatusName FROM tblControlNumber CN "
+        sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = CN.PaymentID"
+        sSQL += "  LEFT OUTER JOIN tblPaymentDetails PD ON PD.PaymentID = PY.PaymentID"
+        sSQL += " LEFT OUTER JOIN tblOfficer O ON O.Code = PY.OfficerCode"
+        sSQL += " LEFT OUTER JOIN tblLocations D ON D.LocationId = O.LocationId"
+        sSQL += " LEFT OUTER JOIN tblLocations R ON R.LocationId = D.ParentLocationId"
+        sSQL += " LEFT OUTER JOIN @dtpaymentStatus PS ON PS.StatusID= PY.PaymentStatus"
+        sSQL += " WHERE"
+        sSQL += " PY.ValidityTo IS NULL"
+        sSQL += " AND CN.ValidityTo IS NULL"
+        sSQL += " AND O.ValidityTo IS NULL"
+        sSQL += " AND D.ValidityTo IS NULL"
+        sSQL += " AND R.ValidityTo IS NULL"
+        sSQL += " AND CONVERT(DATE,CN.RequestedDate) >= @FromDate AND CONVERT(DATE,CN.RequestedDate) <= @ToDate "
+        If AssignmentStatus = "Assigned" Then
+            sSQL += " AND  PY.PaymentStatus >=3"
+        End If
+        'Rejected Assignment Status is -3
+        If AssignmentStatus = "Rejected" Then
+            sSQL += " AND  PY.PaymentStatus= -3"
+        End If
+        If AssignmentStatus = "Not yet assigned" Then
+            sSQL += " AND PY.PaymentStatus <= 2 AND PY.PaymentStatus > 0"
+        End If
+        If RegionId <> Nothing Or DistrictId <> Nothing Then
+            sSQL += " AND D.LocationId = @DistrictId"
+            sSQL += " AND R.LocationId = @RegionId"
+        End If
+        If PostingStatus = "Posted" Then
+            sSQL += " AND  PY.PaymentStatus >= 2"
+        End If
+        'Rejected posting status are -1,-2,-3
+        If PostingStatus = "Rejected" Then
+            sSQL += " AND  PY.PaymentStatus = -1 OR  PY.PaymentStatus = -2"
+        End If
+        If PostingStatus = "Not yet confirmed" Then
+            sSQL += " AND  PY.PaymentStatus =1 "
+        End If
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@FromDate", SqlDbType.Date, startDate)
+        data.params("@ToDate", SqlDbType.Date, endDate)
+        data.params("@RegionId", SqlDbType.Int, RegionId)
+        data.params("@DistrictId", SqlDbType.Int, DistrictId)
+        data.params("@dtpaymentStatus", dtpaymentStatus, "xPayementStatus")
+
+        Return data.Filldata
+    End Function
+
+    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
+
+        Dim Data As New ExactSQL
+        'Dim sSQL As String = "uspSSRSOverviewOfCommissions"
+        Dim sSQL As String = " IF @ReportingId IS NULL
+
+        BEGIN
+			DECLARE @RecordFound INT = 0
+			DECLARE @Rate DECIMAL(18,2)
+          
+		
+			IF @CommissionRate IS NOT NULL
+				BEGIN
+					 SET @Rate = @CommissionRate / 100
+				END
+		ELSE
+
+	  		DECLARE @FirstDay DATE = CAST(@Year AS VARCHAR(4)) + '-' + CAST(@Month AS VARCHAR(2)) + '-01'; 
+			DECLARE @LastDay DATE = EOMONTH(CAST(@Year AS VARCHAR(4)) + '-' + CAST(@Month AS VARCHAR(2)) + '-01', 0)
+			
+	
+	
+		
+			BEGIN TRY
+					BEGIN TRAN
+
+			  
+				
+					INSERT INTO tblReporting(ReportingDate,LocationId, ProdId, PayerId, StartDate, EndDate, RecordFound,OfficerID,ReportType,CommissionRate,ReportMode)
+			
+					SELECT GETDATE(),@LocationId,ISNULL(@ProdId,0), @PayerId, @FirstDay, @LastDay, 0,@OfficerId,2,@Rate,@Mode; 
+					--Get the last inserted reporting Id
+					SELECT @ReportingId =  SCOPE_IDENTITY();
+				
+					IF @Mode = 1 
+						UPDATE tblPremium SET ReportingCommissionID = @ReportingId
+						WHERE PremiumId IN (
+							SELECT  Pr.PremiumId
+					FROM tblPremium Pr INNER JOIN tblPolicy PL ON Pr.PolicyID = PL.PolicyID AND (PL.PolicyStatus=1 OR PL.PolicyStatus=2)
+					LEFT JOIN tblPaymentDetails PD ON PD.PremiumID = Pr.PremiumId
+					LEFT JOIN tblPayment PY ON PY.PaymentID = PD.PaymentID 
+					INNER JOIN tblProduct Prod ON PL.ProdID = Prod.ProdID
+					INNER JOIN tblFamilies F ON PL.FamilyID = F.FamilyID
+					INNER JOIN tblVillages V ON V.VillageId = F.LocationId
+					INNER JOIN tblWards W ON W.WardId = V.WardId
+					INNER JOIN tblDistricts D ON D.DistrictId = W.DistrictId
+					INNER JOIN tblOfficer O ON O.LocationId = D.DistrictId
+					INNER JOIN tblInsuree Ins ON F.FamilyID = Ins.FamilyID  AND Ins.ValidityTo IS NULL
+					LEFT OUTER JOIN tblPayer Payer ON Pr.PayerId = Payer.PayerID 
+					WHERE PD.Amount >=  0
+					AND Year(Pr.PayDate) = @Year AND Month(Pr.paydate) = @Month
+					AND D.DistrictId = @LocationId					
+					AND (ISNULL(Prod.ProdID,0) = ISNULL(@ProdId,0) OR @ProdId is null)
+					AND (ISNULL(O.OfficerID,0) = ISNULL(@OfficerId,0) OR @OfficerId IS NULL)
+					AND (ISNULL(Payer.PayerID,0) = ISNULL(@PayerId,0) OR @PayerId IS NULL)
+					AND Pr.ReportingId IS NULL
+					AND PR.PayType <> N'F'
+					AND Pr.ReportingCommissionID IS NULL
+					
+					GROUP BY Pr.PremiumId
+						)
+					ELSE --@Mode = 0
+						UPDATE tblPremium SET ReportingCommissionID = @ReportingId
+						WHERE PremiumId IN (
+							SELECT  Pr.PremiumId
+								FROM tblPremium Pr INNER JOIN tblPolicy PL ON Pr.PolicyID = PL.PolicyID AND (PL.PolicyStatus=1 OR PL.PolicyStatus=2)
+								INNER JOIN tblProduct Prod ON PL.ProdID = Prod.ProdID AND Prod.ValidityTo IS NULL
+								INNER JOIN tblFamilies F ON PL.FamilyID = F.FamilyID AND F.ValidityTo IS NULL
+								INNER JOIN tblVillages V ON V.VillageId = F.LocationId AND V.ValidityTo IS NULL
+								INNER JOIN tblWards W ON W.WardId = V.WardId AND W.ValidityTo IS NULL
+								INNER JOIN tblDistricts D ON D.DistrictId = W.DistrictId
+								INNER JOIN tblOfficer O ON O.Officerid = PL.OfficerID AND  O.LocationId = D.DistrictId AND O.ValidityTo IS NULL
+								INNER JOIN tblInsuree Ins ON F.FamilyID = Ins.FamilyID  AND Ins.ValidityTo IS NULL
+								LEFT OUTER JOIN tblPayer Payer ON Pr.PayerId = Payer.PayerID 
+								WHERE 
+								 Year(Pr.PayDate) = @Year AND Month(Pr.paydate) = @Month
+								AND D.DistrictId = @LocationId					
+								AND (ISNULL(Prod.ProdID,0) = ISNULL(@ProdId,0) OR @ProdId is null)
+								AND (ISNULL(O.OfficerID,0) = ISNULL(@OfficerId,0) OR @OfficerId IS NULL)
+								AND (ISNULL(Payer.PayerID,0) = ISNULL(@PayerId,0) OR @PayerId IS NULL)
+								AND Pr.ReportingId IS NULL
+								AND PR.PayType <> N'F'
+								AND Pr.ReportingCommissionID IS NULL					
+								GROUP BY Pr.PremiumId
+						)
+					SELECT @RecordFound = @@ROWCOUNT;
+					IF @RecordFound = 0 
+						BEGIN
+							SELECT @ErrorMessage = 'No Data'
+							ROLLBACK;
+							 
+						END
+					UPDATE tblReporting SET RecordFound = @RecordFound WHERE ReportingId = @ReportingId;
+
+				COMMIT TRAN;
+			END TRY
+			BEGIN CATCH
+				--SELECT @ErrorMessage = ERROR_MESSAGE(); ERROR MESSAGE WAS COMMENTED BY SALUMU ON 12-11-2019
+				ROLLBACK;
+				--RETURN -2 RETURN WAS COMMENTED BY SALUMU ON 12-11-2019
+			END CATCH
+		  END
+	      
+					    
+				 
+		SELECT  Pr.PremiumId,Prod.ProductCode,Prod.ProdID,Prod.ProductName,prod.ProductCode +' ' + prod.ProductName Product,PL.PolicyID,F.FamilyID,D.DistrictName,o.OfficerID , Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsName,O.Code + ' ' + O.LastName Officer,
+		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate)  [Month], Pr.Paydate, Pr.Receipt,CASE WHEN Ins.IsHead = 1 THEN ISNULL(Pr.Amount,0) ELSE NULL END Amount,CASE WHEN Ins.IsHead = 1 THEN Pr.Amount ELSE NULL END  PrescribedContribution, CASE WHEN Ins.IsHead = 1 THEN ISNULL(PD.Amount,0) ELSE NULL END ActualPayment, Payer.PayerName,PY.PaymentDate,CASE WHEN IsHead = 1 THEN SUM(ISNULL(Pr.Amount,0.00)) * ISNULL(rep.CommissionRate,0.00) ELSE NULL END  CommissionRate,PY.ExpectedAmount PaymentAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo
+		FROM tblPremium Pr INNER JOIN tblPolicy PL ON Pr.PolicyID = PL.PolicyID AND (PL.PolicyStatus=1 OR PL.PolicyStatus=2) AND PL.ValidityTo IS NULL
+		LEFT JOIN tblPaymentDetails PD ON PD.PremiumID = Pr.PremiumId AND PD.ValidityTo IS NULl AND PR.ValidityTo IS NULL
+		LEFT JOIN tblPayment PY ON PY.PaymentID = PD.PaymentID AND PY.ValidityTo IS NULL
+		INNER JOIN tblProduct Prod ON PL.ProdID = Prod.ProdID AND Prod.ValidityTo IS NULL
+		INNER JOIN tblFamilies F ON PL.FamilyID = F.FamilyID AND F.ValidityTo IS NULL
+		INNER JOIN tblVillages V ON V.VillageId = F.LocationId AND V.ValidityTo IS NULL
+		INNER JOIN tblWards W ON W.WardId = V.WardId AND W.ValidityTo IS NULL
+		INNER JOIN tblDistricts D ON D.DistrictId = W.DistrictId
+		INNER JOIN tblOfficer O ON O.Officerid = PL.OfficerID AND  O.LocationId = D.DistrictId AND O.ValidityTo IS NULL
+		INNER JOIN tblInsuree Ins ON F.FamilyID = Ins.FamilyID  AND Ins.ValidityTo IS NULL
+		INNER JOIN tblReporting REP ON REP.ReportingId = @ReportingId
+		LEFT OUTER JOIN tblPayer Payer ON Pr.PayerId = Payer.PayerID
+		WHERE Pr.ReportingCommissionID = @ReportingId
+		
+		GROUP BY Pr.PremiumId,Prod.ProductCode,Prod.ProdID,Prod.ProductName,prod.ProductCode +' ' + prod.ProductName , PL.PolicyID ,  F.FamilyID, D.DistrictName,o.OfficerID , Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames ,O.Code + ' ' + O.LastName ,
+		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate), Pr.Paydate, Pr.Receipt,Pr.Amount,Pr.Amount, PD.Amount , Payer.PayerName,PY.PaymentDate, PY.ExpectedAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo,CommissionRate
+		ORDER BY PremiumId, O.OfficerID,F.FamilyID,IsHead DESC;"
+        Data.setSQLCommand(sSQL, CommandType.Text)
+
+        Data.params("@Month", SqlDbType.Int, Month)
+        Data.params("@Year", SqlDbType.Int, Year)
+        Data.params("@Mode", SqlDbType.Int, Mode)
+        Data.params("@OfficerId", SqlDbType.Int, OfficerId)
+        Data.params("@LocationId", SqlDbType.Int, LocationId)
+        Data.params("@ProdId", SqlDbType.Int, ProductId)
+        Data.params("@PayerId", SqlDbType.Int, PayerId)
+        Data.params("@ReportingId", SqlDbType.Int, ReportingID)
+        Data.params("@CommissionRate", SqlDbType.Decimal, CommissionRate)
+        Data.params("@ErrorMessage", SqlDbType.NVarChar, 200, "", ParameterDirection.Output)
+        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        Dim dt As DataTable = Data.Filldata()
+        oReturn = Data.sqlParameters("@RV")
+        ErrorMessage = Data.sqlParameters("@ErrorMessage").ToString
+        Return dt
+
+    End Function
+
+    Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
+        Dim Data As New ExactSQL
+        Dim sSQL As String = ""
+        If Scope = 2 Or Scope = -1 Then
+
+            sSQL = "
+     /*DECLARE @HFID INT,
+	    @LocationId INT ,
+	    @ProdId INT, 
+	    @StartDate DATE, 
+	    @EndDate DATE,
+	    @ClaimStatus INT = NULL,
+	    @InsuranceNumber NVARCHAR(12),
+	    @Scope INT= NULL
+     */
+    --@ClaimRejReason xClaimRejReasons READONLY
+
+        /*
+		RESPONSE CODES
+			1 - Insurance number not found
+			0 - Success 
+			-1 Unknown Error
+		*/
+		
+
+       -- Check Insurance number if exsists
+
+    --IF NOT EXISTS(SELECT 1 FROM tblInsuree WHERE CHFID=@InsuranceNumber AND ValidityTo IS NULL) 
+		-- RETURN 1 
+
+	    ;WITH TotalForItems AS
+	    (
+		    SELECT C.ClaimId, SUM(CI.PriceAsked * CI.QtyProvided)Claimed,
+		    SUM(ISNULL(CI.PriceApproved, CI.PriceAsked) * ISNULL(CI.QtyApproved, CI.QtyProvided)) Approved,
+		    SUM(CI.PriceValuated)Adjusted,
+		    SUM(CI.RemuneratedAmount)Remunerated
+		    FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+		    WHERE C.ValidityTo IS NULL
+		    AND CI.ValidityTo IS NULL
+		    GROUP BY C.ClaimID
+	    ), TotalForServices AS
+	    (
+		    SELECT C.ClaimId, SUM(CS.PriceAsked * CS.QtyProvided)Claimed,
+		    SUM(ISNULL(CS.PriceApproved, CS.PriceAsked) * ISNULL(CS.QtyApproved, CS.QtyProvided)) Approved,
+		    SUM(CS.PriceValuated)Adjusted,
+		    SUM(CS.RemuneratedAmount)Remunerated
+		    FROM tblClaim C 
+		    LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+		    WHERE C.ValidityTo IS NULL
+		    AND CS.ValidityTo IS NULL
+		    GROUP BY C.ClaimID
+	    )
+
+	    SELECT  HF.HFCode+' ' + HF.HFName HFCodeName, L.ParentLocationId AS RegionId,l.LocationId as DistrictID, R.RegionName,D.DistrictName,  C.DateClaimed,PROD.ProductCode +' ' + PROD.ProductName Product, C.ClaimID, I.ItemId, S.ServiceID, HF.HFCode, HF.HFName, C.ClaimCode, C.DateClaimed, CA.LastName + ' ' + CA.OtherNames ClaimAdminName,
+			    C.DateFrom, C.DateTo, Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsureeName,Ins.DOB DateOfBirth,
+	    CASE C.ClaimStatus WHEN 1 THEN N'Rejected' WHEN 2 THEN N'Entered' WHEN 4 THEN N'Checked' WHEN 8 THEN N'Processed' WHEN 16 THEN N'Valuated' END ClaimStatus,
+	    C.RejectionReason, COALESCE(TFI.Claimed + TFS.Claimed, TFI.Claimed, TFS.Claimed) Claimed, 
+	    COALESCE(TFI.Approved + TFS.Approved, TFI.Approved, TFS.Approved) Approved,
+	    COALESCE(TFI.Adjusted + TFS.Adjusted, TFI.Adjusted, TFS.Adjusted) Adjusted,
+	    COALESCE(TFI.Remunerated + TFS.Remunerated, TFI.Remunerated, TFS.Remunerated)Paid,
+	    CASE WHEN CI.RejectionReason <> 0 THEN I.ItemCode ELSE NULL END RejectedItem, CI.RejectionReason ItemRejectionCode,
+	    CASE WHEN CS.RejectionReason > 0 THEN S.ServCode ELSE NULL END RejectedService, CS.RejectionReason ServiceRejectionCode,
+	    CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN I.ItemCode+' '+I.ItemName ELSE NULL END AdjustedItem,
+	    CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN CI.QtyProvided ELSE NULL END OrgQtyItem,
+	    CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved ,CI.QtyProvided)  THEN CI.QtyApproved ELSE NULL END AdjQtyItem,
+	    CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)  THEN S.ServCode+'		'+S.ServName ELSE NULL END AdjustedService,
+	    CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)   THEN CS.QtyProvided ELSE NULL END OrgQtyService,
+	    CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved ,CS.QtyProvided)   THEN CS.QtyApproved ELSE NULL END AdjQtyService,
+	    C.Explanation
+	    ,CS.QtyApproved ServiceQtyApproved, CI.QtyApproved ItemQtyApproved,cs.PriceAsked ServicePrice, CI.PriceAsked ItemPrice
+	    ,cs.PriceApproved ServiceAppPrice,ci.PriceApproved ItemAppPrice, cs.Justification ServiceJustification,
+	    CI.Justification ItemJustification,cs.ClaimServiceID,CI.ClaimItemID,
+	     XCS.Name ServiceRejectionReason, XCI.Name ItemRejectionReason,CS.RejectionReason [Services] ,ci.RejectionReason Items
+
+	    FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+	    LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+	    LEFT OUTER JOIN tblProduct PROD ON PROD.ProdID =@ProdId
+	    LEFT OUTER JOIN tblItems I ON CI.ItemId = I.ItemID
+	    LEFT OUTER JOIN tblServices S ON CS.ServiceID = S.ServiceID
+	    INNER JOIN tblHF HF ON C.HFID = HF.HfID
+	    INNER JOIN tblLocations L ON L.LocationId = HF.LocationId
+	    INNER JOIN tblRegions R ON R.RegionId = L.ParentLocationId
+	    INNER JOIN tblDistricts D ON D.DistrictId = L.LocationId
+	    LEFT OUTER JOIN tblClaimAdmin CA ON C.ClaimAdminId = CA.ClaimAdminId
+	    INNER JOIN tblInsuree Ins ON C.InsureeId = Ins.InsureeId
+	    LEFT OUTER JOIN TotalForItems TFI ON C.ClaimId = TFI.ClaimID
+	    LEFT OUTER JOIN TotalForServices TFS ON C.ClaimId = TFS.ClaimId
+	    LEFT OUTER JOIN @ClaimRejReason XCI ON XCI.ID = CI.RejectionReason
+	    LEFT OUTER JOIN @ClaimRejReason XCS ON XCS.ID = CS.RejectionReason
+	    WHERE C.ValidityTo IS NULL
+	    AND ISNULL(C.DateTo,C.DateFrom) BETWEEN @StartDate AND @EndDate
+	    AND (C.ClaimStatus = @ClaimStatus OR @ClaimStatus IS NULL)
+	    AND (HF.LocationId = @LocationId OR @LocationId = 0)
+	    AND (Ins.CHFID = @InsuranceNumber)
+	    AND (HF.HFID = @HFID OR @HFID = 0)
+	    AND (CI.ProdID = @ProdId OR CS.ProdID = @ProdId  OR COALESCE(CS.ProdID, CI.ProdId) IS NULL OR @ProdId = 0) "
+            Data.setSQLCommand(sSQL, CommandType.Text)
+        ElseIf Scope = 0 Then
+            sSQL = ";WITH TotalForItems AS
+			(
+				SELECT C.ClaimId, SUM(CI.PriceAsked * CI.QtyProvided)Claimed,
+				SUM(ISNULL(CI.PriceApproved, CI.PriceAsked) * ISNULL(CI.QtyApproved, CI.QtyProvided)) Approved,
+				SUM(CI.PriceValuated)Adjusted,
+				SUM(CI.RemuneratedAmount)Remunerated
+				FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+				WHERE C.ValidityTo IS NULL
+				AND CI.ValidityTo IS NULL
+				GROUP BY C.ClaimID
+			), TotalForServices AS
+			(
+				SELECT C.ClaimId, SUM(CS.PriceAsked * CS.QtyProvided)Claimed,
+				SUM(ISNULL(CS.PriceApproved, CS.PriceAsked) * ISNULL(CS.QtyApproved, CS.QtyProvided)) Approved,
+				SUM(CS.PriceValuated)Adjusted,
+				SUM(CS.RemuneratedAmount)Remunerated
+				FROM tblClaim C 
+				LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+				WHERE C.ValidityTo IS NULL
+				AND CS.ValidityTo IS NULL
+				GROUP BY C.ClaimID
+			)
+
+			SELECT --R.RegionId,R.RegionName,D.DistrictId,D.DistrictName,
+			HF.HFCode+' ' + HF.HFName HFCodeName, L.ParentLocationId AS RegionId,l.LocationId as DistrictID, R.RegionName,D.DistrictName, C.DateClaimed,PROD.ProductCode +' ' + PROD.ProductName Product, C.ClaimID, I.ItemId, S.ServiceID, HF.HFCode, HF.HFName, C.ClaimCode, C.DateClaimed, CA.LastName + ' ' + CA.OtherNames ClaimAdminName,
+			C.DateFrom, C.DateTo, Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsureeName,Ins.DOB DateOfBirth,
+			CASE C.ClaimStatus WHEN 1 THEN N'Rejected' WHEN 2 THEN N'Entered' WHEN 4 THEN N'Checked' WHEN 8 THEN N'Processed' WHEN 16 THEN N'Valuated' END ClaimStatus,
+			COALESCE(TFI.Claimed + TFS.Claimed, TFI.Claimed, TFS.Claimed) Claimed, 
+			COALESCE(TFI.Approved + TFS.Approved, TFI.Approved, TFS.Approved) Approved,
+			COALESCE(TFI.Adjusted + TFS.Adjusted, TFI.Adjusted, TFS.Adjusted) Adjusted,
+			COALESCE(TFI.Remunerated + TFS.Remunerated, TFI.Remunerated, TFS.Remunerated)Paid
+
+			FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+			LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+			LEFT OUTER JOIN tblProduct PROD ON PROD.ProdID =@ProdId
+			LEFT OUTER JOIN tblItems I ON CI.ItemId = I.ItemID
+			LEFT OUTER JOIN tblServices S ON CS.ServiceID = S.ServiceID
+			INNER JOIN tblHF HF ON C.HFID = HF.HfID
+			INNER JOIN tblLocations L ON L.LocationId = HF.LocationId
+			INNER JOIN tblRegions R ON R.RegionId = L.ParentLocationId
+	        INNER JOIN tblDistricts D ON D.DistrictId = L.LocationId
+			LEFT OUTER JOIN tblClaimAdmin CA ON C.ClaimAdminId = CA.ClaimAdminId
+			INNER JOIN tblInsuree Ins ON C.InsureeId = Ins.InsureeId
+			LEFT OUTER JOIN TotalForItems TFI ON C.ClaimId = TFI.ClaimID
+			LEFT OUTER JOIN TotalForServices TFS ON C.ClaimId = TFS.ClaimId
+			WHERE C.ValidityTo IS NULL
+			AND ISNULL(C.DateTo,C.DateFrom) BETWEEN @StartDate AND @EndDate
+			AND (C.ClaimStatus = @ClaimStatus OR @ClaimStatus IS NULL)
+			AND (HF.LocationId = @LocationId OR @LocationId = 0)
+			AND (CI.ProdID = @ProdId OR CS.ProdID = @ProdId  OR COALESCE(CS.ProdID, CI.ProdId) IS NULL OR @ProdId = 0) 
+			AND (Ins.CHFID = @InsuranceNumber)
+			AND (HF.HFID = @HFID OR @HFID = 0)"
+            Data.setSQLCommand(sSQL, CommandType.Text)
+        Else
+            sSQL = ";WITH TotalForItems AS
+		(
+			SELECT C.ClaimId, SUM(CI.PriceAsked * CI.QtyProvided)Claimed,
+			SUM(ISNULL(CI.PriceApproved, CI.PriceAsked) * ISNULL(CI.QtyApproved, CI.QtyProvided)) Approved,
+			SUM(CI.PriceValuated)Adjusted,
+			SUM(CI.RemuneratedAmount)Remunerated
+			FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+			WHERE C.ValidityTo IS NULL
+			AND CI.ValidityTo IS NULL
+			GROUP BY C.ClaimID
+		), TotalForServices AS
+		(
+			SELECT C.ClaimId, SUM(CS.PriceAsked * CS.QtyProvided)Claimed,
+			SUM(ISNULL(CS.PriceApproved, CS.PriceAsked) * ISNULL(CS.QtyApproved, CS.QtyProvided)) Approved,
+			SUM(CS.PriceValuated)Adjusted,
+			SUM(CS.RemuneratedAmount)Remunerated
+			FROM tblClaim C 
+			LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID
+			WHERE C.ValidityTo IS NULL
+			AND CS.ValidityTo IS NULL
+			GROUP BY C.ClaimID
+		)
+
+		SELECT  HF.HFCode+' ' + HF.HFName HFCodeName, L.ParentLocationId AS RegionId,l.LocationId as DistrictID, R.RegionName,D.DistrictName, C.DateClaimed,PROD.ProductCode +' ' + PROD.ProductName Product, C.ClaimID, I.ItemId, S.ServiceID, HF.HFCode, HF.HFName, C.ClaimCode, C.DateClaimed, CA.LastName + ' ' + CA.OtherNames ClaimAdminName,
+			C.DateFrom, C.DateTo, Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsureeName,Ins.DOB DateOfBirth,
+		CASE C.ClaimStatus WHEN 1 THEN N'Rejected' WHEN 2 THEN N'Entered' WHEN 4 THEN N'Checked' WHEN 8 THEN N'Processed' WHEN 16 THEN N'Valuated' END ClaimStatus,
+		C.RejectionReason, COALESCE(TFI.Claimed + TFS.Claimed, TFI.Claimed, TFS.Claimed) Claimed, 
+		COALESCE(TFI.Approved + TFS.Approved, TFI.Approved, TFS.Approved) Approved,
+		COALESCE(TFI.Adjusted + TFS.Adjusted, TFI.Adjusted, TFS.Adjusted) Adjusted,
+		COALESCE(TFI.Remunerated + TFS.Remunerated, TFI.Remunerated, TFS.Remunerated)Paid,
+		CASE WHEN CI.RejectionReason <> 0 THEN I.ItemCode ELSE NULL END RejectedItem, CI.RejectionReason ItemRejectionCode,
+		CASE WHEN CS.RejectionReason > 0 THEN S.ServCode ELSE NULL END RejectedService, CS.RejectionReason ServiceRejectionCode,
+		CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN I.ItemCode+' '+I.ItemName ELSE NULL END AdjustedItem,
+		CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved,CI.QtyProvided) THEN CI.QtyProvided ELSE NULL END OrgQtyItem,
+		CASE WHEN CI.QtyProvided <> COALESCE(CI.QtyApproved ,CI.QtyProvided)  THEN CI.QtyApproved ELSE NULL END AdjQtyItem,
+		CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)  THEN S.ServCode+' '+S.ServName ELSE NULL END AdjustedService,
+		CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved,CS.QtyProvided)   THEN CS.QtyProvided ELSE NULL END OrgQtyService,
+		CASE WHEN CS.QtyProvided <> COALESCE(CS.QtyApproved ,CS.QtyProvided)   THEN CS.QtyApproved ELSE NULL END AdjQtyService,
+		C.Explanation
+		,CS.QtyApproved ServiceQtyApproved, CI.QtyApproved ItemQtyApproved,cs.PriceAsked ServicePrice, CI.PriceAsked ItemPrice
+		,ISNULL(cs.PriceApproved,0) ServicePriceApproved,ISNULL(ci.PriceApproved,0) ItemPriceApproved, ISNULL(cs.Justification,NULL) ServiceJustification,
+		ISNULL(CI.Justification,NULL) ItemJustification,cs.ClaimServiceID,CI.ClaimItemID
+		,CONCAT(CS.RejectionReason,' - ', XCS.Name) ServiceRejectionReason,CONCAT(CI.RejectionReason, ' - ', XCI.Name) ItemRejectionReason
+
+
+		FROM tblClaim C LEFT OUTER JOIN tblClaimItems CI ON C.ClaimId = CI.ClaimID
+		LEFT OUTER JOIN tblClaimServices CS ON C.ClaimId = CS.ClaimID 
+		LEFT OUTER JOIN tblProduct PROD ON PROD.ProdID =@ProdId
+		LEFT OUTER JOIN tblItems I ON CI.ItemId = I.ItemID 
+		LEFT OUTER JOIN tblServices S ON CS.ServiceID = S.ServiceID 
+		INNER JOIN tblHF HF ON C.HFID = HF.HfID
+		INNER JOIN tblLocations L ON L.LocationId = HF.LocationId
+		INNER JOIN tblRegions R ON R.RegionId = L.ParentLocationId
+	    INNER JOIN tblDistricts D ON D.DistrictId = L.LocationId
+		LEFT OUTER JOIN tblClaimAdmin CA ON C.ClaimAdminId = CA.ClaimAdminId
+		INNER JOIN tblInsuree Ins ON C.InsureeId = Ins.InsureeId
+		LEFT OUTER JOIN TotalForItems TFI ON C.ClaimId = TFI.ClaimID
+		LEFT OUTER JOIN TotalForServices TFS ON C.ClaimId = TFS.ClaimId
+		INNER JOIN @ClaimRejReason XCI ON XCI.ID = CI.RejectionReason
+		INNER JOIN @ClaimRejReason XCS ON XCS.ID = CS.RejectionReason
+		WHERE C.ValidityTo IS NULL
+		AND CI.RejectionReason > 0
+		AND CS.RejectionReason > 0
+		AND ISNULL(C.DateFrom,C.DateTo) BETWEEN @StartDate AND @EndDate
+		AND (C.ClaimStatus = @ClaimStatus OR @ClaimStatus IS NULL)
+		AND (HF.LocationId = @LocationId OR @LocationId = 0)
+		AND (Ins.CHFID = @InsuranceNumber)
+		AND (HF.HFID = @HFID OR @HFID = 0)
+		AND (CI.ProdID = @ProdId OR CS.ProdID = @ProdId  OR COALESCE(CS.ProdID, CI.ProdId) IS NULL OR @ProdId = 0) "
+            Data.setSQLCommand(sSQL, CommandType.Text)
+        End If
+        Data.params("@LocationId", SqlDbType.Int, LocationId)
+        Data.params("@ProdID", SqlDbType.Int, ProdID)
+        Data.params("@HfID", SqlDbType.Int, HfID)
+        Data.params("@StartDate", SqlDbType.Date, StartDate)
+        Data.params("@EndDate", SqlDbType.Date, EndDate)
+        Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
+        Data.params("@InsuranceNumber", SqlDbType.NVarChar, 12, InsuranceNumber)
+        Data.params("@Scope", SqlDbType.Int, Scope)
+        If Not Scope = 0 Then
+            Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
+        End If
+        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        Dim dt As DataTable = Data.Filldata()
+        oReturn = Data.sqlParameters("@RV")
+        Return dt
+    End Function
 End Class
