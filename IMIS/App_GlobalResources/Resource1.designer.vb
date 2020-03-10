@@ -5834,6 +5834,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to --Select Status--.
+        '''</summary>
+        Friend Shared ReadOnly Property L_SELECTPAYMENTSTATUS() As String
+            Get
+                Return ResourceManager.GetString("L_SELECTPAYMENTSTATUS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to --Select Strategy--.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTSTRATEGY() As String
@@ -9290,6 +9299,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Please select mode.
+        '''</summary>
+        Friend Shared ReadOnly Property M_PLEASESELECTMODE() As String
+            Get
+                Return ResourceManager.GetString("M_PLEASESELECTMODE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Please select an enrolment officer.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTOFFICER() As String
@@ -11900,6 +11918,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Actually Paid Contributions.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ACTUALPAIDCONTRIBUTIONS() As String
+            Get
+                Return ResourceManager.GetString("T_ACTUALPAIDCONTRIBUTIONS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Adult.
         '''</summary>
         Friend Shared ReadOnly Property T_ADULT() As String
@@ -11932,6 +11959,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_APRIL() As String
             Get
                 Return ResourceManager.GetString("T_APRIL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Assigned.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ASSIGNED() As String
+            Get
+                Return ResourceManager.GetString("T_ASSIGNED", resourceCulture)
             End Get
         End Property
         
@@ -12049,6 +12085,33 @@ Namespace Resources
         Friend Shared ReadOnly Property T_CLAIMOVERVIEW() As String
             Get
                 Return ResourceManager.GetString("T_CLAIMOVERVIEW", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Claims and All Details.
+        '''</summary>
+        Friend Shared ReadOnly Property T_CLAIMSANDALLDETAILS() As String
+            Get
+                Return ResourceManager.GetString("T_CLAIMSANDALLDETAILS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Claims and Rejection Details.
+        '''</summary>
+        Friend Shared ReadOnly Property T_CLAIMSANDREJECTIONDETAILS() As String
+            Get
+                Return ResourceManager.GetString("T_CLAIMSANDREJECTIONDETAILS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Claims Only.
+        '''</summary>
+        Friend Shared ReadOnly Property T_CLAIMSONLY() As String
+            Get
+                Return ResourceManager.GetString("T_CLAIMSONLY", resourceCulture)
             End Get
         End Property
         
@@ -12738,6 +12801,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Not yet assigned.
+        '''</summary>
+        Friend Shared ReadOnly Property T_NOTYETASSIGNED() As String
+            Get
+                Return ResourceManager.GetString("T_NOTYETASSIGNED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Not yet confirmed.
+        '''</summary>
+        Friend Shared ReadOnly Property T_NOTYETCONFIRMED() As String
+            Get
+                Return ResourceManager.GetString("T_NOTYETCONFIRMED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to November.
         '''</summary>
         Friend Shared ReadOnly Property T_NOVEMBER() As String
@@ -12855,6 +12936,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Posted.
+        '''</summary>
+        Friend Shared ReadOnly Property T_POSTED() As String
+            Get
+                Return ResourceManager.GetString("T_POSTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Contribution Collection.
         '''</summary>
         Friend Shared ReadOnly Property T_PREMIUMCOLLECTION() As String
@@ -12869,6 +12959,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_PREMIUMDISTRIBUTION() As String
             Get
                 Return ResourceManager.GetString("T_PREMIUMDISTRIBUTION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Prescribed Contributions.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PRESCRIBEDCONTRIBUTIONS() As String
+            Get
+                Return ResourceManager.GetString("T_PRESCRIBEDCONTRIBUTIONS", resourceCulture)
             End Get
         End Property
         
@@ -13017,6 +13116,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Rejected.
+        '''</summary>
+        Friend Shared ReadOnly Property T_REJECTEDASSIGNMENTS() As String
+            Get
+                Return ResourceManager.GetString("T_REJECTEDASSIGNMENTS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Rejected B.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDB() As String
@@ -13058,6 +13166,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_REJECTEDPHOTOS() As String
             Get
                 Return ResourceManager.GetString("T_REJECTEDPHOTOS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Rejected.
+        '''</summary>
+        Friend Shared ReadOnly Property T_REJECTEDPOSTED() As String
+            Get
+                Return ResourceManager.GetString("T_REJECTEDPOSTED", resourceCulture)
             End Get
         End Property
         
@@ -13130,6 +13247,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_SELECTAPAYER() As String
             Get
                 Return ResourceManager.GetString("T_SELECTAPAYER", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to --Select Status--.
+        '''</summary>
+        Friend Shared ReadOnly Property T_SELECTASSIGNMENTSTATUS() As String
+            Get
+                Return ResourceManager.GetString("T_SELECTASSIGNMENTSTATUS", resourceCulture)
             End Get
         End Property
         
@@ -13296,6 +13422,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to --Select Mode--.
+        '''</summary>
+        Friend Shared ReadOnly Property T_SELECTMODE() As String
+            Get
+                Return ResourceManager.GetString("T_SELECTMODE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to -- Select Enrolment Officer --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTOFFICER() As String
@@ -13323,6 +13458,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to --Select  Status--.
+        '''</summary>
+        Friend Shared ReadOnly Property T_SELECTPOSTINGSTATUS() As String
+            Get
+                Return ResourceManager.GetString("T_SELECTPOSTINGSTATUS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to -- Select Price List --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTPRICELIST() As String
@@ -13346,6 +13490,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_SELECTROLE() As String
             Get
                 Return ResourceManager.GetString("T_SELECTROLE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to --Select Scope--.
+        '''</summary>
+        Friend Shared ReadOnly Property T_SELECTSCOPE() As String
+            Get
+                Return ResourceManager.GetString("T_SELECTSCOPE", resourceCulture)
             End Get
         End Property
         

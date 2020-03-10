@@ -940,7 +940,7 @@ Partial Public Class Reports
         If ddlScope.SelectedIndex > 0 Then
             Scope = ddlScope.SelectedValue
         End If
-        dt = reports.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus)
+        dt = reports.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus, Scope, oReturn)
         Session("Scope") = Scope
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_HFACILITY") & " : " & dt.Rows(0)("HFCode") & " - " & dt.Rows(0)("HFName") & If(ddlAllProducts.SelectedValue > 0, " | " & imisgen.getMessage("L_PRODUCT") & " : " & ddlAllProducts.SelectedItem.Text, "") & " | " & LocationName & " | " & imisgen.getMessage("L_PERIOD") & "  " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate

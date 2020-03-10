@@ -4732,4 +4732,55 @@ adults/children)</value>
   <data name="L_CLAIMHISTORYREPORT" xml:space="preserve">
     <value>Claim History</value>
   </data>
+  <data name="T_SELECTSCOPE" xml:space="preserve">
+    <value>--Select Scope--</value>
+  </data>
+  <data name="T_CLAIMSONLY" xml:space="preserve">
+    <value>Claims Only</value>
+  </data>
+  <data name="T_CLAIMSANDREJECTIONDETAILS" xml:space="preserve">
+    <value>Claims and Rejection Details</value>
+  </data>
+  <data name="T_CLAIMSANDALLDETAILS" xml:space="preserve">
+    <value>Claims and All Details</value>
+  </data>
+  <data name="M_PLEASESELECTMODE" xml:space="preserve">
+    <value>Please select mode</value>
+  </data>
+  <data name="T_SELECTMODE" xml:space="preserve">
+    <value>--Select Mode--</value>
+  </data>
+  <data name="T_PRESCRIBEDCONTRIBUTIONS" xml:space="preserve">
+    <value>Prescribed Contributions</value>
+  </data>
+  <data name="T_ACTUALPAIDCONTRIBUTIONS" xml:space="preserve">
+    <value>Actually Paid Contributions</value>
+  </data>
+  <data name="T_SELECTASSIGNMENTSTATUS" xml:space="preserve">
+    <value>--Select Status--</value>
+  </data>
+  <data name="T_SELECTPOSTINGSTATUS" xml:space="preserve">
+    <value>--Select  Status--</value>
+  </data>
+  <data name="L_SELECTPAYMENTSTATUS" xml:space="preserve">
+    <value>--Select Status--</value>
+  </data>
+  <data name="T_POSTED" xml:space="preserve">
+    <value>Posted</value>
+  </data>
+  <data name="T_REJECTEDPOSTED" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="T_NOTYETCONFIRMED" xml:space="preserve">
+    <value>Not yet confirmed</value>
+  </data>
+  <data name="T_ASSIGNED" xml:space="preserve">
+    <value>Assigned</value>
+  </data>
+  <data name="T_REJECTEDASSIGNMENTS" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="T_NOTYETASSIGNED" xml:space="preserve">
+    <value>Not yet assigned</value>
+  </data>
 </root>
