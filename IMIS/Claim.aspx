@@ -1,4 +1,4 @@
-<%-- Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
+﻿<%-- Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
 
 The program users must agree to the following terms:
 
@@ -326,6 +326,33 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
         function pageLoadExtend() {
+
+            $("#Body_txtGuaranteeId").hide();
+            $("#Body_ddlOPDIPD").ready(function () {
+                if ($("#Body_ddlOPDIPD").val() != "") {
+                    $("#Body_ddlOPDIPD").val($('#Body_txtGuaranteeId').val());
+                }
+            });
+            $("#Body_ddlOPDIPD").change(function () {
+                $('#Body_txtGuaranteeId').val($("#Body_ddlOPDIPD").val());
+            });
+            $("#Body_ddlVisitType").ready(function () {
+                if (($("#Body_ddlVisitType").val() == "O") || ($("#Body_ddlVisitType").val() == "R")) {
+                    $('.opdipd').show();
+                }
+                else {
+                    $('.opdipd').hide();
+                }
+            });
+            $("#Body_ddlVisitType").change(function () {
+                if (($("#Body_ddlVisitType").val() == "O") || ($("#Body_ddlVisitType").val() == "R")) {
+                    $('.opdipd').show();
+                }
+                else {
+                    $('.opdipd').hide();
+                }
+            });
+
             dropdown.init($("#DropDownSugTable"), function() { $('.ClaimValue').eq(0).trigger("change"); });
 
             $(".disabled a").unbind("click").mouseover(function() {
@@ -351,7 +378,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
             $(".ClaimValue").change(function() {
                 CalculateClaimTotal($("#<%=gvService.ClientID %>"));
+                $("#Body_txtServTotal").val(claimValue.toFixed(2));
+                serviceValue = claimValue;
                 CalculateClaimTotal($("#<%=gvItems.ClientID %>"));
+                itemValue = claimValue - serviceValue;
+                $("#Body_txtItemTotal").val(itemValue.toFixed(2));
                 $("#<%=txtCLAIMTOTALData.ClientID %>").val(claimValue.toFixed(2));
                 $("#<%=hfClaimTotalValue.ClientID %>").val(claimValue.toFixed(2));
                 claimValue = 0;
@@ -511,7 +542,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     $('#<% = hfICDID1.ClientID%>').val("")
                 }
             });
-
+            <%-- 
             $("#<%=txtICDCode2.ClientID %>").focus(function () {
                 var datasource;
                 $.ajax({
@@ -611,6 +642,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     $('#<% = hfICDID4.ClientID%>').val("")
                 }
             });
+        --%>
         }
        
     </script>
@@ -672,10 +704,39 @@ In case of dispute arising out or in relation to the use of the program, it is s
         .auto-style1 {
             height: 27px;
         }
+        .auto-style2 {
+            height: 27px;
+            width: 150px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style3 {
+            height: 27px;
+            width: 600px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+         .opdipd{
+            display:none;
+        }
+        #Body_ddlICDData1, #Body_ddlICDData{
+         display:none;
+        }
+        .contentBox{
+            min-height:631px !important;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
-    <div class="divBody" style="height:582px;" >
+    <div class="divBody" style="height:590px;" >
         <asp:Panel ID="pnlBodyCLM" runat="server">
             <asp:HiddenField ID="hfICDID0" runat="server"/>
             <asp:HiddenField ID="hfICDID1" runat="server"/>
@@ -692,7 +753,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <%=imisgen.getMessage("L_NAME", True)%>
                     </th>
                     <th>
-                        <%=imisgen.getMessage("L_PRICE", True ) %>
+                        <%=imisgen.getMessage("L_PRICE", True) %>
                     </th>
                 </tr>
             </table>
@@ -707,21 +768,21 @@ In case of dispute arising out or in relation to the use of the program, it is s
               
           <table>
              <tr>                                  
-               <td class="FormLabel">
+               <td class="auto-style2">
                    <asp:Label ID="lblHFCODE" runat="server" Text='<%$ Resources:Resource,L_HFCODE %>' ></asp:Label>
                </td>
                <td class ="DataEntry">
                <asp:Textbox ID="txtHFCode" size="10" runat="server" Enabled ="false" Width="135px"></asp:Textbox> 
                </td>
-                <td class="FormLabel">
+                <td class="auto-style2">
                    <asp:Label ID="lblHFName" runat="server" Text='<%$ Resources:Resource,L_HFNAME %>' ></asp:Label>
                </td>
-               <td class ="DataEntryWide" colspan="2" >
+               <td class ="auto-style1" colspan="3" >
                <asp:Textbox ID="txtHFName" runat="server" Enabled="false" width="135px" ></asp:Textbox> 
                </td>         
                
               
-               <td class="FormLabel" style="width:600px;" colspan="2">
+               <td class="auto-style3">
                    <asp:Label ID="lblSTART" runat="server" Text='<%$ Resources:Resource,L_VISITDATEFROM %>' ></asp:Label>
                </td>
                <td  class ="DataEntry">
@@ -755,11 +816,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
                <td class="FormLabel">
                    <asp:Label ID="lblNAME" runat="server" Text='<%$ Resources:Resource,L_PATIENTNAME %>' ></asp:Label>
                </td>
-               <td class ="DataEntryWide" colspan="2">
+               <td class ="DataEntryWide">
                    <asp:TextBox ID="txtNAMEData" runat="server" Text="" Enabled="false" width="135px" ></asp:TextBox>
                </td>
-                      
-                 <td class="FormLabel" style="width:500px;" colspan="2" >
+                 <td class="FormLabel">
+                    <asp:Label ID="lblVisitDays" runat="server" Text="Last Visit:" ></asp:Label>
+                </td>
+                 <td class ="DataEntryWide">
+                     <asp:TextBox ID="txtVisitDays" runat="server" Enabled="false" Text="" style="text-align:right"></asp:TextBox>                    
+
+                 </td>     
+                 <td class="FormLabel" style="width:500px;" >
                    <asp:Label ID="lblEND" runat="server" Text='<%$ Resources:Resource,L_VISITDATETO %>' ></asp:Label>
                </td>
                <td class ="DataEntry">
@@ -778,22 +845,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
             </tr>  
                
              <tr>
-             <td class="FormLabel">
-                   <asp:Label ID="lblICD" runat="server" Text="<%$ Resources:Resource,L_ICD %>"  ></asp:Label>
-               </td>
-               <td class ="DataEntry">
-               <%--<asp:TextBox ID="txtICDCode" size="10" runat="server" MaxLength="6"></asp:TextBox>--%>
-                   <asp:DropDownList ID="ddlICDData" runat="server" width="130px" Visible="False"></asp:DropDownList>
-                   <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8" width="125px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
-                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0"
-                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-               </td>
-            
-               <td class="FormLabel">
+                 <td class="FormLabel">
                    <asp:Label ID="lblCLAIMCODE" runat="server" Text='<%$ Resources:Resource,L_CLAIMCODE %>' ></asp:Label>
                </td>
                <td class ="DataEntry">
-                   <asp:TextBox ID="txtCLAIMCODEData" runat="server" size="10" MaxLength="8" Text="" Width="125px" ></asp:TextBox>
+                   <asp:TextBox ID="txtCLAIMCODEData" runat="server" size="10" MaxLength="10" Text="" Width="130px" ></asp:TextBox>
+                   <asp:RegularExpressionValidator ID="RegexValidator" runat="server" ControlToValidate="txtCLAIMCODEData"
+                       ValidationExpression="^([RST][0-9]{9})$|(^[0-9]{9,10})$" ErrorMessage="Invalid Claim Code"></asp:RegularExpressionValidator>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtCLAIMCODEData" 
                        ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -802,7 +860,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                   <asp:Label ID="lblCLAIMDATE" runat="server" Text='<%$ Resources:Resource,L_CLAIMDATE %>' ></asp:Label>
                </td>
                <td class ="DataEntry" style="width:800px;">
-               <asp:TextBox ID="txtClaimDate" runat="server" Size="10" maxlength="10" Width="130px" ></asp:TextBox>
+               <asp:TextBox ID="txtClaimDate" runat="server" Size="10" maxlength="10" Width="130px" ReadOnly="true" ></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                     ControlToValidate="txtClaimDate" ErrorMessage="*" SetFocusOnError="True" 
                     ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$" 
@@ -810,12 +868,21 @@ In case of dispute arising out or in relation to the use of the program, it is s
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" 
                        runat="server" ErrorMessage="*" ControlToValidate="txtClaimDate" 
                        ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-               <asp:Button ID="btnClaimDate" runat="server" Height="15px" padding-bottom="3px" 
+              <%-- <asp:Button ID="btnClaimDate" runat="server" Height="15px" padding-bottom="3px" 
                         Width="15px" class="btnDate"/>
                     <ajax:CalendarExtender ID="txtClaimDateCalendarExtender" runat="server" 
                         Format="dd/MM/yyyy" PopupButtonID="btnClaimDate" TargetControlID="txtClaimDate">
-                    </ajax:CalendarExtender>                    
-               </td>             
+                    </ajax:CalendarExtender>      --%>              
+               </td> 
+             <td class="FormLabel">
+                   <asp:Label ID="lblRemBalance" runat="server" Text="Remaining Balance" ></asp:Label>
+               </td>
+               <td class ="DataEntry">
+               <%--<asp:TextBox ID="txtICDCode" size="10" runat="server" MaxLength="6"></asp:TextBox>--%>
+                    <asp:textbox ID="txtRemainingBalance" runat="server" Text="" BorderStyle="Solid" style="text-align:right" Enabled ="false"></asp:textbox>
+               </td>
+            
+                           
              
                 <td class="FormLabel">
                    <asp:Label ID="lblCLAIMTOTAL" runat="server" style="width:600px;" Text='<%$ Resources:Resource,L_CLAIMTOTAL %>' ></asp:Label>
@@ -833,36 +900,45 @@ In case of dispute arising out or in relation to the use of the program, it is s
             </tr>  
               <tr>
                   <td class="FormLabel">
-                      <asp:Label ID="lblICD1" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG1 %>"></asp:Label>
+                      <asp:Label ID="lblICD" runat="server" Text="<%$ Resources:Resource,L_ICD %>"  ></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:TextBox ID="txtICDCode1" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                    <asp:DropDownList ID="ddlICDData" runat="server" width="130px" Visible="False"></asp:DropDownList>
+                   <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8" width="125px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0"
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                  </td>
+                  <td class="FormLabel">
+                     <%--  <asp:Label ID="lblICD2" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG2 %>"></asp:Label> --%>
+                       <asp:Label ID="lblICD1" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG1 %>"></asp:Label>
+                  </td>
+                  <td class="DataEntry">
+                   <%--     <asp:TextBox ID="txtICDCode2" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                      <asp:DropDownList ID="ddlICDData2" runat="server" width="135px" Visible="false">
+                      </asp:DropDownList> --%>
+                        <asp:TextBox ID="txtICDCode1" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:DropDownList ID="ddlICDData1" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
                   <td class="FormLabel">
-                      <asp:Label ID="lblICD2" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG2 %>"></asp:Label>
+                      <%-- <asp:Label ID="lblICD3" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG3 %>"></asp:Label> --%>
+                      <asp:Label ID="lblExpiryDate" runat="server" Text="Expiry Date"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                        <asp:TextBox ID="txtICDCode2" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
-                      <asp:DropDownList ID="ddlICDData2" runat="server" width="135px" Visible="false">
-                      </asp:DropDownList>
-                  </td>
-                  <td class="FormLabel">
-                      <asp:Label ID="lblICD3" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG3 %>"></asp:Label>
-                  </td>
-                  <td class="DataEntry">
-                      <asp:TextBox ID="txtICDCode3" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                    <%--  <asp:TextBox ID="txtICDCode3" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:DropDownList ID="ddlICDData3" runat="server" width="135px" Visible="false">
-                      </asp:DropDownList>
+                      </asp:DropDownList> --%>
+                      <asp:textbox ID="txtExpiry" runat="server" Text="" BorderStyle="Solid" style="text-align:right" Enabled ="false"></asp:textbox>
                   </td>
                   <td class="FormLabel">
-                      <asp:Label ID="lblICD4" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG4 %>"></asp:Label>
+                   <%--    <asp:Label ID="lblICD4" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG4 %>"></asp:Label> --%>
+                       <asp:Label ID="lblServiceTotal" runat="server" Text="Service Total"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:TextBox ID="txtICDCode4" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
-                      <asp:DropDownList ID="ddlICDData4" runat="server" width="135px" Visible="false">
-                      </asp:DropDownList>
+                  <%--     <asp:TextBox ID="txtICDCode4" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                      <asp:DropDownList ID="ddlICDData4" runat="server" width="135px" Visible="false"> 
+                      </asp:DropDownList> --%>
+                      <asp:textbox ID="txtServTotal" runat="server" Text="" BorderStyle="Solid" style="text-align:right" Enabled ="false" Width="135px"></asp:textbox>
                   </td>
               </tr>
               <tr>
@@ -876,23 +952,42 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       
                   </td>
                   <td class="FormLabel" style="width:400px;">
-                      <asp:Label ID="lblGurantee" runat="server" 
-                          Text="<%$ Resources:Resource,L_GUARANTEE %>"></asp:Label>
+                   <%-- <asp:Label ID="lblGurantee" runat="server" 
+                          Text="<%$ Resources:Resource,L_GUARANTEE %>"></asp:Label> --%>   
+                       <asp:Label ID="lblVisitType" runat="server" Text="<%$ Resources:Resource,L_VISITTYPE %>"></asp:Label>
+                      <div class="opdipd">
+                      <asp:Label ID="Label1" runat="server" 
+                          Text="OPD/IPD"></asp:Label></div>
                   </td>
                   <td class="DataEntry">
-                      <asp:TextBox ID="txtGuaranteeId" runat="server" Enabled="true" width="125px" 
-                          MaxLength="50"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="rfGuranteeId" runat="server" ErrorMessage="*" 
-                          ControlToValidate="txtGuaranteeId" ValidationGroup="check" Visible="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                  </td>
-                  <td class="FormLabel" style="width:400px;">
-                    <asp:Label ID="lblVisitType" runat="server" Text="<%$ Resources:Resource,L_VISITTYPE %>"></asp:Label>
-                  </td>
-                  <td class="DataEntry" colspan="5">
-                    <asp:DropDownList ID="ddlVisitType" runat="server" Width="135px">
+                      <asp:DropDownList ID="ddlVisitType" runat="server" Width="135px">
                     </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*"
                         ControlToValidate="ddlVisitType" ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                      
+                  </td>
+                  <td class="FormLabel">
+                   <div class="opdipd">
+                      <asp:Label ID="lblOPDIPD" runat="server" 
+                          Text="OPD/IPD"></asp:Label></div>
+                  </td>
+                  <td class="DataEntry">
+                     <div class="opdipd">
+                      <asp:DropDownList ID="ddlOPDIPD" runat="server" Width="120px">
+                         <asp:ListItem Selected="True" Text="Select" Value="0"></asp:ListItem>                         
+                         <asp:ListItem Text="OPD" Value="OPD"></asp:ListItem>                       
+                         <asp:ListItem Text="IPD" Value="IPD"></asp:ListItem>
+                    </asp:DropDownList>
+                         <asp:TextBox ID="txtGuaranteeId" runat="server" Enabled="true" width="125px" 
+                          MaxLength="50"></asp:TextBox>
+                    <%--  <asp:RequiredFieldValidator ID="rfGuranteeId" runat="server" ErrorMessage="*" 
+                          ControlToValidate="txtGuaranteeId" ValidationGroup="check" Visible="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator> --%>
+                         </div>
+                  </td>
+                  <td class="FormLabel" style="width:400px;">
+                     <asp:Label ID="lblItemTotal" runat="server" Text="Item Total"></asp:Label></td></td>
+                  <td class="DataEntry" colspan="5">
+                      <asp:textbox ID="txtItemTotal" runat="server" Text="" BorderStyle="Solid" style="text-align:right" Enabled ="false"></asp:textbox>
                   </td>
                   <td class="FormLabel">
                       &nbsp;</td>
@@ -901,7 +996,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
               </tr>
           </table>
                     </asp:Panel>
-                    <table class="catlabel">
+                    <table class="catlabel" style="height: 10px !important;">
                         <tr>
                             <td>
                                 <asp:Label ID="lblServiceDetails" runat="server" Text='<%$ Resources:Resource,L_SERVICES %>'></asp:Label>
@@ -962,6 +1057,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     </ItemTemplate>
                                     <HeaderTemplate>
                                         <asp:Label ID="lblExplanationService" runat="server" Text='<%$ Resources:Resource,L_EXPLANATION %>'></asp:Label>
+                                    </HeaderTemplate>
+                                </asp:TemplateField>
+                                 <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="lblJustificationService" Width="100%" BackColor="#f7f7e9" ReadOnly="true" runat="server" Text='<%# Bind("Justification") %>'></asp:TextBox>
+                                    </ItemTemplate>
+                                    <HeaderTemplate>
+                                        <asp:Label ID="lvlJustificationHead" runat="server" Text='<%$ Resources:Resource,L_JUSTIFICATION%>'></asp:Label>
                                     </HeaderTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ItemStyle-Width="20px">
@@ -1041,6 +1144,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <asp:Label ID="lblExplanationItem" runat="server" Text='<%$ Resources:Resource,L_EXPLANATION %>'></asp:Label>
                                     </HeaderTemplate>
                                 </asp:TemplateField>
+                                 <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="lblJustificationItem" BackColor="#f7f7e9" runat="server" Width="100%" ReadOnly="true" Text='<%# Bind("Justification") %>'></asp:TextBox>
+                                    </ItemTemplate>
+                                     <HeaderTemplate>
+                                        <asp:Label ID="lvlJustificationHead" runat="server" Text='<%$ Resources:Resource,L_JUSTIFICATION%>'></asp:Label>
+                                    </HeaderTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField ItemStyle-Width="20px">
                                     <ItemTemplate>
                                         <%--<asp:ImageButton  ImageUrl="~/Images/Erase.png" ID="btnDeleteItem"
@@ -1064,7 +1175,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <td class="DataEntry">
                                 <asp:TextBox ID="txtEXPLANATION" runat="server" Width="450px" Text=""></asp:TextBox>
                             </td>
+                            <td class="FormLabel" style="text-align: left">
+                                <asp:Label ID="lblJUSTIFICATION" runat="server" Text='<%$ Resources:Resource,L_ADJUSTMENT %>'></asp:Label>
+                            </td>
+                            <td class="DataEntry">
+                                <asp:TextBox ID="txtJUSTIFICATION" runat="server" ReadOnly="true" Width="400px" Text=""></asp:TextBox>
+                            </td>
                         </tr>
+                        <caption>
+                            <tr>
+                                <td colspan="4" style="color:red;">कृपया यस Claim सँग सम्वन्धित सबै कागजत मोबाईल App अथवा वेबसाईटबाट अनिवार्य अपलोड गर्नु होला।  <asp:DynamicHyperLink id="lnkUploadDocument" runat="server" target="_blank" Text="Upload Documents"></asp:DynamicHyperLink></td>
+                            </tr>
+                        </caption>
                     </table>
                      </ContentTemplate> </asp:UpdatePanel>
                      </asp:Panel>

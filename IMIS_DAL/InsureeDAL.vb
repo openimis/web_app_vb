@@ -589,4 +589,26 @@ Public Class InsureeDAL
 
         Return data.Filldata
     End Function
+    Public Function getLastVisitDays(ByVal CHFID As String, ByVal hfid As Integer) As String
+        Dim data As New ExactSQL
+        data.setSQLCommand("select datediff(dd,DateTo,getdate()) LastDate from tblClaim c inner join tblInsuree i on i.InsureeID=c.InsureeID where c.ValidityTo is null and i.ValidityTo is null and c.HFID=@hfid and i.CHFID=@CHFID", CommandType.Text)
+        data.params("@CHFId", SqlDbType.NVarChar, 12, CHFID)
+        data.params("@hfid", SqlDbType.Int, hfid)
+        Dim dr As DataRow = data.Filldata()(0)
+        If dr Is Nothing Then
+            Return "0"
+        Else
+            Return dr("LastDate")
+        End If
+    End Function
+    Public Function getLastVisitDaysForReview(ByVal CHFID As String, ByVal claimid As Integer, ByVal VISITDATETO As Date) As DataTable
+        Dim data As New ExactSQL
+        data.setSQLCommand("select top 1 datediff(dd,DateTo,@VISITDATETO) LastDate, ClaimID, datediff(dd,c.DateFrom,c.DateTo) Days from tblClaim c" &
+        " inner join tblInsuree i on i.InsureeID=c.InsureeID where c.ValidityTo Is null And i.ValidityTo Is null" &
+        " And c.ClaimStatus!=2 And i.CHFID=@CHFID And c.ClaimID!=@claimid and DateTo<=@VISITDATETO order by DateTo DESC", CommandType.Text)
+        data.params("@VISITDATETO", SqlDbType.SmallDateTime, VISITDATETO)
+        data.params("@CHFId", SqlDbType.NVarChar, 12, CHFID)
+        data.params("@claimid", SqlDbType.Int, claimid)
+        Return data.Filldata()
+    End Function
 End Class

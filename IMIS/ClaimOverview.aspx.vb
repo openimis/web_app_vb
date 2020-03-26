@@ -491,7 +491,7 @@ Public Partial Class ClaimOverview
         GetFilterCriteria()
         If Not hfReview.Value = "" Then Session("ReviewPage") = hfReview.Value
         Dim ClaimUUID As Guid = claimBI.GetClaimUUIDByID(hfClaimID.Value)
-        Response.Redirect("ClaimReview.aspx?c=" & ClaimUUID.ToString())
+        Response.Redirect("ClaimReviewNew.aspx?c=" & ClaimUUID.ToString())
     End Sub
     Private Sub B_FEEDBACK_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_FEEDBACK.Click
         GetFilterCriteria()

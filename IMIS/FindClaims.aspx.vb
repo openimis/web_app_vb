@@ -594,5 +594,10 @@ Partial Public Class FindClaims
         FillDistricts()
 
     End Sub
-
+    Protected Sub gvClaims_DataBound(sender As Object, e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles gvClaims.RowDataBound
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            Dim ImgClaimDocumentURL = CType(e.Row.Cells(12).Controls(1), Image)
+            ImgClaimDocumentURL.ImageUrl = System.Configuration.ConfigurationManager.AppSettings("ClaimDocumentURL").ToString() + e.Row.Cells(9).Text.ToString()
+        End If
+    End Sub
 End Class

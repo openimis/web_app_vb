@@ -617,6 +617,7 @@ Title = '<%$ Resources:Resource,L_FINDCLAIM %>'%>
                     <asp:BoundField DataField="ClaimID" > <ItemStyle CssClass="hidecol" /><HeaderStyle CssClass="hidecol"  /></asp:BoundField >
                <asp:BoundField DataField="RowID" > <ItemStyle CssClass="hidecol" /><HeaderStyle CssClass="hidecol"  /></asp:BoundField >
                <asp:BoundField DataField="HfID" > <ItemStyle CssClass="hidecol" /><HeaderStyle CssClass="hidecol"  /></asp:BoundField >
+               <asp:TemplateField  ><ItemTemplate ><asp:Image runat="server" /> </ItemTemplate><ItemStyle Width="15px"   /></asp:TemplateField> 
                 </Columns>
                 <PagerStyle CssClass="pgr" />
                 <SelectedRowStyle CssClass="srs" />

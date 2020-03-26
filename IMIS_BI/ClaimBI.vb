@@ -121,4 +121,8 @@ Public Class ClaimBI
         Dim Claim As New IMIS_BL.ClaimsBL
         Return Claim.GetClaimUUIDByID(id)
     End Function
+    Public Function getLastVisitDays(ByVal chfid As String, ByVal hfid As Integer) As String
+        Dim insuree As New IMIS_BL.InsureeBL
+        Return insuree.getLastVisitDays(chfid, hfid)
+    End Function
 End Class

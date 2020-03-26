@@ -141,6 +141,7 @@
     <Content Include="ClaimFeedback.aspx" />
     <Content Include="ClaimOverview.aspx" />
     <Content Include="ClaimReview.aspx" />
+    <Content Include="ClaimReviewNew.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
     <Content Include="EmailSettings.aspx" />
@@ -371,6 +372,13 @@
     <Compile Include="ClaimReview.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ClaimReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimReviewNew.aspx.designer.vb">
+      <DependentUpon>ClaimReviewNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimReviewNew.aspx.vb">
+      <DependentUpon>ClaimReviewNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
