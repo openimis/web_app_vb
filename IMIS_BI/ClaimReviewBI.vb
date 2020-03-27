@@ -93,4 +93,10 @@ Public Class ClaimReviewBI
         Dim Clm As New IMIS_BL.ClaimsBL
         Return Clm.GetItemRejectedReason(ReasonId)
     End Function
+    ' Get Last Visit Days Added By Purushottam
+    Public Function getLastVisitDaysForReview(ByVal chfid As String, ByVal claimid As Integer, ByVal VISITDATETO As Date) As DataTable
+        Dim insuree As New IMIS_BL.InsureeBL
+        Return insuree.getLastVisitDaysForReview(chfid, claimid, VISITDATETO)
+    End Function
+    ' Get Last Visit Days Added By Purushottam
 End Class
