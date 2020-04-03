@@ -4,16 +4,19 @@ Imports System.Xml
 Imports Newtonsoft.Json
 Public Class EscapeBL
     Public Function isValidInsuranceNumber(ByVal InsuranceNumber As String) As Boolean
-        'Return True
+#If CHF Then
         If Not InsuranceNumber.ToString.Length = 9 Then Return False
         Dim n As String = Left(InsuranceNumber.ToString, 8)
         Dim Checksum As String = Right(InsuranceNumber.ToString, 1)
         If CInt(n) = Checksum And Checksum = 0 Then Return False
         If Checksum = n - (Int(n / 7) * 7) Then Return True
         Return False
+#Else
+        Return True
+#End If
     End Function
     Public Function MatchPayments(DomainUrl As String) As Boolean
-        'Return True
+#If CHF Then
         Dim webClient As New WebClient()
         Dim resByte As Byte()
         Dim resString As String
@@ -47,6 +50,9 @@ Public Class EscapeBL
             webClient.Dispose()
         End Try
         Return False
+#Else
+        Return True
+#End If
     End Function
     Public Function SendSMS(ByVal Message As String) As String
         Dim Response As String = ""
