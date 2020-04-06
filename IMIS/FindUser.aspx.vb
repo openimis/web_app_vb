@@ -223,6 +223,11 @@ Partial Public Class FindUser
             imisGen.Alert(User & " " & imisGen.getMessage("M_NOTDELETEASSOCIATEDUSER"), pnlButtons, alertPopupTitle:="IMIS")
             Return
         End If
+        Dim result = users.GetUserDistricts(imisGen.getUserId(Session("User")), UserId)
+        If result = 1 Then
+            imisGen.Alert(imisGen.getMessage("M_USERCANNOTBEDELETED"), pnlButtons, alertPopupTitle:="IMIS")
+            Return
+        End If
         Try
             eUser.UserID = UserId
 

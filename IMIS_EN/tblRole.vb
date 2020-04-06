@@ -37,7 +37,7 @@ Public Class tblRole
     Private _ValidityTo As DateTime?
     Private _AuditUserID As Int32?
     Private _LegacyID As Int32?
-
+    Private _Assign As Int32?
 
     Public Property RoleID As Int32
         Get
@@ -119,6 +119,13 @@ Public Class tblRole
             _LegacyID = Value
         End Set
     End Property
-
+    Public Property Assign As Int32?
+        Get
+            Assign = _Assign
+        End Get
+        Set(Value As Int32?)
+            _Assign = Value
+        End Set
+    End Property
 
 End Class

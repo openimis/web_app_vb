@@ -125,7 +125,7 @@ Public Class UsersBL
 
             Case IMIS_EN.Enums.Rights.ClaimUpdate : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
             Case IMIS_EN.Enums.Rights.ClaimProcess : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)  
-
+            Case IMIS_EN.Enums.Rights.ClaimRestore : Return CheckUserRights(UserID, Right)
             'BATCH
             Case IMIS_EN.Enums.Rights.Batch : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.BatchProcess : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)  Changed from no mapping to CHFAccount because ParentNode ValueClaim mapped to that user, so child also follows
@@ -565,9 +565,11 @@ Public Class UsersBL
                 PageRights.Add(Rights.ClaimAdd)
                 PageRights.Add(Rights.ClaimPrint)
                 PageRights.Add(Rights.ClaimLoad)
+                PageRights.Add(Rights.ClaimSearch)
             Case IMIS_EN.Enums.Pages.ClaimFeedback
                 PageRights.Add(Rights.ClaimFeedback)
             Case IMIS_EN.Enums.Pages.ClaimReview
+                PageRights.Add(Rights.ClaimSearch)
                 PageRights.Add(Rights.ClaimReview)
             Case IMIS_EN.Enums.Pages.ProcessBatches
                 PageRights.Add(Rights.BatchProcess)
@@ -787,9 +789,9 @@ Public Class UsersBL
         Return dtRoles
     End Function
 
-    Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean) As DataTable
+    Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean, Authority As Integer) As DataTable
         Dim UsersDal As New IMIS_DAL.UsersDAL
-        Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline)
+        Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline, Authority)
         For Each row As DataRow In dtRoles.Rows
             If row("IsSystem") > 0 Then
                 row("RoleName") = ReturnRole(row("IsSystem"))
@@ -822,7 +824,8 @@ Public Class UsersBL
             Dim DALRole As New IMIS_DAL.RoleDAL
             dtRoles = DALRole.GetSystemRoles(eUser.RoleID)
         End If
-        If eUser.UserID = 0 Then
+        If eUser.UserID = 0 Or eUser.ValidityTo IsNot Nothing Then
+            eUser.UserID = 0
             CreatePassword(eUser)
             users.InsertUser(eUser)
             users.SaveUserRoles(dtRoles, eUser)
@@ -948,5 +951,33 @@ Public Class UsersBL
     Public Function GetUserIdByUUID(ByVal uuid As Guid) As Integer
         Dim User As New IMIS_DAL.UsersDAL
         Return User.GetUserIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Function GetUserDistricts(ByVal CurrenctUserID As Integer, ByVal SelectedUserID As Integer) As Integer
+        Dim User As New IMIS_DAL.UsersDAL
+        Dim ds As New DataSet
+        ds = User.GetUserDistricts(CurrenctUserID, SelectedUserID)
+        Dim dtSelectedUserDistricts As DataTable = ds.Tables("SelectedUserDistricts")
+        Dim dtCurrentUserDistricts As DataTable = ds.Tables("CurrentUserDistricts")
+
+        Dim dtSelectedUserRegions As DataTable = ds.Tables("SelectedUserRegions")
+        Dim dtCurrentUserRegions As DataTable = ds.Tables("CurrentUserRegions")
+
+        Dim Users As New IMIS_DAL.UsersDAL
+        If dtCurrentUserRegions.Rows.Count = 1 Then
+            If dtSelectedUserRegions.Rows.Count = 1 Then
+                If dtCurrentUserDistricts.Rows.Count = 1 Then
+                    If dtSelectedUserDistricts.Rows.Count > 1 Then
+                        Return 1  ' The selected user from the gridview should not be edited
+                    End If
+                End If
+            Else
+                Return 1  ' The selected user from the gridview should not be edited
+            End If
+        Else
+            If dtCurrentUserDistricts.Rows.Count = 1 Then
+                Return 1  ' The selected user from the gridview should not be edited
+            End If
+        End If
+        Return 0
     End Function
 End Class

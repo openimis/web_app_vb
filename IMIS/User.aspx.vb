@@ -73,7 +73,7 @@ Partial Public Class User
             End If
             gvDistrict.DataBind()
             Assign(gvDistrict)
-
+            Dim LoggedInUser As Integer = imisgen.getUserId(Session("User"))
 
             If Not eUsers.UserID = 0 Then
                 Users.LoadUsers(eUsers)
@@ -89,6 +89,15 @@ Partial Public Class User
                     Panel2.Enabled = False
                     B_SAVE.Visible = False
                 End If
+
+                Dim CurrentUserID As Integer = imisgen.getUserId(Session("User"))
+                Dim result = Users.GetUserDistricts(LoggedInUser, eUsers.UserID)
+                If result = 1 Then
+                    imisgen.Alert(imisgen.getMessage("M_USERCANNOTBEEDITED"), pnlDistrict, alertPopupTitle:="IMIS")
+                    Panel2.Enabled = False
+                    B_SAVE.Visible = False
+                End If
+
                 ddlHFNAME.SelectedValue = eUsers.HFID.ToString
                 RequiredFieldPassword.Visible = False
 
@@ -97,11 +106,12 @@ Partial Public Class User
 
             Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
             Dim dtRoles As New DataTable
-            dtRoles = Users.getUserRoles(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
+            dtRoles = Users.getRolesForUser(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF, LoggedInUser)
             gvRoles.DataSource = dtRoles
             gvRoles.DataBind()
             If eUsers.IsAssociated IsNot Nothing AndAlso eUsers.IsAssociated = True Then
                 toggleModifingIfUsersClaimOrEnrolment(False)
+                B_SAVE.Enabled = False
             End If
 
             If IMIS_Gen.offlineHF Then
@@ -195,6 +205,9 @@ Partial Public Class User
 
     Private Function checkChecked(ByVal gv As GridView) As Boolean
         Dim checked As Boolean = False
+        If gv.ID = gvRoles.ID Then
+            If txtLoginName.Text = "Admin" Then Return True
+        End If
         For Each row In gv.Rows
             Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
             If chkSelect.Checked Then
@@ -204,21 +217,24 @@ Partial Public Class User
         Next
         Return checked
     End Function
-    Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
-        If txtPassword.Text <> String.Empty Then
-            If Not General.isValidPassword(txtPassword.Text) Then
-                lblMsg.Text = General.getInvalidPasswordMessage()
-                Exit Sub
-            End If
-            If txtPassword.Text <> txtConfirmPassword.Text Then
-                lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
-                Exit Sub
-            End If
-            eUsers.DummyPwd = txtPassword.Text
-        End If
 
+    Public Function GetJson(ByVal dt As DataTable) As String
+        Return New JavaScriptSerializer().Serialize(From dr As DataRow In dt.Rows Select dt.Columns.Cast(Of DataColumn)().ToDictionary(Function(col) col.ColumnName, Function(col) dr(col)))
+    End Function
+
+    Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
+                Dim ipassword As Integer = IsValidPassword()
+
+                If ipassword = -1 Then
+                    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
+                    Exit Sub
+                ElseIf ipassword = -2 Then
+
+                    lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
+                    Exit Sub
+                End If
 
                 If Not checkChecked(gvDistrict) Then
                     lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
@@ -230,22 +246,49 @@ Partial Public Class User
                 End If
                 eUsers.LastName = txtLastName.Text
                 eUsers.OtherNames = txtOtherNames.Text
-
+                eUsers.DummyPwd = txtPassword.Text
                 eUsers.Phone = txtPhone.Text
                 eUsers.EmailId = txtEmail.Text
                 eUsers.LoginName = txtLoginName.Text
                 eUsers.LanguageID = ddlLanguage.SelectedValue
+                'eUsers.RoleID = GetRoles(gvRoles)
                 eUsers.AuditUserID = imisgen.getUserId(Session("User"))
                 If ddlHFNAME.SelectedIndex >= 0 Then
                     eUsers.HFID = ddlHFNAME.SelectedValue
                 End If
+
                 Dim dt As New DataTable
-                dt.Columns.Add("RoleID")
-                dt.Columns.Add("RoleName")
+                dt.Columns.Add("UserRoleID", GetType(Integer))
+                dt.Columns.Add("UserID", GetType(Integer))
+                dt.Columns.Add("RoleID", GetType(Integer))
+                dt.Columns.Add("ValidityFrom", GetType(Date))
+                dt.Columns.Add("ValidityTo", GetType(Date))
+                dt.Columns.Add("AuditUserID", GetType(Integer))
+                dt.Columns.Add("LegacyID", GetType(Integer))
+                dt.Columns.Add("Assign", GetType(Integer))
+
+
+
+
+                Dim dr As DataRow
+                Dim UserRoleID As New Object
                 For Each row As GridViewRow In gvRoles.Rows
+                    dr = dt.NewRow
+                    UserRoleID = CType(row.Cells(4).Controls(1), HiddenField).Value
+
+                    If UserRoleID = "" Then UserRoleID = 0
+                    dr("UserID") = eUsers.UserID
+                    dr("UserRoleID") = UserRoleID
+                    dr("Assign") = 0
                     If CType(row.Cells(0).Controls(1), CheckBox).Checked = True Then
-                        Dim dr As DataRow = dt.NewRow
                         dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dr("Assign") = 1
+                    End If
+                    If CType(row.Cells(2).Controls(1), CheckBox).Checked = True Then
+                        dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dr("Assign") = dr("Assign") + 2
+                    End If
+                    If dr("RoleID") IsNot DBNull.Value Then
                         dt.Rows.Add(dr)
                     End If
                 Next
@@ -290,4 +333,30 @@ Partial Public Class User
         Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
     End Sub
 
+    Private Function IsValidPassword() As Integer
+        If eUsers.UserID = 0 Then
+            If txtPassword.Text = String.Empty Then
+                Return -1
+            Else
+                If txtPassword.Text <> txtConfirmPassword.Text Then
+                    Return -2
+                Else
+                    Return 1
+                End If
+            End If
+        Else
+            If txtPassword.Text <> String.Empty Then
+                If txtPassword.Text <> txtConfirmPassword.Text Then
+                    Return -2
+                Else
+                    Return 1
+                End If
+            Else
+                Return 2
+            End If
+
+        End If
+        'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
+        'Return Parten
+    End Function
 End Class

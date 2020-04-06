@@ -31,9 +31,9 @@
             Dim eRoleOrg As New IMIS_EN.tblRole
             eRoleOrg.RoleID = eRole.RoleID
             RoleDAL.GetRole(eRoleOrg)
-            If isDirty(eRole, eRoleOrg) Then
-                RoleDAL.UpdateRole(eRole)
-            End If
+            'If isDirty(eRole, eRoleOrg) Then
+            RoleDAL.UpdateRole(eRole)
+            'End If
 
         End If
         RoleRightDAL.SaveRights(dtRights, eRole)
