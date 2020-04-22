@@ -115,11 +115,16 @@ Partial Public Class Officer
 #End Region
 #Region "Buttons"
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
-        SaveOfficer()
+        Dim Valid As Boolean = SaveOfficer()
+
+        If Not Valid Then
+            Exit Sub
+        End If
+
         Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
     End Sub
 
-    Public Sub SaveOfficer()
+    Public Function SaveOfficer() As Boolean
         'If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
         Try
             Dim dt As New DataTable
@@ -173,7 +178,7 @@ Partial Public Class Officer
             Dim dtData As DataTable = GetOfficersVillagesDT()
             If chkOfficerIncludeLogin.Checked = True Then
                 If SetLoginDetails() = False Then
-                    Exit Sub
+                    Return False
                 End If
             End If
             Dim chk As Integer = Officer.SaveOfficer(eOfficer, dtData)
@@ -182,7 +187,7 @@ Partial Public Class Officer
 
             ElseIf chk = 1 Then
                 imisgen.Alert(eOfficer.Code & imisgen.getMessage("M_Exists"), pnlButtons, alertPopupTitle:="IMIS")
-                Return
+                Return True
             Else
                 Session("msg") = eOfficer.Code & " " & eOfficer.LastName & imisgen.getMessage("M_Updated")
             End If
@@ -190,9 +195,11 @@ Partial Public Class Officer
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
-            Return
+            Return True
         End Try
-    End Sub
+        Return True
+    End Function
+
     Private Function SetLoginDetails() As Boolean
         eOfficer.eUsers = New IMIS_EN.tblUsers
         If hfUserID.Value <> "" Then

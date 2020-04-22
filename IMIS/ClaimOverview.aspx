@@ -144,38 +144,34 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
 
 
     function InitAutoCompl() {
-        $("#<%=txtICDCode.ClientID %>").focus(function () {
-            var datasource;
-            $.ajax({
-                url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                dataType: "json",
-                type: "GET",
-                async: false,
-                cache: false,
-                success: function (data) {
-                    datasource = data;
-                }
-            });
-            var ds = new AutoCompletedataSource(datasource);
-            $("#<%=txtICDCode.ClientID %>").autocomplete({
-                source: function (request, response) {
-                    var data = ds.filter(request);
-                    response($.map(data, function (item, id) {
-                        return {
-                            label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                        };
-                    }));
-                },
-                select: function (e, u) {
-                    $('#<% = hfICDID.ClientID%>').val(u.item.id);
-                    $('#<% = hfICDCode.ClientID%>').val(u.item.value2);
-                }
-            });
-        });
-        $("#<%=txtICDCode.ClientID %>").change(function () {
-            if ($(this).val() === "") {
-                $('#<% = hfICDID.ClientID%>').val("")
-            }
+        $("#<%=txtICDCode.ClientID %>").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                    // data: JSON.stringify({ prefix: request.term }),
+                    data: { ICDCode: $("#<%=txtICDCode.ClientID %>").val() },
+
+                    dataType: "json",
+                    type: "POST",
+
+                    success: function (data) {
+                        response($.map(data, function (item, id) {
+                            return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID };
+                        }));
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            },
+            select: function (e, u) {
+                $('#<% = hfICDID.ClientID%>').val(u.item.id);
+
+            },
+            minLength: 1
         });
     }
 
