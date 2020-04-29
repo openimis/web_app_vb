@@ -136,7 +136,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     <asp:TextBox ID="txtOtherNames" runat="server"></asp:TextBox>
                 </td>
                 <td class="FormLabel">
-                    <asp:Label ID="lblHFCode" runat="server" Text='<%$ Resources:Resource,L_HF%>'></asp:Label>
+                    <asp:Label ID="lblHFCode" runat="server" Text='<%$ Resources:Resource,L_HFCODE%>'></asp:Label>
                 </td>
                 <td class ="DataEntry">
                     <asp:DropDownList ID="ddlHFCode" runat="server" ></asp:DropDownList>

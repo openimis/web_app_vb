@@ -113,7 +113,7 @@
 		<value>Date de naissance</value>
 	</data>
   <data name="L_GENDER" xml:space="preserve">
-		<value>Sexe</value>
+		<value>Genre</value>
 	</data>
   <data name="L_MARITAL" xml:space="preserve">
 		<value>État civil/matrimonial</value>
@@ -164,7 +164,7 @@
 		<value>Veuillez sélectionner un district</value>
 	</data>
   <data name="V_GENDER" xml:space="preserve">
-		<value>Veuillez sélectionner le sexe.</value>
+		<value>Sél. genre</value>
 	</data>
   <data name="V_LASTNAME" xml:space="preserve">
 		<value>Indiquer le nom de famille</value>
@@ -176,13 +176,13 @@
 		<value>Indiquer le(s) prénom(s)</value>
 	</data>
   <data name="V_POVERTY" xml:space="preserve">
-		<value>Veuillez sélectionner si la(le) famille/groupe a un statut de pauvreté</value>
+		<value>Veuillez sélectionner si la(le) famille/groupe a un niveau de pauvreté.</value>
 	</data>
   <data name="V_VILLAGE" xml:space="preserve">
 		<value>Veuillez sélectionner un village</value>
 	</data>
   <data name="V_WARD" xml:space="preserve">
-		<value>Veuillez sélectionner une municipalité</value>
+		<value>Veuillez sélectionner une municipalité.</value>
 	</data>
   <data name="B_ADDPREMIUM" xml:space="preserve">
 		<value>Ajouter une cotisation</value>
@@ -221,7 +221,7 @@
 		<value>Ajouter un(e) famille/groupe</value>
 	</data>
   <data name="L_HFACILITIES" xml:space="preserve">
-		<value>Formation Sanitaire</value>
+		<value>Établissements de santé</value>
 	</data>
   <data name="L_INSUREE" xml:space="preserve">
 		<value>Assuré</value>
@@ -242,10 +242,10 @@
 		<value>Financeur</value>
 	</data>
   <data name="G_PRICELISTSMS" xml:space="preserve">
-		<value>Liste de tarifs (prestations médicales)</value>
+		<value>Liste de tarifs (soins)</value>
 	</data>
   <data name="L_MEDICALSERVICES" xml:space="preserve">
-		<value>Prestations médicales</value>
+		<value>Soins</value>
 	</data>
   <data name="B_SEARCH" xml:space="preserve">
 		<value>Recherche</value>
@@ -263,7 +263,7 @@
 		<value>Système</value>
 	</data>
   <data name="L_FOUNDPRODUCTS" xml:space="preserve">
-		<value>Produits d'assurances trouvés</value>
+		<value>Paquets de bénéfices trouvés</value>
 	</data>
   <data name="L_PRODUCTCODE" xml:space="preserve">
 		<value>Code</value>
@@ -272,13 +272,13 @@
 		<value>Nom</value>
 	</data>
   <data name="L_PRODUCTS" xml:space="preserve">
-		<value>Produits</value>
+		<value>Paquet de bénéfices</value>
 	</data>
   <data name="L_USERS" xml:space="preserve">
 		<value>Utilisateurs</value>
 	</data>
   <data name="M_NOPRODUCTS" xml:space="preserve">
-		<value>Aucun produit trouvé</value>
+		<value>Aucun paquet de bénéfices trouvé</value>
 	</data>
   <data name="M_NOUSERS" xml:space="preserve">
 		<value>Aucun utilisateur trouvé</value>
@@ -305,13 +305,13 @@
 		<value>Aucun produit médical</value>
 	</data>
   <data name="M_NOMEDICALSERVICES" xml:space="preserve">
-		<value>Aucune prestation médicale</value>
+		<value>Aucun soin</value>
 	</data>
   <data name="V_PRODUCTCODE" xml:space="preserve">
-		<value>Veuillez sélectionner un code produit</value>
+		<value>Veuillez sélectionner un code paquet de bénéfices</value>
 	</data>
   <data name="V_PRODUCTNAME" xml:space="preserve">
-		<value>Veuillez sélectionner un nom de produit</value>
+		<value>Veuillez sélectionner un nom du paquet de bénéfices</value>
 	</data>
   <data name="L_ADMINISTRATION" xml:space="preserve">
 		<value>Admin</value>
@@ -326,7 +326,7 @@
 		<value>Dénomination</value>
 	</data>
   <data name="L_FOUNDHFACILITIES" xml:space="preserve">
-		<value>FOSA trouvées</value>
+		<value>ESA trouvées</value>
 	</data>
   <data name="L_FOUNDITEMS" xml:space="preserve">
 		<value>Prod. méd. trouvés</value>
@@ -341,7 +341,7 @@
 		<value>Listes de tarifs trouvées</value>
 	</data>
   <data name="L_FOUNDSERVICES" xml:space="preserve">
-		<value>Prestations trouvées</value>
+		<value>Soins trouvés</value>
 	</data>
   <data name="L_EMAIL" xml:space="preserve">
 		<value>E-mail</value>
@@ -368,7 +368,7 @@
 		<value>Nom</value>
 	</data>
   <data name="L_PRODUCT" xml:space="preserve">
-		<value>Produit</value>
+		<value>Paquet de bénéfices</value>
 	</data>
   <data name="L_PRICE" xml:space="preserve">
 		<value>Tarif</value>
@@ -470,7 +470,7 @@
 		<value>Détails produit médical</value>
 	</data>
   <data name="G_MEDICALSERVICE" xml:space="preserve">
-		<value>Détails de la prestation médicale</value>
+		<value>Détails du soin</value>
 	</data>
   <data name="L_CARETYPE" xml:space="preserve">
 		<value>Type de soins</value>
@@ -497,10 +497,10 @@
 		<value>Aucune archive trouvée</value>
 	</data>
   <data name="L_OVERRULEPRICE" xml:space="preserve">
-		<value>Ecraser tarif</value>
+		<value>Écraser tarif</value>
 	</data>
   <data name="G_HEALTHFACILITY" xml:space="preserve">
-		<value>Info FOSA</value>
+		<value>Info ESA</value>
 	</data>
   <data name="L_LEGALFORM" xml:space="preserve">
 		<value>Forme juridique</value>
@@ -551,28 +551,28 @@
 		<value>Période</value>
 	</data>
   <data name="L_BATCHES" xml:space="preserve">
-		<value>Batchs de remboursement</value>
+		<value>Lots de prestation</value>
 	</data>
   <data name="B_CLAIM" xml:space="preserve">
-		<value>Remboursements</value>
+		<value>Prestations</value>
 	</data>
   <data name="B_SUBMIT" xml:space="preserve">
 		<value>Soumettre</value>
 	</data>
   <data name="B_FEEDBACK" xml:space="preserve">
-		<value>Contrôle</value>
+		<value>Retours</value>
 	</data>
   <data name="B_REVIEW" xml:space="preserve">
 		<value>Vérification</value>
 	</data>
   <data name="L_BATCHCODE" xml:space="preserve">
-		<value>Code du batch</value>
+		<value>Code du lot</value>
 	</data>
   <data name="L_BATCHDATE" xml:space="preserve">
-		<value>Date du batch</value>
+		<value>Date du lot</value>
 	</data>
   <data name="L_BATCHFORM" xml:space="preserve">
-		<value>Détails du batch</value>
+		<value>Détails du lot</value>
 	</data>
   <data name="L_BATCHSTATUS" xml:space="preserve">
 		<value>Situation</value>
@@ -581,22 +581,22 @@
 		<value>Code de la maladie</value>
 	</data>
   <data name="L_FBSTATUS" xml:space="preserve">
-		<value>Statut du compte rendu</value>
+		<value>Statut du retour d'information</value>
 	</data>
   <data name="L_FINDBATCHFORM" xml:space="preserve">
-		<value>Sélection des réponses par batch</value>
+		<value>Sélection des réponses par lot</value>
 	</data>
   <data name="L_FOUNDBATCH" xml:space="preserve">
-		<value>Batchs trouvés</value>
+		<value>Lots trouvés</value>
 	</data>
   <data name="L_HFCODE" xml:space="preserve">
-		<value>Code de la FOSA</value>
+		<value>Code de la ESA</value>
 	</data>
   <data name="L_HFNAME" xml:space="preserve">
-		<value>Nom de la FOSA</value>
+		<value>Nom de la ESA</value>
 	</data>
   <data name="L_INSUREEID" xml:space="preserve">
-		<value>ID  de l'assuré</value>
+		<value>ID de l'assuré</value>
 	</data>
   <data name="L_PERIODFROM" xml:space="preserve">
 		<value>Période du</value>
@@ -608,31 +608,31 @@
 		<value>MAJ</value>
 	</data>
   <data name="L_BATCH" xml:space="preserve">
-		<value>Batch</value>
+		<value>Lots</value>
 	</data>
   <data name="L_CLAIMAPPROVED" xml:space="preserve">
 		<value>Approuvé</value>
 	</data>
   <data name="L_CLAIMCODE" xml:space="preserve">
-		<value>N° du remboursement</value>
+		<value>N° de la prestation</value>
 	</data>
   <data name="L_CLAIMDATE" xml:space="preserve">
-		<value>Date de remboursement</value>
+		<value>Date de prestation</value>
 	</data>
   <data name="L_CLAIMED" xml:space="preserve">
 		<value>Remboursé</value>
 	</data>
   <data name="L_CLAIMFEEDBACK" xml:space="preserve">
-		<value>Contrôle</value>
+		<value>Retours d'information</value>
 	</data>
   <data name="L_CLAIMREVIEWSATUS" xml:space="preserve">
-		<value>Compte rendu</value>
+		<value>Vérification</value>
 	</data>
   <data name="L_CLAIMSFEEDBACK" xml:space="preserve">
-		<value>Remboursements à contrôler</value>
+		<value>Prestations nécessitant un retour d'information</value>
 	</data>
   <data name="L_CLAIMSTATUS" xml:space="preserve">
-		<value>Statut du remboursement</value>
+		<value>Statut prestation</value>
 	</data>
   <data name="L_CRITERIADETAILS" xml:space="preserve">
 		<value>Détails des critères</value>
@@ -653,28 +653,28 @@
 		<value>Variance</value>
 	</data>
   <data name="M_NOBATCHES" xml:space="preserve">
-		<value>Aucun batch trouvé</value>
+		<value>Aucun lot trouvé</value>
 	</data>
   <data name="L_BATCHPAGETITLE" xml:space="preserve">
-		<value>Batch</value>
+		<value>Lots</value>
 	</data>
   <data name="L_CARERENDERED" xml:space="preserve">
 		<value>Soins rendus</value>
 	</data>
   <data name="L_CLAIM" xml:space="preserve">
-		<value>Remboursement</value>
+		<value>Prestation</value>
 	</data>
   <data name="L_CLAIMDATELABEL" xml:space="preserve">
-		<value>Date du remboursement</value>
+		<value>Date de la prestation</value>
 	</data>
   <data name="L_CLAIMDETAILS" xml:space="preserve">
-		<value>Détails du remboursement</value>
+		<value>Détails de la prestation</value>
 	</data>
   <data name="L_CLAIMID" xml:space="preserve">
-		<value>ID du remboursement</value>
+		<value>ID de la prestation</value>
 	</data>
   <data name="L_CLAIMSTATUSLABEL" xml:space="preserve">
-		<value>Statut du remboursement</value>
+		<value>Statut prestation</value>
 	</data>
   <data name="L_DRUGSPRESCRIBED" xml:space="preserve">
 		<value>Médicaments prescrits</value>
@@ -683,16 +683,16 @@
 		<value>Médicament reçus</value>
 	</data>
   <data name="L_FEEDBACK" xml:space="preserve">
-		<value>Contrôle</value>
+		<value>Retours d'information</value>
 	</data>
   <data name="L_FEEDBACKDATE" xml:space="preserve">
-		<value>Date du contrôle</value>
+		<value>Date du retour d'information</value>
 	</data>
   <data name="L_FEEDBACKPAGETITLE" xml:space="preserve">
-		<value>Contrôle</value>
+		<value>Retours d'information</value>
 	</data>
   <data name="L_FEEDBACKSTATUS" xml:space="preserve">
-		<value>Statut du compte rendu</value>
+		<value>Statut du retour</value>
 	</data>
   <data name="L_OVERALLASESSMENT" xml:space="preserve">
 		<value>Évaluation globale</value>
@@ -707,34 +707,34 @@
 		<value>Statut vérification</value>
 	</data>
   <data name="L_BATCHSELECTED" xml:space="preserve">
-		<value>Batch sélectionné</value>
+		<value>lot sélectionné</value>
 	</data>
   <data name="L_CLAIMSSELECTED" xml:space="preserve">
-		<value>Remboursements sélectionnés</value>
+		<value>Prestations sélectionnées</value>
 	</data>
   <data name="L_FOUNDBATCHES" xml:space="preserve">
-		<value>Batchs trouvés</value>
+		<value>lots trouvés</value>
 	</data>
   <data name="L_ICD" xml:space="preserve">
 		<value>Principal Dg.</value>
 	</data>
   <data name="L_REVIEWSELECTION" xml:space="preserve">
-		<value>Sélection batch de vérification</value>
+		<value>Sélection des prestations pour vérifications</value>
 	</data>
   <data name="L_CLAIMSFOUND" xml:space="preserve">
-		<value>Remboursements trouvés</value>
+		<value>Prestations trouvées</value>
 	</data>
   <data name="L_FEEDBACKSELECTION" xml:space="preserve">
-		<value>Sél. pour Contrôle</value>
+		<value>Sél. pour retour</value>
 	</data>
   <data name="M_NOCLAIMS" xml:space="preserve">
-		<value>Aucun remboursement n'a été trouvé</value>
+		<value>Aucune prestation n'a été trouvée</value>
 	</data>
   <data name="L_CLAIMPAGETITLE" xml:space="preserve">
-		<value>Remboursement</value>
+		<value>Prestation</value>
 	</data>
   <data name="L_CLAIMVALUE" xml:space="preserve">
-		<value>Valeur du remboursement</value>
+		<value>Valeur de la prestation</value>
 	</data>
   <data name="L_ITEMS" xml:space="preserve">
 		<value>Produits méd.</value>
@@ -743,10 +743,10 @@
 		<value>Quantité</value>
 	</data>
   <data name="L_SERVICECODE" xml:space="preserve">
-		<value>Code de la prestation</value>
+		<value>Code du soin</value>
 	</data>
   <data name="L_SERVICES" xml:space="preserve">
-		<value>Prestations</value>
+		<value>Soins</value>
 	</data>
   <data name="L_START" xml:space="preserve">
 		<value>Visite du</value>
@@ -758,13 +758,13 @@
 		<value>Aucun produit médical trouvé</value>
 	</data>
   <data name="M_NOSERVICES" xml:space="preserve">
-		<value>Aucune prestation trouvée</value>
+		<value>Aucune soin trouvé</value>
 	</data>
   <data name="L_FINDCLAIM" xml:space="preserve">
-		<value>Rechercher les remboursements</value>
+		<value>Rechercher les prestations</value>
 	</data>
   <data name="L_ADDBATCH" xml:space="preserve">
-		<value>Ajouter un batch</value>
+		<value>Ajouter un lot</value>
 	</data>
   <data name="B_SELECT" xml:space="preserve">
 		<value>Sélectionner</value>
@@ -776,10 +776,10 @@
 		<value>Visite au</value>
 	</data>
   <data name="L_FROM" xml:space="preserve">
-		<value>A partir de</value>
+		<value>À partir de</value>
 	</data>
   <data name="L_CLAIMREVIEWSTATUS" xml:space="preserve">
-		<value>Satut vérif.</value>
+		<value>Statut vérification.</value>
 	</data>
   <data name="L_ADJUSTMENT" xml:space="preserve">
 		<value>Ajustement</value>
@@ -794,7 +794,7 @@
 		<value>Tarif approuvé</value>
 	</data>
   <data name="L_CLAIMREVIEWPAGETITLE" xml:space="preserve">
-		<value>Vérification des remboursements</value>
+		<value>Vérification des prestations</value>
 	</data>
   <data name="L_DATEREVIEWED" xml:space="preserve">
 		<value>Date de la vérification</value>
@@ -818,7 +818,7 @@
 		<value>Type de facture</value>
 	</data>
   <data name="L_DATECLAIMED" xml:space="preserve">
-		<value>Date de remboursement</value>
+		<value>Date de prestation</value>
 	</data>
   <data name="L_ENDDATE" xml:space="preserve">
 		<value>au</value>
@@ -842,7 +842,7 @@
 		<value>Mois</value>
 	</data>
   <data name="L_PROCESS" xml:space="preserve">
-		<value>Traitement par batch</value>
+		<value>Évaluation par lot</value>
 	</data>
   <data name="L_YEAR" xml:space="preserve">
 		<value>Année</value>
@@ -854,7 +854,7 @@
 		<value>Traitement</value>
 	</data>
   <data name="L_PROCESSPAGETITLE" xml:space="preserve">
-		<value>Traitement par batch</value>
+		<value>Évaluation par lot</value>
 	</data>
   <data name="L_CURRENTUSER" xml:space="preserve">
 		<value>Utilisateur actuel</value>
@@ -884,13 +884,13 @@
 		<value>Export XML</value>
 	</data>
   <data name="B_EXTRACT" xml:space="preserve">
-		<value>Extrait</value>
+		<value>Extraction</value>
 	</data>
   <data name="L_EXTRACT1" xml:space="preserve">
 		<value>Extraction XML de la police</value>
 	</data>
   <data name="L_EXTRACT2" xml:space="preserve">
-		<value>Extractions produits/prestations XML</value>
+		<value>Extractions produits/soins XML</value>
 	</data>
   <data name="L_BOTH" xml:space="preserve">
 		<value>Les deux</value>
@@ -1088,7 +1088,7 @@
 		<value>Tableau de bord de l'utilisateur</value>
 	</data>
   <data name="M_WRONGCONVERSIONPRODUCTCODE" xml:space="preserve">
-		<value>Le produit de conversion ne peut être le même que le produit actuel</value>
+		<value>La conversion du paquet de bénéfices ne peut être le même que le paquet de bénéfices actuel</value>
 	</data>
   <data name="M_ERRORMESSAGE" xml:space="preserve">
 		<value>Cette action n'a pas pu être effectuée. Veuillez appeler votre centre d'assistance pour plus d'informations.</value>
@@ -1133,7 +1133,7 @@
 		<value> modifié avec succès par Chef de famille/ groupe</value>
 	</data>
   <data name="M_MOVEINSUREE" xml:space="preserve">
-		<value>déplacé avec succès vers la(le) famille/groupe</value>
+		<value>Déplacé avec succès vers la(le) famille/groupe</value>
 	</data>
   <data name="M_EXTR_PHONENOK" xml:space="preserve">
 		<value>L'extraction des téléphones n'a pas pu être créé pour le moment. Veuillez consulter l'assistance technique.</value>
@@ -1145,19 +1145,19 @@
 		<value>Tout cocher</value>
 	</data>
   <data name="L_PRODUCTDETAILS" xml:space="preserve">
-		<value>Détails du produit d'assurance</value>
+		<value>Détails du paquets de bénéfices</value>
 	</data>
   <data name="P_FINDFAMILY" xml:space="preserve">
 		<value>Rechercher famille/groupe</value>
 	</data>
   <data name="P_FINDHF" xml:space="preserve">
-		<value>Tableau de bord des FOSA</value>
+		<value>Tableau de bord des ESA</value>
 	</data>
   <data name="P_FINDMI" xml:space="preserve">
 		<value>Tableau de bord des produits médicaux</value>
 	</data>
   <data name="P_FINDMS" xml:space="preserve">
-		<value>Tableau de bord des prestations médicales</value>
+		<value>Tableau de bord des soins</value>
 	</data>
   <data name="P_FINDOFFICER" xml:space="preserve">
 		<value>Tableau de bord des agents d'affiliation</value>
@@ -1169,16 +1169,16 @@
 		<value>Tableau de bord liste des tarifs des produits médicaux</value>
 	</data>
   <data name="P_FINDPLMS" xml:space="preserve">
-		<value>Tableau de bord de la liste de tarifs des prestations médicales</value>
+		<value>Tableau de bord de la liste de tarifs des soins</value>
 	</data>
   <data name="P_FINDPOLICY" xml:space="preserve">
 		<value>Rechercher la police</value>
 	</data>
   <data name="P_FINDPRODUCT" xml:space="preserve">
-		<value>Tableau de bord des produits</value>
+		<value>Tableau de bord des paquets de bénéfices</value>
 	</data>
   <data name="P_PRODUCT" xml:space="preserve">
-		<value>Produit</value>
+		<value>Paquet de bénéfices</value>
 	</data>
   <data name="L_JOURNALON" xml:space="preserve">
 		<value>Journal sur </value>
@@ -1187,7 +1187,7 @@
 		<value>IMIS</value>
 	</data>
   <data name="L_CONFIRMPOPUPTITLE" xml:space="preserve">
-		<value>IMIS</value>
+		<value>openIMIS</value>
 	</data>
   <data name="M_NOINSUREEFOUND" xml:space="preserve">
 		<value>Assuré introuvable</value>
@@ -1211,13 +1211,13 @@
 		<value>Marié</value>
 	</data>
   <data name="T_SELECTGENDER" xml:space="preserve">
-		<value>Sélectionner le sexe</value>
+		<value>Sél. genre</value>
 	</data>
   <data name="T_SELECTROLE" xml:space="preserve">
 		<value>Sélectionner le rôle</value>
 	</data>
   <data name="T_SELECTSTATUS" xml:space="preserve">
-		<value>Sél. le statut </value>
+		<value>Sél. statut </value>
 	</data>
   <data name="T_SELECTYESNO" xml:space="preserve">
 		<value>Sél. oui ou non</value>
@@ -1340,25 +1340,25 @@
 		<value>Vérifié</value>
 	</data>
   <data name="T_SELECTAPAYER" xml:space="preserve">
-		<value>-Sél. un financeur-</value>
+		<value>Sél. financeur</value>
 	</data>
   <data name="T_SELECTAVILLAGE" xml:space="preserve">
-		<value> Sél. un village </value>
+		<value>Sél. village </value>
 	</data>
   <data name="T_SELECTAWARD" xml:space="preserve">
-		<value>Sél. une municipalité</value>
+		<value>Sél. municipalité</value>
 	</data>
   <data name="T_SELECTDISTRICT" xml:space="preserve">
-		<value> Sél. Un district</value>
+		<value> Sél. district</value>
 	</data>
   <data name="T_SELECTED" xml:space="preserve">
 		<value>Sélectionné</value>
 	</data>
   <data name="T_SELECTHFCODE" xml:space="preserve">
-		<value>Sél code ES</value>
+		<value>Sél. code ES</value>
 	</data>
   <data name="T_SELECTITEMTYPE" xml:space="preserve">
-		<value>- Type produit méd. -</value>
+		<value>Sél. Type produit méd.</value>
 	</data>
   <data name="T_SELECTLANGUAGE" xml:space="preserve">
 		<value>Sélectionner la langue</value>
@@ -1382,16 +1382,16 @@
 		<value>Sélectionner la liste de tarifs</value>
 	</data>
   <data name="T_SELECTPRODUCT" xml:space="preserve">
-		<value>- Produit d'assurance -</value>
+		<value>Sél. paquet de bénéfices</value>
 	</data>
   <data name="T_SELECTSERVICETYPE" xml:space="preserve">
-		<value>Sél. le type de prestation </value>
+		<value>Sél. le type de soin </value>
 	</data>
   <data name="T_SELECTTYPE" xml:space="preserve">
 		<value>Sél. le type</value>
 	</data>
   <data name="T_SIMPLESERVICE" xml:space="preserve">
-		<value>Prestation ordinaire</value>
+		<value>Soin ordinaire</value>
 	</data>
   <data name="T_STATUS" xml:space="preserve">
 		<value>Statut de la police </value>
@@ -1436,7 +1436,7 @@
 		<value>Ne peut pas ajouter de cotisation. Aucune police trouvée</value>
 	</data>
   <data name="L_UTILITIES" xml:space="preserve">
-		<value>Fonctionnalités</value>
+		<value>Sauvegardes</value>
 	</data>
   <data name="L_IPDEDUCTION" xml:space="preserve">
 		<value>Déduction IP</value>
@@ -1454,13 +1454,13 @@
 		<value>Sauvegarde</value>
 	</data>
   <data name="L_EXECUTESCRIPT" xml:space="preserve">
-		<value>EXECUTER LE SCRIPT</value>
+		<value>Exécuter LE SCRIPT</value>
 	</data>
   <data name="L_EXTRACT11" xml:space="preserve">
 		<value>Extraction XML de la police</value>
 	</data>
   <data name="L_EXTRACT21" xml:space="preserve">
-		<value>Extractions produits /prestations XML</value>
+		<value>Extractions produits /soins XML</value>
 	</data>
   <data name="L_EXTRACTS1" xml:space="preserve">
 		<value>Extractions IMIS</value>
@@ -1475,7 +1475,7 @@
 		<value>Distribution des cotisations</value>
 	</data>
   <data name="L_PRODUCTSALES" xml:space="preserve">
-		<value>Vente des produits</value>
+		<value>Ventes par paquet de bénéfices</value>
 	</data>
   <data name="L_RESTORE" xml:space="preserve">
 		<value>RESTAURER</value>
@@ -1484,7 +1484,7 @@
 		<value>Un autre utilisateur travaille actuellement sur les extractions de compte. Merci d'essayer plus tard.</value>
 	</data>
   <data name="M_EXTR_IMPERR1" xml:space="preserve">
-		<value>Identification de la FOSA non fixé par défaut</value>
+		<value>Identification de la ESA non fixé par défaut</value>
 	</data>
   <data name="M_EXTR_IMPERR2" xml:space="preserve">
 		<value>En-tête de l'extrait non valide</value>
@@ -1493,10 +1493,10 @@
 		<value>Extrait d'un autre district</value>
 	</data>
   <data name="M_EXTR_IMPERR4" xml:space="preserve">
-		<value>L'extrait a une version de base de données différente. Veuillez consulter le service d'assistance IMIS.</value>
+		<value>L'extrait a une version de base de données différente. Veuillez consulter le soin d'assistance IMIS.</value>
 	</data>
   <data name="M_EXTR_IMPERR5" xml:space="preserve">
-		<value>La première extraction à charger doit être une extraction complète. Veuillez consulter le service d'assistance IMIS.</value>
+		<value>La première extraction à charger doit être une extraction complète. Veuillez consulter le soin d'assistance IMIS.</value>
 	</data>
   <data name="M_EXTR_IMPERR6" xml:space="preserve">
 		<value>Les données de cette extraction sont déjà transférées</value>
@@ -1517,7 +1517,7 @@
 		<value>La TOTALITÉ de l'extraction est sélectionné. Le message suivant fournira le résultat de l'extraction en sa TOTALITÉ.</value>
 	</data>
   <data name="M_EXTR_OFFLINENOK" xml:space="preserve">
-		<value>L'extraitraction hors ligne n'a pas pu être créé pour le moment. Veuillez consulter l'assitance technique.</value>
+		<value>L'extraction hors ligne n'a pas pu être créé pour le moment. Veuillez consulter l'assistance technique.</value>
 	</data>
   <data name="M_EXTR_OFFLINEOK" xml:space="preserve">
 		<value>Extraction hors ligne créé. Cliquez sur le lien TÉLÉCHARGER.</value>
@@ -1532,16 +1532,16 @@
 		<value>Détails</value>
 	</data>
   <data name="L_EXTR_IMPORTEXTRACT" xml:space="preserve">
-		<value>Importer l'extrait</value>
+		<value>Importer l'extraction</value>
 	</data>
   <data name="L_EXTR_IMPORTPHOTOS" xml:space="preserve">
 		<value>Importer les photos</value>
 	</data>
   <data name="L_EXTR_OFFLINEEXTRACT" xml:space="preserve">
-		<value>Créer un extrait hors ligne</value>
+		<value>Créer une extraction hors ligne</value>
 	</data>
   <data name="L_EXTR_PHONEEXTRACT" xml:space="preserve">
-		<value>Créer un extrait de téléphone</value>
+		<value>Créer une extraction téléphone</value>
 	</data>
   <data name="L_INSERTED" xml:space="preserve">
 		<value>Insérer</value>
@@ -1598,28 +1598,28 @@
 		<value>Manual/IMIS_manual.pdf</value>
 	</data>
   <data name="L_CLAIMFROM" xml:space="preserve">
-		<value>Remboursement du</value>
+		<value>Prestation du</value>
 	</data>
   <data name="L_CLAIMOVERVIEW" xml:space="preserve">
-		<value>Aperçu du remboursement</value>
+		<value>Aperçu de la prestation</value>
 	</data>
   <data name="L_CLAIMSELECTIONUPDATE" xml:space="preserve">
-		<value>MAJ de la sélection de remboursements</value>
+		<value>MAJ de la sélection de prestations</value>
 	</data>
   <data name="L_CLAIMTO" xml:space="preserve">
-		<value>Remboursement à</value>
+		<value>Prestation à</value>
 	</data>
   <data name="L_FILTERCRITERIA" xml:space="preserve">
 		<value>Critère du filtre</value>
 	</data>
   <data name="L_BATCHRUN" xml:space="preserve">
-		<value>Lancement du batch</value>
+		<value>Lancement du lot</value>
 	</data>
   <data name="L_CLAIMREVIEW" xml:space="preserve">
 		<value>Vérification</value>
 	</data>
   <data name="L_SELECTTOPROCESS" xml:space="preserve">
-		<value>Sélectionner pour lancer le traitement</value>
+		<value>Sélectionner pour traitement</value>
 	</data>
   <data name="L_SELECTTOSUBMIT" xml:space="preserve">
 		<value>Sélectionner pour lancer le traitement</value>
@@ -1631,25 +1631,25 @@
 		<value>Idle (en attente)</value>
 	</data>
   <data name="T_FEEDBACKSELECT" xml:space="preserve">
-		<value>Sél. compte rendu</value>
+		<value>Sél. retour</value>
 	</data>
   <data name="T_REVIEWSELECT" xml:space="preserve">
-		<value>Sél. Vérification</value>
+		<value>Sél. vérification</value>
 	</data>
   <data name="T_SELECT" xml:space="preserve">
 		<value>-Sélectionner-</value>
 	</data>
   <data name="T_SELECTCLAIMCODE" xml:space="preserve">
-		<value>Sél. code remboursement</value>
+		<value>Sél. code prestation</value>
 	</data>
   <data name="L_CLAIMDATEFROM" xml:space="preserve">
-		<value>Date du remboursement du </value>
+		<value>Date de la prestation du </value>
 	</data>
   <data name="L_VISITDATEFROM" xml:space="preserve">
 		<value>Visite du</value>
 	</data>
   <data name="L_HFCLAIM" xml:space="preserve">
-		<value>Remboursement de la FOSA</value>
+		<value>Prestation de la ESA</value>
 	</data>
   <data name="L_REPORTINDICATORS" xml:space="preserve">
 		<value>Indicateurs de rapport</value>
@@ -1661,10 +1661,10 @@
 		<value>Sél. pour vérification</value>
 	</data>
   <data name="T_DELIVERED" xml:space="preserve">
-		<value>Livré</value>
+		<value>Fait</value>
 	</data>
   <data name="T_SELECTEDFORFEEDBACK" xml:space="preserve">
-		<value>Sél. pour contrôle</value>
+		<value>Sél. pour retour</value>
 	</data>
   <data name="L_VISITDATETO" xml:space="preserve">
 		<value>au</value>
@@ -1676,40 +1676,40 @@
 		<value>Vérifié</value>
 	</data>
   <data name="M_ADDATLEASTONEITEMORSERVICE" xml:space="preserve">
-		<value>Veuillez ajouter au moins une prestation ou un produit médical pour continuer</value>
+		<value>Veuillez ajouter au moins un soin ou un produit médical pour continuer</value>
 	</data>
   <data name="M_CHFIDNOTFOUND" xml:space="preserve">
 		<value>Numéro d'assurance introuvable!</value>
 	</data>
   <data name="M_CLAIMCODEEXISTS" xml:space="preserve">
-		<value>Ce code de remboursement existe déjà</value>
+		<value>Ce code de prestation existe déjà</value>
 	</data>
   <data name="M_CLAIMDATENOTAFTERTODAY" xml:space="preserve">
-		<value>La date du remboursement ne peut-être postérieure à la date d'aujourd'hui</value>
+		<value>La date de la prestation ne peut-être postérieure à la date d'aujourd'hui</value>
 	</data>
   <data name="M_CLAIMDATENOTBEFOREVISITDATE" xml:space="preserve">
-		<value>La date du remboursement ne peut être antérieure à la date de visite du</value>
+		<value>La date de la prestation ne peut être antérieure à la date de visite du</value>
 	</data>
   <data name="M_CLAIMDELETED" xml:space="preserve">
-		<value>Le remboursement a été supprimée avec succès</value>
+		<value>Le prestation a été supprimée avec succès</value>
 	</data>
   <data name="M_CLAIMNOTENTEREDNODELETE" xml:space="preserve">
-		<value>La situation de ce remboursement n'est pas RENSEIGNÉ et ne peut donc pas être supprimé</value>
+		<value>La situation de cette prestation n'est pas RENSEIGNÉ et ne peut donc pas être supprimé</value>
 	</data>
   <data name="M_CLAIMNOTFORFEEDBACKPROCESS" xml:space="preserve">
-		<value>Le statut du remboursement ne permet pas de le soumettre pour contrôle</value>
+		<value>Le statut de la prestation ne permet pas de demander un retour d'information</value>
 	</data>
   <data name="M_CLAIMNOTFORREVIEWPROCESS" xml:space="preserve">
-		<value>Le statut du remboursement ne permet pas de le soumettre pour vérification</value>
+		<value>Le statut de la prestation ne permet pas de le soumettre pour vérification</value>
 	</data>
   <data name="M_CLAIMSEXCEEDLIMIT" xml:space="preserve">
-		<value>Le nombre de remboursement dépasse la limite permise pour être chargé en une seule fois, Veuillez utiliser les critères de filtrage pour affiner votre sélection</value>
+		<value>Le nombre de prestation dépasse la limite permise pour être chargé en une seule fois, Veuillez utiliser les critères de filtrage pour affiner votre sélection</value>
 	</data>
   <data name="M_CLAIMSTATUSCHANGEDFROMENTERED" xml:space="preserve">
-		<value>La situation de ce remboursement a été modifié depuis l'enregistrement par un autre utilisateur</value>
+		<value>La situation de cette prestation a été modifié depuis l'enregistrement par un autre utilisateur</value>
 	</data>
   <data name="M_CONFIRMCLAIMDELETE" xml:space="preserve">
-		<value>Voulez-vous vraiment supprimer ce remboursement ?</value>
+		<value>Voulez-vous vraiment supprimer cette prestation ?</value>
 	</data>
   <data name="M_CONFIRMROWCLEARING" xml:space="preserve">
 		<value>Voulez-vous vraiment effacer cette ligne?</value>
@@ -1721,7 +1721,7 @@
 		<value>Veuillez entrer une quantité valide</value>
 	</data>
   <data name="M_FEEDBACKSTATUSUPDATED" xml:space="preserve">
-		<value>Les comptes rendus ont été mis à jour avec succès</value>
+		<value>Les retours d'information ont été mis à jour avec succès</value>
 	</data>
   <data name="M_FILLITEMQUANTITY" xml:space="preserve">
 		<value>Veuillez remplir la quantité de produits médicaux</value>
@@ -1730,19 +1730,19 @@
 		<value>Veuillez remplir la valeur du produit médical</value>
 	</data>
   <data name="M_FILLSERVICEQUANTITY" xml:space="preserve">
-		<value>Veuillez remplir la quantité de prestations</value>
+		<value>Veuillez remplir la quantité de soins</value>
 	</data>
   <data name="M_FILLSERVICEVALUE" xml:space="preserve">
-		<value>Veuillez remplir la valeur de la prestation</value>
+		<value>Veuillez remplir la valeur du soin</value>
 	</data>
   <data name="M_REVIEWFEEDBACKSTATUSUPDATED" xml:space="preserve">
-		<value>Les comptes rendus et les vérifications ont été mis à jour avec succès</value>
+		<value>Les retours d'information et les vérifications ont été mis à jour avec succès</value>
 	</data>
   <data name="M_REVIEWSTATUSUPDATED" xml:space="preserve">
 		<value>Les statuts de vérification ont été mis à jour avec succès</value>
 	</data>
   <data name="M_SELECTHFCODE" xml:space="preserve">
-		<value>Veuillez sélectionner un code d'ötablissement de santé</value>
+		<value>Veuillez sélectionner un code d'établissement de santé</value>
 	</data>
   <data name="M_SELECTICDCODE" xml:space="preserve">
 		<value>Veuillez sélectionner un code digital principal</value>
@@ -1751,16 +1751,16 @@
 		<value>Veuillez sélectionner le code produit médical</value>
 	</data>
   <data name="M_SELECTREVIEWFEEDBACK" xml:space="preserve">
-		<value>Veuillez sélectionner révision ou commentaires pour continuer</value>
+		<value>Veuillez sélectionner vérification ou retours d'information pour continuer</value>
 	</data>
   <data name="M_VISITDATENOTAFTERCLAIMDATE" xml:space="preserve">
-		<value>La &quot;date de visite à partir de&quot; ne peut pas être ultérieure à la date de remboursement</value>
+		<value>La "date de visite à partir de" ne peut pas être ultérieure à la date de prestation</value>
 	</data>
   <data name="M_VISITDATENOTAFTERTODAY" xml:space="preserve">
-		<value>La &quot;date de visite à partir de&quot; ne peut pas être après aujourd'hui</value>
+		<value>La "date de visite à partir de" ne peut pas être après aujourd'hui</value>
 	</data>
   <data name="M_VISITDATETONOTBEFOREVISITDATEFROM" xml:space="preserve">
-		<value>La &quot;date de visite au&quot; ne peut être avant la &quot;date de visite à partir de&quot;</value>
+		<value>La "date de visite au" ne peut être avant la "date de visite à partir de"</value>
 	</data>
   <data name="T_CHECKED" xml:space="preserve">
 		<value>Vérifié</value>
@@ -1772,49 +1772,49 @@
 		<value>Traité</value>
 	</data>
   <data name="T_REVIEWNOT" xml:space="preserve">
-		<value>Non vérifé</value>
+		<value>Non vérifiée</value>
 	</data>
   <data name="T_VALUATED" xml:space="preserve">
-		<value>Evalué</value>
+		<value>Évaluée</value>
 	</data>
   <data name="M_ARESURETOUPDATE_" xml:space="preserve">
 		<value>Souhaitez-vous appliquer les critères suivants pour </value>
 	</data>
   <data name="M_CLAIMDETAILSUPDATED" xml:space="preserve">
-		<value>Les détails du remboursement ont été mis à jour avec succès</value>
+		<value>Les détails de la prestation ont été mis à jour avec succès</value>
 	</data>
   <data name="M_CLAIMITEMUPDATED" xml:space="preserve">
-		<value>Les produits médicaux de ce remboursement ont été mis à jour avec succès</value>
+		<value>Les produits médicaux de cette prestation ont été mis à jour avec succès</value>
 	</data>
   <data name="M_CLAIMSERVICESUPDATED" xml:space="preserve">
-		<value>Les prestations de ce remboursement ont été mis à jour avec succès</value>
+		<value>Les soins de cette prestation ont été mis à jour avec succès</value>
 	</data>
   <data name="M_CLMDETAILSERVICEITEM" xml:space="preserve">
-		<value>Les informations du remboursement, des prestations et des produits médicaux  ont été mis à jour avec succès</value>
+		<value>Les informations de la prestation, des soins et des produits médicaux  ont été mis à jour avec succès</value>
 	</data>
   <data name="M_CLMDITEMSAVED" xml:space="preserve">
-		<value>Les informations du remboursement, et les produits médicaux ont été enregistrés avec succès</value>
+		<value>Les informations de la prestation, et les produits médicaux ont été enregistrés avec succès</value>
 	</data>
   <data name="M_CLMDSERVICEITEMSAVED" xml:space="preserve">
-		<value>Les informations du remboursement, des prestations et des produits médicaux  ont été enregistrés avec succès</value>
+		<value>Les informations de la prestation, des soins et des produits médicaux  ont été enregistrés avec succès</value>
 	</data>
   <data name="M_CLMDSERVICESSAVED" xml:space="preserve">
-		<value>Les détails du remboursement et les prestations ont été enregistrés avec succès</value>
+		<value>Les détails de la prestation et les soins ont été enregistrés avec succès</value>
 	</data>
   <data name="M_CLMITEMUPDATED" xml:space="preserve">
-		<value>Les informations du remboursement et des produits médicaux ont été mis à jour avec succès</value>
+		<value>Les informations de la prestation et des produits médicaux ont été mis à jour avec succès</value>
 	</data>
   <data name="M_CLMSERVICESITEMSUPDATED" xml:space="preserve">
-		<value>Les prestations et les produits médicaux de ce remboursement ont été mis à jour avec succès</value>
+		<value>Les soins et les produits médicaux de cette prestation ont été mis à jour avec succès</value>
 	</data>
   <data name="M_CLMSERVICESUPDATED" xml:space="preserve">
-		<value>Les détails du remboursement et des prestations ont été mis à jour avec succès</value>
+		<value>Les détails de la prestation et des soins ont été mis à jour avec succès</value>
 	</data>
   <data name="M_CONFIRMSUBMITCLAIMS" xml:space="preserve">
-		<value>Souhaitez-vous soumettre les remboursements?</value>
+		<value>Souhaitez-vous soumettre les prestations?</value>
 	</data>
   <data name="M_FEEDBACK" xml:space="preserve">
-		<value>Contrôle</value>
+		<value>Retours d'information</value>
 	</data>
   <data name="M_ITEMSDELETED" xml:space="preserve">
 		<value>Les produits médicaux ont été supprimés avec succès</value>
@@ -1823,46 +1823,46 @@
 		<value>Les produits médicaux ont été sauvegardés avec succès</value>
 	</data>
   <data name="M_NOCHANGEMADETOCLAIM" xml:space="preserve">
-		<value>Aucune modification n'a été apportée à ce remboursement</value>
+		<value>Aucune modification n'a été apportée à cette prestation</value>
 	</data>
   <data name="M_NOCLMTOBEPROCESSED" xml:space="preserve">
-		<value>Il n'y a aucun remboursement sélectionné pour être traité</value>
+		<value>Il n'y a aucune prestation sélectionnée pour être traitée</value>
 	</data>
   <data name="M_ONEMORECLMFDPENDING" xml:space="preserve">
-		<value>Un ou plusieurs remboursements ont des contrôles en attente.</value>
+		<value>Un ou plusieurs prestations ont des retours d'information en attente.</value>
 	</data>
   <data name="M_ONEMORECLMNOTREVIEWED" xml:space="preserve">
-		<value>Un ou plusieurs remboursements n'ont pas été vérifiés.</value>
+		<value>Un ou plusieurs prestations n'ont pas été vérifiés.</value>
 	</data>
   <data name="M_ONEMORENOTREVIEWEDFDPENDS" xml:space="preserve">
-		<value>Un ou plusieurs remboursements n'ont pas été vérifiés et des comptes rendus de contrôle sont en attente.</value>
+		<value>Un ou plusieurs prestations n'ont pas été vérifiés et des retours d'information sont en attente.</value>
 	</data>
   <data name="M_REVIEW" xml:space="preserve">
 		<value>Vérification</value>
 	</data>
   <data name="M_SERVICESDELETED" xml:space="preserve">
-		<value>Les prestations ont été supprimés avec succès</value>
+		<value>Les soins ont été supprimés avec succès</value>
 	</data>
   <data name="M_SERVICESITEMDELETED" xml:space="preserve">
-		<value>Les prestations et les produits ont été supprimés avec succès</value>
+		<value>Les soins et les produits ont été supprimés avec succès</value>
 	</data>
   <data name="M_SERVICESITEMSSAVED" xml:space="preserve">
-		<value>Les prestations et les produits ont été sauvegardés avec succès</value>
+		<value>Les soins et les produits ont été sauvegardés avec succès</value>
 	</data>
   <data name="M_SERVICESSAVED" xml:space="preserve">
-		<value>Les prestations ont été sauvegardés avec succès</value>
+		<value>Les soins ont été sauvegardés avec succès</value>
 	</data>
   <data name="M_STATUSOFTHESECLM" xml:space="preserve">
 		<value> sélectionner</value>
 	</data>
   <data name="M_VALIDATEADDBUTTON" xml:space="preserve">
-		<value>Veuillez sélectionner un district, un code de établissement de santé et un gestionnaire de remboursement pour pouvoir ajouter un remboursement</value>
+		<value>Veuillez sélectionner un district, un code de établissement de santé et un gestionnaire de prestation pour pouvoir ajouter un prestation</value>
 	</data>
   <data name="M_VALIDATEFEEDBACKSAVE" xml:space="preserve">
-		<value>Aucune modification n'a été apportée à ce remboursement, veuillez apporter des modifications pour enregistrer ou appuyer sur le bouton annuler</value>
+		<value>Aucune modification n'a été apportée au retour d'information de cette prestation, veuillez apporter des modifications pour enregistrer ou appuyer sur le bouton annuler</value>
 	</data>
   <data name="M_VALIDATESUBMITCLAIMS" xml:space="preserve">
-		<value>Il n'y a aucun remboursement sélectionné pour être soumis</value>
+		<value>Il n'y a aucune prestation sélectionnée pour être soumise</value>
 	</data>
   <data name="M_CHANGED" xml:space="preserve">
 		<value>Modifié:</value>
@@ -1871,10 +1871,10 @@
 		<value>Vérifié:</value>
 	</data>
   <data name="M_CLAIMSUBMITTED_" xml:space="preserve">
-		<value>Remboursements soumis</value>
+		<value>Prestations soumises </value>
 	</data>
   <data name="M_FAILED" xml:space="preserve">
-		<value>Echoué:</value>
+		<value>Échouée:</value>
 	</data>
   <data name="M_ITEMSPASSED" xml:space="preserve">
 		<value>Produits médicaux validés:</value>
@@ -1895,10 +1895,10 @@
 		<value>Sélectionné:</value>
 	</data>
   <data name="M_SERVICESPASSED" xml:space="preserve">
-		<value>Prestations acceptées:</value>
+		<value>Soins acceptés:</value>
 	</data>
   <data name="M_SERVICESREJECTED" xml:space="preserve">
-		<value>Prestations rejetées:</value>
+		<value>Soins rejetés:</value>
 	</data>
   <data name="M_SUBMITTED" xml:space="preserve">
 		<value>Soumis:</value>
@@ -1907,67 +1907,67 @@
 		<value>Soumettre pour traitement</value>
 	</data>
   <data name="M_SUBMITTEDTOUPDATE" xml:space="preserve">
-		<value>Remboursements soumis au processus de sélection</value>
+		<value>Prestations soumises pour traitement</value>
 	</data>
   <data name="M_VALUATED" xml:space="preserve">
-		<value>Evalué:</value>
+		<value>Évaluée:</value>
 	</data>
   <data name="M_WLDLIKETOPROCESSCLAIMS" xml:space="preserve">
-		<value>Voulez-vous traiter les demandes de remboursement ?</value>
+		<value>Voulez-vous traiter les demandes de prestation ?</value>
 	</data>
   <data name="L_EXTR_DOWNLOADCLAIMS" xml:space="preserve">
-		<value>Télécharger le remboursement XMLs</value>
+		<value>Télécharger le prestation XMLs</value>
 	</data>
   <data name="L_EXTR_UPLOADCLAIMS" xml:space="preserve">
-		<value>Importer les remboursement en format XML</value>
+		<value>Importer les prestation en format XML</value>
 	</data>
   <data name="M_CLMALREADYREVIEWEDBYUSER" xml:space="preserve">
-		<value>Ce remboursement a déjà été vérifié par un autre utilisateur</value>
+		<value>Cette prestation a déjà été vérifié par un autre utilisateur</value>
 	</data>
   <data name="M_PROCESS_" xml:space="preserve">
-		<value> processus</value>
+		<value>Traitement</value>
 	</data>
   <data name="M_WLDLIKECONTINUEWITH" xml:space="preserve">
 		<value>Souhaitez-vous continuer avec le</value>
 	</data>
   <data name="L_FEEDBACKPROMPT" xml:space="preserve">
-		<value>Compte rendu</value>
+		<value>Saisi de retours d'information</value>
 	</data>
   <data name="M_WRONGITEMCODENAME" xml:space="preserve">
 		<value>La combinaison code produit et dénomination, dans un ou plusieurs produits médicaux, n'existe pas.</value>
 	</data>
   <data name="M_WRONGSERVICECODENAME" xml:space="preserve">
-		<value>La combinaison du code de la prestation et de son nom dans une ou plusieurs prestations n'existe pas</value>
+		<value>La combinaison du code du soin et de son nom dans une ou plusieurs soins n'existe pas</value>
 	</data>
   <data name="M_FEEDBACKSAVEDSUCCESSFULLY" xml:space="preserve">
-		<value>La compte rendu a été enregistré avec succès et l'état du remboursement est mis à jour pour être envoyé</value>
+		<value>Le retour d'information a été enregistré avec succès et l'état de la prestation est mis à jour pour être envoyé</value>
 	</data>
   <data name="M_FEEDBACKUPDATEDSUCCESSFULLY" xml:space="preserve">
-		<value>La compte rendu a été mis à jour avec succès</value>
+		<value>Le retour d'information a été mis à jour avec succès</value>
 	</data>
   <data name="M_MANNUALNOUPDATE" xml:space="preserve">
-		<value>Aucune modification n'a été apportée à ce remboursement</value>
+		<value>Aucune modification n'a été apportée à cette prestation</value>
 	</data>
   <data name="T_SELECTBATCH" xml:space="preserve">
 		<value>Sél. le groupe</value>
 	</data>
   <data name="M_CLAIMPASSEDWITHITEMCHANGE" xml:space="preserve">
-		<value>Les informations sur le remboursement ont été mis à jour avec succès en modifiant les détails sur le produit médical uniquement</value>
+		<value>Les informations sur les prestations ont été mises à jour avec succès en modifiant les détails sur le produit médical uniquement</value>
 	</data>
   <data name="M_CLAIMPASSEDWITHOUTCHANGE" xml:space="preserve">
-		<value>Les informations du remboursement ont été mis à jour avec succès sans modification des détails des prestations et des produits médicaux</value>
+		<value>Les informations de la prestation ont été mis à jour avec succès sans modification des détails des soins et des produits médicaux</value>
 	</data>
   <data name="M_CLAIMPASSEDWITHSERVICECHANGE" xml:space="preserve">
-		<value>Le détail du remboursement a été mis à jour avec succès en modifiant les détails des prestations seulement</value>
+		<value>Le détail de la prestation a été mis à jour avec succès en modifiant les détails des soins seulement</value>
 	</data>
   <data name="M_CLAIMPASSEDWITHSERVICEITEMCHANGES" xml:space="preserve">
-		<value>Les informations du remboursement ont été mis à jour avec succès en modifiant les détails des prestations et des produits médicaux</value>
+		<value>Les informations de la prestation ont été mis à jour avec succès en modifiant les détails des soins et des produits médicaux</value>
 	</data>
   <data name="M_CLMITEMNOCHANGESERVICEYES" xml:space="preserve">
-		<value>Les détails des prestations du remboursement ont été changés avec succès</value>
+		<value>Les détails des soins de la prestation ont été changés avec succès</value>
 	</data>
   <data name="M_CLMNOCHANGEITEMSERVICEYES" xml:space="preserve">
-		<value>Les informations des prestations et des produits médicaux ont été modifiés avec succès</value>
+		<value>Les informations des soins et des produits médicaux ont été modifiés avec succès</value>
 	</data>
   <data name="M_CLMSERVICENOCHANGEITEMYES" xml:space="preserve">
 		<value>Les informations des produits médicaux ont été modifiés avec succès</value>
@@ -1976,13 +1976,13 @@
 		<value>Impossible de définir le statut à 'Accepter' pour les produits médicaux rejetés par le système</value>
 	</data>
   <data name="M_CANNOTPASSSERVICEREJECTED" xml:space="preserve">
-		<value>Impossible de définir le statut à franchir pour les prestations rejetées par le système</value>
+		<value>Impossible de définir le statut à franchir pour les Soins rejetés par le système</value>
 	</data>
   <data name="L_SHOWALL" xml:space="preserve">
 		<value>Tout montrer</value>
 	</data>
   <data name="M_BATCHPROCESSRUNDONETHISSELECTION" xml:space="preserve">
-		<value>Le traitement par batch a déjà été exécuté pour la sélection en cours</value>
+		<value>Le traitement par lot a déjà été exécuté pour la sélection en cours</value>
 	</data>
   <data name="M_ERRORWHILEPROCESSING" xml:space="preserve">
 		<value>Une erreur s'est produite lors du traitement</value>
@@ -2039,7 +2039,7 @@
 		<value>Reçu No.</value>
 	</data>
   <data name="M_EXTR_EXTRACTSEQUENCE" xml:space="preserve">
-		<value>Séquence du dernier extrait :</value>
+		<value>Séquence dernière extraction :</value>
 	</data>
   <data name="M_EXTR_NOEXTRACTSFOUND" xml:space="preserve">
 		<value>Aucune extraction précédente trouvée!</value>
@@ -2117,13 +2117,13 @@
 		<value>Indicateurs opérationnels principaux</value>
 	</data>
   <data name="T_PRODUCTSALES" xml:space="preserve">
-		<value>Vente des produits</value>
+		<value>Ventes par paquet de bénéfices</value>
 	</data>
   <data name="L_HFLEVEL" xml:space="preserve">
 		<value>Catégorie</value>
 	</data>
   <data name="M_ARESURETOPROCESSBATCH" xml:space="preserve">
-		<value>Voulez-vous vraiment traiter les batches pour la sélection en cours?</value>
+		<value>Souhaitez-vous poursuivre le traitement des prestations sélectionnées?</value>
 	</data>
   <data name="T_NONHOSPITAL" xml:space="preserve">
 		<value>Non-hôpital</value>
@@ -2132,7 +2132,7 @@
 		<value>En cours</value>
 	</data>
   <data name="M_CLAIMSAVED" xml:space="preserve">
-		<value>Remboursement sauvegardé</value>
+		<value>Prestation sauvegardée</value>
 	</data>
   <data name="M_INVALIDICDCODE" xml:space="preserve">
 		<value>Code Dg principal invalide</value>
@@ -2150,7 +2150,7 @@
 		<value>Imprimé le</value>
 	</data>
   <data name="L_PRODUCTVALUE" xml:space="preserve">
-		<value>Valeur des produits</value>
+		<value>Montant du paquet de bénéfices</value>
 	</data>
   <data name="L_PROMPTDATE" xml:space="preserve">
 		<value>Date</value>
@@ -2174,13 +2174,13 @@
 		<value>Cotisation disponible</value>
 	</data>
   <data name="L_AVERAGECOSTPERCLAIM" xml:space="preserve">
-		<value>Coût moyen par remboursement</value>
+		<value>Coût moyen par prestation</value>
 	</data>
   <data name="L_CLAIMSETTLEMENTRATIO" xml:space="preserve">
 		<value>Ratio facture / règlement</value>
 	</data>
   <data name="L_CLAIMSPERINSUREE" xml:space="preserve">
-		<value>Remboursements par assuré</value>
+		<value>Prestations par assuré</value>
 	</data>
   <data name="L_COLLECTION" xml:space="preserve">
 		<value>Collection</value>
@@ -2195,16 +2195,16 @@
 		<value>Police expirée</value>
 	</data>
   <data name="L_FEEDBACKPROMPTJ" xml:space="preserve">
-		<value>Journal de comptes rendus</value>
+		<value>Journal des retours d'information</value>
 	</data>
   <data name="L_FEEDBACKRESPONSERATIO" xml:space="preserve">
-		<value>Ratio réponse/contrôles</value>
+		<value>Ratio réponse/demande de retours d'information</value>
 	</data>
   <data name="L_GROWTHRATIO" xml:space="preserve">
 		<value>Taux de croissance</value>
 	</data>
   <data name="L_HFWISEPROCESSBATCH" xml:space="preserve">
-		<value>Rémuneration de la FOSA</value>
+		<value>Rémunération de la ESA</value>
 	</data>
   <data name="L_INCURREDCLAIMRATIO" xml:space="preserve">
 		<value>Taux de sinistralité</value>
@@ -2237,13 +2237,13 @@
 		<value>Indicateurs opérationnels principaux</value>
 	</data>
   <data name="L_PRODUCTWISEPROCESSBATCH" xml:space="preserve">
-		<value>Rémunération du remboursement</value>
+		<value>Rémunération des prestations</value>
 	</data>
   <data name="L_PROMPTNESSOFCLMSETTLEMENT" xml:space="preserve">
-		<value>Rapidité du traitement du remboursement</value>
+		<value>Rapidité du traitement de la prestation</value>
 	</data>
   <data name="L_REJECTEDCLAIMS" xml:space="preserve">
-		<value>Remboursements rejetés</value>
+		<value>Prestations rejetés</value>
 	</data>
   <data name="L_REMUNERATED" xml:space="preserve">
 		<value>Rémunéré</value>
@@ -2261,7 +2261,7 @@
 		<value>Total</value>
 	</data>
   <data name="L_TOTALCLAIMS" xml:space="preserve">
-		<value>Total des remboursements</value>
+		<value>Total des prestations</value>
 	</data>
   <data name="L_TOTALSALES" xml:space="preserve">
 		<value>Ventes totales</value>
@@ -2270,7 +2270,7 @@
 		<value>Date invalide!</value>
 	</data>
   <data name="M_CLMSTATUSALREADYCHANGEDBYUSER" xml:space="preserve">
-		<value>Le statut de ce remboursement a déjà été modifié par un autre utilisateur</value>
+		<value>Le statut de cette prestation a déjà été modifié par un autre utilisateur</value>
 	</data>
   <data name="L_GOBACKTOSELECTOR" xml:space="preserve">
 		<value>Revenir au sélecteur</value>
@@ -2282,13 +2282,13 @@
 		<value>Télécharger</value>
 	</data>
   <data name="B_EXECUTE" xml:space="preserve">
-		<value>EXECUTER</value>
+		<value>Exécuter</value>
 	</data>
   <data name="L_BACKENDVERSION" xml:space="preserve">
 		<value>Version précédente</value>
 	</data>
   <data name="L_FULLEXTRACT" xml:space="preserve">
-		<value>Extraitraction complète</value>
+		<value>Extraction complète</value>
 	</data>
   <data name="L_SAVEPATH" xml:space="preserve">
 		<value>Sauvegarde du chemin</value>
@@ -2312,7 +2312,7 @@
 		<value>Expiré</value>
 	</data>
   <data name="T_FAILED" xml:space="preserve">
-		<value>Echoué</value>
+		<value>Échoué</value>
 	</data>
   <data name="T_RECEIVED" xml:space="preserve">
 		<value>Reçu</value>
@@ -2372,7 +2372,7 @@
 		<value>Veuillez sélectionner la date</value>
 	</data>
   <data name="M_TODATEGREATER" xml:space="preserve">
-		<value>La date &quot;à ce jour&quot; doit être supérieur à la date &quot;à partir de&quot;</value>
+		<value>La date "à ce jour" doit être supérieur à la date "à partir de"</value>
 	</data>
   <data name="M_DATEFORMAT" xml:space="preserve">
 		<value>La date doit est dans le format jj/mm/aaaa</value>
@@ -2417,25 +2417,25 @@
 		<value>Total</value>
 	</data>
   <data name="G_CLAIMADMINISTRATOR" xml:space="preserve">
-		<value>Info Gestionnaire Remboursement</value>
+		<value>Info Gestionnaire Prestation</value>
 	</data>
   <data name="L_CLAIMADMINISTRATOR" xml:space="preserve">
 		<value>Gest. rbsmt</value>
 	</data>
   <data name="L_CLAIMADMINISTRATORS" xml:space="preserve">
-		<value>Gestionnaires de remboursement</value>
+		<value>Gestionnaires de prestation</value>
 	</data>
   <data name="L_FOUNDCLAIMADMINISTRATORS" xml:space="preserve">
-		<value>Gestionnaires des remboursements trouvés</value>
+		<value>Gestionnaires des prestations trouvées</value>
 	</data>
   <data name="L_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
-		<value>Indicateurs opérationnels principaux - remboursement</value>
+		<value>Indicateurs opérationnels principaux - prestation</value>
 	</data>
   <data name="L_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
 		<value>Indicateurs opérationnels principaux - polices</value>
 	</data>
   <data name="T_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
-		<value>Indicateurs opérationnels primaires-remboursement</value>
+		<value>Indicateurs opérationnels primaires-prestation</value>
 	</data>
   <data name="T_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
 		<value>Indicateurs opérationnels principaux - polices</value>
@@ -2444,7 +2444,7 @@
 		<value>Rapport d'activité de l'utilisateur</value>
 	</data>
   <data name="L_CLAIMADMIN" xml:space="preserve">
-		<value>Gestionnaire du remboursement</value>
+		<value>Gestionnaire de la prestation</value>
 	</data>
   <data name="L_ACTIONTIME" xml:space="preserve">
 		<value>Temps d'action</value>
@@ -2471,10 +2471,10 @@
 		<value>Nombre d'agents d'affiliation.</value>
 	</data>
   <data name="L_NOOFHEALTHFACILITIES" xml:space="preserve">
-		<value>Nombre de FOSA</value>
+		<value>Nombre de ESA</value>
 	</data>
   <data name="L_NOOFINSURANCEPRODUCTS" xml:space="preserve">
-		<value>Nombre de produits d'assurance</value>
+		<value>Nombre de paquets de bénéfices</value>
 	</data>
   <data name="L_NOOFITEMPRICELIST" xml:space="preserve">
 		<value>N°liste de tarifs prod. méd.</value>
@@ -2486,10 +2486,10 @@
 		<value>Nombre de financeur</value>
 	</data>
   <data name="L_NOOFSERVICEPRICELIST" xml:space="preserve">
-		<value>Nombre de listes de prestations</value>
+		<value>Nombre de listes de soins</value>
 	</data>
   <data name="L_NOOFSERVICES" xml:space="preserve">
-		<value>Nombre de prestations</value>
+		<value>Nombre de soins</value>
 	</data>
   <data name="L_NOOFUSERS" xml:space="preserve">
 		<value>Nombre d'utilisateur</value>
@@ -2513,7 +2513,7 @@
 		<value>Sél. un nom d'utilisateur</value>
 	</data>
   <data name="T_SELECTCLAIMADMIN" xml:space="preserve">
-		<value>Sél. un gest. remboursement</value>
+		<value>Sél. un gest. prestation</value>
 	</data>
   <data name="L_OFFICERCODE" xml:space="preserve">
 		<value>Code des agents d'affiliation</value>
@@ -2546,7 +2546,7 @@
 		<value>Familles/Groupes transféré(e)s</value>
 	</data>
   <data name="M_INSUREEEXTRACTED" xml:space="preserve">
-		<value>Assuré extrait</value>
+		<value>Assuré extraction</value>
 	</data>
   <data name="M_INSUREEUPLOADED" xml:space="preserve">
 		<value>Assuré importé</value>
@@ -2591,7 +2591,7 @@
 		<value>&lt;/BR&gt;&lt;/BR&gt;Vous n'avez sélectionné aucun district.&lt;/BR&gt;&lt;/BR&gt;Voulez-vous vraiment créer une extraction à l'échelle du pays?&lt;/BR&gt;&lt;/BR&gt;Cliquez sur OUI pour continuer ou cliquez sur NON pour revenir en arrière et sélectionnez un district.</value>
 	</data>
   <data name="M_VALIDATEADDBUTTONCLAIMADMIN" xml:space="preserve">
-		<value>Veuillez d'abord sélectionner un gestionnaire de remboursement</value>
+		<value>Veuillez d'abord sélectionner un gestionnaire de prestation</value>
 	</data>
   <data name="M_VALIDATEADDBUTTONDISTRICT" xml:space="preserve">
 		<value>Veuillez d'abord sélectionner un district</value>
@@ -2612,7 +2612,7 @@
 		<value>Veuillez sélectionner le mois</value>
 	</data>
   <data name="L_ISHEAD" xml:space="preserve">
-		<value>est chef?</value>
+		<value>Est chef?</value>
 	</data>
   <data name="L_OFFICERLASTNAME" xml:space="preserve">
 		<value>Nom des agents d'affiliation</value>
@@ -2624,7 +2624,7 @@
 		<value>Assurés sans photos</value>
 	</data>
   <data name="L_EDUCATION" xml:space="preserve">
-		<value>Education</value>
+		<value>Éducation</value>
 	</data>
   <data name="L_PROFESSION" xml:space="preserve">
 		<value>Profession</value>
@@ -2789,7 +2789,7 @@
 		<value>Le paiement d'une police expirée n'est pas autorisé.</value>
 	</data>
   <data name="M_NOADVSEARCHPRODUCTDETAILS" xml:space="preserve">
-		<value>Aucun détail de produit pour cet(te) assuré(e)</value>
+		<value>Aucun détail de paquet de bénéfices pour cet(te) assuré(e)</value>
 	</data>
   <data name="M_NOPOLICYENROLLEDFORADHERENT" xml:space="preserve">
 		<value>Nombre de police souscrite pour cet(te) assuré(e)</value>
@@ -2804,7 +2804,7 @@
 		<value>Date minimal</value>
 	</data>
   <data name="L_SERVICE" xml:space="preserve">
-		<value>Prestation</value>
+		<value>Soin</value>
 	</data>
   <data name="L_CONSULTATIONAMOUNTLEFT" xml:space="preserve">
 		<value>Consultation: Montant restant</value>
@@ -2816,7 +2816,7 @@
 		<value>Admission: Montant restant</value>
 	</data>
   <data name="L_PRODUCTID" xml:space="preserve">
-		<value>ID du produit</value>
+		<value>ID du paquet de bénéfices</value>
 	</data>
   <data name="L_SURGERYAMOUNTLEFT" xml:space="preserve">
 		<value>Chirurgie: Montant restant</value>
@@ -2843,7 +2843,7 @@
 		<value>Date min prod. méd.</value>
 	</data>
   <data name="L_SERVICELEFT" xml:space="preserve">
-		<value>Prestations restantes</value>
+		<value>Soins restants</value>
 	</data>
   <data name="L_NA" xml:space="preserve">
 		<value>N/A</value>
@@ -2873,10 +2873,10 @@
 		<value>Les polices avec les dates d'affiliation suivantes ont atteint le maximum du nombre de membres et donc cet(te) assuré(e) ne sera pas couvert par les polices cependant l'assuré(e) sera ajouté(e) à la famille :</value>
 	</data>
   <data name="M_LASTINSTALLMENT" xml:space="preserve">
-		<value>Il s'agit du dernière paiement selon la définition du produit.</value>
+		<value>Il s'agit du dernier paiement selon la définition du paquet de bénéfices.</value>
 	</data>
   <data name="M_PROMPTPOLICYADD" xml:space="preserve">
-		<value>La famille a plus d'assurés que le nombre maximum &lt;br/&gt; de membres autorisés dans le produit sélectionné. &lt;br/&gt; Voulez-vous continuer?</value>
+		<value>La famille a plus d'assurés que le nombre maximum &lt;br/&gt; de membres autorisés dans le paquet de bénéfices sélectionné. &lt;br/&gt; Voulez-vous continuer?</value>
 	</data>
   <data name="M_LATEPOLICYRENEWAL" xml:space="preserve">
 		<value>Le renouvellement de la police est en dehors de la période de grâce. Voulez-vous continuer avec ce renouvellement?</value>
@@ -2951,7 +2951,7 @@
 		<value>F pour (tarif) fixe C pour co-assurance (urgence)</value>
 	</data>
   <data name="M_LIMITATIONR" xml:space="preserve">
-		<value>F pour (tarif) fixe C pour co-assurance (référence)</value>
+		<value>F pour (tarif) fixe C pour co-assurance (référencement)</value>
 	</data>
   <data name="M_CEILING" xml:space="preserve">
 		<value>H pour hôpital exclu N pour non-hôpital exclu B pour l'exclusion des deux</value>
@@ -2963,7 +2963,7 @@
 		<value>Précédent</value>
 	</data>
   <data name="M_PLEASESELECTAPRODUCT" xml:space="preserve">
-		<value>Veuillez sélectionner un produit</value>
+		<value>Veuillez sélectionner un paquet de bénéfices</value>
 	</data>
   <data name="M_REPORTINGDATECHANGED" xml:space="preserve">
 		<value>La génération du rapport d'un point de vue antérieur pourrait entraîner une duplication de la demande de subvention. &lt;br/&gt; Voulez-vous continuer?</value>
@@ -2984,7 +2984,7 @@
 		<value>Type de la visite</value>
 	</data>
   <data name="L_HFACILITY" xml:space="preserve">
-		<value>FOSA</value>
+		<value>ESA</value>
 	</data>
   <data name="R_ADJUSTEDAMOUNT" xml:space="preserve">
 		<value>Montant assuré</value>
@@ -2999,7 +2999,7 @@
 		<value>Numéro d'assurance</value>
 	</data>
   <data name="R_CLAIMADMINNAME" xml:space="preserve">
-		<value>Gestionnaire du remboursement</value>
+		<value>Gestionnaire de la prestation</value>
 	</data>
   <data name="R_CLAIMCODE" xml:space="preserve">
 		<value>Code</value>
@@ -3017,7 +3017,7 @@
 		<value>Montant ajusté</value>
 	</data>
   <data name="R_CLAIMTOTALINITIAL" xml:space="preserve">
-		<value>Montant du remboursement</value>
+		<value>Montant de la prestation</value>
 	</data>
   <data name="R_INSUREENAME" xml:space="preserve">
 		<value>Assuré</value>
@@ -3032,16 +3032,16 @@
 		<value>Qté prod. méd.</value>
 	</data>
   <data name="R_ORIGINALSERVICES" xml:space="preserve">
-		<value>Qté prestation</value>
+		<value>Qté soin</value>
 	</data>
   <data name="R_REJECTEDITEMCODE" xml:space="preserve">
 		<value>Prod. méd. rej.</value>
 	</data>
   <data name="R_REJECTEDSERVICECODE" xml:space="preserve">
-		<value>Prestation rejetée</value>
+		<value>Soin rejeté</value>
 	</data>
   <data name="R_SERVICECODE" xml:space="preserve">
-		<value>Code de la prestation</value>
+		<value>Code du soin</value>
 	</data>
   <data name="R_SERVICEREJECTIONREASONCODE" xml:space="preserve">
 		<value>Raison du rejet</value>
@@ -3053,7 +3053,7 @@
 		<value>Total remboursé</value>
 	</data>
   <data name="R_TOTALCLAIMS" xml:space="preserve">
-		<value>Total des remboursements</value>
+		<value>Total des prestations</value>
 	</data>
   <data name="R_VISITFROM" xml:space="preserve">
 		<value>Visite à partir de</value>
@@ -3062,10 +3062,10 @@
 		<value>Visite jusqu'au</value>
 	</data>
   <data name="T_CLAIMOVERVIEW" xml:space="preserve">
-		<value>Aperçu du remboursement</value>
+		<value>Aperçu de la prestation</value>
 	</data>
   <data name="M_PLEASESELECTHEALTHFACILITY" xml:space="preserve">
-		<value>Veuillez sélectionner une FOSA</value>
+		<value>Veuillez sélectionner une ESA</value>
 	</data>
   <data name="L_EXTRAMEMBERCEILING" xml:space="preserve">
 		<value>Plafond pour un membre supplémentaire</value>
@@ -3086,10 +3086,10 @@
 		<value>Imprimer</value>
 	</data>
   <data name="T_CLAIM" xml:space="preserve">
-		<value>Remboursement</value>
+		<value>Prestation</value>
 	</data>
   <data name="M_CLAIMUPLOADED" xml:space="preserve">
-		<value>Remboursements envoyées avec succès</value>
+		<value>Prestations envoyées avec succès</value>
 	</data>
   <data name="M_ADULT" xml:space="preserve">
 		<value>Adulte</value>
@@ -3116,7 +3116,7 @@
 		<value>Référencement</value>
 	</data>
   <data name="M_SERVICE" xml:space="preserve">
-		<value>Prestation</value>
+		<value>Soin</value>
 	</data>
   <data name="M_WAITINGPERIOD" xml:space="preserve">
 		<value>Période d'attente</value>
@@ -3158,10 +3158,10 @@
 		<value>Municipalité actuelle</value>
 	</data>
   <data name="L_FREEITEMPRICE" xml:space="preserve">
-		<value>Produit de santé gratuit</value>
+		<value>produit médical gratuit</value>
 	</data>
   <data name="L_FREESERVICEPRICE" xml:space="preserve">
-		<value>Prestation gratuite</value>
+		<value>Soin gratuit</value>
 	</data>
   <data name="T_PERCENTAGEOFREFERRALS" xml:space="preserve">
 		<value>Pourcentage de référencement</value>
@@ -3173,7 +3173,7 @@
 		<value>Référencement (hospi)</value>
 	</data>
   <data name="L_REFOP" xml:space="preserve">
-		<value>Référence (ambulatoire)</value>
+		<value>Référencement (ambulatoire)</value>
 	</data>
   <data name="M_MAXTHRESHOLDCOUNTREACHED" xml:space="preserve">
 		<value>Les polices suivantes avec date d'affiliation vont dépasser le nombre maximum d'assuré(e)s. &lt;br /&gt; Voulez-vous activer cet(te) assuré(e)?</value>
@@ -3239,10 +3239,10 @@
 		<value>Sél. l'ethnie</value>
 	</data>
   <data name="M_HealthFacility" xml:space="preserve">
-		<value>Sélectionner la FOSA</value>
+		<value>Sél. ESA</value>
 	</data>
   <data name="M_ITEMNAME" xml:space="preserve">
-		<value>- Sél. liste de tarifs -</value>
+		<value>Sél. liste de tarifs</value>
 	</data>
   <data name="M_NATIONAL" xml:space="preserve">
 		<value>Nationale</value>
@@ -3323,13 +3323,13 @@
 		<value>Toutes les actions</value>
 	</data>
   <data name="R_ALLCLAIMS" xml:space="preserve">
-		<value>Tous les remboursements</value>
+		<value>Tous les prestations</value>
 	</data>
   <data name="R_ENROLLMENTOFFICER" xml:space="preserve">
 		<value>Agent d'affiliation</value>
 	</data>
   <data name="R_EXTRACT" xml:space="preserve">
-		<value>Extrait</value>
+		<value>Extraction</value>
 	</data>
   <data name="R_FAMILY" xml:space="preserve">
 		<value>Famille</value>
@@ -3338,7 +3338,7 @@
 		<value>Insérer</value>
 	</data>
   <data name="R_INSURANCEPRODUCT" xml:space="preserve">
-		<value>Produit d'assurance</value>
+		<value>Paquet de bénéfices</value>
 	</data>
   <data name="R_LOGIN" xml:space="preserve">
 		<value>S'identifier</value>
@@ -3353,7 +3353,7 @@
 		<value>Liste tarifs prod. méd.</value>
 	</data>
   <data name="R_PRICELISTSERVICE" xml:space="preserve">
-		<value>Liste de tarifs des prestations</value>
+		<value>Liste de tarifs des soins</value>
 	</data>
   <data name="R_SELECTENTITY" xml:space="preserve">
 		<value>Toutes les entités</value>
@@ -3410,7 +3410,7 @@
 		<value>Comptable</value>
 	</data>
   <data name="M_CLAIMCONTRIBUTOR" xml:space="preserve">
-		<value>Financeur du remboursement</value>
+		<value>Financeur de la prestation</value>
 	</data>
   <data name="M_CLERK" xml:space="preserve">
 		<value>Employé de bureau</value>
@@ -3428,7 +3428,7 @@
 		<value>Médecin</value>
 	</data>
   <data name="M_OFFLINESCHEMEADMIN" xml:space="preserve">
-		<value>Administrateur du schéma hors ligne</value>
+		<value>Administrateur du régime d'assurance hors ligne</value>
 	</data>
   <data name="M_RECEPTIONIST" xml:space="preserve">
 		<value>Réceptionniste</value>
@@ -3437,7 +3437,7 @@
 		<value>Administrateur du régime d'assurance</value>
 	</data>
   <data name="L_SHOWCLAIM" xml:space="preserve">
-		<value>Montrer les remboursements</value>
+		<value>Montrer les prestations</value>
 	</data>
   <data name="M_SENDSMS" xml:space="preserve">
 		<value>SMS envoyé</value>
@@ -3461,7 +3461,7 @@
 		<value>Rechercher le financeur</value>
 	</data>
   <data name="L_FINDCLAIMADMINISTRATORS" xml:space="preserve">
-		<value>Rechercher le gestionnaire des remboursements</value>
+		<value>Rechercher le gestionnaire des prestations</value>
 	</data>
   <data name="L_FINDINSUREE" xml:space="preserve">
 		<value>Rechercher l'assuré(e)</value>
@@ -3470,7 +3470,7 @@
 		<value>Rechercher les produits médicaux</value>
 	</data>
   <data name="L_FINDMEDICALSERVICES" xml:space="preserve">
-		<value>Rechercher les prestations médicales</value>
+		<value>Rechercher les soins</value>
 	</data>
   <data name="L_FINDOFFICER" xml:space="preserve">
 		<value>Rechercher les agents d'affiliation</value>
@@ -3485,13 +3485,13 @@
 		<value>Rechercher les listes de tarifs MS</value>
 	</data>
   <data name="L_HealthFacilities" xml:space="preserve">
-		<value>Rechercher FOSA</value>
+		<value>Rechercher ESA</value>
 	</data>
   <data name="R_PREMIUMDISTRIBUTION" xml:space="preserve">
 		<value>Rapport de distribution de la cotisation</value>
 	</data>
   <data name="L_IMISUTILITIES" xml:space="preserve">
-		<value>IMIS-Utilitiés</value>
+		<value>Sauvegardes</value>
 	</data>
   <data name="T_SELECTSUBCATEGORY" xml:space="preserve">
 		<value>Sél. la sous catégorie</value>
@@ -3647,7 +3647,7 @@
 		<value>Veuillez sélectionner</value>
 	</data>
   <data name="L_HF" xml:space="preserve">
-		<value>FOSA</value>
+		<value>ESA</value>
 	</data>
   <data name="T_SELECTCATEGORY" xml:space="preserve">
 		<value>Sél. catégorie</value>
@@ -3701,7 +3701,7 @@
 		<value>F</value>
 	</data>
   <data name="L_MALEABRREVIATION" xml:space="preserve">
-		<value>M</value>
+		<value>H</value>
 	</data>
   <data name="L_OTHERABRREVIATION" xml:space="preserve">
 		<value>A</value>
@@ -3710,16 +3710,16 @@
 		<value>Région sauvegardée avec succès</value>
 	</data>
   <data name="M_FEEDBACKSELECTION" xml:space="preserve">
-		<value>Souhaitez-vous appliquer les critères suivants pour la sélection des commentaires? &lt;br /&gt;</value>
+		<value>Souhaitez-vous appliquer les critères suivants pour la sélection des retours d'information? &lt;br /&gt;</value>
 	</data>
   <data name="M_REVIEWSELECTION" xml:space="preserve">
-		<value>Souhaitez-vous appliquer les critères suivants pour la sélection des revues? &lt;br /&gt;</value>
+		<value>Souhaitez-vous appliquer les critères suivants pour la sélection des vérifications? &lt;br /&gt;</value>
 	</data>
   <data name="M_WLDLIKEFEEDBACKELECTION" xml:space="preserve">
-		<value>Souhaitez-vous continuer le processus de sélection des commentaires?</value>
+		<value>Souhaitez-vous poursuivre le processus de sélection des retours?</value>
 	</data>
   <data name="M_WLDLIKEREVIEWSELECTION" xml:space="preserve">
-		<value>Souhaitez-vous poursuivre le processus de sélection des revues?</value>
+		<value>Souhaitez-vous poursuivre le processus de sélections des vérifications?</value>
 	</data>
   <data name="L_HFCATCHMENT" xml:space="preserve">
 		<value>Zone de responsabilité</value>
@@ -3743,7 +3743,7 @@
 		<value>Cliquez ici pour charger la liste de produits médicaux</value>
 	</data>
   <data name="L_LOADMEDICALSERVICES" xml:space="preserve">
-		<value>Cliquez ici pour charger la liste de prestations médicales</value>
+		<value>Cliquez ici pour charger la liste de soins</value>
 	</data>
   <data name="M_BGEXTRACTCOMPLETED" xml:space="preserve">
 		<value>Votre requête a été soumisse et l'extrait est en train d'être généré. Dès que celui-ci sera prêt, vous  recevrez un courriel  avec le lien de téléchargement. En attendant, vous pouvez quitter cette page.</value>
@@ -3803,7 +3803,7 @@
 		<value>Paiement Capitation </value>
 	</data>
   <data name="L_NOOFCLAIMS" xml:space="preserve">
-		<value>Nombre de remboursements</value>
+		<value>Nombre de prestations</value>
 	</data>
   <data name="L_NOOFFAMILIES" xml:space="preserve">
 		<value>Nombre de Familles</value>
@@ -3830,7 +3830,7 @@
 		<value>Contribution allouée</value>
 	</data>
   <data name="L_DISTRICTTOTAL" xml:space="preserve">
-		<value>District Total</value>
+		<value>Total District </value>
 	</data>
   <data name="L_REGIONTOTAL" xml:space="preserve">
 		<value>Total Région </value>
@@ -3851,7 +3851,7 @@
 		<value>Téléverser des lieux</value>
 	</data>
   <data name="M_AREYOUSUREUPLOADLOCATIONS" xml:space="preserve">
-		<value>êtes vous sûr de téléverser cette nouvelle liste de lieux ?</value>
+		<value>Êtes-vous sûr de téléverser cette nouvelle liste de lieux ?</value>
 	</data>
   <data name="M_SELECTONLYEXCELFILE" xml:space="preserve">
 		<value>Sélectionner un seul  fichier</value>
@@ -3905,7 +3905,7 @@
 		<value>Code de municipalité du fichier déjà dans la base de donnée</value>
 	</data>
   <data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value>Municipalité du ficher  Village n'existe ni dans la base de donnée in dans le fichier municipalité</value>
+		<value>Municipalité du ficher "Village" n'existe ni dans la base de donnée in dans le fichier "municipalité"</value>
 	</data>
   <data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
 		<value>Code de région dans le fichier existe déjà dans la base de donnée</value>
@@ -3962,7 +3962,7 @@
 		<value>Supprimé</value>
 	</data>
   <data name="M_HFUPLOADED" xml:space="preserve">
-		<value>Etablissement de santé téléversés avec succès</value>
+		<value>Établissement de santé téléversés avec succès</value>
 	</data>
   <data name="M_UNEXPECTEDERRORONUPLOADHF" xml:space="preserve">
 		<value>Erreur inconnue rencontrée lors de l'import des établissements de santé</value>
@@ -3977,22 +3977,22 @@
 		<value>Erreurs</value>
 	</data>
   <data name="L_FATALERROR" xml:space="preserve">
-		<value>Erreur fatal</value>
+		<value>Erreur fatale</value>
 	</data>
   <data name="M_UNEXPECTEDERRORONUPLOADICD" xml:space="preserve">
 		<value>Erreur inconnue rencontrée lors de l'import des diagnostics</value>
 	</data>
   <data name="L_INSERTANDUPDATE" xml:space="preserve">
-		<value>insérer et mettre à jours</value>
+		<value>Insérer et mettre à jours</value>
 	</data>
   <data name="L_INSERTONLY" xml:space="preserve">
 		<value>Seulement insérer </value>
 	</data>
   <data name="L_INSERTUPDATEDELETE" xml:space="preserve">
-		<value>insérer et mettre à jours et supprimer</value>
+		<value>Insérer et mettre à jours et supprimer</value>
 	</data>
   <data name="L_SELECTSTRATEGY" xml:space="preserve">
-		<value>--Sél. Stratégie--</value>
+		<value>Sél. Stratégie</value>
 	</data>
   <data name="L_UPDATEONLY" xml:space="preserve">
 		<value>Seulement mis à jours</value>
@@ -4046,7 +4046,7 @@
 		<value>Téléverser des photos</value>
 	</data>
   <data name="B_DownLoadFeedback" xml:space="preserve">
-		<value>Télécharger les comptes rendus</value>
+		<value>Télécharger les retours d'information</value>
 	</data>
   <data name="B_DownLoadRenewals" xml:space="preserve">
 		<value>Télécharger les renouvèlements</value>
@@ -4058,19 +4058,19 @@
 		<value>Agent non trouvé</value>
 	</data>
   <data name="B_UPLOADFEEDBACK" xml:space="preserve">
-		<value>Téléverser des comptes rendus</value>
+		<value>Téléverser des retours d'information</value>
 	</data>
   <data name="B_UPLOADRENEWAL" xml:space="preserve">
 		<value>Téléverser des renouvèlements</value>
 	</data>
   <data name="M_CLAIMNOTEXIST" xml:space="preserve">
-		<value>Remboursement n'existe pas</value>
+		<value>Prestation n'existe pas</value>
 	</data>
   <data name="M_DUPLICATEDRECEIPTFOUND" xml:space="preserve">
 		<value>Reçu en double trouvé</value>
 	</data>
   <data name="M_FEEDFILEACCEPTED" xml:space="preserve">
-		<value>Résumé du téléversement des comptes rendus de contrôle</value>
+		<value>Résumé du téléversement des retours d'information</value>
 	</data>
   <data name="M_GRACEPERIODISOVER" xml:space="preserve">
 		<value>Le délai de grâce de la police est terminé</value>
@@ -4079,10 +4079,10 @@
 		<value>N° d'assuré invalide</value>
 	</data>
   <data name="M_INVALIDFEEDBACKFILE" xml:space="preserve">
-		<value>Fichier de comptes rendus des contrôle invalide</value>
+		<value>Fichier de retours d'information invalide</value>
 	</data>
   <data name="M_INVALIDOFFICERCODE" xml:space="preserve">
-		<value>code d'agent invalide</value>
+		<value>Code d'agent invalide</value>
 	</data>
   <data name="M_INVALIDRENEWALFILE" xml:space="preserve">
 		<value>Fichier de renouvellement invalide</value>
@@ -4097,13 +4097,13 @@
 		<value>Existe</value>
 	</data>
   <data name="L_FAILED" xml:space="preserve">
-		<value>échoué</value>
+		<value>Échoué</value>
 	</data>
   <data name="L_REJECTED" xml:space="preserve">
 		<value>Rejeté</value>
 	</data>
   <data name="L_UPLOADFEEDBACK" xml:space="preserve">
-		<value>Téléverser comptes rendus de contrôle</value>
+		<value>Téléverser les retours d'information</value>
 	</data>
   <data name="L_UPLOADRENEWAL" xml:space="preserve">
 		<value>Téléverser les renouvellements</value>
@@ -4133,10 +4133,10 @@
 		<value>Paiements trouvés</value>
 	</data>
   <data name="L_SELECTPAYMENTSTATUS" xml:space="preserve">
-		<value>--Sél. Statut--</value>
+		<value>Sél. Statut</value>
 	</data>
   <data name="L_CONTROLNUMBER" xml:space="preserve">
-		<value>N° de control</value>
+		<value>N° de contrôle</value>
 	</data>
   <data name="B_MATCHPAYMENT" xml:space="preserve">
 		<value>Rechercher</value>
@@ -4151,19 +4151,19 @@
 		<value>Synthèse Paiement</value>
 	</data>
   <data name="L_POLICYSTAGE" xml:space="preserve">
-		<value>Etape de Police d'assurance</value>
+		<value>Étape de Police d'assurance</value>
 	</data>
   <data name="L_RECEIVEDAMOUNT" xml:space="preserve">
 		<value>Montant reçu</value>
 	</data>
   <data name="L_EDITPAYMENTDETAILS" xml:space="preserve">
-		<value>Editer les détails de paiement</value>
+		<value>Éditer les détails de paiement</value>
 	</data>
   <data name="L_RECEIVEDDATE" xml:space="preserve">
 		<value>Reçu</value>
 	</data>
   <data name="L_SERVICEMINDATE" xml:space="preserve">
-		<value>Durée minimal de la prestation???</value>
+		<value>Durée minimale du soin???</value>
 	</data>
   <data name="M_SELECTPAYMENTDETAIL" xml:space="preserve">
 		<value>Veuillez sélectionner détail de paiement pour éditer</value>
@@ -4247,10 +4247,10 @@
 		<value>Rejeté</value>
 	</data>
   <data name="T_SELECTASSIGNMENTSTATUS" xml:space="preserve">
-		<value>-Sél. Statut-</value>
+		<value>Sél. Statut</value>
 	</data>
   <data name="T_SELECTPOSTINGSTATUS" xml:space="preserve">
-		<value>--Select  Statut--</value>
+		<value>Sél. Statut</value>
 	</data>
   <data name="T_UNMATCHED" xml:space="preserve">
 		<value>Non-associé</value>
@@ -4265,7 +4265,7 @@
 		<value>Assignement du N° de contrôle</value>
 	</data>
   <data name="T_FAILEDSTATUS" xml:space="preserve">
-		<value>Echoué</value>
+		<value>Échoue</value>
 	</data>
   <data name="L_AGE" xml:space="preserve">
 		<value>Age</value>
@@ -4286,7 +4286,7 @@
 		<value>Lien envoyé par courriel</value>
 	</data>
   <data name="M_NOUSERSLOGIN" xml:space="preserve">
-		<value>Aucun utilisateur trouvé pour ce username</value>
+		<value>Aucun utilisateur trouvé pour ce nom d'utilisateur</value>
 	</data>
   <data name="M_PASSWORDINVALID" xml:space="preserve">
 		<value>Cette demande ne peut être validé, veuillez utiliser le même mot de passe
@@ -4296,7 +4296,7 @@
 		<value>Il n'y a pas de demande de réinitialisation de mot de passe pendant la période de validité de la demande.</value>
 	</data>
   <data name="M_MUSTFILLPRODUCT" xml:space="preserve">
-		<value>Veuillez entrer un produit</value>
+		<value>Veuillez entrer un paquet de bénéfices</value>
 	</data>
   <data name="L_FINDROLE" xml:space="preserve">
 		<value>Rechercher rôles</value>
@@ -4332,7 +4332,7 @@
 		<value>Supprimer l'identifiant</value>
 	</data>
   <data name="L_HASLOGIN" xml:space="preserve">
-		<value>a un identifiant</value>
+		<value>À un identifiant</value>
 	</data>
   <data name="M_MUSTFILLROLE" xml:space="preserve">
 		<value>Veuillez entrer un nom pour le rôle</value>
@@ -4350,7 +4350,7 @@
 		<value>Ne peut pas être supprimé car associer</value>
 	</data>
   <data name="B_CLAIMSREVIEWS" xml:space="preserve">
-		<value>Remboursement vérifié</value>
+		<value>Prestation vérifiée</value>
 	</data>
   <data name="M_NOTDELETEASSOCIATEDROLM_NOTDELETEASSOCIATEDROLE" xml:space="preserve">
 		<value>Le rôle ne peut être supprimé tant qu'il est utilisé par des utilisateurs</value>
@@ -4380,7 +4380,7 @@
 		<value>Synthèse des Commissions</value>
 	</data>
   <data name="T_SELECTMODE" xml:space="preserve">
-		<value>--Sél. Mode--</value>
+		<value>Sél. Mode</value>
 	</data>
   <data name="L_TOTALACTUALPAYMENT" xml:space="preserve">
 		<value>Total paiements fait</value>
@@ -4392,25 +4392,25 @@
 		<value>Total Contribution prescrites</value>
 	</data>
   <data name="L_CLAIMHISTORYREPORT" xml:space="preserve">
-		<value>Rapport d'historique des remboursements</value>
+		<value>Rapport d'historique des prestations</value>
 	</data>
   <data name="L_SCOPE" xml:space="preserve">
 		<value>Périmètre</value>
 	</data>
   <data name="T_CLAIMSANDALLDETAILS" xml:space="preserve">
-		<value>Remboursements et tous les détails</value>
+		<value>Prestations et tous les détails</value>
 	</data>
   <data name="T_CLAIMSANDREJECTIONDETAILS" xml:space="preserve">
-		<value>Remboursements et détails de refus</value>
+		<value>Prestations et détails de refus</value>
 	</data>
   <data name="T_CLAIMSONLY" xml:space="preserve">
-		<value>Remboursements seuls</value>
+		<value>Prestation uniquement</value>
 	</data>
   <data name="T_SELECTSCOPE" xml:space="preserve">
 		<value>Sél Périmètre</value>
 	</data>
   <data name="T_CLAIMHISTORYREPORT" xml:space="preserve">
-		<value>Rapport d'historique des remboursements</value>
+		<value>Rapport d'historique des prestations</value>
 	</data>
   <data name="L_INSURANCENUMBERNOTFOUND" xml:space="preserve">
 		<value>Numéro d'assuré non trouvé</value>
@@ -4428,34 +4428,34 @@
 		<value>Ajouter</value>
 	</data>
   <data name="R_ADMINISTRATION" xml:space="preserve">
-		<value>Administration</value>
+		<value>Admin</value>
 	</data>
   <data name="R_BACKUP" xml:space="preserve">
-		<value>Backup</value>
+		<value>Sauvegarde</value>
 	</data>
   <data name="R_BATCH" xml:space="preserve">
-		<value>Batch</value>
+		<value>Lots</value>
 	</data>
   <data name="R_CAPITATIONPAYMENT" xml:space="preserve">
 		<value>Paiement de Capitation </value>
 	</data>
   <data name="R_CLAIM" xml:space="preserve">
-		<value>Remboursement</value>
+		<value>Prestation</value>
 	</data>
   <data name="R_CLAIMADMINISTRATOR" xml:space="preserve">
-		<value>Gestionnaire des remboursements</value>
+		<value>Gestionnaire des prestations</value>
 	</data>
   <data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
-		<value>Rapport d'historique des remboursements</value>
+		<value>Rapport d'historique des prestations</value>
 	</data>
   <data name="R_CLAIMOVERVIEW" xml:space="preserve">
-		<value>Synthèse des remboursements</value>
+		<value>Synthèse des prestations</value>
 	</data>
   <data name="R_CLAIMREVIEW" xml:space="preserve">
-		<value>Contrôle</value>
+		<value>Vérification</value>
 	</data>
   <data name="R_CLAIMS" xml:space="preserve">
-		<value>Remboursements</value>
+		<value>Prestations</value>
 	</data>
   <data name="R_CONTRIBUTION" xml:space="preserve">
 		<value>Contribution</value>
@@ -4491,7 +4491,7 @@
 		<value>Doublon</value>
 	</data>
   <data name="R_EDIT" xml:space="preserve">
-		<value>Editer</value>
+		<value>Éditer</value>
 	</data>
   <data name="R_EMAILSETTING" xml:space="preserve">
 		<value>Configuration Email </value>
@@ -4512,13 +4512,13 @@
 		<value>Exécuter Script</value>
 	</data>
   <data name="R_EXTRACTS" xml:space="preserve">
-		<value>Extraits</value>
+		<value>Extractions</value>
 	</data>
   <data name="R_FAMILIESANDINSUREESOVERVIEW" xml:space="preserve">
 		<value>Synthèse familles et assurés</value>
 	</data>
   <data name="R_FEEDBACK" xml:space="preserve">
-		<value>Contrôle</value>
+		<value>Retours d'information</value>
 	</data>
   <data name="R_FILTER" xml:space="preserve">
 		<value>Filtre</value>
@@ -4554,13 +4554,13 @@
 		<value>Produits médicaux</value>
 	</data>
   <data name="R_MEDICALSERVICES" xml:space="preserve">
-		<value>Prestations</value>
+		<value>Soins</value>
 	</data>
   <data name="R_MOVE" xml:space="preserve">
 		<value>Transfert</value>
 	</data>
   <data name="R_OFFLINEEXTRACTS" xml:space="preserve">
-		<value> Extraits hors ligne</value>
+		<value> Extractions hors ligne</value>
 	</data>
   <data name="R_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
 		<value>Synthèse des Commissions</value>
@@ -4581,7 +4581,7 @@
 		<value>Pourcentage de recommandations</value>
 	</data>
   <data name="R_PHONEEXTRACTS" xml:space="preserve">
-		<value>Extrait téléphones</value>
+		<value>Extractions téléphones</value>
 	</data>
   <data name="R_Policy" xml:space="preserve">
 		<value>Police</value>
@@ -4593,10 +4593,10 @@
 		<value>Liste de prix - produits médicaux</value>
 	</data>
   <data name="R_PRICELISTMS" xml:space="preserve">
-		<value>Liste de prix - prestations</value>
+		<value>Liste de prix - soins</value>
 	</data>
   <data name="R_PRIMARYOPERATIONALIC" xml:space="preserve">
-		<value>indicateurs opérationnels principaux - remboursement</value>
+		<value>indicateurs opérationnels principaux - prestation</value>
 	</data>
   <data name="R_PRIMARYOPERATIONALIP" xml:space="preserve">
 		<value>indicateurs opérationnels principaux - polices</value>
@@ -4608,10 +4608,10 @@
 		<value>Traitement</value>
 	</data>
   <data name="R_PRODUCTS" xml:space="preserve">
-		<value>Produit</value>
+		<value>Paquet de bénéfices</value>
 	</data>
   <data name="R_PRODUCTSALES" xml:space="preserve">
-		<value>Vente des produits</value>
+		<value>Vente par paquet de bénéfices</value>
 	</data>
   <data name="R_REGISTERS" xml:space="preserve">
 		<value>Registres</value>
@@ -4632,7 +4632,7 @@
 		<value>Restaurer</value>
 	</data>
   <data name="R_REVIEW" xml:space="preserve">
-		<value>Vérifié remboursement</value>
+		<value>Vérifier prestation</value>
 	</data>
   <data name="R_SAVE" xml:space="preserve">
 		<value>Sauvegarder</value>
@@ -4686,7 +4686,7 @@
 		<value>Date de paiement ne peut pas être dans le futur</value>
 	</data>
   <data name="R_CLAIMSUPLOAD" xml:space="preserve">
-		<value>Téléversé les remboursements</value>
+		<value>Téléversé les prestations</value>
 	</data>
   <data name="R_DIAGNOSESDOWNLOAD" xml:space="preserve">
 		<value>Télécharger diagnostic</value>
@@ -4698,7 +4698,7 @@
 		<value>Téléverser affiliation</value>
 	</data>
   <data name="R_FEEDBACKUPLOAD" xml:space="preserve">
-		<value>Téléverser comptes rendus de contrôle</value>
+		<value>Téléverser les retours d'information</value>
 	</data>
   <data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
 		<value>Télécharger établissement de santé</value>
@@ -4716,10 +4716,10 @@
 		<value>Télécharger Master Data</value>
 	</data>
   <data name="R_OFFLINEEXTRACTSCREATE" xml:space="preserve">
-		<value>Créer extrait hors ligne</value>
+		<value>Créer extraction hors ligne</value>
 	</data>
   <data name="R_PHONEEXTRACTSCREATE" xml:space="preserve">
-		<value>Créer Extrait téléphones</value>
+		<value>Créer extraction téléphones</value>
 	</data>
   <data name="L_CONTRIBUTIONPREMIUM" xml:space="preserve">
 		<value>Contribution</value>
@@ -4737,28 +4737,28 @@
 		<value>Le code du diagnostic n'est pas dans la liste des diagnostics</value>
 	</data>
   <data name="T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD" xml:space="preserve">
-		<value>Produit médical/prestation ne peut pas être couvert(e) pendant la période d'attente</value>
+		<value>Produit médical/soin ne peut pas être couvert(e) pendant la période d'attente</value>
 	</data>
   <data name="T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT" xml:space="preserve">
-		<value>Produit médical/prestation n'est pas compatible avec le type de soin</value>
+		<value>Produit médical/soin n'est pas compatible avec le type de soin</value>
 	</data>
   <data name="T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY" xml:space="preserve">
-		<value>Produit médical/prestation n'est pas compatible avec la fréquence</value>
+		<value>Produit médical/soin n'est pas compatible avec la fréquence</value>
 	</data>
   <data name="T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION" xml:space="preserve">
-		<value>Produit médical/prestation n'est pas compatible avec le patient (limitation pour homme ou femme, adulte/enfant)</value>
+		<value>Produit médical/soin n'est pas compatible avec le patient (limitation pour homme ou femme, adulte/enfant)</value>
 	</data>
   <data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
-		<value>Produit médical/prestation en double</value>
+		<value>Produit médical/soin en double</value>
 	</data>
   <data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
-		<value>Produit médical/prestation n'est pas compatible avec la police du patient</value>
+		<value>Produit médical/soin n'est pas compatible avec la police du patient</value>
 	</data>
   <data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
-		<value>Produit médical/prestation n'est pas dans la liste de prix de l'établissement de santé</value>
+		<value>Produit médical/soin n'est pas dans la liste de prix de l'établissement de santé</value>
 	</data>
   <data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
-		<value>Produit médical/prestation n'est pas connue (pas dans les registres de produit médical/prestation)</value>
+		<value>Produit médical/soin n'est pas connue (pas dans les registres de produit médical/soin)</value>
 	</data>
   <data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
 		<value>N° d'assuré invalide</value>
@@ -4779,7 +4779,7 @@
 		<value> Nombre maximum de visites ambulatoire dépassé</value>
 	</data>
   <data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
-		<value>Nombre maximum de visites provisions des produits de santé et services dépassé</value>
+		<value>Nombre maximum de visites provisions des produits médicaux et soins dépassé</value>
 	</data>
   <data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
 		<value> Nombre maximum d'opérations dépassé</value>
@@ -4800,7 +4800,7 @@
 		<value>Montant de la police</value>
 	</data>
   <data name="M_SELECTSERVICECODE" xml:space="preserve">
-		<value>Veuillez sélectionner le code de la prestation</value>
+		<value>Veuillez sélectionner le code du soin</value>
 	</data>
   <data name="T_NEWPOLICIES" xml:space="preserve">
 		<value>Nouvelle police</value>
@@ -4864,5 +4864,29 @@
 	</data>
   <data name="L_PAYMETHOD1" xml:space="preserve">
 		<value>Méthode de paiement</value>
+	</data>
+  <data name="T_MEDICALPROSTHESES" xml:space="preserve">
+		<value>Prothèses médicales</value>
+	</data>
+  <data name="L_RECURRENCE" xml:space="preserve">
+		<value>Périodicité (Mois)</value>
+	</data>
+  <data name="M_NORIGHTSSELECTED" xml:space="preserve">
+		<value>Veuillez sélectionner au moins un droit de sécurité</value>
+	</data>
+  <data name="M_USERCANNOTBEEDITED" xml:space="preserve">
+		<value>Vous n'êtes pas autorisé à modifier l'utilisateur sélectionné.</value>
+	</data>
+  <data name="M_ASSIGNROLE" xml:space="preserve">
+		<value>Autoriser l'attribution de rôle</value>
+	</data>
+  <data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
+		<value>La date de la prestation ne peut-être postérieure à aujourd'hui</value>
+	</data>
+  <data name="B_RESTORE" xml:space="preserve">
+		<value>Restaurer</value>
+	</data>
+  <data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
+		<value>Aucun message à afficher</value>
 	</data>
 </root>
