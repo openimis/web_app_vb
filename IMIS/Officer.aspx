@@ -176,9 +176,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
             if (chk.checked) {
                 userInfoValidation(true);
             } else {
-                ShowdeletePopUp()        
+                if (hasNumber(document.getElementById('<%= hfUserID.ClientID %>').value)) {
+                    ShowdeletePopUp()
+                }
+                else {
+                    userInfoValidation(false);
+                }
             }
         };
+
+        function hasNumber(myString) {
+            return /\d/.test(myString);
+        }
        
         function ShowdeletePopUp() {         
             popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
@@ -588,7 +597,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <td style="width : 46%">
                 <asp:Panel ID="pnlOfficeLogin" runat="server" height="150px"
                     GroupingText='<%$ Resources:Resource,L_INCLUDELOGIN %>' style="border:1px solid Gray;margin:3px 3px 1px 3px ;padding: 1px 5px 2px 5px">
-                <asp:CheckBox ID="chkOfficerIncludeLogin" runat="server" onclick="fireCheckChanged()" Text='<%$ Resources:Resource, L_INCLUDELOGIN %>' Font-Size="9pt" ForeColor="Blue" Style="direction: ltr;padding:50px"/>                   
+                <asp:CheckBox ID="chkOfficerIncludeLogin" runat="server" OnCheckedChanged="chkOfficerIncludeLogin_CheckedChanged" onclick="fireCheckChanged()" Text='<%$ Resources:Resource, L_INCLUDELOGIN %>' Font-Size="9pt" ForeColor="Blue" Style="direction: ltr;padding:50px"/>                   
             <table class="style15" style="display:none;" id="OfficerInfo"  width= "430px"> 
                  <tr>
                     <td class="FormLabel">

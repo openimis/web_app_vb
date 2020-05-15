@@ -45,9 +45,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
             if (chk.checked) {
                 userInfoValidation(true);
             } else {
-                ShowdeletePopUp()
-            }           
+                if (hasNumber(document.getElementById('<%= hfUserID.ClientID %>').value)) {
+                    ShowdeletePopUp()
+                }
+                else {
+                    userInfoValidation(false);
+                }
+            }         
         };
+
+        function hasNumber(myString) {
+            return /\d/.test(myString);
+        }
        
         function ShowdeletePopUp() {
             popup.acceptBTN_Text = '<%=ImisGen.getMessage("L_YES", True)%>';
@@ -204,7 +213,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
         <asp:Panel ID="pnlClaimAdmiLogin" runat="server" Height="200px"
             GroupingText='<%$ Resources:Resource,G_CLAIMADMINISTRATORLOGIN %>'
             style="border:1px solid Gray;margin:3px 3px 1px 3px ;padding: 1px 5px 2px 5px">
-            <asp:CheckBox ID="chkIncludeLogin" runat="server" onclick="fireCheckChanged()" 
+            <asp:CheckBox ID="chkIncludeLogin" runat="server" OnCheckedChanged="chkIncludeLogin_CheckedChanged" onclick="fireCheckChanged()" 
                 Text='<%$ Resources:Resource, L_INCLUDELOGIN %>' Font-Size="9pt" 
                 ForeColor="Blue" Style="direction: ltr;padding:50px"   />
             <table class="style15" style="display:none" id="LoginInfo">

@@ -124,6 +124,22 @@ Partial Public Class Officer
         Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
     End Sub
 
+    Protected Sub chkOfficerIncludeLogin_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If chkOfficerIncludeLogin.Checked Then
+            hfUserID.Value = 0
+            changeEnabledValidatorFieldsInIncludeLogin(True)
+        Else
+            changeEnabledValidatorFieldsInIncludeLogin(False)
+        End If
+    End Sub
+
+    Private Sub changeEnabledValidatorFieldsInIncludeLogin(ByVal enabled As Boolean)
+        RequiredFieldLanguage.Enabled = enabled
+        RequiredFieldPassword.Enabled = enabled
+        RequiredFieldConfirmPassword.Enabled = enabled
+        ComparePassword.Enabled = enabled
+    End Sub
+
     Public Function SaveOfficer() As Boolean
         'If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
         Try
