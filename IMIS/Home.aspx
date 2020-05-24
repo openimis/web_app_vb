@@ -54,6 +54,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
  </script>
+    <%  If Not System.Configuration.ConfigurationManager.AppSettings("NoticeURL") = Nothing Then  %>    
     <%-- Load notice from Another Server --%>
     <script type="text/javascript" >
         $(document).ready(function () {
@@ -72,7 +73,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
             });
         });
         </script>
-    <%-- Load notice from Another Server --%>
+    <%  End If %>
 <style type="text/css">
     div.backentry{position:relative;}
     .footer{ bottom:2px;top:auto; }
