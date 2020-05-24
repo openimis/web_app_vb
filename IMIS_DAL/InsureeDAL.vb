@@ -611,4 +611,13 @@ Public Class InsureeDAL
         data.params("@claimid", SqlDbType.Int, claimid)
         Return data.Filldata()
     End Function
+    Public Function GetFamilyDetails(ByVal CHFID As String, Optional Language As String = "en") As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = "select i.CHFID, concat(i.OtherNames,' ',i.LastName, CASE IsHead WHEN 1 THEN ' (Head)' ELSE '' END ) MemberName, Phone from tblInsuree i   " &
+            "where ValidityTo is null and FamilyID in (select FamilyID from tblInsuree where CHFID=@CHFID and ValidityTo is null) order by insureeid "
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@CHFID", SqlDbType.NVarChar, 12, CHFID)
+        Return data.Filldata
+
+    End Function
 End Class

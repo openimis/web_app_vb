@@ -202,17 +202,9 @@ Public Class IMIS
         End If
 
         ' Get Family List
-        Dim str As String = Web.Configuration.WebConfigurationManager.ConnectionStrings("IMISConnectionString").ConnectionString
-        Dim con As New SqlConnection(str)
-        Dim com As String = "select i.CHFID, concat(i.OtherNames,' ',i.LastName, CASE IsHead WHEN 1 THEN ' (Head)' ELSE '' END ) MemberName, Phone from tblInsuree i   " &
-            "where ValidityTo is null and FamilyID in (select FamilyID from tblInsuree where CHFID='" & txtSearch.Text & "' and ValidityTo is null) order by insureeid "
-        Dim Adpt As New SqlDataAdapter(com, con)
-        Dim ds As New DataSet()
-        Adpt.Fill(ds, "Capped")
-        If ds.Tables(0).Rows.Count > 0 Then
-            grdFamilyDetail.DataSource = ds.Tables(0)
-            grdFamilyDetail.DataBind()
-        End If
+        dt = Insuree.GetFamilyDetails(txtSearch.Text, Request.Cookies("CultureInfo").Value)
+        grdFamilyDetail.DataSource = dt
+        grdFamilyDetail.DataBind()
         ' Get Family List
     End Sub
     Private Sub FillPolicyGrid()

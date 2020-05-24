@@ -255,4 +255,7 @@ Public Class InsureeBL
     Public Function getLastVisitDaysForReview(ByVal CHFID As String, ByVal claimid As Integer, ByVal VISITDATETO As Date) As DataTable
         Return Insuree.getLastVisitDaysForReview(CHFID, claimid, VISITDATETO)
     End Function
+    Public Function GetFamilyDetails(ByVal CHFID As String, Optional Language As String = "en")
+        Return Insuree.GetFamilyDetails(CHFID, Language)
+    End Function
 End Class
