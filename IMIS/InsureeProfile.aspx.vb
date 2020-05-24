@@ -4,7 +4,6 @@ Imports System.Data.SqlClient
 
 Partial Public Class InsureeProfile
     Inherits System.Web.UI.Page
-
     Private Insuree As New IMIS_BI.FindInsureeBI
     Private eInsuree As New IMIS_EN.tblInsuree
     Private imisgen As New IMIS_Gen
@@ -16,12 +15,12 @@ Partial Public Class InsureeProfile
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If IsPostBack Then Return
         'RunPageSecurity()
-        Dim NSHID As String
-        NSHID = Request.QueryString("nshid")
-        If String.IsNullOrEmpty(NSHID) Then
+        Dim NSHI As String
+        NSHI = Request.QueryString("nshid")
+        If String.IsNullOrEmpty(NSHI) Then
             Return
         End If
-        BindData(NSHID)
+        BindData(NSHI)
         Dim UserID As Integer
         UserID = imisgen.getUserId(Session("User"))
         FillRegion()
@@ -77,37 +76,16 @@ Partial Public Class InsureeProfile
             Dim lblInsureeAge As Label = DirectCast(rptInsuree.Items(i).FindControl("lblInsureeAge"), Label)
             lblInsureeAge.Text = " (" + intAge.ToString() + " Years)"
         Next
-        Dim str As String = Web.Configuration.WebConfigurationManager.ConnectionStrings("IMISConnectionString").ConnectionString
+        dt = Insuree.GetFamilyDetails(NSHI, Request.Cookies("CultureInfo").Value)
 
-        Dim con As New SqlConnection(str)
+        dt = Insuree.GetFamilyDetails(NSHI, Request.Cookies("CultureInfo").Value)
+        grdFamilyDetail.DataSource = dt
+        grdFamilyDetail.DataBind()
 
-        Dim com As String = "select i.CHFID, concat(i.OtherNames,' ',i.LastName, CASE IsHead WHEN 1 THEN ' (Head)' ELSE '' END ) MemberName, Phone from tblInsuree i   " &
-            "where ValidityTo is null and FamilyID in (select FamilyID from tblInsuree where CHFID='" & NSHI & "') order by insureeid "
+        dt = Insuree.GetClaimList(NSHI, Request.Cookies("CultureInfo").Value)
+        grdClaimDetail.DataSource = dt
+        grdClaimDetail.DataBind()
 
-        Dim Adpt As New SqlDataAdapter(com, con)
-        Dim ds As New DataSet()
-
-        Adpt.Fill(ds, "Capped")
-
-
-        If ds.Tables(0).Rows.Count > 0 Then
-            grdFamilyDetail.DataSource = ds.Tables(0)
-            grdFamilyDetail.DataBind()
-        End If
-
-        com = "select c.ClaimID, c.DateClaimed, hf.HFName, c.ClaimCode, c.DateFrom, c.DateTo, c.Claimed, CASE c.claimstatus WHEN 16 Then 'Valuated' WHEN 4 THEN 'Checked' WHEN 1 THEN 'Rejected' WHEN 2 THEN 'Entered'  END ClaimStatus from tblClaim c inner join tblInsuree i on i.InsureeID=c.InsureeID inner join tblHF hf on hf.HfID=c.HFID   " &
-            "where i.ValidityTo is null and c.ValidityTo is null and i.CHFID='" & NSHI & "'order by c.DateClaimed DESC "
-
-        Dim AdptN As New SqlDataAdapter(com, con)
-        Dim dsN As New DataSet()
-
-        AdptN.Fill(dsN, "Claims")
-
-
-        If dsN.Tables(0).Rows.Count > 0 Then
-            grdClaimDetail.DataSource = dsN.Tables(0)
-            grdClaimDetail.DataBind()
-        End If
 
     End Sub
 
@@ -115,7 +93,7 @@ Partial Public Class InsureeProfile
 
         If e.Row.RowType = DataControlRowType.DataRow Then
             Dim statusCell As TableCell = e.Row.Cells(3)
-            If statusCell.Text = "क्रियाशिल" Then
+            If statusCell.Text = imisgen.getMessage("X_NP_ACTIVE") Then
                 statusCell.ForeColor = Drawing.Color.Green
             Else
                 statusCell.ForeColor = Drawing.Color.Red

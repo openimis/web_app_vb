@@ -258,4 +258,8 @@ Public Class InsureeBL
     Public Function GetFamilyDetails(ByVal CHFID As String, Optional Language As String = "en")
         Return Insuree.GetFamilyDetails(CHFID, Language)
     End Function
+    Public Function GetClaimList(ByVal CHFID As String, Optional Language As String = "en")
+        Return Insuree.GetClaimList(CHFID, Language)
+    End Function
+
 End Class

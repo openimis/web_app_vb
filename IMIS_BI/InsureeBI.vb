@@ -146,4 +146,8 @@ Public Class InsureeBI
         Dim Insuree As New IMIS_BL.InsureeBL
         Return Insuree.GetFamilyDetails(CHFID, Language)
     End Function
+    Public Function GetClaimList(ByVal CHFID As String, Optional Language As String = "en") As DataTable
+        Dim Insuree As New IMIS_BL.InsureeBL
+        Return Insuree.GetClaimList(CHFID, Language)
+    End Function
 End Class

@@ -13834,5 +13834,14 @@ Namespace Resources
                 Return ResourceManager.GetString("X_MANUAL", resourceCulture)
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to क्रियाशिल.
+        '''</summary>
+        Friend Shared ReadOnly Property X_NP_ACTIVE() As String
+            Get
+                Return ResourceManager.GetString("X_NP_ACTIVE", resourceCulture)
+            End Get
+        End Property
     End Class
 End Namespace

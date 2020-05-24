@@ -618,6 +618,14 @@ Public Class InsureeDAL
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@CHFID", SqlDbType.NVarChar, 12, CHFID)
         Return data.Filldata
+    End Function
+    Public Function GetClaimList(ByVal CHFID As String, Optional Language As String = "en") As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = "select c.ClaimID, c.DateClaimed, hf.HFName, c.ClaimCode, c.DateFrom, c.DateTo, c.Claimed, CASE c.claimstatus WHEN 16 Then 'Valuated' WHEN 4 THEN 'Checked' WHEN 1 THEN 'Rejected' WHEN 2 THEN 'Entered'  END ClaimStatus from tblClaim c inner join tblInsuree i on i.InsureeID=c.InsureeID inner join tblHF hf on hf.HfID=c.HFID   " &
+            "where i.ValidityTo is null and c.ValidityTo is null and i.CHFID=@CHFID order by c.DateClaimed DESC "
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@CHFID", SqlDbType.NVarChar, 12, CHFID)
+        Return data.Filldata
 
     End Function
 End Class

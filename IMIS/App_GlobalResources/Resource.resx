@@ -4708,4 +4708,7 @@ adults/children)</value>
   <data name="X_CLAIM_NOTICE" xml:space="preserve">
     <value>कृपया यस Claim सँग सम्वन्धित सबै कागजत मोबाईल App अथवा वेबसाईटबाट अनिवार्य अपलोड गर्नु होला।</value>
   </data>
+  <data name="X_NP_ACTIVE" xml:space="preserve">
+    <value>क्रियाशिल</value>
+  </data>
 </root>
