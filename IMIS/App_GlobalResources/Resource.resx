@@ -4705,4 +4705,7 @@ adults/children)</value>
   <data name="T_FAILEDSTATUS" xml:space="preserve">
     <value>Failed</value>
   </data>
+  <data name="X_CLAIM_NOTICE" xml:space="preserve">
+    <value>कृपया यस Claim सँग सम्वन्धित सबै कागजत मोबाईल App अथवा वेबसाईटबाट अनिवार्य अपलोड गर्नु होला।</value>
+  </data>
 </root>

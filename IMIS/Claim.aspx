@@ -1184,7 +1184,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </tr>
                         <caption>
                             <tr>
-                                <td colspan="4" style="color:red;">कृपया यस Claim सँग सम्वन्धित सबै कागजत मोबाईल App अथवा वेबसाईटबाट अनिवार्य अपलोड गर्नु होला।  <asp:DynamicHyperLink id="lnkUploadDocument" runat="server" target="_blank" Text="Upload Documents"></asp:DynamicHyperLink></td>
+                                <td colspan="4" style="color:red;"><asp:Literal runat="server" Text="<%$ Resources:Resource,X_CLAIM_NOTICE%>" />  <asp:DynamicHyperLink id="lnkUploadDocument" runat="server" target="_blank" Text="Upload Documents"></asp:DynamicHyperLink></td>
                             </tr>
                         </caption>
                     </table>

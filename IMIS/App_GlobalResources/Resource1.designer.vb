@@ -13809,6 +13809,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to कृपया यस Claim सँग सम्वन्धित सबै कागजत मोबाईल App अथवा वेबसाईटबाट अनिवार्य अपलोड गर्नु होला।.
+        '''</summary>
+        Friend Shared ReadOnly Property X_CLAIM_NOTICE() As String
+            Get
+                Return ResourceManager.GetString("X_CLAIM_NOTICE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to We could not send email. Please try again later..
         '''</summary>
         Friend Shared ReadOnly Property X_EMAILSENTFAIL() As String
