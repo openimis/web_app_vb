@@ -131,19 +131,4 @@ Public Class UtilitiesDAL
         data.ExecuteCommand()
 
     End Sub
-
-    Public Function getActivationOption() As Integer
-        Dim sSQL As String
-        Dim data As New ExactSQL
-        Dim dt As New DataTable
-
-        sSQL = "SELECT top 1 ActivationOption FROM tblIMISDefaults"
-
-        data.setSQLCommand(sSQL, CommandType.Text)
-
-        dt = data.Filldata
-
-        Return dt.Rows(0)("ActivationOption")
-
-    End Function
 End Class

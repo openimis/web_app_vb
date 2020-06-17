@@ -84,8 +84,8 @@ Public Class EscapeBL
     End Function
 
     Public Function getActivationOption() As Integer
-        Dim utilities As New UtilitiesDAL
+        Dim IMISDefaults As New IMISDefaultsDAL
 
-        Return utilities.getActivationOption()
+        Return IMISDefaults.getActivationOption()
     End Function
 End Class
