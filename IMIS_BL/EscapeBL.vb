@@ -27,6 +27,7 @@
 Imports System.Net
 Imports System.IO
 Imports System.Xml
+Imports IMIS_DAL
 
 Public Class EscapeBL
     Public Function isValidInsuranceNumber(ByVal InsuranceNumber As String) As Boolean
@@ -80,5 +81,11 @@ Public Class EscapeBL
 
         Return BulkSMSId
 
+    End Function
+
+    Public Function getActivationOption() As Integer
+        Dim utilities As New UtilitiesDAL
+
+        Return utilities.getActivationOption()
     End Function
 End Class
