@@ -131,5 +131,4 @@ Public Class UtilitiesDAL
         data.ExecuteCommand()
 
     End Sub
-
 End Class

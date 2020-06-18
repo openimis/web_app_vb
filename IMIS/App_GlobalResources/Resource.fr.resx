@@ -4889,4 +4889,7 @@
 	<data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
 		<value>Aucun message à afficher</value>
 	</data>
+  <data name="T_READY" xml:space="preserve">
+		<value>Prêt</value>
+	</data>
 </root>

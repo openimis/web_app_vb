@@ -97,6 +97,7 @@ Public Class PolicyBL
         Select Case PolicyStatus
             Case "I" : Return imisgen.getMessage("T_IDLE")
             Case "A" : Return imisgen.getMessage("T_ACTIVE")
+            Case "R" : Return imisgen.getMessage("T_READY")
             Case "S" : Return imisgen.getMessage("T_SUSPENDED")
             Case "E" : Return imisgen.getMessage("T_EXPIRED")
             Case Else : Return ""
@@ -106,6 +107,7 @@ Public Class PolicyBL
         Select Case PolicyStatus
             Case 1 : Return imisgen.getMessage("T_IDLE")
             Case 2 : Return imisgen.getMessage("T_ACTIVE")
+            Case 3 : Return imisgen.getMessage("T_READY")
             Case 4 : Return imisgen.getMessage("T_SUSPENDED")
             Case 8 : Return imisgen.getMessage("T_EXPIRED")
             Case Else : Return ""
@@ -131,6 +133,11 @@ Public Class PolicyBL
         dr = dtbl.NewRow
         dr("Code") = 2
         dr("Status") = ReturnPolicyStatus(2)
+        dtbl.Rows.Add(dr)
+
+        dr = dtbl.NewRow
+        dr("Code") = 3
+        dr("Status") = ReturnPolicyStatus(3)
         dtbl.Rows.Add(dr)
 
         dr = dtbl.NewRow

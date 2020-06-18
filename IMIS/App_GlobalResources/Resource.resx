@@ -4889,4 +4889,7 @@ adults/children)</value>
 	<data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
 		<value>No Message to be displayed</value>
 	</data>
+  <data name="T_READY" xml:space="preserve">
+		<value>Ready</value>
+	</data>
 </root>
