@@ -41,6 +41,7 @@ Partial Public Class Reports
     Private isClaimOverView As Boolean = False
     Private LocationName As String = ""
     Private dtLevel As DataTable
+    Private selectedReport As Integer
     ' Private LocationId As Integer?
     Private Sub RunPageSecurity()
         Dim RefUrl = Request.Headers("Referer")
@@ -55,6 +56,7 @@ Partial Public Class Reports
         RoleID = imisgen.getRoleId(Session("User"))
         If IsPostBack Then Return
         RunPageSecurity()
+        selectedReport = 1 ' first report type selected by default
         'Try
         FillRegions()
         FillRegionsWoNational()
@@ -71,12 +73,20 @@ Partial Public Class Reports
         FillEnrolmentOfficer(ddlDistrictWoNational)
         FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
         FillPreviousReportsDate()
+        FillPreviousReportsDateForOverviewOfCommissions()
         FillClaimStatus()
         FillPolicyStatus()
         FillEntities()
         FillActions()
         FillALLProducts()
         FillSorting()
+
+        FillPaymentStatus()
+        FillPostingStatus()
+        FillAssignmentStatus()
+
+        FillMode()
+        FillScope()
 
         ReselectCachedCriteria()
         Dim SelectedValue As String = ddlProduct.SelectedValue
@@ -93,6 +103,7 @@ Partial Public Class Reports
         ddlPayer.SelectedValue = SelectedValue
         SelectedValue = ddlPreviousReportDate.SelectedValue
         FillPreviousReportsDate()
+        FillPreviousReportsDateForOverviewOfCommissions()
         ddlPreviousReportDate.SelectedValue = SelectedValue
         QuarterSelector()
         HideCriteriaControls()
@@ -237,9 +248,12 @@ Partial Public Class Reports
         ddlDistrict.DataBind()
         FillProducts()
         'If dtDistricts.Rows.Count > 0 Then
-        FillHF(ddlDistrict)
-        FillPayer(ddlRegion, ddlDistrict)
-        FillPreviousReportsDate()
+        If lstboxReportSelector.SelectedValue <> 18 Then
+            FillHF(ddlDistrict)
+            FillPayer(ddlRegion, ddlDistrict)
+            FillPreviousReportsDate()
+            FillPreviousReportsDateForOverviewOfCommissions()
+        End If
         ' FillWards()
         ' End If
 
@@ -468,6 +482,15 @@ Partial Public Class Reports
         ddlPreviousReportDate.DataTextField = "Display"
         ddlPreviousReportDate.DataBind()
     End Sub
+    Private Sub FillPreviousReportsDateForOverviewOfCommissions()
+        Dim dt As DataTable = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), If(Val(ddlDistrictWoNational.SelectedValue) = 0, -1, ddlDistrictWoNational.SelectedValue), Nothing, ddlYear.SelectedValue, ddlMonth.SelectedValue)
+        ddlPreviousReportDateCommission.DataSource = dt
+        ddlPreviousReportDateCommission.DataValueField = "ReportingId"
+        ddlPreviousReportDateCommission.DataTextField = "Display"
+        ddlPreviousReportDateCommission.DataBind()
+
+
+    End Sub
     Private Sub FillClaimStatus()
         Dim dt As DataTable = reports.GetClaimStatus(63)
         ddlClaimStatus.DataSource = dt
@@ -484,6 +507,36 @@ Partial Public Class Reports
             .DataValueField = "Code"
             .DataBind()
         End With
+    End Sub
+    Private Sub FillPaymentStatus()
+        ddlPaymentStatus.DataSource = reports.GetPayementStatus(True, True)
+        ddlPaymentStatus.DataTextField = "PaymenyStatusName"
+        ddlPaymentStatus.DataValueField = "StatusID"
+        ddlPaymentStatus.DataBind()
+    End Sub
+    Private Sub FillPostingStatus()
+        ddlPostingStatus.DataSource = reports.GetPostingStatus(True)
+        ddlPostingStatus.DataTextField = "PostingStatusName"
+        ddlPostingStatus.DataValueField = "PostingID"
+        ddlPostingStatus.DataBind()
+    End Sub
+    Private Sub FillAssignmentStatus()
+        ddlAssignmentStatus.DataSource = reports.GetAssignmentStatus(True)
+        ddlAssignmentStatus.DataTextField = "AssignedStatusName"
+        ddlAssignmentStatus.DataValueField = "AssignedID"
+        ddlAssignmentStatus.DataBind()
+    End Sub
+    Private Sub FillMode()
+        ddlMode.DataSource = reports.FillMode()
+        ddlMode.DataTextField = "ModeName"
+        ddlMode.DataValueField = "ModeID"
+        ddlMode.DataBind()
+    End Sub
+    Private Sub FillScope()
+        ddlScope.DataSource = reports.GetScope()
+        ddlScope.DataTextField = "ScopeName"
+        ddlScope.DataValueField = "ScopeID"
+        ddlScope.DataBind()
     End Sub
     Private Sub GetPremiumCollectionReport(ByVal which As Integer) '  3 - premium collection, 4 - product sales
 
@@ -875,6 +928,7 @@ Partial Public Class Reports
         Dim StartDate As Date?
         Dim EndDate As Date?
         Dim ClaimStatus As Integer?
+        Dim Scope As Integer?
         DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
         ProdID = If(Val(ddlAllProducts.SelectedValue) > 0, CInt(ddlAllProducts.SelectedValue), Nothing)
         HfID = If(Val(ddlHF.SelectedValue) > 0, CInt(ddlHF.SelectedValue), Nothing)
@@ -882,11 +936,15 @@ Partial Public Class Reports
         EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
         If ddlClaimStatus.SelectedIndex > 0 Then ClaimStatus = ddlClaimStatus.SelectedValue
         'ClaimStatus = If(ddlClaimStatus.SelectedIndex > 0, ddlClaimStatus.SelectedValue, Nothing)
-
-
-        dt = reports.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus)
+        Dim oReturn As Integer = -1
+        If ddlScope.SelectedIndex > 0 Then
+            Scope = ddlScope.SelectedValue
+        End If
+        dt = reports.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus, Scope, oReturn)
+        Session("Scope") = Scope
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_HFACILITY") & " : " & dt.Rows(0)("HFCode") & " - " & dt.Rows(0)("HFName") & If(ddlAllProducts.SelectedValue > 0, " | " & imisgen.getMessage("L_PRODUCT") & " : " & ddlAllProducts.SelectedItem.Text, "") & " | " & LocationName & " | " & imisgen.getMessage("L_PERIOD") & "  " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
+            IMIS_EN.eReports.SubTitle += vbNewLine & " | " & imisgen.getMessage("L_SCOPE") & " : " & ddlScope.SelectedItem.Text
         Else
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
             hfCompleted.Value = 0
@@ -1133,6 +1191,266 @@ Partial Public Class Reports
         IMIS_EN.eReports.SubTitle = sSubTitle
         Return True
     End Function
+
+    Private Function getContributionPayment()
+        Dim StartDate As DateTime?
+        Dim EndDate As DateTime?
+        Dim ControlNumber As String
+        Dim PaymentStatus As String
+        Dim ProductCode As String
+
+        'StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        'EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        If IsDate(txtSTARTData.Text) Then
+            StartDate = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+        End If
+        If IsDate(txtENDData.Text) Then
+            EndDate = Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)
+        End If
+
+        If Not txtControlNumber.Text = "" Then
+            ControlNumber = txtControlNumber.Text
+        Else
+            ControlNumber = ""
+        End If
+
+        PaymentStatus = IIf(ddlPaymentStatus.SelectedIndex > 0, (ddlPaymentStatus.SelectedValue), Nothing)
+        If ddlProductStrict.SelectedIndex > 0 Then
+            ProductCode = ddlProductStrict.SelectedItem.Text
+        Else
+            ProductCode = Nothing
+        End If
+
+        dt = reports.GetPaymentContribution(StartDate, EndDate, ControlNumber, ProductCode, PaymentStatus)
+
+
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate & " " & If(Val(ddlProductStrict.SelectedValue) > 0, imisgen.getMessage("L_PRODUCT") & " : " & ddlProductStrict.SelectedItem.Text & " | ", "") & If(Val(ddlRegion.SelectedValue) > 0, imisgen.getMessage("L_REGION") & " : " & ddlRegion.SelectedItem.Text & " | ", "") & If(Val(ddlDistrict.SelectedValue) > 0, imisgen.getMessage("L_DISTRICT") & " : " & ddlDistrict.SelectedItem.Text & "  ", "") &
+                If(Val(ddlPaymentStatus.SelectedIndex) > 0, imisgen.getMessage("L_PAYMENTSTATUS") & " : " & ddlPaymentStatus.SelectedItem.Text & "  ", "")
+            Return True
+        Else
+            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
+            hfCompleted.Value = 0
+            Return False
+        End If
+
+        Return dt
+    End Function
+
+    Private Function getControlNumberAssignment()
+
+        Dim StartDate As Date
+        Dim EndDate As Date
+        Dim AssignmentStatus As String
+        Dim PostingStatus
+        Dim DistrictId As Integer
+        Dim RegionId As Integer
+        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+
+        AssignmentStatus = IIf(ddlAssignmentStatus.SelectedIndex > 0, ddlAssignmentStatus.SelectedItem.Text, Nothing)
+        PostingStatus = IIf(ddlPostingStatus.SelectedIndex > 0, ddlPostingStatus.SelectedItem.Text, Nothing)
+        DistrictId = IIf(ddlDistrict.SelectedIndex > 0, ddlDistrict.SelectedValue, Nothing)
+        RegionId = IIf(ddlRegion.SelectedIndex > 0, ddlRegion.SelectedValue, Nothing)
+        dt = reports.GetControlNumberAssignment(StartDate, EndDate, PostingStatus, AssignmentStatus, RegionId, DistrictId)
+
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate & " " & If(Val(ddlRegion.SelectedValue) > 0, imisgen.getMessage("L_REGION") & " : " & ddlRegion.SelectedItem.Text & "  ", "") & If(Val(ddlDistrict.SelectedValue) > 0, imisgen.getMessage("L_DISTRICT") & " : " & ddlDistrict.SelectedItem.Text & "  ", "") &
+                If(Val(ddlPostingStatus.SelectedValue) > 0, imisgen.getMessage("L_POSTINGSTATUS") & " : " & ddlPostingStatus.SelectedItem.Text & "  ", "") & If(Val(ddlAssignmentStatus.SelectedIndex) > 0, imisgen.getMessage("L_ASSIGNMENTSTATUS") & " : " & ddlAssignmentStatus.SelectedItem.Text & "  ", "")
+            Return True
+        Else
+            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
+            hfCompleted.Value = 0
+            Return False
+        End If
+
+        Return dt
+    End Function
+
+    Public Function OverviewOfCommissions()
+        Dim Month As Integer?
+        Dim DistrictID As Integer?
+        Dim ProdID As Integer?
+        Dim PayerID As Integer?
+        Dim Year As Integer?
+        Dim LocationId As Integer?
+        Dim Mode As Integer
+        Dim OfficerID As Integer?
+        Dim ReportingID As Integer?
+        Dim CommissionRate As Decimal
+        If ddlPreviousReportDateCommission.SelectedValue > 0 Then
+            ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
+        Else
+            ReportingID = Nothing
+        End If
+        If ddlMonth.SelectedIndex > 0 Then
+            Month = ddlMonth.SelectedValue
+        Else
+            Month = Nothing
+        End If
+        If Val(ddlDistrictWoNational.SelectedValue) > 0 Then
+            LocationId = Val(ddlDistrictWoNational.SelectedValue)
+        Else
+            LocationId = Val(ddlRegionWoNational.SelectedValue)
+        End If
+
+        If ddlMode.SelectedIndex > 0 Then
+            Mode = ddlMode.SelectedValue
+        ElseIf ReportingID > 0 Then
+            Mode = -1
+        End If
+        If ddlYear.SelectedIndex > 0 Then
+            Year = ddlYear.SelectedValue
+        Else
+            Year = Nothing
+        End If
+
+        DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
+
+        CommissionRate = Val(txtCommissionRate.Text)
+        If ReportingID Is Nothing Then
+
+            If Val(ddlProduct.SelectedValue) > 0 Then
+                ProdID = CInt(ddlProduct.SelectedValue)
+            Else
+                ProdID = Nothing
+
+            End If
+
+            If ddlPayer.SelectedIndex > 0 Then
+                PayerID = ddlPayer.SelectedValue
+            End If
+
+
+            If ddlEnrolmentOfficer.SelectedIndex > 0 Then OfficerID = ddlEnrolmentOfficer.SelectedValue
+
+            If ddlPayer.SelectedIndex > 0 Then PayerID = ddlPayer.SelectedValue
+        End If
+        Dim ErrorMessage As String = ""
+        Dim oReturn As Integer = -1
+
+        Dim sSubTitle As String = ""
+
+
+        If Val(ddlEnrolmentOfficer.SelectedValue) = 0 And Val(ddlProduct.SelectedValue) = 0 Then
+
+            IMIS_EN.eReports.Grouping = 3
+        ElseIf (Val(ddlEnrolmentOfficer.SelectedValue) > 0 And Val(ddlProduct.SelectedValue) > 0) Then
+            IMIS_EN.eReports.Grouping = 0
+        ElseIf (Val(ddlEnrolmentOfficer.SelectedValue) > 0 And Val(ddlProduct.SelectedValue) = 0) Then
+            IMIS_EN.eReports.Grouping = 1
+
+        ElseIf (Val(ddlEnrolmentOfficer.SelectedValue) = 0 And Val(ddlProduct.SelectedValue) > 0) Then
+
+            IMIS_EN.eReports.Grouping = 2
+        End If
+        IMIS_EN.eReports.SubTitle = sSubTitle
+
+        dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Dim RepportMonth As String = ""
+            Dim Product As String = ""
+            Dim ReportMode As String = ""
+            Dim Commission As String = ""
+            If ReportingID > 0 Then
+                Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID, ddlYear.SelectedValue, ddlMonth.SelectedValue)
+                If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
+
+                    Product = If(dtRep.Rows(0)("ProductCode") Is DBNull.Value, "", dtRep.Rows(0)("ProductCode"))
+                    Commission = If(dtRep.Rows(0)("CommissionRate") Is DBNull.Value, "", dtRep.Rows(0)("CommissionRate"))
+                End If
+            End If
+            'Return True
+
+            Dim mnt As Integer = CInt(Month)
+
+            RepportMonth = MonthName(mnt, False)
+            Dim monthstring As String = RepportMonth & " " & Year.ToString()
+            Select Case Mode
+                Case 0
+                    ReportMode = imisgen.getMessage("T_PRESCRIBEDCONTRIBUTIONS")
+                Case 1
+                    ReportMode = imisgen.getMessage("T_ACTUALPAIDCONTRIBUTIONS")
+                Case Else
+                    ReportMode = ""
+            End Select
+
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & txtCommissionRate.Text & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
+            IMIS_EN.eReports.SubTitle += vbNewLine & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlProduct.SelectedIndex = 0, "", ddlProduct.SelectedItem.Text) & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt(0)("DistrictName") & " | " & imisgen.getMessage("L_PAYER") & " : " & If(ddlPayer.SelectedIndex = 0, "", ddlPayer.SelectedItem.Text) & " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & If(ddlEnrolmentOfficer.SelectedIndex = 0, "", ddlEnrolmentOfficer.SelectedItem.Text)
+        Else
+            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
+            hfCompleted.Value = 0
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Public Function ClaimHistoryReport()
+        Dim DistrictID As Integer?
+        Dim ProdID As Integer?
+        Dim HfID As Integer?
+        Dim StartDate As Date?
+        Dim Region As Integer?
+        Dim EndDate As Date?
+        Dim ClaimStatus As Integer?
+        Dim InsuranceNumber As String = ""
+        Dim Scope As Integer = -1
+        DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
+        Region = If(Val(ddlRegionWoNational.SelectedValue) > 0, CInt(Val(ddlRegionWoNational.SelectedValue)), Nothing)
+        ProdID = If(Val(ddlAllProducts.SelectedValue) > 0, CInt(ddlAllProducts.SelectedValue), Nothing)
+        HfID = If(Val(ddlHF.SelectedValue) > 0, CInt(ddlHF.SelectedValue), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        If ddlClaimStatus.SelectedIndex > 0 Then ClaimStatus = ddlClaimStatus.SelectedValue
+        'ClaimStatus = If(ddlClaimStatus.SelectedIndex > 0, ddlClaimStatus.SelectedValue, Nothing)
+        If Not txtInsuranceNumber.Text = "" Then InsuranceNumber = txtInsuranceNumber.Text
+        Dim oReturn As Integer = -1
+        If ddlScope.SelectedIndex > 0 Then Scope = ddlScope.SelectedValue
+        Session("Scope") = Scope
+        dt = reports.GetClaimHistoryReport(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus, InsuranceNumber, Scope, oReturn)
+        If oReturn = 1 Then
+            lblMsg.Text = imisgen.getMessage("L_INSURANCENUMBERNOTFOUND")
+            Return False
+        End If
+        Dim sSubTitle As String = ""
+
+
+        If Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 0
+        ElseIf Val(ddlRegionWoNational.SelectedValue) > 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 1
+        ElseIf Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) > 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 2
+        ElseIf Val(ddlRegionWoNational.SelectedValue) > 0 And Val(ddlDistrictWoNational.SelectedValue) > 0 And Val(ddlHF.SelectedValue) = 0 Then
+            IMIS_EN.eReports.Grouping = 3
+        ElseIf Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) > 0 Then
+            IMIS_EN.eReports.Grouping = 4
+        ElseIf Val(ddlRegionWoNational.SelectedValue) > 0 And Val(ddlDistrictWoNational.SelectedValue) = 0 And Val(ddlHF.SelectedValue) > 0 Then
+            IMIS_EN.eReports.Grouping = 5
+        ElseIf Val(ddlRegionWoNational.SelectedValue) = 0 And Val(ddlDistrictWoNational.SelectedValue) > 0 And Val(ddlHF.SelectedValue) > 0 Then
+            IMIS_EN.eReports.Grouping = 6
+        Else
+            IMIS_EN.eReports.Grouping = 7
+        End If
+
+        IMIS_EN.eReports.SubTitle = sSubTitle
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_CHFID") & " : " & dt.Rows(0)("CHFID") & " | " & imisgen.getMessage("L_NAME") & " : " & dt.Rows(0)("InsureeName") & " | " & imisgen.getMessage("L_DOB") & " : " & dt.Rows(0)("DateOfBirth") & " | " & imisgen.getMessage("L_REGION") & " : " & If(ddlRegionWoNational.SelectedIndex > 0, ddlRegionWoNational.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_DISTRICT") & " : " & If(ddlDistrictWoNational.SelectedIndex > 0, ddlDistrictWoNational.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_HFACILITY") & " : " & If(ddlHF.SelectedIndex > 0, ddlHF.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlAllProducts.SelectedIndex > 0, ddlAllProducts.SelectedItem.Text, "") & " | " & imisgen.getMessage("L_PERIOD") & "  " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
+            IMIS_EN.eReports.SubTitle += vbNewLine & " | " & imisgen.getMessage("L_SCOPE") & " : " & ddlScope.SelectedItem.Text
+        Else
+
+            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
+            hfCompleted.Value = 0
+            Return False
+        End If
+        Return True
+    End Function
+
     Private Function getHFName(ByVal Code As String)
         Select Case Code
             Case "H"
@@ -1161,7 +1479,19 @@ Partial Public Class Reports
             CacheCriteria()
 
             Dim SelectedValueID As Integer = lstboxReportSelector.SelectedValue
+            If SelectedValueID = 1 Then
+                If Val(ddlProduct.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
+                    Return
+                End If
+            End If
 
+            If SelectedValueID = 6 Then
+                If Val(ddlProductStrict.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
+                    Return
+                End If
+            End If
             If SelectedValueID = 3 Then
                 If Val(ddlRegion.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAREGION")
@@ -1169,9 +1499,43 @@ Partial Public Class Reports
                 End If
             End If
 
-            If SelectedValueID = 2 Then
+            If SelectedValueID = 2 Or SelectedValueID = 22 Then
                 If Val(ddlRegionWoNational.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAREGION")
+                    Return
+                End If
+            End If
+            If SelectedValueID = 22 Then
+                If Val(ddlDistrictWoNational.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTADISTRICT")
+                    Return
+                End If
+                If ddlPreviousReportDateCommission.SelectedValue <= 0 Then
+                    If ddlMode.SelectedIndex = 0 Then
+                        lblMsg.Text = imisgen.getMessage("M_PLEASESELECTMODE")
+                        Return
+                    End If
+                    If txtCommissionRate.Text = "" Then
+                        lblMsg.Text = imisgen.getMessage("M_PLEASESELECTCOMMISSIONRATE")
+                        Return
+                    End If
+                End If
+
+            End If
+
+            If SelectedValueID = 23 Then
+                If txtInsuranceNumber.Text = "" Then
+                    lblMsg.Text = imisgen.getMessage("L_PLEASEENTERINSURANCENUMBER")
+                    Return
+                End If
+                If ddlScope.SelectedIndex = 0 Then
+                    lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
+                    Return
+                End If
+            End If
+            If SelectedValueID = 13 Then
+                If ddlScope.SelectedIndex = 0 Then
+                    lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
                     Return
                 End If
             End If
@@ -1269,6 +1633,22 @@ Partial Public Class Reports
                 If Not getRejectedPhoto() Then Exit Sub
                 Session("Report") = dt
                 url = "Report.aspx?r=rp&tid=19"
+            ElseIf SelectedValueID = 20 Then
+                If Not getContributionPayment() Then Exit Sub
+                Session("Report") = dt
+                url = "Report.aspx?r=cp&tid=20"
+            ElseIf SelectedValueID = 21 Then
+                If Not getControlNumberAssignment() Then Exit Sub
+                Session("Report") = dt
+                url = "Report.aspx?r=cna&tid=21"
+            ElseIf SelectedValueID = 22 Then
+                If Not OverviewOfCommissions() Then Exit Sub
+                Session("Report") = dt
+                url = "Report.aspx?r=oc&tid=22"
+            ElseIf SelectedValueID = 23 Then
+                If Not ClaimHistoryReport() Then Exit Sub
+                Session("Report") = dt
+                url = "Report.aspx?r=chr&tid=23"
             End If
 
 
@@ -1289,7 +1669,8 @@ Partial Public Class Reports
         FillHF(ddlDistrict)
         FillEnrolmentOfficer(sender)
         FillPayer(ddlRegion, ddlDistrict)
-        'FillPreviousReportsDate()
+        FillPreviousReportsDate()
+        FillPreviousReportsDateForOverviewOfCommissions()
         HideCriteriaControls()
         '  FillWards()
     End Sub
@@ -1357,7 +1738,9 @@ Partial Public Class Reports
 
     Private Sub ddlRegion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegion.SelectedIndexChanged
         FillDistricts()
-        FillHF(sender)
+        If lstboxReportSelector.SelectedValue <> 18 Then
+            FillHF(sender)
+        End If
     End Sub
 
     Private Sub ddlRegionWoNational_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegionWoNational.SelectedIndexChanged
@@ -1367,6 +1750,7 @@ Partial Public Class Reports
 
     Private Sub ddlDistrictWoNational_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlDistrictWoNational.SelectedIndexChanged
         FillPreviousReportsDate()
+        FillPreviousReportsDateForOverviewOfCommissions()
         FillEnrolmentOfficer(sender)
         FillWards()
         FillHF(sender)
@@ -1379,6 +1763,61 @@ Partial Public Class Reports
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub ddlPreviousReportDateCommission_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlPreviousReportDateCommission.SelectedIndexChanged
+        Try
+            Dim ReportingID As Integer?
+
+            ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
+
+            If ReportingID > 0 Then
+                Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID, ddlYear.SelectedValue, ddlMonth.SelectedValue)
+                If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
+                    Dim Mode As Integer
+                    If (CInt(dtRep.Rows(0)("ReportMode")) = 0) Then
+                        Mode = 1
+                    Else
+                        Mode = CInt(dtRep.Rows(0)("ReportMode"))
+                    End If
+
+                    ddlMode.SelectedIndex = Mode
+
+                    ddlPayer.SelectedIndex = If(dtRep.Rows(0)("PayerId") Is DBNull.Value, 0, dtRep.Rows(0)("PayerId"))
+                    ddlEnrolmentOfficer.SelectedValue = If(dtRep.Rows(0)("OfficerID") Is DBNull.Value, 0, dtRep.Rows(0)("OfficerID"))
+
+                    ddlProduct.SelectedIndex = dtRep.Rows(0)("ProdId")
+                    txtCommissionRate.Text = (100 * dtRep.Rows(0)("CommissionRate"))
+
+                    txtCommissionRate.Enabled = False
+                    ddlMode.Enabled = False
+                    ddlMonth.Enabled = False
+                    ddlYear.Enabled = False
+                    ddlRegionWoNational.Enabled = False
+                    ddlDistrictWoNational.Enabled = False
+                    ddlProduct.Enabled = False
+                    ddlEnrolmentOfficer.Enabled = False
+                    ddlPayer.Enabled = False
+
+                End If
+            Else
+                txtCommissionRate.Enabled = True
+                ddlMode.Enabled = True
+                ddlMonth.Enabled = True
+                ddlYear.Enabled = True
+                ddlRegionWoNational.Enabled = True
+                ddlDistrictWoNational.Enabled = True
+                ddlProduct.Enabled = True
+                ddlEnrolmentOfficer.Enabled = True
+                ddlPayer.Enabled = True
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub lstboxReportSelector_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstboxReportSelector.SelectedIndexChanged
+        selectedReport = lstboxReportSelector.SelectedValue
     End Sub
     'Private Sub getCapitationDetails()
     '    Dim CatchmentLabel As String = ""

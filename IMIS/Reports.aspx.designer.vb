@@ -518,6 +518,24 @@ Partial Public Class Reports
     Protected WithEvents ddlEnrolmentOfficer As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''lblScope control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblScope As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlScope control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlScope As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''lblClaimStatus control.
     '''</summary>
     '''<remarks>
@@ -581,6 +599,132 @@ Partial Public Class Reports
     Protected WithEvents lblCatchmentArea As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblControlNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblControlNumber As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtControlNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtControlNumber As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblPaymentStatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPaymentStatus As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlPaymentStatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlPaymentStatus As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''lblPostingStatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPostingStatus As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlPostingStatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlPostingStatus As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''lblAssignmentSatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAssignmentSatus As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlAssignmentStatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlAssignmentStatus As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''lblMode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMode As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlMode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlMode As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''lblCommissionRate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblCommissionRate As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtCommissionRate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCommissionRate As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblInsuranceNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblInsuranceNumber As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtInsuranceNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtInsuranceNumber As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''upPrevReport control.
     '''</summary>
     '''<remarks>
@@ -606,6 +750,24 @@ Partial Public Class Reports
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlPreviousReportDate As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''lblPreviousReportCommission control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPreviousReportCommission As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlPreviousReportDateCommission control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlPreviousReportDateCommission As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''lstboxReportSelector control.
