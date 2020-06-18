@@ -270,6 +270,7 @@
     <Content Include="IMISDataSet.xss">
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Manual\IMIS_manual_fr.pdf" />
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -280,6 +281,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Workspace\dummy.dmd" />
+    <None Include="Web.Release.config.dist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddFunding.aspx.designer.vb">
@@ -871,6 +873,7 @@
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Web.Debug.config.dist" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
