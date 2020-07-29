@@ -338,7 +338,7 @@ title='<%$ Resources:Resource,L_FAMILY%>'%>
                       <asp:GridView ID="gvPolicies" runat="server"  
                         AutoGenerateColumns="False"
                         EmptyDataText='<%$ Resources:Resource,M_NOPOLICIES %>'
-                        DataKeyNames="PolicyID,ProdID,ExpiryDate"
+                        DataKeyNames="PolicyID,ProdID,ProdUUID, ExpiryDate"
                         CssClass="mGrid"
                         PagerStyle-CssClass="pgr"
                         AlternatingRowStyle-CssClass="alt"
@@ -364,7 +364,7 @@ title='<%$ Resources:Resource,L_FAMILY%>'%>
                     <asp:BoundField DataField="EffectiveDate" HeaderText='<%$ Resources:Resource,L_EFFECTIVEDATE %>'  SortExpression="EffectiveDate" DataFormatString="{0:d}" ></asp:BoundField>
                     <asp:BoundField DataField="StartDate" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_STARTDATE %>' SortExpression="StartDate" />
                     <asp:BoundField DataField="ExpiryDate" DataFormatString="{0:d}" HeaderText='<%$ Resources:Resource,L_EXPIRYDATE %>' SortExpression="ExpiryDate" />
-                    <asp:HyperLinkField DataNavigateUrlFields = "ProdID"  DataTextField="ProductCode" DataNavigateUrlFormatString = "Product.aspx?p={0}&x=1" HeaderText='<%$ Resources:Resource,L_PRODUCT %>'  HeaderStyle-Width ="80px" >  </asp:HyperLinkField> 
+                    <asp:HyperLinkField DataNavigateUrlFields = "ProdUUID"  DataTextField="ProductCode" DataNavigateUrlFormatString = "Product.aspx?p={0}&x=1" HeaderText='<%$ Resources:Resource,L_PRODUCT %>'  HeaderStyle-Width ="80px" >  </asp:HyperLinkField> 
                     <%--<asp:BoundField DataField="ProductCode"  HeaderText="PRODUCT" SortExpression="ProductCode" />--%>
                     <asp:BoundField DataField="OfficerName"  HeaderText='<%$ Resources:Resource,L_ENROLMENTOFFICERS %>' SortExpression="OfficerName" />                 
                     <asp:BoundField DataField="PolicyStatus" HeaderText='<%$ Resources:Resource,L_POLICYSTATUS %>' SortExpression="PolicyStatus" ></asp:BoundField>
