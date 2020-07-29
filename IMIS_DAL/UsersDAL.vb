@@ -89,9 +89,9 @@ Public Class UsersDAL
     End Function
     Public Function getUsersDistricts(ByVal UserId As Integer)
         Dim data As New ExactSQL
-        data.setSQLCommand("select DistrictName from tblUsers inner join tblUsersDistricts on tblUsers.UserID = " & _
-        " tblUsersDistricts.UserID and tblUsers.ValidityTo is null and tblUsersDistricts.ValidityTo is null" & _
-        " inner join tblDistricts on tblDistricts.DistrictID = tblUsersDistricts.LocationID and tbldistricts.validityto is null" & _
+        data.setSQLCommand("select DISTINCT DistrictName from tblUsers inner join tblUsersDistricts on tblUsers.UserID = " &
+        " tblUsersDistricts.UserID and tblUsers.ValidityTo is null and tblUsersDistricts.ValidityTo is null" &
+        " inner join tblDistricts on tblDistricts.DistrictID = tblUsersDistricts.LocationID and tbldistricts.validityto is null" &
         " where(tblUsers.UserID = @UserId)", CommandType.Text)
         data.params("@UserId", SqlDbType.Int, UserId)
         Return data.Filldata
