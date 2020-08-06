@@ -277,9 +277,9 @@
     </None>
     <None Include="Web References\IMISService\imisservices.disco" />
     <None Include="web.base.config" />
-    <None Include="Web.config">
+    <Content Include="Web.config">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
     <Content Include="Workspace\dummy.dmd" />
     <None Include="Web.Release.config.dist" />
   </ItemGroup>
