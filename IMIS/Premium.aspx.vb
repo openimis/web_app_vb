@@ -299,7 +299,7 @@ Partial Public Class Premium
                                     ePolicy.EffectiveDate = EffectiveDate
                                 ElseIf txtPolicyStatus.Text.Trim = imisgen.getMessage("T_IDLE") Then
                                     ePolicy.EffectiveDate = EffectiveDate
-                                    ePolicy.PolicyStatus = 2
+                                    ePolicy.PolicyStatus = 16
 
                                 End If
                             End If
