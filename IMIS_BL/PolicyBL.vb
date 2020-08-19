@@ -96,8 +96,8 @@ Public Class PolicyBL
     Public Function ReturnPolicyStatusALPHA(ByVal PolicyStatus As String) As String
         Select Case PolicyStatus
             Case "I" : Return imisgen.getMessage("T_IDLE")
-            Case "A" : Return imisgen.getMessage("T_ACTIVE")
             Case "R" : Return imisgen.getMessage("T_READY")
+            Case "A" : Return imisgen.getMessage("T_ACTIVE")
             Case "S" : Return imisgen.getMessage("T_SUSPENDED")
             Case "E" : Return imisgen.getMessage("T_EXPIRED")
             Case Else : Return ""
@@ -106,8 +106,8 @@ Public Class PolicyBL
     Public Function ReturnPolicyStatus(ByVal PolicyStatus As Integer) As String
         Select Case PolicyStatus
             Case 1 : Return imisgen.getMessage("T_IDLE")
+            Case 16 : Return imisgen.getMessage("T_READY")
             Case 2 : Return imisgen.getMessage("T_ACTIVE")
-            Case 3 : Return imisgen.getMessage("T_READY")
             Case 4 : Return imisgen.getMessage("T_SUSPENDED")
             Case 8 : Return imisgen.getMessage("T_EXPIRED")
             Case Else : Return ""
@@ -131,13 +131,13 @@ Public Class PolicyBL
         dtbl.Rows.Add(dr)
 
         dr = dtbl.NewRow
-        dr("Code") = 2
-        dr("Status") = ReturnPolicyStatus(2)
+        dr("Code") = 16
+        dr("Status") = ReturnPolicyStatus(16)
         dtbl.Rows.Add(dr)
 
         dr = dtbl.NewRow
-        dr("Code") = 3
-        dr("Status") = ReturnPolicyStatus(3)
+        dr("Code") = 2
+        dr("Status") = ReturnPolicyStatus(2)
         dtbl.Rows.Add(dr)
 
         dr = dtbl.NewRow

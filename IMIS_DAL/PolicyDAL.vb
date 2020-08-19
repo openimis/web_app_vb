@@ -43,6 +43,8 @@ Public Class PolicyDAL
             str += " UPDATE tblPolicy set PolicyValue=@PolicyValue"
         ElseIf ePolicy.PolicyStatus = 4 Then
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus"
+        ElseIf ePolicy.PolicyStatus = 16 Then
+            str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus ,EffectiveDate=@EffectiveDate "
         End If
 
 
@@ -73,6 +75,9 @@ Public Class PolicyDAL
             data.params("@PolicyValue", SqlDbType.Decimal, ePolicy.PolicyValue)
             'data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
         ElseIf ePolicy.PolicyStatus = 4 Then  'When suspending policy from premium page
+            data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
+        ElseIf ePolicy.PolicyStatus = 16 Then
+            data.params("@EffectiveDate", SqlDbType.Date, ePolicy.EffectiveDate)
             data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
         End If
         data.params("@isOffline", SqlDbType.Bit, ePolicy.isOffline)
