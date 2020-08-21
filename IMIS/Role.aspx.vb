@@ -235,11 +235,11 @@
             Return
         End Try
 
-        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleID)
+        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleUUID.ToString())
 
     End Sub
 
     Protected Sub B_CANCEL_Click(sender As Object, e As EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleID)
+        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleUUID.ToString())
     End Sub
 End Class
