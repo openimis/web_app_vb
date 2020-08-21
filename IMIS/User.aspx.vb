@@ -232,25 +232,6 @@ Partial Public Class User
 
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
-                Dim ipassword As Integer = IsValidPassword()
-
-                If ipassword = -1 Then
-                    lblMsg.Text = imisgen.getMessage("M_WEAKPASSWORD")
-                    Exit Sub
-                ElseIf ipassword = -2 Then
-
-                    lblMsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
-                    Exit Sub
-                End If
-
-                If Not checkChecked(gvDistrict) Then
-                    lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
-                    Return
-                End If
-                If Not checkChecked(gvRoles) Then
-                    lblMsg.Text = imisgen.getMessage("V_SELECTROLE")
-                    Return
-                End If
                 eUsers.LastName = txtLastName.Text
                 eUsers.OtherNames = txtOtherNames.Text
                 eUsers.DummyPwd = txtPassword.Text
@@ -339,31 +320,4 @@ Partial Public Class User
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
     End Sub
-
-    Private Function IsValidPassword() As Integer
-        If eUsers.UserID = 0 Then
-            If txtPassword.Text = String.Empty Then
-                Return -1
-            Else
-                If txtPassword.Text <> txtConfirmPassword.Text Then
-                    Return -2
-                Else
-                    Return 1
-                End If
-            End If
-        Else
-            If txtPassword.Text <> String.Empty Then
-                If txtPassword.Text <> txtConfirmPassword.Text Then
-                    Return -2
-                Else
-                    Return 1
-                End If
-            Else
-                Return 2
-            End If
-
-        End If
-        'Dim Parten As String = Regex.IsMatch(txtPassword.Text, "^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$")
-        'Return Parten
-    End Function
 End Class

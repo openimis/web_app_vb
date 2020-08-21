@@ -963,21 +963,19 @@ Public Class UsersBL
         Dim dtCurrentUserRegions As DataTable = ds.Tables("CurrentUserRegions")
 
         Dim Users As New IMIS_DAL.UsersDAL
+
         If dtCurrentUserRegions.Rows.Count = 1 Then
             If dtSelectedUserRegions.Rows.Count = 1 Then
-                If dtCurrentUserDistricts.Rows.Count = 1 Then
-                    If dtSelectedUserDistricts.Rows.Count > 1 Then
-                        Return 1  ' The selected user from the gridview should not be edited
-                    End If
+                If dtCurrentUserDistricts.Rows.Count = 1 AndAlso dtSelectedUserDistricts.Rows.Count > 1 Then
+                    Return 1  ' The selected user from the gridview should not be edited
                 End If
             Else
                 Return 1  ' The selected user from the gridview should not be edited
             End If
-        Else
-            If dtCurrentUserDistricts.Rows.Count = 1 Then
-                Return 1  ' The selected user from the gridview should not be edited
-            End If
+        ElseIf dtCurrentUserDistricts.Rows.Count = 1 Then
+            Return 1  ' The selected user from the gridview should not be edited
         End If
+
         Return 0
     End Function
 End Class
