@@ -138,14 +138,18 @@ Public Class RoleDAL
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
         sSQL = "DECLARE @LegacyRoleID INT "
+        '' Insert a new record to save the legacy 
         sSQL += " INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID,AltLanguage)"
         sSQL += " SELECT RoleName,IsSystem,IsBlocked,ValidityFrom,GETDATE(),AuditUserID,RoleID,AltLanguage FROM tblRole WHERE RoleID=@RoleID"
+        '' Get the legacyID form the record just inserted
         sSQL += " SELECT @LegacyRoleID = SCOPE_IDENTITY()"
+        '' copy the role rights and link it to the legacyID
         sSQL += " INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
         sSQL += " SELECT @LegacyRoleID,[RightID],[ValidityFrom],GETDATE(),[AuditUserId],[RoleRightID] from tblRoleRight"
         sSQL += " WHERE RoleID = @RoleID AND ValidityTo IS NULL"
+        ''update the current role record
         sSQL += " UPDATE tblRole SET RoleName = @RoleName ,IsSystem = @IsSystem ,IsBlocked = @IsBlocked ,ValidityFrom ="
-        sSQL += " GETDATE() ,AuditUserID = @AuditUserID, AltLanguage = @AltLanguage WHERE RoleID = @RoleID"
+        sSQL += " GETDATE() ,AuditUserID = @AuditUserID, AltLanguage = @AltLanguage, LegacyID = @LegacyRoleID WHERE RoleID = @RoleID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
 
