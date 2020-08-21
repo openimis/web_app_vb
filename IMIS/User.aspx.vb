@@ -232,6 +232,14 @@ Partial Public Class User
 
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
+                If Not checkChecked(gvDistrict) Then
+                    lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
+                    Return
+                End If
+                If Not checkChecked(gvRoles) Then
+                    lblMsg.Text = imisgen.getMessage("V_SELECTROLE")
+                    Return
+                End If
                 eUsers.LastName = txtLastName.Text
                 eUsers.OtherNames = txtOtherNames.Text
                 eUsers.DummyPwd = txtPassword.Text
