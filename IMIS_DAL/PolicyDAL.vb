@@ -43,6 +43,8 @@ Public Class PolicyDAL
             str += " UPDATE tblPolicy set PolicyValue=@PolicyValue"
         ElseIf ePolicy.PolicyStatus = 4 Then
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus"
+        ElseIf ePolicy.PolicyStatus = 16 Then
+            str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus ,EffectiveDate=@EffectiveDate "
         End If
 
 
@@ -74,6 +76,9 @@ Public Class PolicyDAL
             'data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
         ElseIf ePolicy.PolicyStatus = 4 Then  'When suspending policy from premium page
             data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
+        ElseIf ePolicy.PolicyStatus = 16 Then
+            data.params("@EffectiveDate", SqlDbType.Date, ePolicy.EffectiveDate)
+            data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
         End If
         data.params("@isOffline", SqlDbType.Bit, ePolicy.isOffline)
 
@@ -89,10 +94,10 @@ Public Class PolicyDAL
         Dim eFamily As New IMIS_EN.tblFamilies
 
 
-        data.setSQLCommand("select pd.InsurancePeriod,FamilyID,EnrollDate,StartDate,ExpiryDate,EffectiveDate,PolicyStatus,isnull(PolicyValue,0) PolicyValue,tblPolicy.ProdID,OfficerID,PolicyStage,isnull(PremiumPaid,0) PremiumPaid," & _
-                           "tblPolicy.isOffline,tblPolicy.ValidityTo from tblPolicy left join (select MAX(policyID) policyID, SUM(Amount) PremiumPaid " & _
-                            "from tblPremium where PolicyID=@PolicyID and ValidityTo is null and isPhotoFee = 0) Premium on Premium.policyID = tblPolicy.PolicyID " & _
-                            " INNER JOIN tblProduct pd ON pd.ProdID = tblPolicy.ProdID" & _
+        data.setSQLCommand("select pd.InsurancePeriod,FamilyID,EnrollDate,StartDate,ExpiryDate,EffectiveDate,PolicyStatus,isnull(PolicyValue,0) PolicyValue,tblPolicy.ProdID,OfficerID,PolicyStage,isnull(PremiumPaid,0) PremiumPaid," &
+                           "tblPolicy.isOffline,tblPolicy.ValidityTo from tblPolicy left join (select MAX(policyID) policyID, SUM(Amount) PremiumPaid " &
+                            "from tblPremium where PolicyID=@PolicyID and ValidityTo is null and isPhotoFee = 0) Premium on Premium.policyID = tblPolicy.PolicyID " &
+                            " INNER JOIN tblProduct pd ON pd.ProdID = tblPolicy.ProdID" &
                             " where tblpolicy.PolicyID = @PolicyID", CommandType.Text)
         data.params("@PolicyID", SqlDbType.Int, ePolicy.PolicyID)
         Dim dr As DataRow = data.Filldata()(0)
@@ -188,7 +193,7 @@ Public Class PolicyDAL
     Public Function GetPolicybyFamily(ByVal FamilyId As Integer, ByVal status As DataTable) As DataTable
 
 
-        data.setSQLCommand("SELECT PolicyId,PolicyUUID,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,tblPolicy.FamilyId,F.FamilyUUID " &
+        data.setSQLCommand("SELECT PolicyId,PolicyUUID,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,tblPolicy.FamilyId,F.FamilyUUID, tblProduct.ProdUUID " &
                            " FROM tblPolicy INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdId" &
                            " INNER JOIN tblFamilies F On F.FamilyID = tblPolicy.FamilyID " &
                            " LEFT OUTER JOIN tblOfficer ON tblPolicy.OfficerId = tblOfficer.OfficerID" &
@@ -206,7 +211,7 @@ Public Class PolicyDAL
     End Function
     Public Function GetProducts() As DataTable
 
-        Dim sSQL As String = "SELECT ProdID,ProductCode FROM tblProduct"
+        Dim sSQL As String = "SELECT ProdID, ProdUUID, ProductCode FROM tblProduct"
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.Filldata
     End Function

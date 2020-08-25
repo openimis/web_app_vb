@@ -270,16 +270,18 @@
     <Content Include="IMISDataSet.xss">
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Manual\IMIS_manual_fr.pdf" />
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\IMISService\imisservices.disco" />
     <None Include="web.base.config" />
-    <None Include="Web.config">
+    <Content Include="Web.config">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
     <Content Include="Workspace\dummy.dmd" />
+    <None Include="Web.Release.config.dist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddFunding.aspx.designer.vb">
@@ -871,6 +873,7 @@
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Web.Debug.config.dist" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -899,6 +902,10 @@
     <ProjectReference Include="..\IMIS_BI\IMIS_BI.vbproj">
       <Project>{9b6b33f6-7629-4eb7-9548-2d3f48963643}</Project>
       <Name>IMIS_BI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IMIS_BL\IMIS_BL.vbproj">
+      <Project>{53d67c82-cf46-4bb2-8319-3fd91fa92737}</Project>
+      <Name>IMIS_BL</Name>
     </ProjectReference>
     <ProjectReference Include="..\IMIS_EN\IMIS_EN.vbproj">
       <Project>{a57fc2fd-3b24-4f9e-9514-cf370e411401}</Project>

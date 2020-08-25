@@ -59,9 +59,9 @@ Public Class MedicalServicesDAL
     Public Function GetMedicalServices(Optional ByVal All As Boolean = False) As DataTable
         Dim data As New ExactSQL
         If All = True Then
-            data.setSQLCommand("SELECT ServiceID,ServCode,ServName,CASE ServType WHEN 'P' THEN 'Preventive' ELSE 'Curative' END AS ServType,CASE ServLevel WHEN 'S' THEN 'Simple Service' WHEN 'V' THEN 'Visit' WHEN 'D' THEN 'Day of stay' ELSE 'Hospital case' END AS ServLevel ,ServPrice, ServCareType, ServFrequency, ServPatCat,validityfrom,validityto FROM tblServices order by ServCode", CommandType.Text)
+            data.setSQLCommand("SELECT ServiceID,ServiceUUID,ServCode,ServName,CASE ServType WHEN 'P' THEN 'Preventive' ELSE 'Curative' END AS ServType,CASE ServLevel WHEN 'S' THEN 'Simple Service' WHEN 'V' THEN 'Visit' WHEN 'D' THEN 'Day of stay' ELSE 'Hospital case' END AS ServLevel ,ServPrice, ServCareType, ServFrequency, ServPatCat,validityfrom,validityto FROM tblServices order by ServCode", CommandType.Text)
         Else
-            data.setSQLCommand("SELECT ServiceID,ServCode,ServName,CASE ServType WHEN 'P' THEN 'Preventive' ELSE 'Curative' END AS ServType, CASE ServLevel WHEN 'S' THEN 'Simple Service' WHEN 'V' THEN 'Visit' WHEN 'D' THEN 'Day of stay' ELSE 'Hospital case' END AS ServLevel ,ServPrice,ServCareType, ServFrequency, ServPatCat,validityfrom,validityto FROM tblServices where ValidityTo is NULL order by ServCode", CommandType.Text)
+            data.setSQLCommand("SELECT ServiceID,ServiceUUID,ServCode,ServName,CASE ServType WHEN 'P' THEN 'Preventive' ELSE 'Curative' END AS ServType, CASE ServLevel WHEN 'S' THEN 'Simple Service' WHEN 'V' THEN 'Visit' WHEN 'D' THEN 'Day of stay' ELSE 'Hospital case' END AS ServLevel ,ServPrice,ServCareType, ServFrequency, ServPatCat,validityfrom,validityto FROM tblServices where ValidityTo is NULL order by ServCode", CommandType.Text)
         End If
         Return data.Filldata
     End Function
@@ -93,7 +93,7 @@ Public Class MedicalServicesDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         'data.setSQLCommand("select ServiceID,ServCode,ServName,CASE ServType WHEN 'P' THEN 'Preventive' ELSE 'Curative' END AS ServType ,CASE ServLevel WHEN 'S' THEN 'Simple Service' WHEN 'V' THEN 'Visit' WHEN 'D' THEN 'Day Of Stay' ELSE 'Hospital Case' END as ServLevel,ServPrice,validityfrom,validityto from tblServices where ServCode LIKE @ServiceCode AND ServName LIKE @ServiceName AND ServType LIKE @ServiceType order by ServCode,ValidityTo", CommandType.Text)
-        sSQL += " SELECT ServiceID,ServCode,ServName,dt.Name  ServType,SL.Name ServLevel,ServPrice,validityfrom,validityto"
+        sSQL += " SELECT ServiceID,ServiceUUID,ServCode,ServName,dt.Name  ServType,SL.Name ServLevel,ServPrice,validityfrom,validityto"
         sSQL += " FROM tblServices S"
         sSQL += " LEFT OUTER JOIN @dtIType DT ON dt.Code = S.ServType"
         sSQL += " LEFT OUTER JOIN @dtServLevel SL ON Sl.Code = S.ServLevel"
