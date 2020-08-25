@@ -277,14 +277,17 @@ Public Class HealthFacilityDAL
     Public Function GetHFCodes(ByVal UserId As Integer, ByVal LocationId As Integer, Optional ByRef Hfid As Integer = 0) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL = " SELECT tblhf.HfID,tblhf.HfUUID,HFCode + ' - ' + HFNAME HFCODE"
+        sSQL = "SELECT @hfid = isnull(hfid,0)"
+        sSQL += " FROM tblUsers"
+        sSQL += " WHERE UserID = @userid;"
+        sSQL += " SELECT tblhf.HfID,tblhf.HfUUID,HFCode + ' - ' + HFNAME HFCODE"
         sSQL += " FROM tblusersdistricts"
         sSQL += " INNER JOIN tblHF on tblhf.LocationId = tblusersdistricts.LocationId and tblHF.validityto IS NULL"
         sSQL += " INNER JOIN tblLocations l on l.LocationID = tblusersdistricts.LocationId"
         sSQL += " WHERE tblusersdistricts.userid = @UserId"
         sSQL += " AND (@hfid = 0 or @hfid= tblhf.hfid ) and (@LocationId = l.LocationID or @LocationId = l.ParentLocationID OR @LocationId  = 0 )"
         sSQL += " AND tblusersdistricts.validityto is null"
-        sSQL += " ORDER BY hfCode"
+        sSQL += " ORDER BY hfCode;"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, UserId)
@@ -292,7 +295,7 @@ Public Class HealthFacilityDAL
         data.params("@hfId", SqlDbType.Int, Hfid, ParameterDirection.Output)
 
         Dim dt As DataTable = data.Filldata
-        Hfid = data.sqlParameters("@hfid")
+        Hfid = IIf(data.sqlParameters("@hfid").Equals(DBNull.Value), 0, data.sqlParameters("@hfid"))
         Return dt
     End Function
     Public Function getHFCodeFromID(ByVal HFID As Integer) As String
