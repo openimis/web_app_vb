@@ -13,7 +13,7 @@ Public Class AutoCompleteHandler
         Dim d = String.Empty
         prefix = context.Request("ICDCode")
 
-        If prefix = " " Then
+        If prefix = " " Or prefix = "" Then
             Dim items = (From p In dt.AsEnumerable()
                          Select New With {.ICDID = p.Field(Of Integer)("ICDID"),
                                     .ICDNames = p.Field(Of String)("ICDNames")}).Take(10)

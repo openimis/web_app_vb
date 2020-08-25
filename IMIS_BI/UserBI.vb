@@ -73,9 +73,9 @@ Public Class UserBI
         Dim Region As New IMIS_BL.LocationsBL
         Return Region.GetAllRegions(UserId, False, Authority:=Authority)
     End Function
-    Public Function getUserRoles(ByVal UserId As Integer, offline As Boolean) As DataTable
+    Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean, Authority As Integer) As DataTable
         Dim user As New IMIS_BL.UsersBL
-        Return user.getRolesForUser(UserId, offline)
+        Return user.getRolesForUser(UserId, offline, Authority)
     End Function
     Public Function IsUserExists(ByVal UserID As Integer) As Boolean
         Dim User As New IMIS_BL.UsersBL
@@ -84,5 +84,9 @@ Public Class UserBI
     Public Function GetUserIdByUUID(ByVal uuid As Guid) As Integer
         Dim User As New IMIS_BL.UsersBL
         Return User.GetUserIdByUUID(uuid)
+    End Function
+    Function GetUserDistricts(ByVal CurrenctUserID As Integer, ByVal SelectedUserID As Integer) As Integer
+        Dim User As New IMIS_BL.UsersBL
+        Return User.GetUserDistricts(CurrenctUserID, SelectedUserID)
     End Function
 End Class

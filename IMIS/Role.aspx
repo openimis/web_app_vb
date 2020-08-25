@@ -239,6 +239,7 @@
                            <%--             <asp:TreeNode Text="<%$ Resources:Resource,R_EDIT %>" Value="111003" SelectAction="None"></asp:TreeNode>--%>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_DELETE %>" Value="111004" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_LOAD %>" Value="111005" SelectAction="None"></asp:TreeNode>
+                                        <asp:TreeNode Text="<%$ Resources:Resource,R_RESTORE %>" Value="111012" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_PRINT %>" Value="111006" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_SUBMIT %>" Value="111007" SelectAction="None"></asp:TreeNode>
                                         <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMREVIEW %>" Value="111008" SelectAction="None"></asp:TreeNode>
