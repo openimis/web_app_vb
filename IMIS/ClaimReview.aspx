@@ -141,8 +141,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
         left: 0;
         z-index: 3;
         display: none;
-        background-color: rgb(102, 102, 102)
-;;
+        background-color: rgb(102, 102, 102);
         color: White;
         padding: 5px;
         font-size: 10pt;

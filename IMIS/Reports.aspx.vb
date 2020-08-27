@@ -636,7 +636,6 @@ Partial Public Class Reports
         dt = reports.GetPremiumDistribution(LocationId, ddlProductStrict.SelectedValue, ddlMonth.SelectedValue, ddlYear.SelectedValue)
 
 
-
     End Sub
     Private Function GetIndicatorsReportData(ByVal Mode As Int16)
         Dim MonthFrom As Integer = ddlMonthPOI.SelectedValue
@@ -1237,7 +1236,6 @@ Partial Public Class Reports
 
         Return dt
     End Function
-
     Private Function getControlNumberAssignment()
 
         Dim StartDate As Date
@@ -1268,7 +1266,6 @@ Partial Public Class Reports
 
         Return dt
     End Function
-
     Public Function OverviewOfCommissions()
         Dim Month As Integer?
         Dim DistrictID As Integer?
@@ -1450,7 +1447,6 @@ Partial Public Class Reports
         End If
         Return True
     End Function
-
     Private Function getHFName(ByVal Code As String)
         Select Case Code
             Case "H"
@@ -1764,7 +1760,6 @@ Partial Public Class Reports
 
         End Try
     End Sub
-
     Private Sub ddlPreviousReportDateCommission_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlPreviousReportDateCommission.SelectedIndexChanged
         Try
             Dim ReportingID As Integer?

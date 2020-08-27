@@ -223,7 +223,6 @@ Public Class Family
                 FillFSPDistricts()
             End If
 
-
             ddlFSPCateogory.DataSource = Family.GetHFLevel
             ddlFSPCateogory.DataValueField = "Code"
             ddlFSPCateogory.DataTextField = "HFLevel"

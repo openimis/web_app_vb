@@ -125,6 +125,7 @@ Public Class UsersBL
 
             Case IMIS_EN.Enums.Rights.ClaimUpdate : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
             Case IMIS_EN.Enums.Rights.ClaimProcess : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)  
+            Case IMIS_EN.Enums.Rights.ClaimRestore : Return CheckUserRights(UserID, Right)
 
             'BATCH
             Case IMIS_EN.Enums.Rights.Batch : Return CheckUserRights(UserID, Right, 1)
@@ -786,10 +787,9 @@ Public Class UsersBL
         End If
         Return dtRoles
     End Function
-
-    Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean) As DataTable
+    Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean, Authority As Integer) As DataTable
         Dim UsersDal As New IMIS_DAL.UsersDAL
-        Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline)
+        Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline, Authority)
         For Each row As DataRow In dtRoles.Rows
             If row("IsSystem") > 0 Then
                 row("RoleName") = ReturnRole(row("IsSystem"))
@@ -880,6 +880,7 @@ Public Class UsersBL
         Dim User As New IMIS_DAL.UsersDAL
         User.DeleteUser(eUser)
     End Sub
+
     Public Sub TestTable()
         Dim test As New IMIS_DAL.UsersDAL
         test.TestTable()
@@ -948,5 +949,33 @@ Public Class UsersBL
     Public Function GetUserIdByUUID(ByVal uuid As Guid) As Integer
         Dim User As New IMIS_DAL.UsersDAL
         Return User.GetUserIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+    Function GetUserDistricts(ByVal CurrenctUserID As Integer, ByVal SelectedUserID As Integer) As Integer
+        Dim User As New IMIS_DAL.UsersDAL
+        Dim ds As New DataSet
+        ds = User.GetUserDistricts(CurrenctUserID, SelectedUserID)
+        Dim dtSelectedUserDistricts As DataTable = ds.Tables("SelectedUserDistricts")
+        Dim dtCurrentUserDistricts As DataTable = ds.Tables("CurrentUserDistricts")
+
+        Dim dtSelectedUserRegions As DataTable = ds.Tables("SelectedUserRegions")
+        Dim dtCurrentUserRegions As DataTable = ds.Tables("CurrentUserRegions")
+
+        Dim Users As New IMIS_DAL.UsersDAL
+        If dtCurrentUserRegions.Rows.Count = 1 Then
+            If dtSelectedUserRegions.Rows.Count = 1 Then
+                If dtCurrentUserDistricts.Rows.Count = 1 Then
+                    If dtSelectedUserDistricts.Rows.Count > 1 Then
+                        Return 1  ' The selected user from the gridview should not be edited
+                    End If
+                End If
+            Else
+                Return 1  ' The selected user from the gridview should not be edited
+            End If
+        Else
+            If dtCurrentUserDistricts.Rows.Count = 1 Then
+                Return 1  ' The selected user from the gridview should not be edited
+            End If
+        End If
+        Return 0
     End Function
 End Class

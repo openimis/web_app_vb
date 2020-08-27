@@ -208,7 +208,7 @@ Partial Public Class Premium
                 hfInsurancePeriod.Value = ePremium.tblPolicy.tblProduct.InsurancePeriod
             End If
 
-
+            getGridData()
 
 
         Catch ex As Exception
@@ -232,9 +232,32 @@ Partial Public Class Premium
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Premium.ToString & "&retUrl=" & RefUrl)
         End If
     End Sub
+
     Private Sub FillCombobox()
         FillPayers()
     End Sub
+
+    Private Sub getGridData()
+
+        ePremium.PolicyID = hfPolicyID.Value
+
+        gvPremium.DataSource = Premium.GetPremium(ePremium)
+        gvPremium.DataBind()
+
+    End Sub
+
+    'Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
+    '    AddRowSelectToGridView(gvPremium)
+    '    MyBase.Render(writer)
+    'End Sub
+    'Private Sub AddRowSelectToGridView(ByVal gv As GridView)
+    '    For Each row As GridViewRow In gv.Rows
+    '        If Not row.Cells(5).Text = "&nbsp;" Then
+    '            row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
+    '        End If
+    '        'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
+    '    Next
+    'End Sub
     Private Sub FillPayers()
         ddlPayer.DataSource = Premium.GetPayers(eFamily.RegionId, eFamily.DistrictID, imisgen.getUserId(Session("User")), True)
         ddlPayer.DataValueField = "PayerID"
@@ -268,8 +291,11 @@ Partial Public Class Premium
 
                 Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
                 Dim StartDate As Date = Date.ParseExact(hfPolicyStartDate.Value, "dd/MM/yyyy", Nothing)
-                Dim EffectiveDate As Date = If(PayDate < StartDate, StartDate, PayDate)
-
+                Dim EffectiveDate As Date = if(PayDate < StartDate, StartDate, PayDate)
+                If ePremium.PayDate > System.DateTime.Now Then
+                    lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
+                    Return
+                End If
 
 
                 If ddlCategory.SelectedValue = "C" Or ddlCategory.SelectedValue = "" Then

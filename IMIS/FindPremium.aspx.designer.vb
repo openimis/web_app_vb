@@ -12,7 +12,6 @@ Option Explicit On
 
 
 Partial Public Class FindPremium
-
     '''<summary>
     '''Label8 control.
     '''</summary>
@@ -21,7 +20,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label8 As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''upDistrict control.
     '''</summary>
@@ -30,7 +28,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents upDistrict As Global.System.Web.UI.UpdatePanel
-
     '''<summary>
     '''pnlTop control.
     '''</summary>
@@ -39,7 +36,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlTop As Global.System.Web.UI.WebControls.Panel
-
     '''<summary>
     '''L_Payer control.
     '''</summary>
@@ -48,7 +44,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Payer As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''ddlPayer control.
     '''</summary>
@@ -57,7 +52,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlPayer As Global.System.Web.UI.WebControls.DropDownList
-
     '''<summary>
     '''L_PaymentDate control.
     '''</summary>
@@ -66,7 +60,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_PaymentDate As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtDateOfPaymentFrom control.
     '''</summary>
@@ -75,7 +68,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDateOfPaymentFrom As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''btnDateOfPaymentFrom control.
     '''</summary>
@@ -84,7 +76,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnDateOfPaymentFrom As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''CalendarExtender3 control.
     '''</summary>
@@ -93,7 +84,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender3 As Global.AjaxControlToolkit.CalendarExtender
-
     '''<summary>
     '''lblRegion control.
     '''</summary>
@@ -102,7 +92,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblRegion As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''ddlRegion control.
     '''</summary>
@@ -111,7 +100,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlRegion As Global.System.Web.UI.WebControls.DropDownList
-
     '''<summary>
     '''L_TypeOfPayment control.
     '''</summary>
@@ -120,7 +108,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_TypeOfPayment As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''ddlPayType control.
     '''</summary>
@@ -129,7 +116,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlPayType As Global.System.Web.UI.WebControls.DropDownList
-
     '''<summary>
     '''L_PAYDATETO control.
     '''</summary>
@@ -138,7 +124,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_PAYDATETO As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtDateOfPaymentTo control.
     '''</summary>
@@ -147,7 +132,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDateOfPaymentTo As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''CalendarExtender1 control.
     '''</summary>
@@ -156,7 +140,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender1 As Global.AjaxControlToolkit.CalendarExtender
-
     '''<summary>
     '''btnDateOfPaymentTo control.
     '''</summary>
@@ -165,7 +148,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnDateOfPaymentTo As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''lblDistrict control.
     '''</summary>
@@ -174,7 +156,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblDistrict As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''ddlDistrict control.
     '''</summary>
@@ -183,7 +164,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlDistrict As Global.System.Web.UI.WebControls.DropDownList
-
     '''<summary>
     '''lblReceiptNo control.
     '''</summary>
@@ -192,7 +172,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblReceiptNo As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtReceiptNo control.
     '''</summary>
@@ -201,7 +180,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtReceiptNo As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''L_PremiumPaid control.
     '''</summary>
@@ -210,7 +188,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_PremiumPaid As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtPremiumPaid control.
     '''</summary>
@@ -219,7 +196,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPremiumPaid As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''Label1 control.
     '''</summary>
@@ -228,7 +204,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtMatchedDateFrom control.
     '''</summary>
@@ -237,7 +212,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMatchedDateFrom As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''btnMatchedDateFrom control.
     '''</summary>
@@ -246,7 +220,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnMatchedDateFrom As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''CalendarExtender4 control.
     '''</summary>
@@ -255,7 +228,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender4 As Global.AjaxControlToolkit.CalendarExtender
-
     '''<summary>
     '''Label2 control.
     '''</summary>
@@ -264,7 +236,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtMatchedDateTo control.
     '''</summary>
@@ -273,7 +244,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMatchedDateTo As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''btnMatchedDateTo control.
     '''</summary>
@@ -282,7 +252,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnMatchedDateTo As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''CalendarExtender2 control.
     '''</summary>
@@ -291,7 +260,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
-
     '''<summary>
     '''chkOffline control.
     '''</summary>
@@ -300,7 +268,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkOffline As Global.System.Web.UI.WebControls.CheckBox
-
     '''<summary>
     '''chkLegacy control.
     '''</summary>
@@ -309,7 +276,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkLegacy As Global.System.Web.UI.WebControls.CheckBox
-
     '''<summary>
     '''btnSearch control.
     '''</summary>
@@ -318,7 +284,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnSearch As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''L_FOUNDPREMIUM control.
     '''</summary>
@@ -327,7 +292,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_FOUNDPREMIUM As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''pnlBody control.
     '''</summary>
@@ -336,7 +300,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlBody As Global.System.Web.UI.WebControls.Panel
-
     '''<summary>
     '''gvPremiums control.
     '''</summary>
@@ -345,7 +308,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvPremiums As Global.System.Web.UI.WebControls.GridView
-
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -354,7 +316,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-
     '''<summary>
     '''B_VIEW control.
     '''</summary>
@@ -363,7 +324,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_VIEW As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -372,7 +332,6 @@ Partial Public Class FindPremium
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''lblMsg control.
     '''</summary>

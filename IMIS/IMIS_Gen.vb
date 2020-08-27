@@ -94,6 +94,15 @@ Public Class IMIS_Gen
             Return Nothing
         End Try
     End Function
+    'Public Function getRoleName(ByVal session As Object) As String
+    '    Try
+    '        Dim dt As New DataTable
+    '        dt = DirectCast(session, DataTable)
+    '        Return dt.Rows(0)("RoleName")
+    '    Catch
+    '        Return Nothing
+    '    End Try
+    'End Function
     Public Function getLoginName(ByVal session As Object) As String
         Try
             Dim dt As New DataTable

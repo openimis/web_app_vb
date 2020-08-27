@@ -43,6 +43,8 @@ Public Class RoleDAL
             Else
                 sSQL += " AND isSystem = 0"
             End If
+        Else
+            sSQL += " AND isSystem >= 0"
         End If
         If erole.LegacyID Is Nothing Then
             sSQL += " AND ValidityTo IS NULL"
@@ -135,9 +137,13 @@ Public Class RoleDAL
 
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-
-        sSQL = "INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID,AltLanguage)"
+        sSQL = "DECLARE @LegacyRoleID INT "
+        sSQL += " INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID,AltLanguage)"
         sSQL += " SELECT RoleName,IsSystem,IsBlocked,ValidityFrom,GETDATE(),AuditUserID,RoleID,AltLanguage FROM tblRole WHERE RoleID=@RoleID"
+        sSQL += " SELECT @LegacyRoleID = SCOPE_IDENTITY()"
+        sSQL += " INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
+        sSQL += " SELECT @LegacyRoleID,[RightID],[ValidityFrom],GETDATE(),[AuditUserId],[RoleRightID] from tblRoleRight"
+        sSQL += " WHERE RoleID = @RoleID AND ValidityTo IS NULL"
         sSQL += " UPDATE tblRole SET RoleName = @RoleName ,IsSystem = @IsSystem ,IsBlocked = @IsBlocked ,ValidityFrom ="
         sSQL += " GETDATE() ,AuditUserID = @AuditUserID, AltLanguage = @AltLanguage WHERE RoleID = @RoleID"
 
@@ -145,7 +151,7 @@ Public Class RoleDAL
 
         data.params("@RoleID", SqlDbType.Int, eRole.RoleID)
         data.params("@RoleName", SqlDbType.NVarChar, 50, eRole.RoleName)
-        data.params("@IsSystem", SqlDbType.Int, eRole.IsSystem)
+        data.params("@IsSystem",SqlDbType.bit, eRole.IsSystem)
         data.params("@IsBlocked", SqlDbType.Bit, eRole.IsBlocked)
         data.params("@AuditUserID", SqlDbType.Int, eRole.AuditUserID)
         data.params("@AltLanguage", SqlDbType.NVarChar, 50, eRole.AltLanguage)
@@ -185,8 +191,8 @@ Public Class RoleDAL
     Public Function GetSystemRoles(RoleID) As DataTable
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-        sSQL = "SELECT RoleId,RoleName FROM tblRole"
-        sSQL += " WHERE (IsSystem & @isSystem) > 0 AND ValidityTo IS NULL"
+        sSQL = "SELECT 0,0,RoleId,getdate(),Getdate(),0,0,1 FROM tblRole"
+        sSQL += " WHERE (IsSystem & @isSystem) > 0 AND ValidityTo IS NULL And IsSystem > 0"
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@isSystem", SqlDbType.Int, RoleID)
         Return data.Filldata()

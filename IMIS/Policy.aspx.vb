@@ -293,6 +293,19 @@ Partial Public Class Policy
                 ePolicy.PolicyStage = hfPolicyStage.Value
                 eProduct.ProdID = ddlProduct.SelectedValue
                 ePolicy.tblProduct = eProduct
+
+                Dim OrderNumberRenewal As Integer = 0
+                OrderNumberRenewal = Policy.GetRenewalCount(eProduct.ProdID, efamily.FamilyID)
+                If hfPolicyStage.Value = "R" Then
+
+                    If PreviousPolicyId > 0 Then
+                        ePolicy.RenewalOrder = OrderNumberRenewal + 1
+                    Else
+                        ePolicy.RenewalOrder = 0
+                    End If
+                End If
+
+
                 Policy.getPolicyValue(ePolicy, PreviousPolicyId)
                 txtPolicyValue.Text = FormatNumber(ePolicy.PolicyValue)
 
@@ -408,6 +421,7 @@ Partial Public Class Policy
 
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
+            Dim Status As Integer = 0
             Try
                 Dim dt As New DataTable
                 dt = DirectCast(Session("User"), DataTable)
@@ -465,10 +479,17 @@ Partial Public Class Policy
                 ePolicy.tblProduct = eProduct
 
                 Dim PreviousPolicyId As Integer = 0
+                Dim OrderNumberRenewal As Integer = 0
+                OrderNumberRenewal = Policy.GetRenewalCount(eProduct.ProdID, efamily.FamilyID)
                 If hfPolicyStage.Value = "R" Then
                     If Request.QueryString("rpo") IsNot Nothing Then
                         Dim UUID As Guid = Guid.Parse(Request.QueryString("rpo"))
                         PreviousPolicyId = If(UUID.Equals(Guid.Empty), 0, Policy.GetPolicyIdByUUID(UUID))
+                        If PreviousPolicyId > 0 Then
+                            ePolicy.RenewalOrder = OrderNumberRenewal + 1
+                        Else
+                            ePolicy.RenewalOrder = 0
+                        End If
                     End If
                 End If
 

@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BatchRunBL.vb" />
+    <Compile Include="BgServiceBL.vb" />
     <Compile Include="ClaimAdminBL.vb" />
     <Compile Include="ClaimDedRemBL.vb" />
     <Compile Include="ClaimItemsBL.vb" />

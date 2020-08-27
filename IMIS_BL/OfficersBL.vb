@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System
+
 Public Class OfficersBL
     Private imisgen As New GeneralBL
     Public Sub DeleteOfficer(ByRef eOfficers As IMIS_EN.tblOfficer)
@@ -99,7 +101,21 @@ Public Class OfficersBL
             Return -4
         End If
         Return 0
+
     End Function
+    Private Function isDirtyOfficer(eOfficer As IMIS_EN.tblOfficer, eOfficerOrg As IMIS_EN.tblOfficer) As Boolean
+        isDirtyOfficer = True
+
+        If IIf(eOfficer.LastName Is Nothing, DBNull.Value, eOfficer.LastName).ToString() <> IIf(eOfficerOrg.LastName Is Nothing, DBNull.Value, eOfficerOrg.LastName).ToString() Then Exit Function
+        If IIf(eOfficer.OtherNames Is Nothing, DBNull.Value, eOfficer.OtherNames).ToString() <> IIf(eOfficerOrg.OtherNames Is Nothing, DBNull.Value, eOfficerOrg.OtherNames).ToString() Then Exit Function
+        If IIf(eOfficer.Phone Is Nothing, DBNull.Value, eOfficer.Phone).ToString() <> IIf(eOfficerOrg.Phone Is Nothing, DBNull.Value, eOfficerOrg.Phone).ToString() Then Exit Function
+        If IIf(eOfficer.EmailId Is Nothing, DBNull.Value, eOfficer.EmailId).ToString() <> IIf(eOfficerOrg.EmailId Is Nothing, DBNull.Value, eOfficerOrg.EmailId).ToString() Then Exit Function
+        If eOfficer.OfficerID <> eOfficerOrg.OfficerID Then Exit Function
+        If IIf(eOfficer.PermanentAddress Is Nothing, DBNull.Value, eOfficer.PermanentAddress).ToString() <> IIf(eOfficerOrg.PermanentAddress Is Nothing, DBNull.Value, eOfficerOrg.PermanentAddress).ToString() Then Exit Function
+        If eOfficer.HasLogin <> eOfficerOrg.HasLogin Then Exit Function
+        isDirtyOfficer = False
+    End Function
+
     Private Sub SaveOfficersVillages(dtData As DataTable, OfficerId As Integer)
         If dtData Is Nothing OrElse dtData.Rows.Count = 0 Then Exit Sub
         Dim OV As New IMIS_DAL.OfficerVillagesDAL
@@ -133,5 +149,10 @@ Public Class OfficersBL
     Public Function GetOfficerIdByUUID(ByVal uuid As Guid) As Integer
         Dim Officer As New IMIS_DAL.OfficersDAL
         Return Officer.GetOfficerIdByUUID(uuid).Rows(0).Item(0)
+    End Function
+
+    Public Function CheckIfUserExists(ByVal eUser As IMIS_EN.tblUsers) As DataTable
+        Dim UserDAL As New IMIS_DAL.UsersDAL
+        Return UserDAL.CheckIfUserExists(eUser)
     End Function
 End Class

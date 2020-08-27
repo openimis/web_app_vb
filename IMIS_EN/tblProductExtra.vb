@@ -45,5 +45,15 @@ Partial Public Class tblProduct
     Public Property WeightNumberInsuredFamilies As Double
     Public Property WeightNumberVisits As Double
     Public Property WeightAdjustedAmount As Double
-    
+
+    Private _Recurrence As Integer?
+    Public Property Recurrence() As Integer?
+        Get
+            Return _Recurrence
+        End Get
+        Set(ByVal value As Integer?)
+            _Recurrence = value
+        End Set
+    End Property
+
 End Class

@@ -206,7 +206,6 @@ Public Class ReportsBI
         Return Rep.GetPaymentContribution(startDate, endDate, controlNumber, productCode, paymentStutus)
         Return True
     End Function
-
     Public Function GetControlNumberAssignment(startDate As Date, endDate As Date, PostingStatus As String, AssignmentStatus As String, RegionId As Integer, DistrictId As Integer)
         Dim Rep As New IMIS_BL.ReportBL
         Return Rep.GetControlNumberAssignment(startDate, endDate, PostingStatus, AssignmentStatus, RegionId, DistrictId)

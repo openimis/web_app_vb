@@ -38,7 +38,133 @@ In case of dispute arising out or in relation to the use of the program, it is s
         {
             font-weight:bold;
         }
+        .auto-style1 {
+            width: 219px;
+        }
+        .auto-style4 {
+            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/;
+            height: 27px;
+            direction: ltr;
+            width: 150px;
+        }
+        .auto-style8 {
+            width: 33px;
+        }
+        .auto-style15 {
+            width: 244px;
+        }
+        .auto-style16 {
+            width: 199px;
+        }
+        .auto-style18 {
+            height: 34px;
+            width: 150px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style19 {
+            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/;
+            height: 34px;
+            direction: ltr;
+            width: 150px;
+        }
+        .auto-style20 {
+            width: 244px;
+            height: 34px;
+        }
+        .auto-style22 {
+            height: 34px;
+            width: 197px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style23 {
+            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/;
+            height: 34px;
+            direction: ltr;
+            width: 213px;
+        }
+        .auto-style24 {
+            width: 199px;
+            height: 34px;
+        }
+        .auto-style25 {
+            width: 219px;
+            height: 34px;
+        }
+        .auto-style26 {
+            font-family: Arial, Helvetica, sans-serif; /*min-width: 170px;*/;
+            height: 27px;
+            direction: ltr;
+            width: 213px;
+        }
+        .auto-style27 {
+            width: 213px;
+        }
+        .auto-style28 {
+            width: 245px;
+        }
+        .auto-style29 {
+            width: 245px;
+            height: 34px;
+        }
+        .auto-style30 {
+            height: 23px;
+            width: 197px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style31 {
+            width: 197px;
+        }
+        .auto-style32 {
+            height: 27px;
+            width: 150px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style33 {
+            width: 244px;
+            height: 27px;
+        }
+        .auto-style34 {
+            width: 245px;
+            height: 27px;
+        }
+        .auto-style35 {
+            height: 27px;
+            width: 197px;
+            text-align: right;
+            color: Blue;
+            font-weight: normal;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding-right: 1px;
+        }
+        .auto-style36 {
+            height: 27px;
+        }
+        .auto-style37 {
+            margin-left: 0px;
+        }
     </style>
+
 
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
@@ -250,6 +376,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtOtherNames" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
+                                    <asp:Label ID="lblError6" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
                                     <asp:RequiredFieldValidator
                                         ID="RequiredFieldOtherNames" runat="server"
                                         ControlToValidate="txtOtherNames"
@@ -266,6 +393,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                                 <td class="DataEntry">
                                     <asp:TextBox ID="txtLastName" runat="server" Width="150px" MaxLength="100"></asp:TextBox>
+                                    <asp:Label ID="lblError5" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
                                     <asp:RequiredFieldValidator ID="RequiredFieldLastName" runat="server"
                                         ControlToValidate="txtLastName"
                                         ValidationGroup="check" ForeColor="Red" Display="Dynamic"
@@ -346,11 +474,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     
                                     <asp:DropDownList ID="ddlRegion" runat="server" AutoPostBack="true">
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" 
-                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                    <asp:Label ID="lblError7" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldRegion" runat="server" ControlToValidate="ddlRegion" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
                                         Text='*'></asp:RequiredFieldValidator>
                                 </td>
                                 <td>
+                                   
+                                          
                                 </td>
                             </tr>
                             <tr>
@@ -362,24 +492,26 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <ContentTemplate>
                                             <asp:DropDownList ID="ddlDistrict" runat="server" AutoPostBack="true">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" 
-                                                ControlToValidate="ddlDistrict" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                                Text='*'></asp:RequiredFieldValidator>
+                                            <asp:Label ID="lblError8" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldDistrict" runat="server" ControlToValidate="ddlDistrict" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                        Text='*'></asp:RequiredFieldValidator>
                                         </ContentTemplate> 
-                                    </asp:UpdatePanel>
+                                    </asp:UpdatePanel> 
+                                   
                                 </td>
                                 <td>
+                                    
                                 </td>
                             </tr>
                             <tr>
-                                <td class="FormLabel">
+                                <td class="auto-style32">
                                     <asp:Label ID="L_SUBSTITUTION" runat="server" Text='<%$ Resources:Resource,L_SUBSTITUTION %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:DropDownList ID="ddlSubstitution" runat="server">
                                     </asp:DropDownList>
                                 </td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style36"></td>
                             </tr>
                             <tr>
                                 <td class="FormLabel" valign="top">

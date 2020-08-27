@@ -86,4 +86,8 @@ Public Class PremiumBI
         Dim Premium As New IMIS_BL.PremiumBL
         Return Premium.GetPremiumUUIDByID(id)
     End Function
+    Public Function GetPremium(ByVal ePremium As IMIS_EN.tblPremium) As DataTable
+        Dim premium As New IMIS_BL.PremiumBL
+        Return premium.GetPremium(ePremium)
+    End Function
 End Class

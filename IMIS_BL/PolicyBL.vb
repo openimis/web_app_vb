@@ -220,4 +220,9 @@ Public Class PolicyBL
         Dim Policy As New IMIS_DAL.PolicyDAL
         Return Policy.GetPolicyUUIDByID(id).Rows(0).Item(0)
     End Function
+
+    Public Function GetRenewalCount(ByVal ProdID As Integer, ByVal FamilyID As Integer) As Integer
+        Dim PolicyDAL As New IMIS_DAL.PolicyDAL
+        Return PolicyDAL.GetRenewalCount(ProdID, FamilyID)
+    End Function
 End Class

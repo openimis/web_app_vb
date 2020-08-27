@@ -345,6 +345,18 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ComparePassword As Global.System.Web.UI.WebControls.CompareValidator
+
+    
+    Protected WithEvents MaskedEditExtender1 As Global.AjaxControlToolkit.MaskedEditExtender
+    
+    '''<summary>
+    '''CalendarExtender2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
     
     '''<summary>
     '''pnlButtons control.

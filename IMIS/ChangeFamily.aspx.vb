@@ -370,7 +370,6 @@ Partial Public Class ChangeFamily
 
             'Display all the policies which already had exceeded the max member count 
             If hfOK.Value = 1 Then
-
                 If dt.Rows.Count > 0 Then
                     If dt.Select("MemberCount <= TotalInsurees").Count > 0 Then
                         If dt.Rows(0)("MemberCount") <> 0 Then

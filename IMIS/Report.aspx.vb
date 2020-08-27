@@ -225,7 +225,6 @@ Partial Public Class Report
                         Param(6) = New ReportParameter("paramAccountCode", imisgen.getMessage("L_ACCOUNTCODE", False))
                         Param(7) = New ReportParameter("paramTotalFor", imisgen.getMessage("L_TOTALFOR", False))
 
-
                         rpt.SetParameters(Param)
                         ds.Value = dt
                         rpt.DataSources.Add(ds)
