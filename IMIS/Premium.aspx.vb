@@ -39,6 +39,7 @@ Partial Public Class Premium
     Private PremiumContribution As Decimal
     Private familyBI As New IMIS_BI.FamilyBI
     Private policyBI As New IMIS_BI.PolicyBI
+    Private ActivationOption As New IMIS_BL.EscapeBL
     Private Sub FormatForm()
 
         Dim Adjustibility As String = ""
@@ -297,13 +298,18 @@ Partial Public Class Premium
                     Return
                 End If
 
+                Dim ActivationValue As Integer = ActivationOption.getActivationOption()
 
                 If ddlCategory.SelectedValue = "C" Or ddlCategory.SelectedValue = "" Then
                     Select Case Request.Form("__EVENTARGUMENT_PREMIUM") 'Coming from js save button click function
                         Case 4
                             Select Case Request.Form("__EVENTARGUMENT")
                                 Case imisgen.getMessage("L_ENFORCE")
-                                    ePolicy.PolicyStatus = 2
+                                    If ActivationValue = 3 Then
+                                        ePolicy.PolicyStatus = 16
+                                    Else
+                                        ePolicy.PolicyStatus = 2
+                                    End If
                                     ePolicy.EffectiveDate = EffectiveDate
                             End Select
 
@@ -312,7 +318,11 @@ Partial Public Class Premium
                                 Case imisgen.getMessage("L_SUSPEND")
                                     ePolicy.PolicyStatus = 4
                                 Case imisgen.getMessage("L_ENFORCE")
-                                    ePolicy.PolicyStatus = 2
+                                    If ActivationValue = 3 Then
+                                        ePolicy.PolicyStatus = 16
+                                    Else
+                                        ePolicy.PolicyStatus = 2
+                                    End If
                                     If hfPolicyEffectiveDate.Value.Trim = String.Empty Then
                                         ePolicy.EffectiveDate = EffectiveDate
                                     Else
@@ -325,8 +335,11 @@ Partial Public Class Premium
                                     ePolicy.EffectiveDate = EffectiveDate
                                 ElseIf txtPolicyStatus.Text.Trim = imisgen.getMessage("T_IDLE") Then
                                     ePolicy.EffectiveDate = EffectiveDate
-                                    ePolicy.PolicyStatus = 2
-
+                                    If ActivationValue = 3 Then
+                                        ePolicy.PolicyStatus = 16
+                                    Else
+                                        ePolicy.PolicyStatus = 2
+                                    End If
                                 End If
                             End If
                     End Select

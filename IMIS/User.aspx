@@ -177,8 +177,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 });
 
             });
-
-              $('[id*=gvRoles] tr').each(function () {
+            $('[id*=gvRoles] tr').each(function () {
                 var toolTip = $(this).attr("title");
                 $(this).find("td").eq(2).each(function () {
                     $(this).simpletip({
@@ -380,14 +379,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         HeaderText="<%$ Resources:Resource,L_ROLE %>" SortExpression="RoleName">
                                         <HeaderStyle Width="200px" />
                                     </asp:BoundField>
-                                       <asp:TemplateField HeaderText="A">
+                                    <asp:TemplateField HeaderText="A">
                                         <ItemTemplate>
                                             <asp:CheckBox ID="chkAssign" runat="server" HeaderStyle-Width="10px" Checked='<%#Eval("Assign") %>' />
                                         </ItemTemplate>
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="" >
+                                    <asp:TemplateField HeaderText="">
                                         <ItemTemplate>
                                             <asp:HiddenField ID="hfRoleId"  runat="server" value='<%#Eval("RoleId") %>' />
                                         </ItemTemplate>

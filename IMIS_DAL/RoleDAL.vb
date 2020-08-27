@@ -34,7 +34,7 @@ Public Class RoleDAL
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
 
-        sSQL = "SELECT [RoleID],[RoleUUID],[RoleName],CASE WHEN [IsSystem] > 0 THEN 'True' Else 'False' END System,isSystem,ISNULL(AltLanguage,RoleName) AltLanguage,"
+        sSQL = "SELECT [RoleID],[RoleUUID],[RoleName], CASE WHEN [IsSystem] > 0 THEN 'True' Else 'False' END System,isSystem,ISNULL(AltLanguage,RoleName) AltLanguage,"
         sSQL += " CASE WHEN [IsBlocked] = 1 THEN 'True' ELSE 'False' END Blocked,[ValidityFrom],[ValidityTo],[AuditUserID],[LegacyID] FROM tblRole"
         sSQL += " WHERE (Rolename like '" & erole.RoleName & "%' OR AltLanguage LIKE '" & erole.AltLanguage & "%') AND (isBlocked = @isBlocked OR @isBlocked IS NULL)"
         If erole.IsSystem IsNot Nothing Then
@@ -83,7 +83,7 @@ Public Class RoleDAL
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
 
-        sSQL = "SELECT [RoleID],[RoleName],[IsSystem],[IsBlocked],[ValidityFrom],[ValidityTo],[AuditUserID],[LegacyID] FROM tblRole WHERE RoleID = @RoleID"
+        sSQL = "SELECT [RoleID],[RoleUUID],[RoleName],[IsSystem],[IsBlocked],[ValidityFrom],[ValidityTo],[AuditUserID],[LegacyID] FROM tblRole WHERE RoleID = @RoleID"
 
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -138,14 +138,18 @@ Public Class RoleDAL
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
         sSQL = "DECLARE @LegacyRoleID INT "
+        '' Insert a new record to save the legacy 
         sSQL += " INSERT INTO tblRole(RoleName,IsSystem,IsBlocked,ValidityFrom,ValidityTo,AuditUserID,LegacyID,AltLanguage)"
         sSQL += " SELECT RoleName,IsSystem,IsBlocked,ValidityFrom,GETDATE(),AuditUserID,RoleID,AltLanguage FROM tblRole WHERE RoleID=@RoleID"
+        '' Get the legacyID form the record just inserted
         sSQL += " SELECT @LegacyRoleID = SCOPE_IDENTITY()"
+        '' copy the role rights and link it to the legacyID
         sSQL += " INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
         sSQL += " SELECT @LegacyRoleID,[RightID],[ValidityFrom],GETDATE(),[AuditUserId],[RoleRightID] from tblRoleRight"
         sSQL += " WHERE RoleID = @RoleID AND ValidityTo IS NULL"
+        ''update the current role record
         sSQL += " UPDATE tblRole SET RoleName = @RoleName ,IsSystem = @IsSystem ,IsBlocked = @IsBlocked ,ValidityFrom ="
-        sSQL += " GETDATE() ,AuditUserID = @AuditUserID, AltLanguage = @AltLanguage WHERE RoleID = @RoleID"
+        sSQL += " GETDATE() ,AuditUserID = @AuditUserID, AltLanguage = @AltLanguage, LegacyID = @LegacyRoleID WHERE RoleID = @RoleID"
 
         data.setSQLCommand(sSQL, CommandType.Text)
 
@@ -155,6 +159,7 @@ Public Class RoleDAL
         data.params("@IsBlocked", SqlDbType.Bit, eRole.IsBlocked)
         data.params("@AuditUserID", SqlDbType.Int, eRole.AuditUserID)
         data.params("@AltLanguage", SqlDbType.NVarChar, 50, eRole.AltLanguage)
+
 
 
 

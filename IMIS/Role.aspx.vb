@@ -48,6 +48,7 @@
             Else
                 B_SAVE.Visible = True
             End If
+
             tvRoleRights.Enabled = False
             tvRoleRights2.Enabled = False
             tvRoleRights3.Enabled = False
@@ -94,8 +95,7 @@
         If dtRole.Rows(0)("ValidityTo") IsNot DBNull.Value Then
             eRole.ValidityTo = dtRole.Rows(0)("ValidityTo")
         End If
-
-
+    
         txtRoles.Text = eRole.RoleName
         txtAltLanguage.Text = eRole.AltLanguage
         chkIsBlocked.Checked = eRole.IsBlocked
@@ -240,6 +240,6 @@
     End Sub
 
     Protected Sub B_CANCEL_Click(sender As Object, e As EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindProfile.aspx?")
+        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleUUID.ToString())
     End Sub
 End Class

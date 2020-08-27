@@ -566,9 +566,11 @@ Public Class UsersBL
                 PageRights.Add(Rights.ClaimAdd)
                 PageRights.Add(Rights.ClaimPrint)
                 PageRights.Add(Rights.ClaimLoad)
+                PageRights.Add(Rights.ClaimSearch)
             Case IMIS_EN.Enums.Pages.ClaimFeedback
                 PageRights.Add(Rights.ClaimFeedback)
             Case IMIS_EN.Enums.Pages.ClaimReview
+                PageRights.Add(Rights.ClaimSearch)
                 PageRights.Add(Rights.ClaimReview)
             Case IMIS_EN.Enums.Pages.ProcessBatches
                 PageRights.Add(Rights.BatchProcess)
@@ -787,6 +789,7 @@ Public Class UsersBL
         End If
         Return dtRoles
     End Function
+
     Public Function getRolesForUser(ByVal UserId As Integer, offline As Boolean, Authority As Integer) As DataTable
         Dim UsersDal As New IMIS_DAL.UsersDAL
         Dim dtRoles As DataTable = UsersDal.getRolesForUser(UserId, offline, Authority)
@@ -822,7 +825,8 @@ Public Class UsersBL
             Dim DALRole As New IMIS_DAL.RoleDAL
             dtRoles = DALRole.GetSystemRoles(eUser.RoleID)
         End If
-        If eUser.UserID = 0 Then
+        If eUser.UserID = 0 Or eUser.ValidityTo IsNot Nothing Then
+            eUser.UserID = 0
             CreatePassword(eUser)
             users.InsertUser(eUser)
             users.SaveUserRoles(dtRoles, eUser)
@@ -961,20 +965,17 @@ Public Class UsersBL
         Dim dtCurrentUserRegions As DataTable = ds.Tables("CurrentUserRegions")
 
         Dim Users As New IMIS_DAL.UsersDAL
+
         If dtCurrentUserRegions.Rows.Count = 1 Then
             If dtSelectedUserRegions.Rows.Count = 1 Then
-                If dtCurrentUserDistricts.Rows.Count = 1 Then
-                    If dtSelectedUserDistricts.Rows.Count > 1 Then
-                        Return 1  ' The selected user from the gridview should not be edited
-                    End If
+                If dtCurrentUserDistricts.Rows.Count = 1 AndAlso dtSelectedUserDistricts.Rows.Count > 1 Then
+                    Return 1  ' The selected user from the gridview should not be edited
                 End If
             Else
                 Return 1  ' The selected user from the gridview should not be edited
             End If
-        Else
-            If dtCurrentUserDistricts.Rows.Count = 1 Then
-                Return 1  ' The selected user from the gridview should not be edited
-            End If
+        ElseIf dtCurrentUserDistricts.Rows.Count = 1 Then
+            Return 1  ' The selected user from the gridview should not be edited
         End If
         Return 0
     End Function
