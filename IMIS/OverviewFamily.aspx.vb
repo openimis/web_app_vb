@@ -241,16 +241,8 @@ Partial Public Class OverviewFamily
             Dim msg As String = ""
             Dim policyValueCurrent As Decimal
             Dim PreviousPolicyId As Integer = 0
-            'Dim PreviousProductID As Integer
-
-            'Dim drd() As DataRow = dt.Select("", "PolicyID,StartDate")
-            'If dt.Rows.Count > 1 Then
-            '    If dt(0)("PolicyStage") = "R" Then
-            '        PreviousPolicyId = dt(1)("PolicyID")
-            '    End If
-
-            'End If
             Dim newPolicyID As Integer = 0
+
             If Not HttpContext.Current.Request.QueryString("prp") Is Nothing Then
                 Dim currentPolicyID As Integer
                 newPolicyID = 0
@@ -266,13 +258,6 @@ Partial Public Class OverviewFamily
 
 
             For Each dr As DataRow In dt.Rows
-                'If dt(0)("PolicyStage") = "R" Then
-                '    PreviousPolicyId = dt(1)("PolicyID")
-                'End If
-                'If PreviousProductID <> dr("ProdID") Then
-                '    PreviousPolicyId = 0
-                'End If
-
                 efamily = New IMIS_EN.tblFamilies
                 eproduct = New IMIS_EN.tblProduct
                 epolicy = New IMIS_EN.tblPolicy
@@ -283,7 +268,7 @@ Partial Public Class OverviewFamily
                     Continue For
                 End If
 
-            If dr("PolicyStage") = "R" Then
+                If dr("PolicyStage") = "R" Then
                     For i As Integer = 0 To dt.Rows.Count
                         If dr("PolicyID") = newPolicyID And dr("PolicyStage") = "R" Then
                             If HttpContext.Current.Request.QueryString("prp") Is Nothing Then
@@ -330,7 +315,7 @@ Partial Public Class OverviewFamily
                         epolicy.RenewalOrder = OrderNumberRenewal
                     End If
                 End If
-                    OverviewFamily.GetPolicyValue(epolicy, PreviousPolicyId)
+                OverviewFamily.GetPolicyValue(epolicy, PreviousPolicyId)
 
                 If policyValueCurrent <> epolicy.PolicyValue Then
                     epolicy.AuditUserID = imisgen.getUserId(Session("user"))
@@ -351,7 +336,7 @@ Partial Public Class OverviewFamily
 
 
                     End If
-                        chk = OverviewFamily.SavePolicy(epolicy)
+                    chk = OverviewFamily.SavePolicy(epolicy)
                     If chk = 1 Then
                         msg += imisgen.getMessage("M_POLICYVALUECHANGE") & epolicy.EnrollDate & " " & imisgen.getMessage("M_CHANGE") & "<br/>"
 

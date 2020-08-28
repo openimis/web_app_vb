@@ -247,18 +247,6 @@ Partial Public Class Premium
 
     End Sub
 
-    'Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
-    '    AddRowSelectToGridView(gvPremium)
-    '    MyBase.Render(writer)
-    'End Sub
-    'Private Sub AddRowSelectToGridView(ByVal gv As GridView)
-    '    For Each row As GridViewRow In gv.Rows
-    '        If Not row.Cells(5).Text = "&nbsp;" Then
-    '            row.Style.Value = "color:#000080;font-style:italic;text-decoration:line-through"
-    '        End If
-    '        'row.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(gv, "Select$" + row.RowIndex.ToString(), True))
-    '    Next
-    'End Sub
     Private Sub FillPayers()
         ddlPayer.DataSource = Premium.GetPayers(eFamily.RegionId, eFamily.DistrictID, imisgen.getUserId(Session("User")), True)
         ddlPayer.DataValueField = "PayerID"

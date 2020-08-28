@@ -89,15 +89,6 @@ Partial Public Class User
                     Panel2.Enabled = False
                     B_SAVE.Visible = False
                 End If
-                Dim CurrentUserID As Integer = imisgen.getUserId(Session("User"))
-                Dim result = Users.GetUserDistricts(LoggedInUser, eUsers.UserID)
-
-
-                If result = 1 Then
-                    imisgen.Alert(imisgen.getMessage("M_USERCANNOTBEEDITED"), pnlDistrict, alertPopupTitle:="IMIS")
-                    Panel2.Enabled = False
-                    B_SAVE.Visible = False
-                End If
 
                 Dim CurrentUserID As Integer = imisgen.getUserId(Session("User"))
                 Dim result = Users.GetUserDistricts(LoggedInUser, eUsers.UserID)
