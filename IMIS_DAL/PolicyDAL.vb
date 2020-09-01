@@ -37,14 +37,14 @@ Public Class PolicyDAL
             str += " UPDATE tblPolicy set FamilyID=@FamilyID, EnrollDate=@EnrollDate, StartDate=@StartDate, EffectiveDate=@EffectiveDate, ExpiryDate=@ExpiryDate, ProdID=@ProdID, OfficerID=@OfficerID,PolicyStage = @PolicyStage "
         ElseIf ePolicy.PolicyStatus = 2 Then 'When on premium page ( enforcing policy to active on prompt/premium matches policy value
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus ,EffectiveDate=@EffectiveDate " ',ExpiryDate=@ExpiryDate  "
-        ElseIf Not ePolicy.PolicyValue Is Nothing And (ePolicy.PolicyStatus Is Nothing Or ePolicy.PolicyStatus <> 4) Then 'When on overviewfamily page, policy value have changed
-            str += " UPDATE tblPolicy set PolicyValue=@PolicyValue"
         ElseIf ePolicy.PolicyStatus = 4 Then
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus"
         ElseIf Not ePolicy.RenewalOrder = -1 Then
             str += " UPDATE tblPolicy set RenewalOrder = @RenewalOrder"
         ElseIf ePolicy.PolicyStatus = 16 Then
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus ,EffectiveDate=@EffectiveDate "
+        ElseIf Not ePolicy.PolicyValue Is Nothing And (ePolicy.PolicyStatus Is Nothing Or ePolicy.PolicyStatus <> 4) Then 'When on overviewfamily page, policy value have changed
+            str += " UPDATE tblPolicy set PolicyValue=@PolicyValue"
         End If
 
         'AMANI 06/12---update  only for ONLINE policies

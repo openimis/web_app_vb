@@ -85,7 +85,7 @@ Partial Public Class User
                 txtLoginName.Text = eUsers.LoginName
                 ' txtPassword.Attributes.Add("value", eUsers.DummyPwd)
                 ' txtConfirmPassword.Attributes.Add("value", eUsers.DummyPwd)
-                If eUsers.ValidityTo.HasValue Then
+                If HttpContext.Current.Request.QueryString("r") = 1 Or eUsers.ValidityTo.HasValue Then
                     Panel2.Enabled = False
                     B_SAVE.Visible = False
                 End If
