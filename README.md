@@ -60,7 +60,7 @@ Give an example
 
 ## Deployment
 
-For deployment please read the [installation manual](http://openimis.readthedocs.io/en/latest/web_application_installation.html).
+For deployment please read the [installation manual](https://openimis.atlassian.net/wiki/spaces/OP/pages/906952742/WA2.2+Web+Application+installation).
 
 <!--## Built With
 
