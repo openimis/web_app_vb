@@ -1091,6 +1091,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Calculated commission.
+        '''</summary>
+        Friend Shared ReadOnly Property L_CALCULATEDCOMMISSION() As String
+            Get
+                Return ResourceManager.GetString("L_CALCULATEDCOMMISSION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Cancel.
         '''</summary>
         Friend Shared ReadOnly Property L_CANCEL() As String
@@ -13581,6 +13590,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_QUARTER() As String
             Get
                 Return ResourceManager.GetString("T_QUARTER", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ready.
+        '''</summary>
+        Friend Shared ReadOnly Property T_READY() As String
+            Get
+                Return ResourceManager.GetString("T_READY", resourceCulture)
             End Get
         End Property
         

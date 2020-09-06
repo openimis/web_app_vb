@@ -244,4 +244,9 @@ Public Class ReportsBI
         Dim gen As New IMIS_BL.GeneralBL
         Return gen.GetScope()
     End Function
+
+    Public Function GetReportScope() As DataTable
+        Dim gen As New IMIS_BL.GeneralBL
+        Return gen.GetReportScope()
+    End Function
 End Class

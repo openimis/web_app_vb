@@ -990,7 +990,7 @@ Partial Public Class Report
                         rpt.ReportPath = "Reports\rptOverviewOfCommissions.rdlc"
                         ds.Name = "ds_uspSSRSGetOverviewCommissions"
                         Page.Title = imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS")
-                        Dim Param(26) As ReportParameter
+                        Dim Param(28) As ReportParameter
                         Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                         Param(1) = New ReportParameter("paramUAMainTitle", imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS", False))
                         Param(2) = New ReportParameter("paramUAPrintedOn", imisgen.getMessage("L_PRINTEDON", False))
@@ -1011,13 +1011,15 @@ Partial Public Class Report
                         Param(17) = New ReportParameter("prmVillage", imisgen.getMessage("L_VILLAGE", False))
                         Param(18) = New ReportParameter("paramTotalCommissionRate", imisgen.getMessage("L_TOTALCOMMISSIONRATE", False))
                         Param(19) = New ReportParameter("prmTotalNumberOfPolicies", imisgen.getMessage("L_TOTALNUMBEROFPOLICIES", False))
-                        Param(20) = New ReportParameter("prmTotalPrescribedContribution", imisgen.getMessage("R_TOTALOFALLPRESCRIBEDCONTRIBUTION", False))
-                        Param(21) = New ReportParameter("prmTotalActualPayment", imisgen.getMessage("R_TOTALOFALLACTUALPAYMENTS", False))
-                        Param(22) = New ReportParameter("prmCalculatedCommission", imisgen.getMessage("R_CALCULATEDCOMMISSION", False))
+                        Param(20) = New ReportParameter("prmTotalPrescribedContribution", imisgen.getMessage("L_TOTALPRESCRIBEDCONTRIBUTION", False))
+                        Param(21) = New ReportParameter("prmTotalActualPayment", imisgen.getMessage("L_TOTALACTUALPAYMENT", False))
+                        Param(22) = New ReportParameter("prmCalculatedCommission", imisgen.getMessage("L_CALCULATEDCOMMISSION", False))
                         Param(23) = New ReportParameter("prmTotalNumberOfPoliciesFor", imisgen.getMessage("L_TOTALNUMBEROFPOLICIESFOR", False))
                         Param(24) = New ReportParameter("prmTotalPrescribedContributionFor", imisgen.getMessage("R_TOTALPRESCRIBEDCONTRIBUTIONFOR", False))
                         Param(25) = New ReportParameter("prmTotalActualPaymentsFor", imisgen.getMessage("R_TOTALACTUALPAYMENTSFOR", False))
                         Param(26) = New ReportParameter("prmCalculatedCommissionFor", imisgen.getMessage("R_CALCULATEDCOMMISSIONFOR", False))
+                        Param(27) = New ReportParameter("prmScope", IMIS_EN.eReports.Scope)
+                        Param(28) = New ReportParameter("prmMode", IMIS_EN.eReports.Mode)
                         rpt.SetParameters(Param)
                         ds.Value = dt
                         rpt.DataSources.Add(ds)

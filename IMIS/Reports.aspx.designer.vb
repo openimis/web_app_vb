@@ -707,6 +707,24 @@ Partial Public Class Reports
     Protected WithEvents txtCommissionRate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''CommissionsScope control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CommissionsScope As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''scopesList control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents scopesList As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''lblInsuranceNumber control.
     '''</summary>
     '''<remarks>

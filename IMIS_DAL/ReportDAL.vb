@@ -2672,7 +2672,7 @@ Public Class ReportDAL
 					    
 				 
 		SELECT  Pr.PremiumId,Prod.ProductCode,Prod.ProdID,Prod.ProductName,prod.ProductCode +' ' + prod.ProductName Product,PL.PolicyID,F.FamilyID,D.DistrictName,o.OfficerID , Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames InsName,O.Code + ' ' + O.LastName Officer,
-		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate)  [Month], Pr.Paydate, Pr.Receipt,CASE WHEN Ins.IsHead = 1 THEN ISNULL(Pr.Amount,0) ELSE NULL END Amount,CASE WHEN Ins.IsHead = 1 THEN Pr.Amount ELSE NULL END  PrescribedContribution, CASE WHEN Ins.IsHead = 1 THEN ISNULL(PD.Amount,0) ELSE NULL END ActualPayment, Payer.PayerName,PY.PaymentDate,CASE WHEN IsHead = 1 THEN SUM(ISNULL(Pr.Amount,0.00)) * ISNULL(rep.CommissionRate,0.00) ELSE NULL END  CommissionRate,PY.ExpectedAmount PaymentAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo
+		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate)  [Month], Pr.Paydate, Pr.Receipt,CASE WHEN Ins.IsHead = 1 THEN ISNULL(Pr.Amount,0) ELSE NULL END Amount,CASE WHEN Ins.IsHead = 1 THEN Pr.Amount ELSE NULL END  PrescribedContribution, CASE WHEN Ins.IsHead = 1 THEN ISNULL(PD.Amount,0) ELSE NULL END ActualPayment, Payer.PayerName,PY.PaymentDate,CASE WHEN IsHead = 1 THEN SUM(ISNULL(Pr.Amount,0.00)) * ISNULL(rep.CommissionRate,0.00) ELSE NULL END  CommissionRate,PY.ExpectedAmount PaymentAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo,O.Phone PhoneNumber
 		FROM tblPremium Pr INNER JOIN tblPolicy PL ON Pr.PolicyID = PL.PolicyID AND (PL.PolicyStatus=1 OR PL.PolicyStatus=2) AND PL.ValidityTo IS NULL
 		LEFT JOIN tblPaymentDetails PD ON PD.PremiumID = Pr.PremiumId AND PD.ValidityTo IS NULl AND PR.ValidityTo IS NULL
 		LEFT JOIN tblPayment PY ON PY.PaymentID = PD.PaymentID AND PY.ValidityTo IS NULL
@@ -2688,7 +2688,7 @@ Public Class ReportDAL
 		WHERE Pr.ReportingCommissionID = @ReportingId
 		
 		GROUP BY Pr.PremiumId,Prod.ProductCode,Prod.ProdID,Prod.ProductName,prod.ProductCode +' ' + prod.ProductName , PL.PolicyID ,  F.FamilyID, D.DistrictName,o.OfficerID , Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames ,O.Code + ' ' + O.LastName ,
-		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate), Pr.Paydate, Pr.Receipt,Pr.Amount,Pr.Amount, PD.Amount , Payer.PayerName,PY.PaymentDate, PY.ExpectedAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo,CommissionRate
+		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate), Pr.Paydate, Pr.Receipt,Pr.Amount,Pr.Amount, PD.Amount , Payer.PayerName,PY.PaymentDate, PY.ExpectedAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo,CommissionRate,O.Phone
 		ORDER BY PremiumId, O.OfficerID,F.FamilyID,IsHead DESC;"
         Data.setSQLCommand(sSQL, CommandType.Text)
 

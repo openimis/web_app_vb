@@ -640,8 +640,16 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     </li>
                                     <li class="oc">
                                         <asp:Label ID="lblCommissionRate" runat="server" Text='<%$ Resources:Resource,L_COMMISSIONRATE%>' CssClass="FormLabel"></asp:Label>
-                                        <asp:TextBox ID="txtCommissionRate" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtCommissionRate" runat="server">10</asp:TextBox>
                                     </li>
+
+
+                                    <li class="oc">
+                                        <asp:Label ID="CommissionsScope" runat="server" Text='Scope' CssClass="FormLabel"></asp:Label>
+                                        <asp:DropDownList ID="scopesList" runat="server"></asp:DropDownList>
+                                    </li>
+
+
                                     <li class="chr">
                                         <asp:Label ID="lblInsuranceNumber" runat="server" Text='<%$ Resources:Resource,L_CHFID%>' CssClass="FormLabel"></asp:Label>
                                         <asp:TextBox ID="txtInsuranceNumber" runat="server"></asp:TextBox>

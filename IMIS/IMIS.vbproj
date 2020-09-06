@@ -275,6 +275,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
     <None Include="Web References\IMISService\imisservices.disco" />
     <None Include="web.base.config" />
     <None Include="Web.config">
