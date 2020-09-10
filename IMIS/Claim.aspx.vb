@@ -964,7 +964,12 @@ Partial Public Class Claim
 
             Session("RestoreMode") = RestoreMode
             If Session("RestoreMode") = True Then
-                txtCLAIMCODEData.Text = "@" + eClaim.ClaimCode
+                Dim claimCodePrefix As String = IMIS_EN.AppConfiguration.ClaimCodePrefix
+                If Not claimCodePrefix Is Nothing Then
+                    txtCLAIMCODEData.Text = claimCodePrefix + eClaim.ClaimCode
+                Else
+                    txtCLAIMCODEData.Text = "@" + eClaim.ClaimCode
+                End If
                 btnRestore.Visible = False
             End If
         Catch ex As Exception

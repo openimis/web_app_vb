@@ -49,7 +49,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                  <div class="lbl"><asp:Label ID="L_LoginName" runat="server" Text='<%$ Resources:Resource,L_USERNAME %>'></asp:Label></div>
                 <div class="cnt"><asp:TextBox ID="txtLoginName" runat="server" Width="80%"  ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="submit" 
-                        ControlToValidate="txtLoginName" ErrorMessage="*" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        ControlToValidate="txtLoginName" ErrorMessage='<%$ Resources:Resource, V_SUMMARY %>' SetFocusOnError="True">*</asp:RequiredFieldValidator>
                     
                 </div>
                     
