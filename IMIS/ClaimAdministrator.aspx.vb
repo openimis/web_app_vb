@@ -204,7 +204,7 @@ Partial Public Class ClaimAdministrator
         End If
         Return True
     End Function
-    Private Function AdiminExists()
+    Private Function AdminExists()
         Dim eUser = New IMIS_EN.tblUsers
         eUser.LoginName = txtCode.Text
         Dim dt As DataTable = BIClaimAdmin.CheckIfUserExists(eUser)

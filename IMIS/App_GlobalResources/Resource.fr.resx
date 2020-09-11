@@ -1184,7 +1184,7 @@
 		<value>Journal sur </value>
 	</data>
   <data name="L_ALERTPOPUPTITLE" xml:space="preserve">
-		<value>IMIS</value>
+		<value>openIMIS</value>
 	</data>
   <data name="L_CONFIRMPOPUPTITLE" xml:space="preserve">
 		<value>openIMIS</value>
@@ -1527,6 +1527,12 @@
 	</data>
   <data name="M_EXTR_PHONEOK1" xml:space="preserve">
 		<value>L'extraction des téléphones est créée. Cliquez sur le lien TÉLÉCHARGER.</value>
+	</data>
+  <data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+		<value>Tâche terminée en </value>
+	</data>
+  <data name="M_EXTR_HOURS" xml:space="preserve">
+		<value> heures</value>
 	</data>
   <data name="L_DETAILS" xml:space="preserve">
 		<value>Détails</value>

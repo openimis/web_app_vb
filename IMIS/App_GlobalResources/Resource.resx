@@ -1141,6 +1141,12 @@
   <data name="M_EXTR_PHONEOK" xml:space="preserve">
 		<value>Phone extract created. Please click the DOWNLOAD link.</value>
 	</data>
+  <data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+		<value>Task completed in </value>
+	</data>
+  <data name="M_EXTR_HOURS" xml:space="preserve">
+		<value> hours</value>
+	</data>
   <data name="L_CHECKALL" xml:space="preserve">
 		<value>Check All</value>
 	</data>
@@ -1184,7 +1190,7 @@
 		<value>Journal on</value>
 	</data>
   <data name="L_ALERTPOPUPTITLE" xml:space="preserve">
-		<value>IMIS</value>
+		<value>openIMIS</value>
 	</data>
   <data name="L_CONFIRMPOPUPTITLE" xml:space="preserve">
 		<value>IMIS</value>

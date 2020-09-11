@@ -188,18 +188,18 @@ Partial Public Class IMISExtracts
             Dim TimeElapsed As String = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds)
 
             If eExtractInfo.ExtractStatus = 0 Then
-                str = imisgen.getMessage("M_EXTR_PHONEOK") & "<br />Task completed in " & TimeElapsed & " Hours"
+                str = imisgen.getMessage("M_EXTR_PHONEOK") & "<br />" & imisgen.getMessage("M_EXTR_TASKCOMPLETED") & TimeElapsed & imisgen.getMessage("M_EXTR_HOURS")
                 'DivMsg.InnerHtml = str
-                imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
+                imisgen.Alert(str, pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
                 'PhoneExtractLink.NavigateUrl = "~/Extracts/Phone/ImisData.db3" 'eExtractInfo.ExtractFileName
                 PhoneExtractLink.Visible = True
             Else
-                str = imisgen.getMessage("M_EXTR_PHONENOK") & "<br />Task completed in " & TimeElapsed & " Hours"
-                imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
+                str = imisgen.getMessage("M_EXTR_PHONENOK") & "<br />" & imisgen.getMessage("M_EXTR_TASKCOMPLETED") & TimeElapsed & imisgen.getMessage("M_EXTR_HOURS")
+                imisgen.Alert(str, pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
                 'imisgen.Alert(str, pnlMiddle)
             End If
         Catch ex As Exception
-            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
         End Try
     End Sub

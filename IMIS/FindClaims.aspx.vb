@@ -26,7 +26,6 @@
 ' 
 '
 
-Imports System.Web.Script.Serialization
 
 Partial Public Class FindClaims
     Inherits System.Web.UI.Page
