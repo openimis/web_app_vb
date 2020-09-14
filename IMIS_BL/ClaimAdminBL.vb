@@ -95,6 +95,10 @@ Public Class ClaimAdminBL
 
         isDirtyClaimAdmin = False
     End Function
+    Public Function CheckIfUserExists(ByVal eUser As IMIS_EN.tblUsers) As DataTable
+        Dim UserDAL As New IMIS_DAL.UsersDAL
+        Return UserDAL.CheckIfUserExists(eUser)
+    End Function
     Public Function SaveClaimAdministratorUser(eclaimAdmin As IMIS_EN.tblClaimAdmin) As Integer
         Dim BLUsers As New UsersBL
         Dim iReturn As Integer = -5

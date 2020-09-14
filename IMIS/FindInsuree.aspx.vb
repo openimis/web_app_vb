@@ -117,6 +117,8 @@ Partial Public Class FindInsuree
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Insuree, Page) Then
             B_VIEW.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeSearch, UserID)
+            B_CLAIM.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
+            B_CLAIMSREVIEWS.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimSearch, UserID)
             btnSearch.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.InsureeSearch, UserID)
 
         Else
@@ -182,7 +184,7 @@ Partial Public Class FindInsuree
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 

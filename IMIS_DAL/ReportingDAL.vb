@@ -40,6 +40,7 @@ Public Class ReportingDAL
   " LEFT OUTER JOIN tblPayer PY ON PY.PayerID = RP.PayerId" &
   " INNER JOIN tblUsersDistricts UD ON Dis.DistrictID = UD.LocationId" &
   " WHERE RP.ReportingID = CASE WHEN @ReportingID IS NULL THEN RP.ReportingID ELSE @ReportingID END" &
+   " AND RP.ReportType =1" &
   " AND UD.ValidityTo IS NULL AND UD.UserID = @UserId" &
   " AND RP.LocationId = CASE WHEN @LocationId = 0 THEN RP.LocationId ELSE @LocationId END ORDER BY ReportingId DESC"
         data.setSQLCommand(Query, CommandType.Text)

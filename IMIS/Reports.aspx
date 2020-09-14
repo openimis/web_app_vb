@@ -141,7 +141,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             }
                         }
                     }
-
                     else if ($(this).is("#<%=ddlDistrictWoNational.ClientID%>")) {
                         var lstBoxID = $lstBox.val();
                         if (lstBoxID == 2 || lstBoxID == 12 || lstBoxID == 22) {

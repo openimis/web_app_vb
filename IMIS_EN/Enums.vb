@@ -305,6 +305,5 @@ Public Class Enums
         FeedbackPrompt
         Utilities
         Funding
-
     End Enum
 End Class

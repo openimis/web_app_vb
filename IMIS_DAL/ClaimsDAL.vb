@@ -32,22 +32,25 @@ Public Class ClaimsDAL
         Dim dt As New DataTable
         Dim sSQLClaim As String
 
-        sSQLClaim = "SELECT H.HFID,H.HFCode, H.HFName,H.HFCareType,C.ICDID,C.InsureeId,I.CHFID" & _
-               ",I.LastName,I.OtherNames,C.DateFrom,C.DateTo,C.ClaimCode,C.DateClaimed,C.DateProcessed" & _
-               ",IC.ICDCode,C.Claimed,C.Approved,C.Explanation,C.Valuated,C.Explanation,C.Adjustment" & _
-               ",C.ClaimStatus,C.ReviewStatus,C.FeedbackStatus,FB.FeedbackID,FB.FeedbackDate,FB.CareRendered" & _
-               ",FB.DrugPrescribed,FB.DrugReceived,FB.PaymentAsked,FB.Asessment,FB.CHFOfficerCode" & _
-               ",Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames" & _
-               " ,C.ICDID1, C.ICDID2, C.ICDID3, C.ICDID4, C.VisitType,IC1.ICDCode ICDCode1,IC2.ICDCode ICDCode2,IC3.ICDCode ICDCode3,IC4.ICDCode ICDCode4,GuaranteeId" & _
-               " FROM tblClaim C" & _
-               " INNER JOIN tblInsuree I ON C.InsureeID = I.InsureeID INNER JOIN tblHF H ON C.HfID = H.HfID" & _
-               " INNER JOIN tblICDCodes IC ON C.ICDID = IC.ICDID" & _
-               " LEFT JOIN tblICDCodes IC1 ON C.ICDID1 = IC1.ICDID" & _
-               " LEFT JOIN tblICDCodes IC2 ON C.ICDID2 = IC2.ICDID" & _
-               " LEFT JOIN tblICDCodes IC3 ON C.ICDID3 = IC3.ICDID" & _
-               " LEFT JOIN tblICDCodes IC4 ON C.ICDID4 = IC4.ICDID" & _
-               " LEFT JOIN tblFeedback FB ON C.ClaimID = FB.ClaimID" & _
-               " LEFT JOIN tblClaimAdmin Cadm ON Cadm.ClaimAdminId = C.ClaimAdminId" & _
+        sSQLClaim = "SELECT H.HFID,H.HFCode, H.HFName,H.HFCareType,C.ICDID,C.InsureeId,I.CHFID" &
+               ",I.LastName,I.OtherNames,C.DateFrom,C.DateTo,C.ClaimCode,C.DateClaimed,C.DateProcessed" &
+               ",IC.ICDCode,C.Claimed,C.Approved,C.Explanation,C.Valuated,C.Explanation,C.Adjustment" &
+               ",C.ClaimStatus,C.ReviewStatus,C.FeedbackStatus,FB.FeedbackID,FB.FeedbackDate,FB.CareRendered" &
+               ",FB.DrugPrescribed,FB.DrugReceived,FB.PaymentAsked,FB.Asessment,FB.CHFOfficerCode" &
+               ",Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames" &
+               " ,C.ICDID1, C.ICDID2, C.ICDID3, C.ICDID4, C.VisitType,IC1.ICDCode ICDCode1,IC2.ICDCode ICDCode2,IC3.ICDCode ICDCode3,IC4.ICDCode ICDCode4,GuaranteeId" &
+                ",ISNULL(CS.RejectionReason,NULL) ServiceRejectionReason,ISNULL(CI.RejectionReason,NULL) ItemRejectionReason " &
+               " FROM tblClaim C" &
+               " INNER JOIN tblInsuree I ON C.InsureeID = I.InsureeID INNER JOIN tblHF H ON C.HfID = H.HfID" &
+               " INNER JOIN tblICDCodes IC ON C.ICDID = IC.ICDID" &
+               " LEFT JOIN tblICDCodes IC1 ON C.ICDID1 = IC1.ICDID" &
+               " LEFT JOIN tblICDCodes IC2 ON C.ICDID2 = IC2.ICDID" &
+               " LEFT JOIN tblICDCodes IC3 ON C.ICDID3 = IC3.ICDID" &
+               " LEFT JOIN tblICDCodes IC4 ON C.ICDID4 = IC4.ICDID" &
+               " LEFT JOIN tblFeedback FB ON C.ClaimID = FB.ClaimID" &
+               " LEFT JOIN tblClaimAdmin Cadm ON Cadm.ClaimAdminId = C.ClaimAdminId" &
+               " LEFT OUTER JOIN tblClaimServices CS ON CS.ClaimID = C.ClaimID" &
+               " LEFT OUTER JOIN tblClaimItems CI ON CI.ClaimID = C.ClaimID" &
                " WHERE C.ClaimID = @ClaimID"
 
         data.setSQLCommand(sSQLClaim, CommandType.Text)
@@ -62,7 +65,8 @@ Public Class ClaimsDAL
             Dim eCD As New IMIS_EN.tblICDCodes
             Dim eFeedback As New IMIS_EN.tblFeedback
             Dim eClaimAdmin As New IMIS_EN.tblClaimAdmin
-
+            Dim eClaimServices As New IMIS_EN.tblClaimServices
+            Dim eClaimItems As New IMIS_EN.tblClaimItems
             eHF.HfID = dr("HFID")
             eHF.HFCode = dr("HFCode")
             eHF.HFCareType = dr("HFCareType")
@@ -88,8 +92,10 @@ Public Class ClaimsDAL
             eClaim.Adjustment = if(dr("Adjustment") Is DBNull.Value, String.Empty, dr("Adjustment"))
             eClaim.ClaimStatus = dr("ClaimStatus")
             eClaim.FeedbackStatus = if(dr("FeedbackStatus") Is DBNull.Value, Nothing, dr("FeedbackStatus"))
-            eClaim.ReviewStatus = if(dr("ReviewStatus") Is DBNull.Value, Nothing, dr("ReviewStatus"))
-            eFeedback.FeedbackID = if(dr("FeedbackID") Is DBNull.Value, Nothing, dr("FeedbackID"))
+            eClaim.ReviewStatus = If(dr("ReviewStatus") Is DBNull.Value, Nothing, dr("ReviewStatus"))
+            eClaimItems.RejectionReason = If(dr("ItemRejectionReason") Is DBNull.Value, Nothing, dr("ItemRejectionReason"))
+            eClaimServices.RejectionReason = If(dr("ServiceRejectionReason") Is DBNull.Value, Nothing, dr("ServiceRejectionReason"))
+            eFeedback.FeedbackID = If(dr("FeedbackID") Is DBNull.Value, Nothing, dr("FeedbackID"))
             eFeedback.FeedbackDate = if(dr("FeedbackDate") Is DBNull.Value, Nothing, dr("FeedbackDate"))
             eFeedback.CareRendered = if(dr("CareRendered") Is DBNull.Value, Nothing, dr("CareRendered"))
             eFeedback.DrugPrescribed = if(dr("DrugPrescribed") Is DBNull.Value, Nothing, dr("DrugPrescribed"))
@@ -119,6 +125,9 @@ Public Class ClaimsDAL
             eClaim.tblICDCodes = eCD
             eClaim.tblFeedback = eFeedback
             eClaim.tblClaimAdmin = eClaimAdmin
+            eClaim.ClaimItems = eClaimItems
+            eClaim.ClaimServices = eClaimServices
+
 
         End If
     End Sub
@@ -229,6 +238,7 @@ Public Class ClaimsDAL
         data.params("@ICDID4", SqlDbType.Int, eClaim.ICDID4)
         data.params("@VisitType", SqlDbType.Char, 1, eClaim.VisitType)
         data.params("@GuaranteeId", SqlDbType.NVarChar, 50, eClaim.GuaranteeId)
+        data.params("@ClaimStatus", SqlDbType.TinyInt, eClaim.ClaimStatus)
 
         data.ExecuteCommand()
     End Sub
@@ -592,7 +602,7 @@ Public Class ClaimsDAL
     Public Function GetClaims(ByRef eClaims As IMIS_EN.tblClaim, ByVal claimStatus As DataTable, ByVal FeedbackStatus As DataTable, ByVal ReviewStatus As DataTable, ByVal UserID As Integer) As DataTable
 
         Dim sSQL As String = ""
-        sSQL += " SELECT tblClaim.ClaimID,tblClaim.ClaimUUID,claimcode,DateClaimed,Claimed,CASE WHEN ClaimStatus = 2 THEN Approved ELSE ISNULL(Approved, Claimed) END Approved,"
+        sSQL += " SELECT tblClaim.ClaimID,tblClaim.ClaimUUID,claimcode,DateClaimed,Claimed,CASE WHEN ClaimStatus = 2 THEN Approved                                             ELSE ISNULL(Approved, Claimed) END Approved,"
         sSQL += " tblClaim.HfID,ClaimSt.name AS ClaimStatus,FeedbackSt.name AS FeedbackStatus, ReviewSt.name AS ReviewStatus ,tblClaim.RowID,"
         sSQL += " tblHF.HFCode,HFName,tblClaim.HfID,Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames,  VisitType "
         sSQL += " FROM tblClaim"

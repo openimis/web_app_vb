@@ -209,7 +209,7 @@ Partial Public Class Premium
                 hfInsurancePeriod.Value = ePremium.tblPolicy.tblProduct.InsurancePeriod
             End If
 
-
+            getGridData()
 
 
         Catch ex As Exception
@@ -233,9 +233,20 @@ Partial Public Class Premium
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Premium.ToString & "&retUrl=" & RefUrl)
         End If
     End Sub
+
     Private Sub FillCombobox()
         FillPayers()
     End Sub
+
+    Private Sub getGridData()
+
+        ePremium.PolicyID = hfPolicyID.Value
+
+        gvPremium.DataSource = Premium.GetPremium(ePremium)
+        gvPremium.DataBind()
+
+    End Sub
+
     Private Sub FillPayers()
         ddlPayer.DataSource = Premium.GetPayers(eFamily.RegionId, eFamily.DistrictID, imisgen.getUserId(Session("User")), True)
         ddlPayer.DataValueField = "PayerID"
@@ -269,7 +280,11 @@ Partial Public Class Premium
 
                 Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
                 Dim StartDate As Date = Date.ParseExact(hfPolicyStartDate.Value, "dd/MM/yyyy", Nothing)
-                Dim EffectiveDate As Date = If(PayDate < StartDate, StartDate, PayDate)
+                Dim EffectiveDate As Date = if(PayDate < StartDate, StartDate, PayDate)
+                If ePremium.PayDate > System.DateTime.Now Then
+                    lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
+                    Return
+                End If
 
                 Dim ActivationValue As Integer = ActivationOption.getActivationOption()
 

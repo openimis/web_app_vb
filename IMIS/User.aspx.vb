@@ -73,9 +73,10 @@ Partial Public Class User
             gvDistrict.DataBind()
             Assign(gvDistrict)
             Dim LoggedInUser As Integer = imisgen.getUserId(Session("User"))
-
             If Not eUsers.UserID = 0 Then
+
                 Users.LoadUsers(eUsers)
+
                 ddlLanguage.SelectedValue = eUsers.LanguageID
                 txtLastName.Text = eUsers.LastName
                 txtOtherNames.Text = eUsers.OtherNames

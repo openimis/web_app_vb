@@ -177,7 +177,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 });
 
             });
-
             $('[id*=gvRoles] tr').each(function () {
                 var toolTip = $(this).attr("title");
                 $(this).find("td").eq(2).each(function () {
@@ -186,14 +185,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     });
                 });
 
-                              $(this).removeAttr("title");
-                          });
+                $(this).removeAttr("title");
+            });
 
         });
 
 
     </script>
-        <style type="text/css" >
+    <style type="text/css" >
     .footer{top:665px;}
      /*.backentry{ height:629px; }*/
      .panelbuttons{ position:relative;top:0px;}
@@ -402,6 +401,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </HeaderTemplate>
                                     </asp:TemplateField>
                                 </Columns>
+                               
                                 <PagerStyle CssClass="pgr" />
                                 <AlternatingRowStyle CssClass="alt" />
                                 <SelectedRowStyle CssClass="srs" />

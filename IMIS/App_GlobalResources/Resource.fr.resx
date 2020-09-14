@@ -1184,7 +1184,7 @@
 		<value>Journal sur </value>
 	</data>
   <data name="L_ALERTPOPUPTITLE" xml:space="preserve">
-		<value>IMIS</value>
+		<value>openIMIS</value>
 	</data>
   <data name="L_CONFIRMPOPUPTITLE" xml:space="preserve">
 		<value>openIMIS</value>
@@ -1527,6 +1527,12 @@
 	</data>
   <data name="M_EXTR_PHONEOK1" xml:space="preserve">
 		<value>L'extraction des téléphones est créée. Cliquez sur le lien TÉLÉCHARGER.</value>
+	</data>
+  <data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+		<value>Tâche terminée en </value>
+	</data>
+  <data name="M_EXTR_HOURS" xml:space="preserve">
+		<value> heures</value>
 	</data>
   <data name="L_DETAILS" xml:space="preserve">
 		<value>Détails</value>
@@ -4892,5 +4898,101 @@
   <data name="T_READY" xml:space="preserve">
 		<value>Prêt</value>
 	</data>
+  <data name="G_PROJECTDETAILS" xml:space="preserve">
+    <value>Détails du projet</value>
+  </data>
+  <data name="L_COMMENTS" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="L_COSTCENTRE" xml:space="preserve">
+    <value>Centre de coût</value>
+  </data>
+  <data name="L_PROJECTCENTRE" xml:space="preserve">
+    <value>Centre de projet</value>
+  </data>
+  <data name="L_ACTIVITYCENTRE" xml:space="preserve">
+    <value>Centre d'activité</value>
+  </data>
+  <data name="L_CC" xml:space="preserve">
+    <value>CC</value>
+  </data>
+  <data name="L_PC" xml:space="preserve">
+    <value>PC</value>
+  </data>
+  <data name="L_AC" xml:space="preserve">
+    <value>AC</value>
+  </data>
+  <data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
+    <value>Projet(s) trouvé(s)</value>
+  </data>
+  <data name="L_UNITS" xml:space="preserve">
+    <value>Unités</value>
+  </data>
+  <data name="L_EMPLOYEE" xml:space="preserve">
+    <value>Employé</value>
+  </data>
+  <data name="L_EMPLOYEEID" xml:space="preserve">
+    <value>ID d’employé</value>
+  </data>
+  <data name="L_UNITS2" xml:space="preserve">
+    <value>Unités2</value>
+  </data>
+  <data name="T_SELECTCOSTCENTRE" xml:space="preserve">
+    <value>Sélectionnez le centre de coûts</value>
+  </data>
+  <data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
+    <value>Sélectionnez Centre de projets</value>
+  </data>
+  <data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
+    <value>Sélectionnez le centre d'activités</value>
+  </data>
+  <data name="T_SELECTEMPLOYEE" xml:space="preserve">
+    <value>Sélectionner un employé</value>
+  </data>
+  <data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
+    <value>Les détails du projet ont été insérés avec succès</value>
+  </data>
+  <data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
+    <value>Les détails du projet ont été mis à jour avec succès</value>
+  </data>
+  <data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
+    <value>Total des contributions payées pour</value>
+  </data>
+  <data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
+    <value>Commission calculée</value>
+  </data>
+  <data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
+    <value>Commission calculée pour</value>
+  </data>
+  <data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
+    <value>Total de la contribution de paiement réelle pour</value>
+  </data>
+  <data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
+    <value>Total de toutes les contributions de paiement réalisés</value>
+  </data>
+  <data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
+    <value>Total de toutes les contributions prescrites</value>
+  </data>
+  <data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
+    <value>Total des contributions prescrites pour</value>
+  </data>
+  <data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+    <value>Nombre total de polices pour</value>
+  </data>
+  <data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+    <value>Contribution totale prescrite pour</value>
+  </data>
+  <data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
+    <value>Veuillez sélectionner le taux de commission</value>
+  </data>
+  <data name="R_TOTALAPPROVED" xml:space="preserve">
+    <value>Total approuvé</value>
+  </data>
+  <data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
+    <value>Montant total ajusté</value>
+  </data>
+  <data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
+    <value>Montant total payé</value>
+  </data>
 </root>
 

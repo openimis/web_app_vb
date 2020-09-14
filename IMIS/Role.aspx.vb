@@ -39,7 +39,6 @@
         tvRoleRights3.ExpandAll()
         tvRoleRights4.ExpandAll()
         If eRole.IsSystem Or eRole.ValidityTo IsNot Nothing Then
-
             txtRoles.Enabled = False
             txtAltLanguage.Enabled = False
             chkIsSystem.Enabled = False
@@ -96,6 +95,7 @@
         If dtRole.Rows(0)("ValidityTo") IsNot DBNull.Value Then
             eRole.ValidityTo = dtRole.Rows(0)("ValidityTo")
         End If
+    
         txtRoles.Text = eRole.RoleName
         txtAltLanguage.Text = eRole.AltLanguage
         chkIsBlocked.Checked = eRole.IsBlocked

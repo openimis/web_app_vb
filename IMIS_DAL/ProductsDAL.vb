@@ -54,7 +54,9 @@ Public Class ProductsDAL
             If Not dr("ProductName") Is DBNull.Value Then
                 eProducts.ProductName = dr("ProductName")
             End If
-
+            If Not dr("Recurrence") Is DBNull.Value Then
+                eProducts.Recurrence = CInt(dr("Recurrence"))
+            End If
             If Not dr("DateFrom") Is DBNull.Value Then
                 eProducts.DateFrom = dr("DateFrom")
             End If
@@ -393,7 +395,7 @@ Public Class ProductsDAL
         sSQL += " MaxNoHospitalizaion,MaxNoVisits,MaxAmountConsultation,MaxAmountSurgery,MaxAmountDelivery,MaxAmountHospitalization,MaxInstallments,WaitingPeriod,"
         sSQL += " Threshold,RenewalDiscountPerc,RenewalDiscountPeriod,StartCycle3,StartCycle4,AdministrationPeriod,MaxPolicyExtraMember,MaxPolicyExtraMemberIP,"
         sSQL += " MaxPolicyExtraMemberOP,MaxCeilingPolicy,MaxCeilingPolicyIP,MaxCeilingPolicyOP,EnrolmentDiscountPerc,EnrolmentDiscountPeriod, MaxAmountAntenatal,"
-        sSQL += " MaxNoAntenatal, CeilingInterpretation,[Level1],[Sublevel1],[Level2],[Sublevel2],[Level3],[Sublevel3],[Level4],[Sublevel4],[ShareContribution],[WeightPopulation],WeightNumberFamilies,[WeightInsuredPopulation],[WeightNumberInsuredFamilies],[WeightNumberVisits],[WeightAdjustedAmount])"
+        sSQL += " MaxNoAntenatal, CeilingInterpretation,[Level1],[Sublevel1],[Level2],[Sublevel2],[Level3],[Sublevel3],[Level4],[Sublevel4],[ShareContribution],[WeightPopulation],WeightNumberFamilies,[WeightInsuredPopulation],[WeightNumberInsuredFamilies],[WeightNumberVisits],[WeightAdjustedAmount],[Recurrence])"
         sSQL += " VALUES(@ProductCode, @ProductName,@ConversionProdID,@LocationId,@DateFrom,@DateTo,@LumpSum,@MemberCount,@PremiumAdult,@PremiumChild,@InsurancePeriod,"
         sSQL += " @DedInsuree,@DedOPInsuree,@DedIPInsuree,@MaxInsuree,@MaxOPInsuree,@MaxIPInsuree,@PeriodRelPrices,@PeriodRelPricesOP,@PeriodRelPricesIP,@AccCodePremiums,"
         sSQL += " @AccCodeRemuneration,@DedTreatment,@DedOPTreatment,@DedIPTreatment,@MaxTreatment,@MaxOPTreatment,@MaxIPTreatment,@DedPolicy,@DedOPPolicy,"
@@ -402,7 +404,7 @@ Public Class ProductsDAL
         sSQL += " @MaxNoVisits,@MaxAmountConsultation,@MaxAmountSurgery,@MaxAmountDelivery,@MaxAmountHospitalization,@MaxInstallments,@WaitingPeriod,@Threshold,"
         sSQL += " @RenewalDiscountPerc,@RenewalDiscountPeriod,@StartCycle3,@StartCycle4,@AdministrationPeriod,@MaxPolicyExtraMember,@MaxPolicyExtraMemberIP,"
         sSQL += " @MaxPolicyExtraMemberOP,@MaxCeilingPolicy,@MaxCeilingPolicyIP,@MaxCeilingPolicyOP,@EnrolmentDiscountPerc,@EnrolmentDiscountPeriod, @MaxAmountAntenatal,"
-        sSQL += " @MaxNoAntenatal, @CeilingInterpretation, @Level1,@Sublevel1,@Level2,@Sublevel2,@Level3,@Sublevel3,@Level4,@Sublevel4,@ShareContribution,@WeightPopulation,@WeightNumberFamilies,@WeightInsuredPopulation,@WeightNumberInsuredFamilies,@WeightNumberVisits,@WeightAdjustedAmount);"
+        sSQL += " @MaxNoAntenatal, @CeilingInterpretation, @Level1,@Sublevel1,@Level2,@Sublevel2,@Level3,@Sublevel3,@Level4,@Sublevel4,@ShareContribution,@WeightPopulation,@WeightNumberFamilies,@WeightInsuredPopulation,@WeightNumberInsuredFamilies,@WeightNumberVisits,@WeightAdjustedAmount,@Recurrence);"
         sSQL += " SELECT @ProdId = scope_identity()"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -498,72 +500,73 @@ Public Class ProductsDAL
         data.params("@WeightNumberInsuredFamilies", SqlDbType.Float, eProducts.WeightNumberInsuredFamilies)
         data.params("@WeightNumberVisits", SqlDbType.Float, eProducts.WeightNumberVisits)
         data.params("@WeightAdjustedAmount", SqlDbType.Float, eProducts.WeightAdjustedAmount)
-
+        data.params("@Recurrence", SqlDbType.TinyInt, eProducts.Recurrence)
         'Addition for Nepal >> End
         data.ExecuteCommand()
         eProducts.ProdID = data.sqlParameters("@prodID")
     End Sub
     Public Sub UpdateProduct(ByRef eProducts As IMIS_EN.tblProduct)
         Dim data As New ExactSQL
-        Dim Query As String = "Insert into tblProduct([ProductCode],[ProductName],[LocationId],[DateFrom],[DateTo]" & _
-            ",[LumpSum],[MemberCount],[PremiumAdult],[PremiumChild],[InsurancePeriod],[DedInsuree],[DedOPInsuree]" & _
-            ",[DedIPInsuree],[MaxInsuree],[MaxOPInsuree],[MaxIPInsuree],[PeriodRelPrices],[PeriodRelPricesOP]" & _
-            ",[PeriodRelPricesIP],[AccCodePremiums],[AccCodeRemuneration],[DedTreatment],[DedOPTreatment]" & _
-            ",[DedIPTreatment],[MaxTreatment],[MaxOPTreatment],[MaxIPTreatment],[DedPolicy],[DedOPPolicy]" & _
-            ",[DedIPPolicy],[MaxPolicy],[MaxOPPolicy],[MaxIPPolicy],[GracePeriod],[ValidityFrom],[ValidityTo]" & _
-            ",[LegacyID],[AuditUserID]" & _
-              ",GracePeriodRenewal,RegistrationLumpSum,RegistrationFee,GeneralAssemblyLumpSum,GeneralAssemblyFee,StartCycle1" & _
-              ",StartCycle2,MaxNoConsultation,MaxNoSurgery,MaxNoDelivery,MaxNoHospitalizaion" & _
-              ",MaxNoVisits,MaxAmountConsultation,MaxAmountSurgery,MaxAmountDelivery,MaxAmountHospitalization,MaxInstallments,WaitingPeriod" & _
-              ",Threshold,RenewalDiscountPerc,RenewalDiscountPeriod,StartCycle3,StartCycle4,AdministrationPeriod" & _
-              ",MaxPolicyExtraMember,MaxPolicyExtraMemberIP,MaxPolicyExtraMemberOP" & _
-              ",MaxCeilingPolicy,MaxCeilingPolicyIP,MaxCeilingPolicyOP" & _
-              ",EnrolmentDiscountPerc,EnrolmentDiscountPeriod, MaxAmountAntenatal, MaxNoAntenatal, CeilingInterpretation,[Level1],[Sublevel1],[Level2],[Sublevel2],[Level3],[Sublevel3],[Level4],[Sublevel4],[ShareContribution],[WeightPopulation],WeightNumberFamilies,[WeightInsuredPopulation],[WeightNumberInsuredFamilies],[WeightNumberVisits],[WeightAdjustedAmount]" & _
-              ")" & _
-          " SELECT [ProductCode],[ProductName],[LocationId],[DateFrom],[DateTo],[LumpSum],[MemberCount]" & _
-          ",[PremiumAdult],[PremiumChild],[InsurancePeriod],[DedInsuree],[DedOPInsuree],[DedIPInsuree]" & _
-          ",[MaxInsuree],[MaxOPInsuree],[MaxIPInsuree],[PeriodRelPrices],[PeriodRelPricesOP],[PeriodRelPricesIP]" & _
-          ",[AccCodePremiums],[AccCodeRemuneration],[DedTreatment],[DedOPTreatment],[DedIPTreatment],[MaxTreatment]" & _
-          ",[MaxOPTreatment],[MaxIPTreatment],[DedPolicy],[DedOPPolicy],[DedIPPolicy],[MaxPolicy],[MaxOPPolicy]" & _
-          ",[MaxIPPolicy],[GracePeriod],[ValidityFrom],getdate(),@ProdID,[AuditUserID]" & _
-          ",GracePeriodRenewal,RegistrationLumpSum,RegistrationFee,GeneralAssemblyLumpSum,GeneralAssemblyFee,StartCycle1" & _
-          ",StartCycle2,MaxNoConsultation,MaxNoSurgery,MaxNoDelivery,MaxNoHospitalizaion" & _
-          ",MaxNoVisits,MaxAmountConsultation,MaxAmountSurgery,MaxAmountDelivery,MaxAmountHospitalization,MaxInstallments,WaitingPeriod" & _
-          ",Threshold,RenewalDiscountPerc,RenewalDiscountPeriod,StartCycle3,StartCycle4,AdministrationPeriod" & _
-          ",MaxPolicyExtraMember,MaxPolicyExtraMemberIP,MaxPolicyExtraMemberOP" & _
-          ",MaxCeilingPolicy,MaxCeilingPolicyIP,MaxCeilingPolicyOP" & _
-          ",EnrolmentDiscountPerc,EnrolmentDiscountPeriod, MaxAmountAntenatal, MaxNoAntenatal, CeilingInterpretation,[Level1],[Sublevel1],[Level2],[Sublevel2],[Level3],[Sublevel3],[Level4],[Sublevel4],[ShareContribution],[WeightPopulation],WeightNumberFamilies,[WeightInsuredPopulation],[WeightNumberInsuredFamilies],[WeightNumberVisits],[WeightAdjustedAmount]" & _
-          " FROM tblProduct WHERE ProdID = @ProdID;" & _
-          " UPDATE tblProduct SET [ProductCode] = @ProductCode,[ConversionProdID] = @ConversionProdID" & _
-          ",[ProductName] = @ProductName,[LocationId]=@LocationId,[DateFrom]=@DateFrom,[DateTo]=@DateTo" & _
-          ",[LumpSum]=@LumpSum,[MemberCount]=@MemberCount,[PremiumAdult]=@PremiumAdult" & _
-          ",[PremiumChild]=@PremiumChild,[InsurancePeriod]=@InsurancePeriod,[DedInsuree]=@DedInsuree" & _
-          ",[DedOPInsuree]=@DedOPInsuree,[DedIPInsuree]=@DedIPInsuree,[MaxInsuree]=@MaxInsuree" & _
-          ",[MaxOPInsuree]=@MaxOPInsuree,[MaxIPInsuree]=@MaxIPInsuree,[PeriodRelPrices]=@PeriodRelPrices" & _
-          ",[PeriodRelPricesOP]=@PeriodRelPricesOP,[PeriodRelPricesIP]=@PeriodRelPricesIP" & _
-          ",[AccCodePremiums]=@AccCodePremiums,[AccCodeRemuneration]=@AccCodeRemuneration" & _
-          ",[DedTreatment]=@DedTreatment,[DedOPTreatment]=@DedOPTreatment,[DedIPTreatment]=@DedIPTreatment" & _
-          ",[MaxTreatment]=@MaxTreatment,[MaxOPTreatment]=@MaxOPTreatment,[MaxIPTreatment]=@MaxIPTreatment" & _
-          ",[DedPolicy]=@DedPolicy,[DedOPPolicy]=@DedOPPolicy,[DedIPPolicy]=@DedIPPolicy,[MaxPolicy]=@MaxPolicy" & _
-          ",[MaxOPPolicy]=@MaxOPPolicy,[MaxIPPolicy]=@MaxIPPolicy " & _
-          ",[GracePeriod]=@GracePeriod,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID" & _
-          ",GracePeriodRenewal=@GracePeriodRenewal,RegistrationLumpSum=@RegistrationLumpSum,RegistrationFee=@RegistrationFee" & _
-          ",GeneralAssemblyLumpSum=@GeneralAssemblyLumpSum,GeneralAssemblyFee=@GeneralAssemblyFee" & _
-          ",StartCycle1=@StartCycle1,StartCycle2=@StartCycle2" & _
-          ",MaxNoConsultation=@MaxNoConsultation,MaxNoSurgery=@MaxNoSurgery,MaxNoDelivery=@MaxNoDelivery" & _
-          ",MaxNoHospitalizaion=@MaxNoHospitalizaion,MaxNoVisits=@MaxNoVisits,MaxAmountConsultation=@MaxAmountConsultation" & _
-          ",MaxAmountSurgery=@MaxAmountSurgery,MaxAmountDelivery=@MaxAmountDelivery,MaxAmountHospitalization=@MaxAmountHospitalization,MaxInstallments=@MaxInstallments,WaitingPeriod=@WaitingPeriod" & _
-          ",Threshold=@Threshold,RenewalDiscountPerc=@RenewalDiscountPerc,RenewalDiscountPeriod=@RenewalDiscountPeriod,StartCycle3=@StartCycle3,StartCycle4=@StartCycle4,AdministrationPeriod=@AdministrationPeriod" & _
-          ",MaxPolicyExtraMember=@MaxPolicyExtraMember,MaxPolicyExtraMemberIP=@MaxPolicyExtraMemberIP,MaxPolicyExtraMemberOP=@MaxPolicyExtraMemberOP" & _
-          ",MaxCeilingPolicy=@MaxCeilingPolicy,MaxCeilingPolicyIP=@MaxCeilingPolicyIP,MaxCeilingPolicyOP=@MaxCeilingPolicyOP" & _
-          ",EnrolmentDiscountPerc=@EnrolmentDiscountPerc,EnrolmentDiscountPeriod=@EnrolmentDiscountPeriod, MaxAmountAntenatal = @MaxAmountAntenatal, MaxNoAntenatal = @MaxNoAntenatal, CeilingInterpretation = @CeilingInterpretation," & _
-          " Level1 = @Level1, Sublevel1 = @Sublevel1, Level2 = @Level2,Sublevel2 = @Sublevel2, Level3 = @Level3, Sublevel3 = @Sublevel3, Level4 = @Level4 , Sublevel4 = @Sublevel4, ShareContribution = @ShareContribution, WeightPopulation = @WeightPopulation,WeightNumberFamilies = @WeightNumberFamilies, WeightInsuredPopulation = @WeightInsuredPopulation, WeightNumberInsuredFamilies = @WeightNumberInsuredFamilies , WeightNumberVisits = @WeightNumberVisits,WeightAdjustedAmount = @WeightAdjustedAmount" & _
+        Dim Query As String = "Insert into tblProduct([ProductCode],[ProductName],[LocationId],[DateFrom],[DateTo]" &
+            ",[LumpSum],[MemberCount],[PremiumAdult],[PremiumChild],[InsurancePeriod],[DedInsuree],[DedOPInsuree]" &
+            ",[DedIPInsuree],[MaxInsuree],[MaxOPInsuree],[MaxIPInsuree],[PeriodRelPrices],[PeriodRelPricesOP]" &
+            ",[PeriodRelPricesIP],[AccCodePremiums],[AccCodeRemuneration],[DedTreatment],[DedOPTreatment]" &
+            ",[DedIPTreatment],[MaxTreatment],[MaxOPTreatment],[MaxIPTreatment],[DedPolicy],[DedOPPolicy]" &
+            ",[DedIPPolicy],[MaxPolicy],[MaxOPPolicy],[MaxIPPolicy],[GracePeriod],[ValidityFrom],[ValidityTo]" &
+            ",[LegacyID],[AuditUserID]" &
+              ",GracePeriodRenewal,RegistrationLumpSum,RegistrationFee,GeneralAssemblyLumpSum,GeneralAssemblyFee,StartCycle1" &
+              ",StartCycle2,MaxNoConsultation,MaxNoSurgery,MaxNoDelivery,MaxNoHospitalizaion" &
+              ",MaxNoVisits,MaxAmountConsultation,MaxAmountSurgery,MaxAmountDelivery,MaxAmountHospitalization,MaxInstallments,WaitingPeriod" &
+              ",Threshold,RenewalDiscountPerc,RenewalDiscountPeriod,StartCycle3,StartCycle4,AdministrationPeriod" &
+              ",MaxPolicyExtraMember,MaxPolicyExtraMemberIP,MaxPolicyExtraMemberOP" &
+              ",MaxCeilingPolicy,MaxCeilingPolicyIP,MaxCeilingPolicyOP" &
+              ",EnrolmentDiscountPerc,EnrolmentDiscountPeriod, MaxAmountAntenatal, MaxNoAntenatal, CeilingInterpretation,[Level1],[Sublevel1],[Level2],[Sublevel2],[Level3],[Sublevel3],[Level4],[Sublevel4],[ShareContribution],[WeightPopulation],WeightNumberFamilies,[WeightInsuredPopulation],[WeightNumberInsuredFamilies],[WeightNumberVisits],[WeightAdjustedAmount],[Recurrence]" &
+              ")" &
+          " SELECT [ProductCode],[ProductName],[LocationId],[DateFrom],[DateTo],[LumpSum],[MemberCount]" &
+          ",[PremiumAdult],[PremiumChild],[InsurancePeriod],[DedInsuree],[DedOPInsuree],[DedIPInsuree]" &
+          ",[MaxInsuree],[MaxOPInsuree],[MaxIPInsuree],[PeriodRelPrices],[PeriodRelPricesOP],[PeriodRelPricesIP]" &
+          ",[AccCodePremiums],[AccCodeRemuneration],[DedTreatment],[DedOPTreatment],[DedIPTreatment],[MaxTreatment]" &
+          ",[MaxOPTreatment],[MaxIPTreatment],[DedPolicy],[DedOPPolicy],[DedIPPolicy],[MaxPolicy],[MaxOPPolicy]" &
+          ",[MaxIPPolicy],[GracePeriod],[ValidityFrom],getdate(),@ProdID,[AuditUserID]" &
+          ",GracePeriodRenewal,RegistrationLumpSum,RegistrationFee,GeneralAssemblyLumpSum,GeneralAssemblyFee,StartCycle1" &
+          ",StartCycle2,MaxNoConsultation,MaxNoSurgery,MaxNoDelivery,MaxNoHospitalizaion" &
+          ",MaxNoVisits,MaxAmountConsultation,MaxAmountSurgery,MaxAmountDelivery,MaxAmountHospitalization,MaxInstallments,WaitingPeriod" &
+          ",Threshold,RenewalDiscountPerc,RenewalDiscountPeriod,StartCycle3,StartCycle4,AdministrationPeriod" &
+          ",MaxPolicyExtraMember,MaxPolicyExtraMemberIP,MaxPolicyExtraMemberOP" &
+          ",MaxCeilingPolicy,MaxCeilingPolicyIP,MaxCeilingPolicyOP" &
+          ",EnrolmentDiscountPerc,EnrolmentDiscountPeriod, MaxAmountAntenatal, MaxNoAntenatal, CeilingInterpretation,[Level1],[Sublevel1],[Level2],[Sublevel2],[Level3],[Sublevel3],[Level4],[Sublevel4],[ShareContribution],[WeightPopulation],WeightNumberFamilies,[WeightInsuredPopulation],[WeightNumberInsuredFamilies],[WeightNumberVisits],[WeightAdjustedAmount],[Recurrence]" &
+          " FROM tblProduct WHERE ProdID = @ProdID;" &
+          " UPDATE tblProduct SET [ProductCode] = @ProductCode,[ConversionProdID] = @ConversionProdID" &
+          ",[ProductName] = @ProductName,[LocationId]=@LocationId,[DateFrom]=@DateFrom,[DateTo]=@DateTo" &
+          ",[LumpSum]=@LumpSum,[MemberCount]=@MemberCount,[PremiumAdult]=@PremiumAdult" &
+          ",[PremiumChild]=@PremiumChild,[InsurancePeriod]=@InsurancePeriod,[DedInsuree]=@DedInsuree" &
+          ",[DedOPInsuree]=@DedOPInsuree,[DedIPInsuree]=@DedIPInsuree,[MaxInsuree]=@MaxInsuree" &
+          ",[MaxOPInsuree]=@MaxOPInsuree,[MaxIPInsuree]=@MaxIPInsuree,[PeriodRelPrices]=@PeriodRelPrices" &
+          ",[PeriodRelPricesOP]=@PeriodRelPricesOP,[PeriodRelPricesIP]=@PeriodRelPricesIP" &
+          ",[AccCodePremiums]=@AccCodePremiums,[AccCodeRemuneration]=@AccCodeRemuneration" &
+          ",[DedTreatment]=@DedTreatment,[DedOPTreatment]=@DedOPTreatment,[DedIPTreatment]=@DedIPTreatment" &
+          ",[MaxTreatment]=@MaxTreatment,[MaxOPTreatment]=@MaxOPTreatment,[MaxIPTreatment]=@MaxIPTreatment" &
+          ",[DedPolicy]=@DedPolicy,[DedOPPolicy]=@DedOPPolicy,[DedIPPolicy]=@DedIPPolicy,[MaxPolicy]=@MaxPolicy" &
+          ",[MaxOPPolicy]=@MaxOPPolicy,[MaxIPPolicy]=@MaxIPPolicy " &
+          ",[GracePeriod]=@GracePeriod,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID" &
+          ",GracePeriodRenewal=@GracePeriodRenewal,RegistrationLumpSum=@RegistrationLumpSum,RegistrationFee=@RegistrationFee" &
+          ",GeneralAssemblyLumpSum=@GeneralAssemblyLumpSum,GeneralAssemblyFee=@GeneralAssemblyFee" &
+          ",StartCycle1=@StartCycle1,StartCycle2=@StartCycle2" &
+          ",MaxNoConsultation=@MaxNoConsultation,MaxNoSurgery=@MaxNoSurgery,MaxNoDelivery=@MaxNoDelivery" &
+          ",MaxNoHospitalizaion=@MaxNoHospitalizaion,MaxNoVisits=@MaxNoVisits,MaxAmountConsultation=@MaxAmountConsultation" &
+          ",MaxAmountSurgery=@MaxAmountSurgery,MaxAmountDelivery=@MaxAmountDelivery,MaxAmountHospitalization=@MaxAmountHospitalization,MaxInstallments=@MaxInstallments,WaitingPeriod=@WaitingPeriod" &
+          ",Threshold=@Threshold,RenewalDiscountPerc=@RenewalDiscountPerc,RenewalDiscountPeriod=@RenewalDiscountPeriod,StartCycle3=@StartCycle3,StartCycle4=@StartCycle4,AdministrationPeriod=@AdministrationPeriod" &
+          ",MaxPolicyExtraMember=@MaxPolicyExtraMember,MaxPolicyExtraMemberIP=@MaxPolicyExtraMemberIP,MaxPolicyExtraMemberOP=@MaxPolicyExtraMemberOP" &
+          ",MaxCeilingPolicy=@MaxCeilingPolicy,MaxCeilingPolicyIP=@MaxCeilingPolicyIP,MaxCeilingPolicyOP=@MaxCeilingPolicyOP" &
+          ",EnrolmentDiscountPerc=@EnrolmentDiscountPerc,EnrolmentDiscountPeriod=@EnrolmentDiscountPeriod, MaxAmountAntenatal = @MaxAmountAntenatal, MaxNoAntenatal = @MaxNoAntenatal, CeilingInterpretation = @CeilingInterpretation," &
+          " Level1 = @Level1, Sublevel1 = @Sublevel1, Level2 = @Level2,Sublevel2 = @Sublevel2, Level3 = @Level3, Sublevel3 = @Sublevel3, Level4 = @Level4 , Sublevel4 = @Sublevel4, ShareContribution = @ShareContribution, WeightPopulation = @WeightPopulation,WeightNumberFamilies = @WeightNumberFamilies, WeightInsuredPopulation = @WeightInsuredPopulation, WeightNumberInsuredFamilies = @WeightNumberInsuredFamilies , WeightNumberVisits = @WeightNumberVisits,WeightAdjustedAmount = @WeightAdjustedAmount, Recurrence = @Recurrence " &
           " WHERE ProdID = @ProdID"
         data.setSQLCommand(Query, CommandType.Text)
 
         data.params("@ProdID", SqlDbType.Int, eProducts.ProdID)
         data.params("@ProductCode", SqlDbType.NVarChar, 8, eProducts.ProductCode)
         data.params("@ProductName", SqlDbType.NVarChar, 100, eProducts.ProductName)
+        data.params("@Recurrence", SqlDbType.TinyInt, eProducts.Recurrence)
         If eProducts.tblLocation.LocationId = -1 Then
             data.params("@LocationId", SqlDbType.Int, DBNull.Value)
         Else

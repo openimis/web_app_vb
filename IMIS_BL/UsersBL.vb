@@ -126,6 +126,7 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.ClaimUpdate : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)
             Case IMIS_EN.Enums.Rights.ClaimProcess : Return CheckUserRights(UserID, Right)'(Roles.CHFMedicalOfficer And UserID)  
             Case IMIS_EN.Enums.Rights.ClaimRestore : Return CheckUserRights(UserID, Right)
+
             'BATCH
             Case IMIS_EN.Enums.Rights.Batch : Return CheckUserRights(UserID, Right, 1)
             Case IMIS_EN.Enums.Rights.BatchProcess : Return CheckUserRights(UserID, Right)'(Roles.CHFAccountant And UserID)  Changed from no mapping to CHFAccount because ParentNode ValueClaim mapped to that user, so child also follows
@@ -883,6 +884,7 @@ Public Class UsersBL
         Dim User As New IMIS_DAL.UsersDAL
         User.DeleteUser(eUser)
     End Sub
+
     Public Sub TestTable()
         Dim test As New IMIS_DAL.UsersDAL
         test.TestTable()
@@ -975,7 +977,6 @@ Public Class UsersBL
         ElseIf dtCurrentUserDistricts.Rows.Count = 1 Then
             Return 1  ' The selected user from the gridview should not be edited
         End If
-
         Return 0
     End Function
 End Class

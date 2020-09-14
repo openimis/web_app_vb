@@ -155,7 +155,7 @@ Public Class RoleDAL
 
         data.params("@RoleID", SqlDbType.Int, eRole.RoleID)
         data.params("@RoleName", SqlDbType.NVarChar, 50, eRole.RoleName)
-        data.params("@IsSystem", SqlDbType.Int, eRole.IsSystem)
+        data.params("@IsSystem",SqlDbType.bit, eRole.IsSystem)
         data.params("@IsBlocked", SqlDbType.Bit, eRole.IsBlocked)
         data.params("@AuditUserID", SqlDbType.Int, eRole.AuditUserID)
         data.params("@AltLanguage", SqlDbType.NVarChar, 50, eRole.AltLanguage)

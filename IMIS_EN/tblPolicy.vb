@@ -29,7 +29,7 @@ Partial Public Class tblPolicy
     Public Property AuditUserID As Integer
     Public Property RowID As Byte()
     Public Property isOffline As Nullable(Of Boolean)
-
+    Private _RenewalOrder As Integer?
     Public Overridable Property tblClaimDedRem As ICollection(Of tblClaimDedRem) = New HashSet(Of tblClaimDedRem)
     Public Overridable Property tblFamilies As tblFamilies
     Public Overridable Property tblInsureePolicy As ICollection(Of tblInsureePolicy) = New HashSet(Of tblInsureePolicy)
@@ -37,5 +37,12 @@ Partial Public Class tblPolicy
     Public Overridable Property tblProduct As tblProduct
     Public Overridable Property tblPolicyRenewals As ICollection(Of tblPolicyRenewals) = New HashSet(Of tblPolicyRenewals)
     Public Overridable Property tblPremium As ICollection(Of tblPremium) = New HashSet(Of tblPremium)
-
+    Public Property RenewalOrder() As Integer?
+        Get
+            Return _RenewalOrder
+        End Get
+        Set(ByVal value As Integer?)
+            _RenewalOrder = value
+        End Set
+    End Property
 End Class

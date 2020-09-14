@@ -177,7 +177,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td class ="DataEntry">
                             <asp:TextBox ID="txtPhone" runat="server" Width="150px" MaxLength="50"></asp:TextBox>
                         </td>
-                        <td></td>
+                        <td class="auto-style2"></td>
                      </tr>
                         <tr>
                             <td class="FormLabel">
@@ -210,64 +210,72 @@ In case of dispute arising out or in relation to the use of the program, it is s
          </asp:Panel> 
          <br />
          <br />
-        <asp:Panel ID="pnlClaimAdmiLogin" runat="server" Height="200px"
-            GroupingText='<%$ Resources:Resource,G_CLAIMADMINISTRATORLOGIN %>'
-            style="border:1px solid Gray;margin:3px 3px 1px 3px ;padding: 1px 5px 2px 5px">
-            <asp:CheckBox ID="chkIncludeLogin" runat="server" OnCheckedChanged="chkIncludeLogin_CheckedChanged" onclick="fireCheckChanged()" 
-                Text='<%$ Resources:Resource, L_INCLUDELOGIN %>' Font-Size="9pt" 
-                ForeColor="Blue" Style="direction: ltr;padding:50px"   />
-            <table class="style15" style="display:none" id="LoginInfo">
-                <tr>
-                    <td class="FormLabel">
-                        <asp:Label ID="lblLanguage" runat="server" 
+               <asp:Panel ID="pnlClaimAdmiLogin" runat="server" Height="200px"
+               GroupingText='<%$ Resources:Resource,G_CLAIMADMINISTRATORLOGIN %>'
+               style="border:1px solid Gray;margin:3px 3px 1px 3px ;padding: 1px 5px 2px 5px">
+               <asp:CheckBox ID="chkIncludeLogin" runat="server" OnCheckedChanged="chkIncludeLogin_CheckedChanged" onclick="fireCheckChanged()" 
+                   Text='<%$ Resources:Resource, L_INCLUDELOGIN %>' Font-Size="9pt" 
+                   ForeColor="Blue" Style="direction: ltr;padding:50px"   />              
+                    <table class="style15" style="display:none" id="LoginInfo">
+                          <tr>
+                                <td class="FormLabel">
+                            <asp:Label ID="lblLanguage" runat="server"
                             Text="<%$ Resources:Resource,L_LANGUAGE %>" ViewStateMode="Disabled"></asp:Label>
-                    </td>
-                    <td class ="DataEntry">
-                        <asp:DropDownList ID="ddlLanguage" runat="server" Width="150px" ViewStateMode="Enabled" ></asp:DropDownList>
-                        <asp:RequiredFieldValidator 
-                            ID="RequiredFieldLanguage" runat="server" 
-                            ControlToValidate="ddlLanguage" InitialValue="-1"
-                            SetFocusOnError="True"  ForeColor="Red"
-                            ValidationGroup="check" Display="Dynamic"
-                            Text='*'></asp:RequiredFieldValidator>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="FormLabel">
-                        <asp:Label ID="lblPassword" runat="server" Text="<%$ Resources:Resource,L_PASSWORD %>" ViewStateMode="Disabled"></asp:Label>
-                    </td>
-                    <td class ="DataEntry">
-                        <asp:TextBox ID="txtPassword" runat="server" MaxLength="100" Width="150px" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator 
-                            ID="RequiredFieldPassword" runat="server" 
-                            ControlToValidate="txtPassword" 
-                            SetFocusOnError="False" 
-                            ValidationGroup="check"
-                            Text='*' ForeColor="Red" Display="Dynamic">
+                        </td>
+                         <td class ="DataEntry">
+                            <asp:DropDownList ID="ddlLanguage" runat="server" Width="150px" ViewStateMode="Enabled" ></asp:DropDownList>
+                               <asp:RequiredFieldValidator 
+                        ID="RequiredFieldLanguage" runat="server" 
+                        ControlToValidate="ddlLanguage" InitialValue="-1"
+                        SetFocusOnError="True"  ForeColor="Red"
+                        ValidationGroup="check" Display="Dynamic"
+                        Text='*'></asp:RequiredFieldValidator>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                        <tr>         
+                            <td class="FormLabel">
+                                <asp:Label ID="lblPassword" runat="server" Text="<%$ Resources:Resource,L_PASSWORD %>" ViewStateMode="Disabled"></asp:Label>
+                            </td>
+                        <td class ="DataEntry">
+                        <asp:TextBox ID="txtPassword" runat="server" MaxLength="100" Width="150px" TextMode="Password"></asp:TextBox>                     
+                            <asp:RequiredFieldValidator ID="RequiredFieldPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ForeColor="Red" Display="Dynamic" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check">*
                             </asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="FormLabel">
-                        <asp:Label ID="lblConfirmPassword" runat="server" Text="<%$ Resources:Resource,L_CONFIRMPASSWORD %>" ></asp:Label>
-                    </td>
-                    <td class="DataEntry">
-                        <asp:TextBox ID="txtConfirmPassword" runat="server" MaxLength="100" Width="150px" TextMode="Password" ValidationGroup="check" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassword" runat="server" 
-                            ControlToValidate="txtConfirmPassword" Text="*" ForeColor="Red" ControlToCompare="txtPassword"
-                            ValidationGroup="check">
-                        </asp:RequiredFieldValidator>
-                        <asp:CompareValidator ID="ComparePassword" runat="server"
-                            ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ValidationGroup="check" 
-                            Operator="Equal" SetFocusOnError="True" ForeColor="Red" Display="Dynamic" 
-                            Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'>
-                        </asp:CompareValidator>
-                    </td>
-                </tr>               
-            </table>
-        </asp:Panel>
+                        </td>
+                    </tr>
+                        <tr>          
+                            <td class="FormLabel">
+                                <asp:Label ID="lblConfirmPassword" runat="server" Text="<%$ Resources:Resource,L_CONFIRMPASSWORD %>" ></asp:Label>
+                            </td>
+                            <td class="DataEntry">
+                                <asp:TextBox ID="txtConfirmPassword" runat="server" MaxLength="100" Width="150px" TextMode="Password" ValidationGroup="check" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassword" runat="server" 
+                                ControlToValidate="txtConfirmPassword" Text="*" ForeColor="Red" ControlToCompare="txtPassword"
+                                ValidationGroup="check">
+                            </asp:RequiredFieldValidator>                
+                                <asp:CompareValidator ID="ComparePassword" runat="server"
+                                        ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ValidationGroup="check"
+                                        Operator="Equal" SetFocusOnError="True" ForeColor="Red" Display="Dynamic" 
+                                        Text='<%$ Resources:Resource,V_CONFIRMPASSWORD%>'> 
+                                </asp:CompareValidator>
+                            </td>  
+                        </tr>
+                    <tr>
+                        <td >
+                        <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
+                            CultureDateFormat="dd/MM/YYYY"                             
+                            TargetControlID="txtDob" Mask="99/99/9999" MaskType="Date" 
+                            UserDateFormat="DayMonthYear">
+                        </asp:MaskedEditExtender>
+                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtDOB" PopupButtonID="btnDOB_Extender" Format="dd/MM/yyyy"></asp:CalendarExtender>
+                        </td>
+                        <td style="direction: ltr">
+                            &nbsp;
+                        </td>
+                    </tr>   
+                </table>            
+         </asp:Panel>
          </div>
          <asp:Panel ID="pnlButtons" runat="server"  CssClass="panelbuttons" >
                 <table width="100%" cellpadding="10 10 10 10">

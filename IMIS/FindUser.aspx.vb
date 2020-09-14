@@ -206,6 +206,17 @@ Partial Public Class FindUser
         EnableButtons(gvUsers.Rows.Count)
 
     End Sub
+    Public Function CheckDifferenceandSave(ByVal grid As GridView, ByVal RowIndex As Integer) As Boolean
+
+        Dim chkSelect As CheckBox = CType(grid.Rows(RowIndex).Cells(0).Controls(1), CheckBox)
+        If chkSelect.Checked <> CBool(grid.DataKeys(grid.Rows(RowIndex).RowIndex).Value) Then
+            Return True
+        Else
+            Return False
+        End If
+
+
+    End Function
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
         Response.Redirect("User.aspx")
     End Sub
@@ -241,7 +252,6 @@ Partial Public Class FindUser
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
-
     End Sub
     Protected Sub gvUsers_PageIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles gvUsers.PageIndexChanging
         gvUsers.PageIndex = e.NewPageIndex

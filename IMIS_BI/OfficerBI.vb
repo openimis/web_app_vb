@@ -67,10 +67,32 @@ Public Class OfficerBI
         Dim users As New IMIS_BL.GeneralBL
         Return users.GetLanguage
     End Function
+
+    Public Function GetDistrictForHF(ByVal HFID As Integer, ByVal UserId As Integer) As DataTable
+        Dim Loc As New IMIS_BL.LocationsBL
+        Return Loc.GetDistrictForHF(HFID, UserId)
+    End Function
+    Public Function SaveUser(ByRef eUser As IMIS_EN.tblUsers) As Integer
+        Dim users As New IMIS_BL.UsersBL
+        Return users.SaveUser(eUser)
+    End Function
+    Public Function SaveUserDistricts(ByVal eUserDistricts As IMIS_EN.tblUsersDistricts) As Integer
+        Dim users As New IMIS_BL.UsersBL
+        Return users.SaveUserDistricts(eUserDistricts)
+    End Function
+    Public Function GetRoles(ByVal RoleId As Integer) As DataTable
+        Dim getDataTable As New IMIS_BL.UsersBL
+        Return getDataTable.getUserRoles(RoleId)
+    End Function
     Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
         Dim User As New IMIS_BL.UsersBL
         User.LoadUsers(eUser)
     End Sub
+    Public Function GetHFCodes(ByVal UserId As Integer, ByVal LocationId As Integer) As DataTable
+        Dim hf As New IMIS_BL.HealthFacilityBL
+        Return hf.GetHFCodes(UserId, LocationId)
+    End Function
+
     Public Function RunPageSecurity(ByVal PageName As IMIS_EN.Enums.Pages, ByRef PageObj As System.Web.UI.Page) As Boolean
         Dim user As New IMIS_BL.UsersBL
         Return user.RunPageSecurity(PageName, PageObj)
@@ -78,6 +100,10 @@ Public Class OfficerBI
     Public Function getRoleId(ByVal session As Object) As Integer
         Dim user As New IMIS_BL.UsersBL
         Return user.getRoleId(session)
+    End Function
+    Public Function getRegions(UserId As Integer) As DataTable
+        Dim Region As New IMIS_BL.LocationsBL
+        Return Region.GetAllRegions(UserId, False)
     End Function
     Public Function DeleteUser(ByVal eUser As IMIS_EN.tblUsers) As Boolean
         Dim Del As New IMIS_BL.UsersBL
@@ -88,4 +114,11 @@ Public Class OfficerBI
         Dim Officer As New IMIS_BL.OfficersBL
         Return Officer.GetOfficerIdByUUID(uuid)
     End Function
+    Public Function CheckIfUserExists(ByVal eUser As IMIS_EN.tblUsers) As DataTable
+        Dim BL As New IMIS_BL.OfficersBL
+        Return BL.CheckIfUserExists(eUser)
+    End Function
+
 End Class
+
+

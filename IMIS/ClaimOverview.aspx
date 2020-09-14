@@ -125,8 +125,9 @@ Title = '<%$ Resources:Resource,L_CLAIMOVERVIEW %>'%>
     
      }
 
- }
+    }
 
+// ICDCode AutoComplete TextBox Control Start
     $(document).ready(function () {
         var prm = Sys.WebForms.PageRequestManager.getInstance();
         prm.add_initializeRequest(InitializeRequest);

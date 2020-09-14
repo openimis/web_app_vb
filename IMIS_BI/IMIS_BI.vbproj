@@ -118,6 +118,7 @@
     <Compile Include="FindUsersBI.vb" />
     <Compile Include="ForgotPasswordBI.vb" />
     <Compile Include="GenderBI.vb" />
+    <Compile Include="GlobalASAXBI.vb" />
     <Compile Include="HealthFacilityBI.vb" />
     <Compile Include="HomeBI.vb" />
     <Compile Include="IMISExtractsBI.vb" />
@@ -164,6 +165,7 @@
     <Compile Include="RegistersBI.vb" />
     <Compile Include="ReportBI.vb" />
     <Compile Include="ReportsBI.vb" />
+    <Compile Include="RoleBI.vb" />
     <Compile Include="RoleRightBI.vb" />
     <Compile Include="UserBI.vb" />
     <Compile Include="UtilitiesBI.vb" />

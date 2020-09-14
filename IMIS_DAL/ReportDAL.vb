@@ -2208,7 +2208,6 @@ Public Class ReportDAL
 
     End Function
 
-
     Public Function getCatchmentArea(RegionId As Integer, DistrictId As Integer, ByVal ProductId As Integer, ByVal Year As Integer, ByVal Month As Integer, ByVal dt As DataTable) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = "uspSSRSCapitationPayment"
@@ -2467,7 +2466,6 @@ Public Class ReportDAL
         data.params("@HFLevel", dt, "xAttributeV")
         Return data.Filldata
     End Function
-
     Public Function GetPaymentContribution(startDate As Date?, endDate As Date?, controlNumber As String, productCode As String, PaymentStatus As Integer) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
@@ -2510,7 +2508,6 @@ Public Class ReportDAL
 
         Return data.Filldata
     End Function
-
     Public Function GetControlNumberAssignment(startDate As Date, endDate As Date, PostingStatus As String, AssignmentStatus As String, RegionId As Integer, DistrictId As Integer, dtpaymentStatus As DataTable) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
@@ -2565,7 +2562,6 @@ Public Class ReportDAL
 
         Return data.Filldata
     End Function
-
     Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
 
         Dim Data As New ExactSQL
@@ -2709,7 +2705,6 @@ Public Class ReportDAL
         Return dt
 
     End Function
-
     Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
         Dim Data As New ExactSQL
         Dim sSQL As String = ""

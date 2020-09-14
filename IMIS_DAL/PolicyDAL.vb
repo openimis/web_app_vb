@@ -31,22 +31,21 @@ Public Class PolicyDAL
 
     Public Sub UpdatePolicy(ByVal ePolicy As IMIS_EN.tblPolicy)
 
-
-
-        Dim str As String = "INSERT INTO tblPolicy (FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, ValidityTo, LegacyID, AuditUserID)" _
-           & "SELECT FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, GetDate(), @PolicyID, AuditUserID from tblPolicy where PolicyID = @PolicyID;"
-        If Not ePolicy.StartDate = Nothing And ePolicy.PolicyStatus Is Nothing Then 'When on policy page
+        Dim str As String = "INSERT INTO tblPolicy (FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, ValidityTo, LegacyID, AuditUserID,RenewalOrder)" _
+           & "SELECT FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, GetDate(), @PolicyID, AuditUserID,RenewalOrder from tblPolicy where PolicyID = @PolicyID;"
+        If Not ePolicy.StartDate = Nothing And (ePolicy.PolicyStatus Is Nothing) Then 'When on policy page
             str += " UPDATE tblPolicy set FamilyID=@FamilyID, EnrollDate=@EnrollDate, StartDate=@StartDate, EffectiveDate=@EffectiveDate, ExpiryDate=@ExpiryDate, ProdID=@ProdID, OfficerID=@OfficerID,PolicyStage = @PolicyStage "
         ElseIf ePolicy.PolicyStatus = 2 Then 'When on premium page ( enforcing policy to active on prompt/premium matches policy value
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus ,EffectiveDate=@EffectiveDate " ',ExpiryDate=@ExpiryDate  "
-        ElseIf Not ePolicy.PolicyValue Is Nothing And ePolicy.PolicyStatus Is Nothing Then 'When on overviewfamily page, policy value have changed
-            str += " UPDATE tblPolicy set PolicyValue=@PolicyValue"
         ElseIf ePolicy.PolicyStatus = 4 Then
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus"
+        ElseIf Not ePolicy.RenewalOrder = -1 Then
+            str += " UPDATE tblPolicy set RenewalOrder = @RenewalOrder"
         ElseIf ePolicy.PolicyStatus = 16 Then
             str += " UPDATE tblPolicy set PolicyStatus=@PolicyStatus ,EffectiveDate=@EffectiveDate "
+        ElseIf Not ePolicy.PolicyValue Is Nothing And (ePolicy.PolicyStatus Is Nothing Or ePolicy.PolicyStatus <> 4) Then 'When on overviewfamily page, policy value have changed
+            str += " UPDATE tblPolicy set PolicyValue=@PolicyValue"
         End If
-
 
         'AMANI 06/12---update  only for ONLINE policies
         If ePolicy.isOffline = False Then
@@ -55,9 +54,9 @@ Public Class PolicyDAL
 
         str += ",ValidityFrom=GetDate(), AuditUserID = @AuditUserID where PolicyID=@PolicyID"
 
-
         data.setSQLCommand(str, CommandType.Text)
         data.params("@PolicyID", SqlDbType.Int, ePolicy.PolicyID)
+        data.params("@RenewalOrder", SqlDbType.Int, ePolicy.RenewalOrder)
         If Not ePolicy.StartDate = Nothing And ePolicy.PolicyStatus Is Nothing Then
             data.params("@FamilyId", SqlDbType.Int, ePolicy.tblFamilies.FamilyID)
             data.params("@EnrollDate", SqlDbType.Date, ePolicy.EnrollDate)
@@ -161,8 +160,8 @@ Public Class PolicyDAL
     End Function
     Public Sub InsertPolicy(ByVal ePolicy As IMIS_EN.tblPolicy)
         Dim data As New ExactSQL
-        Dim sSQL As String = "INSERT INTO tblPolicy(FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,isOffline, AuditUserID)" & _
-            " VALUES (@FamilyID, @EnrollDate, @StartDate, @EffectiveDate, @ExpiryDate, @ProdID, @OfficerID,@PolicyStage,@isOffline, @AuditUserID); select @PolicyID = scope_identity()"
+        Dim sSQL As String = "INSERT INTO tblPolicy(FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,isOffline, AuditUserID,RenewalOrder)" &
+            " VALUES (@FamilyID, @EnrollDate, @StartDate, @EffectiveDate, @ExpiryDate, @ProdID, @OfficerID,@PolicyStage,@isOffline, @AuditUserID, @RenewalOrder); select @PolicyID = scope_identity()"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@PolicyID", SqlDbType.Int, ePolicy.PolicyID, ParameterDirection.Output)
@@ -176,6 +175,7 @@ Public Class PolicyDAL
         data.params("@PolicyStage", SqlDbType.Char, 1, ePolicy.PolicyStage)
         data.params("@isOffline", SqlDbType.Bit, ePolicy.isOffline)
         data.params("@AuditUserID", SqlDbType.Int, ePolicy.AuditUserID)
+        data.params("@RenewalOrder", SqlDbType.Int, ePolicy.RenewalOrder)
         data.ExecuteCommand()
         ePolicy.PolicyID = data.sqlParameters("@PolicyID")
         'getPolicyValue(ePolicy)
@@ -193,7 +193,7 @@ Public Class PolicyDAL
     Public Function GetPolicybyFamily(ByVal FamilyId As Integer, ByVal status As DataTable) As DataTable
 
 
-        data.setSQLCommand("SELECT PolicyId,PolicyUUID,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,tblPolicy.FamilyId,F.FamilyUUID, tblProduct.ProdUUID " &
+        data.setSQLCommand("SELECT PolicyId,PolicyUUID,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,tblPolicy.FamilyId,F.FamilyUUID, tblProduct.ProdUUID, tblPolicy.PolicyStatus as PolicyStatusID" &
                            " FROM tblPolicy INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdId" &
                            " INNER JOIN tblFamilies F On F.FamilyID = tblPolicy.FamilyID " &
                            " LEFT OUTER JOIN tblOfficer ON tblPolicy.OfficerId = tblOfficer.OfficerID" &
@@ -444,5 +444,23 @@ Public Class PolicyDAL
         data.params("@PolicyId", SqlDbType.Int, id)
 
         Return data.Filldata
+    End Function
+    Public Function GetRenewalCount(ByVal ProdID As Integer, ByVal FamilyID As Integer) As Integer
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+        sSQL = "SELECT COUNT(PolicyStage) AS RenewalCount FROM tblPolicy WHERE FamilyID =@FamilyID AND ValidityTo IS NULL AND PolicyStage = 'R' AND ProdID = @ProductId"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ProductId", ProdID)
+        data.params("@FamilyID", FamilyID)
+        Dim dt As DataTable = data.Filldata()
+        Dim RenewalCount As Integer = 0
+        If dt.Rows.Count > 0 Then
+            If Not dt(0)("RenewalCount") Is DBNull.Value Then
+                RenewalCount = dt(0)("RenewalCount")
+            Else
+                RenewalCount = 0
+            End If
+        End If
+        Return RenewalCount
     End Function
 End Class

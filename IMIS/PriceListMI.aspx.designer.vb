@@ -12,7 +12,6 @@ Option Explicit On
 
 
 Partial Public Class PriceListsMI
-
     '''<summary>
     '''pnlPriceLists control.
     '''</summary>
@@ -21,7 +20,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlPriceLists As Global.System.Web.UI.WebControls.Panel
-
     '''<summary>
     '''CheckBox1 control.
     '''</summary>
@@ -30,7 +28,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CheckBox1 As Global.System.Web.UI.WebControls.CheckBox
-
     '''<summary>
     '''L_Name control.
     '''</summary>
@@ -39,7 +36,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Name As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtName control.
     '''</summary>
@@ -48,7 +44,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtName As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''RequiredFieldName control.
     '''</summary>
@@ -57,7 +52,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldName As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
     '''<summary>
     '''L_Date control.
     '''</summary>
@@ -66,7 +60,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Date As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''txtDate control.
     '''</summary>
@@ -75,7 +68,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDate As Global.System.Web.UI.WebControls.TextBox
-
     '''<summary>
     '''txtDate_MaskedEditExtender control.
     '''</summary>
@@ -84,7 +76,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDate_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
-
     '''<summary>
     '''btnDate control.
     '''</summary>
@@ -93,7 +84,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnDate As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''CalendarExtender1 control.
     '''</summary>
@@ -102,7 +92,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender1 As Global.AjaxControlToolkit.CalendarExtender
-
     '''<summary>
     '''RegularExpressionValidatorDate control.
     '''</summary>
@@ -129,7 +118,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_REGION As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''UpRegion control.
     '''</summary>
@@ -138,7 +126,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents UpRegion As Global.System.Web.UI.UpdatePanel
-
     '''<summary>
     '''ddlRegion control.
     '''</summary>
@@ -147,7 +134,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlRegion As Global.System.Web.UI.WebControls.DropDownList
-
     '''<summary>
     '''RequiredFieldRegion control.
     '''</summary>
@@ -156,7 +142,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldRegion As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
     '''<summary>
     '''L_District control.
     '''</summary>
@@ -165,7 +150,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_District As Global.System.Web.UI.WebControls.Label
-
     '''<summary>
     '''UpDistricts control.
     '''</summary>
@@ -174,7 +158,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents UpDistricts As Global.System.Web.UI.UpdatePanel
-
     '''<summary>
     '''ddlDistrict control.
     '''</summary>
@@ -183,7 +166,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlDistrict As Global.System.Web.UI.WebControls.DropDownList
-
     '''<summary>
     '''upPricelistMI control.
     '''</summary>
@@ -192,7 +174,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents upPricelistMI As Global.System.Web.UI.UpdatePanel
-
     '''<summary>
     '''pnlMedicalItems control.
     '''</summary>
@@ -201,7 +182,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlMedicalItems As Global.System.Web.UI.WebControls.Panel
-
     '''<summary>
     '''gvMedicalItems control.
     '''</summary>
@@ -210,7 +190,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvMedicalItems As Global.System.Web.UI.WebControls.GridView
-
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -219,7 +198,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-
     '''<summary>
     '''B_SAVE control.
     '''</summary>
@@ -228,7 +206,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_SAVE As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -237,7 +214,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-
     '''<summary>
     '''validationSummary control.
     '''</summary>
@@ -246,7 +222,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents validationSummary As Global.System.Web.UI.WebControls.ValidationSummary
-
     '''<summary>
     '''hfCancel control.
     '''</summary>
@@ -255,7 +230,6 @@ Partial Public Class PriceListsMI
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfCancel As Global.System.Web.UI.WebControls.HiddenField
-
     '''<summary>
     '''lblMsg control.
     '''</summary>

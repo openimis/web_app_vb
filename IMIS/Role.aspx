@@ -10,7 +10,6 @@
             var src = window.event != window.undefined ? window.event.srcElement : evt.target;
             var chk = document.getElementById('<%= chkIsSystem.ClientID %>');
             var isChkBoxClick = (src.tagName.toLowerCase() == "input" && src.type == "checkbox");
-             
             if(isChkBoxClick)
             {
                 
