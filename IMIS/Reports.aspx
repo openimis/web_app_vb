@@ -646,7 +646,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                     <li class="oc">
                                         <asp:Label ID="CommissionsScope" runat="server" Text='Scope' CssClass="FormLabel"></asp:Label>
-                                        <asp:DropDownList ID="scopesList" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="ddlCommissionScope" runat="server"></asp:DropDownList>
                                     </li>
 
 

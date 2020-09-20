@@ -2566,7 +2566,7 @@ Public Class ReportDAL
         Return data.Filldata
     End Function
 
-    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
+    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal Scope As Integer, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
 
         Dim Data As New ExactSQL
         'Dim sSQL As String = "uspSSRSOverviewOfCommissions"
@@ -2594,9 +2594,9 @@ Public Class ReportDAL
 
 			  
 				
-					INSERT INTO tblReporting(ReportingDate,LocationId, ProdId, PayerId, StartDate, EndDate, RecordFound,OfficerID,ReportType,CommissionRate,ReportMode)
+					INSERT INTO tblReporting(ReportingDate,LocationId, ProdId, PayerId, StartDate, EndDate, RecordFound,OfficerID,ReportType,CommissionRate,ReportMode,Scope)
 			
-					SELECT GETDATE(),@LocationId,ISNULL(@ProdId,0), @PayerId, @FirstDay, @LastDay, 0,@OfficerId,2,@Rate,@Mode; 
+					SELECT GETDATE(),@LocationId,ISNULL(@ProdId,0), @PayerId, @FirstDay, @LastDay, 0,@OfficerId,2,@Rate,@Mode,@Scope; 
 					--Get the last inserted reporting Id
 					SELECT @ReportingId =  SCOPE_IDENTITY();
 				
@@ -2660,6 +2660,10 @@ Public Class ReportDAL
 						END
 					UPDATE tblReporting SET RecordFound = @RecordFound WHERE ReportingId = @ReportingId;
 
+                    UPDATE tblPremium SET OverviewCommissionReport = GETDATE() WHERE ReportingCommissionID = @ReportingId AND @Scope = 0 AND OverviewCommissionReport IS NULL;
+
+					UPDATE tblPremium SET AllDetailsCommissionReport = GETDATE() WHERE ReportingCommissionID = @ReportingId AND @Scope = 1 AND AllDetailsCommissionReport IS NULL;
+
 				COMMIT TRAN;
 			END TRY
 			BEGIN CATCH
@@ -2686,6 +2690,7 @@ Public Class ReportDAL
 		INNER JOIN tblReporting REP ON REP.ReportingId = @ReportingId
 		LEFT OUTER JOIN tblPayer Payer ON Pr.PayerId = Payer.PayerID
 		WHERE Pr.ReportingCommissionID = @ReportingId
+        AND (Pr.OverviewCommissionReport IS NULL OR Pr.AllDetailsCommissionReport IS NULL)
 		
 		GROUP BY Pr.PremiumId,Prod.ProductCode,Prod.ProdID,Prod.ProductName,prod.ProductCode +' ' + prod.ProductName , PL.PolicyID ,  F.FamilyID, D.DistrictName,o.OfficerID , Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames ,O.Code + ' ' + O.LastName ,
 		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate), Pr.Paydate, Pr.Receipt,Pr.Amount,Pr.Amount, PD.Amount , Payer.PayerName,PY.PaymentDate, PY.ExpectedAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo,CommissionRate,O.Phone
@@ -2701,6 +2706,7 @@ Public Class ReportDAL
         Data.params("@PayerId", SqlDbType.Int, PayerId)
         Data.params("@ReportingId", SqlDbType.Int, ReportingID)
         Data.params("@CommissionRate", SqlDbType.Decimal, CommissionRate)
+        Data.params("@Scope", SqlDbType.Int, Scope)
         Data.params("@ErrorMessage", SqlDbType.NVarChar, 200, "", ParameterDirection.Output)
         Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()

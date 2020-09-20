@@ -4376,6 +4376,9 @@
   <data name="T_PRESCRIBEDCONTRIBUTIONS" xml:space="preserve">
 		<value>Contributions prescrites</value>
 	</data>
+  <data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Commission calculée</value>
+	</data>
   <data name="T_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
 		<value>Synthèse des Commissions</value>
 	</data>

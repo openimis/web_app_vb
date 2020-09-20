@@ -542,10 +542,10 @@ Partial Public Class Reports
     End Sub
 
     Private Sub FillReportScope()
-        scopesList.DataSource = reports.GetReportScope()
-        scopesList.DataTextField = "ReportScopeName"
-        scopesList.DataValueField = "ReportScopeID"
-        scopesList.DataBind()
+        ddlCommissionScope.DataSource = reports.GetReportScope()
+        ddlCommissionScope.DataTextField = "ReportScopeName"
+        ddlCommissionScope.DataValueField = "ReportScopeID"
+        ddlCommissionScope.DataBind()
     End Sub
     Private Sub GetPremiumCollectionReport(ByVal which As Integer) '  3 - premium collection, 4 - product sales
 
@@ -1289,6 +1289,7 @@ Partial Public Class Reports
         Dim OfficerID As Integer?
         Dim ReportingID As Integer?
         Dim CommissionRate As Decimal
+        Dim Scope As Integer
 
         If ddlPreviousReportDateCommission.SelectedValue > 0 Then
             ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
@@ -1343,19 +1344,10 @@ Partial Public Class Reports
 
         Dim sSubTitle As String = ""
 
-        If Val(scopesList.SelectedValue) = 0 Then
-            IMIS_EN.eReports.Scope = 0
-        ElseIf Val(scopesList.SelectedValue) = 1 Then
-            IMIS_EN.eReports.Scope = 1
-        End If
+        IMIS_EN.eReports.Scope = Val(ddlCommissionScope.SelectedValue)
+        Scope = IMIS_EN.eReports.Scope
 
-        If Val(ddlMode.SelectedValue) = 0 Then
-            IMIS_EN.eReports.Mode = 0
-        End If
-
-        If Val(ddlMode.SelectedValue) = 1 Then
-            IMIS_EN.eReports.Mode = 1
-        End If
+        IMIS_EN.eReports.Mode = Val(ddlMode.SelectedValue)
 
         If Val(ddlEnrolmentOfficer.SelectedValue) = 0 And Val(ddlProduct.SelectedValue) = 0 Then
             IMIS_EN.eReports.Grouping = 3
@@ -1372,7 +1364,7 @@ Partial Public Class Reports
 
         IMIS_EN.eReports.SubTitle = sSubTitle
 
-        dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
+        dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, Scope, ReportingID, ErrorMessage, oReturn)
 
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             Dim RepportMonth As String = ""
@@ -1530,7 +1522,7 @@ Partial Public Class Reports
                 End If
             End If
             If SelectedValueID = 22 Then
-                If Val(scopesList.SelectedValue) = -1 Then
+                If Val(ddlCommissionScope.SelectedValue) = -1 Then
                     lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
                     Return
                 End If
