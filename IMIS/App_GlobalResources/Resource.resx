@@ -4899,4 +4899,10 @@ adults/children)
   <data name="T_READY" xml:space="preserve">
 		<value>Ready</value>
 	</data>
+  <data name="T_OVERVIEW" xml:space="preserve">
+		<value>Overview</value>
+	</data>
+  <data name="T_ALLDETAILS" xml:space="preserve">
+		<value>All details</value>
+	</data>
 </root>

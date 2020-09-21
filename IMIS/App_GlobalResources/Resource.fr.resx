@@ -4895,5 +4895,11 @@
   <data name="T_READY" xml:space="preserve">
 		<value>Prêt</value>
 	</data>
+  <data name="T_OVERVIEW" xml:space="preserve">
+		<value>Aperçu</value>
+	</data>
+  <data name="T_ALLDETAILS" xml:space="preserve">
+		<value>Tous les détails</value>
+	</data>
 </root>
 

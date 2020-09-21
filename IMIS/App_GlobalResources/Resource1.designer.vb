@@ -12395,6 +12395,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to All details.
+        '''</summary>
+        Friend Shared ReadOnly Property T_ALLDETAILS() As String
+            Get
+                Return ResourceManager.GetString("T_ALLDETAILS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Antenatal.
         '''</summary>
         Friend Shared ReadOnly Property T_ANTENATAL() As String
@@ -13356,6 +13365,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_OUTPATIENT() As String
             Get
                 Return ResourceManager.GetString("T_OUTPATIENT", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Overview.
+        '''</summary>
+        Friend Shared ReadOnly Property T_OVERVIEW() As String
+            Get
+                Return ResourceManager.GetString("T_OVERVIEW", resourceCulture)
             End Get
         End Property
         
