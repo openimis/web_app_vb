@@ -544,8 +544,43 @@ In case of dispute arising out or in relation to the use of the program, it is s
                    </td>  
                  </tr>                     
            </table>            
-         </asp:Panel>  
-      </div>
+         </asp:Panel> 
+        <asp:Panel ID="pnlGridPremium" runat="server" height="150px" 
+             CssClass="panel" GroupingText="<%$ Resources:Resource, L_PAYMENTGRIDVIEW %>">
+           
+
+
+               <asp:GridView ID="gvPremium" runat="server"
+                AutoGenerateColumns="False"
+                GridLines="None"
+                AllowPaging="False" PagerSettings-FirstPageText="First Page" PagerSettings-LastPageText="Last Page" PagerSettings-Mode="NumericFirstLast"
+                CssClass="mGrid"
+                EmptyDataText='<%$ Resources:Resource,L_NORECORDS %>'
+                PagerStyle-CssClass="pgr" PageSize="15"
+                AlternatingRowStyle-CssClass="alt"
+                SelectedRowStyle-CssClass="srs">
+                <Columns>   
+                    <asp:BoundField DataField="Transactions" HeaderText='<%$ Resources:Resource,L_TRANSACTIONNUMBER %>'>
+                        <HeaderStyle Width="130px" />
+                    </asp:BoundField>
+                     <asp:BoundField DataField="Receipt" HeaderText='<%$ Resources:Resource,L_RECEIPTNO %>' 
+                         SortExpression="Receipt">
+                        <HeaderStyle Width="130px" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="MatchedAmount" HeaderText='<%$ Resources:Resource,L_MATCHEDAMOUNT %>'
+                         SortExpression="Amount" DataFormatString="{0:n2}">
+                        <HeaderStyle Width="130px" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="ReceiveDate" HeaderText='<%$ Resources:Resource,L_RECEIVEDATE %>'
+                        SortExpression="PayType" />
+                    <asp:BoundField DataField="MatchingDate" HeaderText='<%$ Resources:Resource,L_MATCHINGDATE %>'
+                        SortExpression="PayType" />
+                    <asp:BoundField DataField="PaymentOrigin" HeaderText='<%$ Resources:Resource,L_PAYMENTORIGIN %>'> 
+                        </asp:BoundField>
+                </Columns> 
+            </asp:GridView>
+         </asp:Panel> 
+
   <asp:Panel ID="pnlButtons" runat="server"  CssClass="panel" >
                 <table width="100%" cellpadding="10 10 10 10">
                  <tr>
@@ -573,8 +608,9 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </tr>
                 </table>             
          </asp:Panel>
-
+        </div>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="Footer" Runat="Server" Visible="true" >
     <asp:HiddenField ID="hfPolicyID" runat="server" Value="0" />
     <asp:HiddenField ID="hfPolicyValue" runat="server" Value="0" />

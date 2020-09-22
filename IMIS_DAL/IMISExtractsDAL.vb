@@ -552,6 +552,7 @@ Public Class IMISExtractsDAL
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@XML", Xml.InnerXml)
+        data.params("@ByPassSubmit", 1)
 
         data.ExecuteCommand()
     End Sub
@@ -769,6 +770,11 @@ Public Class IMISExtractsDAL
         sSQL += " SELECT Relationid, Relation, SortOrder, AltLanguage FROM tblRelations"
         sSQL += " SELECT RuleName, RuleValue FROM tblIMISDefaultsPhone;"
         sSQL += " SELECT Code, Gender, AltLanguage,SortOrder FROM tblGender"
+        sSQL += " SELECT LV.LocationId,code,LW.locationname Ward,LV.LocationName Village,LW.LocationID WardID FROM tblOfficerVillages OV"
+        sSQL += " INNER JOIN tblOfficer O ON OV.OfficerId = O.OfficerID AND O.ValidityTo IS NULL AND OV.ValidityTo IS NULL"
+        sSQL += " LEFT JOIN tblLocations LV ON LV.LocationId = OV.LocationId AND LV.LocationType = 'V' AND LV.ValidityTo IS NULL"
+        sSQL += " LEFT JOIN tblLocations LW ON LW.LocationId = LV.ParentLocationId AND LW.ValidityTo IS NULL"
+
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.FilldataSet()
     End Function

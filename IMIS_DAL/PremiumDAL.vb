@@ -256,11 +256,24 @@ Public Class PremiumDAL
 
     '    Return data.Filldata
     'End Function
+    'Emmanuel
     Public Function GetPremiumsByPolicy(ByVal PolicyId As Integer) As DataTable
-
+        Dim sSQL As String = ""
         Dim data As New ExactSQL
-        data.setSQLCommand("SELECT tblPremium.isOffline,PremiumID,PremiumUUID,tblFamilies.FamilyUUID,tblPolicy.policyid,tblPolicy.PolicyUUID,tblPolicy.FamilyId,PayDate,PayerName,Amount,CASE PayType WHEN 'M' THEN 'Mobile Phone' WHEN 'C' THEN 'Cash' WHEN 'B' THEN 'Bank Transfer' END as PayType,Receipt, tblPremium.PayerID,tblPayer.PayerUUID,tblpolicy.FamilyID,CASE tblPremium.isPhotoFee WHEN 1 THEN N'Photo Fee' ELSE N'Contribution' END PayCategory" &
-                           " FROM tblPremium LEFT JOIN tblPayer ON tblPremium.PayerID = tblPayer.PayerID inner join tblpolicy on tblpremium.policyid = tblpolicy.policyid inner join tblfamilies on tblpolicy.familyId = tblfamilies.familyId where(tblpremium.PolicyId = @PolicyId  AND tblpremium.ValidityTo is null) ORDER BY PayerName", CommandType.Text)
+        sSQL += " Select tblPremium.isOffline,PY.Amount MatchedAmount, tblPremium.PremiumID,tblPremium.PremiumUUID, tblPolicy.policyid,tblPolicy.PolicyUUID,tblPolicy.FamilyId,tblFamilies.FamilyUUID, PayDate,tblPayer.PayerUUID, "
+        sSQL += " PayerName, tblpremium.Amount, CASE PayType WHEN 'M' THEN 'Mobile Phone' WHEN 'C' THEN 'Cash' "
+        sSQL += " When 'B' THEN 'Bank Transfer' END as PayType,Receipt, tblPremium.PayerID, tblpolicy.FamilyID,"
+        sSQL += " Case tblPremium.isPhotoFee When 1 Then N'Photo Fee' ELSE N'Contribution' END PayCategory"
+        sSQL += " From tblPremium Left OUTER JOIN "
+        sSQL += " (SELECT premiumID,SUM(Amount) Amount FROM tblPaymentDetails PD INNER Join tblPayment On PD.PaymentID = tblPayment.PaymentID "
+        sSQL += " And PD.ValidityTo Is NULL Group BY PremiumID ) PY "
+        sSQL += " On PY.PremiumID = tblPremium.PremiumId "
+        sSQL += " Left Join tblPayer ON tblPremium.PayerID = tblPayer.PayerID "
+        sSQL += " inner Join tblpolicy on tblpremium.policyid = tblpolicy.policyid "
+        sSQL += " inner join tblfamilies on tblpolicy.familyId = tblfamilies.familyId "
+        sSQL += " where (tblpremium.PolicyId = @PolicyId  And tblpremium.ValidityTo Is null)"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@PolicyId", SqlDbType.Int, PolicyId)
         Return data.Filldata
     End Function
@@ -465,5 +478,19 @@ Public Class PremiumDAL
 
         Return data.Filldata
     End Function
+    Public Function GetPremium(ByVal ePremium As IMIS_EN.tblPremium) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+        sSQL += " SELECT TransactionNo Transactions, ReceiptNo Receipt, PD.Amount MatchedAmount,"
+        sSQL += " Py.ReceivedDate ReceiveDate, py.MatchedDate MatchingDate,"
+        sSQL += " Py.PaymentOrigin PaymentOrigin FROM tblPremium Pr"
+        sSQL += " INNER JOIN tblPaymentDetails PD ON PD.PremiumID = Pr.PremiumId AND PD.ValidityTo IS NULL"
+        sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = PD.PaymentID AND PY.VALIDITYTO IS NULL WHERE PR.ValidityTo IS NULL"
+        sSQL += " AND PR.PremiumID = @PremiumID"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PremiumID", SqlDbType.Int, ePremium.PremiumId)
+        Return data.Filldata
+    End Function
+
 End Class
 

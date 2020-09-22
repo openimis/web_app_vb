@@ -183,7 +183,6 @@ Partial Public Class FindPremium
         End If
 
 
-
         ePremium.Amount = if(IsNumeric(txtPremiumPaid.Text), txtPremiumPaid.Text, 0)
         ePremium.PayType = ddlPayType.SelectedValue
         ePremium.Receipt = txtReceiptNo.Text

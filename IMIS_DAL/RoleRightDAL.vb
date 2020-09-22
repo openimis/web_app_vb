@@ -32,15 +32,15 @@ Public Class RoleRightDAL
 
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-        sSQL = "SELECT RoleId,RoleName,isSystem,isBlocked,AltLanguage From tblRole WHERE ValidityTo IS NULL AND RoleID = @RoleID"
+        sSQL = "SELECT RoleId,RoleName,isSystem,isBlocked,AltLanguage,ValidityTo From tblRole WHERE RoleID = @RoleID"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) = 10"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 10 AND ValidityTo IS NULL"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) = 11"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 11 AND ValidityTo IS NULL"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) = 12"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) = 12 AND ValidityTo IS NULL"
         sSQL += " SELECT [RoleRightID],[RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID]"
-        sSQL += " FROM tblRoleRight WHERE ValidityTo IS NULL AND RoleID = @RoleID and left(RightID,2) > 12"
+        sSQL += " FROM tblRoleRight WHERE RoleID = @RoleID and left(RightID,2) > 12 AND ValidityTo IS NULL"
 
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -53,7 +53,7 @@ Public Class RoleRightDAL
         Dim data As New ExactSQL
 
         sSQL = "INSERT INTO tblRoleright ([RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[LegacyID])"
-        sSQL += " SELECT [RoleID],[RightID],[ValidityFrom],[ValidityTo],[AuditUserId],[RoleRightID] from tblRoleRight"
+        sSQL += " SELECT [RoleID],[RightID],[ValidityFrom],GETDATE(),[AuditUserId],[RoleRightID] from tblRoleRight"
         sSQL += " WHERE RoleID = @RoleID AND RightID NOT IN (SELECT ID from @Rights) AND ValidityTo IS NULL"
 
         sSQL += " UPDATE tblRoleRight set ValidityTo = GETDATE(),AuditUserId =@AuditUserID"

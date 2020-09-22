@@ -62,7 +62,7 @@ Public Class ExactSQL
         _SQLCommand.Parameters.Add(param, type, Size).Value = if(paramvalue Is Nothing, DBNull.Value, paramvalue)
         _SQLCommand.Parameters(param).Direction = direction
     End Sub
-    Public Sub setSQLCommand(ByVal cmd As String, ByVal cmdtype As CommandType, Optional ByVal ConString As String = "IMISConnectionString", Optional ByVal timeout As Integer = 60)
+    Public Sub setSQLCommand(ByVal cmd As String, ByVal cmdtype As CommandType, Optional ByVal ConString As String = "IMISConnectionString", Optional ByVal timeout As Integer = 300)
         _SQLCommand = New SqlClient.SqlCommand
         'If ConString = "" Then
         '    ConString = Web.Configuration.WebConfigurationManager.ConnectionStrings("IMISConnectionString").ConnectionString
@@ -70,7 +70,12 @@ Public Class ExactSQL
         ConString = Web.Configuration.WebConfigurationManager.ConnectionStrings(ConString).ConnectionString
         'End If
         Dim con As New SqlConnection(ConString)
-        _SQLCommand.CommandTimeout = timeout
+        Dim commandTimeout As Integer = IMIS_EN.AppConfiguration.CommandTimeout
+        If commandTimeout <= 0 Then
+            _SQLCommand.CommandTimeout = timeout
+        Else
+            _SQLCommand.CommandTimeout = commandTimeout
+        End If
         _SQLCommand.CommandText = cmd
         _SQLCommand.CommandType = cmdtype
         _SQLCommand.Connection = con 'Exact.Data.sql.SQLConn
@@ -89,11 +94,17 @@ Public Class ExactSQL
 
     End Sub
 
-    Public Function Filldata(Optional ByVal IdentityColumn As String = "", Optional ByVal TableName As String = "") As DataTable
+    Public Function Filldata(Optional ByVal IdentityColumn As String = "", Optional ByVal TableName As String = "", Optional ByVal timeout As Integer = 120) As DataTable
         Try
             _TableName = TableName
             _IdentityKey = IdentityColumn
             _sqladapter = New SqlClient.SqlDataAdapter
+            Dim commandTimeout As Integer = IMIS_EN.AppConfiguration.CommandTimeout
+            If commandTimeout <= 0 Then
+                _SQLCommand.CommandTimeout = timeout
+            Else
+                _SQLCommand.CommandTimeout = commandTimeout
+            End If
             _sqladapter.SelectCommand = _SQLCommand
             _dtbl = New DataTable
             _sqladapter.Fill(_dtbl)

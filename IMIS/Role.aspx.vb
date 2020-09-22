@@ -38,12 +38,16 @@
         tvRoleRights2.ExpandAll()
         tvRoleRights3.ExpandAll()
         tvRoleRights4.ExpandAll()
-        If eRole.IsSystem Then
-
+        If eRole.IsSystem Or eRole.ValidityTo IsNot Nothing Then
             txtRoles.Enabled = False
             txtAltLanguage.Enabled = False
             chkIsSystem.Enabled = False
-            chkIsBlocked.Enabled = True
+            If eRole.ValidityTo IsNot Nothing Then
+                chkIsBlocked.Enabled = False
+                B_SAVE.Visible = False
+            Else
+                B_SAVE.Visible = True
+            End If
 
             tvRoleRights.Enabled = False
             tvRoleRights2.Enabled = False
@@ -88,6 +92,10 @@
         hfSystemCode.Value = eRole.IsSystem
         eRole.IsBlocked = dtRole.Rows(0)("IsBlocked")
         eRole.AltLanguage = dtRole.Rows(0)("AltLanguage").ToString
+        If dtRole.Rows(0)("ValidityTo") IsNot DBNull.Value Then
+            eRole.ValidityTo = dtRole.Rows(0)("ValidityTo")
+        End If
+    
         txtRoles.Text = eRole.RoleName
         txtAltLanguage.Text = eRole.AltLanguage
         chkIsBlocked.Checked = eRole.IsBlocked
@@ -157,7 +165,7 @@
         Next
 
     End Sub
-    Private Sub SaveRights()
+    Private Function SaveRights()
         dtRights = New DataTable
 
         Dim dr As DataRow = Nothing
@@ -166,12 +174,10 @@
 
         eRole.RoleName = txtRoles.Text
         eRole.AltLanguage = txtAltLanguage.Text
-        If Not String.IsNullOrEmpty(hfSystemCode.Value) AndAlso hfSystemCode.Value > 1 Then
-            eRole.IsSystem = hfSystemCode.Value
-        Else
-            eRole.IsSystem = chkIsSystem.Checked
-        End If
+        eRole.IsSystem = chkIsSystem.Checked
         eRole.IsBlocked = chkIsBlocked.Checked
+
+
 
         For Each tnLevel1 As TreeNode In tvRoleRights.Nodes
             LoadNodes(tnLevel1.ChildNodes)
@@ -186,9 +192,17 @@
             LoadNodes(tnLevel1.ChildNodes)
         Next
         eRole.AuditUserID = imisGen.getUserId(Session("User"))
+        If dtRights.Rows.Count = 0 Then
+            Dim msg As String = imisGen.getMessage("M_NORIGHTSSELECTED")
+            imisGen.Alert(msg, pnlButtons, alertPopupTitle:="IMIS")
+            Return False
+
+        End If
+
 
         BI.SaveRights(dtRights, eRole)
-    End Sub
+        Return True
+    End Function
 
     Private Sub LoadNodes(ByVal tnc As TreeNodeCollection)
         For Each tn As TreeNode In tnc
@@ -213,18 +227,19 @@
         End If
 
         Try
-            SaveRights()
+            If SaveRights() = False Then Exit Sub
+            Session("msg") = imisGen.getMessage("M_SAVED")
         Catch ex As Exception
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlHeader, alertPopupTitle:="IMIS")
             EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 
-        Response.Redirect("FindProfile.aspx?a=" & txtRoles.Text.Trim)
+        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleUUID.ToString())
 
     End Sub
 
     Protected Sub B_CANCEL_Click(sender As Object, e As EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindProfile.aspx?")
+        Response.Redirect("FindProfile.aspx?r=" & eRole.RoleUUID.ToString())
     End Sub
 End Class

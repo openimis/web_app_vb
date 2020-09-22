@@ -25,7 +25,6 @@
 '
 ' 
 '
-
 Partial Public Class User
     Inherits System.Web.UI.Page
     Private Users As New IMIS_BI.UserBI
@@ -73,10 +72,11 @@ Partial Public Class User
             End If
             gvDistrict.DataBind()
             Assign(gvDistrict)
-
-
+            Dim LoggedInUser As Integer = imisgen.getUserId(Session("User"))
             If Not eUsers.UserID = 0 Then
+
                 Users.LoadUsers(eUsers)
+
                 ddlLanguage.SelectedValue = eUsers.LanguageID
                 txtLastName.Text = eUsers.LastName
                 txtOtherNames.Text = eUsers.OtherNames
@@ -89,6 +89,15 @@ Partial Public Class User
                     Panel2.Enabled = False
                     B_SAVE.Visible = False
                 End If
+
+                Dim CurrentUserID As Integer = imisgen.getUserId(Session("User"))
+                Dim result = Users.GetUserDistricts(LoggedInUser, eUsers.UserID)
+                If result = 1 Then
+                    imisgen.Alert(imisgen.getMessage("M_USERCANNOTBEEDITED"), pnlDistrict, alertPopupTitle:="IMIS")
+                    Panel2.Enabled = False
+                    B_SAVE.Visible = False
+                End If
+
                 ddlHFNAME.SelectedValue = eUsers.HFID.ToString
                 RequiredFieldPassword.Visible = False
 
@@ -97,11 +106,12 @@ Partial Public Class User
 
             Dim RoleId As Integer = imisgen.getRoleId(Session("User"))
             Dim dtRoles As New DataTable
-            dtRoles = Users.getUserRoles(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
+            dtRoles = Users.getRolesForUser(eUsers.UserID, IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF, LoggedInUser)
             gvRoles.DataSource = dtRoles
             gvRoles.DataBind()
             If eUsers.IsAssociated IsNot Nothing AndAlso eUsers.IsAssociated = True Then
                 toggleModifingIfUsersClaimOrEnrolment(False)
+                B_SAVE.Enabled = False
             End If
 
             If IMIS_Gen.offlineHF Then
@@ -195,6 +205,9 @@ Partial Public Class User
 
     Private Function checkChecked(ByVal gv As GridView) As Boolean
         Dim checked As Boolean = False
+        If gv.ID = gvRoles.ID Then
+            If txtLoginName.Text = "Admin" Then Return True
+        End If
         For Each row In gv.Rows
             Dim chkSelect As CheckBox = CType(row.Cells(0).Controls(1), CheckBox)
             If chkSelect.Checked Then
@@ -204,6 +217,7 @@ Partial Public Class User
         Next
         Return checked
     End Function
+
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         If txtPassword.Text <> String.Empty Then
             If Not General.isValidPassword(txtPassword.Text) Then
@@ -219,7 +233,6 @@ Partial Public Class User
 
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
             Try
-
                 If Not checkChecked(gvDistrict) Then
                     lblMsg.Text = imisgen.getMessage("V_SELECTDISTRICT")
                     Return
@@ -230,22 +243,49 @@ Partial Public Class User
                 End If
                 eUsers.LastName = txtLastName.Text
                 eUsers.OtherNames = txtOtherNames.Text
-
+                eUsers.DummyPwd = txtPassword.Text
                 eUsers.Phone = txtPhone.Text
                 eUsers.EmailId = txtEmail.Text
                 eUsers.LoginName = txtLoginName.Text
                 eUsers.LanguageID = ddlLanguage.SelectedValue
+                'eUsers.RoleID = GetRoles(gvRoles)
                 eUsers.AuditUserID = imisgen.getUserId(Session("User"))
                 If ddlHFNAME.SelectedIndex >= 0 Then
                     eUsers.HFID = ddlHFNAME.SelectedValue
                 End If
+
                 Dim dt As New DataTable
-                dt.Columns.Add("RoleID")
-                dt.Columns.Add("RoleName")
+                dt.Columns.Add("UserRoleID", GetType(Integer))
+                dt.Columns.Add("UserID", GetType(Integer))
+                dt.Columns.Add("RoleID", GetType(Integer))
+                dt.Columns.Add("ValidityFrom", GetType(Date))
+                dt.Columns.Add("ValidityTo", GetType(Date))
+                dt.Columns.Add("AuditUserID", GetType(Integer))
+                dt.Columns.Add("LegacyID", GetType(Integer))
+                dt.Columns.Add("Assign", GetType(Integer))
+
+
+
+
+                Dim dr As DataRow
+                Dim UserRoleID As New Object
                 For Each row As GridViewRow In gvRoles.Rows
+                    dr = dt.NewRow
+                    UserRoleID = CType(row.Cells(4).Controls(1), HiddenField).Value
+
+                    If UserRoleID = "" Then UserRoleID = 0
+                    dr("UserID") = eUsers.UserID
+                    dr("UserRoleID") = UserRoleID
+                    dr("Assign") = 0
                     If CType(row.Cells(0).Controls(1), CheckBox).Checked = True Then
-                        Dim dr As DataRow = dt.NewRow
                         dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dr("Assign") = 1
+                    End If
+                    If CType(row.Cells(2).Controls(1), CheckBox).Checked = True Then
+                        dr("RoleID") = gvRoles.DataKeys(row.RowIndex).Value
+                        dr("Assign") = dr("Assign") + 2
+                    End If
+                    If dr("RoleID") IsNot DBNull.Value Then
                         dt.Rows.Add(dr)
                     End If
                 Next
@@ -289,5 +329,4 @@ Partial Public Class User
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
     End Sub
-
 End Class

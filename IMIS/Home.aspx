@@ -58,7 +58,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
     div.backentry{position:relative;}
     .footer{ bottom:2px;top:auto; }
 
-
   </style>
 
 

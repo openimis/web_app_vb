@@ -168,33 +168,40 @@ Partial Public Class IMISExtracts
     End Sub
 
     Private Sub CreatePhoneExtract()
-        Dim sp As New Stopwatch
-        sp.Start()
-        Dim str As String
-        Dim eExtractInfo As New IMIS_EN.eExtractInfo
-        If Len(ddlDistrictsPhone.SelectedValue) = 0 Then
-        End If
 
-        eExtractInfo.LocationId = Val(ddlDistrictsPhone.SelectedValue)
-        eExtractInfo.AuditUserID = imisgen.getUserId(Session("User"))
-        eExtractInfo.ExtractType = 1
+        Try
 
-        Extracts.CreatePhoneExtracts(eExtractInfo, chkWithInsuree.Checked)
-        sp.Stop()
-        Dim ts As TimeSpan = sp.Elapsed
-        Dim TimeElapsed As String = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds)
+            Dim sp As New Stopwatch
+            sp.Start()
+            Dim str As String
+            Dim eExtractInfo As New IMIS_EN.eExtractInfo
+            If Len(ddlDistrictsPhone.SelectedValue) = 0 Then
+            End If
 
-        If eExtractInfo.ExtractStatus = 0 Then
-            str = imisgen.getMessage("M_EXTR_PHONEOK") & "<br />Task completed in " & TimeElapsed & " Hours"
-            'DivMsg.InnerHtml = str
-            imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
-            'PhoneExtractLink.NavigateUrl = "~/Extracts/Phone/ImisData.db3" 'eExtractInfo.ExtractFileName
-            PhoneExtractLink.Visible = True
-        Else
-            str = imisgen.getMessage("M_EXTR_PHONENOK") & "<br />Task completed in " & TimeElapsed & " Hours"
-            imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
-            'imisgen.Alert(str, pnlMiddle)
-        End If
+            eExtractInfo.LocationId = Val(ddlDistrictsPhone.SelectedValue)
+            eExtractInfo.AuditUserID = imisgen.getUserId(Session("User"))
+            eExtractInfo.ExtractType = 1
+
+            Extracts.CreatePhoneExtracts(eExtractInfo, chkWithInsuree.Checked)
+            sp.Stop()
+            Dim ts As TimeSpan = sp.Elapsed
+            Dim TimeElapsed As String = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds)
+
+            If eExtractInfo.ExtractStatus = 0 Then
+                str = imisgen.getMessage("M_EXTR_PHONEOK") & "<br />" & imisgen.getMessage("M_EXTR_TASKCOMPLETED") & TimeElapsed & imisgen.getMessage("M_EXTR_HOURS")
+                'DivMsg.InnerHtml = str
+                imisgen.Alert(str, pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
+                'PhoneExtractLink.NavigateUrl = "~/Extracts/Phone/ImisData.db3" 'eExtractInfo.ExtractFileName
+                PhoneExtractLink.Visible = True
+            Else
+                str = imisgen.getMessage("M_EXTR_PHONENOK") & "<br />" & imisgen.getMessage("M_EXTR_TASKCOMPLETED") & TimeElapsed & imisgen.getMessage("M_EXTR_HOURS")
+                imisgen.Alert(str, pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
+                'imisgen.Alert(str, pnlMiddle)
+            End If
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
+            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
+        End Try
     End Sub
 
     Private Sub CreatePhoneExtractInBackground()
@@ -964,7 +971,7 @@ Partial Public Class IMISExtracts
     End Sub
 
 
-    Protected Sub btnDownLoadMasterData_Click(sender As Object, e As EventArgs)
+    Protected Sub btnDownLoadMasterData_Click(sender As Object, e As EventArgs) Handles btnDownLoadMasterData.Click
 
         Dim Extracts As New IMIS_BI.IMISExtractsBI
         Dim strCommand As String = "MasterData.RAR"

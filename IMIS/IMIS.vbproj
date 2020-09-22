@@ -31,8 +31,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -41,8 +40,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
@@ -135,6 +133,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="AddFunding.aspx" />
+    <Content Include="BgService.aspx" />
     <Content Include="ChangeFamily.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Claim.aspx" />
@@ -278,9 +277,9 @@
     <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
     <None Include="Web References\IMISService\imisservices.disco" />
     <None Include="web.base.config" />
-    <None Include="Web.config">
+    <Content Include="Web.config">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
     <Content Include="Workspace\dummy.dmd" />
     <None Include="Web.Release.config.dist" />
   </ItemGroup>
@@ -309,6 +308,13 @@
     </Compile>
     <Compile Include="AutoCompleteHandlers\AutoCompleteHandler.ashx.vb">
       <DependentUpon>AutoCompleteHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="BgService.aspx.designer.vb">
+      <DependentUpon>BgService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BgService.aspx.vb">
+      <DependentUpon>BgService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ChangeFamily.aspx.designer.vb">
       <DependentUpon>ChangeFamily.aspx</DependentUpon>
@@ -759,6 +765,9 @@
       <DependentUpon>Role.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Reports\ds.vb">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="User.aspx.designer.vb">
       <DependentUpon>User.aspx</DependentUpon>
     </Compile>
@@ -842,6 +851,20 @@
     <Content Include="Reports\rptRejectedPhotos.rdlc">
       <SubType>Designer</SubType>
     </Content>
+    <EmbeddedResource Include="Reports\rptClaimHistoryReport.rdlc" />
+    <Content Include="Reports\rptClaimOverviewClaimsOnly.rdlc" />
+    <Content Include="Reports\rptClaimOverviewAllDetails.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptClaimOverviewRejecteServItem.rdlc" />
+    <Content Include="Reports\rptContributionPayment.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptControlNumberAssignment.rdlc" />
+    <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryAllDetails.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryClaimsOnly.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryRejecteServItem.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />
@@ -870,11 +893,10 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
-    <None Include="Web.Debug.config">
+        <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web.Debug.config.dist" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -904,6 +926,10 @@
       <Project>{9b6b33f6-7629-4eb7-9548-2d3f48963643}</Project>
       <Name>IMIS_BI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IMIS_BL\IMIS_BL.vbproj">
+      <Project>{53d67c82-cf46-4bb2-8319-3fd91fa92737}</Project>
+      <Name>IMIS_BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IMIS_EN\IMIS_EN.vbproj">
       <Project>{a57fc2fd-3b24-4f9e-9514-cf370e411401}</Project>
       <Name>IMIS_EN</Name>
@@ -930,8 +956,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -940,8 +965,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>pdbonly</DebugType>
@@ -953,8 +977,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -963,8 +986,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>pdbonly</DebugType>

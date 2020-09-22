@@ -433,7 +433,9 @@ Partial Public Class Product
                 If Not eProduct.CeilingInterpretation Is Nothing Then
                     ddlCeilingInterpretation.SelectedValue = eProduct.CeilingInterpretation
                 End If
-
+                If Not eProduct.Recurrence Is Nothing Then
+                    txtRecurrence.Text = eProduct.Recurrence
+                End If
                 txtInsurancrePeriod.Text = FormatNumber(eProduct.InsurancePeriod, 0)
 
 
@@ -1250,7 +1252,9 @@ Partial Public Class Product
                     eProduct.MaxCeilingPolicyOP = CDec(txtMaxOPPolicyMC.Text.Trim)
                 End If
                 'Addition for Nepal >> End
-
+                If IsNumeric(txtRecurrence.Text.Trim) Then
+                    eProduct.Recurrence = CDec(txtRecurrence.Text.Trim)
+                End If
                 eProduct.PeriodRelPrices = If(ddlDistribution.SelectedValue = "0", Nothing, ddlDistribution.SelectedValue)
                 eProduct.PeriodRelPricesOP = If(ddlDistributionOP.SelectedValue = "0", Nothing, ddlDistributionOP.SelectedValue)
                 eProduct.PeriodRelPricesIP = If(ddlDistributionIP.SelectedValue = "0", Nothing, ddlDistributionIP.SelectedValue)

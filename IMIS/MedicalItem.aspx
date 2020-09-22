@@ -318,7 +318,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
             direction: ltr;
             width: 271px;
         }
-
         .auto-style6 {
             width: 271px;
         }

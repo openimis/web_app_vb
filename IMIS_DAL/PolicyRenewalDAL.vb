@@ -30,6 +30,7 @@ Public Class PolicyRenewalDAL
 
     Public Sub UpdatePolicyRenewal(RemindingInterval As Integer?, RegionId As Integer?, DistrictId As Integer?, WardId As Integer?, VillageId As Integer?, OfficerId As Integer?, DateFrom As Date?, DateTo As Date?)
         Dim sSQL As String = "uspPolicyRenewalInserts"
+        Dim expSQL As String = "uspPolicyStatusUpdate"
         Dim data As New ExactSQL
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
@@ -45,6 +46,8 @@ Public Class PolicyRenewalDAL
 
         data.ExecuteCommand()
 
+        data.setSQLCommand(expSQL, CommandType.StoredProcedure)
+        data.ExecuteCommand()
     End Sub
 
     Public Function GetPolicyStatus(ByVal RangeFrom As DateTime, ByVal RangeTo As DateTime, ByVal OfficerID As Integer, ByVal RegionId As Integer, ByVal District As Integer, ByVal Village As Integer, ByVal Ward As Integer, ByVal PolicyStatus As Integer) As DataTable

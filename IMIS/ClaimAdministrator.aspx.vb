@@ -204,6 +204,20 @@ Partial Public Class ClaimAdministrator
         End If
         Return True
     End Function
+    Private Function AdminExists()
+        Dim eUser = New IMIS_EN.tblUsers
+        eUser.LoginName = txtCode.Text
+        Dim dt As DataTable = BIClaimAdmin.CheckIfUserExists(eUser)
+        If dt.Rows.Count > 0 Then
+            Dim loginName = If(dt.Rows(0)("LoginName") = "", "", dt.Rows(0)("LoginName"))
+            If loginName <> "" And loginName = txtCode.Text Then
+                ImisGen.Alert(eClaimAdmin.ClaimAdminCode & " " & ImisGen.getMessage("M_OFFICEREXISTS"), pnlButtons, alertPopupTitle:="IMIS")
+                Return True
+            End If
+        End If
+
+        Return False
+    End Function
     Private Function SetLoginDetails() As Boolean
         eClaimAdmin.eUsers = New IMIS_EN.tblUsers
         If hfUserID.Value <> "" Then

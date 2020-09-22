@@ -58,6 +58,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <td>
                                 <asp:RequiredFieldValidator ID="RequiredFieldPassword" runat="server" 
                                     ValidationGroup="check" ForeColor="Red" Display="Dynamic" ControlToValidate="txtNewPassword" Text="*"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtNewPassword"  ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                             </td>
                         </tr>
                         <tr>

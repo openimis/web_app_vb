@@ -253,4 +253,30 @@ Public Class AppConfiguration
         End Get
     End Property
 
+    Public Shared ReadOnly Property CommandTimeout As String
+        Get
+            Dim timeoutConfigValue As String = AppSettings("CommandTimeout")
+            Dim parsedValue As Integer
+            If Not String.IsNullOrEmpty(timeoutConfigValue) Then
+                Try
+                    parsedValue = Integer.Parse(timeoutConfigValue)
+                    Return parsedValue
+                Catch ex As Exception
+                    Throw New Exception("Cannot parse string value to integer")
+                End Try
+            End If
+            Throw New Exception("AppSetting CommandTimeout not found in web.config file.")
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property ClaimCodePrefix As String
+        Get
+            Dim claimCodePrefixValue As String = AppSettings("ClaimCodePrefix")
+            If Not String.IsNullOrEmpty(claimCodePrefixValue) Then
+                Return claimCodePrefixValue
+            End If
+            Throw New Exception("AppSetting ClaimCodePrefix not found in web.config file.")
+        End Get
+    End Property
+
 End Class

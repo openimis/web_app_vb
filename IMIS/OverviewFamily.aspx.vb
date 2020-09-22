@@ -240,15 +240,53 @@ Partial Public Class OverviewFamily
             Dim chk As Integer = 0
             Dim msg As String = ""
             Dim policyValueCurrent As Decimal
+            Dim PreviousPolicyId As Integer = 0
+            Dim newPolicyID As Integer = 0
+
+            If Not HttpContext.Current.Request.QueryString("prp") Is Nothing Then
+                Dim currentPolicyID As Integer
+                newPolicyID = 0
+
+                For c As Integer = 0 To dt.Columns.Count - 1
+                    currentPolicyID = dt.Compute("MAX(PolicyID)", "")
+                    If currentPolicyID > newPolicyID Then
+                        newPolicyID = currentPolicyID
+                    End If
+                    Exit For
+                Next
+            End If
+
 
             For Each dr As DataRow In dt.Rows
                 efamily = New IMIS_EN.tblFamilies
                 eproduct = New IMIS_EN.tblProduct
                 epolicy = New IMIS_EN.tblPolicy
                 policyValueCurrent = 0
+                epolicy.PolicyStatus = dr("PolicyStatusID")
+                epolicy.ExpiryDate = dr("ExpiryDate")
+                If epolicy.PolicyStatus > 1 Then
+                    Continue For
+                End If
+
+                If dr("PolicyStage") = "R" Then
+                    For i As Integer = 0 To dt.Rows.Count
+                        If dr("PolicyID") = newPolicyID And dr("PolicyStage") = "R" Then
+                            If HttpContext.Current.Request.QueryString("prp") Is Nothing Then
+                                PreviousPolicyId = 0
+                            Else
+                                PreviousPolicyId = CInt(HttpContext.Current.Request.QueryString("prp"))
+                            End If
+                            Exit For
+                        Else
+                            PreviousPolicyId = 0
+                            Exit For
+                        End If
+                    Next
+                End If
 
                 If Not dr("PolicyValue") Is Nothing Then
                     policyValueCurrent = dr("PolicyValue")
+                    'epolicy.PolicyValue = dr("PolicyValue")
                 End If
                 If Not dr("PolicyId") Is Nothing Then
                     epolicy.PolicyID = dr("PolicyId")
@@ -269,12 +307,35 @@ Partial Public Class OverviewFamily
                 epolicy.tblFamilies = efamily
                 epolicy.tblProduct = eproduct
 
-                OverviewFamily.GetPolicyValue(epolicy, 0)
+                Dim OrderNumberRenewal As Integer = 0
+
+                OrderNumberRenewal = policy.GetRenewalCount(dr("ProdID"), efamily.FamilyID)
+                If PreviousPolicyId > 0 Then
+                    If dr("PolicyID") = newPolicyID And dr("PolicyStage") = "R" Then
+                        epolicy.RenewalOrder = OrderNumberRenewal
+                    End If
+                End If
+                OverviewFamily.GetPolicyValue(epolicy, PreviousPolicyId)
 
                 If policyValueCurrent <> epolicy.PolicyValue Then
                     epolicy.AuditUserID = imisgen.getUserId(Session("user"))
                     ' epolicy.PolicyStatus = 1
                     chk = 0
+                    If dr("PolicyStage") = "R" Then
+                        If dr("PolicyID") = newPolicyID And dr("PolicyStage") = "R" Then
+                            If HttpContext.Current.Request.QueryString("prp") Is Nothing Then
+                                epolicy.RenewalOrder = -1
+                            Else
+                                epolicy.RenewalOrder = OrderNumberRenewal
+                            End If
+
+                        Else
+                            epolicy.RenewalOrder = -1
+
+                        End If
+
+
+                    End If
                     chk = OverviewFamily.SavePolicy(epolicy)
                     If chk = 1 Then
                         msg += imisgen.getMessage("M_POLICYVALUECHANGE") & epolicy.EnrollDate & " " & imisgen.getMessage("M_CHANGE") & "<br/>"

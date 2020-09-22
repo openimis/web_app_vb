@@ -176,13 +176,13 @@
 		<value>Indiquer le(s) prénom(s)</value>
 	</data>
   <data name="V_POVERTY" xml:space="preserve">
-		<value>Veuillez sélectionner si la(le) famille/groupe a un niveau de pauvreté.</value>
+		<value>Veuillez sélectionner si la(le) famille/groupe a un niveau de pauvreté</value>
 	</data>
   <data name="V_VILLAGE" xml:space="preserve">
 		<value>Veuillez sélectionner un village</value>
 	</data>
   <data name="V_WARD" xml:space="preserve">
-		<value>Veuillez sélectionner une municipalité.</value>
+		<value>Veuillez sélectionner une municipalité</value>
 	</data>
   <data name="B_ADDPREMIUM" xml:space="preserve">
 		<value>Ajouter une cotisation</value>
@@ -1184,7 +1184,7 @@
 		<value>Journal sur </value>
 	</data>
   <data name="L_ALERTPOPUPTITLE" xml:space="preserve">
-		<value>IMIS</value>
+		<value>openIMIS</value>
 	</data>
   <data name="L_CONFIRMPOPUPTITLE" xml:space="preserve">
 		<value>openIMIS</value>
@@ -1754,13 +1754,13 @@
 		<value>Veuillez sélectionner vérification ou retours d'information pour continuer</value>
 	</data>
   <data name="M_VISITDATENOTAFTERCLAIMDATE" xml:space="preserve">
-		<value>La "date de visite à partir de" ne peut pas être ultérieure à la date de prestation</value>
+		<value>La &quot;date de visite à partir de&quot; ne peut pas être ultérieure à la date de prestation</value>
 	</data>
   <data name="M_VISITDATENOTAFTERTODAY" xml:space="preserve">
-		<value>La "date de visite à partir de" ne peut pas être après aujourd'hui</value>
+		<value>La &quot;date de visite à partir de&quot; ne peut pas être après aujourd'hui</value>
 	</data>
   <data name="M_VISITDATETONOTBEFOREVISITDATEFROM" xml:space="preserve">
-		<value>La "date de visite au" ne peut être avant la "date de visite à partir de"</value>
+		<value>La &quot;date de visite au&quot; ne peut être avant la &quot;date de visite à partir de&quot;</value>
 	</data>
   <data name="T_CHECKED" xml:space="preserve">
 		<value>Vérifié</value>
@@ -2372,7 +2372,7 @@
 		<value>Veuillez sélectionner la date</value>
 	</data>
   <data name="M_TODATEGREATER" xml:space="preserve">
-		<value>La date "à ce jour" doit être supérieur à la date "à partir de"</value>
+		<value>La date &quot;à ce jour&quot; doit être supérieur à la date &quot;à partir de&quot;</value>
 	</data>
   <data name="M_DATEFORMAT" xml:space="preserve">
 		<value>La date doit est dans le format jj/mm/aaaa</value>
@@ -3905,7 +3905,7 @@
 		<value>Code de municipalité du fichier déjà dans la base de donnée</value>
 	</data>
   <data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value>Municipalité du ficher "Village" n'existe ni dans la base de donnée in dans le fichier "municipalité"</value>
+		<value>Municipalité du ficher &quot;Village&quot; n'existe ni dans la base de donnée in dans le fichier &quot;municipalité&quot;</value>
 	</data>
   <data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
 		<value>Code de région dans le fichier existe déjà dans la base de donnée</value>
@@ -4375,9 +4375,6 @@
 	</data>
   <data name="T_PRESCRIBEDCONTRIBUTIONS" xml:space="preserve">
 		<value>Contributions prescrites</value>
-	</data>
-  <data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
-		<value>Commission calculée</value>
 	</data>
   <data name="T_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
 		<value>Synthèse des Commissions</value>
@@ -4869,7 +4866,7 @@
 		<value>Méthode de paiement</value>
 	</data>
   <data name="T_MEDICALPROSTHESES" xml:space="preserve">
-		<value>Prothèses médicales</value>
+		<value>Consommable médical</value>
 	</data>
   <data name="L_RECURRENCE" xml:space="preserve">
 		<value>Périodicité (Mois)</value>
@@ -4892,8 +4889,155 @@
   <data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
 		<value>Aucun message à afficher</value>
 	</data>
+  <data name="L_GENDER1" xml:space="preserve">
+		<value>Gender</value>
+	</data>
+  <data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
+		<value>Search  Insurance Number</value>
+	</data>
+  <data name="T_CHARITY" xml:space="preserve">
+		<value>Charity</value>
+	</data>
+  <data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
+		<value></value>
+	</data>
+  <data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
+		<value>Import photos</value>
+	</data>
+  <data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
+		<value></value>
+	</data>
+  <data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
+		<value></value>
+	</data>
+  <data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
+		<value>zipped photos</value>
+	</data>
+  <data name="L_FULLNAME" xml:space="preserve">
+		<value>Full Name</value>
+	</data>
+  <data name="L_PAYMENTAMOUNT" xml:space="preserve">
+		<value>Amount</value>
+	</data>
+  <data name="L_RECEIPTCODE" xml:space="preserve">
+		<value>Receipt code</value>
+	</data>
+  <data name="L_IMEI" xml:space="preserve">
+		<value>IMEI</value>
+	</data>
+  <data name="L_EMAILSETTINGS" xml:space="preserve">
+		<value>Email</value>
+	</data>
   <data name="T_READY" xml:space="preserve">
 		<value>Prêt</value>
+	</data>
+  <data name="M_PLEASESELECTMODE" xml:space="preserve">
+		<value>Veuillez sélectionner le mode</value>
+	</data>
+  <data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Commission calculée</value>
+	</data>
+  <data name="G_PROJECTDETAILS" xml:space="preserve">
+		<value>Détails du projet</value>
+	</data>
+  <data name="L_COMMENTS" xml:space="preserve">
+		<value>Commentaires</value>
+	</data>
+  <data name="L_COSTCENTRE" xml:space="preserve">
+		<value>Centre de coût</value>
+	</data>
+  <data name="L_PROJECTCENTRE" xml:space="preserve">
+		<value>Centre de projet</value>
+	</data>
+  <data name="L_ACTIVITYCENTRE" xml:space="preserve">
+		<value>Centre d'activité</value>
+	</data>
+  <data name="L_CC" xml:space="preserve">
+		<value>CC</value>
+	</data>
+  <data name="L_PC" xml:space="preserve">
+		<value>PC</value>
+	</data>
+  <data name="L_AC" xml:space="preserve">
+		<value>AC</value>
+	</data>
+  <data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
+		<value>Projet(s) trouvé(s)</value>
+	</data>
+  <data name="L_UNITS" xml:space="preserve">
+		<value>Unités</value>
+	</data>
+  <data name="L_EMPLOYEE" xml:space="preserve">
+		<value>Employé</value>
+	</data>
+  <data name="L_EMPLOYEEID" xml:space="preserve">
+		<value>ID d’employé</value>
+	</data>
+  <data name="L_UNITS2" xml:space="preserve">
+		<value>Unités2</value>
+	</data>
+  <data name="T_SELECTCOSTCENTRE" xml:space="preserve">
+		<value>Sélectionnez le centre de coûts</value>
+	</data>
+  <data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
+		<value>Sélectionnez Centre de projets</value>
+	</data>
+  <data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
+		<value>Sélectionnez le centre d'activités</value>
+	</data>
+  <data name="T_SELECTEMPLOYEE" xml:space="preserve">
+		<value>Sélectionner un employé</value>
+	</data>
+  <data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
+		<value>Les détails du projet ont été insérés avec succès</value>
+	</data>
+  <data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
+		<value>Les détails du projet ont été mis à jour avec succès</value>
+	</data>
+  <data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Total des contributions payées pour</value>
+	</data>
+  <data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Commission calculée</value>
+	</data>
+  <data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
+		<value>Commission calculée pour</value>
+	</data>
+  <data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
+		<value>Total de la contribution de paiement réelle pour</value>
+	</data>
+  <data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
+		<value>Total de toutes les contributions de paiement réalisés</value>
+	</data>
+  <data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
+		<value>Total de toutes les contributions prescrites</value>
+	</data>
+  <data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Total des contributions prescrites pour</value>
+	</data>
+  <data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+		<value>Nombre total de polices pour</value>
+	</data>
+  <data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+		<value>Contribution totale prescrite pour</value>
+	</data>
+  <data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
+		<value>Veuillez sélectionner le taux de commission</value>
+	</data>
+  <data name="R_TOTALAPPROVED" xml:space="preserve">
+		<value>Total approuvé</value>
+	</data>
+  <data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
+		<value>Montant total ajusté</value>
+	</data>
+  <data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
+		<value>Montant total payé</value>
+	</data>
+  <data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+		<value>Tâche terminée en </value>
+	</data>
+  <data name="M_EXTR_HOURS" xml:space="preserve">
+		<value> heures</value>
 	</data>
   <data name="T_OVERVIEW" xml:space="preserve">
 		<value>Aperçu</value>
@@ -4902,4 +5046,3 @@
 		<value>Tous les détails</value>
 	</data>
 </root>
-

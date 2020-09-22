@@ -88,4 +88,9 @@ Public Class EscapeBL
 
         Return IMISDefaults.getActivationOption()
     End Function
+
+    Public Function MatchPayments(DomainUrl As String) As Boolean
+        Return True
+    End Function
+
 End Class

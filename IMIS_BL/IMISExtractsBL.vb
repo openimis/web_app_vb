@@ -602,7 +602,6 @@ Public Class IMISExtractsBL
 
 
 
-
     Public Function CreateOffLineExtracts(ByRef eExtractInfo As IMIS_EN.eExtractInfo) As Boolean
 
         Dim Extract As New IMIS_DAL.IMISExtractsDAL
@@ -850,7 +849,6 @@ Public Class IMISExtractsBL
             DeleteWorkingFolder(strFile)
         End Try
     End Function
-
 
 
     Public Function NewSequenceNumber(ByVal LocationId As Integer) As Integer

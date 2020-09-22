@@ -57,6 +57,8 @@ Partial Public Class tblClaim
     Public Property ICDID4 As Nullable(Of Integer)
     Public Property VisitType As String
     Public Property ClaimCategory As String
+    Public ClaimItems As New tblClaimItems
+    Public ClaimServices As New tblClaimServices
 
     Public Overridable Property tblBatchRun As tblBatchRun
     Public Overridable Property tblClaimAdmin As tblClaimAdmin

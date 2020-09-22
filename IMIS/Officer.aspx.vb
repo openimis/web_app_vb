@@ -95,9 +95,13 @@ Partial Public Class Officer
                     hfUserID.Value = eOfficer.eUsers.UserID
                     chkOfficerIncludeLogin.Checked = True
                     ddlLanguage.SelectedValue = eUsers.LanguageID
+                    RequiredFieldConfirmPassword.Visible = False
+                    RequiredFieldPassword.Visible = False
                 End If
             Else
+
                 hfUserID.Value = 0
+
             End If
 
             FillWards()
@@ -336,6 +340,22 @@ Partial Public Class Officer
         ddlLanguage.DataTextField = "LanguageName"
         ddlLanguage.DataBind()
     End Sub
+
+    Private Function OfficerExists()
+        Dim eUser = New IMIS_EN.tblUsers
+        eUser.LoginName = txtCode.Text
+        Dim dt As DataTable = BIOfficer.CheckIfUserExists(eUser)
+        If dt.Rows.Count > 0 Then
+            Dim loginName = If(dt.Rows(0)("LoginName") = "", "", dt.Rows(0)("LoginName"))
+            If loginName <> "" And loginName = txtCode.Text Then
+                imisgen.Alert(eOfficer.Code & imisgen.getMessage("M_OFFICEREXISTS"), pnlButtons, alertPopupTitle:="IMIS")
+                Return True
+            End If
+        End If
+
+        Return False
+    End Function
+
     Private Sub SetCheckboxes(gv As GridView)
         Dim _CheckWards As Boolean = True
         Dim _CheckVillages As Boolean = True
@@ -385,6 +405,9 @@ Partial Public Class Officer
     End Sub
     Public Sub DeleteLogin()
         Try
+            If hfUserID.Value = "" Then Exit Sub
+
+
             eUsers.UserID = hfUserID.Value
             eOfficer.eUsers = eUsers
             BIOfficer.LoadUsers(eOfficer.eUsers)

@@ -39,6 +39,7 @@ Partial Public Class Premium
     Private PremiumContribution As Decimal
     Private familyBI As New IMIS_BI.FamilyBI
     Private policyBI As New IMIS_BI.PolicyBI
+    Private ActivationOption As New IMIS_BL.EscapeBL
     Private Sub FormatForm()
 
         Dim Adjustibility As String = ""
@@ -208,7 +209,7 @@ Partial Public Class Premium
                 hfInsurancePeriod.Value = ePremium.tblPolicy.tblProduct.InsurancePeriod
             End If
 
-
+            getGridData()
 
 
         Catch ex As Exception
@@ -232,9 +233,20 @@ Partial Public Class Premium
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Premium.ToString & "&retUrl=" & RefUrl)
         End If
     End Sub
+
     Private Sub FillCombobox()
         FillPayers()
     End Sub
+
+    Private Sub getGridData()
+
+        ePremium.PolicyID = hfPolicyID.Value
+
+        gvPremium.DataSource = Premium.GetPremium(ePremium)
+        gvPremium.DataBind()
+
+    End Sub
+
     Private Sub FillPayers()
         ddlPayer.DataSource = Premium.GetPayers(eFamily.RegionId, eFamily.DistrictID, imisgen.getUserId(Session("User")), True)
         ddlPayer.DataValueField = "PayerID"
@@ -268,16 +280,24 @@ Partial Public Class Premium
 
                 Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
                 Dim StartDate As Date = Date.ParseExact(hfPolicyStartDate.Value, "dd/MM/yyyy", Nothing)
-                Dim EffectiveDate As Date = If(PayDate < StartDate, StartDate, PayDate)
+                Dim EffectiveDate As Date = if(PayDate < StartDate, StartDate, PayDate)
+                If ePremium.PayDate > System.DateTime.Now Then
+                    lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
+                    Return
+                End If
 
-
+                Dim ActivationValue As Integer = ActivationOption.getActivationOption()
 
                 If ddlCategory.SelectedValue = "C" Or ddlCategory.SelectedValue = "" Then
                     Select Case Request.Form("__EVENTARGUMENT_PREMIUM") 'Coming from js save button click function
                         Case 4
                             Select Case Request.Form("__EVENTARGUMENT")
                                 Case imisgen.getMessage("L_ENFORCE")
-                                    ePolicy.PolicyStatus = 2
+                                    If ActivationValue = 3 Then
+                                        ePolicy.PolicyStatus = 16
+                                    Else
+                                        ePolicy.PolicyStatus = 2
+                                    End If
                                     ePolicy.EffectiveDate = EffectiveDate
                             End Select
 
@@ -286,7 +306,11 @@ Partial Public Class Premium
                                 Case imisgen.getMessage("L_SUSPEND")
                                     ePolicy.PolicyStatus = 4
                                 Case imisgen.getMessage("L_ENFORCE")
-                                    ePolicy.PolicyStatus = 2
+                                    If ActivationValue = 3 Then
+                                        ePolicy.PolicyStatus = 16
+                                    Else
+                                        ePolicy.PolicyStatus = 2
+                                    End If
                                     If hfPolicyEffectiveDate.Value.Trim = String.Empty Then
                                         ePolicy.EffectiveDate = EffectiveDate
                                     Else
@@ -299,8 +323,11 @@ Partial Public Class Premium
                                     ePolicy.EffectiveDate = EffectiveDate
                                 ElseIf txtPolicyStatus.Text.Trim = imisgen.getMessage("T_IDLE") Then
                                     ePolicy.EffectiveDate = EffectiveDate
-                                    ePolicy.PolicyStatus = 2
-
+                                    If ActivationValue = 3 Then
+                                        ePolicy.PolicyStatus = 16
+                                    Else
+                                        ePolicy.PolicyStatus = 2
+                                    End If
                                 End If
                             End If
                     End Select
