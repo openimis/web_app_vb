@@ -29,6 +29,8 @@
 Imports System.IO
 Imports System.Net
 Imports System.Data
+Imports System.Reflection
+
 Partial Public Class Home
     Inherits System.Web.UI.Page
     Private Home As New IMIS_BI.HomeBI
@@ -39,6 +41,12 @@ Partial Public Class Home
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Try
+
+            Dim version As Version
+            version = Assembly.GetExecutingAssembly().GetName().Version
+
+            compiledVersion.Text = version.ToString()
+
             eUsers.UserID = imisgen.getUserId(Session("User"))
             If IsPostBack = True Then Return
             Dim load As New IMIS_BI.UserBI
@@ -68,5 +76,5 @@ Partial Public Class Home
 
     End Sub
 
-  
+
 End Class

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IMIS", "IMIS\IMIS.vbproj", "{E0D2FF4A-A742-4A05-BF65-BA4BD4C2EB14}"
 EndProject
@@ -89,5 +89,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C0CCE48-7E8F-4820-82D5-9B709C6B969C}
+		BuildVersion_StartDate = 2012/1/1
 	EndGlobalSection
 EndGlobal

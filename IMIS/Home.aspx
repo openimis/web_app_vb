@@ -37,7 +37,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
      function GreetUser() {
          var hourOfTheDay = new Date().getHours();
-         var morning = '<%=imisgen.getMessage("M_GOODMORNING",True )%>';
+         var morning = '<%=imisgen.getMessage("M_GOODMORNING", True)%>';
          var afternoon = '<%=imisgen.getMessage("M_GOODAFTERNOON", True)%>';
          var evening = '<%=imisgen.getMessage("M_GOODEVENING", True)%>';
          var greeting = '<%=imisgen.getMessage("L_WELCOME", True)%>';
@@ -69,11 +69,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
 
-    <span id="version">v1.4.1 (April 2020)</span>
+    <span id="version">v1.4.1 (build <asp:Label ID="compiledVersion" runat="server" Text=''></asp:Label>)</span>
     <div style="min-height:650px;">
     <div id="UserGreeting">
         <asp:Label ID="L_CURRENTUSER" runat="server" Text='<%$ Resources:Resource,L_WELCOME %>'></asp:Label>
-        <asp:Label ID="txtCURRENTUSER" runat="server" Text=''></asp:Label>
+        <asp:Label ID="txtCURRENTUSER" runat="server" Text=''></asp:Label> 
     </div>
 
     <asp:GridView ID="gvRoles" runat="server"
