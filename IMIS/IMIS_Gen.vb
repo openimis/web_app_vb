@@ -166,12 +166,12 @@ Public Class IMIS_Gen
     End Sub
     Public Sub Confirm(ByVal msg As String, ByRef controlIDToEmbedScript As Control, Optional ByVal jsCallBackFun As String = "", Optional ByVal jsCallBackFunArgs As String = "", Optional ByVal confirmPopupTitle As String = "IMIS", Optional ByVal AcceptButtonText As String = "", Optional ByVal RejectButtonText As String = "", Optional ByVal Queue As Boolean = False)
         Dim ltl As New Literal
-        msg = "<script class='scriptServerPopup' type='text/javascript'>" & _
-              "  popup.confirmTitle='" & confirmPopupTitle & "';" & _
-              "  popup.acceptBTN_Text = '" & if(AcceptButtonText = "", getMessage("L_OK", True), AcceptButtonText) & "';" & _
-              " popup.rejectBTN_Text = '" & if(RejectButtonText = "", getMessage("L_CANCEL", True), RejectButtonText) & "';" & _
-              "  $(document).ready(function(){" & _
-              "  popup.confirm('" & msg & "','" & jsCallBackFun & "','" & jsCallBackFunArgs & "'," & if(Queue, "true", "false") & ");});" & _
+        msg = "<script class='scriptServerPopup' type='text/javascript'>" &
+              "  popup.confirmTitle='" & confirmPopupTitle & "';" &
+              "  popup.acceptBTN_Text = '" & If(AcceptButtonText = "", getMessage("L_OK", True), AcceptButtonText) & "';" &
+              " popup.rejectBTN_Text = '" & If(RejectButtonText = "", getMessage("L_CANCEL", True), RejectButtonText) & "';" &
+              "  $(document).ready(function(){" &
+              "  popup.confirm('" & msg & "','" & jsCallBackFun & "','" & jsCallBackFunArgs & "'," & If(Queue, "true", "false") & ");});" &
               " </script>"
         ltl.Text = msg
         If Not controlIDToEmbedScript Is Nothing Then
@@ -180,4 +180,12 @@ Public Class IMIS_Gen
             Page.Controls.Add(ltl)
         End If
     End Sub
+
+    Public Sub Log(ByVal Message As String, Optional ByVal Exception As Exception = Nothing, Optional ByVal ExceptioCode As Integer = 999, Optional ByVal EntryType As EventLogEntryType = EventLogEntryType.Error)
+        If Not Exception Is Nothing Then
+            Message = Message & " : " & Exception.ToString()
+        End If
+        EventLog.WriteEntry("IMIS", Message, EntryType, ExceptioCode)
+    End Sub
+
 End Class

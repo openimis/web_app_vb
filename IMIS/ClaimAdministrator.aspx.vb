@@ -96,7 +96,8 @@ Partial Public Class ClaimAdministrator
             End If
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlDetails, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 #End Region
@@ -108,7 +109,8 @@ Partial Public Class ClaimAdministrator
                 If SaveClaimAdmin() = False Then Return
             Catch ex As Exception
                 ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlDetails, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
                 Return
             End Try
         End If
@@ -289,7 +291,8 @@ Partial Public Class ClaimAdministrator
             Session("msg") = eClaimAdmin.ClaimAdminCode & " " & ImisGen.getMessage("M_DELETED")
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlClaimAdmiLogin, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 #End Region

@@ -100,10 +100,8 @@ Public Class UtilitiesBL
     Public Function DecryptFile(ByVal FilePath As String) As String
         Dim Utitlity As New IMIS_BL.GeneralBL
 
-        Return Utitlity.Decrypt(":-+A7V@=", FilePath)
+        Return Utitlity.Decrypt(":-+A7V@=", FilePath) 'TODO: get the encryption key from config
 
     End Function
-
-
 
 End Class
