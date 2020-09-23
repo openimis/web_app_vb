@@ -29,6 +29,7 @@
 Public Class ReportingDAL
     Private data As New ExactSQL
     Private Query As String = ""
+
     'Corrected
     Public Function GetPreviousMatchingFundsReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?) As DataTable
         Query = "SELECT RP.ReportingID,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" &
@@ -50,7 +51,12 @@ Public Class ReportingDAL
         Return data.Filldata()
     End Function
     Public Function GetPreviousOvervireOfCommissiosReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
-        Query = "SELECT  RP.LocationId,RP.CommissionRate,R.RegionId,RP.OfficerID,RP.PayerId, RP.ProdId,Prod.ProductCode+' ' +Prod.ProductName ProductCode,RP.ReportMode,RP.CommissionRate,RP.ReportingId,RP.StartDate,RP.EndDate,CONCAT(FORMAT(RP.StartDate,'MMMM','en-US') , ' ' ,Year(RP.StartDate)) " &
+        Dim Overview As String = "'" + getMessage("T_OVERVIEW") + " - '"
+        Dim AllDetails As String = "'" + getMessage("T_ALLDETAILS") + " - '"
+
+        Query = "SELECT  RP.LocationId,RP.CommissionRate,R.RegionId,RP.OfficerID,RP.PayerId, RP.ProdId,Prod.ProductCode+' ' +Prod.ProductName ProductCode,RP.ReportMode,RP.CommissionRate,RP.ReportingId,RP.StartDate,RP.EndDate,
+CASE RP.Scope WHEN 0 THEN " & Overview & " WHEN 1 THEN " & AllDetails & " END " &
+ " + ' ' + CONCAT(FORMAT(RP.StartDate,'MMMM','en-US') , ' ' ,Year(RP.StartDate)) " &
   " + ' ' + CASE RP.ReportMode  WHEN 0 THEN 'Prescribed Contributions' WHEN 1 THEN 'Actually Paid Contributions' ELSE ''  END" &
   " + ' ' + CAST(RP.CommissionRate AS nvarchar)+'% ' + ' ' + ISNULL(Prod.ProductCode,'') + ' ' +ISNULL(O.LastName,'')+' '+ ISNULL(O.OtherNames,'')" &
  " + ' ' +R.RegionName+ '  ' + Dis.DistrictName " &
@@ -75,5 +81,13 @@ Public Class ReportingDAL
         data.params("@Month", SqlDbType.Int, Month)
 
         Return data.Filldata()
+    End Function
+
+    Public Function getMessage(ByVal MessageID As String, Optional EncodeJS As Boolean = True) As String
+        If EncodeJS = True Then
+            Return HttpUtility.JavaScriptStringEncode(System.Web.HttpContext.GetGlobalResourceObject("Resource", MessageID))
+        Else
+            Return System.Web.HttpContext.GetGlobalResourceObject("Resource", MessageID)
+        End If
     End Function
 End Class

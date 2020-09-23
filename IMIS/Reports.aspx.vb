@@ -87,6 +87,8 @@ Partial Public Class Reports
 
         FillMode()
         FillScope()
+        FillReportScope()
+
 
         ReselectCachedCriteria()
         Dim SelectedValue As String = ddlProduct.SelectedValue
@@ -180,12 +182,12 @@ Partial Public Class Reports
                 End If
             Next
 
-         
+
 
         End If
 
 
-        
+
 
 
         ' Session.Remove("CriteriaCache")
@@ -248,7 +250,7 @@ Partial Public Class Reports
         ddlDistrict.DataBind()
         FillProducts()
         'If dtDistricts.Rows.Count > 0 Then
-        If lstboxReportSelector.SelectedValue <> 18 Then
+        If Val(lstboxReportSelector.SelectedValue) <> 18 Then
             FillHF(ddlDistrict)
             FillPayer(ddlRegion, ddlDistrict)
             FillPreviousReportsDate()
@@ -538,6 +540,13 @@ Partial Public Class Reports
         ddlScope.DataValueField = "ScopeID"
         ddlScope.DataBind()
     End Sub
+
+    Private Sub FillReportScope()
+        ddlCommissionScope.DataSource = reports.GetReportScope()
+        ddlCommissionScope.DataTextField = "ReportScopeName"
+        ddlCommissionScope.DataValueField = "ReportScopeID"
+        ddlCommissionScope.DataBind()
+    End Sub
     Private Sub GetPremiumCollectionReport(ByVal which As Integer) '  3 - premium collection, 4 - product sales
 
         Dim RangeFrom As DateTime
@@ -752,7 +761,7 @@ Partial Public Class Reports
         sSubTitle = String.Format(imisgen.getMessage("L_REGION") & " : {0}   |   " & imisgen.getMessage("L_DISTRICT") & " : {1}   |   " & imisgen.getMessage("L_PRODUCT") & ": {2}", ddlRegionWoNational.SelectedItem.Text, ddlDistrictWoNational.SelectedItem.Text, If(Val(ddlAllProducts.SelectedValue) = 0, imisgen.getMessage("T_ALL"), ddlAllProducts.SelectedItem.Text))
         IMIS_EN.eReports.SubTitle = sSubTitle
 
-        dt = reports.GetPrimaryIndicators2(LocationId, ddlAllProducts.SelectedValue, if(ddlHF.SelectedValue = "", 0, ddlHF.SelectedValue), Year, MonthFrom, MonthTo)
+        dt = reports.GetPrimaryIndicators2(LocationId, ddlAllProducts.SelectedValue, If(ddlHF.SelectedValue = "", 0, ddlHF.SelectedValue), Year, MonthFrom, MonthTo)
     End Sub
     Private Sub CreateDerivedIndicators()
         Dim Month As Integer = ddlMonth.SelectedValue
@@ -765,11 +774,11 @@ Partial Public Class Reports
         Else
             LocationId = Val(ddlRegion.SelectedValue)
         End If
-        
+
         sSubTitle = If(LocationName.Length > 0, LocationName & " | ", "") & imisgen.getMessage("L_PRODUCT") & ": " & ddlProductStrict.SelectedItem.Text
         If ddlHF.SelectedIndex > 0 Then sSubTitle += " | " & imisgen.getMessage("L_OFFLINEHFID") & " : " & ddlHF.SelectedItem.Text
         IMIS_EN.eReports.SubTitle = sSubTitle
-        ds = reports.GetDerivedIndicators(LocationId, ddlProductStrict.SelectedValue, if(ddlHF.SelectedValue.Trim = String.Empty, 0, ddlHF.SelectedValue), Month, Year)
+        ds = reports.GetDerivedIndicators(LocationId, ddlProductStrict.SelectedValue, If(ddlHF.SelectedValue.Trim = String.Empty, 0, ddlHF.SelectedValue), Month, Year)
     End Sub
     Private Sub FillUserName()
         ddlUserName.DataSource = reports.GetUsers
@@ -844,7 +853,7 @@ Partial Public Class Reports
 
         IMIS_EN.eReports.SubTitle = sSubTitle
         dt = reports.GetInsureesWithoutPhotos(Val(ddlEnrolmentOfficer.SelectedValue), LocationId)
-       
+
     End Sub
     Private Sub GetPaymentCategoryOverview()
         Dim DateFrom As DateTime = txtSTARTData.Text
@@ -870,9 +879,9 @@ Partial Public Class Reports
         Dim EndDate As Date?
 
         Dim LocationId As Integer?
-       
 
-        Dim ReportingID As Integer? = if(ddlPreviousReportDate.SelectedValue > 0, CInt(ddlPreviousReportDate.SelectedValue), Nothing)
+
+        Dim ReportingID As Integer? = If(ddlPreviousReportDate.SelectedValue > 0, CInt(ddlPreviousReportDate.SelectedValue), Nothing)
         If ReportingID = 0 Then
             DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
             ProdID = If(ddlProduct.SelectedValue > 0, CInt(ddlProduct.SelectedValue), Nothing)
@@ -956,10 +965,10 @@ Partial Public Class Reports
         Dim StartDate As Date?
         Dim EndDate As Date?
 
-         
+
         'DistrictId = if(ddlDistrict1.SelectedValue > 0, CInt(ddlDistrict1.SelectedValue), Nothing)
-        StartDate = if(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = if(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
 
         dt = reports.GetPercentageReferral(Val(ddlRegion.SelectedValue), Val(ddlDistrict.SelectedValue), StartDate, EndDate)
 
@@ -995,8 +1004,8 @@ Partial Public Class Reports
         'DistrictId = if(Val(ddlDistrict.SelectedValue) > 0, CInt(Val(ddlDistrict.SelectedValue)), Nothing)
         'If ddlWards.Items.Count > 0 Then WardId = if(ddlWards.SelectedValue > 0, CInt(ddlWards.SelectedValue), Nothing)
         'If ddlVillages.Items.Count > 0 Then VillageId = if(ddlVillages.SelectedValue > 0, CInt(ddlVillages.SelectedValue), Nothing)
-        StartDate = if(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = if(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
 
         If ddlPolicyStatus.SelectedValue > 0 Then PolicyStatus = ddlPolicyStatus.SelectedValue
 
@@ -1027,8 +1036,8 @@ Partial Public Class Reports
 
         'DistrictId = if(Val(ddlDistrict.SelectedValue) > 0, CInt(Val(ddlDistrict.SelectedValue)), Nothing)
         OfficerId = If(Val(ddlEnrolmentOfficer.SelectedValue) > 0, CInt(ddlEnrolmentOfficer.SelectedValue), Nothing)
-        StartDate = if(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = if(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
 
         dt = reports.GetPendingInsurees(LocationId, OfficerId, StartDate, EndDate)
 
@@ -1277,6 +1286,8 @@ Partial Public Class Reports
         Dim OfficerID As Integer?
         Dim ReportingID As Integer?
         Dim CommissionRate As Decimal
+        Dim Scope As Integer
+
         If ddlPreviousReportDateCommission.SelectedValue > 0 Then
             ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
         Else
@@ -1330,22 +1341,27 @@ Partial Public Class Reports
 
         Dim sSubTitle As String = ""
 
+        IMIS_EN.eReports.Scope = Val(ddlCommissionScope.SelectedValue)
+        Scope = IMIS_EN.eReports.Scope
+
+        IMIS_EN.eReports.Mode = Val(ddlMode.SelectedValue)
 
         If Val(ddlEnrolmentOfficer.SelectedValue) = 0 And Val(ddlProduct.SelectedValue) = 0 Then
-
             IMIS_EN.eReports.Grouping = 3
+
         ElseIf (Val(ddlEnrolmentOfficer.SelectedValue) > 0 And Val(ddlProduct.SelectedValue) > 0) Then
             IMIS_EN.eReports.Grouping = 0
+
         ElseIf (Val(ddlEnrolmentOfficer.SelectedValue) > 0 And Val(ddlProduct.SelectedValue) = 0) Then
             IMIS_EN.eReports.Grouping = 1
 
         ElseIf (Val(ddlEnrolmentOfficer.SelectedValue) = 0 And Val(ddlProduct.SelectedValue) > 0) Then
-
             IMIS_EN.eReports.Grouping = 2
         End If
+
         IMIS_EN.eReports.SubTitle = sSubTitle
 
-        dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, ReportingID, ErrorMessage, oReturn)
+        dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, Scope, ReportingID, ErrorMessage, oReturn)
 
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             Dim RepportMonth As String = ""
@@ -1502,8 +1518,12 @@ Partial Public Class Reports
                 End If
             End If
             If SelectedValueID = 22 Then
-                If Val(ddlDistrictWoNational.SelectedValue) = 0 Then
-                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTADISTRICT")
+                If Val(ddlCommissionScope.SelectedValue) = -1 Then
+                    lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
+                    Return
+                End If
+                If Val(ddlMonth.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_SELECTMONTH")
                     Return
                 End If
                 If ddlPreviousReportDateCommission.SelectedValue <= 0 Then
@@ -1516,7 +1536,6 @@ Partial Public Class Reports
                         Return
                     End If
                 End If
-
             End If
 
             If SelectedValueID = 23 Then
@@ -1697,7 +1716,7 @@ Partial Public Class Reports
     End Sub
 
     Private Sub ddlWards_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlWards.SelectedIndexChanged
-            FillVillages()
+        FillVillages()
     End Sub
     Private Sub FillPolicyStatus()
         ddlPolicyStatus.DataSource = reports.GetPolicyStatus(True)
@@ -1727,14 +1746,14 @@ Partial Public Class Reports
         End With
     End Sub
 
-  
+
     Private Sub ddlVillages_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlVillages.SelectedIndexChanged
         'FillEnrolmentOfficer()
     End Sub
 
     Private Sub ddlRegion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegion.SelectedIndexChanged
         FillDistricts()
-        If lstboxReportSelector.SelectedValue <> 18 Then
+        If Val(lstboxReportSelector.SelectedValue) <> 18 Then
             FillHF(sender)
         End If
     End Sub

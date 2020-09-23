@@ -1072,4 +1072,15 @@ Public Class GeneralBL
 
         Return dtScope
     End Function
+
+    Public Function GetReportScope() As DataTable
+        Dim dtScope As New DataTable
+        dtScope.Columns.Add("ReportScopeID", GetType(Integer))
+        dtScope.Columns.Add("ReportScopeName", GetType(String))
+        dtScope.Rows.Add(-1, "--Select scope--")
+        dtScope.Rows.Add(0, "Overview")
+        dtScope.Rows.Add(1, "All details")
+
+        Return dtScope
+    End Function
 End Class

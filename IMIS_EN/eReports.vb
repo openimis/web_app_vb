@@ -34,6 +34,8 @@ Public Class eReports
     Private _CareType As Integer
     Private Shared _SubTitle As String
     Public Shared Grouping As Integer
+    Public Shared Scope As Integer
+    Public Shared Mode As Integer
 
     Public Shared Property SubTitle() As String
         Get
