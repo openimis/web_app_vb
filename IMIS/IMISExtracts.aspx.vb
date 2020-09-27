@@ -889,6 +889,10 @@ Partial Public Class IMISExtracts
     End Sub
     Private Sub btnUploadEnrolments_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnUploadEnrolments.Click
         If fuEnrolments.HasFile Then
+            If Right(fuEnrolments.FileName, 4).ToLower() <> ".rar" Then
+                lblmsg.Text = imisgen.getMessage("M_EXTR_NOUPLOADLOADFILE")
+                Exit Sub
+            End If
             Dim FileName As String = Server.MapPath("Workspace\") & fuEnrolments.PostedFile.FileName
             fuEnrolments.SaveAs(FileName)
             Dim Output As New Dictionary(Of String, Integer)
@@ -954,7 +958,7 @@ Partial Public Class IMISExtracts
             imisgen.Alert(Msg, pnlButtons, alertPopupTitle:="IMIS", Queue:=True)
 
             If dt.Rows.Count > 0 Then
-                Msg = "<h4><u>" & imisgen.getMessage("M_ENROLLOG") & "</u></h4>" & "<br>" & _
+                Msg = "<h4><u>" & imisgen.getMessage("M_ENROLLOG") & "</u></h4>" & "<br>" &
                                    "<div style=""height:500px;overflow:auto;""><table class=""tblPopupMsg"" style=""width:100%;"">"
 
                 For i As Integer = 0 To dt.Rows.Count - 1
