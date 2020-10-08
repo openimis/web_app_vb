@@ -56,10 +56,7 @@ Partial Public Class Login
                 Login.GetDefaults(eDefaults)
 
                 Dim cookie As HttpCookie
-                cookie = Request.Cookies.Get("CultureInfo")
-                If cookie Is Nothing Then
-                    cookie = New HttpCookie("CultureInfo")
-                End If
+                cookie = New HttpCookie("CultureInfo")
 
 
                 cookie.Value = dt.Rows(0)("LanguageID").ToString
