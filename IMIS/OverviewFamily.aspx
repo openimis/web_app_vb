@@ -420,7 +420,7 @@ title='<%$ Resources:Resource,L_FAMILY%>'%>
                       <%--  <asp:BoundField DataField="PayerName"  HeaderText="PAID BY" 
                             SortExpression="PayerName" />--%>
                         <asp:BoundField DataField="Amount" DataFormatString="{0:n2}" HeaderText='<%$ Resources:Resource,L_AMOUNT %>' SortExpression="Amount"  /> 
-                        <asp:BoundField DataField="PayType" HeaderText='<%$ Resources:Resource,L_PAYMENTTYPE %>' SortExpression="PayType" />
+                        <asp:BoundField DataField="PayType" HeaderText='<%$ Resources:Resource,L_TYPEOFPAYMENT %>' SortExpression="PayType" />
                         <asp:BoundField DataField="Receipt" HeaderText='<%$ Resources:Resource,L_RECEIPT %>' SortExpression="Receipt" />  
                         <asp:BoundField DataField="PayCategory" HeaderText='<%$ Resources:Resource,L_CONTRIBUTIONCATEGORY%>' SortExpression="PayCategory" />  
                         <asp:BoundField DataField="MatchedAmount" HeaderText='<%$ Resources:Resource,L_MATCHEDAMOUNT%>' SortExpression="MatchedAmount" />  
