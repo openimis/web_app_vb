@@ -55,8 +55,6 @@ Public Class LocationsDAL
         Dim sSQL As String = ""
         sSQL += " SELECT CASE WHEN UserID IS NULL THEN 0 ELSE 1 END AS checked,userDistrictId, tblDistricts.DistrictID, tblDistricts.DistrictName, DistrictCode,tblDistricts.Region FROM tblDistricts"
         sSQL += " LEFT JOIN tblUsersDistricts ON tblDistricts.DistrictID = tblUsersDistricts.LocationId And  tblUsersDistricts.UserID = @UserID And tblUsersDistricts.ValidityTo Is NULL "
-        sSQL += " RIGHT JOIN (SELECT LocationID FROM tblUsersDistricts UD"
-        sSQL += " WHERE UserID = @Authority And UD.ValidityTo Is NULL) AR ON Ar.LocationID = tblDistricts.DistrictID"
         sSQL += " WHERE tbldistricts.validityto Is null And tblDistricts.DistrictName <> N'Funding'"
 
         If RegionId <> 0 Then sSQL += "   AND Region = @RegionId "
