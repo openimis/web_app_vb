@@ -139,6 +139,8 @@ Partial Public Class User
         CheckBox2.Enabled = enabled
         pnlDistrict.Enabled = enabled
         txtPhone.Enabled = enabled
+        txtPassword.Enabled = enabled
+        txtConfirmPassword.Enabled = enabled
     End Sub
 
     Private Sub RunPageSecurity()
