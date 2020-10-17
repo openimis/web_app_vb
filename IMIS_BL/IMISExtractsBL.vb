@@ -476,7 +476,7 @@ Public Class IMISExtractsBL
                         InsertCmd.CommandText = sSQL
 
                         InsertCmd.Parameters.AddWithValue("@CHFID", row("CHFID").ToString)
-                        InsertCmd.Parameters.Add(ImageToBlob("@image", row("PhotoPath")))
+                        InsertCmd.Parameters.Add(ImageToBlob("@image", row("PhotoPath").ToString))
                         InsertCmd.Parameters.AddWithValue("@InsureeName", row("InsureeName").ToString)
                         InsertCmd.Parameters.AddWithValue("@DOB", row("DOB"))
                         InsertCmd.Parameters.AddWithValue("@Gender", row("Gender").ToString)
