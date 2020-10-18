@@ -41,6 +41,33 @@ Partial Public Class Home
     Protected WithEvents txtCURRENTUSER As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''ConfigContent control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ConfigContent As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''ConfigLabel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ConfigLabel As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtCONFIGISSUE control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCONFIGISSUE As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''gvRoles control.
     '''</summary>
     '''<remarks>
