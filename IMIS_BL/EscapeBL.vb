@@ -6,7 +6,7 @@ Imports System.Web.Services
 Imports Newtonsoft.Json
 Imports IMIS_DAL
 
-#Const CHF = True
+#Const CHF = False
 Public Class EscapeBL
     Public Function isValidInsuranceNumber(ByVal InsuranceNumber As String) As Boolean
 #If CHF Then
