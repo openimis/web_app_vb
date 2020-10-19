@@ -580,10 +580,10 @@ Partial Public Class IMISExtracts
         Response.Redirect("Home.aspx")
     End Sub
     Protected Sub PhoneExtractLink_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PhoneExtractLink.Click
-
+        Dim district As String = If(ddlDistrictsPhone.SelectedValue.Equals(""), "0", ddlDistrictsPhone.SelectedValue)
         Response.AddHeader("Content-Disposition", "attachment;filename=ImisData.db3")
         Response.ContentType = "application/octet-stream"
-        Response.TransmitFile(Server.MapPath("Extracts\Phone\ImisData" & ddlDistrictsPhone.SelectedValue & ".db3"))
+        Response.TransmitFile(Server.MapPath("Extracts\Phone\ImisData" & district & ".db3"))
         Response.End()
         Response.Flush()
 
