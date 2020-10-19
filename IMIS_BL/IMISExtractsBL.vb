@@ -184,7 +184,8 @@ Public Class IMISExtractsBL
 
         Catch ex As Exception
 
-            Throw ex
+            'Throw ex
+            ' TODO Return the error message and display it on the summary modal => see OTC-11
         End Try
 
 

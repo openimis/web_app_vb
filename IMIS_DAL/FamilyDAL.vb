@@ -242,7 +242,8 @@ Public Class FamilyDAL
         sSQL += " INNER JOIN tblDistricts L ON L.DistrictId = UD.LocationId "
         sSQL += " WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)  "
         sSQL += " GROUP BY L.DistrictId, L.Region ) "
-        sSQL += " SELECT F.isOffline, F.FamilyID, F.FamilyUUID, I.CHFID, I.LastName, I.OtherNames, L.DistrictName, L.WardName, L.VillageName, F.Poverty,CASE WHEN F.Poverty = 1 THEN 'Yes' ELSE 'No' END PovertyDisplay,F.ConfirmationType,F.Ethnicity,  RegionName,F.validityfrom, F.validityTo  "
+        sSQL += " SELECT " + UtilitiesDAL.GetEnvMaxRows()
+        sSQL += " F.isOffline, F.FamilyID, F.FamilyUUID, I.CHFID, I.LastName, I.OtherNames, L.DistrictName, L.WardName, L.VillageName, F.Poverty,CASE WHEN F.Poverty = 1 THEN 'Yes' ELSE 'No' END PovertyDisplay,F.ConfirmationType,F.Ethnicity,  RegionName,F.validityfrom, F.validityTo  "
         sSQL += " FROM tblFamilies F INNER JOIN tblInsuree I ON I.InsureeId = F.InsureeID INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(F.LocationId, 0) "
         sSQL += " WHERE (L.RegionId IN (SELECT Region FROM UD) OR (L.DistrictId IN (SELECT DistrictId FROM UD)) OR F.LocationId IS NULL) "
         sSQL += " AND LastName LIKE @Lastname "

@@ -379,8 +379,10 @@ Public Class ClaimsDAL
     'Corrected by Rogers
     Public Function GetReviewClaims(ByRef eClaims As IMIS_EN.tblClaim, ByVal claimStatus As DataTable, ByVal UserID As Integer) As DataTable
 
-        Dim sSQL As String = ""
-        sSQL += " SELECT tblClaim.ClaimID,claimcode,DateClaimed,Claimed,ISNULL(Approved, Claimed)Approved, ClaimSt.name as ClaimStatus,"
+        'Dim sSQL As String = ""
+        Dim sSQL As String = "SELECT " + UtilitiesDAL.GetEnvMaxRows()
+
+        sSQL += " tblClaim.ClaimID,claimcode,DateClaimed,Claimed,ISNULL(Approved, Claimed)Approved, ClaimSt.name as ClaimStatus,"
         sSQL += " FeedbackStatus,ReviewStatus,tblClaim.RowID,tblHF.HFCode,HFName,tblClaim.HfID,tblClaim.ClaimAdminID,"
         sSQL += " Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames from tblClaim"
         sSQL += " INNER JOIN tblICDCodes ON tblICDCodes.ICDID = tblClaim.ICDID"
@@ -598,11 +600,14 @@ Public Class ClaimsDAL
         'End If
         Return data.Filldata
     End Function
-    'Corrected By Rogers
+
+
     Public Function GetClaims(ByRef eClaims As IMIS_EN.tblClaim, ByVal claimStatus As DataTable, ByVal FeedbackStatus As DataTable, ByVal ReviewStatus As DataTable, ByVal UserID As Integer) As DataTable
 
-        Dim sSQL As String = ""
-        sSQL += " SELECT tblClaim.ClaimID,tblClaim.ClaimUUID,claimcode,DateClaimed,Claimed,CASE WHEN ClaimStatus = 2 THEN Approved                                             ELSE ISNULL(Approved, Claimed) END Approved,"
+        'Dim sSQL As String = ""
+        Dim sSQL As String = "SELECT " + UtilitiesDAL.GetEnvMaxRows()
+
+        sSQL += "  tblClaim.ClaimID,tblClaim.ClaimUUID,claimcode,DateClaimed,Claimed,CASE WHEN ClaimStatus = 2 THEN Approved                                             ELSE ISNULL(Approved, Claimed) END Approved,"
         sSQL += " tblClaim.HfID,ClaimSt.name AS ClaimStatus,FeedbackSt.name AS FeedbackStatus, ReviewSt.name AS ReviewStatus ,tblClaim.RowID,"
         sSQL += " tblHF.HFCode,HFName,tblClaim.HfID,Cadm.ClaimAdminID,Cadm.ClaimAdminCode,Cadm.LastName CadminLastName,Cadm.OtherNames CadminOtherNames,  VisitType "
         sSQL += " FROM tblClaim"

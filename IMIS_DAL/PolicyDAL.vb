@@ -225,7 +225,8 @@ Public Class PolicyDAL
         'sSQL = "SELECT TOP 20 tblPolicy.isOffline,tblPolicy.PolicyId, tblPolicy.FamilyId,EnrollDate,tblInsuree.LastName + ' ' + tblInsuree.OtherNames FamilyName,EffectiveDate,StartDate,ExpiryDate, status.name as PolicyStatus,tblPolicy.PolicyStage,PolicyValue,PolicyValue - isnull(PaidAmount,0) as Balance,ProductCode,tblOfficer.LastName + ' ' + tblOfficer.OtherNames OfficerName,tblPolicy.ValidityFrom,tblPolicy.ValidityTo FROM tblPolicy INNER JOIN tblInsuree ON tblPolicy.FamilyID = tblInsuree.FamilyID and ishead = 1 and tblInsuree.validityto is null INNER JOIN tblFamilies ON tblPolicy.FamilyID = tblFamilies.FamilyID inner join tblUsersDistricts UD on UD.DistrictID = tblFamilies.districtid and UD.userid = @userid and UD.ValidityTo is null INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdID  INNER JOIN tblOfficer ON tblPolicy.OfficerID = tblOfficer.OfficerID  left join (select policyid, sum(Amount) as PaidAmount from tblpremium where ValidityTo is null and isPhotoFee = 0 group by policyid) Premiums on tblPolicy.PolicyID = premiums.policyid  Inner join @Status status on status.ID = tblpolicy.Policystatus "
         Dim sSQL As String
 
-        sSQL = " SELECT PL.isOffline, PL.PolicyId, PL.PolicyUUID, F.FamilyId, F.FamilyUUID,  PL.EnrollDate, I.LastName + ' ' + I.OtherNames FamilyName, PL.EffectiveDate,"
+        sSQL = " SELECT " + UtilitiesDAL.GetEnvMaxRows()
+        sSQL += " PL.isOffline, PL.PolicyId, PL.PolicyUUID, F.FamilyId, F.FamilyUUID,  PL.EnrollDate, I.LastName + ' ' + I.OtherNames FamilyName, PL.EffectiveDate,"
         sSQL += " PL.StartDate, PL.ExpiryDate,PS.Name PolicyStatus, PL.PolicyStage, PL.PolicyValue, PL.PolicyValue - ISNULL(SUM(PR.Amount), 0) Balance,"
         sSQL += " Prod.ProductCode, O.Lastname + ' ' + O.OtherNames OfficerName, PL.ValidityFrom, PL.ValidityTo"
         sSQL += " FROM tblPolicy  PL"

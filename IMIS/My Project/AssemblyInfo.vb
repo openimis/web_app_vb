@@ -39,7 +39,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("openIMIS Initiative")>
 <Assembly: AssemblyProduct("openIMIS")>
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2016")> 
+<Assembly: AssemblyCopyright("Copyright ©SDC 2020")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -58,5 +58,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2020.10.12.11")>
+<Assembly: AssemblyVersion("2020.10.19.13")>
 <Assembly: AssemblyFileVersion("1.0.0")>
