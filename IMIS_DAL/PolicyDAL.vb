@@ -70,7 +70,7 @@ Public Class PolicyDAL
             data.params("@EffectiveDate", SqlDbType.Date, ePolicy.EffectiveDate)
             'data.params("@ExpiryDate", SqlDbType.Date, ePolicy.ExpiryDate)
             data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
-        ElseIf Not ePolicy.PolicyValue Is Nothing And ePolicy.PolicyStatus Is Nothing Then
+        ElseIf Not ePolicy.PolicyValue Is Nothing And (ePolicy.PolicyStatus Is Nothing Or ePolicy.PolicyStatus <> 4) Then
             data.params("@PolicyValue", SqlDbType.Decimal, ePolicy.PolicyValue)
             'data.params("@PolicyStatus", SqlDbType.Int, ePolicy.PolicyStatus)
         ElseIf ePolicy.PolicyStatus = 4 Then  'When suspending policy from premium page
