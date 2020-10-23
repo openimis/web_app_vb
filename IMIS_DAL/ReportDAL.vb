@@ -2921,11 +2921,9 @@ Public Class ReportDAL
 		INNER JOIN tblInsuree Ins ON C.InsureeId = Ins.InsureeId
 		LEFT OUTER JOIN TotalForItems TFI ON C.ClaimId = TFI.ClaimID
 		LEFT OUTER JOIN TotalForServices TFS ON C.ClaimId = TFS.ClaimId
-		INNER JOIN @ClaimRejReason XCI ON XCI.ID = CI.RejectionReason
-		INNER JOIN @ClaimRejReason XCS ON XCS.ID = CS.RejectionReason
+		LEFT OUTER JOIN @ClaimRejReason XCI ON XCI.ID = CI.RejectionReason
+		LEFT OUTER JOIN @ClaimRejReason XCS ON XCS.ID = CS.RejectionReason
 		WHERE C.ValidityTo IS NULL
-		AND CI.RejectionReason > 0
-		AND CS.RejectionReason > 0
 		AND ISNULL(C.DateFrom,C.DateTo) BETWEEN @StartDate AND @EndDate
 		AND (C.ClaimStatus = @ClaimStatus OR @ClaimStatus IS NULL)
 		AND (HF.LocationId = @LocationId OR @LocationId = 0)
