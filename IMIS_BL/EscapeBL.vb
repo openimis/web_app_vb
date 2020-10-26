@@ -1,3 +1,29 @@
+''Copyright (c) 2016-2017 Swiss Agency for Development and Cooperation (SDC)
+''
+''The program users must agree to the following terms:
+''
+''Copyright notices
+''This program is free software: you can redistribute it and/or modify it under the terms of the GNU AGPL v3 License as published by the 
+''Free Software Foundation, version 3 of the License.
+''This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+''MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL v3 License for more details www.gnu.org.
+''
+''Disclaimer of Warranty
+''There is no warranty for the program, to the extent permitted by applicable law; except when otherwise stated in writing the copyright 
+''holders and/or other parties provide the program "as is" without warranty of any kind, either expressed or implied, including, but not 
+''limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and 
+''performance of the program is with you. Should the program prove defective, you assume the cost of all necessary servicing, repair or correction.
+''
+''Limitation of Liability 
+''In no event unless required by applicable law or agreed to in writing will any copyright holder, or any other party who modifies and/or 
+''conveys the program as permitted above, be liable to you for damages, including any general, special, incidental or consequential damages 
+''arising out of the use or inability to use the program (including but not limited to loss of data or data being rendered inaccurate or losses 
+''sustained by you or third parties or a failure of the program to operate with any other programs), even if such holder or other party has been 
+''advised of the possibility of such damages.
+''
+''In case of dispute arising out or in relation to the use of the program, it is subject to the public law of Switzerland. The place of jurisdiction is Berne.
+'
+
 Imports System.Net
 Imports System.IO
 Imports System.Xml
@@ -6,7 +32,7 @@ Imports System.Web.Services
 Imports Newtonsoft.Json
 Imports IMIS_DAL
 
-#Const CHF = False
+
 Public Class EscapeBL
     Public Function isValidInsuranceNumber(ByVal InsuranceNumber As String) As Boolean
 #If CHF Then
@@ -16,6 +42,8 @@ Public Class EscapeBL
         If CInt(n) = Checksum And Checksum = 0 Then Return False
         If Checksum = n - (Int(n / 7) * 7) Then Return True
         Return False
+#ElseIf BEPHA Then
+        Return InsuranceNumber.Length.Equals(11)
 #Else
         Return True
 #End If
@@ -113,15 +141,18 @@ Public Class EscapeBL
 
     End Function
 
-    Public Function CheckConfiguration() As String
+    Public Function CheckConfiguration(ByRef configDict As Dictionary(Of String, Object)) As String
         Dim configInfo As String = ""
 #If CHF Then
-        configInfo += checkAccCodePremiumsConfig()
+        configInfo += checkAccCodePremiumsConfig(CType(configDict.Item("eUser"), IMIS_EN.tblUsers))
 #End If
         Return configInfo
     End Function
 
-    Private Function checkAccCodePremiumsConfig() As String
+    Private Function checkAccCodePremiumsConfig(eUser As IMIS_EN.tblUsers) As String
+        If (Not haveProductRights(eUser)) Then
+            Return ""
+        End If
         Dim getDataTable As New IMIS_BL.ProductsBL
         Dim productDAL As New IMIS_DAL.ProductsDAL
         Dim eLocations As New IMIS_EN.tblLocations
@@ -146,4 +177,21 @@ Public Class EscapeBL
         Return If(productsNoAccCode.Equals(""), "", "Products without AccCodePremium: " + Environment.NewLine & productsNoAccCode)
     End Function
 
+    Private Function haveProductRights(eUser As IMIS_EN.tblUsers)
+        Dim UserRights As New IMIS_BL.UsersBL
+        Dim requiredRights = {
+            IMIS_EN.Enums.Rights.ProductAdd,
+            IMIS_EN.Enums.Rights.ProductEdit,
+            IMIS_EN.Enums.Rights.ProductDuplicate,
+            IMIS_EN.Enums.Rights.ProductDelete
+        }
+        Dim Right As Integer
+
+        For Each Right In requiredRights
+            If Not UserRights.CheckRights(Right, eUser.UserID) Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
 End Class

@@ -57,7 +57,8 @@ Partial Public Class Home
             gvDistrict.DataSource = Home.getUsersDistricts(eUsers.UserID)
             gvDistrict.DataBind()
 
-            txtCONFIGISSUE.Text = escapeBL.CheckConfiguration().Replace(Environment.NewLine, "<br />")
+            Dim configDict As Dictionary(Of String, Object) = buildConfigDict()
+            txtCONFIGISSUE.Text = escapeBL.CheckConfiguration(configDict).Replace(Environment.NewLine, "<br />")
             If Not txtCONFIGISSUE.Text.Equals("") Then
                 ConfigContent.Visible = True
             End If
@@ -81,6 +82,12 @@ Partial Public Class Home
 
 
     End Sub
+
+    Private Function buildConfigDict()
+        Dim configDict As New Dictionary(Of String, Object)
+        configDict.Add("eUser", eUsers)
+        Return configDict
+    End Function
 
 
 End Class
