@@ -2582,13 +2582,9 @@ Public Class ReportDAL
 					@LastDay DATE = EOMONTH(CAST(@Year AS VARCHAR(4)) + '-' + CAST(@Month AS VARCHAR(2)) + '-01', 0);
 			
 	
-	
-		
 			BEGIN TRY
 					BEGIN TRAN
 
-			  
-					SELECT GETDATE(),@LocationId,ISNULL(@ProdId,0), @PayerId, @FirstDay, @LastDay, 0,@OfficerId,2,@Rate,@Mode,@Scope
 					INSERT INTO tblReporting(ReportingDate,LocationId, ProdId, PayerId, StartDate, EndDate, RecordFound,OfficerID,ReportType,CommissionRate,ReportMode,Scope)
 			
 					SELECT GETDATE(),@LocationId,ISNULL(@ProdId,0), @PayerId, @FirstDay, @LastDay, 0,@OfficerId,2,@Rate,@Mode,@Scope; 
@@ -2660,6 +2656,7 @@ Public Class ReportDAL
 				COMMIT TRAN;
 			END TRY
 			BEGIN CATCH
+				--SELECT @ErrorMessage = ERROR_MESSAGE(); ERROR MESSAGE WAS COMMENTED BY SALUMU ON 12-11-2019
 				ROLLBACK;
 				--RETURN -2 RETURN WAS COMMENTED BY SALUMU ON 12-11-2019
 			END CATCH
