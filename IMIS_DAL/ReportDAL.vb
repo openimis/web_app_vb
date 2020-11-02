@@ -2565,22 +2565,21 @@ Public Class ReportDAL
     Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal Scope As Integer, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
 
         Dim Data As New ExactSQL
-        'Dim sSQL As String = "uspSSRSOverviewOfCommissions"
-        Dim sSQL As String = " IF @ReportingId IS NULL
+		'Dim sSQL As String = "uspSSRSOverviewOfCommissions"
+		Dim sSQL As String = " IF @ReportingId IS NULL
 
         BEGIN
-			DECLARE @RecordFound INT = 0
-			DECLARE @Rate DECIMAL(18,2)
+			DECLARE @RecordFound INT = 0;
+			DECLARE @Rate DECIMAL(18,2);
           
 		
 			IF @CommissionRate IS NOT NULL
 				BEGIN
 					 SET @Rate = @CommissionRate / 100
 				END
-		ELSE
 
-	  		DECLARE @FirstDay DATE = CAST(@Year AS VARCHAR(4)) + '-' + CAST(@Month AS VARCHAR(2)) + '-01'; 
-			DECLARE @LastDay DATE = EOMONTH(CAST(@Year AS VARCHAR(4)) + '-' + CAST(@Month AS VARCHAR(2)) + '-01', 0)
+	  		DECLARE @FirstDay DATE = CAST(@Year AS VARCHAR(4)) + '-' + CAST(@Month AS VARCHAR(2)) + '-01',
+					@LastDay DATE = EOMONTH(CAST(@Year AS VARCHAR(4)) + '-' + CAST(@Month AS VARCHAR(2)) + '-01', 0);
 			
 	
 	
@@ -2589,7 +2588,7 @@ Public Class ReportDAL
 					BEGIN TRAN
 
 			  
-				
+					SELECT GETDATE(),@LocationId,ISNULL(@ProdId,0), @PayerId, @FirstDay, @LastDay, 0,@OfficerId,2,@Rate,@Mode,@Scope
 					INSERT INTO tblReporting(ReportingDate,LocationId, ProdId, PayerId, StartDate, EndDate, RecordFound,OfficerID,ReportType,CommissionRate,ReportMode,Scope)
 			
 					SELECT GETDATE(),@LocationId,ISNULL(@ProdId,0), @PayerId, @FirstDay, @LastDay, 0,@OfficerId,2,@Rate,@Mode,@Scope; 
@@ -2649,11 +2648,9 @@ Public Class ReportDAL
 						)
 					SELECT @RecordFound = @@ROWCOUNT;
 					IF @RecordFound = 0 
-						BEGIN
-							SELECT @ErrorMessage = 'No Data'
-							ROLLBACK;
-							 
-						END
+							THROW 50005, 'No Data', 1;
+							
+					
 					UPDATE tblReporting SET RecordFound = @RecordFound WHERE ReportingId = @ReportingId;
 
                     UPDATE tblPremium SET OverviewCommissionReport = GETDATE() WHERE ReportingCommissionID = @ReportingId AND @Scope = 0 AND OverviewCommissionReport IS NULL;
@@ -2663,7 +2660,6 @@ Public Class ReportDAL
 				COMMIT TRAN;
 			END TRY
 			BEGIN CATCH
-				--SELECT @ErrorMessage = ERROR_MESSAGE(); ERROR MESSAGE WAS COMMENTED BY SALUMU ON 12-11-2019
 				ROLLBACK;
 				--RETURN -2 RETURN WAS COMMENTED BY SALUMU ON 12-11-2019
 			END CATCH
@@ -2691,7 +2687,7 @@ Public Class ReportDAL
 		GROUP BY Pr.PremiumId,Prod.ProductCode,Prod.ProdID,Prod.ProductName,prod.ProductCode +' ' + prod.ProductName , PL.PolicyID ,  F.FamilyID, D.DistrictName,o.OfficerID , Ins.CHFID, Ins.LastName + ' ' + Ins.OtherNames ,O.Code + ' ' + O.LastName ,
 		Ins.DOB, Ins.IsHead, PL.EnrollDate,REP.ReportMode,Month(REP.StartDate), Pr.Paydate, Pr.Receipt,Pr.Amount,Pr.Amount, PD.Amount , Payer.PayerName,PY.PaymentDate, PY.ExpectedAmount,OfficerCode,VillageName,WardName,PL.PolicyStage,TransactionNo,CommissionRate,O.Phone
 		ORDER BY PremiumId, O.OfficerID,F.FamilyID,IsHead DESC;"
-        Data.setSQLCommand(sSQL, CommandType.Text)
+		Data.setSQLCommand(sSQL, CommandType.Text)
 
         Data.params("@Month", SqlDbType.Int, Month)
         Data.params("@Year", SqlDbType.Int, Year)
