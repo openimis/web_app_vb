@@ -1363,7 +1363,7 @@ Partial Public Class Reports
 
         dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, Scope, ReportingID, ErrorMessage, oReturn)
 
-        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 AndAlso dt.Rows(0) IsNot Nothing Then
             Dim RepportMonth As String = ""
             Dim Product As String = ""
             Dim ReportMode As String = ""
