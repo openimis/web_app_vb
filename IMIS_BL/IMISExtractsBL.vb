@@ -1426,32 +1426,37 @@ Public Class IMISExtractsBL
 
         Dim Result As New DataTable
 
-        If XMLs.Count > 0 Then
+        For Each xmlEnrolment As String In XMLs
             Dim xmlDoc As New XmlDocument()
-            xmlDoc.Load((XMLs(0)))
-            For Each node As XmlNode In xmlDoc
-                If node.NodeType = XmlNodeType.XmlDeclaration Then
-                    xmlDoc.RemoveChild(node)
-                End If
-            Next
+            Try
+                xmlDoc.Load((xmlEnrolment))
+                For Each node As XmlNode In xmlDoc
+                    If node.NodeType = XmlNodeType.XmlDeclaration Then
+                        xmlDoc.RemoveChild(node)
+                    End If
+                Next
 
-            Dim nodeList As XmlNodeList = xmlDoc.DocumentElement.SelectNodes("/Enrolment/FileInfo")
-            Dim UserId As Int16
-            For Each node As XmlNode In nodeList
-                UserId = Int32.Parse(node.SelectSingleNode("UserId").InnerText)
-            Next
-            If UserId = -2 Then
-                Result = Extracts.ConsumeEnrollment(xmlDoc, Output)
-                Dim Sent, Accepted, Rejected As Integer
-                UploadPhotosFromPhone(WorkingDirectoryPath, Sent, Accepted, Rejected)
-                Output("PhotoSent") = Sent
-                Output("PhotoAccepted") = Accepted
-                Output("PhotoRejected") = Rejected
-            Else
-                Result = Extracts.UploadEnrolments(xmlDoc, Output)
-            End If
-            File.Delete(XMLs(0))
-        End If
+                Dim nodeList As XmlNodeList = xmlDoc.DocumentElement.SelectNodes("/Enrolment/FileInfo")
+                Dim UserId As Int16
+                For Each node As XmlNode In nodeList
+                    UserId = Int32.Parse(node.SelectSingleNode("UserId").InnerText)
+                Next
+                If UserId = -2 Then
+                    Result = Extracts.ConsumeEnrollment(xmlDoc, Output)
+                    Dim Sent, Accepted, Rejected As Integer
+                    UploadPhotosFromPhone(WorkingDirectoryPath, Sent, Accepted, Rejected)
+                    Output("PhotoSent") = Sent
+                    Output("PhotoAccepted") = Accepted
+                    Output("PhotoRejected") = Rejected
+                Else
+                    Result = Extracts.UploadEnrolments(xmlDoc, Output)
+                End If
+
+            Catch ex As Exception
+                EventLog.WriteEntry("IMIS", ex.ToString(), EventLogEntryType.Error, 999)
+            End Try
+            File.Delete(xmlEnrolment)
+        Next
 
         'File.Delete(IO.Path.Combine(WorkingDirectoryPath, IO.Path.GetFileName(FileName)))
         If My.Computer.FileSystem.DirectoryExists(WorkingDirectoryPath) Then My.Computer.FileSystem.DeleteDirectory(WorkingDirectoryPath, FileIO.DeleteDirectoryOption.DeleteAllContents)

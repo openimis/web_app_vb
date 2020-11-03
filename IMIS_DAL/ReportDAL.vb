@@ -75,7 +75,6 @@ Public Class ReportDAL
         Dim sSQL As String = "uspSSRSFeedbackPrompt"
         With data
             .setSQLCommand(sSQL, CommandType.StoredProcedure)
-
             .params("SMSStatus", SMSStatus)
             .params("LocationId", LocationId)
             .params("WardID", WardId)
@@ -83,7 +82,6 @@ Public Class ReportDAL
             .params("OfficerID", OfficerID)
             .params("RangeFrom", RangeFrom)
             .params("RangeTo", RangeTo)
-
             Return .Filldata
         End With
 
@@ -164,9 +162,7 @@ Public Class ReportDAL
     Public Function GetDerivedIndicators2(ByVal LocationId As Integer, ByVal ProductId As Integer, ByVal HFID As Integer, ByVal Month As Integer, ByVal Year As Integer) As DataTable
         Dim Data As New ExactSQL
         Dim sSQL As String = "uspSSRSDerivedIndicators2"
-        
         Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-
         Data.params("@LocationId", LocationId)
         Data.params("@ProductID", ProductId)
         Data.params("@HFID", HFID)
@@ -200,7 +196,6 @@ Public Class ReportDAL
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
 
         data.params("@LocationID", SqlDbType.Int, LocationId)
-
         Return data.Filldata()
     End Function
 
@@ -610,7 +605,7 @@ Public Class ReportDAL
         Dim Data As New ExactSQL
         Dim sSQL As String = "uspSSRSOverviewOfCommissions"
         
-        Data.setSQLCommand(sSQL, CommandType.Text)
+        Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
 
         Data.params("@Month", SqlDbType.Int, Month)
         Data.params("@Year", SqlDbType.Int, Year)
@@ -633,11 +628,8 @@ Public Class ReportDAL
     Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
         Dim Data As New ExactSQL
         Dim sSQL As String = ""
-        If Scope = 2 Or Scope = -1 Then
-
-            sSQL = "uspSSRSGetClaimHistory"
-            Data.setSQLCommand(sSQL, CommandType.Text)
-        
+		sSQL = "uspSSRSGetClaimHistory"
+		Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdID", SqlDbType.Int, ProdID)
         Data.params("@HfID", SqlDbType.Int, HfID)
