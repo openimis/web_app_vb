@@ -284,6 +284,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Workspace\dummy.dmd" />
+    <None Include="Web.Debug.config.dist" />
     <None Include="Web.Release.config.dist" />
   </ItemGroup>
   <ItemGroup>
@@ -1019,7 +1020,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" />
+      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

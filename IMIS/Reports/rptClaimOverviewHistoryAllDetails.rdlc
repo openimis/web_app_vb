@@ -183,8 +183,8 @@
           <DataField>ItemRejectionReason</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ServiceRejectionReasion">
-          <DataField>ServiceRejectionReasion</DataField>
+        <Field Name="ServiceRejectionReason">
+          <DataField>ServiceRejectionReason</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ServicePriceValuated">
@@ -2699,7 +2699,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Parameters!prmService.Value</Value>
+                                                    <Value>=Parameters!paramServiceCode.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -2710,6 +2710,9 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <BottomBorder>
                                                 <Style>Solid</Style>
                                               </BottomBorder>
@@ -3178,14 +3181,14 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="ServiceRejectionReasion">
+                                          <Textbox Name="ServiceRejectionReason">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!ServiceRejectionReasion.Value</Value>
+                                                    <Value>=Fields!ServiceRejectionReason.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                     </Style>
@@ -3196,8 +3199,10 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>ServiceRejectionReasion</rd:DefaultName>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -3221,7 +3226,7 @@
                                   <TablixMember />
                                   <TablixMember>
                                     <Visibility>
-                                      <Hidden>=SUM(if(Trim(Fields!ServiceRejectionReasion.Value) = "",0,1)) = 0</Hidden>
+                                      <Hidden>=SUM(if(Trim(Fields!ServiceRejectionReason.Value) = "",0,1)) = 0</Hidden>
                                     </Visibility>
                                   </TablixMember>
                                 </TablixMembers>
@@ -5448,15 +5453,15 @@
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!ServiceRejectionReasion.Value</GroupExpression>
+                      <GroupExpression>=Fields!ServiceRejectionReason.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!ServiceRejectionReasion.Value</Value>
+                      <Value>=Fields!ServiceRejectionReason.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!ServiceRejectionReasion.Value</Label>
+                  <Label>=Fields!ServiceRejectionReason.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>

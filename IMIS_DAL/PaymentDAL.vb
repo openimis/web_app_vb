@@ -110,7 +110,8 @@ Public Class PaymentDAL
         sSQL += " INNER JOIN tblDistricts L ON L.DistrictId = UD.LocationId"
         sSQL += "  WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)"
         sSQL += " GROUP BY L.DistrictId, L.Region )"
-        sSQL = " SELECT py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo  FROM tblPaymentDetails PD "
+        sSQL = " SELECT " + UtilitiesDAL.GetEnvMaxRows()
+        sSQL += " py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo  FROM tblPaymentDetails PD "
         sSQL += " INNER Join tblPayment PY ON PY.PaymentID = PD.PaymentID"
         sSQL += "  INNER JOIN tblInsuree I ON I.CHFID = PD.InsuranceNumber"
         sSQL += "  INNER JOIN tblFamilies F ON F.FamilyID =  I.FamilyID"

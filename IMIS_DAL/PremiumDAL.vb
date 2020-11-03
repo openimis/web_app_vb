@@ -95,7 +95,8 @@ Public Class PremiumDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
 
-        sSQL = "select  tblPremium.PremiumID,PremiumUUID,tblPremium.PolicyID,tblPolicy.PolicyUUID,tblPremium.isOffline,tblFamilies.FamilyId,tblFamilies.FamilyUUID, tblPremium.Amount, PayDate,Receipt, tblPremium.ValidityFrom, PY.Amount MatchedAmount,"
+        sSQL = "select " + UtilitiesDAL.GetEnvMaxRows()
+        sSQL += " tblPremium.PremiumID,PremiumUUID,tblPremium.PolicyID,tblPolicy.PolicyUUID,tblPremium.isOffline,tblFamilies.FamilyId,tblFamilies.FamilyUUID, tblPremium.Amount, PayDate,Receipt, tblPremium.ValidityFrom, PY.Amount MatchedAmount,"
         sSQL += " tblPremium.ValidityTo,tblPayer.PayerName, PT.Name PayType,"
         sSQL += " C.Name PayCategory"
         sSQL += " FROM tblPremium LEFT JOIN"
