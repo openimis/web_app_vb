@@ -74,7 +74,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
     <div id="UserGreeting">
         <asp:Label ID="L_CURRENTUSER" runat="server" Text='<%$ Resources:Resource,L_WELCOME %>'></asp:Label>
         <asp:Label ID="txtCURRENTUSER" runat="server" Text=''></asp:Label> 
-    </div>
+    </div>        
+    
+    <asp:Panel ID="ConfigContent"  runat="Server" Visible="False">
+        <asp:Label ID="ConfigLabel" runat="server" Text='Config' style="font-weight: bold;"></asp:Label>
+        <br />
+        <asp:Label ID="txtCONFIGISSUE" runat="server" Text=''></asp:Label>
+    </asp:Panel>
 
     <asp:GridView ID="gvRoles" runat="server"
         AutoGenerateColumns="False"

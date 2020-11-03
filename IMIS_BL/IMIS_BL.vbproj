@@ -43,6 +43,46 @@
     <DocumentationFile>IMIS_BL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'BEPHA_Dev' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<DefineDebug>true</DefineDebug>
+		<DefineTrace>true</DefineTrace>
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
+		<DefineConstants>BEPHA=1</DefineConstants>
+		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'BEPHA_Release' ">
+		<DebugType>pdbonly</DebugType>
+		<DefineDebug>false</DefineDebug>
+		<DefineTrace>true</DefineTrace>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
+		<DefineConstants>BEPHA=1</DefineConstants>
+		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'CHF_Dev' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<DefineDebug>true</DefineDebug>
+		<DefineTrace>true</DefineTrace>
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
+		<DefineConstants>CHF=1</DefineConstants>
+		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'CHF_Release' ">
+		<DebugType>pdbonly</DebugType>
+		<DefineDebug>false</DefineDebug>
+		<DefineTrace>true</DefineTrace>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
+		<DefineConstants>CHF=1</DefineConstants>
+		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+	</PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -52,6 +92,9 @@
     </Reference>
     <Reference Include="Microsoft.Build.Framework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Build.Framework.14.3.0\lib\net45\Microsoft.Build.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SevenZipSharp, Version=0.64.3890.29348, Culture=neutral, PublicKeyToken=20de82c62b055c88, processorArchitecture=MSIL">
       <HintPath>..\packages\SevenZipSharp.0.64\lib\SevenZipSharp.dll</HintPath>
@@ -290,7 +333,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_UseGlobalSettings="True" BuildVersion_StartDate="2012/1/1" />
+      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UseGlobalSettings="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.110.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net45\System.Data.SQLite.Core.targets')" />
