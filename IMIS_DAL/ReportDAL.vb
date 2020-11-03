@@ -38,9 +38,7 @@ Public Class ReportDAL
         data.params("@FromDate", SqlDbType.Date, FromDate)
         data.params("@ToDate", SqlDbType.Date, ToDate)
         data.params("@dtPaymentType", dtPaymentType, "xCareType")
-
         Return data.Filldata
-
 
     End Function
 
@@ -92,7 +90,8 @@ Public Class ReportDAL
     Public Function GetProcessBatch(ByVal LocationId As Integer, ByVal ProductId As Integer, ByVal RunID As Integer, ByVal HFID As Integer, ByVal HFLevel As String, ByVal DateFrom As Nullable(Of Date), ByVal DateTo As Nullable(Of Date), ByVal MinRemunerated As Decimal) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = "uspSSRSProcessBatch"
-         With data
+        
+        With data
             .setSQLCommand(sSQL, CommandType.StoredProcedure)
 
             .params("@LocationId", SqlDbType.Int, LocationId)
@@ -112,8 +111,10 @@ Public Class ReportDAL
     'Corrected
     Public Function GetPrimaryIndicators1(ByVal LocationId As Integer, ByVal ProductId As Integer, ByVal Month As Integer, ByVal Year As Integer, ByVal Mode As Int16, Optional ByVal MonthTo As Integer = 0) As DataTable
         Dim Data As New ExactSQL
-	Dim sSQL As String = "uspSSRSPrimaryIndicators1"
+        Dim sSQL As String = "uspSSRSPrimaryIndicators1"
+        
         Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+
         Data.params("@LocationId", LocationId)
         Data.params("@ProductID", ProductId)
         Data.params("@MonthFrom", Month)
@@ -145,7 +146,9 @@ Public Class ReportDAL
     Public Function GetDerivedIndicators1(ByVal LocationId As Integer, ByVal ProductId As Integer, ByVal Month As Integer, ByVal Year As Integer) As DataTable
         Dim Data As New ExactSQL
         Dim sSQL As String = "uspSSRSDerivedIndicators1"
+        
         Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+
         Data.params("@LocationId", LocationId)
         Data.params("@ProductID", ProductId)
         Data.params("@Month", Month)
@@ -172,8 +175,9 @@ Public Class ReportDAL
 
     'Corrected
     Public Function GetUserActivityData(ByVal UserID As Integer, ByVal StartDate As DateTime, ByVal EndDate As DateTime, ByVal Action As String, ByVal Entity As String) As DataTable
+        Dim sSQL As String = "uspSSRSUserLogReport"
         Dim data As New ExactSQL
-	Dim sSQL As String = "uspSSRSUserLogReport"
+        
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
 
         data.params("@UserId", SqlDbType.Int, UserID)
@@ -186,9 +190,11 @@ Public Class ReportDAL
 
     'Corrected
     Public Function GetStatusofRegisters(ByVal LocationId As Integer) As DataTable
-	Dim data As New ExactSQL
         Dim sSQL As String = "uspSSRSStatusRegister"
+        Dim data As New ExactSQL
+
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+
         data.params("@LocationID", SqlDbType.Int, LocationId)
         Return data.Filldata()
     End Function
@@ -255,22 +261,59 @@ Public Class ReportDAL
     'Corrected
     Public Function GetMatchingFunds(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal PayerID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
         Dim Data As New ExactSQL
-	' Create new entries only if reportingId is not provided
-	Dim sSQL As String = "uspSSRSGetMatchingFunds"
-	IF ReportingID IsNot Nothing
-            Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        End If
+        Dim sSQL As String = "uspSSRSGetMatchingFunds"
+        Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+        Data.params("@LocationId", SqlDbType.Int, LocationId)
+        Data.params("@ProdID", SqlDbType.Int, ProdID)
+        Data.params("@PayerID", SqlDbType.Int, PayerID)
+        Data.params("@StartDate", SqlDbType.Date, StartDate)
+        Data.params("@EndDate", SqlDbType.Date, EndDate)
+        Data.params("@ReportingID", SqlDbType.Int, If(ReportingID = 0, DBNull.Value, ReportingID))
+        Data.params("@ErrorMessage", SqlDbType.NVarChar, 200, "", ParameterDirection.Output)
+        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        Dim dt As DataTable = Data.Filldata()
+        oReturn = Data.sqlParameters("@RV")
+        ErrorMessage = Data.sqlParameters("@ErrorMessage").ToString
+        Return dt
+    End Function
 
+    Public Function getRejectedPhoto(startDate As Date, endDate As Date) As DataTable
+        Dim data As New ExactSQL
+        Dim sSQL As String = ""
+        sSQL = " ;WITH RejectedPhotos AS( "
+        sSQL += "SELECT CHFID, OfficerCode, "
+        sSQL += " Convert(VARCHAR(11), Convert(Date, SUBSTRING(SUBSTRING(SUBSTRING(DocName, CHARINDEX('_', DocName, 1) + 1,  LEN(DocName)-1), CHARINDEX('_', SUBSTRING(DocName, CHARINDEX('_', DocName, 1) + 1,  LEN(DocName)-1), 1) + 1,  LEN(SUBSTRING(DocName, CHARINDEX('_', DocName, 1) + 1,  LEN(DocName)-1))-1), 0, 9)),101) RejectedDate  FROM tblFromPhone WHERE DocType='E' AND DocStatus='R') "
+        sSQL += "SELECT CHFID, OfficerCode, RejectedDate FROM RejectedPhotos WHERE 1=1 "
+        If startDate.ToString().Length > 0 Then
+            sSQL += " AND RejectedDate >=@StartDate"
+        End If
+        If endDate.ToString().Length > 0 Then
+            sSQL += " AND RejectedDate <=@EndDate"
+        End If
+        sSQL += " ORDER BY OfficerCode ASC"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@StartDate", SqlDbType.Date, startDate)
+        data.params("@EndDate", SqlDbType.Date, endDate)
+        Return data.Filldata
+    End Function
+
+    'Corrected
+    Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
+
+        Dim Data As New ExactSQL
+        Dim sSQL As String = "uspSSRSGetClaimOverview"
+ 		Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         Data.params("@HfID", SqlDbType.Int, HfID)
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdID", SqlDbType.Int, ProdID)
         Data.params("@StartDate", SqlDbType.Date, StartDate)
         Data.params("@EndDate", SqlDbType.Date, EndDate)
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
+		Data.params("@Scope", SqlDbType.Int, Scope)
         If Not Scope = 0 Then
             Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
-        End If
-        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        End If        
+		Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")
         Return dt
@@ -336,64 +379,10 @@ Public Class ReportDAL
     'Corrected by Rogers
     Public Function GetProcessBatchWithClaims(ByVal LocationId As Integer, ByVal ProductId As Integer, ByVal RunID As Integer, ByVal HFID As Integer, ByVal HFLevel As String, ByVal DateFrom As Nullable(Of Date), ByVal DateTo As Nullable(Of Date), ByVal MinRemunerated As Decimal) As DataTable
         Dim data As New ExactSQL
-        'Dim sSQL As String = "uspSSRSProcessBatchWithClaim"
-        Dim sSQL As String = "IF @DateFrom = '' OR @DateFrom IS NULL OR @DateTo = '' OR @DateTo IS NULL
-	    BEGIN
-		    SET @DateFrom = N'1900-01-01'
-		    SET @DateTo = N'3000-12-31'
-	    END
-
-	    ;WITH CDetails AS
-	    (
-		    SELECT CI.ClaimId, CI.ProdId,
-		    SUM(ISNULL(CI.PriceApproved, CI.PriceAsked) * ISNULL(CI.QtyApproved, CI.QtyProvided)) PriceApproved,
-		    SUM(CI.PriceValuated) PriceAdjusted, SUM(CI.RemuneratedAmount)RemuneratedAmount
-		    FROM tblClaimItems CI
-		    WHERE CI.ValidityTo IS NULL
-		    AND CI.ClaimItemStatus = 1
-		    GROUP BY CI.ClaimId, CI.ProdId
-		    UNION ALL
-
-		    SELECT CS.ClaimId, CS.ProdId,
-		    SUM(ISNULL(CS.PriceApproved, CS.PriceAsked) * ISNULL(CS.QtyApproved, CS.QtyProvided)) PriceApproved,
-		    SUM(CS.PriceValuated) PriceValuated, SUM(CS.RemuneratedAmount) RemuneratedAmount
-
-		    FROM tblClaimServices CS
-		    WHERE CS.ValidityTo IS NULL
-		    AND CS.ClaimServiceStatus = 1
-		    GROUP BY CS.CLaimId, CS.ProdId
-	    )
-	    SELECT C.ClaimCode, C.DateClaimed, CA.OtherNames OtherNamesAdmin, CA.LastName LastNameAdmin, C.DateFrom, C.DateTo, I.CHFID, I.OtherNames,
-	    I.LastName, C.HFID, HF.HFCode, HF.HFName, HF.AccCode, Prod.ProdID, Prod.ProductCode, Prod.ProductName, 
-	    C.Claimed PriceAsked, SUM(CDetails.PriceApproved)PriceApproved, SUM(CDetails.PriceAdjusted)PriceAdjusted, SUM(CDetails.RemuneratedAmount)RemuneratedAmount,
-	    D.DistrictID, D.DistrictName, R.RegionId, R.RegionName
-
-	    FROM tblClaim C
-	    LEFT OUTER JOIN tblClaimAdmin CA ON CA.ClaimAdminId = C.ClaimAdminId
-	    INNER JOIN tblInsuree I ON I.InsureeId = C.InsureeID
-	    INNER JOIN tblHF HF ON HF.HFID = C.HFID
-	    INNER JOIN CDetails ON CDetails.ClaimId = C.ClaimID
-	    INNER JOIN tblProduct Prod ON Prod.ProdId = CDetails.ProdID
-	    INNER JOIN tblFamilies F ON F.FamilyId = I.FamilyID
-	    INNER JOIN tblVillages V ON V.VillageID = F.LocationId
-	    INNER JOIN tblWards W ON W.WardId = V.WardId
-	    INNER JOIN tblDistricts D ON D.DistrictID = W.DistrictId
-	    INNER JOIN tblRegions R ON R.RegionId = D.Region
-
-	    WHERE C.ValidityTo IS NULL
-	    AND (Prod.LocationId = @LocationId OR @LocationId = 0 OR Prod.LocationId IS NULL)
-	    AND(Prod.ProdId = @ProdId OR @ProdId = 0)
-	    AND (C.RunId = @RunId OR @RunId = 0)
-	    AND (HF.HFId = @HFID OR @HFId = 0)
-	    AND (HF.HFLevel = @HFLevel OR @HFLevel = N'')
-	    AND (C.DateTo BETWEEN @DateFrom AND @DateTo)
-
-	    GROUP BY C.ClaimCode, C.DateClaimed, CA.OtherNames, CA.LastName , C.DateFrom, C.DateTo, I.CHFID, I.OtherNames,
-	    I.LastName, C.HFID, HF.HFCode, HF.HFName, HF.AccCode, Prod.ProdID, Prod.ProductCode, Prod.ProductName, C.Claimed,
-	    D.DistrictId, D.DistrictName, R.RegionId, R.RegionName"
+        Dim sSQL As String = "uspSSRSProcessBatchWithClaim"
 
         With data
-            .setSQLCommand(sSQL, CommandType.Text)
+            .setSQLCommand(sSQL, CommandType.StoredProcedure)
 
             .params("@LocationId", SqlDbType.Int, LocationId)
             .params("@ProdId", SqlDbType.Int, ProductId)
@@ -413,7 +402,8 @@ Public Class ReportDAL
     Public Function GetEnroledFamilies(ByVal LocationId As Integer?, ByVal StartDate As Date, ByVal EndDate As Date, ByVal PolicyStatus As Integer?, ByVal dtPolicyStatus As DataTable) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = "uspSSRSEnroledFamilies"
-	data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+        data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+
         data.params("@LocationId", SqlDbType.Int, LocationId)
         data.params("@StartDate", SqlDbType.Date, StartDate)
         data.params("@EndDate", SqlDbType.Date, EndDate)
@@ -613,9 +603,9 @@ Public Class ReportDAL
     Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal Scope As Integer, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
 
         Dim Data As New ExactSQL
-	Dim sSQL As String = "uspSSRSOverviewOfCommissions"
-
-	Data.setSQLCommand(sSQL,  CommandType.StoredProcedure)
+        Dim sSQL As String = "uspSSRSOverviewOfCommissions"
+        
+        Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
 
         Data.params("@Month", SqlDbType.Int, Month)
         Data.params("@Year", SqlDbType.Int, Year)
@@ -638,16 +628,8 @@ Public Class ReportDAL
     Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
         Dim Data As New ExactSQL
         Dim sSQL As String = ""
-        If Scope = 2 Or Scope = -1 Then
-				sSQL  = "uspSSRSGetClaimHistoryClaimsAndRejectionDetails"
-         	Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        ElseIf Scope = 0 Then
-            	sSQL = "uspSSRSGetClaimHistoryClaimsAllDetails"
+		sSQL = "uspSSRSGetClaimHistory"
 		Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        Else
-		sSQL = "uspSSRSGetClaimHistoryClaims"
-		Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
-        End If
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdID", SqlDbType.Int, ProdID)
         Data.params("@HfID", SqlDbType.Int, HfID)
