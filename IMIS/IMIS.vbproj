@@ -300,10 +300,45 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_CM.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_CM.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_TZ1.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_TZ.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.es_ES.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.es_ES.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Resource.fr.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_CD.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_CD.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_DJ.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_DJ.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_TD.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_TD.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.sw.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.sw.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Resource1.designer.vb">
       <AutoGen>True</AutoGen>
@@ -803,6 +838,34 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.fr.designer.vb</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\Resource.sw.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en_CM.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_CM.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en_TZ.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_TZ1.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.es_ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.es_ES.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_CD.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_CD.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_DJ.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_DJ.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_TD.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_TD.designer.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -1020,7 +1083,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
+      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
