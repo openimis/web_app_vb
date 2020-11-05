@@ -284,8 +284,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Workspace\dummy.dmd" />
-    <None Include="Web.Debug.config.dist" />
-    <None Include="Web.Release.config.dist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddFunding.aspx.designer.vb">
@@ -1020,7 +1018,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
+      <UserProperties BuildVersion_DetectChanges="True" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

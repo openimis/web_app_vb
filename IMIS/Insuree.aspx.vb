@@ -142,6 +142,13 @@ Partial Public Class Insuree
         'ddlRelation.Visible = Not (Adjustibility = "N")
         rfRelation.Enabled = (Adjustibility = "M")
 
+        'Vulnerability
+        Adjustibility = General.getControlSetting("Vulnerability")
+        trVulnerability.Visible = Not (Adjustibility = "N")
+        rfVulnerability.Enabled = (Adjustibility = "M")
+
+
+
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -187,6 +194,10 @@ Partial Public Class Insuree
             ddlEducation.DataValueField = "EducationId"
             ddlEducation.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Education", "AltLanguage")
             ddlEducation.DataBind()
+            ddlVulnerability.DataSource = Insuree.GetYesNO
+            ddlVulnerability.DataValueField = "Code"
+            ddlVulnerability.DataTextField = "Status"
+            ddlVulnerability.DataBind()
 
             ddlIdType.DataSource = Insuree.GetTypeOfIdentity
             ddlIdType.DataValueField = "IdentificationCode"
@@ -270,6 +281,7 @@ Partial Public Class Insuree
 
                 ddlCurrentVillage.SelectedValue = eInsuree.CurrentVillage
 
+                ddlVulnerability.SelectedValue = If(eInsuree.Vulnerability = True, "1", "0")
 
             End If
             hfFamilyId.Value = efamily.FamilyID
@@ -421,6 +433,7 @@ Partial Public Class Insuree
             If ddlEducation.SelectedValue > 0 Then eInsuree.Education = ddlEducation.SelectedValue
             eInsuree.Email = txtEmail.Text
             eInsuree.tblFamilies1 = efamily
+            If ddlVulnerability.SelectedValue <> "" Then eInsuree.Vulnerability = ddlVulnerability.SelectedValue
 
             If ddlIdType.SelectedValue <> "" Then eInsuree.TypeOfId = ddlIdType.SelectedValue
 

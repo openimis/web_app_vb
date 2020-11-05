@@ -7094,6 +7094,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Vulnerability.
+        '''</summary>
+        Friend Shared ReadOnly Property L_VULNERABILITY() As String
+            Get
+                Return ResourceManager.GetString("L_VULNERABILITY", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Wait.
         '''</summary>
         Friend Shared ReadOnly Property L_WAIT() As String
