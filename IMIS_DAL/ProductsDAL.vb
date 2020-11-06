@@ -27,7 +27,6 @@
 '
 
 Public Class ProductsDAL
-    'Correct by Rogers & Hiren
 
     Public Sub LoadProduct(ByRef eProducts As IMIS_EN.tblProduct)
         Dim data As New ExactSQL
@@ -296,7 +295,6 @@ Public Class ProductsDAL
 
 
 
-    'Corrected + Rogers
     Public Function GetProducts(ByVal UserId As Integer, Optional ByVal RegionId As Integer = 0, Optional ByVal DistrictId As Integer = 0, Optional ByVal ByDate As Date? = Nothing) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
@@ -324,7 +322,6 @@ Public Class ProductsDAL
         Return data.Filldata
     End Function
 
-    'Corrected By Rogers & Hiren
     Public Function GetProducts(ByVal eProducts As IMIS_EN.tblProduct, ByVal All As Boolean) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""

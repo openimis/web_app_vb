@@ -305,10 +305,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.en_CM.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.en_tz.designer.vb">
+    <Compile Include="App_GlobalResources\Resource.en_TZ1.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.en_tz.resx</DependentUpon>
+      <DependentUpon>Resource.en_TZ.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Resource.es_ES.designer.vb">
       <AutoGen>True</AutoGen>
@@ -842,9 +842,13 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\Resource.en_tz.resx">
+    <Content Include="App_GlobalResources\Resource.en_CM.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.en_tz.designer.vb</LastGenOutput>
+      <LastGenOutput>Resource.en_CM.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en_TZ.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_TZ1.designer.vb</LastGenOutput>
     </Content>
     <Content Include="App_GlobalResources\Resource.es_ES.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
@@ -861,10 +865,6 @@
     <Content Include="App_GlobalResources\Resource.fr_TD.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.fr_TD.designer.vb</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Resource.en_CM.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.en_CM.designer.vb</LastGenOutput>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -1083,7 +1083,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
+      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -36,6 +36,7 @@ Partial Public Class Home
     Private Home As New IMIS_BI.HomeBI
     Private eUsers As New IMIS_EN.tblUsers
     Protected imisgen As New IMIS_Gen
+    Protected escapeBL As New IMIS_BL.EscapeBL
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -56,6 +57,11 @@ Partial Public Class Home
             gvDistrict.DataSource = Home.getUsersDistricts(eUsers.UserID)
             gvDistrict.DataBind()
 
+            Dim configDict As Dictionary(Of String, Object) = buildConfigDict()
+            txtCONFIGISSUE.Text = escapeBL.CheckConfiguration(configDict).Replace(Environment.NewLine, "<br />")
+            If Not txtCONFIGISSUE.Text.Equals("") Then
+                ConfigContent.Visible = True
+            End If
 
             If Not eUsers.UserID = 0 Then
                 Home.LoadUsers(eUsers)
@@ -76,6 +82,12 @@ Partial Public Class Home
 
 
     End Sub
+
+    Private Function buildConfigDict()
+        Dim configDict As New Dictionary(Of String, Object)
+        configDict.Add("eUser", eUsers)
+        Return configDict
+    End Function
 
 
 End Class
