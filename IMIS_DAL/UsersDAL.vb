@@ -82,13 +82,19 @@ Public Class UsersDAL
 
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-        sSQL = "DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
+        sSQL = "DECLARE @AdminUser INT;DECLARE @OfflineHF INT;DECLARE @OfflineCHF INT;"
+        sSQL += " SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
+        sSQL += " SELECT TOP(1) @OfflineHF=OfflineHF, @OfflineCHF=OfflineCHF FROM tblIMISDefaults"
         sSQL += " SELECT tblrole.roleid,RoleName,CAST (case when tblUserRole.userid > 0 AND ISNULL(Assign,0) & 1 > 0 THEN 1 ELSE 0 END AS BIT) AS HasRight,IsSystem,"
         sSQL += " CAST (case when tblUserRole.userid > 0 AND ISNULL(Assign,0) & 2 > 0 THEN 1 ELSE 0 END AS BIT) Assign,tblUserRole.UserRoleID,Assign from tblrole"
         sSQL += " LEFT JOIN tblUserRole ON tblRole.RoleID = tblUserRole.RoleID AND UserID = @UserID AND tblUserRole.ValidityTo IS NULL"
         sSQL += " WHERE tblrole.ValidityTo Is null And ISNULL(isblocked,0) = 0 AND IsSystem >= 0"
         If Offline = True Then
-            sSQL += " And (IsSystem In (256, 128) OR (@UserID = @Authority AND @Authority = @AdminUser)) AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,8,16,32,64,512,1048576))"
+            sSQL += " And ((@OfflineHF=1 AND (IsSystem In (256, 128) OR (@UserID = @Authority AND @Authority = @AdminUser)) 
+AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,8,16,32,64,512,1048576))) 
+OR
+(@OfflineCHF=1 AND (IsSystem In (8) OR (@UserID = @Authority AND @Authority = @AdminUser)) 
+AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,256, 128,16,32,64,512,524288))) )"
         Else
             sSQL += " And ((IsSystem >= 0  AND isSystem <= 512) OR (@UserID = @Authority AND @Authority = @AdminUser))"
         End If
