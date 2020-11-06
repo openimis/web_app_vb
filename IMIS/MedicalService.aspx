@@ -320,7 +320,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
             direction: ltr;
             width: 218px;
         }
-
         .auto-style4 {
             width: 218px;
         }

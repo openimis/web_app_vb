@@ -60,7 +60,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 $label.html(format.numberWithCommas($(this).val()));
                 $label.show();
                 $(this).hide();
-
             });
             /**** ....end of switching textbox and labels in the grid column ***/
         });

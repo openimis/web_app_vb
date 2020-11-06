@@ -77,7 +77,8 @@ Partial Public Class FindPremium
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub FillDistricts()
@@ -183,7 +184,6 @@ Partial Public Class FindPremium
         End If
 
 
-
         ePremium.Amount = if(IsNumeric(txtPremiumPaid.Text), txtPremiumPaid.Text, 0)
         ePremium.PayType = ddlPayType.SelectedValue
         ePremium.Receipt = txtReceiptNo.Text
@@ -218,7 +218,8 @@ Partial Public Class FindPremium
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
 
     End Sub

@@ -78,7 +78,8 @@ Partial Public Class FindProfile
 
         Catch ex As Exception
             Session("Msg") = imisGen.getMessage("M_ERRORMESSAGE")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
 
         End Try
 
@@ -119,7 +120,8 @@ Partial Public Class FindProfile
         Catch ex As Exception
             'lblMsg.Text = imisGen.getMessage("M_ERRORMESSAGE")
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub getGridData()
@@ -201,7 +203,8 @@ Partial Public Class FindProfile
         Catch ex As Exception
 
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
 
     End Sub

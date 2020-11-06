@@ -433,7 +433,9 @@ Partial Public Class Product
                 If Not eProduct.CeilingInterpretation Is Nothing Then
                     ddlCeilingInterpretation.SelectedValue = eProduct.CeilingInterpretation
                 End If
-
+                If Not eProduct.Recurrence Is Nothing Then
+                    txtRecurrence.Text = eProduct.Recurrence
+                End If
                 txtInsurancrePeriod.Text = FormatNumber(eProduct.InsurancePeriod, 0)
 
 
@@ -556,7 +558,8 @@ Partial Public Class Product
 
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons)
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
 
             'EventLog.WriteEntry("IMIS", imisgen.getUserId(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 2, 3)
         End Try
@@ -1250,7 +1253,9 @@ Partial Public Class Product
                     eProduct.MaxCeilingPolicyOP = CDec(txtMaxOPPolicyMC.Text.Trim)
                 End If
                 'Addition for Nepal >> End
-
+                If IsNumeric(txtRecurrence.Text.Trim) Then
+                    eProduct.Recurrence = CDec(txtRecurrence.Text.Trim)
+                End If
                 eProduct.PeriodRelPrices = If(ddlDistribution.SelectedValue = "0", Nothing, ddlDistribution.SelectedValue)
                 eProduct.PeriodRelPricesOP = If(ddlDistributionOP.SelectedValue = "0", Nothing, ddlDistributionOP.SelectedValue)
                 eProduct.PeriodRelPricesIP = If(ddlDistributionIP.SelectedValue = "0", Nothing, ddlDistributionIP.SelectedValue)
@@ -1334,7 +1339,8 @@ Partial Public Class Product
             Catch ex As Exception
                 'lblMsg.Text = ex.Message
                 imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlMedicalItems, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
                 Return
             End Try
         End If
@@ -1721,7 +1727,8 @@ Partial Public Class Product
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlProduct, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
         Response.Redirect("FindProduct.aspx?p=" & eProduct.ProductCode & "&m=" & bRelative)
@@ -1907,7 +1914,8 @@ Partial Public Class Product
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlProduct, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
     End Sub
@@ -1924,7 +1932,8 @@ Partial Public Class Product
             Checkbox1.Visible = True
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons)
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub btnLoadMedicalItems_ServerClick(sender As Object, e As EventArgs) Handles btnLoadMedicalItems.Click
@@ -1934,7 +1943,8 @@ Partial Public Class Product
             Checkbox2.Visible = True
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons)
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 

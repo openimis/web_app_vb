@@ -56,10 +56,7 @@ Partial Public Class Login
                 Login.GetDefaults(eDefaults)
 
                 Dim cookie As HttpCookie
-                cookie = Request.Cookies.Get("CultureInfo")
-                If cookie Is Nothing Then
-                    cookie = New HttpCookie("CultureInfo")
-                End If
+                cookie = New HttpCookie("CultureInfo")
 
 
                 cookie.Value = dt.Rows(0)("LanguageID").ToString
@@ -114,7 +111,8 @@ Partial Public Class Login
 
             Else
                 lblMessage.Text = imisgen.getMessage("M_PASSWOERDMATCH")
-                EventLog.WriteEntry("IMIS", eLogin.LoginName & " failed to login. Due to Username/Password mismatch", EventLogEntryType.Information, 1)
+                imisgen.Log(eLogin.LoginName & " failed to login. Due to Username/Password mismatch", Nothing, 1, EventLogEntryType.Information)
+                'EventLog.WriteEntry("IMIS", eLogin.LoginName & " failed to login. Due to Username/Password mismatch", EventLogEntryType.Information, 1)
                 Return
             End If
 
@@ -122,7 +120,8 @@ Partial Public Class Login
         Catch ex As Exception
             If OK = False Then
                 lblMessage.Text = imisgen.getMessage("M_PASSWORDERROR")
-                EventLog.WriteEntry("IMIS", eLogin.LoginName & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisgen.Log(eLogin.LoginName, ex)
+                'EventLog.WriteEntry("IMIS", eLogin.LoginName & " : " & ex.Message, EventLogEntryType.Error, 999)
                 Return
             End If
         End Try
@@ -130,7 +129,8 @@ Partial Public Class Login
         Login.InsertLogTime(UserID, 1)
         Session("LogInFlag") = True
 
-        EventLog.WriteEntry("IMIS", eLogin.LoginName & " has logged in.", EventLogEntryType.Information, 1)
+        imisgen.Log(eLogin.LoginName & " has logged in.", Nothing, 1, EventLogEntryType.Information)
+        'EventLog.WriteEntry("IMIS", eLogin.LoginName & " has logged in.", EventLogEntryType.Information, 1)
         Response.Redirect("Home.aspx")
     End Sub
     Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

@@ -1,0 +1,5094 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+						</xsd:sequence>
+						<xsd:attribute name="name" use="required" type="xsd:string" />
+						<xsd:attribute name="type" type="xsd:string" />
+						<xsd:attribute name="mimetype" type="xsd:string" />
+						<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="L_INSUREES" xml:space="preserve">
+		<value>wanachama</value>
+	</data>
+	<data name="L_POLICIES" xml:space="preserve">
+		<value>Sera</value>
+	</data>
+	<data name="B_ADDINSUREE" xml:space="preserve">
+		<value>Ongeza Mwanachama</value>
+	</data>
+	<data name="B_MODIFYINSUREE" xml:space="preserve">
+		<value>Rekebisha mwanachama</value>
+	</data>
+	<data name="B_DELETEINSUREE" xml:space="preserve">
+		<value>futa mwanachama</value>
+	</data>
+	<data name="B_ADDPOLICY" xml:space="preserve">
+		<value>Ongeza mkataba</value>
+	</data>
+	<data name="B_MODIFYPOLICY" xml:space="preserve">
+		<value>Rekebisha muda wa uanachama</value>
+	</data>
+	<data name="L_POLICYHOLDER" xml:space="preserve">
+		<value>Familia/Kundi</value>
+	</data>
+	<data name="L_ROLENAME" xml:space="preserve">
+		<value>jina la jukumu</value>
+	</data>
+	<data name="L_OTHERNAMES" xml:space="preserve">
+		<value>Majina mengine</value>
+	</data>
+	<data name="L_VILLAGE" xml:space="preserve">
+		<value>Kijiji</value>
+	</data>
+	<data name="L_WARD" xml:space="preserve">
+		<value>Kata</value>
+	</data>
+	<data name="L_DISTRICT" xml:space="preserve">
+		<value>Wilaya</value>
+	</data>
+	<data name="L_CHFID" xml:space="preserve">
+		<value>namba ya uanachama</value>
+	</data>
+	<data name="L_POVERTY" xml:space="preserve">
+		<value>hali ya umasikini</value>
+	</data>
+	<data name="L_CARD" xml:space="preserve">
+		<value>Kadi ya mwanachama</value>
+	</data>
+	<data name="L_SELECTCRITERIA" xml:space="preserve">
+		<value>Chagua vigezo</value>
+	</data>
+	<data name="L_BIRTHDATE" xml:space="preserve">
+		<value>Tarehe ya kuzaliwa</value>
+	</data>
+	<data name="L_GENDER" xml:space="preserve">
+		<value>Jinsia</value>
+	</data>
+	<data name="L_MARITAL" xml:space="preserve">
+		<value>Hali ya ndoa</value>
+	</data>
+	<data name="L_BLOCKED" xml:space="preserve">
+		<value>imefungwa</value>
+	</data>
+	<data name="L_PASSPORT" xml:space="preserve">
+		<value>Namba ya kitambulisho</value>
+	</data>
+	<data name="B_ADDFAMILY" xml:space="preserve">
+		<value>Ongeza familia/kundi</value>
+	</data>
+	<data name="B_DELETEFAMILY" xml:space="preserve">
+		<value>Futa  familia/kundi</value>
+	</data>
+	<data name="B_MODIFYFAMILY" xml:space="preserve">
+		<value>rekebisha  familia/kundi</value>
+	</data>
+	<data name="B_DELETEPOLICY" xml:space="preserve">
+		<value>Futa sera</value>
+	</data>
+	<data name="L_FAMILY" xml:space="preserve">
+		<value>Familia/kundi</value>
+	</data>
+	<data name="L_FOUNDFAMILY" xml:space="preserve">
+		<value>Familia/kundi zilizopatikana</value>
+	</data>
+	<data name="M_NOPOLICIES" xml:space="preserve">
+		<value>Hakuna sera za sasa</value>
+	</data>
+	<data name="L_FAMILYPANEL" xml:space="preserve">
+		<value>Taarifa za  familia/kundi</value>
+	</data>
+	<data name="M_NOFAMILIES" xml:space="preserve">
+		<value>Hakuna  familia/kundi zilizopatikana</value>
+	</data>
+	<data name="V_BIRTHDATE" xml:space="preserve">
+		<value>Tafadhali chagua tarehe ya kuzaliwa</value>
+	</data>
+	<data name="V_CARD" xml:space="preserve">
+		<value>Tafadhali onyesha kama kadi ya uanachama imetolewa</value>
+	</data>
+	<data name="V_CHFID" xml:space="preserve">
+		<value>Tafadhali chagua namba ya uanachama</value>
+	</data>
+	<data name="V_DISTRICT" xml:space="preserve">
+		<value>Tafadhali chagua wilaya</value>
+	</data>
+	<data name="V_GENDER" xml:space="preserve">
+		<value>Tafadhali chagua jinsia</value>
+	</data>
+	<data name="V_LASTNAME" xml:space="preserve">
+		<value>Tafadhali ingiza jina la mwisho</value>
+	</data>
+	<data name="V_MARITAL" xml:space="preserve">
+		<value>Tafadhali chagua hali ya ndoa</value>
+	</data>
+	<data name="V_OTHERNAMES" xml:space="preserve">
+		<value>Tafadhali ingiza jina la kwanza</value>
+	</data>
+	<data name="V_POVERTY" xml:space="preserve">
+		<value>Tafadhali chagua kama  familia/kundi ina hali ya umasikini</value>
+	</data>
+	<data name="V_VILLAGE" xml:space="preserve">
+		<value>Tafadhali chagua Kijiji</value>
+	</data>
+	<data name="V_WARD" xml:space="preserve">
+		<value>Tafadhali chagua kata</value>
+	</data>
+	<data name="B_ADDPREMIUM" xml:space="preserve">
+		<value>Ongeza Michango </value>
+	</data>
+	<data name="B_DELETEPREMIUM" xml:space="preserve">
+		<value>Futa Michango </value>
+	</data>
+	<data name="B_MODIFYPREMIUM" xml:space="preserve">
+		<value>rekebisha Michango </value>
+	</data>
+	<data name="L_PREMIUMS" xml:space="preserve">
+		<value>Michango</value>
+	</data>
+	<data name="M_NOPREMIUMS" xml:space="preserve">
+		<value>Hakuna Michango ya bima ya sasa kwa sera iliyochaguliwa</value>
+	</data>
+	<data name="B_CANCEL" xml:space="preserve">
+		<value>Sitisha</value>
+	</data>
+	<data name="B_SAVE" xml:space="preserve">
+		<value>Hifadhi</value>
+	</data>
+	<data name="B_ADD" xml:space="preserve">
+		<value>Ongeza</value>
+	</data>
+	<data name="B_DELETE" xml:space="preserve">
+		<value>Futa</value>
+	</data>
+	<data name="B_EDIT" xml:space="preserve">
+		<value>Hariri</value>
+	</data>
+	<data name="B_FIND" xml:space="preserve">
+		<value>Tafuta</value>
+	</data>
+	<data name="L_ADDFAMILY" xml:space="preserve">
+		<value>Ongeza  familia/kundi</value>
+	</data>
+	<data name="L_HFACILITIES" xml:space="preserve">
+		<value>Vituo vya afya</value>
+	</data>
+	<data name="L_INSUREE" xml:space="preserve">
+		<value>mwanachama</value>
+	</data>
+	<data name="L_POLICY" xml:space="preserve">
+		<value>Sera</value>
+	</data>
+	<data name="L_PREMIUM" xml:space="preserve">
+		<value>Michango</value>
+	</data>
+	<data name="L_MEDICALITEMS" xml:space="preserve">
+		<value>Bidhaa za dawa</value>
+	</data>
+	<data name="L_OFFICERS" xml:space="preserve">
+		<value>Maafisa waandikishaji</value>
+	</data>
+	<data name="L_PAYER" xml:space="preserve">
+		<value>Walipaji</value>
+	</data>
+	<data name="G_PRICELISTSMS" xml:space="preserve">
+		<value>Orodha ya bei (huduma za matibabu)</value>
+	</data>
+	<data name="L_MEDICALSERVICES" xml:space="preserve">
+		<value>Huduma za madawa</value>
+	</data>
+	<data name="B_SEARCH" xml:space="preserve">
+		<value>Tafuta</value>
+	</data>
+	<data name="L_ALL" xml:space="preserve">
+		<value>Historia</value>
+	</data>
+	<data name="L_FOUNDUSERS" xml:space="preserve">
+		<value>Watumiaji waliopatikana</value>
+	</data>
+	<data name="L_PASSWORD" xml:space="preserve">
+		<value>Nywila</value>
+	</data>
+	<data name="L_SYSTEM" xml:space="preserve">
+		<value>mfumo</value>
+	</data>
+	<data name="L_FOUNDPRODUCTS" xml:space="preserve">
+		<value>Bidhaa zilizopatikana</value>
+	</data>
+	<data name="L_PRODUCTCODE" xml:space="preserve">
+		<value>Msimbo wa bidhaa</value>
+	</data>
+	<data name="L_PRODUCTNAME" xml:space="preserve">
+		<value>Jina la bidhaa</value>
+	</data>
+	<data name="L_PRODUCTS" xml:space="preserve">
+		<value>Bidhaa</value>
+	</data>
+	<data name="L_USERS" xml:space="preserve">
+		<value>Watumiaji</value>
+	</data>
+	<data name="M_NOPRODUCTS" xml:space="preserve">
+		<value>Hakuna bidhaa zilizopatikana</value>
+	</data>
+	<data name="M_NOUSERS" xml:space="preserve">
+		<value>Hakuna watumiaji waliopatikana</value>
+	</data>
+	<data name="L_CEILING" xml:space="preserve">
+		<value>Kikomo</value>
+	</data>
+	<data name="L_CEILINGFORTREATMENT" xml:space="preserve">
+		<value>Kikomo cha matibabu</value>
+	</data>
+	<data name="L_DEDUCTABLE" xml:space="preserve">
+		<value>Makato</value>
+	</data>
+	<data name="L_TREATMENT" xml:space="preserve">
+		<value>Matibabu</value>
+	</data>
+	<data name="L_INPATIENT" xml:space="preserve">
+		<value>Mgonjwa aliyelazwa</value>
+	</data>
+	<data name="L_OUTPATIENT" xml:space="preserve">
+		<value>Mgonjwa aliyetoka</value>
+	</data>
+	<data name="M_NOMEDICALITEMS" xml:space="preserve">
+		<value>Hakuna bidhaa za madawa zilizopatikana</value>
+	</data>
+	<data name="M_NOMEDICALSERVICES" xml:space="preserve">
+		<value>Hakuna huduma ya dawa</value>
+	</data>
+	<data name="V_PRODUCTCODE" xml:space="preserve">
+		<value>Tafadhali chagua msimbo wa bidhaa</value>
+	</data>
+	<data name="V_PRODUCTNAME" xml:space="preserve">
+		<value>Tafadhali chagua jina la bidhaa</value>
+	</data>
+	<data name="L_ADMINISTRATION" xml:space="preserve">
+		<value>utawala</value>
+	</data>
+	<data name="L_INSUREESANDPOLICIES" xml:space="preserve">
+		<value>wanachama na mikataba </value>
+	</data>
+	<data name="L_ITEMCODE" xml:space="preserve">
+		<value>Msimbo wa bidhaa</value>
+	</data>
+	<data name="L_ITEMNAME" xml:space="preserve">
+		<value>Jina la bidhaa</value>
+	</data>
+	<data name="L_FOUNDHFACILITIES" xml:space="preserve">
+		<value>Vituo vilivyopatikana</value>
+	</data>
+	<data name="L_FOUNDITEMS" xml:space="preserve">
+		<value>Bidhaa zilizopatikana</value>
+	</data>
+	<data name="L_FOUNDOFFICERS" xml:space="preserve">
+		<value>Maafisa waandikishaji waliopatikana</value>
+	</data>
+	<data name="L_FOUNDPAYERS" xml:space="preserve">
+		<value>Walipaji waliyopatikana</value>
+	</data>
+	<data name="L_FOUNDPRICELISTS" xml:space="preserve">
+		<value>Bei za orodha zilizopatikana</value>
+	</data>
+	<data name="L_FOUNDSERVICES" xml:space="preserve">
+		<value>Huduma zilizopatikana</value>
+	</data>
+	<data name="L_EMAIL" xml:space="preserve">
+		<value>Barua pepe</value>
+	</data>
+	<data name="L_FAX" xml:space="preserve">
+		<value>Nukushi</value>
+	</data>
+	<data name="G_PRICELISTSMI" xml:space="preserve">
+		<value>Orodha ya bei (bidhaa za matibabu)</value>
+	</data>
+	<data name="L_CODE" xml:space="preserve">
+		<value>Msimbo</value>
+	</data>
+	<data name="L_TYPE" xml:space="preserve">
+		<value>Aina</value>
+	</data>
+	<data name="L_PRICELISTS" xml:space="preserve">
+		<value>Orodha ya bei</value>
+	</data>
+	<data name="L_LEVEL" xml:space="preserve">
+		<value>Kiwango</value>
+	</data>
+	<data name="L_NAME" xml:space="preserve">
+		<value>Jina</value>
+	</data>
+	<data name="L_PRODUCT" xml:space="preserve">
+		<value>Bidhaa</value>
+	</data>
+	<data name="L_PRICE" xml:space="preserve">
+		<value>Bei</value>
+	</data>
+	<data name="L_CHANGEHEAD" xml:space="preserve">
+		<value>Badilisha mkuu wa  familia/kundi</value>
+	</data>
+	<data name="L_MOVEINSUREE" xml:space="preserve">
+		<value>Hamisha mlipwa bima</value>
+	</data>
+	<data name="L_EXPORTEPICOR" xml:space="preserve">
+		<value>Safirisha kwenda EPICOR</value>
+	</data>
+	<data name="L_Locations" xml:space="preserve">
+		<value>Maeneo</value>
+	</data>
+	<data name="L_UPLOADICD" xml:space="preserve">
+		<value>Pakia utambuzi</value>
+	</data>
+	<data name="L_SEARCH" xml:space="preserve">
+		<value>Tafuta</value>
+	</data>
+	<data name="L_POLICYRENEWALS" xml:space="preserve">
+		<value>Mikataba iliyohuishwa</value>
+	</data>
+	<data name="L_CHANGEFAMILY" xml:space="preserve">
+		<value>Badilisha  familia/kundi</value>
+	</data>
+	<data name="B_DUPLICATE" xml:space="preserve">
+		<value>Durufu</value>
+	</data>
+	<data name="L_DATEFROM" xml:space="preserve">
+		<value>Kutoka tarehe</value>
+	</data>
+	<data name="L_DATETO" xml:space="preserve">
+		<value>Mpaka tarehe</value>
+	</data>
+	<data name="B_VIEW" xml:space="preserve">
+		<value>Angalia</value>
+	</data>
+	<data name="L_ROLES" xml:space="preserve">
+		<value>jukumu</value>
+	</data>
+	<data name="L_LANGUAGE" xml:space="preserve">
+		<value>Lugha</value>
+	</data>
+	<data name="L_ROLE" xml:space="preserve">
+		<value>jukumu</value>
+	</data>
+	<data name="M_DELETED" xml:space="preserve">
+		<value>Imefutwa bila tatizo</value>
+	</data>
+	<data name="M_EXISTS" xml:space="preserve">
+		<value>Tayari ipo</value>
+	</data>
+	<data name="M_INSERTED" xml:space="preserve">
+		<value>Imeongezwa kwa mafanikio</value>
+	</data>
+	<data name="M_UPDATED" xml:space="preserve">
+		<value>Imebadilishwa </value>
+	</data>
+	<data name="L_VALIDFROM" xml:space="preserve">
+		<value>Halali kutoka</value>
+	</data>
+	<data name="L_VALIDTO" xml:space="preserve">
+		<value>Halali mpaka</value>
+	</data>
+	<data name="L_ADDRESS" xml:space="preserve">
+		<value>Anwani</value>
+	</data>
+	<data name="L_PACKAGE" xml:space="preserve">
+		<value>Kifurushi</value>
+	</data>
+	<data name="L_CONFIRMPASSWORD" xml:space="preserve">
+		<value>Hakikisha nywila</value>
+	</data>
+	<data name="V_CONFIRMPASSWORD" xml:space="preserve">
+		<value>Nywila ya udhibitisho haishabihiani</value>
+	</data>
+	<data name="V_SELECTDISTRICT" xml:space="preserve">
+		<value>Tafadhali chagua angalau wilaya moja</value>
+	</data>
+	<data name="V_SELECTROLE" xml:space="preserve">
+		<value>Tafadhali chagua angalau jukumu moja</value>
+	</data>
+	<data name="V_SUMMARY" xml:space="preserve">
+		<value>Haiwezi kuthibitishwa! Tafadhali angalia sehemu zilizo na alama hii (*) </value>
+	</data>
+	<data name="G_OFFICER" xml:space="preserve">
+		<value>Maelezo ya afisa wa uandikishaji</value>
+	</data>
+	<data name="G_PAYER" xml:space="preserve">
+		<value>Maelezo ya anayelipwa</value>
+	</data>
+	<data name="G_USER" xml:space="preserve">
+		<value>Maelezo ya mtumiaji</value>
+	</data>
+	<data name="G_MEDICALITEM" xml:space="preserve">
+		<value>Maelezo ya bidhaa za matibabu</value>
+	</data>
+	<data name="G_MEDICALSERVICE" xml:space="preserve">
+		<value>Maelezo ya huduma za matibabu</value>
+	</data>
+	<data name="L_CARETYPE" xml:space="preserve">
+		<value>Aina za huduma</value>
+	</data>
+	<data name="L_FREQUENCY" xml:space="preserve">
+		<value>Marudio</value>
+	</data>
+	<data name="L_PATIENT" xml:space="preserve">
+		<value>Mgonjwa</value>
+	</data>
+	<data name="V_SELECTCARETYPE" xml:space="preserve">
+		<value>Tafadhali chagua angalau aina moja ya huduma</value>
+	</data>
+	<data name="V_SELECTPATIENT" xml:space="preserve">
+		<value>Tafadhali chagua angalau mgonjwa mmoja</value>
+	</data>
+	<data name="V_SELECTTYPE" xml:space="preserve">
+		<value>Tafadhali chagua aina</value>
+	</data>
+	<data name="L_DATE" xml:space="preserve">
+		<value>Tarehe</value>
+	</data>
+	<data name="L_NORECORDS" xml:space="preserve">
+		<value>Hakuna rekodi imepatikana</value>
+	</data>
+	<data name="L_OVERRULEPRICE" xml:space="preserve">
+		<value>Batilisha</value>
+	</data>
+	<data name="G_HEALTHFACILITY" xml:space="preserve">
+		<value>Maelezo ya kituo cha afya</value>
+	</data>
+	<data name="L_LEGALFORM" xml:space="preserve">
+		<value>Fomu halali</value>
+	</data>
+	<data name="L_FOUNDINSUREE" xml:space="preserve">
+		<value>mwanachama aliyepatikana</value>
+	</data>
+	<data name="L_FOUNDPREMIUMS" xml:space="preserve">
+		<value>Michango iliyopatikana</value>
+	</data>
+	<data name="L_PAYDATE" xml:space="preserve">
+		<value>Tarehe ya malipo</value>
+	</data>
+	<data name="L_PREMIUMPAID" xml:space="preserve">
+		<value>Michango iliyolipwa</value>
+	</data>
+	<data name="L_ACCCODE" xml:space="preserve">
+		<value>Msimbo wa akaunti</value>
+	</data>
+	<data name="L_ACCCODEPREMIUM" xml:space="preserve">
+		<value>Msimbo wa akaunti (Michango)</value>
+	</data>
+	<data name="L_ACCCODEREMUNERATION" xml:space="preserve">
+		<value>Msimbo wa akaunti(Ujira)</value>
+	</data>
+	<data name="L_CONVERSION" xml:space="preserve">
+		<value>Ubadilisho</value>
+	</data>
+	<data name="L_DISTRIBUTION" xml:space="preserve">
+		<value>Mgawanyo</value>
+	</data>
+	<data name="L_LUMPSUM" xml:space="preserve">
+		<value>Malipo yote jumla</value>
+	</data>
+	<data name="L_MEMBERS" xml:space="preserve">
+		<value>ukomo wa idadi ya wanachama</value>
+	</data>
+	<data name="L_PREMIUMADULT" xml:space="preserve">
+		<value>Michango ya mkubwa</value>
+	</data>
+	<data name="L_PREMIUMCHILD" xml:space="preserve">
+		<value>Michango ya mtoto</value>
+	</data>
+	<data name="L_PERCENT" xml:space="preserve">
+		<value>Asilimia</value>
+	</data>
+	<data name="L_PERIOD" xml:space="preserve">
+		<value>Kipindi</value>
+	</data>
+	<data name="L_BATCHES" xml:space="preserve">
+		<value>Makundi ya madai</value>
+	</data>
+	<data name="B_CLAIM" xml:space="preserve">
+		<value>Madai</value>
+	</data>
+	<data name="B_SUBMIT" xml:space="preserve">
+		<value>Tuma</value>
+	</data>
+	<data name="B_FEEDBACK" xml:space="preserve">
+		<value>Maoni</value>
+	</data>
+	<data name="B_REVIEW" xml:space="preserve">
+		<value>Pitia</value>
+	</data>
+	<data name="L_BATCHCODE" xml:space="preserve">
+		<value>Msimbo wa kundi</value>
+	</data>
+	<data name="L_BATCHDATE" xml:space="preserve">
+		<value>Tarehe ya kundi</value>
+	</data>
+	<data name="L_BATCHFORM" xml:space="preserve">
+		<value>Maelezo ya kundi</value>
+	</data>
+	<data name="L_BATCHSTATUS" xml:space="preserve">
+		<value>Hali</value>
+	</data>
+	<data name="L_DISEASECODE" xml:space="preserve">
+		<value>Msimbo wa ugonjwa</value>
+	</data>
+	<data name="L_FBSTATUS" xml:space="preserve">
+		<value>Hali ya maoni</value>
+	</data>
+	<data name="L_FINDBATCHFORM" xml:space="preserve">
+		<value>Maelezo ya madai</value>
+	</data>
+	<data name="L_FOUNDBATCH" xml:space="preserve">
+		<value>Makundi yaliyopatikana</value>
+	</data>
+	<data name="L_HFCODE" xml:space="preserve">
+		<value>Msimbo wa kituo cha afya</value>
+	</data>
+	<data name="L_HFNAME" xml:space="preserve">
+		<value>Kituo cha afya</value>
+	</data>
+	<data name="L_INSUREEID" xml:space="preserve">
+		<value>kitambulisho wa mwanachama</value>
+	</data>
+	<data name="L_PERIODFROM" xml:space="preserve">
+		<value>Kipindi cha kutoka</value>
+	</data>
+	<data name="L_PERIODTO" xml:space="preserve">
+		<value>Kipindi cha kwenda</value>
+	</data>
+	<data name="B_UPDATE" xml:space="preserve">
+		<value>boresha</value>
+	</data>
+	<data name="L_BATCH" xml:space="preserve">
+		<value>Kundi</value>
+	</data>
+	<data name="L_CLAIMAPPROVED" xml:space="preserve">
+		<value>Idhinishwa</value>
+	</data>
+	<data name="L_CLAIMCODE" xml:space="preserve">
+		<value>Msimbo wa madai</value>
+	</data>
+	<data name="L_CLAIMDATE" xml:space="preserve">
+		<value>Tarehe ya madai</value>
+	</data>
+	<data name="L_CLAIMED" xml:space="preserve">
+		<value>Yaliyodaiwa</value>
+	</data>
+	<data name="L_CLAIMFEEDBACK" xml:space="preserve">
+		<value>Maoni</value>
+	</data>
+	<data name="L_CLAIMREVIEWSATUS" xml:space="preserve">
+		<value>Hakiki</value>
+	</data>
+	<data name="L_CLAIMSFEEDBACK" xml:space="preserve">
+		<value>Madai kwa ajili ya maoni</value>
+	</data>
+	<data name="L_CLAIMSTATUS" xml:space="preserve">
+		<value>Hali ya madai</value>
+	</data>
+	<data name="L_CRITERIADETAILS" xml:space="preserve">
+		<value>Maelezo ya vigezo</value>
+	</data>
+	<data name="L_RANDOM" xml:space="preserve">
+		<value>Nasibu</value>
+	</data>
+	<data name="L_REVIEWPAGETITLE" xml:space="preserve">
+		<value>Mapitio</value>
+	</data>
+	<data name="L_SELECTIONCRITERIA" xml:space="preserve">
+		<value>Chagua vigezo</value>
+	</data>
+	<data name="L_VALUE" xml:space="preserve">
+		<value>Thamani</value>
+	</data>
+	<data name="L_VARIANCE" xml:space="preserve">
+		<value>Tofauti</value>
+	</data>
+	<data name="M_NOBATCHES" xml:space="preserve">
+		<value>Hakuna kundi lililopatikana</value>
+	</data>
+	<data name="L_BATCHPAGETITLE" xml:space="preserve">
+		<value>Kundi</value>
+	</data>
+	<data name="L_CARERENDERED" xml:space="preserve">
+		<value>Huduma zinazotolewa</value>
+	</data>
+	<data name="L_CLAIM" xml:space="preserve">
+		<value>Madai</value>
+	</data>
+	<data name="L_CLAIMDATELABEL" xml:space="preserve">
+		<value>Tarehe ya madai</value>
+	</data>
+	<data name="L_CLAIMDETAILS" xml:space="preserve">
+		<value>Maelezo ya madai</value>
+	</data>
+	<data name="L_CLAIMID" xml:space="preserve">
+		<value>Namba utambulisho ya madai</value>
+	</data>
+	<data name="L_CLAIMSTATUSLABEL" xml:space="preserve">
+		<value>Hali ya madai</value>
+	</data>
+	<data name="L_DRUGSPRESCRIBED" xml:space="preserve">
+		<value>Maagizo ya dawa</value>
+	</data>
+	<data name="L_DRUGSRECEIVED" xml:space="preserve">
+		<value>Dawa zilizopokelewa</value>
+	</data>
+	<data name="L_FEEDBACK" xml:space="preserve">
+		<value>Maoni</value>
+	</data>
+	<data name="L_FEEDBACKDATE" xml:space="preserve">
+		<value>Tarehe ya maoni</value>
+	</data>
+	<data name="L_FEEDBACKPAGETITLE" xml:space="preserve">
+		<value>Maoni</value>
+	</data>
+	<data name="L_FEEDBACKSTATUS" xml:space="preserve">
+		<value>Hali ya maoni</value>
+	</data>
+	<data name="L_OVERALLASESSMENT" xml:space="preserve">
+		<value>Ukadiliaji wa jumla</value>
+	</data>
+	<data name="L_PAYMENTASKED" xml:space="preserve">
+		<value>Malipo yatozwayo</value>
+	</data>
+	<data name="L_REVIEWLINK" xml:space="preserve">
+		<value>Mapitio</value>
+	</data>
+	<data name="L_REVIEWSTATUS" xml:space="preserve">
+		<value>Hali ya mapitio</value>
+	</data>
+	<data name="L_BATCHSELECTED" xml:space="preserve">
+		<value>Kundi lililochaguliwa</value>
+	</data>
+	<data name="L_CLAIMSSELECTED" xml:space="preserve">
+		<value>Madai yaliyochaguliwa</value>
+	</data>
+	<data name="L_FOUNDBATCHES" xml:space="preserve">
+		<value>Makundi yaliyopatikana</value>
+	</data>
+	<data name="L_ICD" xml:space="preserve">
+		<value>Utambuzi mkuu</value>
+	</data>
+	<data name="L_REVIEWSELECTION" xml:space="preserve">
+		<value>Uchaguzi wa marejeo ya kundi</value>
+	</data>
+	<data name="L_CLAIMSFOUND" xml:space="preserve">
+		<value>Madai yaliyopatikana</value>
+	</data>
+	<data name="L_FEEDBACKSELECTION" xml:space="preserve">
+		<value>Uchaguzi wa maoni kwenye kundi</value>
+	</data>
+	<data name="M_NOCLAIMS" xml:space="preserve">
+		<value>Hakuna madai yaliyopatikana</value>
+	</data>
+	<data name="L_CLAIMPAGETITLE" xml:space="preserve">
+		<value>Dai</value>
+	</data>
+	<data name="L_CLAIMVALUE" xml:space="preserve">
+		<value>Thamani ya madai</value>
+	</data>
+	<data name="L_ITEMS" xml:space="preserve">
+		<value>Bidhaa</value>
+	</data>
+	<data name="L_QUANTITY" xml:space="preserve">
+		<value>Idadi</value>
+	</data>
+	<data name="L_SERVICECODE" xml:space="preserve">
+		<value>Msimbo wa huduma</value>
+	</data>
+	<data name="L_SERVICES" xml:space="preserve">
+		<value>Huduma</value>
+	</data>
+	<data name="L_START" xml:space="preserve">
+		<value>Tarehe ya mahudhurio kuanzia</value>
+	</data>
+	<data name="L_TO" xml:space="preserve">
+		<value>Mpaka</value>
+	</data>
+	<data name="M_NOITEMS" xml:space="preserve">
+		<value>Hakuna bidhaa zilizopatikana</value>
+	</data>
+	<data name="M_NOSERVICES" xml:space="preserve">
+		<value>Hakuna huduma zilizopatikana</value>
+	</data>
+	<data name="L_FINDCLAIM" xml:space="preserve">
+		<value>Tafuta dai</value>
+	</data>
+	<data name="L_ADDBATCH" xml:space="preserve">
+		<value>Ongeza kundi</value>
+	</data>
+	<data name="B_SELECT" xml:space="preserve">
+		<value>Chagua</value>
+	</data>
+	<data name="L_CLAIMTOTAL" xml:space="preserve">
+		<value>Jumla ya madai</value>
+	</data>
+	<data name="L_END" xml:space="preserve">
+		<value>Tarehe ya mahudhurio mpaka</value>
+	</data>
+	<data name="L_FROM" xml:space="preserve">
+		<value>Kutoka</value>
+	</data>
+	<data name="L_CLAIMREVIEWSTATUS" xml:space="preserve">
+		<value>Hali ya marejeo</value>
+	</data>
+	<data name="L_ADJUSTMENT" xml:space="preserve">
+		<value>Marekebisho</value>
+	</data>
+	<data name="L_APPQTY" xml:space="preserve">
+		<value>Kiasi kilichoidhinishwa</value>
+	</data>
+	<data name="L_APPROVED" xml:space="preserve">
+		<value>Idhinishwa</value>
+	</data>
+	<data name="L_APPVALUE" xml:space="preserve">
+		<value>Thamani iliyoidhinishwa</value>
+	</data>
+	<data name="L_CLAIMREVIEWPAGETITLE" xml:space="preserve">
+		<value>Mapitio ya madai</value>
+	</data>
+	<data name="L_DATEREVIEWED" xml:space="preserve">
+		<value>Tarehe iliyopitiwa</value>
+	</data>
+	<data name="L_EXPLANATION" xml:space="preserve">
+		<value>Maelezo</value>
+	</data>
+	<data name="L_JUSTIFICATION" xml:space="preserve">
+		<value>Uhalalisho</value>
+	</data>
+	<data name="L_QTY" xml:space="preserve">
+		<value>Idadi</value>
+	</data>
+	<data name="L_STATUS" xml:space="preserve">
+		<value>Hali</value>
+	</data>
+	<data name="L_VALUATED" xml:space="preserve">
+		<value>Iliyothaminishwa</value>
+	</data>
+	<data name="L_CLAIMTYPE" xml:space="preserve">
+		<value>Aina ya madai</value>
+	</data>
+	<data name="L_DATECLAIMED" xml:space="preserve">
+		<value>Tarehe ya madai</value>
+	</data>
+	<data name="L_ENDDATE" xml:space="preserve">
+		<value>Tarehe ya mwisho</value>
+	</data>
+	<data name="L_STARTDATE" xml:space="preserve">
+		<value>Tarehe ya kuanza</value>
+	</data>
+	<data name="L_CALCDATE" xml:space="preserve">
+		<value>Tarehe zilizohesabiwa</value>
+	</data>
+	<data name="L_DISPLAY" xml:space="preserve">
+		<value>Faharisi za Jamaa</value>
+	</data>
+	<data name="L_FILTER" xml:space="preserve">
+		<value>Chuja</value>
+	</data>
+	<data name="L_INDEX" xml:space="preserve">
+		<value>Kielezo</value>
+	</data>
+	<data name="L_MONTH" xml:space="preserve">
+		<value>Mwezi</value>
+	</data>
+	<data name="L_PROCESS" xml:space="preserve">
+		<value>Mchakato wa kundi</value>
+	</data>
+	<data name="L_YEAR" xml:space="preserve">
+		<value>Mwaka</value>
+	</data>
+	<data name="M_NORESULTSFOUND" xml:space="preserve">
+		<value>Hakuna matokeo yaliyopatikana</value>
+	</data>
+	<data name="B_PROCESS" xml:space="preserve">
+		<value>chakata</value>
+	</data>
+	<data name="L_PROCESSPAGETITLE" xml:space="preserve">
+		<value>Mchakato wa kundi</value>
+	</data>
+	<data name="L_CURRENTUSER" xml:space="preserve">
+		<value>Mtumiaji wa sasa</value>
+	</data>
+	<data name="L_DATEPROCESSED" xml:space="preserve">
+		<value>Tarehe ilipochakatwa</value>
+	</data>
+	<data name="L_PRICEVALUATED" xml:space="preserve">
+		<value>Iliyothaminishwa</value>
+	</data>
+	<data name="L_DOB" xml:space="preserve">
+		<value>Tarehe ya kuzaliwa</value>
+	</data>
+	<data name="L_VILLAGEOFFICER" xml:space="preserve">
+		<value>Maelezo ya mkusanya maoni</value>
+	</data>
+	<data name="L_WORKSTO" xml:space="preserve">
+		<value>Kufanya mpaka</value>
+	</data>
+	<data name="L_EXTRACTS" xml:space="preserve">
+		<value>Dondoo za kutoa za IMIS</value>
+	</data>
+	<data name="L_REPORTS" xml:space="preserve">
+		<value>Ripoti</value>
+	</data>
+	<data name="B_XML" xml:space="preserve">
+		<value>Hamisha XML</value>
+	</data>
+	<data name="B_EXTRACT" xml:space="preserve">
+		<value>Toa</value>
+	</data>
+	<data name="L_EXTRACT1" xml:space="preserve">
+		<value>Toa Mikataba  kwa XML </value>
+	</data>
+	<data name="L_EXTRACT2" xml:space="preserve">
+		<value>Tengeneza bidhaa/huduma za XML</value>
+	</data>
+	<data name="L_BOTH" xml:space="preserve">
+		<value>Vyote</value>
+	</data>
+	<data name="L_LIMITADULT" xml:space="preserve">
+		<value>Mkubwa O</value>
+	</data>
+	<data name="L_LIMITATIONTYPE" xml:space="preserve">
+		<value>Kikomo O</value>
+	</data>
+	<data name="L_LIMITCHILD" xml:space="preserve">
+		<value>Mtoto O</value>
+	</data>
+	<data name="L_PRICEORIGIN" xml:space="preserve">
+		<value>Asili</value>
+	</data>
+	<data name="B_CREATE" xml:space="preserve">
+		<value>Tengeneza</value>
+	</data>
+	<data name="L_FILTERACCOUNTS" xml:space="preserve">
+		<value>Chuja kwa ajili akaunti</value>
+	</data>
+	<data name="B_PREVIEW" xml:space="preserve">
+		<value>Uhakiki</value>
+	</data>
+	<data name="L_GRACEPERIOD" xml:space="preserve">
+		<value>Kipindi cha muda wa neema kujiandikisha (miezi)</value>
+	</data>
+	<data name="L_INSURANCEPERIOD" xml:space="preserve">
+		<value>Kipindi cha bima</value>
+	</data>
+	<data name="L_DEDUCTABLEINCEILING" xml:space="preserve">
+		<value>Kikomo cha Makato (Ya hospitali)</value>
+	</data>
+	<data name="L_DEDUCTABLEOUTCIELING" xml:space="preserve">
+		<value>Kikomo cha Makato (Yasiyo ya hospitali) </value>
+	</data>
+	<data name="M_LIMITATION" xml:space="preserve">
+		<value>F kwa isiyobadilika C kwa bima mbadala(Nyingine)</value>
+	</data>
+	<data name="M_PRICEORIGIN" xml:space="preserve">
+		<value>[P] = Gharama ya  mfuko [O]= Gharama za watoa hudumuma wenyewe  [R]= Bei ya kijamaa</value>
+	</data>
+	<data name="M_INUSE" xml:space="preserve">
+		<value>Bado inatumika sehemu kwenye programu na haiwezi kufutwa</value>
+	</data>
+	<data name="M_WRONGDATEFORMAT" xml:space="preserve">
+		<value>muundo batili wa tarehe</value>
+	</data>
+	<data name="L_DEDUCTABLEGENCEILING" xml:space="preserve">
+		<value>Kikomo cha makato ya jumla</value>
+	</data>
+	<data name="L_ENROLMENTOFFICERS" xml:space="preserve">
+		<value>Afisa wa uandikishaji</value>
+	</data>
+	<data name="L_BALANCE" xml:space="preserve">
+		<value>Baki</value>
+	</data>
+	<data name="L_EFFECTIVEDATE" xml:space="preserve">
+		<value>Tarehe madhubuti</value>
+	</data>
+	<data name="L_EXPIRYDATE" xml:space="preserve">
+		<value>Tarehe ya kumalizika</value>
+	</data>
+	<data name="L_ENROLMENTDATE" xml:space="preserve">
+		<value>Tarehe ya kuandikishwa</value>
+	</data>
+	<data name="L_GENERAL" xml:space="preserve">
+		<value>Jumla</value>
+	</data>
+	<data name="L_POLICYSTATUS" xml:space="preserve">
+		<value>Hali la sera</value>
+	</data>
+	<data name="L_REMUNERATEDHEALTHCARE" xml:space="preserve">
+		<value>Huduma ya afya yenye malipo</value>
+	</data>
+	<data name="L_ENROLDATE" xml:space="preserve">
+		<value>Tarehe ya kuandikishwa</value>
+	</data>
+	<data name="L_POLICYVALUE" xml:space="preserve">
+		<value>Thamani ya sera</value>
+	</data>
+	<data name="B_CHANGE" xml:space="preserve">
+		<value>Badili</value>
+	</data>
+	<data name="B_Move" xml:space="preserve">
+		<value>Hamisha</value>
+	</data>
+	<data name="L_ENTERCHFIDOFINSUREE" xml:space="preserve">
+		<value>Ingiza namba ya mwanachama wa kuhamishwa </value>
+	</data>
+	<data name="L_ENTERNEWHEADCHFID" xml:space="preserve">
+		<value>Ingiza namba ya mkuu mpya wa  familia/kundi</value>
+	</data>
+	<data name="M_PREMIUMCOVEREDPROMPT" xml:space="preserve">
+		<value>Gharama za  mkataba zimelipwa&lt;br/&gt;Je bado unataka kuongeza mchango?</value>
+	</data>
+	<data name="M_POLICYCOMEINFORCEPROMPT" xml:space="preserve">
+		<value>Je sera ianze kutumika</value>
+	</data>
+	<data name="M_POLICYNOTCOVERED" xml:space="preserve">
+		<value>Gharama za sera hazijalipwa zote bado</value>
+	</data>
+	<data name="M_PREMIUMEXCEEDSPOLICY" xml:space="preserve">
+		<value>Michango ya bima yamezidi gharama ya sera</value>
+	</data>
+	<data name="M_PREMIUMMATCHESPOLICY" xml:space="preserve">
+		<value>Michango ya bima yanalingana na gharama ya sera</value>
+	</data>
+	<data name="B_CHECK" xml:space="preserve">
+		<value>Angalia</value>
+	</data>
+	<data name="M_DELETEFAMILYPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta  familia/kundi?</value>
+	</data>
+	<data name="M_DELETEINSUREEPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta mwanachama ?</value>
+	</data>
+	<data name="M_DELETEPOLICYPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta sera ?</value>
+	</data>
+	<data name="M_DELETEPREMIUMPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta mchango ?</value>
+	</data>
+	<data name="L_NO" xml:space="preserve">
+		<value>Hapana</value>
+	</data>
+	<data name="L_PREMIUMCONTRIBUTION" xml:space="preserve">
+		<value>Michango</value>
+	</data>
+	<data name="L_YES" xml:space="preserve">
+		<value>Ndio</value>
+	</data>
+	<data name="M_INVALIDDEDUCTABLEVALUES" xml:space="preserve">
+		<value>Ujazaji wa punguzo makadilio sio sahihi</value>
+	</data>
+	<data name="M_CANNOTCHANGEFAMILYHEAD" xml:space="preserve">
+		<value>Namba ya uanachama iliyochaguliwa ni ya mkuu wa  familia/kundi, haiwezekani kubadili mkuu wa familia.</value>
+	</data>
+	<data name="M_CHFNUMBERFEWCHARACTERS" xml:space="preserve">
+		<value>Namba ya uanachama ni fupi, inatakiwa kuwa na tarakimu 9</value>
+	</data>
+	<data name="M_CHFNUMBERMEMBEREXISTS" xml:space="preserve">
+		<value>Mwanachama mwenye hiyo namba yupo tayari</value>
+	</data>
+	<data name="M_CHFNUMBERNOTEXISTS" xml:space="preserve">
+		<value>Bima namba haipo</value>
+	</data>
+	<data name="M_INVALIDCHFNUMBER" xml:space="preserve">
+		<value> Namba ya uanachama ilyochaguliwa sio sahihi</value>
+	</data>
+	<data name="L_ADULTPREMIUM" xml:space="preserve">
+		<value>Michango ya bima ya mkubwa</value>
+	</data>
+	<data name="L_CHILDPREMIUM" xml:space="preserve">
+		<value>Michango ya bima ya mtoto</value>
+	</data>
+	<data name="L_MEMBERCOUNT" xml:space="preserve">
+		<value>Idadi ya wanachama</value>
+	</data>
+	<data name="M_CHANGE" xml:space="preserve">
+		<value>Imebadilika</value>
+	</data>
+	<data name="L_REDIRECT" xml:space="preserve">
+		<value>Ongoza kwingine</value>
+	</data>
+	<data name="M_NOPAGEACCESSPERMISSION" xml:space="preserve">
+		<value>Hauna ruhusa inayotakiwa kuendelea kwenye hii kurasa</value>
+	</data>
+	<data name="L_EXPIREDATE" xml:space="preserve">
+		<value>Tarehe ya kumalizika</value>
+	</data>
+	<data name="L_HCEILING" xml:space="preserve">
+		<value>Kadilio la juu la hospitali</value>
+	</data>
+	<data name="L_HDEDUCTION" xml:space="preserve">
+		<value>Punguzo la hospitali</value>
+	</data>
+	<data name="L_NHCEILING" xml:space="preserve">
+		<value>Kadilio la juu lisilo la kihospitali</value>
+	</data>
+	<data name="L_NHDEDUCTION" xml:space="preserve">
+		<value>Punguzo lisilo la kihospitali</value>
+	</data>
+	<data name="M_WRONGDEDUCTABLECEILINGCOMBINATION" xml:space="preserve">
+		<value>Ujazaji wa mapunguzo /makadilio umefanywa kimakosa</value>
+	</data>
+	<data name="L_SEARCHCHFNUMBER" xml:space="preserve">
+		<value>Tafuta Namba ya uanachama</value>
+	</data>
+	<data name="M_ENTERCHFNUMBER" xml:space="preserve">
+		<value>Tafadhali ingiza Namba ya uanachama</value>
+	</data>
+	<data name="P_FINDUSERS" xml:space="preserve">
+		<value>Uwanja wa udhibitishaji  watumiaji</value>
+	</data>
+	<data name="M_WRONGCONVERSIONPRODUCTCODE" xml:space="preserve">
+		<value>Bidhaa ya ubadilisho haiwezi kuwa sawa na bidhaa ya sasa</value>
+	</data>
+	<data name="M_ERRORMESSAGE" xml:space="preserve">
+		<value>Haikuwezekana kumalizia. Tafadhali ita meza ya usaidizi kwa maelezo zaidi.</value>
+	</data>
+	<data name="M_PASSWOERDMATCH" xml:space="preserve">
+		<value>Jina la mtumiaji na nywila havishabihiani</value>
+	</data>
+	<data name="M_PASSWORDERROR" xml:space="preserve">
+		<value>Kosa limetokea. Tafadhali jaribu tena baadae</value>
+	</data>
+	<data name="L_HOSPITAL" xml:space="preserve">
+		<value>Hospitali</value>
+	</data>
+	<data name="L_NONHOSPITAL" xml:space="preserve">
+		<value>Lisilo la Kihospitali</value>
+	</data>
+	<data name="L_POLICYDETAILS" xml:space="preserve">
+		<value>Maelezo ya sera</value>
+	</data>
+	<data name="M_NODISTRICTS" xml:space="preserve">
+		<value>Hakuna wilaya zilizopatikana</value>
+	</data>
+	<data name="M_NOVILLAGES" xml:space="preserve">
+		<value>Hakuna vijiji vilivyopatikana</value>
+	</data>
+	<data name="M_NOWARDS" xml:space="preserve">
+		<value>Hakuna kata zilizopatikana</value>
+	</data>
+	<data name="M_POLICYVALUECHANGE" xml:space="preserve">
+		<value>Thamani ya sera yenye tarehe ya kuandikisha</value>
+	</data>
+	<data name="M_NOTVALIDCHFNUMBER" xml:space="preserve">
+		<value>Namba yauanachama si halali</value>
+	</data>
+	<data name="M_VILLAGESINWARD" xml:space="preserve">
+		<value>Tafadhali futa  kwanza vijiji kwenye kata </value>
+	</data>
+	<data name="M_WARDSINDISTRICT" xml:space="preserve">
+		<value>Tafadhali futa kwanza kata kwenye wilaya</value>
+	</data>
+	<data name="M_CHANGEHEAD" xml:space="preserve">
+		<value>Imebadilika kuwa mkuu wa  familia/kundi</value>
+	</data>
+	<data name="M_MOVEINSUREE" xml:space="preserve">
+		<value>Imehamishwa kwenda kwenye  familia/kundi</value>
+	</data>
+	<data name="M_EXTR_PHONENOK" xml:space="preserve">
+		<value>Dondoo ya kutoa ya simu haikuweza kutengenezwa. Tafadhali ongea na dawati la huduma</value>
+	</data>
+	<data name="M_EXTR_PHONEOK" xml:space="preserve">
+		<value>Dondoo ya kutoa ya simu imetengenezwa. Tafadhali bofya kiungo cha kushusha</value>
+	</data>
+	<data name="L_CHECKALL" xml:space="preserve">
+		<value>Chagua kila kitu</value>
+	</data>
+	<data name="L_PRODUCTDETAILS" xml:space="preserve">
+		<value>Maelezo ya bidhaa yenye bima</value>
+	</data>
+	<data name="P_FINDFAMILY" xml:space="preserve">
+		<value>Tafuta  familia/kundi</value>
+	</data>
+	<data name="P_FINDHF" xml:space="preserve">
+		<value>Uwanja wa udhibiti kituo cha afya</value>
+	</data>
+	<data name="P_FINDMI" xml:space="preserve">
+		<value>Uwanja wa udhibiti bidhaa za dawa</value>
+	</data>
+	<data name="P_FINDMS" xml:space="preserve">
+		<value>Uwanja wa udhibiti huduma za dawa</value>
+	</data>
+	<data name="P_FINDOFFICER" xml:space="preserve">
+		<value>Uwanja wa udhibiti maafisa waandikishaji</value>
+	</data>
+	<data name="P_FINDPAYER" xml:space="preserve">
+		<value>Uwanja wa udhibiti mlipaji</value>
+	</data>
+	<data name="P_FINDPLMI" xml:space="preserve">
+		<value>Uwanja wa udhibiti orodha ya bei bidhaa za dawa</value>
+	</data>
+	<data name="P_FINDPLMS" xml:space="preserve">
+		<value>Uwanja wa udhibiti orodha ya bei huduma za dawa</value>
+	</data>
+	<data name="P_FINDPOLICY" xml:space="preserve">
+		<value>Tafuta sera</value>
+	</data>
+	<data name="P_FINDPRODUCT" xml:space="preserve">
+		<value>Uwanja wa udhibitishaji  bidhaa</value>
+	</data>
+	<data name="P_PRODUCT" xml:space="preserve">
+		<value>Bidhaa</value>
+	</data>
+	<data name="L_JOURNALON" xml:space="preserve">
+		<value>Rekodi ya</value>
+	</data>
+	<data name="L_ALERTPOPUPTITLE" xml:space="preserve">
+		<value>IMIS</value>
+	</data>
+	<data name="L_CONFIRMPOPUPTITLE" xml:space="preserve">
+		<value>IMIS</value>
+	</data>
+	<data name="M_NOINSUREEFOUND" xml:space="preserve">
+		<value>mwanachama hajapatikana</value>
+	</data>
+	<data name="L_OK" xml:space="preserve">
+		<value>Sawa</value>
+	</data>
+	<data name="L_ProgressEnquire" xml:space="preserve">
+		<value>Maulizo yanaendelea.Tafadhali subiri.</value>
+	</data>
+	<data name="M_DELETEPROMPT" xml:space="preserve">
+		<value>Je; una hakika unataka kufuta?</value>
+	</data>
+	<data name="T_FEMALE" xml:space="preserve">
+		<value>Mwanamke</value>
+	</data>
+	<data name="T_MALE" xml:space="preserve">
+		<value>Mwanamume</value>
+	</data>
+	<data name="T_MARRIED" xml:space="preserve">
+		<value>Ameoa/ameolewa</value>
+	</data>
+	<data name="T_SELECTGENDER" xml:space="preserve">
+		<value>-- Chagua Jinsia --</value>
+	</data>
+	<data name="T_SELECTROLE" xml:space="preserve">
+		<value>-- Chagua jukumu --</value>
+	</data>
+	<data name="T_SELECTSTATUS" xml:space="preserve">
+		<value>-- Chagua Hali --</value>
+	</data>
+	<data name="T_SELECTYESNO" xml:space="preserve">
+		<value>-- Chagua Ndio/Hapana --</value>
+	</data>
+	<data name="T_SINGLE" xml:space="preserve">
+		<value>hajaoa/hajaolewa</value>
+	</data>
+	<data name="T_ADULT" xml:space="preserve">
+		<value>Mtu mzima</value>
+	</data>
+	<data name="T_BANKTRANSFER" xml:space="preserve">
+		<value>Uhamisho Kutumia Benki</value>
+	</data>
+	<data name="T_BOTH" xml:space="preserve">
+		<value>Vyote</value>
+	</data>
+	<data name="T_CASH" xml:space="preserve">
+		<value>Taslimu</value>
+	</data>
+	<data name="T_CATHOLIC" xml:space="preserve">
+		<value>Katoliki</value>
+	</data>
+	<data name="T_CHILD" xml:space="preserve">
+		<value>Mtoto</value>
+	</data>
+	<data name="T_COOPERATIVE" xml:space="preserve">
+		<value>Vya Ushirika</value>
+	</data>
+	<data name="T_CURATIVE" xml:space="preserve">
+		<value>Za Kutibu</value>
+	</data>
+	<data name="T_DAYOFSTAY" xml:space="preserve">
+		<value>Siku ya kukaa</value>
+	</data>
+	<data name="T_DISPENSARY" xml:space="preserve">
+		<value>Zahanati</value>
+	</data>
+	<data name="T_DISTRICTORGANIZATION" xml:space="preserve">
+		<value>Asasi ya Wilaya</value>
+	</data>
+	<data name="T_DIVORCED" xml:space="preserve">
+		<value>Achika</value>
+	</data>
+	<data name="T_DONOR" xml:space="preserve">
+		<value>Wafadhili</value>
+	</data>
+	<data name="T_DRUG" xml:space="preserve">
+		<value>Dawa</value>
+	</data>
+	<data name="T_GOVERNMENT" xml:space="preserve">
+		<value>Serikali</value>
+	</data>
+	<data name="T_HEALTHCENTRE" xml:space="preserve">
+		<value>Kituo cha Afya</value>
+	</data>
+	<data name="T_HOSPITAL" xml:space="preserve">
+		<value>Hospitali</value>
+	</data>
+	<data name="T_HOSPITALCASE" xml:space="preserve">
+		<value>Kesi ya Hospitali</value>
+	</data>
+	<data name="T_ICDCODE" xml:space="preserve">
+		<value>-- Msimbo wa Utambuzi --</value>
+	</data>
+	<data name="T_INPATIENT" xml:space="preserve">
+		<value>Mgonjwa wa ndani</value>
+	</data>
+	<data name="T_LOCALAUTHORITY" xml:space="preserve">
+		<value>Serikali ya Mtaa</value>
+	</data>
+	<data name="T_MAN" xml:space="preserve">
+		<value>Mwanamume</value>
+	</data>
+	<data name="T_MEDICALCONSUMABLE" xml:space="preserve">
+		<value>Matumizi ya kitabibu</value>
+	</data>
+	<data name="T_MOBILEPHONE" xml:space="preserve">
+		<value>Simu ya Mkononi</value>
+	</data>
+	<data name="T_MONTH" xml:space="preserve">
+		<value>--Mwezi--</value>
+	</data>
+	<data name="T_NO" xml:space="preserve">
+		<value>Hapana</value>
+	</data>
+	<data name="T_NOTSELECTED" xml:space="preserve">
+		<value>Haijachaguliwa</value>
+	</data>
+	<data name="T_OTHER" xml:space="preserve">
+		<value>Mwingine</value>
+	</data>
+	<data name="T_OUTPATIENT" xml:space="preserve">
+		<value>Mgonjwa wa nje</value>
+	</data>
+	<data name="T_PASSED" xml:space="preserve">
+		<value>Iliyopita</value>
+	</data>
+	<data name="T_PAYMENTTYPE" xml:space="preserve">
+		<value>-- Aina ya Malipo --</value>
+	</data>
+	<data name="T_PREVENTIVE" xml:space="preserve">
+		<value>Za Kuzuia</value>
+	</data>
+	<data name="T_PRIVATEORGANIZATION" xml:space="preserve">
+		<value>Shirika binafsi</value>
+	</data>
+	<data name="T_REJECTED" xml:space="preserve">
+		<value>Kataliwa</value>
+	</data>
+	<data name="T_REJECTEDA" xml:space="preserve">
+		<value>Kataliwa A</value>
+	</data>
+	<data name="T_REJECTEDB" xml:space="preserve">
+		<value>Kataliwa B</value>
+	</data>
+	<data name="T_REJECTEDC" xml:space="preserve">
+		<value>Kataliwa C</value>
+	</data>
+	<data name="T_REVIEWED" xml:space="preserve">
+		<value>Pitiwa</value>
+	</data>
+	<data name="T_SELECTAPAYER" xml:space="preserve">
+		<value>-- Chagua Mlipaji --</value>
+	</data>
+	<data name="T_SELECTAVILLAGE" xml:space="preserve">
+		<value>-- Chagua Kijiji --</value>
+	</data>
+	<data name="T_SELECTAWARD" xml:space="preserve">
+		<value>-- Chagua Kata --</value>
+	</data>
+	<data name="T_SELECTDISTRICT" xml:space="preserve">
+		<value>-- Chagua Wilaya --</value>
+	</data>
+	<data name="T_SELECTED" xml:space="preserve">
+		<value>Chaguliwa</value>
+	</data>
+	<data name="T_SELECTHFCODE" xml:space="preserve">
+		<value>-- Chagua Msimbo wa Kituo cha Afya--</value>
+	</data>
+	<data name="T_SELECTITEMTYPE" xml:space="preserve">
+		<value>-- Chagua Aina ya Bidhaa --</value>
+	</data>
+	<data name="T_SELECTLANGUAGE" xml:space="preserve">
+		<value>-- Chagua Lugha --</value>
+	</data>
+	<data name="T_SELECTLEGALFORM" xml:space="preserve">
+		<value>-- Chagua Fomu ya Kisheria --</value>
+	</data>
+	<data name="T_SELECTLEVEL" xml:space="preserve">
+		<value>-- Chagua Kiwango --</value>
+	</data>
+	<data name="T_SELECTOFFICER" xml:space="preserve">
+		<value>-- Chagua Afisa --</value>
+	</data>
+	<data name="T_SELECTPATIENT" xml:space="preserve">
+		<value>-- Chagua Mgonjwa --</value>
+	</data>
+	<data name="T_SELECTPAYERTYPE" xml:space="preserve">
+		<value>-- Chagua Aina ya Mlipaji --</value>
+	</data>
+	<data name="T_SELECTPRICELIST" xml:space="preserve">
+		<value>-- Chagua Orodha ya Bei --</value>
+	</data>
+	<data name="T_SELECTPRODUCT" xml:space="preserve">
+		<value>--Chagua Bidhaa--</value>
+	</data>
+	<data name="T_SELECTSERVICETYPE" xml:space="preserve">
+		<value>-- Chagua Aina ya Huduma --</value>
+	</data>
+	<data name="T_SELECTTYPE" xml:space="preserve">
+		<value>-- Chagua Aina --</value>
+	</data>
+	<data name="T_SIMPLESERVICE" xml:space="preserve">
+		<value>Huduma Rahisi</value>
+	</data>
+	<data name="T_STATUS" xml:space="preserve">
+		<value>-- Hali --</value>
+	</data>
+	<data name="T_VISIT" xml:space="preserve">
+		<value>mahudhurio</value>
+	</data>
+	<data name="T_WIDOWED" xml:space="preserve">
+		<value>Mjane</value>
+	</data>
+	<data name="T_WOMAN" xml:space="preserve">
+		<value>Mwanamke</value>
+	</data>
+	<data name="T_YEAR" xml:space="preserve">
+		<value>--Mwaka--</value>
+	</data>
+	<data name="T_YES" xml:space="preserve">
+		<value>Ndiyo</value>
+	</data>
+	<data name="M_InsureeCHF" xml:space="preserve">
+		<value> Namba ya mwanachama</value>
+	</data>
+	<data name="M_POLICYENROLEDATE" xml:space="preserve">
+		<value>Sera: tarehe ya kuandikisha</value>
+	</data>
+	<data name="M_DATEERROR1" xml:space="preserve">
+		<value>Tarehe ya kuandikishwa haiwezi kuwa baada ya tarehe ya madhubuti</value>
+	</data>
+	<data name="M_DATEERROR2" xml:space="preserve">
+		<value>Tarehe ya kuandikishwa haiwezi kuwa baada ya tarehe ya kuisha</value>
+	</data>
+	<data name="M_DATEERROR4" xml:space="preserve">
+		<value>Tarehe ya kuisha haiwezi kuwa kabla ya tarehe ya  kuandikisha</value>
+	</data>
+	<data name="M_DATEERROR5" xml:space="preserve">
+		<value>Tarehe ya kuisha haiwezi kuwa kabla ya tarehe ya madhubuti</value>
+	</data>
+	<data name="M_DATEERROR6" xml:space="preserve">
+		<value>Tarehe ya kuisha haiwezi kuwa kabla ya tarehe ya kuanza</value>
+	</data>
+	<data name="M_POLICYNOTADDED" xml:space="preserve">
+		<value>Haiwezekani kuongeza Michango ya bima. Hakuna sera imepatikana</value>
+	</data>
+	<data name="L_UTILITIES" xml:space="preserve">
+		<value>Vifaa</value>
+	</data>
+	<data name="L_IPDEDUCTION" xml:space="preserve">
+		<value>Makato kwa mgonjwa wa nje</value>
+	</data>
+	<data name="L_IPCEILING" xml:space="preserve">
+		<value>Makadirio kwa mgonjwa wa nje</value>
+	</data>
+	<data name="L_OPCEILING" xml:space="preserve">
+		<value>Makadirio kwa mgonjwa wa nje</value>
+	</data>
+	<data name="L_OPDEDUCTION" xml:space="preserve">
+		<value>Makato kwa mgonjwa wa nje</value>
+	</data>
+	<data name="L_BACKUP" xml:space="preserve">
+		<value>Weka akiba</value>
+	</data>
+	<data name="L_EXECUTESCRIPT" xml:space="preserve">
+		<value>Fanyisha skripti</value>
+	</data>
+	<data name="L_EXTRACT11" xml:space="preserve">
+		<value>Dondoo za kutoa za sera za XML</value>
+	</data>
+	<data name="L_EXTRACT21" xml:space="preserve">
+		<value>Dondoo za kutoa za bidhaa/huduma za XML</value>
+	</data>
+	<data name="L_EXTRACTS1" xml:space="preserve">
+		<value>Dondoo za kutoa za IMIS</value>
+	</data>
+	<data name="L_EXTR_ZIPPEDPHOTOS" xml:space="preserve">
+		<value>Picha zilizofunganishwa</value>
+	</data>
+	<data name="L_PREMIUMCOLLECTION" xml:space="preserve">
+		<value>Michango  iliyokusanywa</value>
+	</data>
+	<data name="L_PREMIUMDISTRIBUTION" xml:space="preserve">
+		<value>Mgawanyo wa Michango</value>
+	</data>
+	<data name="L_PRODUCTSALES" xml:space="preserve">
+		<value>Mauzo ya bidhaa</value>
+	</data>
+	<data name="L_RESTORE" xml:space="preserve">
+		<value>Rudisha kama mwanzo</value>
+	</data>
+	<data name="M_EXTR_BUSY" xml:space="preserve">
+		<value>Mtumiaji mwengine anafanya kazi kwenye dondoo za kutoa muda huu. Tafadhali jaribu baadae</value>
+	</data>
+	<data name="M_EXTR_IMPERR1" xml:space="preserve">
+		<value>Utambulisho wa kituo haupo kwenye msingi</value>
+	</data>
+	<data name="M_EXTR_IMPERR2" xml:space="preserve">
+		<value>Kichwa cha dondoo za kutoa sio sahii</value>
+	</data>
+	<data name="M_EXTR_IMPERR3" xml:space="preserve">
+		<value>Dondoo za kutoa kutoka wilaya nyingine</value>
+	</data>
+	<data name="M_EXTR_IMPERR4" xml:space="preserve">
+		<value>Dondoo za kutoa zina toleo jingine la hifadhidata. Tafadhali ongea na dawati la usaidizi ya IMIS</value>
+	</data>
+	<data name="M_EXTR_IMPERR5" xml:space="preserve">
+		<value>Dondoo ya kutoa ya kwanza kupakiwa inabidi iwe Dondoo ya kutoa iliyo kamili.Tafadhali wasiliana na meza la msaada la IMIS</value>
+	</data>
+	<data name="M_EXTR_IMPERR6" xml:space="preserve">
+		<value>Data kwenye dondoo hii ya kutoa imeshapakiwa tayari</value>
+	</data>
+	<data name="M_EXTR_IMPERR7" xml:space="preserve">
+		<value>Hauna moja au zaidi mipangilio ya dondoo za kutoa. Tafadhali wasiliana na meza ya msaada ya IMIS</value>
+	</data>
+	<data name="M_EXTR_IMPOK" xml:space="preserve">
+		<value>Uingizaji umemalizika kwa mafanikio</value>
+	</data>
+	<data name="M_EXTR_NODOWNLOADFILE" xml:space="preserve">
+		<value>Hakuna faili la kupakua limechaguliwa AU faili la kupakuliwa limeshafutwa kutoka kwenye kompyuta kuu</value>
+	</data>
+	<data name="M_EXTR_NOPHOTOFILE" xml:space="preserve">
+		<value>Hakuna picha zinapatikana kwa ajili ya kutoa</value>
+	</data>
+	<data name="M_EXTR_OFFLINEFULL" xml:space="preserve">
+		<value>Dondoo ya kutoa kamili imechaguliwa. Ujumbe ujao utatoa matokeo ya dondoo ya kutoa kamili.</value>
+	</data>
+	<data name="M_EXTR_OFFLINENOK" xml:space="preserve">
+		<value>Dondoo za kutoa za nje ya mtandao hazikuweza kutengenezwa kwa muda huu. Tafadhali wasiliana na meza ya msaada</value>
+	</data>
+	<data name="M_EXTR_OFFLINEOK" xml:space="preserve">
+		<value>Dondoo za kutoa za nje ya mtandao zimetengenezwa. Tafadhali bonyeza kiungo cha PAKUA</value>
+	</data>
+	<data name="M_EXTR_PHONENOK1" xml:space="preserve">
+		<value>Dondoo za kutoa za simu hazikuweza kutengenezwa muda huu. Tafadhali wasiliana na meza ya usaidizi</value>
+	</data>
+	<data name="M_EXTR_PHONEOK1" xml:space="preserve">
+		<value>Dondoo ya kutoa ya simu imetengenezwa. Tafadhali bofya kiungo cha kushusha</value>
+	</data>
+	<data name="L_DETAILS" xml:space="preserve">
+		<value>Maelezo</value>
+	</data>
+	<data name="L_EXTR_IMPORTEXTRACT" xml:space="preserve">
+		<value>Ingiza dondoo za kutoa</value>
+	</data>
+	<data name="L_EXTR_IMPORTPHOTOS" xml:space="preserve">
+		<value>Ingiza picha</value>
+	</data>
+	<data name="L_EXTR_OFFLINEEXTRACT" xml:space="preserve">
+		<value>Dondoo za kutoa za nje ya mtandao</value>
+	</data>
+	<data name="L_EXTR_PHONEEXTRACT" xml:space="preserve">
+		<value>Dondoo za kutoa za simu</value>
+	</data>
+	<data name="L_INSERTED" xml:space="preserve">
+		<value>imeingizwa</value>
+	</data>
+	<data name="L_UPDATED" xml:space="preserve">
+		<value>Imeboreshwa</value>
+	</data>
+	<data name="M_EXTR_NOUPLOADLOADFILE" xml:space="preserve">
+		<value>Hakuna faili sahihi la kupakiwa limechaguliwa</value>
+	</data>
+	<data name="M_EXTR_PHOTOIMPOK" xml:space="preserve">
+		<value>Picha zimeingizwa kwenye IMIS kwa mafanikio</value>
+	</data>
+	<data name="L_OFFLINEHFID" xml:space="preserve">
+		<value>Kituo cha Afya</value>
+	</data>
+	<data name="M_OFFLINEHFID" xml:space="preserve">
+		<value>Tafadhali ingiza namba ya kituo cha afya uliopewa na msimamizi wa IMIS</value>
+	</data>
+	<data name="B_UPLOAD" xml:space="preserve">
+		<value>Pakia</value>
+	</data>
+	<data name="M_DUPLICATEDISCTRICT" xml:space="preserve">
+		<value>Wilaya imejirudia, zoezi la kuingiza limesitishwa</value>
+	</data>
+	<data name="M_DUPLICATEVILLAGE" xml:space="preserve">
+		<value>Kijiji kimejirudia, zoezi la kuingiza limesitishwa</value>
+	</data>
+	<data name="M_DUPLICATEWARD" xml:space="preserve">
+		<value>Kata imejirudia, zoezi la kuingiza limesitishwa</value>
+	</data>
+	<data name="M_LOCATIONUPLOADED" xml:space="preserve">
+		<value>Eneo limeingizwa bila tatizo.</value>
+	</data>
+	<data name="M_SELECTLOCATIONFILES" xml:space="preserve">
+		<value>Tafadhali chagua fail zote kuigiza takwimu</value>
+	</data>
+	<data name="M_EXTR_IMPERR8" xml:space="preserve">
+		<value>Tatizo lisilotegemewa limetokea wakati wa kupakia</value>
+	</data>
+	<data name="L_PHOTOS" xml:space="preserve">
+		<value>Picha</value>
+	</data>
+	<data name="L_HOME" xml:space="preserve">
+		<value>Nyumbani</value>
+	</data>
+	<data name="L_LOGOUT" xml:space="preserve">
+		<value>Jitoe</value>
+	</data>
+	<data name="L_TOOLS" xml:space="preserve">
+		<value>Vifaa</value>
+	</data>
+	<data name="X_MANUAL" xml:space="preserve">
+		<value>IMIS_sw_mwongozo.pdf</value>
+	</data>
+	<data name="L_CLAIMFROM" xml:space="preserve">
+		<value>Madai Kuanzia</value>
+	</data>
+	<data name="L_CLAIMOVERVIEW" xml:space="preserve">
+		<value>Madai Kwa Ujumla</value>
+	</data>
+	<data name="L_CLAIMSELECTIONUPDATE" xml:space="preserve">
+		<value>Chaguo la Madai ya Kurekebisha</value>
+	</data>
+	<data name="L_CLAIMTO" xml:space="preserve">
+		<value>Madai Mpaka</value>
+	</data>
+	<data name="L_FILTERCRITERIA" xml:space="preserve">
+		<value>Vigezo vya Kuchujia</value>
+	</data>
+	<data name="L_BATCHRUN" xml:space="preserve">
+		<value>Uendeshwa wa kundi</value>
+	</data>
+	<data name="L_CLAIMREVIEW" xml:space="preserve">
+		<value>Mapitio</value>
+	</data>
+	<data name="L_SELECTTOPROCESS" xml:space="preserve">
+		<value>Chagua Kuchakata</value>
+	</data>
+	<data name="L_SELECTTOSUBMIT" xml:space="preserve">
+		<value>Chagua Kuwasilisha</value>
+	</data>
+	<data name="T_BYPASSED" xml:space="preserve">
+		<value>Imerukwa</value>
+	</data>
+	<data name="T_IDLE" xml:space="preserve">
+		<value>Haijafanyiwa Kazi</value>
+	</data>
+	<data name="T_FEEDBACKSELECT" xml:space="preserve">
+		<value>Maoni Chaguliwa</value>
+	</data>
+	<data name="T_REVIEWSELECT" xml:space="preserve">
+		<value>Mapitio Chaguliwa</value>
+	</data>
+	<data name="T_SELECT" xml:space="preserve">
+		<value>--Chagua--</value>
+	</data>
+	<data name="T_SELECTCLAIMCODE" xml:space="preserve">
+		<value>--Chagua Msimbo wa Madai--</value>
+	</data>
+	<data name="L_CLAIMDATEFROM" xml:space="preserve">
+		<value>Tarehe ya madai kuanzia</value>
+	</data>
+	<data name="L_VISITDATEFROM" xml:space="preserve">
+		<value>Tarehe ya kutembelea</value>
+	</data>
+	<data name="L_HFCLAIM" xml:space="preserve">
+		<value>Madai ya kituo cha afya</value>
+	</data>
+	<data name="L_REPORTINDICATORS" xml:space="preserve">
+		<value>Repoti ya viashiria</value>
+	</data>
+	<data name="L_PERFORMDELETION" xml:space="preserve">
+		<value>Futa msimbo zilizopo, kama msimbo haupo kwenye faili la kupakia chanzo</value>
+	</data>
+	<data name="T_SELECTEDFORREVIEW" xml:space="preserve">
+		<value>Chaguliwa kwa marejeo</value>
+	</data>
+	<data name="T_DELIVERED" xml:space="preserve">
+		<value>Fikishwa</value>
+	</data>
+	<data name="T_SELECTEDFORFEEDBACK" xml:space="preserve">
+		<value>Chaguliwa kwa maoni</value>
+	</data>
+	<data name="L_VISITDATETO" xml:space="preserve">
+		<value>Tarehe ya kutembelea mpaka</value>
+	</data>
+	<data name="B_LOAD" xml:space="preserve">
+		<value>Angalia</value>
+	</data>
+	<data name="B_REVIEWED" xml:space="preserve">
+		<value>Zimepitiwa</value>
+	</data>
+	<data name="M_ADDATLEASTONEITEMORSERVICE" xml:space="preserve">
+		<value>Tafadhali ongeza hata bidhaa moja au huduma moja kuendelea</value>
+	</data>
+	<data name="M_CHFIDNOTFOUND" xml:space="preserve">
+		<value>Namba ya utambulisho wa mwanachama haijapatikana</value>
+	</data>
+	<data name="M_CLAIMCODEEXISTS" xml:space="preserve">
+		<value>Msimbo wa dai tayari upo</value>
+	</data>
+	<data name="M_CLAIMDATENOTAFTERTODAY" xml:space="preserve">
+		<value>Tarehe ya madai haiwezi kuwa baada ya leo</value>
+	</data>
+	<data name="M_CLAIMDATENOTBEFOREVISITDATE" xml:space="preserve">
+		<value>Tarehe ya madai haiwezi kuwa kabla ya tarehe ya kwenda kwenye huduma</value>
+	</data>
+	<data name="M_CLAIMDELETED" xml:space="preserve">
+		<value>Dai limefutwa kwa mafanikio</value>
+	</data>
+	<data name="M_CLAIMNOTENTEREDNODELETE" xml:space="preserve">
+		<value>Hali ya dai hili sio ENTERED na hivyo haliwezi kufutwa</value>
+	</data>
+	<data name="M_CLAIMNOTFORFEEDBACKPROCESS" xml:space="preserve">
+		<value>Hali ya dai hairuhusu dai kuangaliwa kwa ajili ya mchakato wa maoni</value>
+	</data>
+	<data name="M_CLAIMNOTFORREVIEWPROCESS" xml:space="preserve">
+		<value>Hali ya dai hairuhusu dai kuangaliwa kwa ajili ya mchakato marejeo</value>
+	</data>
+	<data name="M_CLAIMSEXCEEDLIMIT" xml:space="preserve">
+		<value>Namba ya madai inazidi kikomo kinachoruhusiwa kwa mara moja, Tafadhali tumia vigezo vya kuchujia kupunguza uchaguzi</value>
+	</data>
+	<data name="M_CLAIMSTATUSCHANGEDFROMENTERED" xml:space="preserve">
+		<value>Hali ya hii claim imebadilishwa kutoka entered na mtumiaji mwingine</value>
+	</data>
+	<data name="M_CONFIRMCLAIMDELETE" xml:space="preserve">
+		<value>Una uhakika unataka kufuta dai hili</value>
+	</data>
+	<data name="M_CONFIRMROWCLEARING" xml:space="preserve">
+		<value>Una uhakika unataka kufuta safu hii</value>
+	</data>
+	<data name="M_ENTERVALIDPRICEVALUE" xml:space="preserve">
+		<value>
+Tafadhali ingiza thamani ya bei halali </value>
+	</data>
+	<data name="M_ENTERVALIDQUANTITY" xml:space="preserve">
+		<value>
+Tafadhali ingiza idadi halali</value>
+	</data>
+	<data name="M_FEEDBACKSTATUSUPDATED" xml:space="preserve">
+		<value>Hali za maoni zimehaririwa kwa mafanikio</value>
+	</data>
+	<data name="M_FILLITEMQUANTITY" xml:space="preserve">
+		<value>Tafadhali jaza idadi ya bidhaa</value>
+	</data>
+	<data name="M_FILLITEMVALUE" xml:space="preserve">
+		<value>Tafadhali jaza thamani ya bidhaa</value>
+	</data>
+	<data name="M_FILLSERVICEQUANTITY" xml:space="preserve">
+		<value>Tafadhali jaza idadi ya huduma</value>
+	</data>
+	<data name="M_FILLSERVICEVALUE" xml:space="preserve">
+		<value>Tafadhali jaza thamani ya huduma</value>
+	</data>
+	<data name="M_REVIEWFEEDBACKSTATUSUPDATED" xml:space="preserve">
+		<value>Hali ya marejeo na ya maoni zimehaririwa kwa mafanikio</value>
+	</data>
+	<data name="M_REVIEWSTATUSUPDATED" xml:space="preserve">
+		<value>Hali za marejeo zimehaririwa kwa mafanikio</value>
+	</data>
+	<data name="M_SELECTHFCODE" xml:space="preserve">
+		<value>Tafadhali chagua msimbo wa kituo cha afya</value>
+	</data>
+	<data name="M_SELECTICDCODE" xml:space="preserve">
+		<value>Tafadhali chagua msimbo wa Utambuzi</value>
+	</data>
+	<data name="M_SELECTITEMCODE" xml:space="preserve">
+		<value>Tafadhali chagua msimbo wa bidhaa</value>
+	</data>
+	<data name="M_SELECTREVIEWFEEDBACK" xml:space="preserve">
+		<value>Tafadhali chagua aidha marejeo au maoni kuendelea</value>
+	</data>
+	<data name="M_VISITDATENOTAFTERCLAIMDATE" xml:space="preserve">
+		<value>Tarehe kutoka ya kufuata huduma haiwezi kuwa baada ya tarehe ya madai</value>
+	</data>
+	<data name="M_VISITDATENOTAFTERTODAY" xml:space="preserve">
+		<value>Tarehe  kutoka ya kufuata huduma haiwezi kuwa baada ya leo</value>
+	</data>
+	<data name="M_VISITDATETONOTBEFOREVISITDATEFROM" xml:space="preserve">
+		<value>Tarehe mpaka ya  kufuata huduma haiwezi kuwa kabla ya tarehe kutoka ya kufuata huduma</value>
+	</data>
+	<data name="T_CHECKED" xml:space="preserve">
+		<value>Iliyochaguliwa</value>
+	</data>
+	<data name="T_ENTERED" xml:space="preserve">
+		<value>Iliyoingizwa</value>
+	</data>
+	<data name="T_PROCESSED" xml:space="preserve">
+		<value>Yaliyochakatwa</value>
+	</data>
+	<data name="T_REVIEWNOT" xml:space="preserve">
+		<value>Haijapitiwa</value>
+	</data>
+	<data name="T_VALUATED" xml:space="preserve">
+		<value>Yaliyokadiriwa</value>
+	</data>
+	<data name="M_ARESURETOUPDATE_" xml:space="preserve">
+		<value>Je ungependa kutumia vigezo vifatuavyo kwa </value>
+	</data>
+	<data name="M_CLAIMDETAILSUPDATED" xml:space="preserve">
+		<value>Maelezo ya madai yamefanikiwa kurekebishwa</value>
+	</data>
+	<data name="M_CLAIMITEMUPDATED" xml:space="preserve">
+		<value>Bidhaa za kwenye madai haya zilifanikiwa kurekebishwa</value>
+	</data>
+	<data name="M_CLAIMSERVICESUPDATED" xml:space="preserve">
+		<value>Huduma za kwenye madai haya zilifanikiwa kurekebishwa </value>
+	</data>
+	<data name="M_CLMDETAILSERVICEITEM" xml:space="preserve">
+		<value>Maelezo ya madai, huduma na bidhaa yamefanikiwa kurekebishwa</value>
+	</data>
+	<data name="M_CLMDITEMSAVED" xml:space="preserve">
+		<value>Maelezo ya madai na bidhaa yalifanikiwa kuhifadhiwa</value>
+	</data>
+	<data name="M_CLMDSERVICEITEMSAVED" xml:space="preserve">
+		<value>Maelezo ya madai, huduma na bidhaa yalifanikiwa kuhifadhiwa</value>
+	</data>
+	<data name="M_CLMDSERVICESSAVED" xml:space="preserve">
+		<value>Maelezo ya madai na huduma yalifanikiwa kuhifadhiwa</value>
+	</data>
+	<data name="M_CLMITEMUPDATED" xml:space="preserve">
+		<value>Maelezo ya madai na bidhaa yamefanikiwa kurekebishwa</value>
+	</data>
+	<data name="M_CLMSERVICESITEMSUPDATED" xml:space="preserve">
+		<value>Huduma na bidhaa za kwenye madai haya zilifanikiwa kurekebishwa</value>
+	</data>
+	<data name="M_CLMSERVICESUPDATED" xml:space="preserve">
+		<value>Maelezo ya madai na huduma yamefanikiwa kurekebishwa</value>
+	</data>
+	<data name="M_CONFIRMSUBMITCLAIMS" xml:space="preserve">
+		<value>Je hunataka kuwasilisha madai?</value>
+	</data>
+	<data name="M_FEEDBACK" xml:space="preserve">
+		<value>maoni</value>
+	</data>
+	<data name="M_ITEMSDELETED" xml:space="preserve">
+		<value>Bidhaa zilifanikiwa kufutwa</value>
+	</data>
+	<data name="M_ITEMSSAVED" xml:space="preserve">
+		<value>Bidhaa zilifanikiwa kuhifadhiwa</value>
+	</data>
+	<data name="M_NOCHANGEMADETOCLAIM" xml:space="preserve">
+		<value>Hakukuwa na mabadiliko yaliyo fanywa kwenye madai</value>
+	</data>
+	<data name="M_NOCLMTOBEPROCESSED" xml:space="preserve">
+		<value>Hakuna madai yaliyochaguliwa kuthibitishwa</value>
+	</data>
+	<data name="M_ONEMORECLMFDPENDING" xml:space="preserve">
+		<value>Madai kadhaa hayana maoni. </value>
+	</data>
+	<data name="M_ONEMORECLMNOTREVIEWED" xml:space="preserve">
+		<value>Madai kadhaa hayajarejelewa. </value>
+	</data>
+	<data name="M_ONEMORENOTREVIEWEDFDPENDS" xml:space="preserve">
+		<value>Madai kadhaa hayana maoni na hayajarejelewa. </value>
+	</data>
+	<data name="M_REVIEW" xml:space="preserve">
+		<value>marejeo</value>
+	</data>
+	<data name="M_SERVICESDELETED" xml:space="preserve">
+		<value>Huduma zilifanikiwa kufutwa</value>
+	</data>
+	<data name="M_SERVICESITEMDELETED" xml:space="preserve">
+		<value>Huduma na bidhaa zilifanikiwa kufutwa</value>
+	</data>
+	<data name="M_SERVICESITEMSSAVED" xml:space="preserve">
+		<value>Huduma na bidhaa zilifanikiwa kuhifadhiwa</value>
+	</data>
+	<data name="M_SERVICESSAVED" xml:space="preserve">
+		<value>Huduma zilifanikiwa kuhifadhiwa</value>
+	</data>
+	<data name="M_STATUSOFTHESECLM" xml:space="preserve">
+		<value> chaguo</value>
+	</data>
+	<data name="M_VALIDATEADDBUTTON" xml:space="preserve">
+		<value>Tafadhali chagua wilaya, msimbo wa kituo cha afya na msimamizi wa madai ili kuingiza madai </value>
+	</data>
+	<data name="M_VALIDATEFEEDBACKSAVE" xml:space="preserve">
+		<value>Hakuna mabadiliko yaliyo fanywa kwenye madai haya, tafadhali fanya mabadiliko hili kuweza kuhifadhi au bonyeza kitufe cha kughairi</value>
+	</data>
+	<data name="M_VALIDATESUBMITCLAIMS" xml:space="preserve">
+		<value>Hakuna madai yaliyo chaguliwa kuwasilishwa</value>
+	</data>
+	<data name="M_CHANGED" xml:space="preserve">
+		<value>Badilishwa:</value>
+	</data>
+	<data name="M_CHECKED" xml:space="preserve">
+		<value>Angaliwa:</value>
+	</data>
+	<data name="M_CLAIMSUBMITTED_" xml:space="preserve">
+		<value>Madai yaliyowasilishwa </value>
+	</data>
+	<data name="M_FAILED" xml:space="preserve">
+		<value>Zilizoshindikana:</value>
+	</data>
+	<data name="M_ITEMSPASSED" xml:space="preserve">
+		<value>Bidhaa zilizopita:</value>
+	</data>
+	<data name="M_ITEMSREJECTED" xml:space="preserve">
+		<value>Bidhaa zilizokataliwa:</value>
+	</data>
+	<data name="M_NOTSELECTED" xml:space="preserve">
+		<value>Hazijachaguliwa:</value>
+	</data>
+	<data name="M_PROCESSED" xml:space="preserve">
+		<value>Shugulikiwa:</value>
+	</data>
+	<data name="M_REJECTED" xml:space="preserve">
+		<value>Kataliwa:</value>
+	</data>
+	<data name="M_SELECTED" xml:space="preserve">
+		<value>Chaguliwa:</value>
+	</data>
+	<data name="M_SERVICESPASSED" xml:space="preserve">
+		<value>Huduma zilizopita:</value>
+	</data>
+	<data name="M_SERVICESREJECTED" xml:space="preserve">
+		<value>Huduma zilizokataliwa</value>
+	</data>
+	<data name="M_SUBMITTED" xml:space="preserve">
+		<value>Wasilishwa:</value>
+	</data>
+	<data name="M_SUBMITTEDTOPROCESS" xml:space="preserve">
+		<value>Wasilishwa kushugulikiwa </value>
+	</data>
+	<data name="M_SUBMITTEDTOUPDATE" xml:space="preserve">
+		<value>Madai yaliyo wasilishwa kushugulikiwa</value>
+	</data>
+	<data name="M_VALUATED" xml:space="preserve">
+		<value>Zilizotathminiwa:</value>
+	</data>
+	<data name="M_WLDLIKETOPROCESSCLAIMS" xml:space="preserve">
+		<value> Je ungependa kushugulikia madai?</value>
+	</data>
+	<data name="L_EXTR_DOWNLOADCLAIMS" xml:space="preserve">
+		<value>Pakua Dai XMLs</value>
+	</data>
+	<data name="L_EXTR_UPLOADCLAIMS" xml:space="preserve">
+		<value>Pakia Madai XML</value>
+	</data>
+	<data name="M_CLMALREADYREVIEWEDBYUSER" xml:space="preserve">
+		<value>Madai haya yameshafanyiwa marejeo na mtumiaji mwingine </value>
+	</data>
+	<data name="M_PROCESS_" xml:space="preserve">
+		<value>chakata</value>
+	</data>
+	<data name="M_WLDLIKECONTINUEWITH" xml:space="preserve">
+		<value>Ungependa kuendelea na </value>
+	</data>
+	<data name="L_FEEDBACKPROMPT" xml:space="preserve">
+		<value>Kuitisha Maoni</value>
+	</data>
+	<data name="M_WRONGITEMCODENAME" xml:space="preserve">
+		<value>Mchanganyiko wa msimbo na jina la bidhaa kati ya bidhaa ulizoingiza hazipo</value>
+	</data>
+	<data name="M_WRONGSERVICECODENAME" xml:space="preserve">
+		<value>Mchanganyiko wa msimbo na jina la huduma kati ya huduma ulizoingiza hazipo</value>
+	</data>
+	<data name="M_FEEDBACKSAVEDSUCCESSFULLY" xml:space="preserve">
+		<value>Maoni yalifanikiwa kuifadhiwa na hali ya madai kubadilishwa kuwa imefikishwa</value>
+	</data>
+	<data name="M_FEEDBACKUPDATEDSUCCESSFULLY" xml:space="preserve">
+		<value>Maoni yalifanikiwa kubadilishwa </value>
+	</data>
+	<data name="M_MANNUALNOUPDATE" xml:space="preserve">
+		<value>Hakuna mabadiliko yaliyofanya kwenye madai </value>
+	</data>
+	<data name="T_SELECTBATCH" xml:space="preserve">
+		<value>--Chagua Kundi--</value>
+	</data>
+	<data name="M_CLAIMPASSEDWITHITEMCHANGE" xml:space="preserve">
+		<value>Dai limelekebishwa likiwa na badiliko ya maelezo ya bidhaa peke yake</value>
+	</data>
+	<data name="M_CLAIMPASSEDWITHOUTCHANGE" xml:space="preserve">
+		<value>Dai limelekebishwa lisipokuwa na badiliko ya maelezo ya bidhaa wala huduma</value>
+	</data>
+	<data name="M_CLAIMPASSEDWITHSERVICECHANGE" xml:space="preserve">
+		<value>Dai limelekebishwa likiwa na badiliko ya maelezo ya huduma peke yake</value>
+	</data>
+	<data name="M_CLAIMPASSEDWITHSERVICEITEMCHANGES" xml:space="preserve">
+		<value>Dai limelekebishwa likiwa na badiliko ya maelezo ya bidhaa na huduma</value>
+	</data>
+	<data name="M_CLMITEMNOCHANGESERVICEYES" xml:space="preserve">
+		<value>Maelezo ya huduma ya dai yalifanikiwa kulekebishwa</value>
+	</data>
+	<data name="M_CLMNOCHANGEITEMSERVICEYES" xml:space="preserve">
+		<value>Maelezo ya bidhaa na huduma ya dai yalifanikiwa kulekebishwa</value>
+	</data>
+	<data name="M_CLMSERVICENOCHANGEITEMYES" xml:space="preserve">
+		<value>Maelezo ya bidhaa ya dai yalifanikiwa kulekebishwa</value>
+	</data>
+	<data name="M_CANNOTPASSITEMREJECTED" xml:space="preserve">
+		<value>Haiwezi kubadilisha bidhaa kuwa hali ya pitishwa kwa bidhaa zilizokataliwa na mfumo wa kompyuta </value>
+	</data>
+	<data name="M_CANNOTPASSSERVICEREJECTED" xml:space="preserve">
+		<value>Haiwezi kubadilisha huduma kuwa hali ya pitishwa kwa huduma zilizokataliwa na mfumo wa kompyuta</value>
+	</data>
+	<data name="L_SHOWALL" xml:space="preserve">
+		<value>Onyesha zote</value>
+	</data>
+	<data name="M_BATCHPROCESSRUNDONETHISSELECTION" xml:space="preserve">
+		<value>Kudi la madai yaliyochaguliwa sasahivi limeishashugulikiwa</value>
+	</data>
+	<data name="M_ERRORWHILEPROCESSING" xml:space="preserve">
+		<value>Hitilafu imetokea wakati wa kushugulikia</value>
+	</data>
+	<data name="M_PROCESSEDSUCCESSFULLY" xml:space="preserve">
+		<value>Shugulikiwa vyema</value>
+	</data>
+	<data name="M_RESULTFILTEREDSUCCESSFULLY" xml:space="preserve">
+		<value>Matokeo yamejichuja vyema</value>
+	</data>
+	<data name="T_SELECTBATCHRUN" xml:space="preserve">
+		<value>--Chagua ushilikiwaji kudi--</value>
+	</data>
+	<data name="T_APRIL" xml:space="preserve">
+		<value>Aprili</value>
+	</data>
+	<data name="T_AUGUST" xml:space="preserve">
+		<value>Agosti</value>
+	</data>
+	<data name="T_DECEMBER" xml:space="preserve">
+		<value>Desemba</value>
+	</data>
+	<data name="T_FEBRUARY" xml:space="preserve">
+		<value>Februari</value>
+	</data>
+	<data name="T_JANUARY" xml:space="preserve">
+		<value>Januari</value>
+	</data>
+	<data name="T_JULY" xml:space="preserve">
+		<value>Julai</value>
+	</data>
+	<data name="T_JUNE" xml:space="preserve">
+		<value>Juni</value>
+	</data>
+	<data name="T_MARCH" xml:space="preserve">
+		<value>Machi</value>
+	</data>
+	<data name="T_MAY" xml:space="preserve">
+		<value>Mei</value>
+	</data>
+	<data name="T_NOVEMBER" xml:space="preserve">
+		<value>Novemba</value>
+	</data>
+	<data name="T_OCTOBER" xml:space="preserve">
+		<value>Oktoba</value>
+	</data>
+	<data name="T_QUARTER" xml:space="preserve">
+		<value>Robo</value>
+	</data>
+	<data name="T_SEPTEMBER" xml:space="preserve">
+		<value>Septemba</value>
+	</data>
+	<data name="L_RECEIPT" xml:space="preserve">
+		<value>Risiti Namba</value>
+	</data>
+	<data name="M_EXTR_EXTRACTSEQUENCE" xml:space="preserve">
+		<value>Last extract sequence :</value>
+	</data>
+	<data name="M_EXTR_NOEXTRACTSFOUND" xml:space="preserve">
+		<value>No previous extracts found!</value>
+	</data>
+	<data name="L_ADDNEWFAMILY" xml:space="preserve">
+		<value>Ongeza  familia/kundi jipya</value>
+	</data>
+	<data name="L_PAYERS" xml:space="preserve">
+		<value>Mlipaji</value>
+	</data>
+	<data name="L_RECEIPTNUMBER" xml:space="preserve">
+		<value>Namba ya Risiti</value>
+	</data>
+	<data name="L_TYPEOFPAYMENT" xml:space="preserve">
+		<value>Aina ya malipo</value>
+	</data>
+	<data name="M_CANNOTCHANGECHFNOISHEADFMLY" xml:space="preserve">
+		<value>Haiwezi kubadili, bima namba iliyochaguliwa tayari ni mkuu wa  familia/kundi</value>
+	</data>
+	<data name="M_FAMILYANDHEADOFFLY_" xml:space="preserve">
+		<value>Familia na mkuu wa  familia/kundi</value>
+	</data>
+	<data name="M_FAMILYNOTDELETED" xml:space="preserve">
+		<value>Familia haijafutwa</value>
+	</data>
+	<data name="M_FAMILYSTILLHASDEPENDANTS" xml:space="preserve">
+		<value>Familia ya kufutwa bado inawategemezi au bima au malipo</value>
+	</data>
+	<data name="M_INSUREEALREADYINFAMILY" xml:space="preserve">
+		<value>Mwanachama tayari yuko kwenye  familia/kundi hii</value>
+	</data>
+	<data name="M_INSUREEHEADFMLYDELETENOT" xml:space="preserve">
+		<value>Mwanachama ni mkuu wa  familia/kundi, hawezi kufutwa</value>
+	</data>
+	<data name="M_INSUREENOTDELETED" xml:space="preserve">
+		<value>Mwanachama hajafutwa</value>
+	</data>
+	<data name="M_POLICYHASPREMIUMNODELETE" xml:space="preserve">
+		<value>Sera Michango ya bima, haiwezi kufutwa</value>
+	</data>
+	<data name="M_PREMIUMISINUSE" xml:space="preserve">
+		<value>Michango ya bima bado yanatumika</value>
+	</data>
+	<data name="M_PREMIUMNOTDELETED" xml:space="preserve">
+		<value>Michango ya bima hayajafutwa</value>
+	</data>
+	<data name="M_SELECTEDCHFNONOTEXIT" xml:space="preserve">
+		<value>Namba ya uanachama iliyochaguliwa haipo!</value>
+	</data>
+	<data name="L_AMOUNT" xml:space="preserve">
+		<value>Kiasi</value>
+	</data>
+	<data name="L_PAIDBY" xml:space="preserve">
+		<value>Imelipwa Na</value>
+	</data>
+	<data name="L_PAYMETHOD" xml:space="preserve">
+		<value>Njia ya kulipa</value>
+	</data>
+	<data name="L_RECEIPT_" xml:space="preserve">
+		<value>Risiti</value>
+	</data>
+	<data name="L_PAYMENTTYPE" xml:space="preserve">
+		<value>Aina ya Malipo </value>
+	</data>
+	<data name="T_DERIVEDOPERATIONALINDICATORS" xml:space="preserve">
+		<value>Vionyesho Viendelezi vya Ufanyikaji</value>
+	</data>
+	<data name="T_PREMIUMCOLLECTION" xml:space="preserve">
+		<value>Mkusanyo wa Michango ya bima</value>
+	</data>
+	<data name="T_PREMIUMDISTRIBUTION" xml:space="preserve">
+		<value>Mgawanyo wa Michango ya bima</value>
+	</data>
+	<data name="T_PRIMARYOPERATIONALINDICATORS" xml:space="preserve">
+		<value>Vionyeshi Msingi vya Ufanyikaji</value>
+	</data>
+	<data name="T_PRODUCTSALES" xml:space="preserve">
+		<value>Mauzo ya bidhaa</value>
+	</data>
+	<data name="L_HFLEVEL" xml:space="preserve">
+		<value>Aina</value>
+	</data>
+	<data name="M_ARESURETOPROCESSBATCH" xml:space="preserve">
+		<value>Unauhakika unataka kushugulikia kundi la madai la chaguo la sasa</value>
+	</data>
+	<data name="T_NONHOSPITAL" xml:space="preserve">
+		<value>Si ya Hospitali</value>
+	</data>
+	<data name="M_INPROGRESS" xml:space="preserve">
+		<value>Inaendelea </value>
+	</data>
+	<data name="M_CLAIMSAVED" xml:space="preserve">
+		<value>Dai limeifadhiwa</value>
+	</data>
+	<data name="M_INVALIDICDCODE" xml:space="preserve">
+		<value>Msimbo wa utambuzi  sio sahihi</value>
+	</data>
+	<data name="M_NODISTRIBUTION" xml:space="preserve">
+		<value>Hakuna mgawanyo ulikataliwa mpaka sasa</value>
+	</data>
+	<data name="L_POLICYRENEWALPROMPTJ" xml:space="preserve">
+		<value>Jarida la Ufanyaji Upya Sera</value>
+	</data>
+	<data name="L_POLICYSTATUSOVERV" xml:space="preserve">
+		<value>Hali ya Sera Kwa Jumla</value>
+	</data>
+	<data name="L_PRINTEDON" xml:space="preserve">
+		<value>Ilichapishwa</value>
+	</data>
+	<data name="L_PRODUCTVALUE" xml:space="preserve">
+		<value>Thamani ya Bidhaa</value>
+	</data>
+	<data name="L_PROMPTDATE" xml:space="preserve">
+		<value>Tarehe ya Kuuliza</value>
+	</data>
+	<data name="L_RENEWALDATE" xml:space="preserve">
+		<value>Tarehe ya Upya</value>
+	</data>
+	<data name="L_RENEWALID" xml:space="preserve">
+		<value>Namba ya Utambulisho ya Ufanywaji Upya</value>
+	</data>
+	<data name="L_SMSSTATUS" xml:space="preserve">
+		<value>Hali ya SMS</value>
+	</data>
+	<data name="L_TOTALVALUE" xml:space="preserve">
+		<value>Jumla ya Thamani</value>
+	</data>
+	<data name="L_ALLOCATED" xml:space="preserve">
+		<value>Zilizotengwa</value>
+	</data>
+	<data name="L_AVAILABLEPREMIUM" xml:space="preserve">
+		<value>Michango ya Bima yaliyopo</value>
+	</data>
+	<data name="L_AVERAGECOSTPERCLAIM" xml:space="preserve">
+		<value>Wastani wa Gharama za kila Dai</value>
+	</data>
+	<data name="L_CLAIMSETTLEMENTRATIO" xml:space="preserve">
+		<value>Uwiano wa Madia Kukubaliwa</value>
+	</data>
+	<data name="L_CLAIMSPERINSUREE" xml:space="preserve">
+		<value>Madia kwa kila Mlipwa Bima</value>
+	</data>
+	<data name="L_COLLECTION" xml:space="preserve">
+		<value>Makusanyo</value>
+	</data>
+	<data name="L_DERIVEDINDICATORSREPORT" xml:space="preserve">
+		<value>Ripoti ya Viashiria Vinavyotokana</value>
+	</data>
+	<data name="L_DIAGNOSIS" xml:space="preserve">
+		<value>Utambuzi</value>
+	</data>
+	<data name="L_EXPIREDPOLICY" xml:space="preserve">
+		<value>Sera Iliyokwisha Mda wake</value>
+	</data>
+	<data name="L_FEEDBACKPROMPTJ" xml:space="preserve">
+		<value>Jarida la Ufanyaji Maoni</value>
+	</data>
+	<data name="L_FEEDBACKRESPONSERATIO" xml:space="preserve">
+		<value>Uwiano wa Mwitikio wa Maoni</value>
+	</data>
+	<data name="L_GROWTHRATIO" xml:space="preserve">
+		<value>Uwiano wa Kukuwa</value>
+	</data>
+	<data name="L_HFWISEPROCESSBATCH" xml:space="preserve">
+		<value>Dai la Ujira</value>
+	</data>
+	<data name="L_INCURREDCLAIMRATIO" xml:space="preserve">
+		<value>Uwiano wa Dai Linalodaiwa</value>
+	</data>
+	<data name="L_NEWINSUREE" xml:space="preserve">
+		<value>Mlipwa Bima Mpya</value>
+	</data>
+	<data name="L_NEWPOLICY" xml:space="preserve">
+		<value>Sera Mpya</value>
+	</data>
+	<data name="L_NOTALLOCATED" xml:space="preserve">
+		<value>Ambazo Hazijatengwa</value>
+	</data>
+	<data name="L_OVERALLTOTAL" xml:space="preserve">
+		<value>Jumla</value>
+	</data>
+	<data name="L_PAYTYPE" xml:space="preserve">
+		<value>Aina ya Kulipa</value>
+	</data>
+	<data name="L_POLICYRENEWAL" xml:space="preserve">
+		<value>Upyaisho wa Sera</value>
+	</data>
+	<data name="L_PREMIUMCOLLECTED" xml:space="preserve">
+		<value>Michango  iliyokusanywa</value>
+	</data>
+	<data name="L_PREMIUMCOLLECTIONREPORT" xml:space="preserve">
+		<value>Ripoti ya Michango iliyokusanywa</value>
+	</data>
+	<data name="L_PRIMARYOPERATIONALINDICATORS" xml:space="preserve">
+		<value>Viashirio vya Msingi wa Uendeshaji</value>
+	</data>
+	<data name="L_PRODUCTWISEPROCESSBATCH" xml:space="preserve">
+		<value>Dai la Ujira</value>
+	</data>
+	<data name="L_PROMPTNESSOFCLMSETTLEMENT" xml:space="preserve">
+		<value>Uwahi wa Kushugulikia Dai</value>
+	</data>
+	<data name="L_REJECTEDCLAIMS" xml:space="preserve">
+		<value>Madai Yaliyokataliwa</value>
+	</data>
+	<data name="L_REMUNERATED" xml:space="preserve">
+		<value>Ujila</value>
+	</data>
+	<data name="L_RENEWALRATIO" xml:space="preserve">
+		<value>Uwiano wa Upyaisho</value>
+	</data>
+	<data name="L_SATISFACTIONLEVEL" xml:space="preserve">
+		<value>Kiwango cha Kuridhika</value>
+	</data>
+	<data name="L_SUSPENDEDPOLICY" xml:space="preserve">
+		<value>Sera Zilizositishwa</value>
+	</data>
+	<data name="L_TOTAL" xml:space="preserve">
+		<value>Jumla</value>
+	</data>
+	<data name="L_TOTALCLAIMS" xml:space="preserve">
+		<value>Jumla ya Madai</value>
+	</data>
+	<data name="L_TOTALSALES" xml:space="preserve">
+		<value>Jumla ya Mauzo</value>
+	</data>
+	<data name="M_INVALIDDATE" xml:space="preserve">
+		<value>Tarehe sio sahihi</value>
+	</data>
+	<data name="M_CLMSTATUSALREADYCHANGEDBYUSER" xml:space="preserve">
+		<value>Hali ya dai imeishabadilishwa na mtumiaji mwingine</value>
+	</data>
+	<data name="L_GOBACKTOSELECTOR" xml:space="preserve">
+		<value>Rudi nyuma kwenya kuchagua</value>
+	</data>
+	<data name="L_CONVERSIONCLICKTOLOAD" xml:space="preserve">
+		<value>Bonyeza kitufe kunyesha</value>
+	</data>
+	<data name="B_DOWNLOAD" xml:space="preserve">
+		<value>Pakua</value>
+	</data>
+	<data name="B_EXECUTE" xml:space="preserve">
+		<value>TEKELEZA</value>
+	</data>
+	<data name="L_BACKENDVERSION" xml:space="preserve">
+		<value>Toleo la Nyuma:</value>
+	</data>
+	<data name="L_FULLEXTRACT" xml:space="preserve">
+		<value>Dondoo Kamili</value>
+	</data>
+	<data name="L_SAVEPATH" xml:space="preserve">
+		<value>Hifadhi Njia</value>
+	</data>
+	<data name="M_ENTERBACKUPPATH" xml:space="preserve">
+		<value>Ingiza njia ya chelezo</value>
+	</data>
+	<data name="M_ENTERRESTOREPATH" xml:space="preserve">
+		<value>Ingiza njia ya kuirejesha</value>
+	</data>
+	<data name="M_PLEASESELECTTHEFILE" xml:space="preserve">
+		<value>Tafadhali chagua faili</value>
+	</data>
+	<data name="M_SELECTONLYISFFILE" xml:space="preserve">
+		<value>Chagua faili lenye kuishia na .isf pekee</value>
+	</data>
+	<data name="T_ACTIVE" xml:space="preserve">
+		<value>Hai</value>
+	</data>
+	<data name="T_EXPIRED" xml:space="preserve">
+		<value>Kwisha mda wake</value>
+	</data>
+	<data name="T_FAILED" xml:space="preserve">
+		<value>Imeshindwa</value>
+	</data>
+	<data name="T_RECEIVED" xml:space="preserve">
+		<value>Imepokelewa</value>
+	</data>
+	<data name="T_SUSPENDED" xml:space="preserve">
+		<value>Imesitishwa</value>
+	</data>
+	<data name="B_BROWSE" xml:space="preserve">
+		<value>Vinjari</value>
+	</data>
+	<data name="L_POLICIESFOUND" xml:space="preserve">
+		<value>Sera Zilizopatikana</value>
+	</data>
+	<data name="L_POLICYHOLDER_" xml:space="preserve">
+		<value>Mmiliki wa Sera</value>
+	</data>
+	<data name="L_SUBSTITUTION" xml:space="preserve">
+		<value>Mbadala</value>
+	</data>
+	<data name="M_NODATAFORREPORT" xml:space="preserve">
+		<value>Hakuna data za Ripoti</value>
+	</data>
+	<data name="L_ANDYEAR" xml:space="preserve">
+		<value>Na Mwaka</value>
+	</data>
+	<data name="L_RUNID" xml:space="preserve">
+		<value>Run ID</value>
+	</data>
+	<data name="T_BANK" xml:space="preserve">
+		<value>Benki</value>
+	</data>
+	<data name="T_MOBILE" xml:space="preserve">
+		<value>Simu</value>
+	</data>
+	<data name="M_PLEASESELECTADISTRICT" xml:space="preserve">
+		<value>Tafadhali chagua wilaya</value>
+	</data>
+	<data name="L_OFFICER" xml:space="preserve">
+		<value>Afisa Mwandikishaji</value>
+	</data>
+	<data name="L_ON" xml:space="preserve">
+		<value>Kwenye</value>
+	</data>
+	<data name="M_AJAXERROR" xml:space="preserve">
+		<value>Tatizo lisilotegemewa limetokea, Tafadhali jaribu tena baada ya muda kidogo.</value>
+	</data>
+	<data name="T_EXPIRY" xml:space="preserve">
+		<value>Kumalizika</value>
+	</data>
+	<data name="T_PROMPT" xml:space="preserve">
+		<value>Itisha</value>
+	</data>
+	<data name="M_SELECTFRMDATE" xml:space="preserve">
+		<value>Tafadhali chagua tarehe ya kutokea</value>
+	</data>
+	<data name="M_SELECTTODATE" xml:space="preserve">
+		<value>Tafadhali chagua tarehe ya kikomo</value>
+	</data>
+	<data name="M_TODATEGREATER" xml:space="preserve">
+		<value>Tarehe ya kikomo lazima iwe zaidi ya tarehe ya kutokea</value>
+	</data>
+	<data name="M_DATEFORMAT" xml:space="preserve">
+		<value>Tarehe lazima iwe kwenye fomati hii dd/MM/yyyy</value>
+	</data>
+	<data name="L_POVERTY_" xml:space="preserve">
+		<value>Umasikini</value>
+	</data>
+	<data name="M_AREYOUSUREUPLOADICDLIST" xml:space="preserve">
+		<value>Unauhakika unataka kupakia ICD risti mpya?</value>
+	</data>
+	<data name="M_ICDUPLOADED" xml:space="preserve">
+		<value>List mpya ya utambuzi imefanikiwa kupakiwa  </value>
+	</data>
+	<data name="M_SELECTONLYTXTFILE" xml:space="preserve">
+		<value>Chagua faili linaloishia na .txt peke</value>
+	</data>
+	<data name="L_DistrictName" xml:space="preserve">
+		<value>Jina la wilaya</value>
+	</data>
+	<data name="L_VillageName" xml:space="preserve">
+		<value>Jina la Kijiji</value>
+	</data>
+	<data name="L_WardName" xml:space="preserve">
+		<value>Jina la kata</value>
+	</data>
+	<data name="M_DELETEDISTRICTPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta Wilaya ?</value>
+	</data>
+	<data name="M_DELETEVILLAGEPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta Kijiji?</value>
+	</data>
+	<data name="M_DELETEWARDPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta Kata?</value>
+	</data>
+	<data name="M_EMPTYLOCATIONNAME" xml:space="preserve">
+		<value>Jina la eneo linahitajika</value>
+	</data>
+	<data name="L_PHOTOASSIGNED" xml:space="preserve">
+		<value>Ana Picha</value>
+	</data>
+	<data name="T_ALL" xml:space="preserve">
+		<value>Wote</value>
+	</data>
+	<data name="G_CLAIMADMINISTRATOR" xml:space="preserve">
+		<value>Maelezo ya Msimamizi wa Madai</value>
+	</data>
+	<data name="L_CLAIMADMINISTRATOR" xml:space="preserve">
+		<value>Msimamizi wa Madai</value>
+	</data>
+	<data name="L_CLAIMADMINISTRATORS" xml:space="preserve">
+		<value>Wasimamizi wa Madai</value>
+	</data>
+	<data name="L_FOUNDCLAIMADMINISTRATORS" xml:space="preserve">
+		<value>Wasimamizi wa Madai Waliopatikana</value>
+	</data>
+	<data name="L_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
+		<value>Viashiria vya Utendaji - madai</value>
+	</data>
+	<data name="L_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
+		<value>Viashiria vya Utendaji - sera</value>
+	</data>
+	<data name="T_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
+		<value>Viashiria vya Utendaji - madai</value>
+	</data>
+	<data name="T_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
+		<value>Viashiria vya Utendaji - sera</value>
+	</data>
+	<data name="T_USERACTIVITYREPORT" xml:space="preserve">
+		<value>Ripoti ya Shughuli za Watumiaji</value>
+	</data>
+	<data name="L_CLAIMADMIN" xml:space="preserve">
+		<value>Msimamizi wa Madai</value>
+	</data>
+	<data name="L_ACTIONTIME" xml:space="preserve">
+		<value>Mda wa Tukio</value>
+	</data>
+	<data name="L_ACTIONTYPE" xml:space="preserve">
+		<value>Aina ya Tukio</value>
+	</data>
+	<data name="L_RECORDIDENTITY" xml:space="preserve">
+		<value>Utambulisho wa Nyaraka</value>
+	</data>
+	<data name="L_RECORDTYPE" xml:space="preserve">
+		<value>Aina ya Nyaraka</value>
+	</data>
+	<data name="T_ENROLMENTPERFORMANCEINDICATORS" xml:space="preserve">
+		<value>Vionyeshi Mwenendo wa Usahili</value>
+	</data>
+	<data name="T_STATUSOFREGISTERS" xml:space="preserve">
+		<value>Hali ya Usahili</value>
+	</data>
+	<data name="T_USERNAME" xml:space="preserve">
+		<value>Jina la Mtumiaji</value>
+	</data>
+	<data name="L_NOOFENROLMENTOFFICERS" xml:space="preserve">
+		<value>Idadi ya Maafisa wa Uandikishaji</value>
+	</data>
+	<data name="L_NOOFHEALTHFACILITIES" xml:space="preserve">
+		<value>Idadi ya Vituo vya Afya</value>
+	</data>
+	<data name="L_NOOFINSURANCEPRODUCTS" xml:space="preserve">
+		<value>Idadi ya Bidhaa zenye Bima</value>
+	</data>
+	<data name="L_NOOFITEMPRICELIST" xml:space="preserve">
+		<value>Idadi ya Orodha ya Bei Bidhaa za Kidawa</value>
+	</data>
+	<data name="L_NOOFMEDICALITEMS" xml:space="preserve">
+		<value>Idadi ya Bidhaa za Kidawa</value>
+	</data>
+	<data name="L_NOOFPAYERS" xml:space="preserve">
+		<value>Idadi ya Walipaji</value>
+	</data>
+	<data name="L_NOOFSERVICEPRICELIST" xml:space="preserve">
+		<value>Idadi ya Orodha ya Bei Huduma za Kidawa</value>
+	</data>
+	<data name="L_NOOFSERVICES" xml:space="preserve">
+		<value>Idadi ya Huduma</value>
+	</data>
+	<data name="L_NOOFUSERS" xml:space="preserve">
+		<value>Idadi ya Watumiaji</value>
+	</data>
+	<data name="L_TOTALFOR" xml:space="preserve">
+		<value>Jumla ya</value>
+	</data>
+	<data name="M_PLEASEFILLINTHEDATE" xml:space="preserve">
+		<value>Tafadhali jaza tarehe</value>
+	</data>
+	<data name="M_PLEASESELECTAUSER" xml:space="preserve">
+		<value>Tafadhali chagua mtumiaji</value>
+	</data>
+	<data name="M_PLEASESELECTAYEAR" xml:space="preserve">
+		<value>Tafadhali chagua mwaka</value>
+	</data>
+	<data name="M_STARTDATESHOULDBELESSTHANENDDATE" xml:space="preserve">
+		<value>Tarehe ya kuanzia inabidi isizidi tarehe ya kuushia</value>
+	</data>
+	<data name="T_SELECTUSERNAME" xml:space="preserve">
+		<value>-Chagua Mtumiaji-</value>
+	</data>
+	<data name="T_SELECTCLAIMADMIN" xml:space="preserve">
+		<value>Chagua Msimamizi wa Madai</value>
+	</data>
+	<data name="L_OFFICERCODE" xml:space="preserve">
+		<value>Msimbo wa Afisa</value>
+	</data>
+	<data name="L_EXTR_OFFLINENROLMENT" xml:space="preserve">
+		<value>Pakua walioandikishwa XMLs</value>
+	</data>
+	<data name="M_NOENROLMENTFOUND" xml:space="preserve">
+		<value>Hakuna usajili npya uliopatikana</value>
+	</data>
+	<data name="L_CANCEL" xml:space="preserve">
+		<value>Sitisha</value>
+	</data>
+	<data name="L_OFFLINE" xml:space="preserve">
+		<value>Nje ya Mtandao Tu</value>
+	</data>
+	<data name="L_EXTR_UPLOADENROLMENT" xml:space="preserve">
+		<value>Pakia walioandikishwa</value>
+	</data>
+	<data name="M_ENROLMENTEXTRACTED" xml:space="preserve">
+		<value>Dondoo za walioandikishwa :</value>
+	</data>
+	<data name="M_ENROLMENTUPLOADED" xml:space="preserve">
+		<value>Walioadikishwa Wamepakiwa :</value>
+	</data>
+	<data name="M_FAMILYEXTRACTED" xml:space="preserve">
+		<value>Dondoo za familia/Kundi </value>
+	</data>
+	<data name="M_FAMILYUPLOADED" xml:space="preserve">
+		<value>Familia/kundi zimepakiwa</value>
+	</data>
+	<data name="M_INSUREEEXTRACTED" xml:space="preserve">
+		<value>Dondoo za Mlipwa bima</value>
+	</data>
+	<data name="M_INSUREEUPLOADED" xml:space="preserve">
+		<value>Mlipwa bima ameingizwa</value>
+	</data>
+	<data name="M_POLICYEXTRACTED" xml:space="preserve">
+		<value>Dondoo za sera</value>
+	</data>
+	<data name="M_POLICYUPLOADED" xml:space="preserve">
+		<value>Sera imepakiwa</value>
+	</data>
+	<data name="M_PREMIUMEXTRACTED" xml:space="preserve">
+		<value>Dondoo za michango</value>
+	</data>
+	<data name="M_PREMIUMUPLOADED" xml:space="preserve">
+		<value>Michango imepakiwa</value>
+	</data>
+	<data name="L_DOWNLOADCLICK" xml:space="preserve">
+		<value>Bonyeza hapa kupakua</value>
+	</data>
+	<data name="L_DOWNLOADEXRACTSINFO" xml:space="preserve">
+		<value>Bonyeza kiungo kupakua dondoo</value>
+	</data>
+	<data name="M_NOENROLMENTSFOUND" xml:space="preserve">
+		<value>Hakuna Walioandikishwa</value>
+	</data>
+	<data name="L_SENT" xml:space="preserve">
+		<value>Imetumwa</value>
+	</data>
+	<data name="L_UPLOADED" xml:space="preserve">
+		<value>Imepakiwa</value>
+	</data>
+	<data name="M_ENROLLOG" xml:space="preserve">
+		<value>Upakiaji umesitishwa kwa rekodi zifuatazo</value>
+	</data>
+	<data name="M_UPLOADENROLALERT" xml:space="preserve">
+		<value>Hili zoezi litabadilisha taarifa za dondoo zote zilizokuwepo na kuweka dondoo mpya, Tafadhali hakikisha ume ingiza dondoo zilizo nje ya mtandao kwenye mtandao. &lt;/BR&gt; Je unahitaji Kuendelea?</value>
+	</data>
+	<data name="M_OFFLINECHFID" xml:space="preserve">
+		<value>Tafadhali ingiza namba ya utambulisho</value>
+	</data>
+	<data name="M_CREATEOFFLINEEXTRACTPROMPT" xml:space="preserve">
+		<value>&lt;/BR&gt;&lt;/BR&gt;Hujachagua wilaya yoyote.&lt;/BR&gt;&lt;/BR&gt;Je unauhakika unataka kutengeneza dondoo kwa Bidhaa ya Taifa?&lt;/BR&gt;&lt;/BR&gt;Bonyeza Ndio kuendelea au Hapana kurudi nyuma na kuchagua wilaya</value>
+	</data>
+	<data name="M_VALIDATEADDBUTTONCLAIMADMIN" xml:space="preserve">
+		<value>Tafadhali chagua Msimamizi wa dai kwanza</value>
+	</data>
+	<data name="M_VALIDATEADDBUTTONDISTRICT" xml:space="preserve">
+		<value>Tafadhali chagua Wilaya kwanza</value>
+	</data>
+	<data name="M_VALIDATEADDBUTTONHFCode" xml:space="preserve">
+		<value>Tafadhali chagua msimbo wa Kituo cha Afya kwanza</value>
+	</data>
+	<data name="M_POLICYNOTDELETED" xml:space="preserve">
+		<value>Sera halijafutwa</value>
+	</data>
+	<data name="NOVILLAGESPECIFIED" xml:space="preserve">
+		<value>Kijiji hakijawekwa</value>
+	</data>
+	<data name="M_NOWARDSPECIFIED" xml:space="preserve">
+		<value>kata haijawekwa</value>
+	</data>
+	<data name="M_SELECTMONTH" xml:space="preserve">
+		<value>Tafadhali chagua mwezi</value>
+	</data>
+	<data name="L_ISHEAD" xml:space="preserve">
+		<value>Mkuu wa  familia/kundi</value>
+	</data>
+	<data name="L_OFFICERLASTNAME" xml:space="preserve">
+		<value>Jina la mwisho la Afisa</value>
+	</data>
+	<data name="L_OFFICEROTHERNAMES" xml:space="preserve">
+		<value>Majina Mengine ya Afisa</value>
+	</data>
+	<data name="T_INSUREESWITHOUTPHOTOS" xml:space="preserve">
+		<value>Walipa Bima wasio na picha</value>
+	</data>
+	<data name="L_EDUCATION" xml:space="preserve">
+		<value>Elimu</value>
+	</data>
+	<data name="L_PROFESSION" xml:space="preserve">
+		<value>Taaluma</value>
+	</data>
+	<data name="L_RELATION" xml:space="preserve">
+		<value>Mahusiano</value>
+	</data>
+	<data name="M_SELECTEDUCATION" xml:space="preserve">
+		<value>--Chagua Elimu--</value>
+	</data>
+	<data name="M_SELECTPROFESSION" xml:space="preserve">
+		<value>--Chagua taaluma--</value>
+	</data>
+	<data name="M_SELECTRELATION" xml:space="preserve">
+		<value>--Chagua mahusiano--</value>
+	</data>
+	<data name="L_CATEGORY" xml:space="preserve">
+		<value>Aina</value>
+	</data>
+	<data name="L_SELECTCATEGORY" xml:space="preserve">
+		<value>--Chagua Kiwango--</value>
+	</data>
+	<data name="L_PAYCATEGORY" xml:space="preserve">
+		<value>Aina ya malipo</value>
+	</data>
+	<data name="L_GUARANTEE" xml:space="preserve">
+		<value>Namba ya uhakiki</value>
+	</data>
+	<data name="L_STARTCYCLE1" xml:space="preserve">
+		<value>Mwazo wa zunguko 1</value>
+	</data>
+	<data name="L_STARTCYCLE2" xml:space="preserve">
+		<value>Mwazo wa zunguko 2</value>
+	</data>
+	<data name="L_CONSULTATIONS" xml:space="preserve">
+		<value>Ushauri</value>
+	</data>
+	<data name="L_DELIVERIES" xml:space="preserve">
+		<value>Kijifungua</value>
+	</data>
+	<data name="L_GENERALASSEMBLYFEE" xml:space="preserve">
+		<value>Ada ya Mkutano</value>
+	</data>
+	<data name="L_GENERALASSEMBLYLUMPSUM" xml:space="preserve">
+		<value>Ada kwa Ujumla</value>
+	</data>
+	<data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
+		<value>Grace Period Renewal</value>
+	</data>
+	<data name="L_HOSPITALIZATIONS" xml:space="preserve">
+		<value>Kulazwa</value>
+	</data>
+	<data name="L_NUMBER" xml:space="preserve">
+		<value>Namba</value>
+	</data>
+	<data name="L_REGISTRATIONFEE" xml:space="preserve">
+		<value>Ada ya usajili</value>
+	</data>
+	<data name="L_REGISTRATIONLUMPSUM" xml:space="preserve">
+		<value>Malipo ya mkupuo</value>
+	</data>
+	<data name="L_SURGERIES" xml:space="preserve">
+		<value>Upasuaji</value>
+	</data>
+	<data name="L_VISITS" xml:space="preserve">
+		<value>Kutembelea</value>
+	</data>
+	<data name="M_PROVIDECYCLEPROMPT" xml:space="preserve">
+		<value>Tafadhali weka angalau mzunguko mmoja.</value>
+	</data>
+	<data name="T_DAY" xml:space="preserve">
+		<value>Siku</value>
+	</data>
+	<data name="T_MONTHS" xml:space="preserve">
+		<value>Mwezi</value>
+	</data>
+	<data name="L_ENFORCE" xml:space="preserve">
+		<value>Lazimisha</value>
+	</data>
+	<data name="L_SUSPEND" xml:space="preserve">
+		<value>Sitisha</value>
+	</data>
+	<data name="L_WAIT" xml:space="preserve">
+		<value>Subiri</value>
+	</data>
+	<data name="L_INACTIVEADHERENTS" xml:space="preserve">
+		<value>Bima isiyotumika</value>
+	</data>
+	<data name="L_MAXINSTALLMENTS" xml:space="preserve">
+		<value>Awamu ya juu ya malipo</value>
+	</data>
+	<data name="L_WAITINGPERIOD" xml:space="preserve">
+		<value>Muda unaruhusiwa kufanya malipo</value>
+	</data>
+	<data name="M_INVALIDCYCLE1DATE" xml:space="preserve">
+		<value>Tarehe ya Mzunguko wa kwanza sio sahihi</value>
+	</data>
+	<data name="M_INVALIDCYCLE2DATE" xml:space="preserve">
+		<value>Tarehe ya mzunguko wa pili sio sahihi</value>
+	</data>
+	<data name="M_LATEPAYMENT" xml:space="preserve">
+		<value>Malipo yapo nje ya muda wa  kutumimia sera</value>
+	</data>
+	<data name="M_MAXINSTALLMENTEXCEED" xml:space="preserve">
+		<value>Malipo kwa awamu yamezid amamu zinazo hitajika</value>
+	</data>
+	<data name="M_PLEASESELECTACTION" xml:space="preserve">
+		<value>Tafadhali changua zoez la kufanya</value>
+	</data>
+	<data name="M_RENEWPOLICY" xml:space="preserve">
+		<value>Unataka kufanya upyaisho wa sera iliochaguliwa ?</value>
+	</data>
+	<data name="T_NEWPOLICY" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="T_RENEWAL" xml:space="preserve">
+		<value>Upyasho</value>
+	</data>
+	<data name="T_NOTSPECIFIED" xml:space="preserve">
+		<value>Si maalam</value>
+	</data>
+	<data name="T_DELIVERY" xml:space="preserve">
+		<value>Kujifungua</value>
+	</data>
+	<data name="T_SURGERY" xml:space="preserve">
+		<value>Upasuaji</value>
+	</data>
+	<data name="L_SUBLEVEL" xml:space="preserve">
+		<value>Kiwango kidogo</value>
+	</data>
+	<data name="T_INTEGRATED" xml:space="preserve">
+		<value>Jumuishi</value>
+	</data>
+	<data name="T_NOSUBLEVEL" xml:space="preserve">
+		<value>Hakuna Kiwango cha chini</value>
+	</data>
+	<data name="T_PRIVATE" xml:space="preserve">
+		<value>Binafsi</value>
+	</data>
+	<data name="T_PROTESTANT" xml:space="preserve">
+		<value>Protestant</value>
+	</data>
+	<data name="T_REFERENCE" xml:space="preserve">
+		<value>Kumbukumbu</value>
+	</data>
+	<data name="T_SELECTSUBLEVEL" xml:space="preserve">
+		<value>--Chagua Kiwango cha chini--</value>
+	</data>
+	<data name="L_LIMITNOADULT" xml:space="preserve">
+		<value>Idadi ya Wakubwa</value>
+	</data>
+	<data name="L_LIMITNOCHILD" xml:space="preserve">
+		<value>Idadi ya Watoto</value>
+	</data>
+	<data name="L_WAITINGPERIODADULT" xml:space="preserve">
+		<value>Wakubwa wanasubiri</value>
+	</data>
+	<data name="L_WAITINGPERIODCHILD" xml:space="preserve">
+		<value>Watoto wanasubiri</value>
+	</data>
+	<data name="M_EXPIRYPOLICYNOPAY" xml:space="preserve">
+		<value>Malipo kwa sera ilioisha mda wake hairuhusiwi</value>
+	</data>
+	<data name="M_NOADVSEARCHPRODUCTDETAILS" xml:space="preserve">
+		<value>Hakuna taarifa ya bidhaa kwa huyu mlipwa bima</value>
+	</data>
+	<data name="M_NOPOLICYENROLLEDFORADHERENT" xml:space="preserve">
+		<value>Hakuna sera iliyo andikishwa kwa mlipwa bima</value>
+	</data>
+	<data name="L_ITEM" xml:space="preserve">
+		<value>Bidhaa</value>
+	</data>
+	<data name="L_LEFT" xml:space="preserve">
+		<value>Zilizobaki</value>
+	</data>
+	<data name="L_MINDATE" xml:space="preserve">
+		<value>Tarehe ya mwanzo</value>
+	</data>
+	<data name="L_SERVICE" xml:space="preserve">
+		<value>Huduma</value>
+	</data>
+	<data name="L_CONSULTATIONAMOUNTLEFT" xml:space="preserve">
+		<value>Kias/Madai kwa Ushauri</value>
+	</data>
+	<data name="L_DELIVERYAMOUNTLEFT" xml:space="preserve">
+		<value>Kias/Madai kwa Kujifyungua</value>
+	</data>
+	<data name="L_HOSPITALIZATIONAMOUNTLEFT" xml:space="preserve">
+		<value>Kiasi/Madai kwa kulazwa</value>
+	</data>
+	<data name="L_PRODUCTID" xml:space="preserve">
+		<value>Utambulisho wa bidhaa</value>
+	</data>
+	<data name="L_SURGERYAMOUNTLEFT" xml:space="preserve">
+		<value>Kias/Madai kwa Upasuaji</value>
+	</data>
+	<data name="L_TOTALADMISSIONSLEFT" xml:space="preserve">
+		<value>Idadi iloyobaki kwa kulazwa</value>
+	</data>
+	<data name="L_TOTALCONSULTATIONSLEFT" xml:space="preserve">
+		<value>Idadi iliobaki kwa ushauri</value>
+	</data>
+	<data name="L_TOTALDELIVERIESLEFT" xml:space="preserve">
+		<value>Idadi iliobaki kwa kujuifungua</value>
+	</data>
+	<data name="L_TOTALSURGERIESLEFT" xml:space="preserve">
+		<value>Idadi ya upasuaji iliobaki</value>
+	</data>
+	<data name="L_TOTALVISITSLEFT" xml:space="preserve">
+		<value>Idad ya kufika hospitali iliobaki</value>
+	</data>
+	<data name="L_ITEMLEFT" xml:space="preserve">
+		<value>Bidhaa  zilizobaki</value>
+	</data>
+	<data name="L_ITEMMINDATE" xml:space="preserve">
+		<value>Tarehe ya chini ya kuanza kutumia bidhaa</value>
+	</data>
+	<data name="L_SERVICELEFT" xml:space="preserve">
+		<value>Huduma zilizobaki</value>
+	</data>
+	<data name="L_NA" xml:space="preserve">
+		<value>N/A</value>
+	</data>
+	<data name="T_CONTRIBUTION" xml:space="preserve">
+		<value>Michango na Menginiyo</value>
+	</data>
+	<data name="T_PHOTOFEE" xml:space="preserve">
+		<value>Adda ya picha</value>
+	</data>
+	<data name="T_PAYMENTCATEGORYOVERVIEW" xml:space="preserve">
+		<value>Mjumuisho wa Aina ya Malipo</value>
+	</data>
+	<data name="M_DISTRICTSAVED" xml:space="preserve">
+		<value>Wilaya imehifadhiwa bila tatizo</value>
+	</data>
+	<data name="M_VILLAGESAVED" xml:space="preserve">
+		<value>Kijiji kimehifadhiwa</value>
+	</data>
+	<data name="M_WARDSAVED" xml:space="preserve">
+		<value>Kata imehifadhiwa</value>
+	</data>
+	<data name="M_CONTINUEPROMPT" xml:space="preserve">
+		<value>Je unataka kuendelea ?</value>
+	</data>
+	<data name="M_MAXMEMBERCOUNTREACHED" xml:space="preserve">
+		<value>Sera kwa tarehe zifuatazo imezid kikomo cha juu cha wanachama wanaohitajika hivyo basi sera haita mjumuisha mwanachama huyu, Japo mlipwa bina ataongezwa kwenye Familia:</value>
+	</data>
+	<data name="M_LASTINSTALLMENT" xml:space="preserve">
+		<value>Hii ni awamu ya mwisho ya malipo kwa hii bidhaa</value>
+	</data>
+	<data name="M_PROMPTPOLICYADD" xml:space="preserve">
+		<value>Familia au kundi lina idadi kubwa ya walipwa bima kiliko idad inayorhusiwa katika bidhaa.&lt;br/&gt;Je unajitaji kuendelea?</value>
+	</data>
+	<data name="M_LATEPOLICYRENEWAL" xml:space="preserve">
+		<value>Upyaisho wa sera upo nje ya Grace Period. Je unataka kuendelea kufanya upyaisho wa sera?</value>
+	</data>
+	<data name="L_ETHNICITY" xml:space="preserve">
+		<value>Kabila</value>
+	</data>
+	<data name="L_IDTYPE" xml:space="preserve">
+		<value>Aina ya kitambulisho</value>
+	</data>
+	<data name="L_FSP" xml:space="preserve">
+		<value>Kituo cha afya cha karibu</value>
+	</data>
+	<data name="L_FSPCATEGORY" xml:space="preserve">
+		<value>Kiwango cha FSP</value>
+	</data>
+	<data name="L_FSPDISTRICT" xml:space="preserve">
+		<value>Wilaya ya FSP</value>
+	</data>
+	<data name="L_CONFIRMATIONNO" xml:space="preserve">
+		<value>Namba ya Uthibitisho</value>
+	</data>
+	<data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
+		<value>Muda wa Uongozi</value>
+	</data>
+	<data name="L_RENEWALDISCOUNTPERCENTAGE" xml:space="preserve">
+		<value>Punguzo upyaisho % </value>
+	</data>
+	<data name="L_RENEWALDISCOUNTPERIOD" xml:space="preserve">
+		<value>Muda wa punguzo upyaisho</value>
+	</data>
+	<data name="L_STARTCYCLE3" xml:space="preserve">
+		<value>Mwazo wa zunguko 3</value>
+	</data>
+	<data name="L_STARTCYCLE4" xml:space="preserve">
+		<value>Mwazo wa zunguko 4</value>
+	</data>
+	<data name="L_THRESHOLDMEMBERS" xml:space="preserve">
+		<value>Wanachama wanaohitajika</value>
+	</data>
+	<data name="M_RENEWDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
+		<value>Punguzo la  asilimia ya upyaisho lazima liwe mia au chini ya mia</value>
+	</data>
+	<data name="M_THRESHOLDMEMBERSEXCEEDMAXMEMBERS" xml:space="preserve">
+		<value>Idadi ya wanachama inatakiwa kua ndogo kuliko idadi kubwa ya wanachama</value>
+	</data>
+	<data name="L_CEILINGADULT" xml:space="preserve">
+		<value>Kikomo kwa Wakubwa</value>
+	</data>
+	<data name="L_CEILINGCHILD" xml:space="preserve">
+		<value>Kikomo kwa Watoto</value>
+	</data>
+	<data name="L_LIMITADULTE" xml:space="preserve">
+		<value>Mkubwa E</value>
+	</data>
+	<data name="L_LIMITADULTR" xml:space="preserve">
+		<value>Mkubwa R</value>
+	</data>
+	<data name="L_LIMITATIONTYPEE" xml:space="preserve">
+		<value>Kikomo E</value>
+	</data>
+	<data name="L_LIMITATIONTYPER" xml:space="preserve">
+		<value>Kikomo R</value>
+	</data>
+	<data name="L_LIMITCHILDE" xml:space="preserve">
+		<value>Mtoto E</value>
+	</data>
+	<data name="L_LIMITCHILDR" xml:space="preserve">
+		<value>Mtoto R</value>
+	</data>
+	<data name="M_LIMITATIONE" xml:space="preserve">
+		<value>F kwa isiyobadilika C kwa bima mbadala(Kuzuka)</value>
+	</data>
+	<data name="M_LIMITATIONR" xml:space="preserve">
+		<value>F kwa isiyobadilika C kwa bima mbadala(Rejeo)</value>
+	</data>
+	<data name="M_CEILING" xml:space="preserve">
+		<value>H Ondoa Hospital N Ondoa isiyo hospital B Ondoa zote</value>
+	</data>
+	<data name="T_MATCHINGFUNDS" xml:space="preserve">
+		<value>Mlinganyo wa Fedha</value>
+	</data>
+	<data name="L_PREVIOUS" xml:space="preserve">
+		<value>Kabla</value>
+	</data>
+	<data name="M_PLEASESELECTAPRODUCT" xml:space="preserve">
+		<value>Tafadhali chagua bidhaa</value>
+	</data>
+	<data name="M_REPORTINGDATECHANGED" xml:space="preserve">
+		<value>Kutengeneza repoti ya mda uliopita itasababisha  kujirudia kwa taarifa, &lt;br/&gt; Je wataka kuendelea.</value>
+	</data>
+	<data name="L_ICD1" xml:space="preserve">
+		<value>Utambuzi Mkuu 1</value>
+	</data>
+	<data name="L_ICD2" xml:space="preserve">
+		<value>Utambuzi Mkuu 2</value>
+	</data>
+	<data name="L_ICD3" xml:space="preserve">
+		<value>Utambuzi Mkuu 3</value>
+	</data>
+	<data name="L_ICD4" xml:space="preserve">
+		<value>Utambuzi Mkuu 4</value>
+	</data>
+	<data name="L_VISITTYPE" xml:space="preserve">
+		<value>Aina za Kutembelea</value>
+	</data>
+	<data name="L_HFACILITY" xml:space="preserve">
+		<value>Kituo cha Afya</value>
+	</data>
+	<data name="R_ADJUSTEDAMOUNT" xml:space="preserve">
+		<value>Kiasi.Mwisho</value>
+	</data>
+	<data name="R_ADJUSTEDITEMS" xml:space="preserve">
+		<value>Kiasi.Kubaliwa</value>
+	</data>
+	<data name="R_ADJUSTEDSERVICES" xml:space="preserve">
+		<value>Kiasi.Kubaliwa</value>
+	</data>
+	<data name="R_CHFID" xml:space="preserve">
+		<value>Bima Namba</value>
+	</data>
+	<data name="R_CLAIMADMINNAME" xml:space="preserve">
+		<value>Msimamizi Dai</value>
+	</data>
+	<data name="R_CLAIMCODE" xml:space="preserve">
+		<value>Msimbo</value>
+	</data>
+	<data name="R_CLAIMDATE" xml:space="preserve">
+		<value>Tarehe</value>
+	</data>
+	<data name="R_CLAIMREJECTIONREASONCODE" xml:space="preserve">
+		<value>Sababu Kataliwa</value>
+	</data>
+	<data name="R_CLAIMSTATUS" xml:space="preserve">
+		<value>Hali</value>
+	</data>
+	<data name="R_CLAIMTOTALFINAL" xml:space="preserve">
+		<value>Kiasi Kilichokubaliwa</value>
+	</data>
+	<data name="R_CLAIMTOTALINITIAL" xml:space="preserve">
+		<value>Kiasi kilichodaiwa</value>
+	</data>
+	<data name="R_INSUREENAME" xml:space="preserve">
+		<value>Mlipwa Bima</value>
+	</data>
+	<data name="R_ITEMCODE" xml:space="preserve">
+		<value>Msimbo Bidhaa</value>
+	</data>
+	<data name="R_ITEMREJECTIONREASONCODE" xml:space="preserve">
+		<value>Sababu Kataliwa</value>
+	</data>
+	<data name="R_ORIGINALITEMS" xml:space="preserve">
+		<value>Idadi Mwanzo</value>
+	</data>
+	<data name="R_ORIGINALSERVICES" xml:space="preserve">
+		<value>Idadi Mwanzo</value>
+	</data>
+	<data name="R_REJECTEDITEMCODE" xml:space="preserve">
+		<value>Bidhaa.Kataliwa</value>
+	</data>
+	<data name="R_REJECTEDSERVICECODE" xml:space="preserve">
+		<value>Huduma.Kataliwa</value>
+	</data>
+	<data name="R_SERVICECODE" xml:space="preserve">
+		<value>Msimbo Huduma</value>
+	</data>
+	<data name="R_SERVICEREJECTIONREASONCODE" xml:space="preserve">
+		<value>Sababu Kataliwa</value>
+	</data>
+	<data name="R_TOTALADJUSTEDAMOUNT" xml:space="preserve">
+		<value>Jumla Kiasi Mwisho</value>
+	</data>
+	<data name="R_TOTALCLAIMED" xml:space="preserve">
+		<value>Jumla</value>
+	</data>
+	<data name="R_TOTALCLAIMS" xml:space="preserve">
+		<value>Jumla Madai</value>
+	</data>
+	<data name="R_VISITFROM" xml:space="preserve">
+		<value>Tembelea Kutoka</value>
+	</data>
+	<data name="R_VISITTO" xml:space="preserve">
+		<value>Tembelea Mpaka</value>
+	</data>
+	<data name="T_CLAIMOVERVIEW" xml:space="preserve">
+		<value>Uangalizi wa madai</value>
+	</data>
+	<data name="M_PLEASESELECTHEALTHFACILITY" xml:space="preserve">
+		<value>Tafadhali chagua kituo cha afya</value>
+	</data>
+	<data name="L_EXTRAMEMBERCEILING" xml:space="preserve">
+		<value>Kikomo mwanachama wa ziada</value>
+	</data>
+	<data name="L_MAXIMUMCEILING" xml:space="preserve">
+		<value>Kikomo Kikubwa</value>
+	</data>
+	<data name="M_POLICYCEILINGEXCEEDMAXCEILING" xml:space="preserve">
+		<value>Kikomo cha sera lazima kiwe kidogo kuliko kikomo cha mwisho</value>
+	</data>
+	<data name="M_POLICYIPCEILINGEXCEEDMAXIPCEILING" xml:space="preserve">
+		<value>Kikomo cha sera lazima kiwe kidogo kuliko kikomo cha kikomo kikubwa kwa wagonjwa wanaolazwa</value>
+	</data>
+	<data name="M_POLICYOPCEILINGEXCEEDMAXOPCEILING" xml:space="preserve">
+		<value>Kikomo cha sera lazima kiwe kidogo kuliko kikomo cha kikomo kikubwa kwa wagonjwa wasiolazwa</value>
+	</data>
+	<data name="B_PRINT" xml:space="preserve">
+		<value>Chapa</value>
+	</data>
+	<data name="T_CLAIM" xml:space="preserve">
+		<value>Dai</value>
+	</data>
+	<data name="M_CLAIMUPLOADED" xml:space="preserve">
+		<value>Dai limepakiwa kikamilifu</value>
+	</data>
+	<data name="M_ADULT" xml:space="preserve">
+		<value>Mkubwa</value>
+	</data>
+	<data name="M_CHILD" xml:space="preserve">
+		<value>Mtoto</value>
+	</data>
+	<data name="M_EMERGENCY" xml:space="preserve">
+		<value>Kuibuka</value>
+	</data>
+	<data name="M_FOR" xml:space="preserve">
+		<value>Kwa</value>
+	</data>
+	<data name="M_LIMIT" xml:space="preserve">
+		<value>Kikomo</value>
+	</data>
+	<data name="M_NUMBER" xml:space="preserve">
+		<value>Namba</value>
+	</data>
+	<data name="M_OTHER" xml:space="preserve">
+		<value>Nyingine</value>
+	</data>
+	<data name="M_REFERAL" xml:space="preserve">
+		<value>Marejeo</value>
+	</data>
+	<data name="M_SERVICE" xml:space="preserve">
+		<value>Huduma</value>
+	</data>
+	<data name="M_WAITINGPERIOD" xml:space="preserve">
+		<value>Muda wa kusubiri</value>
+	</data>
+	<data name="T_HEALTHPOST" xml:space="preserve">
+		<value>Kituo cha Afya</value>
+	</data>
+	<data name="T_PRIMARYHEALTHCENTRE" xml:space="preserve">
+		<value>Kituo cha Afya cha mwanzo</value>
+	</data>
+	<data name="T_SUBHEALTPOST" xml:space="preserve">
+		<value>Kituo kidogo cha afya</value>
+	</data>
+	<data name="T_ATONOMOUS" xml:space="preserve">
+		<value>Autonomous</value>
+	</data>
+	<data name="T_COMMUNITY_NGO" xml:space="preserve">
+		<value>Jamii/Shirika binafsi</value>
+	</data>
+	<data name="L_ENROLMENTDISCOUNTPERC" xml:space="preserve">
+		<value>Punguzo la kuandikishwa. %</value>
+	</data>
+	<data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
+		<value>Muda wa Punguzo wa uandikishwaji</value>
+	</data>
+	<data name="M_ENROLDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
+		<value>Asilimia za uandikishaji lazima ziwe chache au sawa na mia moja</value>
+	</data>
+	<data name="L_CDISTRICT" xml:space="preserve">
+		<value>Wilaya ya Sasa</value>
+	</data>
+	<data name="L_CURRENTADDRESS" xml:space="preserve">
+		<value>Anuani ya sasa</value>
+	</data>
+	<data name="L_CVDC" xml:space="preserve">
+		<value>Kata ya sasa</value>
+	</data>
+	<data name="L_CWARD" xml:space="preserve">
+		<value>Kijiji cha sasa</value>
+	</data>
+	<data name="L_FREEITEMPRICE" xml:space="preserve">
+		<value>Bidhaa za bure</value>
+	</data>
+	<data name="L_FREESERVICEPRICE" xml:space="preserve">
+		<value>Huduma za bure</value>
+	</data>
+	<data name="T_PERCENTAGEOFREFERRALS" xml:space="preserve">
+		<value>--Asilimia za Rufaa--</value>
+	</data>
+	<data name="L_REFERRALS" xml:space="preserve">
+		<value>Rufaa</value>
+	</data>
+	<data name="L_REFIP" xml:space="preserve">
+		<value>Rufaa(IP)</value>
+	</data>
+	<data name="L_REFOP" xml:space="preserve">
+		<value>Rufaa(OP)</value>
+	</data>
+	<data name="M_MAXTHRESHOLDCOUNTREACHED" xml:space="preserve">
+		<value>Sera zifuatazo kwa tarehe ilioandikishwa zina wanachama zaid ya wanachama wanahitajika katika sera&lt;br /&gt; Je unataka kumfanya mlipwa bima hai?</value>
+	</data>
+	<data name="T_SUBCATEGORYA" xml:space="preserve">
+		<value>Aina A</value>
+	</data>
+	<data name="T_SUBCATEGORYB" xml:space="preserve">
+		<value>Aina B</value>
+	</data>
+	<data name="T_SUBCATEGORYC" xml:space="preserve">
+		<value>Aina C</value>
+	</data>
+	<data name="T_SUBCATEGORYD" xml:space="preserve">
+		<value>Aina D</value>
+	</data>
+	<data name="L_CONFIRMATIONTYPE" xml:space="preserve">
+		<value>Aina ya Uthibitisho</value>
+	</data>
+	<data name="L_CONFIRMATION" xml:space="preserve">
+		<value>Uthibitisho</value>
+	</data>
+	<data name="M_DUPLICATERECEIPT" xml:space="preserve">
+		<value>Risiti hii ilishatolewa.</value>
+	</data>
+	<data name="T_ANTENATAL" xml:space="preserve">
+		<value>Wajawazito</value>
+	</data>
+	<data name="T_FAMILIESINSUREESOVERVIEW" xml:space="preserve">
+		<value>Familia na walipwa bima Ujumla</value>
+	</data>
+	<data name="T_PENDINGINSUREES" xml:space="preserve">
+		<value>Wanachama wanaosubiri</value>
+	</data>
+	<data name="L_FUNDING" xml:space="preserve">
+		<value>ufadhili</value>
+	</data>
+	<data name="L_PAYMENTDATE" xml:space="preserve">
+		<value>Tarehe ya Malipo</value>
+	</data>
+	<data name="L_LOCATIONADDRESS" xml:space="preserve">
+		<value>Anuani</value>
+	</data>
+	<data name="L_PARTIENTID" xml:space="preserve">
+		<value>Utambulisho Mgonjwa</value>
+	</data>
+	<data name="L_INBACKGROUND" xml:space="preserve">
+		<value>Isio-Onekana</value>
+	</data>
+	<data name="L_WITHINSUREE" xml:space="preserve">
+		<value>Pamoja na mlipwa bima</value>
+	</data>
+	<data name="M_INVALIDBACKPATH" xml:space="preserve">
+		<value>Njia haipo au huna ruksa ya kutumia njia hiyo</value>
+	</data>
+	<data name="M_SELECTIDENTITY" xml:space="preserve">
+		<value>--Chagua aina ya kitambulisho--</value>
+	</data>
+	<data name="M_ERROROCCURED" xml:space="preserve">
+		<value>Tatzo limetokea wakati wa kutekeleza skript</value>
+	</data>
+	<data name="M_ETHNICITY" xml:space="preserve">
+		<value>--Changua kabila---</value>
+	</data>
+	<data name="M_HealthFacility" xml:space="preserve">
+		<value>--Changua kituo cha Afya</value>
+	</data>
+	<data name="M_ITEMNAME" xml:space="preserve">
+		<value>--Chagua bei--</value>
+	</data>
+	<data name="M_NATIONAL" xml:space="preserve">
+		<value>Taifa</value>
+	</data>
+	<data name="M_Q1" xml:space="preserve">
+		<value>Q1</value>
+	</data>
+	<data name="M_Q2" xml:space="preserve">
+		<value>Q2</value>
+	</data>
+	<data name="M_Q3" xml:space="preserve">
+		<value>Q3</value>
+	</data>
+	<data name="M_Q4" xml:space="preserve">
+		<value>Q4</value>
+	</data>
+	<data name="M_SCRIPTEXECUTED" xml:space="preserve">
+		<value>Skript imetekelezeka vizuri.</value>
+	</data>
+	<data name="M_TESTA" xml:space="preserve">
+		<value>JaribioA</value>
+	</data>
+	<data name="M_TESTB" xml:space="preserve">
+		<value>JaribioB</value>
+	</data>
+	<data name="M_TESTC" xml:space="preserve">
+		<value>JaribioC</value>
+	</data>
+	<data name="M_VERSION" xml:space="preserve">
+		<value>Toleo la takwimu zako ni kubwa kuliko skript unayotaka kutekeleza</value>
+	</data>
+	<data name="M_QUARTER1" xml:space="preserve">
+		<value>Robo 1</value>
+	</data>
+	<data name="M_QUARTER2" xml:space="preserve">
+		<value>Robo 2</value>
+	</data>
+	<data name="M_QUARTER3" xml:space="preserve">
+		<value>Robo 3</value>
+	</data>
+	<data name="M_QUARTER4" xml:space="preserve">
+		<value>Robo 4</value>
+	</data>
+	<data name="P_ACCCODE" xml:space="preserve">
+		<value>Msimbo wa Akaunti:</value>
+	</data>
+	<data name="P_COLLECTION" xml:space="preserve">
+		<value>Mikusanyo:</value>
+	</data>
+	<data name="P_TOTALCOLLECTION" xml:space="preserve">
+		<value>Jumla ya mikusanyo kwenye:</value>
+	</data>
+	<data name="P_TOTALIN" xml:space="preserve">
+		<value>Jumla</value>
+	</data>
+	<data name="L_TOTALFAMILY" xml:space="preserve">
+		<value>Jumla ya Familia/Kundi</value>
+	</data>
+	<data name="L_TOTALINSUREE" xml:space="preserve">
+		<value>Jumla ya mlipwa bima</value>
+	</data>
+	<data name="L_ADJUSTED" xml:space="preserve">
+		<value>Kilichokubaliwa</value>
+	</data>
+	<data name="L_PAID" xml:space="preserve">
+		<value>Iliyolipwa</value>
+	</data>
+	<data name="L_ACTION" xml:space="preserve">
+		<value>Tukio</value>
+	</data>
+	<data name="L_ENTITY" xml:space="preserve">
+		<value>Entity</value>
+	</data>
+	<data name="L_ICDCODE" xml:space="preserve">
+		<value>Msimbo wa Utambuzi</value>
+	</data>
+	<data name="R_ALLACTION" xml:space="preserve">
+		<value>Wakala</value>
+	</data>
+	<data name="R_ALLCLAIMS" xml:space="preserve">
+		<value>Madai yote</value>
+	</data>
+	<data name="R_ENROLLMENTOFFICER" xml:space="preserve">
+		<value>Afisa Mwandikishaji</value>
+	</data>
+	<data name="R_EXTRACT" xml:space="preserve">
+		<value>Dondoo</value>
+	</data>
+	<data name="R_FAMILY" xml:space="preserve">
+		<value>Familia</value>
+	</data>
+	<data name="R_INSERT" xml:space="preserve">
+		<value>Ingiza</value>
+	</data>
+	<data name="R_INSURANCEPRODUCT" xml:space="preserve">
+		<value>Bima ya Bidhaa</value>
+	</data>
+	<data name="R_LOGIN" xml:space="preserve">
+		<value>Ingia</value>
+	</data>
+	<data name="R_MEDICALITEM" xml:space="preserve">
+		<value>Bidhaa za kiafya</value>
+	</data>
+	<data name="R_MODIFY" xml:space="preserve">
+		<value>Rekebisha</value>
+	</data>
+	<data name="R_PRICELISTITEM" xml:space="preserve">
+		<value>Orodha ya bei za bidhaa</value>
+	</data>
+	<data name="R_PRICELISTSERVICE" xml:space="preserve">
+		<value>Orodha ya bei za huduma</value>
+	</data>
+	<data name="R_SELECTENTITY" xml:space="preserve">
+		<value>--All entities--</value>
+	</data>
+	<data name="R_USER" xml:space="preserve">
+		<value>Mtumiaji</value>
+	</data>
+	<data name="L_EMAILSETTING" xml:space="preserve">
+		<value>Mpangilio wa Barua pepe</value>
+	</data>
+	<data name="L_ENABLESSL" xml:space="preserve">
+		<value>Wezesha SSL</value>
+	</data>
+	<data name="L_PORT" xml:space="preserve">
+		<value>Port</value>
+	</data>
+	<data name="L_SMTPHOST" xml:space="preserve">
+		<value>SMTP Host</value>
+	</data>
+	<data name="L_COMMUNICATE" xml:space="preserve">
+		<value>Wasiliana</value>
+	</data>
+	<data name="L_PATIENTNAME" xml:space="preserve">
+		<value>Jina la Mgonjwa</value>
+	</data>
+	<data name="L_CONTRIBUTIONCATEGORY" xml:space="preserve">
+		<value>Aina ya michango</value>
+	</data>
+	<data name="L_PARMANENTADDRESS" xml:space="preserve">
+		<value>Anuani ya kudumu</value>
+	</data>
+	<data name="L_PARTIENTNAME" xml:space="preserve">
+		<value>Jina la mgonjwa</value>
+	</data>
+	<data name="L_CEILINGINTERPRETATION" xml:space="preserve">
+		<value>Tafsiri ya Kiwango</value>
+	</data>
+	<data name="M_SELECTCEILINGINT" xml:space="preserve">
+		<value>--Changua--</value>
+	</data>
+	<data name="L_MONTHLY" xml:space="preserve">
+		<value>Kwa Mwezi</value>
+	</data>
+	<data name="L_NONE" xml:space="preserve">
+		<value>Hakuna</value>
+	</data>
+	<data name="L_QUARTERLY" xml:space="preserve">
+		<value>Robo</value>
+	</data>
+	<data name="L_YEARLY" xml:space="preserve">
+		<value>Kwa mwaka</value>
+	</data>
+	<data name="M_ACCOUNTANT" xml:space="preserve">
+		<value>Mhasibu</value>
+	</data>
+	<data name="M_CLAIMCONTRIBUTOR" xml:space="preserve">
+		<value>Mchangia Madai</value>
+	</data>
+	<data name="M_CLERK" xml:space="preserve">
+		<value>Karani</value>
+	</data>
+	<data name="M_HFADMINISTRATOR" xml:space="preserve">
+		<value>Msimamzi wa Kituo cha Afya</value>
+	</data>
+	<data name="M_IMISADMINISTRATOR" xml:space="preserve">
+		<value>Msimazi wa IMIS</value>
+	</data>
+	<data name="M_MANAGER" xml:space="preserve">
+		<value>Meneja</value>
+	</data>
+	<data name="M_MEDICALOFFICER" xml:space="preserve">
+		<value>Afisa wa Kiafya</value>
+	</data>
+	<data name="M_OFFLINESCHEMEADMIN" xml:space="preserve">
+		<value>Msimamiz wa mipango nje ya mtandao</value>
+	</data>
+	<data name="M_RECEPTIONIST" xml:space="preserve">
+		<value>Mpokea wagen</value>
+	</data>
+	<data name="M_SCHEMEADMINISTRATOR" xml:space="preserve">
+		<value>Msimamiz wa mipango</value>
+	</data>
+	<data name="L_SHOWCLAIM" xml:space="preserve">
+		<value>Onyesha Madai</value>
+	</data>
+	<data name="M_SENDSMS" xml:space="preserve">
+		<value>Tuma Meseji</value>
+	</data>
+	<data name="L_SECONDARYDG1" xml:space="preserve">
+		<value>Sec Dg1</value>
+	</data>
+	<data name="L_SECONDARYDG2" xml:space="preserve">
+		<value>Sec Dg2</value>
+	</data>
+	<data name="L_SECONDARYDG3" xml:space="preserve">
+		<value>Sec Dg3</value>
+	</data>
+	<data name="L_SECONDARYDG4" xml:space="preserve">
+		<value>Sec Dg4</value>
+	</data>
+	<data name="R_LEVEL" xml:space="preserve">
+		<value>Kiwango</value>
+	</data>
+	<data name="L_FINDPAYER" xml:space="preserve">
+		<value>Tafuta walipaji</value>
+	</data>
+	<data name="L_FINDCLAIMADMINISTRATORS" xml:space="preserve">
+		<value>Tafuta wasimamiz wa madai</value>
+	</data>
+	<data name="L_FINDINSUREE" xml:space="preserve">
+		<value>Tafuta mlipwa bima</value>
+	</data>
+	<data name="L_FINDMEDICALITEM" xml:space="preserve">
+		<value>Tafuta Bidhaa za dawa</value>
+	</data>
+	<data name="L_FINDMEDICALSERVICES" xml:space="preserve">
+		<value>Tafuta huduma za madawa</value>
+	</data>
+	<data name="L_FINDOFFICER" xml:space="preserve">
+		<value>Tafuta maofisa</value>
+	</data>
+	<data name="L_FINDPREMIUM" xml:space="preserve">
+		<value>Tafuta michango</value>
+	</data>
+	<data name="L_FINDPRICELISTSMI" xml:space="preserve">
+		<value>Tafuta orodha ya bei MI</value>
+	</data>
+	<data name="L_FINDPRICELISTSMS" xml:space="preserve">
+		<value>Tafuta orodha ya bei MS</value>
+	</data>
+	<data name="L_HealthFacilities" xml:space="preserve">
+		<value>Tafuta vituo vya afya</value>
+	</data>
+	<data name="R_PREMIUMDISTRIBUTION" xml:space="preserve">
+		<value>Repoti ya mgawanyo wa michango</value>
+	</data>
+	<data name="L_IMISUTILITIES" xml:space="preserve">
+		<value>IMIS-Vifaa</value>
+	</data>
+	<data name="T_SELECTSUBCATEGORY" xml:space="preserve">
+		<value>--Chagua  aina nyingine</value>
+	</data>
+	<data name="L_GROUPTYPE" xml:space="preserve">
+		<value>Aina ya kundi</value>
+	</data>
+	<data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
+		<value>Kiasi/Madai kwa wajawazito</value>
+	</data>
+	<data name="L_TOTALANTENATALLEFT" xml:space="preserve">
+		<value>Idadi ilyobaki kwa Mjamzito</value>
+	</data>
+	<data name="T_SELECTMAINDG" xml:space="preserve">
+		<value>--Chagua Utambuzi--</value>
+	</data>
+	<data name="L_FORGOTPASSWORD" xml:space="preserve">
+		<value>Kumbuka nywila</value>
+	</data>
+	<data name="T_FORGOTPASSWORD" xml:space="preserve">
+		<value>Sahau nywila</value>
+	</data>
+	<data name="L_FOROGOTPASSWORDHEADING" xml:space="preserve">
+		<value>Ingiza barua pepe kupata nywila</value>
+	</data>
+	<data name="L_BACKTOLOGIN" xml:space="preserve">
+		<value>Nenda kaingie</value>
+	</data>
+	<data name="L_EMAILREQUIRED" xml:space="preserve">
+		<value>Barua pepe inahitajika</value>
+	</data>
+	<data name="L_INVALIDEMAIL" xml:space="preserve">
+		<value>Barua pepe sio sahihi</value>
+	</data>
+	<data name="L_PASSWORDSENT" xml:space="preserve">
+		<value>Nywila yako imetumwa kwenye Barua pepe</value>
+	</data>
+	<data name="M_WEAKPASSWORD" xml:space="preserve">
+		<value>Nywila lazima iwe na herufi nane ziwe na angalau namba moja</value>
+	</data>
+	<data name="L_MYPROFILE" xml:space="preserve">
+		<value>Wasifu</value>
+	</data>
+	<data name="L_CHANGEPASSWORD" xml:space="preserve">
+		<value>Badili nywila</value>
+	</data>
+	<data name="L_CURRENTPASSWORD" xml:space="preserve">
+		<value>Nywila ya sasa</value>
+	</data>
+	<data name="L_NEWPASSWORD" xml:space="preserve">
+		<value>Nywila Mpya</value>
+	</data>
+	<data name="M_INCORRECTCURRENTPASSWORD" xml:space="preserve">
+		<value>Nywila ya sasa sio sahihi</value>
+	</data>
+	<data name="X_EMAILSENTFAIL" xml:space="preserve">
+		<value>Barua pepe haijatumwa, Tafadhali jaribu tena baadae</value>
+	</data>
+	<data name="L_REGION" xml:space="preserve">
+		<value>Mkoa</value>
+	</data>
+	<data name="M_NOREGIONS" xml:space="preserve">
+		<value>Hakuna Mkoa ulio patikana</value>
+	</data>
+	<data name="R_PHOTODATE" xml:space="preserve">
+		<value>Tarehe ya Picha</value>
+	</data>
+	<data name="R_TOTALINSUREES" xml:space="preserve">
+		<value>Jumla ya walipwa bima</value>
+	</data>
+	<data name="L_REGIONNAME" xml:space="preserve">
+		<value>Jina la Mkoa</value>
+	</data>
+	<data name="M_DELETEREGIONPROMPT" xml:space="preserve">
+		<value>Una uhakika unataka kufuta Mkoa?</value>
+	</data>
+	<data name="M_DISTRICTINREGION" xml:space="preserve">
+		<value>Tafadhali futa wilaya kwenye mkoa kwanza?</value>
+	</data>
+	<data name="NOREGIONSPECIFIED" xml:space="preserve">
+		<value>Mkoa haujachaguliwa</value>
+	</data>
+	<data name="M_BELONGSTO" xml:space="preserve">
+		<value>Tayari yuko kwenye</value>
+	</data>
+	<data name="M_FAMILYAFFECTED" xml:space="preserve">
+		<value>Familia/Kundi limeathitika</value>
+	</data>
+	<data name="M_INVALIDLOCATIONTYPE" xml:space="preserve">
+		<value>Aina ya eneo sio sahihi</value>
+	</data>
+	<data name="M_PLEASESELECTAREGION" xml:space="preserve">
+		<value>Tafadhali chagua Mkoa</value>
+	</data>
+	<data name="M_SUCCESSFULLYMOVED" xml:space="preserve">
+		<value>Imefanikiwa kuhamishwa kwnda</value>
+	</data>
+	<data name="T_SELECREGION" xml:space="preserve">
+		<value>--Chagua mkoa--</value>
+	</data>
+	<data name="L_MOVELOCATIONS" xml:space="preserve">
+		<value>Hamisha eneo</value>
+	</data>
+	<data name="T_RENEWALS" xml:space="preserve">
+		<value>Upyasho</value>
+	</data>
+	<data name="L_SORTING" xml:space="preserve">
+		<value>Pangilia</value>
+	</data>
+	<data name="M_PLEASESELECTOFFICER" xml:space="preserve">
+		<value>Tafadhali chagua Afisa udali</value>
+	</data>
+	<data name="L_BIRTHDATEFROM" xml:space="preserve">
+		<value>Tarehe ya kuzaliwa kutoka</value>
+	</data>
+	<data name="L_BIRTHDATETO" xml:space="preserve">
+		<value>Tarehe ya kuzaliwa mpaka</value>
+	</data>
+	<data name="L_EFFECTIVEDATEFROM" xml:space="preserve">
+		<value>Tarehe madhubuti kutoka</value>
+	</data>
+	<data name="L_EFFECTIVEDATETO" xml:space="preserve">
+		<value>Tarehe madhubuti mpaka</value>
+	</data>
+	<data name="L_ENROLMENTDATEFROM" xml:space="preserve">
+		<value>Tarehe ya kuandikishwa kutoka</value>
+	</data>
+	<data name="L_ENROLMENTDATETO" xml:space="preserve">
+		<value>Tarehe ya kuandikishwa mpaka</value>
+	</data>
+	<data name="L_EXPIRYDATEFROM" xml:space="preserve">
+		<value>Tarehe ya kumaliza kutoka</value>
+	</data>
+	<data name="L_EXPIRYDATETO" xml:space="preserve">
+		<value>Tarehe ya kumaliza mpaka</value>
+	</data>
+	<data name="L_PAYDATEFROM" xml:space="preserve">
+		<value>Tarehe ya malipo kuanzia</value>
+	</data>
+	<data name="L_PAYDATETO" xml:space="preserve">
+		<value>Tarehe ya malipo mpaka</value>
+	</data>
+	<data name="L_STARTDATEFROM" xml:space="preserve">
+		<value>Tarehe ya kuanzia kutoka</value>
+	</data>
+	<data name="L_STARTDATETO" xml:space="preserve">
+		<value>Tarehe ya kuanzia mpaka</value>
+	</data>
+	<data name="M_AND" xml:space="preserve">
+		<value>Na</value>
+	</data>
+	<data name="M_PLEASESELECT" xml:space="preserve">
+		<value>Tafadali chagua</value>
+	</data>
+	<data name="L_HF" xml:space="preserve">
+		<value>HF</value>
+	</data>
+	<data name="T_SELECTCATEGORY" xml:space="preserve">
+		<value>--Chagua aina--</value>
+	</data>
+	<data name="M_EMAILUPDATED" xml:space="preserve">
+		<value>Barua pepe imebadiliwa bila tatizo</value>
+	</data>
+	<data name="M_FUNDADDED" xml:space="preserve">
+		<value>Fedha imeongezwa</value>
+	</data>
+	<data name="L_WELCOME" xml:space="preserve">
+		<value>Karibu</value>
+	</data>
+	<data name="M_GOODAFTERNOON" xml:space="preserve">
+		<value>Habari za mchana</value>
+	</data>
+	<data name="M_GOODEVENING" xml:space="preserve">
+		<value>Habari za jioni</value>
+	</data>
+	<data name="M_GOODMORNING" xml:space="preserve">
+		<value>Habari za asubui</value>
+	</data>
+	<data name="R_AGENT" xml:space="preserve">
+		<value>Wakala</value>
+	</data>
+	<data name="L_DISTRICTCODE" xml:space="preserve">
+		<value>Msimbi wa Wilaya</value>
+	</data>
+	<data name="L_REGIONCODE" xml:space="preserve">
+		<value>Msimbo wa Mkoa</value>
+	</data>
+	<data name="L_VILLAGECODE" xml:space="preserve">
+		<value>Msibo wa Kijiji</value>
+	</data>
+	<data name="L_WARDCODE" xml:space="preserve">
+		<value>Msimbo wa Kata</value>
+	</data>
+	<data name="M_EMPTYLOCATIONCODE" xml:space="preserve">
+		<value>Msimbo wa eneo unahitajika</value>
+	</data>
+	<data name="M_UNIQUECODELOCATION" xml:space="preserve">
+		<value>Msimbo Umekwishatumika. Tafadhali Tumia Msimbo Tofauti</value>
+	</data>
+	<data name="M_REGION" xml:space="preserve">
+		<value>Kimkoa</value>
+	</data>
+	<data name="L_FAMILYABRREVIATION" xml:space="preserve">
+		<value>Fam</value>
+	</data>
+	<data name="L_FEMALEABRREVIATION" xml:space="preserve">
+		<value>F</value>
+	</data>
+	<data name="L_MALEABRREVIATION" xml:space="preserve">
+		<value>M</value>
+	</data>
+	<data name="L_OTHERABRREVIATION" xml:space="preserve">
+		<value>O</value>
+	</data>
+	<data name="M_REGIONSAVED" xml:space="preserve">
+		<value>Mkoa umeifadhiwa kikamilifu</value>
+	</data>
+	<data name="M_FEEDBACKSELECTION" xml:space="preserve">
+		<value>Je ungependa  kubadili haya marejeo yaliochaguliwa</value>
+	</data>
+	<data name="M_REVIEWSELECTION" xml:space="preserve">
+		<value>Je ungependa  kubadili haya marejeo yaliochaguliwa</value>
+	</data>
+	<data name="M_WLDLIKEFEEDBACKELECTION" xml:space="preserve">
+		<value>Je, Ungependa Kuendelea na Mchakato wa Kuchagua Maoni?</value>
+	</data>
+	<data name="M_WLDLIKEREVIEWSELECTION" xml:space="preserve">
+		<value>Je, Ungependa Kuendelea na Mchakato wa Kuchagua Marejeo?</value>
+	</data>
+	<data name="L_HFCATCHMENT" xml:space="preserve">
+		<value>Catchment</value>
+	</data>
+	<data name="M_CATCHMENTZERO" xml:space="preserve">
+		<value>Catchment can not be 0%</value>
+	</data>
+	<data name="M_EXEEDPAECENTAGE" xml:space="preserve">
+		<value>Kiwango hakitakiw kuzid 100%</value>
+	</data>
+	<data name="M_NOWARD" xml:space="preserve">
+		<value>HakunaManispaa iliochaguliwa</value>
+	</data>
+	<data name="L_FSPREGION" xml:space="preserve">
+		<value>Mkoa wa FSP</value>
+	</data>
+	<data name="L_CREGION" xml:space="preserve">
+		<value>Mkoa wa sasa</value>
+	</data>
+	<data name="L_LOADMEDICALITEMS" xml:space="preserve">
+		<value>Bofya hapa kuona vitu vya matibabu</value>
+	</data>
+	<data name="L_LOADMEDICALSERVICES" xml:space="preserve">
+		<value>Bonyeza hapa kuona huduma za matibabu</value>
+	</data>
+	<data name="M_BGEXTRACTCOMPLETED" xml:space="preserve">
+		<value>Ombi lako linawasilishwa na dondoo la ombi limeundwa sasa. Mara baada ya kazi kukamilika, utapokea barua pepe na kiungo cha kupakua. Wakati huo huo unaweza kuondoka ukurasa huu na kuendelea na kazi nyingine.</value>
+	</data>
+	<data name="T_NOPOLICY" xml:space="preserve">
+		<value>Hakuna Sera</value>
+	</data>
+	<data name="T_CAPITATIONPAYMENT" xml:space="preserve">
+		<value>Malipo ya Capitation</value>
+	</data>
+	<data name="L_LEVEL1" xml:space="preserve">
+		<value>Kiwango cha 1</value>
+	</data>
+	<data name="L_LEVEL2" xml:space="preserve">
+		<value>Kiwango cha 2</value>
+	</data>
+	<data name="L_LEVEL3" xml:space="preserve">
+		<value>Kiwango cha 3</value>
+	</data>
+	<data name="L_LEVEL4" xml:space="preserve">
+		<value>Kiwango cha 4</value>
+	</data>
+	<data name="L_SHAREOFCONTRIBUTION" xml:space="preserve">
+		<value>Gawio la Mchango</value>
+	</data>
+	<data name="L_SUBLEVEL1" xml:space="preserve">
+		<value>Kiwango cha chini cha 1</value>
+	</data>
+	<data name="L_SUBLEVEL2" xml:space="preserve">
+		<value>Kiwango cha chini cha 2</value>
+	</data>
+	<data name="L_SUBLEVEL3" xml:space="preserve">
+		<value>Kiwango cha chini cha 3</value>
+	</data>
+	<data name="L_SUBLEVEL4" xml:space="preserve">
+		<value>Kiwango cha chini cha 4</value>
+	</data>
+	<data name="L_WEGHTOFNUMBERFAMILIES" xml:space="preserve">
+		<value>Uzito wa Idadi ya Familia</value>
+	</data>
+	<data name="L_WEIGHTOFADJUSTEDAMOUT" xml:space="preserve">
+		<value>Uzito wa Kiwango cha Marekebisho</value>
+	</data>
+	<data name="L_WEIGHTOFINSUREDPOPULATION" xml:space="preserve">
+		<value>Uzito wa Wakazi wa Wenye Bima</value>
+	</data>
+	<data name="L_WEIGHTOFNUMBERINSUREDFAMILIES" xml:space="preserve">
+		<value>Uzito wa Idadi ya Familia za Bima</value>
+	</data>
+	<data name="L_WEIGHTOFNUMBERVISITS" xml:space="preserve">
+		<value>Uzito wa Idadi ya madai</value>
+	</data>
+	<data name="L_WEIGHTOFPOPUATION" xml:space="preserve">
+		<value>Uzito wa Idadi ya Watu</value>
+	</data>
+	<data name="L_CAPITATIONPAYMENT" xml:space="preserve">
+		<value>Malipo ya Capitation</value>
+	</data>
+	<data name="L_NOOFCLAIMS" xml:space="preserve">
+		<value>Idadi ya Madai</value>
+	</data>
+	<data name="L_NOOFFAMILIES" xml:space="preserve">
+		<value>Idadi ya Familia</value>
+	</data>
+	<data name="L_NOOFINSUREDPOPULATION" xml:space="preserve">
+		<value>Idadi ya watu wenye bima</value>
+	</data>
+	<data name="L_NOOFINSURESFAMILY" xml:space="preserve">
+		<value>Idadi ya Familia zenye Bima</value>
+	</data>
+	<data name="L_POPULATION" xml:space="preserve">
+		<value>Idadi ya watu</value>
+	</data>
+	<data name="L_PERMADDERESS" xml:space="preserve">
+		<value>Taarifa za Makazi</value>
+	</data>
+	<data name="M_SHAREDCONTRIBUTIONPARCENT" xml:space="preserve">
+		<value>Gawaio la Mchango Haliwezi Kuzidi 100%</value>
+	</data>
+	<data name="M_WEIGHTMUSTBE100" xml:space="preserve">
+		<value>Jumla uzito unatakiwa kuwa 100%</value>
+	</data>
+	<data name="L_ALLOCATEDCONTRIBUTION" xml:space="preserve">
+		<value>Michango Ilioelekezwa</value>
+	</data>
+	<data name="L_DISTRICTTOTAL" xml:space="preserve">
+		<value>Jumla Wilayani</value>
+	</data>
+	<data name="L_REGIONTOTAL" xml:space="preserve">
+		<value>Jumla ya mkoa</value>
+	</data>
+	<data name="L_UNITPRICE" xml:space="preserve">
+		<value>Bei ya Kitengo</value>
+	</data>
+	<data name="M_SHAREOFCONTRIBUTIONRANGE" xml:space="preserve">
+		<value>Gawio la Mchango Lazima Lizidi 0% na Liwe Kubwa au Sawa na 100%</value>
+	</data>
+	<data name="L_UPLOADREGISTERS" xml:space="preserve">
+		<value>rejesta</value>
+	</data>
+	<data name="L_UPLOADHEALTHFACILITIES" xml:space="preserve">
+		<value>Pakia vituo vya afya</value>
+	</data>
+	<data name="L_UPLOADLOCATIONS" xml:space="preserve">
+		<value>Pakia maeneo</value>
+	</data>
+	<data name="M_AREYOUSUREUPLOADLOCATIONS" xml:space="preserve">
+		<value>
+Je! Una uhakika unataka kupakia orodha mpya ya maeneo?</value>
+	</data>
+	<data name="M_SELECTONLYEXCELFILE" xml:space="preserve">
+		<value>
+Chagua faili la excel tu</value>
+	</data>
+	<data name="M_DISTRICTCODEEXISTSINDB" xml:space="preserve">
+		<value>
+Nambari ya msimbo wa wilaya katika excel zipo tayari kwenye kanzidata</value>
+	</data>
+	<data name="M_DISTRICTCODENOTEXISTSINEXCELORDB" xml:space="preserve">
+		<value>Nambari ya msimbo wa wilaya iliyoainishwa katika Kata haipo katika kanzidata au makaratasi  ya Wilaya</value>
+	</data>
+	<data name="M_DUPLICATEDISTRICTCODEINEXCEL" xml:space="preserve">
+		<value>Nambari ya Msimbo wa wilaya kwenye excel imejirudia</value>
+	</data>
+	<data name="M_DUPLICATEMUNICIPALITYCODEINEXCEL" xml:space="preserve">
+		<value>Nambari ya Msimbo wa kata kwenye excel imejirudia</value>
+	</data>
+	<data name="M_DUPLICATEREGIONCODEINEXCEL" xml:space="preserve">
+		<value>Nambari ya Msimbo wa mkoa kwenye excel imejirudia</value>
+	</data>
+	<data name="M_DUPLICATEVILLAGECODEINEXCEL" xml:space="preserve">
+		<value>
+Nambari ya Msimbo wa Kijiji kwenye excel imejirudia</value>
+	</data>
+	<data name="M_INVALIDDISTRICTFILEINEXCEL" xml:space="preserve">
+		<value>Faili batili ya wilaya (Jina la tab au majina ya safu wima au pembejeo sio sahihi)</value>
+	</data>
+	<data name="M_INVALIDMUNICIPALITYFILEINEXCEL" xml:space="preserve">
+		<value>Faili batili ya kata (Jina la tab au majina ya safu wima au pembejeo sio sahihi)</value>
+	</data>
+	<data name="M_INVALIDREGIONFILEINEXCEL" xml:space="preserve">
+		<value>Faili batili ya mkoa (Jina la tab au majina ya safu wima au pembejeo sio sahihi)</value>
+	</data>
+	<data name="M_INVALIDVILLAGEFILEINEXCEL" xml:space="preserve">
+		<value>
+Faili batili ya Kijiji (Jina la tab au majina ya safu wima au pembejeo sio sahihi)</value>
+	</data>
+	<data name="M_INVALIDVILLAGEPOPULATIONINEXCEL" xml:space="preserve">
+		<value>
+Idadi ya watu kwenye kijiji lazima iwe nambari kwenye excel</value>
+	</data>
+	<data name="M_MISSINGDISTRICTCODEORNAMEINEXCEL" xml:space="preserve">
+		<value>Jina la wilaya au msimbo vinakosekana kwenye excel</value>
+	</data>
+	<data name="M_MISSINGMUNICIPALITYCODEORNAMEINEXCEL" xml:space="preserve">
+		<value>Jina la kata au msimbo vinakosekana kweneye excel</value>
+	</data>
+	<data name="M_MISSINGREGIONCODEORNAMEINEXCEL" xml:space="preserve">
+		<value>Jina la mkoa au msimbo havimo kwenye excel</value>
+	</data>
+	<data name="M_MISSINGVILLAGECODEORNAMEINEXCEL" xml:space="preserve">
+		<value>Jina la kijiji au msimbo havimo kwenye excel</value>
+	</data>
+	<data name="M_MUNICIPALITYCODEEXISTSINDB" xml:space="preserve">
+		<value>Msimbo wa kata kwenye excel tayari upo  kwenye kanzidata</value>
+	</data>
+	<data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
+		<value>Msimbo wa kata kwenye kijiji  haupo katikamakaratasi  wala kwenye kanzidata</value>
+	</data>
+	<data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
+		<value>Msimbo wa Mkoa kwenye excel tayari upo  kwenye kanzidata</value>
+	</data>
+	<data name="M_REGIONCODENOTEXISTSINEXCELORDB" xml:space="preserve">
+		<value>Msimbo wa Mkoa kwenye wilaya fulani haupo katika excel wala kwenye kanzidata</value>
+	</data>
+	<data name="M_UNEXPECTEDERRORONIMPORTLOCATIONS" xml:space="preserve">
+		<value>
+Kosa lisilotarajiwa wakati wa Kuingiza maeneo</value>
+	</data>
+	<data name="M_VILLAGECODEEXISTSINDB" xml:space="preserve">
+		<value>
+Msimbo wa Kijiji katika excel upo tayari kwenye kanzidata</value>
+	</data>
+	<data name="M_UPLOADEDLOCATIONS" xml:space="preserve">
+		<value>maeneo yaliyopakiwa</value>
+	</data>
+	<data name="L_DOWNLOADHEALTHFACILITIES" xml:space="preserve">
+		<value>Tafuta vituo vya afya</value>
+	</data>
+	<data name="L_DOWNLOADICD" xml:space="preserve">
+		<value>pakua magonjwa</value>
+	</data>
+	<data name="L_DOWNLOADLOCATIONS" xml:space="preserve">
+		<value>pakua maeneo</value>
+	</data>
+	<data name="L_DRYRUN" xml:space="preserve">
+		<value>kimbia kavu</value>
+	</data>
+	<data name="L_ICDUPLOADSTRATEGY" xml:space="preserve">
+		<value>mkakati</value>
+	</data>
+	<data name="M_SELECTONLYXMLFILE" xml:space="preserve">
+		<value>chagua faili la .xml tu</value>
+	</data>
+	<data name="M_DELETEDDIAGNOSES" xml:space="preserve">
+		<value>imefutwa</value>
+	</data>
+	<data name="M_DIAGNOSESUPLOADED" xml:space="preserve">
+		<value>magonjwa yamepakiwa salama</value>
+	</data>
+	<data name="M_INSERTEDDIAGNOSES" xml:space="preserve">
+		<value>imeingizwa</value>
+	</data>
+	<data name="M_UPDETEDDIAGNOSES" xml:space="preserve">
+		<value>
+Imesasishwa</value>
+	</data>
+	<data name="M_UPLOADEDDIAGNOSES" xml:space="preserve">
+		<value>magonjwa yaliyopokelewa</value>
+	</data>
+	<data name="M_DIAGNOSESSENT" xml:space="preserve">
+		<value>imetumwa</value>
+	</data>
+	<data name="L_DELETED" xml:space="preserve">
+		<value>imefutwa</value>
+	</data>
+	<data name="M_HFUPLOADED" xml:space="preserve">
+		<value>vituo vya afya vimepakiwa salama</value>
+	</data>
+	<data name="M_UNEXPECTEDERRORONUPLOADHF" xml:space="preserve">
+		<value>
+Kosa lisilotarajiwa wakati wa kupakia vituo vya Afya</value>
+	</data>
+	<data name="M_UPLOADEDHF" xml:space="preserve">
+		<value>Vituo vya Afya vilivyopakiwa</value>
+	</data>
+	<data name="L_CONFILCTS" xml:space="preserve">
+		<value>migogoro</value>
+	</data>
+	<data name="L_ERRORS" xml:space="preserve">
+		<value>makosa</value>
+	</data>
+	<data name="L_FATALERROR" xml:space="preserve">
+		<value>makosa ya kuondoa</value>
+	</data>
+	<data name="M_UNEXPECTEDERRORONUPLOADICD" xml:space="preserve">
+		<value>
+Kosa lisilotarajiwa wakati wa kupakia Utambuzi</value>
+	</data>
+	<data name="L_INSERTANDUPDATE" xml:space="preserve">
+		<value>ingiza na sasisha</value>
+	</data>
+	<data name="L_INSERTONLY" xml:space="preserve">
+		<value>Ingiza tu</value>
+	</data>
+	<data name="L_INSERTUPDATEDELETE" xml:space="preserve">
+		<value>
+Ingiza, Sasisha na Futa</value>
+	</data>
+	<data name="L_SELECTSTRATEGY" xml:space="preserve">
+		<value>--chagua mkakati--</value>
+	</data>
+	<data name="L_UPDATEONLY" xml:space="preserve">
+		<value>sasisha tu</value>
+	</data>
+	<data name="L_CONFILCT" xml:space="preserve">
+		<value>haieleweki</value>
+	</data>
+	<data name="L_ERROR" xml:space="preserve">
+		<value>Kosa</value>
+	</data>
+	<data name="B_DOWNLOADLOG" xml:space="preserve">
+		<value>Pakua ingizo</value>
+	</data>
+	<data name="L_FILENAME" xml:space="preserve">
+		<value>jina la faili</value>
+	</data>
+	<data name="L_LASTUPLOADLOG" xml:space="preserve">
+		<value>ingizo la mwisho kupakia </value>
+	</data>
+	<data name="L_REGISTER" xml:space="preserve">
+		<value>rejesta</value>
+	</data>
+	<data name="M_SELECTSTRATEGY" xml:space="preserve">
+		<value>Tafadhali chagua mkakati</value>
+	</data>
+	<data name="T_UPLOADDOWNLOADREGISTERS" xml:space="preserve">
+		<value>pakia/pakua rejesta</value>
+	</data>
+	<data name="L_LASTUPLOADEDFILENAME" xml:space="preserve">
+		<value>Faili la mwisho kupakiwa</value>
+	</data>
+	<data name="M_AREYOUSUREUPLOADHF" xml:space="preserve">
+		<value>Je unauhakika unataka kupakia orodha ya vituo?</value>
+	</data>
+	<data name="B_DownLoadMasterData" xml:space="preserve">
+		<value>Pakua faili la taarifa kuu</value>
+	</data>
+	<data name="L_DOWNLOADMASTERDATA" xml:space="preserve">
+		<value>Pakua faili la taarifa kuu</value>
+	</data>
+	<data name="T_REJECTEDDATE" xml:space="preserve">
+		<value>Tarehe ya kukataliwa</value>
+	</data>
+	<data name="T_REJECTEDPHOTOS" xml:space="preserve">
+		<value>Picha zilizokataliwa</value>
+	</data>
+	<data name="T_TOTALREJECTEDPHOTOS" xml:space="preserve">
+		<value>Jumla ya picha zilizokataliwa</value>
+	</data>
+	<data name="L_EXTR_UPLOADPHOTO" xml:space="preserve">
+		<value>Pakia picha</value>
+	</data>
+	<data name="B_DownLoadFeedback" xml:space="preserve">
+		<value>Pakua maoni</value>
+	</data>
+	<data name="B_DownLoadRenewals" xml:space="preserve">
+		<value>Pakua uhuishaji</value>
+	</data>
+	<data name="M_NODATAFOUND" xml:space="preserve">
+		<value>hakuna data</value>
+	</data>
+	<data name="M_OFFICERNOTFOUND" xml:space="preserve">
+		<value>Afisa hayupo</value>
+	</data>
+	<data name="B_UPLOADFEEDBACK" xml:space="preserve">
+		<value>Pakia maoni</value>
+	</data>
+	<data name="B_UPLOADRENEWAL" xml:space="preserve">
+		<value>Pakia uhuishaji</value>
+	</data>
+	<data name="M_CLAIMNOTEXIST" xml:space="preserve">
+		<value>Madai hayapo</value>
+	</data>
+	<data name="M_DUPLICATEDRECEIPTFOUND" xml:space="preserve">
+		<value>Risiti namba uliyoingiza imeshatumika</value>
+	</data>
+	<data name="M_FEEDFILEACCEPTED" xml:space="preserve">
+		<value>Taarifa fupi ya utumaji maoni</value>
+	</data>
+	<data name="M_GRACEPERIODISOVER" xml:space="preserve">
+		<value>Muda wa neema ya sera uliopewa umekwisha</value>
+	</data>
+	<data name="M_INVALIDCHFID" xml:space="preserve">
+		<value>Namba ya uanachama haitambulikani</value>
+	</data>
+	<data name="M_INVALIDFEEDBACKFILE" xml:space="preserve">
+		<value>Faili la maoni halitambulikani</value>
+	</data>
+	<data name="M_INVALIDOFFICERCODE" xml:space="preserve">
+		<value>Kodi ya afisa haitambulikani</value>
+	</data>
+	<data name="M_INVALIDRENEWALFILE" xml:space="preserve">
+		<value>Faili la uhuishaji halitambulikani</value>
+	</data>
+	<data name="M_RENEWALUPLOADED" xml:space="preserve">
+		<value>taarifa fupi ya utumaji kaya zilizohuishwa</value>
+	</data>
+	<data name="L_ACCEPTED" xml:space="preserve">
+		<value>Imekubaliwa</value>
+	</data>
+	<data name="L_EXISTS" xml:space="preserve">
+		<value>zipo</value>
+	</data>
+	<data name="L_FAILED" xml:space="preserve">
+		<value>imeshindikana</value>
+	</data>
+	<data name="L_REJECTED" xml:space="preserve">
+		<value>Imekataliwa</value>
+	</data>
+	<data name="L_UPLOADFEEDBACK" xml:space="preserve">
+		<value>Pakia maoni</value>
+	</data>
+	<data name="L_UPLOADRENEWAL" xml:space="preserve">
+		<value>Pakia kaya zilizohuishwa</value>
+	</data>
+	<data name="M_NOENROLLMENTFOUND" xml:space="preserve">
+		<value>Hakuna usajili uliopatikana</value>
+	</data>
+	<data name="L_PAYMENTS" xml:space="preserve">
+		<value>Malipo</value>
+	</data>
+	<data name="L_PAYMENTSTATUS" xml:space="preserve">
+		<value>Hali ya malipo</value>
+	</data>
+	<data name="L_PAYMENT" xml:space="preserve">
+		<value>Malipo</value>
+	</data>
+	<data name="T_PAYMENTMATCHED" xml:space="preserve">
+		<value>
+Malipo yamelingana</value>
+	</data>
+	<data name="T_PAYMENTREQUESTED" xml:space="preserve">
+		<value>Zilizoombwa</value>
+	</data>
+	<data name="T_PAYMENTRPAID" xml:space="preserve">
+		<value>Iliyolipwa</value>
+	</data>
+	<data name="L_FOUNDPAYMENTS" xml:space="preserve">
+		<value>Malipo yaliyopatikana</value>
+	</data>
+	<data name="L_SELECTPAYMENTSTATUS" xml:space="preserve">
+		<value>--Chagua hali--</value>
+	</data>
+	<data name="L_CONTROLNUMBER" xml:space="preserve">
+		<value>Namba ya ankara</value>
+	</data>
+	<data name="B_MATCHPAYMENT" xml:space="preserve">
+		<value>Linganisha</value>
+	</data>
+	<data name="L_MATCHEDDATED" xml:space="preserve">
+		<value>Tarehe iliyolinganishwa</value>
+	</data>
+	<data name="L_PAYMENTDETAILS" xml:space="preserve">
+		<value>Taarifa za malipo</value>
+	</data>
+	<data name="L_PAYMENTOVERVIEW" xml:space="preserve">
+		<value>Ujumla wa malipo</value>
+	</data>
+	<data name="L_POLICYSTAGE" xml:space="preserve">
+		<value>Hatua ya sera</value>
+	</data>
+	<data name="L_RECEIVEDAMOUNT" xml:space="preserve">
+		<value>Kiasi kilichopokelewa</value>
+	</data>
+	<data name="L_EDITPAYMENTDETAILS" xml:space="preserve">
+		<value>Rekebisha taarifa ya malipo</value>
+	</data>
+	<data name="L_RECEIVEDDATE" xml:space="preserve">
+		<value>Tarehe iliyopokelewa</value>
+	</data>
+	<data name="L_SERVICEMINDATE" xml:space="preserve">
+		<value>Tarehe ya chini ya Huduma</value>
+	</data>
+	<data name="M_SELECTPAYMENTDETAIL" xml:space="preserve">
+		<value>Tafadhali chagua taarifa ya malipo kurekebisha</value>
+	</data>
+	<data name="L_MATCHINGDATEFROM" xml:space="preserve">
+		<value>Tarehe linganishi ya mwisho</value>
+	</data>
+	<data name="L_MATCHINGDATETO" xml:space="preserve">
+		<value>Tarehe linganishi ya awali</value>
+	</data>
+	<data name="L_PAYMENTDATEFROM" xml:space="preserve">
+		<value>Tarehe ya mwisho ya malipo </value>
+	</data>
+	<data name="L_PAYMENTDATETO" xml:space="preserve">
+		<value>Tarehe anzia ya malipo </value>
+	</data>
+	<data name="L_PAYMENTORIGIN" xml:space="preserve">
+		<value>Asili ya malipo</value>
+	</data>
+	<data name="L_RECEIVEDAMOUNTFROM" xml:space="preserve">
+		<value>Kiasi kilichopokelewa tokea</value>
+	</data>
+	<data name="L_RECEIVEDAMOUNTTO" xml:space="preserve">
+		<value>Kiasi kilichopokelewa hadi</value>
+	</data>
+	<data name="L_RECEIVINGDATEFROM" xml:space="preserve">
+		<value>tarehe ya mapokezi kutoka</value>
+	</data>
+	<data name="L_RECEIVINGDATETO" xml:space="preserve">
+		<value>Tarehe ya mapokezi kuingia</value>
+	</data>
+	<data name="L_TRANSACTIONNUMBER" xml:space="preserve">
+		<value>Namba ya muamala</value>
+	</data>
+	<data name="L_MATCHEDAMOUNT" xml:space="preserve">
+		<value>Kiasi sawia</value>
+	</data>
+	<data name="L_FINDPAYMENT" xml:space="preserve">
+		<value>Tafuta malipo</value>
+	</data>
+	<data name="L_EXPECTEDAMOUNT" xml:space="preserve">
+		<value>Kiasi kilichotarajiwa</value>
+	</data>
+	<data name="L_PAYMENTID" xml:space="preserve">
+		<value>Utambulisho wa malipo</value>
+	</data>
+	<data name="L_INTERNALID" xml:space="preserve">
+		<value>kitambulisho cha ndani</value>
+	</data>
+	<data name="L_CONTRIBUTIONPAYMENT" xml:space="preserve">
+		<value>Malipo ha michango</value>
+	</data>
+	<data name="L_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
+		<value>Kutengeneza Namba za Ankara </value>
+	</data>
+	<data name="T_CONTRIBUTIONPAYMENT" xml:space="preserve">
+		<value>Malipo ha michango</value>
+	</data>
+	<data name="L_ASSIGNMENTSTATUS" xml:space="preserve">
+		<value>Hali ya uunganishi</value>
+	</data>
+	<data name="L_POSTINGSTATUS" xml:space="preserve">
+		<value>Hali ya utumaji</value>
+	</data>
+	<data name="T_ASSIGNED" xml:space="preserve">
+		<value>Iliyochaguliwa</value>
+	</data>
+	<data name="T_NOTYETASSIGNED" xml:space="preserve">
+		<value>bado haijachaguliwa</value>
+	</data>
+	<data name="T_NOTYETCONFIRMED" xml:space="preserve">
+		<value>Bado haijathibitishwa</value>
+	</data>
+	<data name="T_POSTED" xml:space="preserve">
+		<value>Imetumwa</value>
+	</data>
+	<data name="T_REJECTEDASSIGNMENTS" xml:space="preserve">
+		<value>Imekataliwa</value>
+	</data>
+	<data name="T_REJECTEDPOSTED" xml:space="preserve">
+		<value>Imekataliwa</value>
+	</data>
+	<data name="T_SELECTASSIGNMENTSTATUS" xml:space="preserve">
+		<value>--Chagua hali--</value>
+	</data>
+	<data name="T_SELECTPOSTINGSTATUS" xml:space="preserve">
+		<value>--Chagua hali--</value>
+	</data>
+	<data name="T_UNMATCHED" xml:space="preserve">
+		<value>Hailinganishwi</value>
+	</data>
+	<data name="M_NOTPAYMENTMATCHED" xml:space="preserve">
+		<value>Malipo hayajalingana</value>
+	</data>
+	<data name="M_PAYMENTMATCHED" xml:space="preserve">
+		<value>
+Malipo yamelingana</value>
+	</data>
+	<data name="T_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
+		<value>Namba dhibiti zilizofanyiwa kazi</value>
+	</data>
+	<data name="T_FAILEDSTATUS" xml:space="preserve">
+		<value>imeshindikana</value>
+	</data>
+	<data name="L_AGE" xml:space="preserve">
+		<value>umri</value>
+	</data>
+	<data name="L_FSPLEVEL" xml:space="preserve">
+		<value>
+Kiwango cha FSP</value>
+	</data>
+	<data name="T_NEWPASSWORD" xml:space="preserve">
+		<value>
+Neno la siri jipya</value>
+	</data>
+	<data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
+		<value>
+Ingiza jina la mtumiaji na uthibitishe nywila mpya</value>
+	</data>
+	<data name="L_PASSWORDCHANGED" xml:space="preserve">
+		<value>
+Neno la siri lilibadilishwa vizuri</value>
+	</data>
+	<data name="M_LINKSENT" xml:space="preserve">
+		<value>Kiunga kilitumwa kwa barua pepe</value>
+	</data>
+	<data name="M_NOUSERSLOGIN" xml:space="preserve">
+		<value>
+Hakuna mtumiaji aliyepatikana na jina hili la mtumiaji</value>
+	</data>
+	<data name="M_PASSWORDINVALID" xml:space="preserve">
+		<value>
+Ombi haikuweza kuthibitishwa, tafadhali jaribu tena kutumia neno la siri moja linalotumika wakati wa kufanya ombi</value>
+	</data>
+	<data name="M_VALIDITYEXPIRED" xml:space="preserve">
+		<value>
+Hakuna maombi ya nenosiri ya kuweka upya ndani ya kipindi halali cha ombi</value>
+	</data>
+	<data name="M_MUSTFILLPRODUCT" xml:space="preserve">
+		<value>Tafadhali ingiza bidhaa</value>
+	</data>
+	<data name="L_FINDROLE" xml:space="preserve">
+		<value>Tafuta jukumu</value>
+	</data>
+	<data name="P_ROLE" xml:space="preserve">
+		<value>
+Jukumu</value>
+	</data>
+	<data name="L_SEARCHS" xml:space="preserve">
+		<value>Tafuta</value>
+	</data>
+	<data name="L_LASTNAME" xml:space="preserve">
+		<value>Jina la mwisho</value>
+	</data>
+	<data name="L_OTHERNAME" xml:space="preserve">
+		<value>Jina pewa</value>
+	</data>
+	<data name="L_PHONE" xml:space="preserve">
+		<value>Namba ya simu</value>
+	</data>
+	<data name="L_ROLEFOUNDS" xml:space="preserve">
+		<value>Majukumu yanayopatikana</value>
+	</data>
+	<data name="L_USERNAME" xml:space="preserve">
+		<value>
+Jina la Mtumiaji</value>
+	</data>
+	<data name="G_CLAIMADMINISTRATORLOGIN" xml:space="preserve">
+		<value>
+Jumuisha Ingia kwa Mtumiaji</value>
+	</data>
+	<data name="L_INCLUDELOGIN" xml:space="preserve">
+		<value>
+Jumuisha Ingia</value>
+	</data>
+	<data name="B_DELETELOGIN" xml:space="preserve">
+		<value>
+Futa Kuingia</value>
+	</data>
+	<data name="L_HASLOGIN" xml:space="preserve">
+		<value>
+Imeingia</value>
+	</data>
+	<data name="M_MUSTFILLROLE" xml:space="preserve">
+		<value>
+Tafadhali jaza jina la jukumu</value>
+	</data>
+	<data name="L_USERPROFILES" xml:space="preserve">
+		<value>
+Wasifu wa watumiaji</value>
+	</data>
+	<data name="M_NOTDELETEASSOCIATEDUSER" xml:space="preserve">
+		<value>
+haikuweza kufutwa kwa sababu inahusishwa</value>
+	</data>
+	<data name="M_OFFICEREXISTS" xml:space="preserve">
+		<value>
+tayari iko na inahusishwa kwenye kuingia</value>
+	</data>
+	<data name="M_NOTDELETEASSOCIATEDROLE" xml:space="preserve">
+		<value>Haikuweza kufutwa kwa sababu inahusishwa</value>
+	</data>
+	<data name="B_CLAIMSREVIEWS" xml:space="preserve">
+		<value>Madai yaliyohakikiwa</value>
+	</data>
+	<data name="M_NOTDELETEASSOCIATEDROLM_NOTDELETEASSOCIATEDROLE" xml:space="preserve">
+		<value>Jukumu haliwezi kufutwa, wakati linatumiwa na watumiaji.</value>
+	</data>
+	<data name="M_DELETEUSERLOGIN" xml:space="preserve">
+		<value>Una hakika unataka kufuta mtumiaji</value>
+	</data>
+	<data name="L_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
+		<value>Kamisheni kwa ujumla</value>
+	</data>
+	<data name="L_COMMISSIONRATE" xml:space="preserve">
+		<value>Kiasi cha kamisheni (%)</value>
+	</data>
+	<data name="L_MODE" xml:space="preserve">
+		<value>Njia</value>
+	</data>
+	<data name="M_ENTERMONTH" xml:space="preserve">
+		<value>Tafadhali chagua mwezi</value>
+	</data>
+	<data name="T_ACTUALPAIDCONTRIBUTIONS" xml:space="preserve">
+		<value>Malipo halisi ya michango</value>
+	</data>
+	<data name="T_PRESCRIBEDCONTRIBUTIONS" xml:space="preserve">
+		<value>mchango ulioamriwa</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
+		<value>Jumla ya kamisheni</value>
+	</data>
+	<data name="T_SELECTMODE" xml:space="preserve">
+		<value>
+-- Chagua njia--</value>
+	</data>
+	<data name="L_TOTALACTUALPAYMENT" xml:space="preserve">
+		<value>Jumla ya malipo halisi</value>
+	</data>
+	<data name="L_TOTALNUMBEROFPOLICIES" xml:space="preserve">
+		<value>Jumla ya mikataba iliyopatikana</value>
+	</data>
+	<data name="L_TOTALPRESCRIBEDCONTRIBUTION" xml:space="preserve">
+		<value>Jumla ya mchango ulioamriwa</value>
+	</data>
+	<data name="L_CLAIMHISTORYREPORT" xml:space="preserve">
+		<value>Ripoti ya historia ya madai</value>
+	</data>
+	<data name="L_SCOPE" xml:space="preserve">
+		<value>wigo</value>
+	</data>
+	<data name="T_CLAIMSANDALLDETAILS" xml:space="preserve">
+		<value>Madai na Maelezo yote</value>
+	</data>
+	<data name="T_CLAIMSANDREJECTIONDETAILS" xml:space="preserve">
+		<value>Madai na taarifa ya kukataliwa</value>
+	</data>
+	<data name="T_CLAIMSONLY" xml:space="preserve">
+		<value>Madai pekee</value>
+	</data>
+	<data name="T_SELECTSCOPE" xml:space="preserve">
+		<value>
+- chagua wigo--</value>
+	</data>
+	<data name="T_CLAIMHISTORYREPORT" xml:space="preserve">
+		<value>Ripoti ya historia ya madai</value>
+	</data>
+	<data name="L_INSURANCENUMBERNOTFOUND" xml:space="preserve">
+		<value>Namba ya unachama haipo</value>
+	</data>
+	<data name="L_PLEASEENTERINSURANCENUMBER" xml:space="preserve">
+		<value>Tafadhali ingiza namba ya uanachama</value>
+	</data>
+	<data name="G_OFFICERLOGIN" xml:space="preserve">
+		<value>Jumuisha ingia</value>
+	</data>
+	<data name="L_OFFICERLOGIN" xml:space="preserve">
+		<value>Jumuisha kuingia kwa mtumiaji</value>
+	</data>
+	<data name="R_ADD" xml:space="preserve">
+		<value>Ongeza</value>
+	</data>
+	<data name="R_ADMINISTRATION" xml:space="preserve">
+		<value>utawala</value>
+	</data>
+	<data name="R_BACKUP" xml:space="preserve">
+		<value>Chelezo</value>
+	</data>
+	<data name="R_BATCH" xml:space="preserve">
+		<value>Ripoti ya malipo</value>
+	</data>
+	<data name="R_CAPITATIONPAYMENT" xml:space="preserve">
+		<value>Malipo ya ruzuku</value>
+	</data>
+	<data name="R_CLAIM" xml:space="preserve">
+		<value>Madai</value>
+	</data>
+	<data name="R_CLAIMADMINISTRATOR" xml:space="preserve">
+		<value>Wasimamizi wa Madai</value>
+	</data>
+	<data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
+		<value>Ripoti ya historia ya madai</value>
+	</data>
+	<data name="R_CLAIMOVERVIEW" xml:space="preserve">
+		<value>Uangalizi wa madai</value>
+	</data>
+	<data name="R_CLAIMREVIEW" xml:space="preserve">
+		<value>Hakiki</value>
+	</data>
+	<data name="R_CLAIMS" xml:space="preserve">
+		<value>Madai</value>
+	</data>
+	<data name="R_CONTRIBUTION" xml:space="preserve">
+		<value>Michango</value>
+	</data>
+	<data name="R_CONTRIBUTIONCOLLECTION" xml:space="preserve">
+		<value>Makusanyo ya michango</value>
+	</data>
+	<data name="R_CONTRIBUTIONDISTRIBUTION" xml:space="preserve">
+		<value>Mgawanyo wa michango</value>
+	</data>
+	<data name="R_CONTRIBUTIONPAYMENT" xml:space="preserve">
+		<value>malipo ya mchango</value>
+	</data>
+	<data name="R_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
+		<value>Oanisha namba za ankara</value>
+	</data>
+	<data name="R_CREATE" xml:space="preserve">
+		<value>Tengeneza</value>
+	</data>
+	<data name="R_DELETE" xml:space="preserve">
+		<value>Futa</value>
+	</data>
+	<data name="R_DERIVEDOPERATIONALI" xml:space="preserve">
+		<value>
+Viashiria vya kutendea kazi</value>
+	</data>
+	<data name="R_DIAGNOSES" xml:space="preserve">
+		<value>Magonjwa</value>
+	</data>
+	<data name="R_DOWNLOAD" xml:space="preserve">
+		<value>Pakua</value>
+	</data>
+	<data name="R_DUPLICATE" xml:space="preserve">
+		<value>Durufu</value>
+	</data>
+	<data name="R_EDIT" xml:space="preserve">
+		<value>Rekebisha</value>
+	</data>
+	<data name="R_EMAILSETTING" xml:space="preserve">
+		<value>Mpangilio wa barua pepe</value>
+	</data>
+	<data name="R_ENQUIRE" xml:space="preserve">
+		<value>Tambua</value>
+	</data>
+	<data name="R_ENROLMENTOFFICER" xml:space="preserve">
+		<value>Maafisa waandikishaji</value>
+	</data>
+	<data name="R_ENROLMENTPERFORMANCEI" xml:space="preserve">
+		<value>
+Viashiria vya Utendaji wa Uandikishaji</value>
+	</data>
+	<data name="R_ENROLMENTS" xml:space="preserve">
+		<value>Kaya zilizoandikishwa</value>
+	</data>
+	<data name="R_EXCUTESCRIPT" xml:space="preserve">
+		<value>Tolea hati ya maandishi</value>
+	</data>
+	<data name="R_EXTRACTS" xml:space="preserve">
+		<value>Dondoo</value>
+	</data>
+	<data name="R_FAMILIESANDINSUREESOVERVIEW" xml:space="preserve">
+		<value>Maelezo ya kaya na tegemezi</value>
+	</data>
+	<data name="R_FEEDBACK" xml:space="preserve">
+		<value>maoni</value>
+	</data>
+	<data name="R_FILTER" xml:space="preserve">
+		<value>Chuja</value>
+	</data>
+	<data name="R_FUNDING" xml:space="preserve">
+		<value>Ufadhili</value>
+	</data>
+	<data name="R_HEALTHFACILITIES" xml:space="preserve">
+		<value>vituo vya kutolea huduma</value>
+	</data>
+	<data name="R_INSUREE" xml:space="preserve">
+		<value>mwanachama</value>
+	</data>
+	<data name="R_INSUREEANDPOLICIES" xml:space="preserve">
+		<value>wanachama na mikataba</value>
+	</data>
+	<data name="R_INSUREESWITHOUTPHOTOS" xml:space="preserve">
+		<value>wanachama wasio na picha</value>
+	</data>
+	<data name="R_LOAD" xml:space="preserve">
+		<value>Bonyeza</value>
+	</data>
+	<data name="R_LOCATIONS" xml:space="preserve">
+		<value>Maeneo</value>
+	</data>
+	<data name="R_MASTERDATA" xml:space="preserve">
+		<value>Faili la taarifa</value>
+	</data>
+	<data name="R_MATCHINGFUNDS" xml:space="preserve">
+		<value>fedha za tele kwa tele</value>
+	</data>
+	<data name="R_MEDICALITEMS" xml:space="preserve">
+		<value>Bidhaa za matibabu</value>
+	</data>
+	<data name="R_MEDICALSERVICES" xml:space="preserve">
+		<value>Huduma za matibabu</value>
+	</data>
+	<data name="R_MOVE" xml:space="preserve">
+		<value>Hamisha</value>
+	</data>
+	<data name="R_OFFLINEEXTRACTS" xml:space="preserve">
+		<value>
+Dondoo za nje ya mtandao</value>
+	</data>
+	<data name="R_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
+		<value>Kamisheni kwa ujumla</value>
+	</data>
+	<data name="R_PAYERS" xml:space="preserve">
+		<value>walipaji</value>
+	</data>
+	<data name="R_PAYMENT" xml:space="preserve">
+		<value>malipo</value>
+	</data>
+	<data name="R_PAYMENTCATEGORYOVERVIEW" xml:space="preserve">
+		<value>Aina ya malipo kwa ujumla</value>
+	</data>
+	<data name="R_PENDINGINSUREES" xml:space="preserve">
+		<value>Wanachama wanaosubiri</value>
+	</data>
+	<data name="R_PERCENTAGEOFREFERRALS" xml:space="preserve">
+		<value>
+Asilimia ya Marejeleo</value>
+	</data>
+	<data name="R_PHONEEXTRACTS" xml:space="preserve">
+		<value>Dondoo za simu</value>
+	</data>
+	<data name="R_Policy" xml:space="preserve">
+		<value>Mkataba</value>
+	</data>
+	<data name="R_PREVIEW" xml:space="preserve">
+		<value>
+Hakiki</value>
+	</data>
+	<data name="R_PRICELISTMI" xml:space="preserve">
+		<value>
+Orodha ya bei - bidhaa za Matibabu</value>
+	</data>
+	<data name="R_PRICELISTMS" xml:space="preserve">
+		<value>Orodha ya bei - Huduma za matibabu</value>
+	</data>
+	<data name="R_PRIMARYOPERATIONALIC" xml:space="preserve">
+		<value>Viashirio vya Msingi wa Uendeshaji-Madai</value>
+	</data>
+	<data name="R_PRIMARYOPERATIONALIP" xml:space="preserve">
+		<value>Viashirio vya Msingi wa Uendeshaji-Sera</value>
+	</data>
+	<data name="R_PRINT" xml:space="preserve">
+		<value>Chapa</value>
+	</data>
+	<data name="R_PROCESS" xml:space="preserve">
+		<value>Chakata</value>
+	</data>
+	<data name="R_PRODUCTS" xml:space="preserve">
+		<value>Bidhaa</value>
+	</data>
+	<data name="R_PRODUCTSALES" xml:space="preserve">
+		<value>Mauzo ya bidhaa</value>
+	</data>
+	<data name="R_REGISTERS" xml:space="preserve">
+		<value>Rejesta</value>
+	</data>
+	<data name="R_REJECTEDPHOTOS" xml:space="preserve">
+		<value>Picha zilizokataliwa</value>
+	</data>
+	<data name="R_RENEW" xml:space="preserve">
+		<value>Huisha</value>
+	</data>
+	<data name="R_RENEWALS" xml:space="preserve">
+		<value>Kaya za kuhuisha</value>
+	</data>
+	<data name="R_REPORTS" xml:space="preserve">
+		<value>Ripoti</value>
+	</data>
+	<data name="R_RESTORE" xml:space="preserve">
+		<value>Rejesha</value>
+	</data>
+	<data name="R_REVIEW" xml:space="preserve">
+		<value>Pitia dai</value>
+	</data>
+	<data name="R_SAVE" xml:space="preserve">
+		<value>Hifadhi</value>
+	</data>
+	<data name="R_SEARCH" xml:space="preserve">
+		<value>Tafuta</value>
+	</data>
+	<data name="R_STATUSOFREGISTERS" xml:space="preserve">
+		<value>Hali ya rejesta</value>
+	</data>
+	<data name="R_SUBMIT" xml:space="preserve">
+		<value>Tuma</value>
+	</data>
+	<data name="R_TOOLS" xml:space="preserve">
+		<value>Zana</value>
+	</data>
+	<data name="R_UPDATE" xml:space="preserve">
+		<value>Rekebisha</value>
+	</data>
+	<data name="R_UPLOAD" xml:space="preserve">
+		<value>Pakia</value>
+	</data>
+	<data name="R_USERACTIVITYREPORT" xml:space="preserve">
+		<value>Ripoti ya Shughuli za Watumiaji</value>
+	</data>
+	<data name="R_USERPROFILES" xml:space="preserve">
+		<value>Wasifu wa Watumiaji</value>
+	</data>
+	<data name="R_USERS" xml:space="preserve">
+		<value>Watumiaji</value>
+	</data>
+	<data name="R_UTILITIES" xml:space="preserve">
+		<value>
+Matumizi / Mpangilio wa barua pepe</value>
+	</data>
+	<data name="L_MATCHINGDATE" xml:space="preserve">
+		<value>Tarehe inayolingana</value>
+	</data>
+	<data name="L_PAYMENTGRIDVIEW" xml:space="preserve">
+		<value>Malipo yanayofanana</value>
+	</data>
+	<data name="L_RECEIPTNO" xml:space="preserve">
+		<value>Namba ya risiti </value>
+	</data>
+	<data name="L_RECEIVEDATE" xml:space="preserve">
+		<value>Tarehe ya kupokea</value>
+	</data>
+	<data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
+		<value>Tafadhai ingiza Main Dg Code</value>
+	</data>
+	<data name="M_PAYDATETOEXCEEDCURRENDATE" xml:space="preserve">
+		<value>Tarehe ya malipo haipaswi kuzidi tarehe ya sasa</value>
+	</data>
+	<data name="R_CLAIMSUPLOAD" xml:space="preserve">
+		<value>Pakia madai</value>
+	</data>
+	<data name="R_DIAGNOSESDOWNLOAD" xml:space="preserve">
+		<value>Pakua magonjwa</value>
+	</data>
+	<data name="R_DIAGNOSESUPLOAD" xml:space="preserve">
+		<value>Pakia magonjwa</value>
+	</data>
+	<data name="R_ENROLMENTSUPLOAD" xml:space="preserve">
+		<value>Pakia taarifa za uandikishaji</value>
+	</data>
+	<data name="R_FEEDBACKUPLOAD" xml:space="preserve">
+		<value>Pakia maoni</value>
+	</data>
+	<data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
+		<value>Shusha vituo vya afya</value>
+	</data>
+	<data name="R_HEALTHFACILITIESUPLOAD" xml:space="preserve">
+		<value>Pakia vituo vya afya</value>
+	</data>
+	<data name="R_LOCATIONSDOWNLOAD" xml:space="preserve">
+		<value>Pakua eneo</value>
+	</data>
+	<data name="R_LOCATIONSUPLOAD" xml:space="preserve">
+		<value>Pakia eneo</value>
+	</data>
+	<data name="R_MASTERDATADOWNLOAD" xml:space="preserve">
+		<value>
+Pakua faili la taarifa</value>
+	</data>
+	<data name="R_OFFLINEEXTRACTSCREATE" xml:space="preserve">
+		<value>Unda dondoo nje ya mkondo</value>
+	</data>
+	<data name="R_PHONEEXTRACTSCREATE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_CONTRIBUTIONPREMIUM" xml:space="preserve">
+		<value>Mchango</value>
+	</data>
+	<data name="M_PREVIOUSCOMMISSIONREPORT" xml:space="preserve">
+		<value>Kutengeneza repoti ya mda uliopita itasababisha  kujirudia kwa taarifa.Unataka kuendelea?</value>
+	</data>
+	<data name="L_ALTLANGUAGE" xml:space="preserve">
+		<value>Lugha Mbadala</value>
+	</data>
+	<data name="T_ACCEPTED" xml:space="preserve">
+		<value>Imekubaliwa</value>
+	</data>
+	<data name="T_DIAGNOSISCODENOTINTHECURRENTLIST" xml:space="preserve">
+		<value>Msimbo wa uchunguzi haupo kwenye rejesta ya uchunguzi</value>
+	</data>
+	<data name="T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD" xml:space="preserve">
+		<value>Bidhaa/huduma haipo ndani ya kipindi cha kusubiri</value>
+	</data>
+	<data name="T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT" xml:space="preserve">
+		<value>
+Bidhaa / Huduma haizingatii aina ya shida ya utunzaji</value>
+	</data>
+	<data name="T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY" xml:space="preserve">
+		<value>
+Bidhaa / Huduma haizingatii kizuizi cha masafa</value>
+	</data>
+	<data name="T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION" xml:space="preserve">
+		<value>
+Bidhaa / Huduma haizingatii ukomo kwa wagonjwa (wanaume / wanawake,
+watu wazima / watoto)</value>
+	</data>
+	<data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
+		<value>Bidhaa / Huduma imerudiwa</value>
+	</data>
+	<data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
+		<value>Huduma/Bidhaa haipo kwenye bidhaa husika</value>
+	</data>
+	<data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
+		<value>Bidhaa / Huduma hazipo katika orodha ya kituo cha afya</value>
+	</data>
+	<data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
+		<value>Bidhaa /Huduma hazipo katika rejesta ya bidhaa/huduma</value>
+	</data>
+	<data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
+		<value>Namba ya bima sio sahihi</value>
+	</data>
+	<data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
+		<value>Idadi ya wajawazito imezidi</value>
+	</data>
+	<data name="T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED" xml:space="preserve">
+		<value>Idadi ya mashauriano imezidi</value>
+	</data>
+	<data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
+		<value>Idadi ya waliojifungua imezidi</value>
+	</data>
+	<data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
+		<value>Idadi ya wagonjwa wa kulazwa imezidi</value>
+	</data>
+	<data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
+		<value>Idadi ya wagonjwa wa nje imezidi</value>
+	</data>
+	<data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
+		<value>Idadi ya bidhaa / huduma imezidi</value>
+	</data>
+	<data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
+		<value>Idadi ya upasuaji imezidi</value>
+	</data>
+	<data name="T_NA" xml:space="preserve">
+		<value>N/A</value>
+	</data>
+	<data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
+		<value>Imekataliwa na mtoa huduma wa afya</value>
+	</data>
+	<data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
+		<value>Tarehe ya utoaji wa huduma ya afya sio sawa</value>
+	</data>
+	<data name="L_PLEASESELECTSCOPE" xml:space="preserve">
+		<value>Tafadhali chagua wigo</value>
+	</data>
+	<data name="L_PROLICYVALUE" xml:space="preserve">
+		<value>Kiasi cha mkataba : </value>
+	</data>
+	<data name="M_SELECTSERVICECODE" xml:space="preserve">
+		<value>Tafadhali chagua msimbo wa huduma</value>
+	</data>
+	<data name="T_NEWPOLICIES" xml:space="preserve">
+		<value>Sera mpya</value>
+	</data>
+	<data name="G_ROLE_DETAILS" xml:space="preserve">
+		<value>Maelezo ya sera</value>
+	</data>
+	<data name="M_UNIQUEROLENAME" xml:space="preserve">
+		<value>Jina Limeshatumika. Tafadhali Tumia Jina Tofauti</value>
+	</data>
+	<data name="V_PASSWORD_PREFIX" xml:space="preserve">
+		<value>Nywila lazima iwe na</value>
+	</data>
+	<data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
+		<value>angalau</value>
+	</data>
+	<data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
+		<value>herufi</value>
+	</data>
+	<data name="V_PASSWORD_INCLUDING" xml:space="preserve">
+		<value>jumuisha</value>
+	</data>
+	<data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
+		<value>angalau herufi ndogo moja</value>
+	</data>
+	<data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
+		<value>angalau herufi kubwa moja</value>
+	</data>
+	<data name="V_PASSWORD_NUMBER" xml:space="preserve">
+		<value>angalau namba moja</value>
+	</data>
+	<data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
+		<value>angalau alama moja maalum</value>
+	</data>
+	<data name="V_PASSWORDREQUIRED" xml:space="preserve">
+		<value>Nywila inahitajika</value>
+	</data>
+	<data name="L_PAYCATEGORY1" xml:space="preserve">
+		<value>Aina ya malipo</value>
+	</data>
+	<data name="L_PAYDATE1" xml:space="preserve">
+		<value>Tarehe ya Malipo</value>
+	</data>
+	<data name="L_PAYDATEFROM1" xml:space="preserve">
+		<value>Tarehe ya malipo kuanzia</value>
+	</data>
+	<data name="L_PAYDATETO1" xml:space="preserve">
+		<value>Tarehe ya malipo mpaka</value>
+	</data>
+	<data name="L_PAYMENT1" xml:space="preserve">
+		<value>Malipo</value>
+	</data>
+	<data name="L_PAYMENTASKED1" xml:space="preserve">
+		<value>malipo yaliyotozwa</value>
+	</data>
+	<data name="L_PAYMENTDATE1" xml:space="preserve">
+		<value>Tarehe ya Malipo</value>
+	</data>
+	<data name="L_PAYMETHOD1" xml:space="preserve">
+		<value>Njia ya kulipa</value>
+	</data>
+	<data name="T_MEDICALPROSTHESES" xml:space="preserve">
+		<value>Viungo vya bandia</value>
+	</data>
+	<data name="L_RECURRENCE" xml:space="preserve">
+		<value>Kujirudia (miezi)</value>
+	</data>
+	<data name="M_NORIGHTSSELECTED" xml:space="preserve">
+		<value>Tafadhali chagua angalau haki moja ya usalama</value>
+	</data>
+	<data name="M_USERCANNOTBEEDITED" xml:space="preserve">
+		<value>Huruhusiwi kubadili taarifa za mtumiaji</value>
+	</data>
+	<data name="M_ASSIGNROLE" xml:space="preserve">
+		<value>Ruhusu mgawo wa jukumu</value>
+	</data>
+	<data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
+		<value>Tarehe ya madai haiwezi kuwa baada ya leo</value>
+	</data>
+	<data name="B_RESTORE" xml:space="preserve">
+		<value>Rejesha</value>
+	</data>
+	<data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
+		<value>Hakuna ujumbe wa kuonyesha</value>
+	</data>
+	<data name="L_GENDER1" xml:space="preserve">
+		<value>Jinsia</value>
+	</data>
+	<data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
+		<value>Tafuta Na. ya Mwanachama</value>
+	</data>
+	<data name="T_CHARITY" xml:space="preserve">
+		<value>Msaada</value>
+	</data>
+	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
+		<value>Ingiza picha</value>
+	</data>
+	<data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
+		<value>Picha zilizofunganishwa</value>
+	</data>
+	<data name="L_FULLNAME" xml:space="preserve">
+		<value>Jina Kamili</value>
+	</data>
+	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
+		<value>Kiasi</value>
+	</data>
+	<data name="L_RECEIPTCODE" xml:space="preserve">
+		<value>Msimbo wa Risiti</value>
+	</data>
+	<data name="L_IMEI" xml:space="preserve">
+		<value>IMEI</value>
+	</data>
+	<data name="L_EMAILSETTINGS" xml:space="preserve">
+		<value>Barua pepe</value>
+	</data>
+	<data name="T_READY" xml:space="preserve">
+		<value>tayari</value>
+	</data>
+	<data name="M_PLEASESELECTMODE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Kamisheni ilikokotolewa</value>
+	</data>
+	<data name="G_PROJECTDETAILS" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_COMMENTS" xml:space="preserve">
+		<value>maoni</value>
+	</data>
+	<data name="L_COSTCENTRE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_PROJECTCENTRE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_ACTIVITYCENTRE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_CC" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_PC" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_AC" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="L_UNITS" xml:space="preserve">
+		<value>Vitengo</value>
+	</data>
+	<data name="L_EMPLOYEE" xml:space="preserve">
+		<value>Mfanyakazi</value>
+	</data>
+	<data name="L_EMPLOYEEID" xml:space="preserve">
+		<value>Kitambulisho cha Mfanyakazi</value>
+	</data>
+	<data name="L_UNITS2" xml:space="preserve">
+		<value>Kitengo</value>
+	</data>
+	<data name="T_SELECTCOSTCENTRE" xml:space="preserve">
+		<value>chagua gharama kituo</value>
+	</data>
+	<data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
+		<value>chagua kituo cha mradi</value>
+	</data>
+	<data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="T_SELECTEMPLOYEE" xml:space="preserve">
+		<value>Chagua Mfanyakazi</value>
+	</data>
+	<data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
+		<value>Malezo ya mradi yameingizwa kikamilifu</value>
+	</data>
+	<data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
+		<value>Malezo ya mradi yameboreshwa kikamilifu</value>
+	</data>
+	<data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Jumla ya michango iliyolipwa</value>
+	</data>
+	<data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Kokotoa Kamisheni</value>
+	</data>
+	<data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
+		<value>Kokotoa Kamisheni ya</value>
+	</data>
+	<data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
+		<value>Jumla ya malipo halisi ya michango kwa</value>
+	</data>
+	<data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
+		<value>Jumla ya malipo halisi ya michango</value>
+	</data>
+	<data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Kiasi cha mchango kilichowekwa</value>
+	</data>
+	<data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+		<value>Jumla ya mikataba ya</value>
+	</data>
+	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+		<value>Kiasi cha mchango kilichowekwa</value>
+	</data>
+	<data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
+		<value>tafadhali chagua kiwango cha Kamisheni</value>
+	</data>
+	<data name="R_TOTALAPPROVED" xml:space="preserve">
+		<value>jumla zilizopitishwa</value>
+	</data>
+	<data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
+		<value>Kiasi Kilichobadilishwa</value>
+	</data>
+	<data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
+		<value>Jumla ya malipo</value>
+	</data>
+	<data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+		<value>Kazi imekamilika katika</value>
+	</data>
+	<data name="M_EXTR_HOURS" xml:space="preserve">
+		<value>masaa</value>
+	</data>
+	<data name="T_OVERVIEW" xml:space="preserve">
+		<value>Ufupisho</value>
+	</data>
+	<data name="T_ALLDETAILS" xml:space="preserve">
+		<value>Maelezo kwa ujumla</value>
+	</data>
+	<data name="L_PAYMENTTYPE1" xml:space="preserve">
+		<value>Aina ya Malipo</value>
+	</data>
+</root>

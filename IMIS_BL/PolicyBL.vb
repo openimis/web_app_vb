@@ -96,6 +96,7 @@ Public Class PolicyBL
     Public Function ReturnPolicyStatusALPHA(ByVal PolicyStatus As String) As String
         Select Case PolicyStatus
             Case "I" : Return imisgen.getMessage("T_IDLE")
+            Case "R" : Return imisgen.getMessage("T_READY")
             Case "A" : Return imisgen.getMessage("T_ACTIVE")
             Case "S" : Return imisgen.getMessage("T_SUSPENDED")
             Case "E" : Return imisgen.getMessage("T_EXPIRED")
@@ -105,6 +106,7 @@ Public Class PolicyBL
     Public Function ReturnPolicyStatus(ByVal PolicyStatus As Integer) As String
         Select Case PolicyStatus
             Case 1 : Return imisgen.getMessage("T_IDLE")
+            Case 16 : Return imisgen.getMessage("T_READY")
             Case 2 : Return imisgen.getMessage("T_ACTIVE")
             Case 4 : Return imisgen.getMessage("T_SUSPENDED")
             Case 8 : Return imisgen.getMessage("T_EXPIRED")
@@ -126,6 +128,11 @@ Public Class PolicyBL
         dr = dtbl.NewRow
         dr("Code") = 1
         dr("Status") = ReturnPolicyStatus(1)
+        dtbl.Rows.Add(dr)
+
+        dr = dtbl.NewRow
+        dr("Code") = 16
+        dr("Status") = ReturnPolicyStatus(16)
         dtbl.Rows.Add(dr)
 
         dr = dtbl.NewRow
@@ -212,5 +219,10 @@ Public Class PolicyBL
     Public Function GetPolicyUUIDByID(ByVal id As Integer) As Guid
         Dim Policy As New IMIS_DAL.PolicyDAL
         Return Policy.GetPolicyUUIDByID(id).Rows(0).Item(0)
+    End Function
+
+    Public Function GetRenewalCount(ByVal ProdID As Integer, ByVal FamilyID As Integer) As Integer
+        Dim PolicyDAL As New IMIS_DAL.PolicyDAL
+        Return PolicyDAL.GetRenewalCount(ProdID, FamilyID)
     End Function
 End Class

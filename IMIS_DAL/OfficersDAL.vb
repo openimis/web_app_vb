@@ -87,8 +87,7 @@ Public Class OfficersDAL
 
 
     End Sub
-   
-    'Corrected
+
     Public Function GetOfficers(ByVal LocationId As Integer, ByVal VillageId As Integer, Optional WorksTo As Date? = Nothing) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String
@@ -309,7 +308,6 @@ Public Class OfficersDAL
         data.params("@PhoneCommunication", SqlDbType.Bit, eOfficers.PhoneCommunication)
         data.params("@PermanentAddress", SqlDbType.NVarChar, 100, eOfficers.PermanentAddress)
         data.params("@HasLogin", SqlDbType.Bit, eOfficers.HasLogin)
-
         data.ExecuteCommand()
 
     End Sub

@@ -430,6 +430,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
             });
 
         }
+        //ICDCode Autocomplete textbox controls Start
         $(document).ready(function () {
             var prm = Sys.WebForms.PageRequestManager.getInstance();
             prm.add_initializeRequest(InitializeRequest);
@@ -445,171 +446,154 @@ In case of dispute arising out or in relation to the use of the program, it is s
             InitAutoCompl();
         }
         function InitAutoCompl() {
-            $("#<%=txtICDCode0.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-                    success: function (data) {
-                        datasource = data;
-                    }
-                });
-                var ds = new AutoCompletedataSource(datasource);
-                $("#<%=txtICDCode0.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-                        response($.map(data, function (item, id) {
+            $("#<%=txtICDCode0.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                        // data: JSON.stringify({ prefix: request.term }),
+                        data: { ICDCode: $("#<%=txtICDCode0.ClientID %>").val() },
 
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID0.ClientID%>').val(u.item.id);
-                    }
-                });
-            });
-            $("#<%=txtICDCode0.ClientID %>").change(function () {
-                if ($(this).val() === "") {
-                    $('#<% = hfICDID0.ClientID%>').val("")
-                 }
-             });
+            dataType: "json",
+            type: "POST",
 
-            $("#<%=txtICDCode1.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-                    success: function (data) {
-                        datasource = data;
-                    }
-                });
-                var ds = new AutoCompletedataSource(datasource);
-                $("#<%=txtICDCode1.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-                        response($.map(data, function (item, id) {
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID1.ClientID%>').val(u.item.id);
-                    }
-                });
-            });
-            $("#<%=txtICDCode1.ClientID %>").change(function () {
-                if ($(this).val() === "") {
-                    $('#<% = hfICDID1.ClientID%>').val("")
-                }
+            success: function (data) {
+                response($.map(data, function (item, id) {
+                    return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID };
+                }));
+            },
+            error: function (response) {
+                alert(response.responseText);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            }
+        });
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID0.ClientID%>').val(u.item.id);
+
+                },
+                minLength: 1
             });
 
-            $("#<%=txtICDCode2.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
+            $("#<%=txtICDCode1.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                        // data: JSON.stringify({ prefix: request.term }),
+                        data: { ICDCode: $("#<%=txtICDCode1.ClientID %>").val() },
 
-                    success: function (data) {
-                        datasource = data;
-                    }
-                });
-                var ds = new AutoCompletedataSource(datasource);
-                $("#<%=txtICDCode2.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-                        response($.map(data, function (item, id) {
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID2.ClientID%>').val(u.item.id);
-                    }
-                });
-            });
-            $("#<%=txtICDCode2.ClientID %>").change(function () {
-                if ($(this).val() === "") {
-                    $('#<% = hfICDID2.ClientID%>').val("")
-                }
+            dataType: "json",
+            type: "POST",
+
+            success: function (data) {
+                response($.map(data, function (item, id) {
+                    return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID };
+                }));
+            },
+            error: function (response) {
+                alert(response.responseText);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            }
+        });
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID1.ClientID%>').val(u.item.id);
+
+                },
+                minLength: 1
             });
 
-            $("#<%=txtICDCode3.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-                    success: function (data) {
-                        datasource = data;
-                    }
-                });
-                var ds = new AutoCompletedataSource(datasource);
-                $("#<%=txtICDCode3.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-                        response($.map(data, function (item, id) {
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID3.ClientID%>').val(u.item.id);
-                    }
-                });
-            });
-            $("#<%=txtICDCode3.ClientID %>").change(function () {
-                if ($(this).val() === "") {
-                    $('#<% = hfICDID3.ClientID%>').val("")
-                }
+            $("#<%=txtICDCode2.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                        // data: JSON.stringify({ prefix: request.term }),
+                        data: { ICDCode: $("#<%=txtICDCode2.ClientID %>").val() },
+
+            dataType: "json",
+            type: "POST",
+
+            success: function (data) {
+                response($.map(data, function (item, id) {
+                    return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID };
+                }));
+            },
+            error: function (response) {
+                alert(response.responseText);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            }
+        });
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID2.ClientID%>').val(u.item.id);
+
+                },
+                minLength: 1
             });
 
-            $("#<%=txtICDCode4.ClientID %>").focus(function () {
-                var datasource;
-                $.ajax({
-                    url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
-                    dataType: "json",
-                    type: "GET",
-                    async: false,
-                    cache: false,
-                    success: function (data) {
-                        datasource = data;
-                    }
-                });
-                var ds = new AutoCompletedataSource(datasource);
-                $("#<%=txtICDCode4.ClientID %>").autocomplete({
-                    source: function (request, response) {
-                        var data = ds.filter(request);
-                        response($.map(data, function (item, id) {
-                            return {
-                                label: item.ICDNames, value: item.ICDNames, value2: item.ICDCode, id: item.ICDID
-                            };
-                        }));
-                    },
-                    select: function (e, u) {
-                        $('#<% = hfICDID4.ClientID%>').val(u.item.id);
-                    }
-                });
+            $("#<%=txtICDCode3.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                        // data: JSON.stringify({ prefix: request.term }),
+                        data: { ICDCode: $("#<%=txtICDCode3.ClientID %>").val() },
+
+            dataType: "json",
+            type: "POST",
+
+            success: function (data) {
+                response($.map(data, function (item, id) {
+                    return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID };
+                }));
+            },
+            error: function (response) {
+                alert(response.responseText);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            }
+        });
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID3.ClientID%>').val(u.item.id);
+
+                },
+                minLength: 1
             });
-            $("#<%=txtICDCode4.ClientID %>").change(function () {
-                if ($(this).val() === "") {
-                    $('#<% = hfICDID4.ClientID%>').val("")
-                }
+
+            $("#<%=txtICDCode4.ClientID %>").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: 'AutoCompleteHandlers/AutoCompleteHandler.ashx',
+                        // data: JSON.stringify({ prefix: request.term }),
+                        data: { ICDCode: $("#<%=txtICDCode4.ClientID %>").val() },
+
+            dataType: "json",
+            type: "POST",
+
+            success: function (data) {
+                response($.map(data, function (item, id) {
+                    return { label: item.ICDNames, value: item.ICDNames, id: item.ICDID };
+                }));
+            },
+            error: function (response) {
+                alert(response.responseText);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            }
+        });
+                },
+                select: function (e, u) {
+                    $('#<% = hfICDID4.ClientID%>').val(u.item.id);
+
+                },
+                minLength: 1
             });
         }
        
@@ -784,9 +768,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
                <td class ="DataEntry">
                <%--<asp:TextBox ID="txtICDCode" size="10" runat="server" MaxLength="6"></asp:TextBox>--%>
                    <asp:DropDownList ID="ddlICDData" runat="server" width="130px" Visible="False"></asp:DropDownList>
-                   <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8" width="125px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
-                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0"
-                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                     
+                    <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="12" Size="11"  width="125px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" 
+                       runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0"
+                       ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator> 
                </td>
             
                <td class="FormLabel">
@@ -836,7 +822,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       <asp:Label ID="lblICD1" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG1 %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:TextBox ID="txtICDCode1" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                       <asp:TextBox ID="txtICDCode1" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:DropDownList ID="ddlICDData1" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
@@ -844,7 +830,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       <asp:Label ID="lblICD2" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG2 %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                        <asp:TextBox ID="txtICDCode2" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                      <asp:TextBox ID="txtICDCode2" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:DropDownList ID="ddlICDData2" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
@@ -852,7 +838,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                       <asp:Label ID="lblICD3" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG3 %>"></asp:Label>
                   </td>
                   <td class="DataEntry">
-                      <asp:TextBox ID="txtICDCode3" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox ID="txtICDCode3" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:DropDownList ID="ddlICDData3" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
@@ -1078,9 +1064,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <td align="center">
                     <asp:Button ID="B_ADD" runat="server" Text='<%$ Resources:Resource,B_ADD%>' />
                 </td>
+                   <td align="right" id="td1" runat="server" visible="true">
+                    <asp:Button ID="btnRestore" runat="server" Text='<%$ Resources:Resource,B_RESTORE%>' />
+                </td>
                 <td align="right" id="tdPrintW" runat="server" visible="false">
                     <asp:Button ID="btnPrint" runat="server" Text='<%$ Resources:Resource,B_PRINT%>' />
                 </td>
+              
                 <td align="right">
                     <asp:Button ID="B_CANCEL" runat="server" Text='<%$ Resources:Resource,B_CANCEL%>' />
                 </td>

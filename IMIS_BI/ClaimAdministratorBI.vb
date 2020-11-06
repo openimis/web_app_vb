@@ -47,6 +47,14 @@ Public Class ClaimAdministratorBI
         Dim BLClaimAdmin As New IMIS_BL.ClaimAdminBL
         Return BLClaimAdmin.SaveClaimAdmin(eClaimAdmin)
     End Function
+    Public Function SaveUserDistricts(ByVal eUserDistricts As IMIS_EN.tblUsersDistricts) As Integer
+        Dim users As New IMIS_BL.UsersBL
+        Return users.SaveUserDistricts(eUserDistricts)
+    End Function
+    Public Function SaveUser(ByRef eUser As IMIS_EN.tblUsers) As Integer
+        Dim users As New IMIS_BL.UsersBL
+        Return users.SaveUser(eUser)
+    End Function
     Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
         Dim User As New IMIS_BL.UsersBL
         User.LoadUsers(eUser)
@@ -67,5 +75,13 @@ Public Class ClaimAdministratorBI
     Public Function GetClaimAdminUUIDByID(ByVal id As Integer) As Guid
         Dim ClaimAdmin As New IMIS_BL.ClaimAdminBL
         Return ClaimAdmin.GetClaimAdminUUIDByID(id)
+    End Function
+    Public Function getHFUserLocation(ByVal UserId As Integer, ByVal Hfid As Integer) As DataTable
+        Dim BL As New IMIS_BL.HealthFacilityBL
+        Return BL.getHFUserLocation(UserId, Hfid)
+    End Function
+    Public Function CheckIfUserExists(ByVal eUser As IMIS_EN.tblUsers) As DataTable
+        Dim BL As New IMIS_BL.ClaimAdminBL
+        Return BL.CheckIfUserExists(eUser)
     End Function
 End Class

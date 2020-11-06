@@ -39,7 +39,8 @@ Public Class AddFunding
             FillDropDowns()
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 1)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex, 1)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 1)
             Return
         End Try
     End Sub
@@ -151,7 +152,8 @@ Public Class AddFunding
 
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 1)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex, 1)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 1)
             Return
         End Try
     End Sub

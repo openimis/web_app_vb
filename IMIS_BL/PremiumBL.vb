@@ -33,6 +33,12 @@ Public Class PremiumBL
         Dim Premium As New IMIS_DAL.PremiumDAL
         Premium.LoadPremium(ePremium, PremiumContribution)
     End Sub
+    Public Function GetPremium(ByVal ePremium As IMIS_EN.tblPremium) As DataTable
+        Dim getDataTable As New IMIS_DAL.PremiumDAL
+        Return getDataTable.GetPremium(ePremium)
+
+
+    End Function
     Public Function GetPremiumsByPolicy(ByVal PolicyId As Integer) As DataTable
         Dim premiums As New IMIS_DAL.PremiumDAL
         Return premiums.GetPremiumsByPolicy(PolicyId)

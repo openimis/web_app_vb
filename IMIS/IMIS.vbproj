@@ -135,6 +135,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="AddFunding.aspx" />
+    <Content Include="BgService.aspx" />
     <Content Include="ChangeFamily.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Claim.aspx" />
@@ -148,6 +149,7 @@
     <Content Include="EnterNewPassword.aspx" />
     <Content Include="Error.htm" />
     <Content Include="Family.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="FeedbackPrompt.aspx" />
     <Content Include="FindClaimAdministrator.aspx" />
     <Content Include="FindClaims.aspx" />
@@ -270,16 +272,20 @@
     <Content Include="IMISDataSet.xss">
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Manual\IMIS_manual_fr.pdf" />
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
     <None Include="Web References\IMISService\imisservices.disco" />
     <None Include="web.base.config" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Workspace\dummy.dmd" />
+    <None Include="Web.Debug.config.dist" />
+    <None Include="Web.Release.config.dist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddFunding.aspx.designer.vb">
@@ -294,10 +300,45 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_CM.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_CM.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_TZ1.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_TZ.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.es_ES.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.es_ES.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Resource.fr.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_CD.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_CD.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_DJ.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_DJ.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_TD.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_TD.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.sw.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.sw.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Resource1.designer.vb">
       <AutoGen>True</AutoGen>
@@ -306,6 +347,13 @@
     </Compile>
     <Compile Include="AutoCompleteHandlers\AutoCompleteHandler.ashx.vb">
       <DependentUpon>AutoCompleteHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="BgService.aspx.designer.vb">
+      <DependentUpon>BgService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BgService.aspx.vb">
+      <DependentUpon>BgService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ChangeFamily.aspx.designer.vb">
       <DependentUpon>ChangeFamily.aspx</DependentUpon>
@@ -756,6 +804,9 @@
       <DependentUpon>Role.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Reports\ds.vb">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="User.aspx.designer.vb">
       <DependentUpon>User.aspx</DependentUpon>
     </Compile>
@@ -786,6 +837,34 @@
       <SubType>Designer</SubType>
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.fr.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.sw.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en_CM.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_CM.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en_TZ.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_TZ1.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.es_ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.es_ES.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_CD.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_CD.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_DJ.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_DJ.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_TD.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_TD.designer.vb</LastGenOutput>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -839,6 +918,20 @@
     <Content Include="Reports\rptRejectedPhotos.rdlc">
       <SubType>Designer</SubType>
     </Content>
+    <EmbeddedResource Include="Reports\rptClaimHistoryReport.rdlc" />
+    <Content Include="Reports\rptClaimOverviewClaimsOnly.rdlc" />
+    <Content Include="Reports\rptClaimOverviewAllDetails.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptClaimOverviewRejecteServItem.rdlc" />
+    <Content Include="Reports\rptContributionPayment.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\rptControlNumberAssignment.rdlc" />
+    <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryAllDetails.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryClaimsOnly.rdlc" />
+    <Content Include="Reports\rptClaimOverviewHistoryRejecteServItem.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />
@@ -899,6 +992,10 @@
     <ProjectReference Include="..\IMIS_BI\IMIS_BI.vbproj">
       <Project>{9b6b33f6-7629-4eb7-9548-2d3f48963643}</Project>
       <Name>IMIS_BI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IMIS_BL\IMIS_BL.vbproj">
+      <Project>{53d67c82-cf46-4bb2-8319-3fd91fa92737}</Project>
+      <Name>IMIS_BL</Name>
     </ProjectReference>
     <ProjectReference Include="..\IMIS_EN\IMIS_EN.vbproj">
       <Project>{a57fc2fd-3b24-4f9e-9514-cf370e411401}</Project>
@@ -986,6 +1083,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

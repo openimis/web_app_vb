@@ -104,4 +104,8 @@ Public Class PolicyBI
         Dim Policy As New IMIS_BL.PolicyBL
         Return Policy.GetPolicyUUIDByID(id)
     End Function
+    Public Function GetRenewalCount(ByVal ProdID As Integer, ByVal FamilyID As Integer) As Integer
+        Dim PolicyBL As New IMIS_BL.PolicyBL
+        Return PolicyBL.GetRenewalCount(ProdID, FamilyID)
+    End Function
 End Class

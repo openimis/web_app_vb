@@ -33,9 +33,58 @@ Public Class IMIS
     Inherits System.Web.UI.MasterPage
     Private MasterBI As New IMIS_BI.MasterBI
     Protected Friend imisgen As New IMIS_Gen
+    Private Sub FormatForm()
+        Dim Adjustibility As String = ""
+        For i As Integer = 0 To gvPolicy.Columns.Count
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_PRODUCTCODE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_EXPIREDATE")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_STATUS")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_HDEDUCTION")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_NHDEDUCTION")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_HCEILING")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvPolicy.Columns(i).HeaderText.Equals(imisgen.getMessage("L_NHCEILING")) Then gvPolicy.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
 
-    Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Next
+        For i As Integer = 0 To gvProduct.Columns.Count
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_TOTALADMISSIONSLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_TOTALVISITSLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_TOTALCONSULTATIONSLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_TOTALSURGERIESLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_TOTALDELIVERIESLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_TOTALANTENATALLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_HOSPITALIZATIONAMOUNTLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_CONSULTATIONAMOUNTLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_SURGERYAMOUNTLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_DELIVERYAMOUNTLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
+            If gvProduct.Columns(i).HeaderText.Equals(imisgen.getMessage("L_ANTENATALAMOUNTLEFT")) Then gvProduct.Columns(i).Visible = Not (Adjustibility = "N") : Exit For
 
+        Next
+
+        'ItemCode
+        Adjustibility = General.getControlSetting("lblItemCode")
+        lblItemCode.Visible = Not (Adjustibility = "N")
+
+        'Item Left
+        Adjustibility = General.getControlSetting("lblItemLeft")
+        lblItemLeft.Visible = Not (Adjustibility = "N")
+
+        'Service Left
+        Adjustibility = General.getControlSetting("lblServiceLeft")
+        lblServiceLeft.Visible = Not (Adjustibility = "N")
+
+        'Service MidDate
+        Adjustibility = General.getControlSetting("lblServiceMinDate")
+        lblServiceMinDate.Visible = Not (Adjustibility = "N")
+
+        'Item MidDate
+        Adjustibility = General.getControlSetting("lblItemMinDate")
+        lblItemMinDate.Visible = Not (Adjustibility = "N")
+    End Sub
+
+
+
+    Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load, rptInsuree.ItemDataBound
+        FormatForm()
 
         Dim Referer As String = Request.ServerVariables("HTTP_REFERER")
         If String.IsNullOrEmpty(Referer) Then
@@ -140,7 +189,7 @@ Public Class IMIS
         SubMS.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalService, UserID)
         SUBMI.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.MedicalItem, UserID)
         SubUser.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Users, UserID)
-        SubUserProfile.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.userProfiles, UserID)
+        SubUserProfile.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.userProfiles, UserID) And Not (IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF)
         subOfficer.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Officer, UserID)
         SubClaimAdministrator.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.ClaimAdministrator, UserID)
         subPayer.Enabled = MasterBI.checkRights(IMIS_EN.Enums.Rights.Payer, UserID)
@@ -271,5 +320,72 @@ Public Class IMIS
             Dim hf As HiddenField = CType(upDL.FindControl("hfPanelHasData"), HiddenField)
         End If
     End Sub
+    Protected Sub rptInsuree_ItemDataBound(sender As Object, e As RepeaterItemEventArgs) Handles rptInsuree.ItemDataBound
+        If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
+            'Reference the Repeater Item.
+            Dim item As RepeaterItem = e.Item
+            Dim Adjustibility = String.Empty
+            Adjustibility = General.getControlSetting("CHFID")
+            'Reference the Controls.
+            Dim InsuranceNumber As Label = TryCast(item.FindControl("chf_ID"), Label)
+            InsuranceNumber.Visible = Not (Adjustibility = "N")
 
+            'Last Name
+            Adjustibility = General.getControlSetting("LastName")
+            Dim LastName As Label = TryCast(item.FindControl("Last_Name"), Label)
+            LastName.Visible = Not (Adjustibility = "N")
+
+
+            ' Region Of FSP
+            Adjustibility = General.getControlSetting("RegionOfFSP")
+            Dim RegionOFSP As Label = (TryCast(item.FindControl("regionalFSP"), Label))
+            Dim L_FSPREGION As Label = (TryCast(item.FindControl("L_FSPREGION"), Label))
+            RegionOFSP.Visible = Not (Adjustibility = "N")
+            L_FSPREGION.Visible = Not (Adjustibility = "N")
+
+            'Other Names
+            Adjustibility = General.getControlSetting("OtherNames")
+            Dim OtherName As Label = TryCast(item.FindControl("other_names"), Label)
+            OtherName.Visible = Not (Adjustibility = "N")
+
+            'District OF FSP
+            Adjustibility = General.getControlSetting("DistrictOfFSP")
+            Dim DistrictOfFSP As Label = TryCast(item.FindControl("district_of_fsp"), Label)
+            Dim L_FSPDISTRICT As Label = TryCast(item.FindControl("L_FSPDISTRICT"), Label)
+            DistrictOfFSP.Visible = Not (Adjustibility = "N")
+            L_FSPDISTRICT.Visible = Not (Adjustibility = "N")
+
+
+            'Date Of Birth
+            Adjustibility = General.getControlSetting("DOB")
+            Dim DOB As Label = TryCast(item.FindControl("dob"), Label)
+            DOB.Visible = Not (Adjustibility = "N")
+
+            'Age
+            Adjustibility = General.getControlSetting("Age")
+            Dim Age As Label = TryCast(item.FindControl("age"), Label)
+            Age.Visible = Not (Adjustibility = "N")
+
+            'HF Level
+            Adjustibility = General.getControlSetting("HFLevel")
+            Dim HFLevel As Label = TryCast(item.FindControl("hfLevel"), Label)
+            Dim L_FSPLEVEL As Label = TryCast(item.FindControl("L_FSPLEVEL"), Label)
+            HFLevel.Visible = Not (Adjustibility = "N")
+            L_FSPLEVEL.Visible = Not (Adjustibility = "N")
+
+            'Gender
+            Adjustibility = General.getControlSetting("Gender")
+            Dim Gender As Label = TryCast(item.FindControl("gender"), Label)
+            Gender.Visible = Not (Adjustibility = "N")
+
+            'FSP
+            Adjustibility = General.getControlSetting("FirstServicePoint")
+            Dim FSP As Label = TryCast(item.FindControl("fsp"), Label)
+            Dim L_FSP As Label = TryCast(item.FindControl("L_FSP"), Label)
+            FSP.Visible = Not (Adjustibility = "N")
+            L_FSP.Visible = Not (Adjustibility = "N")
+
+
+        End If
+    End Sub
 End Class

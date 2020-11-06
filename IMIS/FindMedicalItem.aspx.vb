@@ -69,7 +69,8 @@ Partial Public Class FindMedicalItem
 
 
         Catch ex As Exception
-            EventLog.WriteEntry("IMIS", imisGen.getUserId(Session("User")) & " : " & ex.Message, EventLogEntryType.Information, 5, 3)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex, 5, EventLogEntryType.Information)
+            'EventLog.WriteEntry("IMIS", imisGen.getUserId(Session("User")) & " : " & ex.Message, EventLogEntryType.Information, 5, 3)
             'lblMsg.Text = ex.Message
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
         End Try
@@ -169,7 +170,8 @@ Partial Public Class FindMedicalItem
         Catch ex As Exception
             'lblMsg.Text = imisGen.getMessage("M_ERRORMESSAGE")
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click

@@ -192,13 +192,15 @@ Partial Public Class ClaimReview
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlPage, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 
     End Sub
 
     Private Sub RunPageSecurity()
+        Dim RoleID As Integer = imisgen.getRoleId(Session("User"))
         Dim UserID As Integer = imisgen.getUserId(Session("User"))
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.ClaimReview, Page) Then
             pnlServiceDetails.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimReview, UserID)
@@ -385,7 +387,8 @@ Partial Public Class ClaimReview
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlPage, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return "Exit"
         End Try
         Return "Continue"
@@ -403,7 +406,8 @@ Partial Public Class ClaimReview
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlPage, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
         Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimUUID.ToString())
@@ -419,7 +423,8 @@ Partial Public Class ClaimReview
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlPage, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
         Response.Redirect("ClaimOverview.aspx?c=" & eClaim.ClaimUUID.ToString())

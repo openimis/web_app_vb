@@ -52,4 +52,12 @@ Public Class FindPremiumBI
         Dim BL As New IMIS_BL.LocationsBL
         Return BL.GetRegions(UserId, ShowSelect)
     End Function
+    Public Function GetOfficers(ByVal DistrictId As Integer, ByVal showselect As Boolean, Optional VillageId As Integer = 0) As DataTable
+        Dim getDataTable As New IMIS_BL.OfficersBL
+        Return getDataTable.GetOfficers(DistrictId, showselect, VillageId)
+    End Function
+    Public Function GetProducts(ByVal UserId As Integer, Optional ByVal ShowSelect As Boolean = False, Optional ByVal RegionId As Integer = 0, Optional ByVal DistrictID As Integer = 0) As DataTable
+        Dim getDataTable As New IMIS_BL.ProductsBL
+        Return getDataTable.GetProducts(UserId, ShowSelect, RegionId, DistrictID)
+    End Function
 End Class

@@ -62,6 +62,7 @@ input[type="text"], input[type="password"], select, textarea
 {
     border: 1px solid #999999!important;
     outline-width: 0px!important;
+    height: 21px;
 }
 
 input[type="checkbox"]

@@ -65,7 +65,8 @@ Public Class MoveLocation
             LoadGrids(0)
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub B_CANCEL_Click(sender As Object, e As EventArgs) Handles B_CANCEL.Click
@@ -103,7 +104,8 @@ Public Class MoveLocation
           
         Catch ex As Exception
             lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE").ToString
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 
@@ -115,7 +117,8 @@ Public Class MoveLocation
             gvVillages.DataBind()
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 
@@ -124,7 +127,8 @@ Public Class MoveLocation
             If ddlVWard.SelectedValue > 0 Then LoadGrids(3)
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 
@@ -136,7 +140,8 @@ Public Class MoveLocation
             gvWards.DataBind()
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub ddlWDistrict_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlWDistrict.SelectedIndexChanged
@@ -144,7 +149,8 @@ Public Class MoveLocation
             If ddlWDistrict.SelectedValue > 0 Then LoadGrids(2)
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 
@@ -155,7 +161,8 @@ Public Class MoveLocation
             If ddlDRegion.SelectedValue Then LoadGrids(1)
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 

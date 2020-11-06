@@ -55,7 +55,8 @@ Public Partial Class FindClaimAdministrator
             End If
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)
@@ -71,7 +72,8 @@ Public Partial Class FindClaimAdministrator
             loadGrid()
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
@@ -87,7 +89,8 @@ Public Partial Class FindClaimAdministrator
             DeleteClaimAdministrator()
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
@@ -101,7 +104,8 @@ Public Partial Class FindClaimAdministrator
             loadGrid()
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 #End Region
@@ -120,7 +124,8 @@ Public Partial Class FindClaimAdministrator
             loadGrid()
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 #End Region
@@ -266,7 +271,8 @@ Public Partial Class FindClaimAdministrator
             BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 #End Region

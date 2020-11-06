@@ -26,7 +26,8 @@
 ' 
 '
 
-Public Partial Class ClaimAdministrator
+
+Partial Public Class ClaimAdministrator
     Inherits System.Web.UI.Page
 
 #Region "Members"
@@ -56,6 +57,7 @@ Public Partial Class ClaimAdministrator
             FillLanguage()
             If Not eClaimAdmin.ClaimAdminId = 0 Then
                 BIClaimAdmin.LoadClaimAdmin(eClaimAdmin)
+
                 If eClaimAdmin.ClaimAdminCode IsNot Nothing Then
                     txtCode.Text = eClaimAdmin.ClaimAdminCode
                 End If
@@ -77,16 +79,16 @@ Public Partial Class ClaimAdministrator
                 If eClaimAdmin.EmailId IsNot Nothing Then
                     txtEmail.Text = eClaimAdmin.EmailId
                 End If
+                hfUserID.Value = ""
                 If eClaimAdmin.HasLogin = True Then
                     eClaimAdmin.eUsers.LoginName = eClaimAdmin.ClaimAdminCode
-                    eClaimAdmin.eUsers.UserID = 0
-                    BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
                     hfUserID.Value = eClaimAdmin.eUsers.UserID
+                    BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
                     chkIncludeLogin.Checked = True
                     ddlLanguage.SelectedValue = eClaimAdmin.eUsers.LanguageID
                 End If
             Else
-                hfUserID.Value = 0
+                hfUserID.Value = ""
             End If
             If eClaimAdmin.ValidityTo.HasValue Then
                 pnlDetails.Enabled = False
@@ -94,7 +96,8 @@ Public Partial Class ClaimAdministrator
             End If
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlDetails, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 #End Region
@@ -106,12 +109,30 @@ Public Partial Class ClaimAdministrator
                 If SaveClaimAdmin() = False Then Return
             Catch ex As Exception
                 ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlDetails, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
                 Return
             End Try
         End If
         Response.Redirect("FindClaimAdministrator.aspx?a=" & txtCode.Text.Trim)
     End Sub
+
+    Protected Sub chkIncludeLogin_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If chkIncludeLogin.Checked Then
+            hfUserID.Value = ""
+            changeEnabledValidatorFieldsInIncludeLogin(True)
+        Else
+            changeEnabledValidatorFieldsInIncludeLogin(False)
+        End If
+    End Sub
+
+    Private Sub changeEnabledValidatorFieldsInIncludeLogin(ByVal enabled As Boolean)
+        RequiredFieldLanguage.Enabled = enabled
+        RequiredFieldPassword.Enabled = enabled
+        RequiredFieldConfirmPassword.Enabled = enabled
+        ComparePassword.Enabled = enabled
+    End Sub
+
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
         Response.Redirect("FindClaimAdministrator.aspx?a=" & txtCode.Text.Trim)
     End Sub
@@ -151,7 +172,8 @@ Public Partial Class ClaimAdministrator
         eClaimAdmin = New IMIS_EN.tblClaimAdmin
         eClaimAdmin.eUsers = New IMIS_EN.tblUsers
         If HttpContext.Current.Request.QueryString("a") IsNot Nothing Then
-            eClaimAdmin.ClaimAdminId = eClaimAdmin.ClaimAdminId
+            eClaimAdmin.ClaimAdminUUID = Guid.Parse(HttpContext.Current.Request.QueryString("a"))
+            eClaimAdmin.ClaimAdminId = BIClaimAdmin.GetClaimAdminIdByUUID(eClaimAdmin.ClaimAdminUUID)
         End If
         Dim eHF As New IMIS_EN.tblHF
         If ddlHFCode.SelectedIndex > 0 Then eHF.HfID = ddlHFCode.SelectedValue
@@ -183,6 +205,20 @@ Public Partial Class ClaimAdministrator
             End If
         End If
         Return True
+    End Function
+    Private Function AdminExists()
+        Dim eUser = New IMIS_EN.tblUsers
+        eUser.LoginName = txtCode.Text
+        Dim dt As DataTable = BIClaimAdmin.CheckIfUserExists(eUser)
+        If dt.Rows.Count > 0 Then
+            Dim loginName = If(dt.Rows(0)("LoginName") = "", "", dt.Rows(0)("LoginName"))
+            If loginName <> "" And loginName = txtCode.Text Then
+                ImisGen.Alert(eClaimAdmin.ClaimAdminCode & " " & ImisGen.getMessage("M_OFFICEREXISTS"), pnlButtons, alertPopupTitle:="IMIS")
+                Return True
+            End If
+        End If
+
+        Return False
     End Function
     Private Function SetLoginDetails() As Boolean
         eClaimAdmin.eUsers = New IMIS_EN.tblUsers
@@ -245,18 +281,18 @@ Public Partial Class ClaimAdministrator
             If SetEntity() = False Then
                 Exit Sub
             End If
-            eClaimAdmin.eUsers.UserID = hfUserID.Value
-            BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
-            BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
-            eClaimAdmin.HasLogin = False
-            If Not eClaimAdmin.ClaimAdminId = 0 Then
+            eClaimAdmin.eUsers = New IMIS_EN.tblUsers
+            If hfUserID.Value <> "" Then
+                eClaimAdmin.eUsers.UserID = hfUserID.Value
+                BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
+                BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
                 BIClaimAdmin.SaveClaimAdmin(eClaimAdmin)
             End If
             Session("msg") = eClaimAdmin.ClaimAdminCode & " " & ImisGen.getMessage("M_DELETED")
-            RequiredFieldLanguage.Visible = False
         Catch ex As Exception
             ImisGen.Alert(ImisGen.getMessage("M_ERRORMESSAGE"), pnlClaimAdmiLogin, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            ImisGen.Log(Page.Title & " : " & ImisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & ImisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 #End Region

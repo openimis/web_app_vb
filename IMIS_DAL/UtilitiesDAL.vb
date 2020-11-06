@@ -132,4 +132,22 @@ Public Class UtilitiesDAL
 
     End Sub
 
+    Public Shared Function GetEnvMaxRows() As String
+
+        Dim max_rows As Integer
+        Dim imis_max_row_searched As String = Environment.GetEnvironmentVariable("imis_max_row_searched")
+
+        Try
+            max_rows = Integer.Parse(imis_max_row_searched)
+        Catch
+            max_rows = 0
+        End Try
+
+        If max_rows > 0 Then
+            Return "TOP(" + max_rows.ToString() + ")"
+        End If
+
+        Return ""
+    End Function
+
 End Class

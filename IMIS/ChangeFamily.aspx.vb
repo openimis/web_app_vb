@@ -175,7 +175,8 @@ Partial Public Class ChangeFamily
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlChangeFamily, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
     End Sub
@@ -276,7 +277,8 @@ Partial Public Class ChangeFamily
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlChangeFamily, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
         Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyUUID.ToString())
@@ -308,7 +310,8 @@ Partial Public Class ChangeFamily
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlChangeFamily, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 
@@ -330,7 +333,8 @@ Partial Public Class ChangeFamily
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlChangeFamily, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
         Response.Redirect("OverviewFamily.aspx?f=" & eFamily.FamilyUUID.ToString())
@@ -370,7 +374,6 @@ Partial Public Class ChangeFamily
 
             'Display all the policies which already had exceeded the max member count 
             If hfOK.Value = 1 Then
-
                 If dt.Rows.Count > 0 Then
                     If dt.Select("MemberCount <= TotalInsurees").Count > 0 Then
                         If dt.Rows(0)("MemberCount") <> 0 Then
@@ -442,7 +445,8 @@ Partial Public Class ChangeFamily
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE", True), pnlChangeFamily, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 
@@ -483,7 +487,8 @@ Partial Public Class ChangeFamily
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlChangeFamily, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
 
     End Sub
