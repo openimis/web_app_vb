@@ -139,6 +139,11 @@ Public Class Family
         trProfession.Visible = Not (Adjustibility = "N")
         rfProfession.Enabled = (Adjustibility = "M")
 
+        'Vulnerability
+        Adjustibility = General.getControlSetting("Vulnerability")
+        trVulnerability.Visible = Not (Adjustibility = "N")
+        rfVulnerability.Enabled = (Adjustibility = "M")
+
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -243,6 +248,10 @@ Public Class Family
                 FillCurrentDistricts()
             End If
 
+            ddlVulnerability.DataSource = Family.GetYesNO
+            ddlVulnerability.DataValueField = "Code"
+            ddlVulnerability.DataTextField = "Status"
+            ddlVulnerability.DataBind()
 
             If Not eFamily.FamilyID = 0 Then
                 Family.LoadFamily(eFamily)
@@ -302,6 +311,8 @@ Public Class Family
                     btnBrowse.Enabled = False
                     Panel1.Enabled = False
                 End If
+
+                ddlVulnerability.SelectedValue = If(eInsuree.Vulnerability = True, "1", "0")
             End If
             FillImageDL()
             Session("ParentUrl") = "FindFamily.aspx"
@@ -562,6 +573,8 @@ Public Class Family
                 eInsuree.GeoLocation = Family.ExtractLatitude(ImageName) & " " & Family.ExtractLongitude(ImageName)
             End If
             'Addition for Nepal >> End
+
+            If ddlVulnerability.SelectedValue <> "" Then eInsuree.Vulnerability = ddlVulnerability.SelectedValue
 
             eFamily.AuditUserID = dt.Rows(0)("UserID")
             eFamily.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF

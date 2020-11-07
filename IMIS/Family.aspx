@@ -630,6 +630,31 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <td></td>
                             <td class="DataEntry"></td>
                         </tr>
+
+                        <tr id="trVulnerability" runat="server">
+                                        <td class="FormLabel">
+                                            <asp:Label
+                                                ID="Label1"
+                                                runat="server"
+                                                Text='<%$ Resources:Resource,L_VULNERABILITY%>'>
+                                            </asp:Label>
+                                        </td>
+                                        <td class="DataEntry">
+                                            <asp:DropDownList
+                                                ID="ddlVulnerability"
+                                                runat="server"
+                                                Width="150px">
+                                            </asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="rfVulnerability" runat="server" ControlToValidate="ddlVulnerability" InitialValue="" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                                Text='*'>
+                                            </asp:RequiredFieldValidator>
+                                        </td>
+                                        <td class="FormLabel">
+                                            &nbsp;</td>
+                                        <td class="DataEntry">
+                                            &nbsp;</td>
+                                    </tr>
+
                     </table>
                 </ContentTemplate>
             </asp:UpdatePanel>
