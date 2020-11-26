@@ -95,9 +95,13 @@ Partial Public Class Officer
                     hfUserID.Value = eOfficer.eUsers.UserID
                     chkOfficerIncludeLogin.Checked = True
                     ddlLanguage.SelectedValue = eUsers.LanguageID
+                    RequiredFieldConfirmPassword.Visible = False
+                    RequiredFieldPassword.Visible = False
                 End If
             Else
+
                 hfUserID.Value = 0
+
             End If
 
             FillWards()
@@ -108,18 +112,40 @@ Partial Public Class Officer
             End If
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
 
     End Sub
 #End Region
 #Region "Buttons"
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
-        SaveOfficer()
+        Dim Valid As Boolean = SaveOfficer()
+
+        If Not Valid Then
+            Exit Sub
+        End If
+
         Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
     End Sub
 
-    Public Sub SaveOfficer()
+    Protected Sub chkOfficerIncludeLogin_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If chkOfficerIncludeLogin.Checked Then
+            hfUserID.Value = 0
+            changeEnabledValidatorFieldsInIncludeLogin(True)
+        Else
+            changeEnabledValidatorFieldsInIncludeLogin(False)
+        End If
+    End Sub
+
+    Private Sub changeEnabledValidatorFieldsInIncludeLogin(ByVal enabled As Boolean)
+        RequiredFieldLanguage.Enabled = enabled
+        RequiredFieldPassword.Enabled = enabled
+        RequiredFieldConfirmPassword.Enabled = enabled
+        ComparePassword.Enabled = enabled
+    End Sub
+
+    Public Function SaveOfficer() As Boolean
         'If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
         Try
             Dim dt As New DataTable
@@ -173,7 +199,7 @@ Partial Public Class Officer
             Dim dtData As DataTable = GetOfficersVillagesDT()
             If chkOfficerIncludeLogin.Checked = True Then
                 If SetLoginDetails() = False Then
-                    Exit Sub
+                    Return False
                 End If
             End If
             Dim chk As Integer = Officer.SaveOfficer(eOfficer, dtData)
@@ -182,17 +208,20 @@ Partial Public Class Officer
 
             ElseIf chk = 1 Then
                 imisgen.Alert(eOfficer.Code & imisgen.getMessage("M_Exists"), pnlButtons, alertPopupTitle:="IMIS")
-                Return
+                Return True
             Else
                 Session("msg") = eOfficer.Code & " " & eOfficer.LastName & imisgen.getMessage("M_Updated")
             End If
 
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
-            Return
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            Return True
         End Try
-    End Sub
+        Return True
+    End Function
+
     Private Function SetLoginDetails() As Boolean
         eOfficer.eUsers = New IMIS_EN.tblUsers
         If hfUserID.Value <> "" Then
@@ -313,6 +342,22 @@ Partial Public Class Officer
         ddlLanguage.DataTextField = "LanguageName"
         ddlLanguage.DataBind()
     End Sub
+
+    Private Function OfficerExists()
+        Dim eUser = New IMIS_EN.tblUsers
+        eUser.LoginName = txtCode.Text
+        Dim dt As DataTable = BIOfficer.CheckIfUserExists(eUser)
+        If dt.Rows.Count > 0 Then
+            Dim loginName = If(dt.Rows(0)("LoginName") = "", "", dt.Rows(0)("LoginName"))
+            If loginName <> "" And loginName = txtCode.Text Then
+                imisgen.Alert(eOfficer.Code & imisgen.getMessage("M_OFFICEREXISTS"), pnlButtons, alertPopupTitle:="IMIS")
+                Return True
+            End If
+        End If
+
+        Return False
+    End Function
+
     Private Sub SetCheckboxes(gv As GridView)
         Dim _CheckWards As Boolean = True
         Dim _CheckVillages As Boolean = True
@@ -362,6 +407,9 @@ Partial Public Class Officer
     End Sub
     Public Sub DeleteLogin()
         Try
+            If hfUserID.Value = "" Then Exit Sub
+
+
             eUsers.UserID = hfUserID.Value
             eOfficer.eUsers = eUsers
             BIOfficer.LoadUsers(eOfficer.eUsers)
@@ -373,7 +421,8 @@ Partial Public Class Officer
             Session("msg") = txtCode.Text & " " & imisgen.getMessage("M_DELETED")
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
 
     End Sub

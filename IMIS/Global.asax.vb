@@ -31,6 +31,9 @@ Imports System.Web.SessionState
 Public Class Global_asax
     Inherits System.Web.HttpApplication
 
+
+    Public Const ServiceCacheItemKey As String = "ASP.NET_Service"
+    Private Shared IsServiceOn As Boolean = False
     Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
 
         If Not (EventLog.SourceExists("IMIS")) Then
@@ -38,8 +41,9 @@ Public Class Global_asax
             EventLog.CreateEventSource("IMIS", "IMIS-LOG")
 
         End If
+        IsServiceOn = True
+        RegisterCacheEntry("Start")
 
-       
 
 
     End Sub
@@ -61,6 +65,38 @@ Public Class Global_asax
 
             System.Threading.Thread.CurrentThread.CurrentUICulture = culture_info
         End If
+        Try
+            'If the dummy page is hit, then it means we want to add another item in cache
+
+            If HttpContext.Current.Cache(ServiceCacheItemKey) = "Start" Then
+                Dim StrPathAndQuery As String = HttpContext.Current.Request.Url.PathAndQuery
+                Dim DomainUrl As String = HttpContext.Current.Request.Url.AbsoluteUri.Replace(StrPathAndQuery, "/")
+                'Add the item in cache and when successful, do the work.
+                HttpContext.Current.Cache.Remove(ServiceCacheItemKey)
+                RegisterCacheEntry(DomainUrl)
+
+            Else
+                If HttpContext.Current.Request.Url.LocalPath.ToUpper = "/" & "BgService.aspx".ToUpper Then
+
+                    If HttpContext.Current.Request.QueryString("AX") = 1 Then
+                        Debug.Print(Date.Now & " Register")
+                        IsServiceOn = True
+                        Dim StrPathAndQuery As String = HttpContext.Current.Request.Url.PathAndQuery
+                        Dim DomainUrl As String = HttpContext.Current.Request.Url.AbsoluteUri.Replace(StrPathAndQuery, "/")
+                        'Add the item in cache and when successful, do the work.
+                        RegisterCacheEntry(DomainUrl)
+
+                        HttpContext.Current.Response.AddHeader("ServiceResponse", "<h1 id='ServiceSuccess' style='color:green;' >Service run successfully.</h1>")
+                    Else
+                        Debug.Print(Date.Now & " Else")
+                        IsServiceOn = False
+                        If HttpContext.Current.Cache.Remove(ServiceCacheItemKey) IsNot Nothing Then Exit Sub
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            'Write log
+        End Try
         ' MyBase.InitializeCulture()
     End Sub
 
@@ -89,5 +125,40 @@ Public Class Global_asax
     Sub Application_End(ByVal sender As Object, ByVal e As EventArgs)
         ' Fires when the application ends
     End Sub
+#Region "Procedures"
+    Private Sub RegisterCacheEntry(CurrentDomainurl As String)
+        If HttpContext.Current.Cache(ServiceCacheItemKey) IsNot Nothing Then
+            HttpContext.Current.Cache.Remove(ServiceCacheItemKey)
+            ' Exit Sub
+        End If
 
+        Dim Interval As Integer = 300
+
+        HttpContext.Current.Cache.Add(ServiceCacheItemKey, CurrentDomainurl,
+                     Nothing, DateTime.MaxValue, TimeSpan.FromSeconds(Interval), CacheItemPriority.Normal,
+                     New CacheItemRemovedCallback(AddressOf CacheItemRemovedCallback))
+    End Sub
+    Public Sub CacheItemRemovedCallback(key As String, value As Object, reason As CacheItemRemovedReason)
+        Try
+                If value = "Start" Then Exit Sub
+            ' If Not IsServiceOn Then Exit Sub
+            HitPage(value)
+            Debug.Print(Date.Now)
+            EventLog.WriteEntry("IMIS", "Service background tasks start", EventLogEntryType.Information, 166)
+
+            'Do the service works
+            IMIS_BI.GlobalAsaxBI.DoBackgroundTasks(value)
+            EventLog.WriteEntry("IMIS", "Service background completed", EventLogEntryType.Information, 167)
+        Catch ex As Exception
+            EventLog.WriteEntry("IMIS", ex.Message, EventLogEntryType.Error, 900)
+        End Try
+    End Sub
+    Private Sub HitPage(CurrentDomainurl)
+
+        'Dim CurrentDomainurl As String = "http://localhost:57214/"
+        Dim Uri As New System.Uri(CurrentDomainurl & "BgService.aspx" & "?AX=1") '&R=" & LOIS_EN.GeneralEN.EncryptData(LOIS_EN.GeneralEN.EWURARoles.Administrator))
+        Dim Client As New Net.WebClient()
+        Client.DownloadDataAsync(Uri)
+    End Sub
+#End Region
 End Class

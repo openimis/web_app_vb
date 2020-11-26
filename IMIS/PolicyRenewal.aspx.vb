@@ -146,10 +146,15 @@ Public Partial Class PolicyRenewal
     End Sub
 
     Private Sub FillOfficers()
-        ddlOfficer.DataSource = Policy.GetOfficers(If(Val(ddlDistrict.SelectedValue) = 0, Val(ddlRegion.SelectedValue), Val(ddlDistrict.SelectedValue)), True, Val(ddlVillage.SelectedValue))
-        ddlOfficer.DataValueField = "OfficerID"
-        ddlOfficer.DataTextField = "Code"
-        ddlOfficer.DataBind()
+        '2/7/2019 - Salum - Clears Officers when the region is not selected.
+        If (Val(ddlRegion.SelectedValue) > 0) Then
+            ddlOfficer.DataSource = Policy.GetOfficers(If(Val(ddlDistrict.SelectedValue) = 0, Val(ddlRegion.SelectedValue), Val(ddlDistrict.SelectedValue)), True, Val(ddlVillage.SelectedValue))
+            ddlOfficer.DataValueField = "OfficerID"
+            ddlOfficer.DataTextField = "Code"
+            ddlOfficer.DataBind()
+        Else
+            ddlOfficer.Items.Clear()
+        End If
     End Sub
     Private Sub getVillages(Optional ByVal Wards As Integer = 1)
         'If ddlWard.SelectedIndex < 0 Then Exit Sub
@@ -345,7 +350,8 @@ Public Partial Class PolicyRenewal
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
        
     End Sub
@@ -387,7 +393,8 @@ Public Partial Class PolicyRenewal
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlBody, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
     End Sub

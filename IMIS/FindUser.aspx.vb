@@ -92,7 +92,8 @@ Partial Public Class FindUser
 
         Catch ex As Exception
             Session("Msg") = imisGen.getMessage("M_ERRORMESSAGE")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
 
         End Try
 
@@ -156,7 +157,8 @@ Partial Public Class FindUser
         Catch ex As Exception
             'lblMsg.Text = imisGen.getMessage("M_ERRORMESSAGE")
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Private Sub getGridData()
@@ -206,6 +208,17 @@ Partial Public Class FindUser
         EnableButtons(gvUsers.Rows.Count)
 
     End Sub
+    Public Function CheckDifferenceandSave(ByVal grid As GridView, ByVal RowIndex As Integer) As Boolean
+
+        Dim chkSelect As CheckBox = CType(grid.Rows(RowIndex).Cells(0).Controls(1), CheckBox)
+        If chkSelect.Checked <> CBool(grid.DataKeys(grid.Rows(RowIndex).RowIndex).Value) Then
+            Return True
+        Else
+            Return False
+        End If
+
+
+    End Function
     Protected Sub B_ADD_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_ADD.Click
         Response.Redirect("User.aspx")
     End Sub
@@ -223,6 +236,11 @@ Partial Public Class FindUser
             imisGen.Alert(User & " " & imisGen.getMessage("M_NOTDELETEASSOCIATEDUSER"), pnlButtons, alertPopupTitle:="IMIS")
             Return
         End If
+        Dim result = users.GetUserDistricts(imisGen.getUserId(Session("User")), UserId)
+        If result = 1 Then
+            imisGen.Alert(imisGen.getMessage("M_USERCANNOTBEDELETED"), pnlButtons, alertPopupTitle:="IMIS")
+            Return
+        End If
         Try
             eUser.UserID = UserId
 
@@ -234,9 +252,9 @@ Partial Public Class FindUser
         Catch ex As Exception
             'lblMsg.Text = imisGen.getMessage("M_ERRORMESSAGE")
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
-
     End Sub
     Protected Sub gvUsers_PageIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles gvUsers.PageIndexChanging
         gvUsers.PageIndex = e.NewPageIndex

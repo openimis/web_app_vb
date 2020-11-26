@@ -89,7 +89,8 @@ Partial Public Class MedicalItem
 
         Catch ex As Exception
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
 
 
@@ -125,7 +126,8 @@ lblDirty:   Dim chk As Integer = 0
             Catch ex As Exception
                 'lblMsg.Text = ex.Message
                 imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
                 hfMI.Value = 1
                 Return
             End Try

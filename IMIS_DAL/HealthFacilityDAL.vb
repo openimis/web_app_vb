@@ -281,16 +281,13 @@ Public Class HealthFacilityDAL
         sSQL += " FROM tblUsers"
         sSQL += " WHERE UserID = @userid;"
         sSQL += " SELECT tblhf.HfID,tblhf.HfUUID,HFCode + ' - ' + HFNAME HFCODE"
-        sSQL += " FROM tblHF"
-        sSQL += " INNER JOIN tblusersdistricts on tblhf.LocationId = tblusersdistricts.LocationId"
+        sSQL += " FROM tblusersdistricts"
+        sSQL += " INNER JOIN tblHF on tblhf.LocationId = tblusersdistricts.LocationId and tblHF.validityto IS NULL"
+        sSQL += " INNER JOIN tblLocations l on l.LocationID = tblusersdistricts.LocationId"
+        sSQL += " WHERE tblusersdistricts.userid = @UserId"
+        sSQL += " AND (@hfid = 0 or @hfid= tblhf.hfid ) and (@LocationId = l.LocationID or @LocationId = l.ParentLocationID OR @LocationId  = 0 )"
         sSQL += " AND tblusersdistricts.validityto is null"
-        sSQL += " AND tblusersdistricts.userid = @UserId"
-        sSQL += " INNER JOIN tblDistricts D ON D.DistrictId = tblusersdistricts.LocationId"
-        sSQL += " INNER JOIN tblRegions R ON R.RegionId = D.Region"
-        sSQL += " where tblHF.validityto IS NULL"
-        sSQL += " AND (D.DistrictId = @LocationId OR R.RegionId = @LocationId OR @LocationId  = 0)"
-        sSQL += " AND CASE WHEN  @hfid = 0 THEN 0 ELSE tblhf.hfid END = @hfid"
-        sSQL += " ORDER BY hfCode"
+        sSQL += " ORDER BY hfCode;"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserId", SqlDbType.Int, UserId)
@@ -298,7 +295,7 @@ Public Class HealthFacilityDAL
         data.params("@hfId", SqlDbType.Int, Hfid, ParameterDirection.Output)
 
         Dim dt As DataTable = data.Filldata
-        Hfid = data.sqlParameters("@hfid")
+        Hfid = IIf(data.sqlParameters("@hfid").Equals(DBNull.Value), 0, data.sqlParameters("@hfid"))
         Return dt
     End Function
     Public Function getHFCodeFromID(ByVal HFID As Integer) As String

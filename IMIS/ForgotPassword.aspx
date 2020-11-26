@@ -49,7 +49,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <div class="lbl"><asp:Label ID="L_LoginName" runat="server" Text='<%$ Resources:Resource,L_USERNAME %>'></asp:Label></div>
                 <div class="cnt"><asp:TextBox ID="txtLoginName" runat="server" Width="80%"  ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="submit" 
-                        ControlToValidate="txtLoginName" ErrorMessage="*" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        ControlToValidate="txtLoginName" ErrorMessage='<%$ Resources:Resource, V_SUMMARY %>' SetFocusOnError="True">*</asp:RequiredFieldValidator>
                     
                 </div>
                     
@@ -57,7 +57,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
             <div class="line">
                 <div class="lbl"><asp:Label ID="L_Password" runat="server" Text='<%$ Resources:Resource,L_NEWPASSWORD %>'></asp:Label></div>
                 <div class="cnt"><asp:TextBox ID="txtPassword" runat="server" Width="80%" TextMode="Password" ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfPassword" runat="server"  ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, V_PASSWORDREQUIRED %>'  ValidationGroup="submit" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfPassword" runat="server"  ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>'  ValidationGroup="submit" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="submit">*</asp:RegularExpressionValidator>
                 </div>
                     
             </div>

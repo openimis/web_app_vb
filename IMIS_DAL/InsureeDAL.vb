@@ -96,7 +96,8 @@ Public Class InsureeDAL
         sSQL += " INNER JOIN tblDistricts L ON L.DistrictId = UD.LocationId  "
         sSQL += " WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)  "
         sSQL += " GROUP BY L.DistrictId, L.Region ) "
-        sSQL += " SELECT I.isOffline,I.FamilyID,I.InsureeID,I.InsureeUUID,RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,"
+        sSQL += " SELECT " + UtilitiesDAL.GetEnvMaxRows()
+        sSQL += " I.isOffline,I.FamilyID,I.InsureeID,I.InsureeUUID,RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,"
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)") & " Gender"
         sSQL += ",dtMarital.Name Marital, phone, DOB, I.validityfrom, I.validityTo, F.FamilyUUID  "
         sSQL += " FROM tblInsuree I  "

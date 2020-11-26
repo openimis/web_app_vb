@@ -132,6 +132,10 @@ Public Class ReportBL
         dict.Add(getMessage("T_RENEWALS"), IMIS_EN.Enums.Rights.ReportsRenewals)    'id = 17
         dict.Add(getMessage("T_CAPITATIONPAYMENT"), IMIS_EN.Enums.Rights.ReportsCapitationPayment)  'Id = 18
         dict.Add(getMessage("T_REJECTEDPHOTOS"), IMIS_EN.Enums.Rights.ReportRejectedPhoto)  'Id = 19
+        dict.Add(getMessage("L_CONTRIBUTIONPAYMENT"), IMIS_EN.Enums.Rights.ReportsContributionPayment) 'Id =20 
+        dict.Add(getMessage("L_CONTROLNUMBERASSIGNMENT"), IMIS_EN.Enums.Rights.ReportsControlNumberAssignment) 'Id = 21
+        dict.Add(getMessage("L_OVERVIEWOFCOMMISSIONS"), IMIS_EN.Enums.Rights.ReportsOverviewOfCommissions) 'Id = 22
+        dict.Add(getMessage("L_CLAIMHISTORYREPORT"), IMIS_EN.Enums.Rights.ReportsClaimHistoryReport) 'Id = 23
         Dim dr As DataRow
         Dim index As Integer = 1
         For Each Rtype As String In dict.Keys
@@ -173,9 +177,12 @@ Public Class ReportBL
         Dim DAL As New IMIS_DAL.ReportDAL
         Return DAL.GetMatchingFunds(DistrictID, ProdID, PayerID, StartDate, EndDate, ReportingID, ErrorMessage, oReturn)
     End Function
-    Public Function GetClaimOverview(ByVal DistrictID As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?) As DataTable
+    Public Function GetClaimOverview(ByVal DistrictID As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByRef oReturn As Integer) As DataTable
         Dim DAL As New IMIS_DAL.ReportDAL
-        Return DAL.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus)
+        Dim imisgen As New GeneralBL
+        Dim dtRejReason = New DataTable
+        dtRejReason = imisgen.GetAllRejectedReasons()
+        Return DAL.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus, Scope, dtRejReason, oReturn)
     End Function
     Public Function GetPercentageReferral(RegionId As Integer, DistrictId As Integer, StartDate As Date, EndDate As Date) As DataTable
         Dim Report As New IMIS_DAL.ReportDAL
@@ -279,5 +286,29 @@ Public Class ReportBL
         Dim BL As New IMIS_BL.HealthFacilityBL
         Dim dt As DataTable = BL.GetHFLevel(False)
         Return DAL.getCatchmentArea(RegionId, DistrictId, ProductId, Year, Month, dt)
+    End Function
+    Public Function GetPaymentContribution(startDate As Date?, endDate As Date?, controlNumber As String, productCode As String, paymentStutus As Integer)
+        Dim DAL As New IMIS_DAL.ReportDAL
+        Return DAL.GetPaymentContribution(startDate, endDate, controlNumber, productCode, paymentStutus)
+        Return True
+    End Function
+    Public Function GetControlNumberAssignment(startDate As Date, endDate As Date, PostingStatus As String, AssignmentStatus As String, RegionId As Integer, DistrictId As Integer)
+        Dim DAL As New IMIS_DAL.ReportDAL
+        Dim gen As New GeneralBL
+        Dim dt As New DataTable
+        dt = gen.GetPaymentStatusNames()
+        Return DAL.GetControlNumberAssignment(startDate, endDate, PostingStatus, AssignmentStatus, RegionId, DistrictId, dt)
+    End Function
+
+    Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal Scope As Integer, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
+        Dim DAL As New IMIS_DAL.ReportDAL
+        Return DAL.GetOverviewOfCommissions(LocationId, ProductId, Month, Year, PayerId, OfficerId, Mode, CommissionRate, Scope, ReportingID, ErrorMessage, oReturn)
+    End Function
+    Public Function GetClaimHistoryReport(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal InsuranceNumber As String, ByVal Scope As Integer, ByRef oReturn As Integer) As DataTable
+        Dim DAL As New IMIS_DAL.ReportDAL
+        Dim imisgen As New GeneralBL
+        Dim dtRejReasons = New DataTable
+        dtRejReasons = imisgen.GetAllRejectedReasons()
+        Return DAL.GetClaimHistoryReport(LocationId, ProdID, HfID, StartDate, EndDate, ClaimStatus, InsuranceNumber, Scope, dtRejReasons, oReturn)
     End Function
 End Class

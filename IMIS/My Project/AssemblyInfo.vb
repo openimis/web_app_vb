@@ -35,17 +35,17 @@ Imports System.Runtime.InteropServices
 ' associated with an assembly.
 
 ' Review the values of the assembly attributes
-<Assembly: AssemblyTitle("IMIS")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Microsoft")> 
-<Assembly: AssemblyProduct("IMIS")> 
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2016")> 
+<Assembly: AssemblyTitle("openIMIS Web Application")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("openIMIS Initiative")>
+<Assembly: AssemblyProduct("openIMIS")>
+<Assembly: AssemblyCopyright("Copyright ©SDC 2020")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("debdce78-704c-4af9-8804-7246da4f85ec")> 
+<Assembly: Guid("debdce78-704c-4af9-8804-7246da4f85ec")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -58,5 +58,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("2020.10.23.15")>
+<Assembly: AssemblyFileVersion("1.0.0")>

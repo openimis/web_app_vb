@@ -161,7 +161,8 @@ Partial Public Class UploadICD
 
             Catch ex As Exception
                 imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE", True), Panel1, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             End Try
         End If
     End Sub
@@ -259,7 +260,8 @@ Partial Public Class UploadICD
 
             Catch ex As Exception
                 imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE", True), Panel1, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             End Try
         End If
     End Sub
@@ -362,7 +364,8 @@ Partial Public Class UploadICD
 
             Catch ex As Exception
                 imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE", True), Panel1, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             End Try
         End If
     End Sub

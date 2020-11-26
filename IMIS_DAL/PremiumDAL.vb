@@ -95,23 +95,38 @@ Public Class PremiumDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
 
-        sSQL = "select PremiumID,PremiumUUID,tblPremium.PolicyID,tblPremium.isOffline,tblFamilies.FamilyId, Amount, PayDate,Receipt, tblPremium.ValidityFrom,"
-        sSQL += " tblPremium.ValidityTo,PayerName, PT.Name PayType,"
-        sSQL += " C.Name PayCategory, tblPolicy.PolicyUUID, tblFamilies.FamilyUUID"
-        sSQL += " FROM tblPremium"
+        sSQL = "select " + UtilitiesDAL.GetEnvMaxRows()
+        sSQL += " tblPremium.PremiumID,PremiumUUID,tblPremium.PolicyID,tblPolicy.PolicyUUID,tblPremium.isOffline,tblFamilies.FamilyId,tblFamilies.FamilyUUID, tblPremium.Amount, PayDate,Receipt, tblPremium.ValidityFrom, PY.Amount MatchedAmount,"
+        sSQL += " tblPremium.ValidityTo,tblPayer.PayerName, PT.Name PayType,"
+        sSQL += " C.Name PayCategory"
+        sSQL += " FROM tblPremium LEFT JOIN"
+        sSQL += " (SELECT premiumID,MatchedDate,SUM(Amount) Amount FROM"
+        sSQL += " tblPaymentDetails PD"
+        sSQL += " INNER JOIN tblPayment"
+        sSQL += " ON PD.PaymentID = tblPayment.PaymentID"
+        sSQL += " And PD.ValidityTo IS NULL AND tblPayment.validityTo IS NULL"
+        If Not ePremium.MatchedDateFrom Is Nothing Then
+            sSQL += " AND MatchedDate >= @MatchedDateFrom"
+        End If
+        If Not ePremium.MatchedDateTo Is Nothing Then
+            sSQL += " AND MatchedDate <= @MatchedDateTo"
+        End If
+
+        sSQL += " Group BY PremiumID,MatchedDate ) PY"
+        sSQL += " ON PY.PremiumID = tblPremium.PremiumId"
         sSQL += " INNER JOIN tblPolicy ON tblPremium.PolicyID = tblPolicy.PolicyID"
         sSQL += " INNER JOIN tblFamilies ON tblPolicy.FamilyID = tblFamilies.FamilyID"
         sSQL += " INNER JOIN tblVillages V ON V.VillageId = tblFamilies.LocationId"
         sSQL += " INNER JOIN tblWards W ON W.WardId = V.WardId"
         sSQL += " INNER JOIN tblDistricts D ON D.DistrictId = W.DistrictID"
         sSQL += " INNER JOIN tblRegions R ON R.RegionId = D.Region"
-        sSQL += " INNER JOIN tblUsersDistricts UD on UD.LocationId = D.districtid and UD.userid = @userid and UD.ValidityTo is null"
+        'sSQL += " INNER JOIN tblUsersDistricts UD on UD.LocationId = D.districtid and UD.userid = @userid and UD.ValidityTo is null"
         sSQL += " left JOIN tblPayer ON tblPremium.PayerID = tblPayer.PayerID"
         sSQL += " LEFT OUTER JOIN @dtPayType PT ON PT.Code = tblPremium.PayType"
         sSQL += " LEFT OUTER JOIN @dtCategory C ON C.Code = CASE isPhotoFee WHEN 1 THEN 'P' ELSE 'C' END"
         sSQL += " WHERE CASE WHEN @PayerID = 0 THEN 0 ELSE tblPremium.PayerID END = @PayerID"
         sSQL += " AND CASE WHEN  @PayType = '' THEN '' ELSE PayType END = @PayType"
-        sSQL += " AND CASE WHEN @Amount = 0 THEN 0 ELSE Amount END >= @Amount"
+        sSQL += " AND CASE WHEN @Amount = 0 THEN 0 ELSE tblPremium.Amount END >= @Amount"
 
 
         If Not ePremium.PayDateFrom Is Nothing Then
@@ -120,10 +135,16 @@ Public Class PremiumDAL
         If Not ePremium.PayDateTo Is Nothing Then
             sSQL += " AND PayDate <= @PayDateTo"
         End If
+        If Not ePremium.MatchedDateFrom Is Nothing Then
+            sSQL += " AND MatchedDate >= @MatchedDateFrom"
+        End If
+        If Not ePremium.MatchedDateTo Is Nothing Then
+            sSQL += " AND MatchedDate <= @MatchedDateTo"
+        End If
         If Not ePremium.tblPayer.tblLocations.RegionId = 0 Then
             sSQL += " AND (R.RegionId =  @RegionId)"
         End If
-        If Not ePremium.tblPayer.tblLocations.DistrictID = 0 Then 'District Id
+        If Not ePremium.tblPayer.tblLocations.DistrictId = 0 Then 'District Id
             sSQL += " AND (D.DistrictID =  @DistrictID)"
         End If
         If Not ePremium.Receipt = String.Empty Then
@@ -147,21 +168,113 @@ Public Class PremiumDAL
             data.params("@PayDateFrom", SqlDbType.SmallDateTime, ePremium.PayDateFrom)
         End If
         If Not ePremium.PayDateTo Is Nothing Then
+            If ePremium.PayDateTo = ePremium.PayDateTo.Value.Date Then
+                ePremium.PayDateTo = ePremium.PayDateTo.Value.AddDays(1)
+            End If
             data.params("@PayDateTo", SqlDbType.SmallDateTime, ePremium.PayDateTo)
+        End If
+        If Not ePremium.MatchedDateFrom Is Nothing Then
+            data.params("@MatchedDateFrom", SqlDbType.SmallDateTime, ePremium.MatchedDateFrom)
+        End If
+        If Not ePremium.MatchedDateTo Is Nothing Then
+            If ePremium.MatchedDateTo = ePremium.MatchedDateTo.Value.Date Then
+                ePremium.MatchedDateTo = ePremium.MatchedDateTo.Value.AddDays(1)
+            End If
+            data.params("@MatchedDateTo", SqlDbType.SmallDateTime, ePremium.MatchedDateTo)
         End If
         data.params("PayType", SqlDbType.NVarChar, 1, ePremium.PayType)
         data.params("@RegionId", SqlDbType.Int, ePremium.tblPayer.tblLocations.RegionId)
-        data.params("@DistrictID", SqlDbType.Int, ePremium.tblPayer.tblLocations.DistrictID)
+        data.params("@DistrictID", SqlDbType.Int, ePremium.tblPayer.tblLocations.DistrictId)
         data.params("@dtPayType", dtPayType, "xCareType")
         data.params("@dtCategory", dtPayType, "xCareType")
 
         Return data.Filldata
     End Function
-    Public Function GetPremiumsByPolicy(ByVal PolicyId As Integer) As DataTable
 
+    'Public Function GetPremiums(ByVal ePremium As IMIS_EN.tblPremium, ByVal legacy As Boolean, dtPayType As DataTable, dtCategory As DataTable) As DataTable
+    '    Dim data As New ExactSQL
+    '    Dim sSQL As String = ""
+
+    '    sSQL = "select PremiumID,PremiumUUID,tblPremium.PolicyID,tblPremium.isOffline,tblFamilies.FamilyId, Amount, PayDate,Receipt, tblPremium.ValidityFrom,"
+    '    sSQL += " tblPremium.ValidityTo,PayerName, PT.Name PayType,"
+    '    sSQL += " C.Name PayCategory, tblPolicy.PolicyUUID, tblFamilies.FamilyUUID"
+    '    sSQL += " FROM tblPremium"
+    '    sSQL += " INNER JOIN tblPolicy ON tblPremium.PolicyID = tblPolicy.PolicyID"
+    '    sSQL += " INNER JOIN tblFamilies ON tblPolicy.FamilyID = tblFamilies.FamilyID"
+    '    sSQL += " INNER JOIN tblVillages V ON V.VillageId = tblFamilies.LocationId"
+    '    sSQL += " INNER JOIN tblWards W ON W.WardId = V.WardId"
+    '    sSQL += " INNER JOIN tblDistricts D ON D.DistrictId = W.DistrictID"
+    '    sSQL += " INNER JOIN tblRegions R ON R.RegionId = D.Region"
+    '    sSQL += " INNER JOIN tblUsersDistricts UD on UD.LocationId = D.districtid and UD.userid = @userid and UD.ValidityTo is null"
+    '    sSQL += " left JOIN tblPayer ON tblPremium.PayerID = tblPayer.PayerID"
+    '    sSQL += " LEFT OUTER JOIN @dtPayType PT ON PT.Code = tblPremium.PayType"
+    '    sSQL += " LEFT OUTER JOIN @dtCategory C ON C.Code = CASE isPhotoFee WHEN 1 THEN 'P' ELSE 'C' END"
+    '    sSQL += " WHERE CASE WHEN @PayerID = 0 THEN 0 ELSE tblPremium.PayerID END = @PayerID"
+    '    sSQL += " AND CASE WHEN  @PayType = '' THEN '' ELSE PayType END = @PayType"
+    '    sSQL += " AND CASE WHEN @Amount = 0 THEN 0 ELSE Amount END >= @Amount"
+
+
+    '    If Not ePremium.PayDateFrom Is Nothing Then
+    '        sSQL += " AND PayDate >= @PayDateFrom"
+    '    End If
+    '    If Not ePremium.PayDateTo Is Nothing Then
+    '        sSQL += " AND PayDate <= @PayDateTo"
+    '    End If
+    '    If Not ePremium.tblPayer.tblLocations.RegionId = 0 Then
+    '        sSQL += " AND (R.RegionId =  @RegionId)"
+    '    End If
+    '    If Not ePremium.tblPayer.tblLocations.DistrictID = 0 Then 'District Id
+    '        sSQL += " AND (D.DistrictID =  @DistrictID)"
+    '    End If
+    '    If Not ePremium.Receipt = String.Empty Then
+    '        sSQL += " AND Receipt like @Receipt"
+    '    End If
+    '    If Not legacy = True Then
+    '        sSQL += " AND tblPremium.validityto is null "
+    '    End If
+    '    If ePremium.isOffline IsNot Nothing Then
+    '        If ePremium.isOffline Then
+    '            sSQL += " AND tblPremium.isOffline = 1"
+    '        End If
+    '    End If
+    '    sSQL += " ORDER BY PayDate DESC,tblPremium.PolicyID, tblPremium.ValidityFrom desc, tblPremium.ValidityTo DESC"
+    '    data.setSQLCommand(sSQL, CommandType.Text)
+    '    data.params("UserID", SqlDbType.Int, ePremium.AuditUserID)
+    '    data.params("PayerID", SqlDbType.Int, ePremium.tblPayer.PayerID)
+    '    data.params("Amount", SqlDbType.Decimal, ePremium.Amount)
+    '    data.params("@Receipt", SqlDbType.NVarChar, 15, ePremium.Receipt & "%")
+    '    If Not ePremium.PayDateFrom Is Nothing Then
+    '        data.params("@PayDateFrom", SqlDbType.SmallDateTime, ePremium.PayDateFrom)
+    '    End If
+    '    If Not ePremium.PayDateTo Is Nothing Then
+    '        data.params("@PayDateTo", SqlDbType.SmallDateTime, ePremium.PayDateTo)
+    '    End If
+    '    data.params("PayType", SqlDbType.NVarChar, 1, ePremium.PayType)
+    '    data.params("@RegionId", SqlDbType.Int, ePremium.tblPayer.tblLocations.RegionId)
+    '    data.params("@DistrictID", SqlDbType.Int, ePremium.tblPayer.tblLocations.DistrictID)
+    '    data.params("@dtPayType", dtPayType, "xCareType")
+    '    data.params("@dtCategory", dtPayType, "xCareType")
+
+    '    Return data.Filldata
+    'End Function
+    'Emmanuel
+    Public Function GetPremiumsByPolicy(ByVal PolicyId As Integer) As DataTable
+        Dim sSQL As String = ""
         Dim data As New ExactSQL
-        data.setSQLCommand("SELECT tblPremium.isOffline,PremiumID,PremiumUUID,tblFamilies.FamilyUUID,tblPolicy.policyid,tblPolicy.PolicyUUID,tblPolicy.FamilyId,PayDate,PayerName,Amount,CASE PayType WHEN 'M' THEN 'Mobile Phone' WHEN 'C' THEN 'Cash' WHEN 'B' THEN 'Bank Transfer' END as PayType,Receipt, tblPremium.PayerID,tblPayer.PayerUUID,tblpolicy.FamilyID,CASE tblPremium.isPhotoFee WHEN 1 THEN N'Photo Fee' ELSE N'Contribution' END PayCategory" &
-                           " FROM tblPremium LEFT JOIN tblPayer ON tblPremium.PayerID = tblPayer.PayerID inner join tblpolicy on tblpremium.policyid = tblpolicy.policyid inner join tblfamilies on tblpolicy.familyId = tblfamilies.familyId where(tblpremium.PolicyId = @PolicyId  AND tblpremium.ValidityTo is null) ORDER BY PayerName", CommandType.Text)
+        sSQL += " Select tblPremium.isOffline,PY.Amount MatchedAmount, tblPremium.PremiumID,tblPremium.PremiumUUID, tblPolicy.policyid,tblPolicy.PolicyUUID,tblPolicy.FamilyId,tblFamilies.FamilyUUID, PayDate,tblPayer.PayerUUID, "
+        sSQL += " PayerName, tblpremium.Amount, CASE PayType WHEN 'M' THEN 'Mobile Phone' WHEN 'C' THEN 'Cash' "
+        sSQL += " When 'B' THEN 'Bank Transfer' END as PayType,Receipt, tblPremium.PayerID, tblpolicy.FamilyID,"
+        sSQL += " Case tblPremium.isPhotoFee When 1 Then N'Photo Fee' ELSE N'Contribution' END PayCategory"
+        sSQL += " From tblPremium Left OUTER JOIN "
+        sSQL += " (SELECT premiumID,SUM(Amount) Amount FROM tblPaymentDetails PD INNER Join tblPayment On PD.PaymentID = tblPayment.PaymentID "
+        sSQL += " And PD.ValidityTo Is NULL Group BY PremiumID ) PY "
+        sSQL += " On PY.PremiumID = tblPremium.PremiumId "
+        sSQL += " Left Join tblPayer ON tblPremium.PayerID = tblPayer.PayerID "
+        sSQL += " inner Join tblpolicy on tblpremium.policyid = tblpolicy.policyid "
+        sSQL += " inner join tblfamilies on tblpolicy.familyId = tblfamilies.familyId "
+        sSQL += " where (tblpremium.PolicyId = @PolicyId  And tblpremium.ValidityTo Is null)"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@PolicyId", SqlDbType.Int, PolicyId)
         Return data.Filldata
     End Function
@@ -366,5 +479,19 @@ Public Class PremiumDAL
 
         Return data.Filldata
     End Function
+    Public Function GetPremium(ByVal ePremium As IMIS_EN.tblPremium) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+        sSQL += " SELECT TransactionNo Transactions, ReceiptNo Receipt, PD.Amount MatchedAmount,"
+        sSQL += " Py.ReceivedDate ReceiveDate, py.MatchedDate MatchingDate,"
+        sSQL += " Py.PaymentOrigin PaymentOrigin FROM tblPremium Pr"
+        sSQL += " INNER JOIN tblPaymentDetails PD ON PD.PremiumID = Pr.PremiumId AND PD.ValidityTo IS NULL"
+        sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = PD.PaymentID AND PY.VALIDITYTO IS NULL WHERE PR.ValidityTo IS NULL"
+        sSQL += " AND PR.PremiumID = @PremiumID"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PremiumID", SqlDbType.Int, ePremium.PremiumId)
+        Return data.Filldata
+    End Function
+
 End Class
 

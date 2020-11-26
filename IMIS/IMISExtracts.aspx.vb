@@ -168,33 +168,41 @@ Partial Public Class IMISExtracts
     End Sub
 
     Private Sub CreatePhoneExtract()
-        Dim sp As New Stopwatch
-        sp.Start()
-        Dim str As String
-        Dim eExtractInfo As New IMIS_EN.eExtractInfo
-        If Len(ddlDistrictsPhone.SelectedValue) = 0 Then
-        End If
 
-        eExtractInfo.LocationId = Val(ddlDistrictsPhone.SelectedValue)
-        eExtractInfo.AuditUserID = imisgen.getUserId(Session("User"))
-        eExtractInfo.ExtractType = 1
+        Try
 
-        Extracts.CreatePhoneExtracts(eExtractInfo, chkWithInsuree.Checked)
-        sp.Stop()
-        Dim ts As TimeSpan = sp.Elapsed
-        Dim TimeElapsed As String = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds)
+            Dim sp As New Stopwatch
+            sp.Start()
+            Dim str As String
+            Dim eExtractInfo As New IMIS_EN.eExtractInfo
+            If Len(ddlDistrictsPhone.SelectedValue) = 0 Then
+            End If
 
-        If eExtractInfo.ExtractStatus = 0 Then
-            str = imisgen.getMessage("M_EXTR_PHONEOK") & "<br />Task completed in " & TimeElapsed & " Hours"
-            'DivMsg.InnerHtml = str
-            imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
-            'PhoneExtractLink.NavigateUrl = "~/Extracts/Phone/ImisData.db3" 'eExtractInfo.ExtractFileName
-            PhoneExtractLink.Visible = True
-        Else
-            str = imisgen.getMessage("M_EXTR_PHONENOK") & "<br />Task completed in " & TimeElapsed & " Hours"
-            imisgen.Alert(str, pnlButtons, alertPopupTitle:="IMIS")
-            'imisgen.Alert(str, pnlMiddle)
-        End If
+            eExtractInfo.LocationId = Val(ddlDistrictsPhone.SelectedValue)
+            eExtractInfo.AuditUserID = imisgen.getUserId(Session("User"))
+            eExtractInfo.ExtractType = 1
+
+            Extracts.CreatePhoneExtracts(eExtractInfo, chkWithInsuree.Checked)
+            sp.Stop()
+            Dim ts As TimeSpan = sp.Elapsed
+            Dim TimeElapsed As String = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds)
+
+            If eExtractInfo.ExtractStatus = 0 Then
+                str = imisgen.getMessage("M_EXTR_PHONEOK") & "<br />" & imisgen.getMessage("M_EXTR_TASKCOMPLETED") & TimeElapsed & imisgen.getMessage("M_EXTR_HOURS")
+                'DivMsg.InnerHtml = str
+                imisgen.Alert(str, pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
+                'PhoneExtractLink.NavigateUrl = "~/Extracts/Phone/ImisData.db3" 'eExtractInfo.ExtractFileName
+                PhoneExtractLink.Visible = True
+            Else
+                str = imisgen.getMessage("M_EXTR_PHONENOK") & "<br />" & imisgen.getMessage("M_EXTR_TASKCOMPLETED") & TimeElapsed & imisgen.getMessage("M_EXTR_HOURS")
+                imisgen.Alert(str, pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
+                'imisgen.Alert(str, pnlMiddle)
+            End If
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:=imisgen.getMessage("L_ALERTPOPUPTITLE"))
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
+        End Try
     End Sub
 
     Private Sub CreatePhoneExtractInBackground()
@@ -420,7 +428,8 @@ Partial Public Class IMISExtracts
 
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     'Protected Sub btnUploadExtract_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUploadExtract.Click
@@ -515,7 +524,8 @@ Partial Public Class IMISExtracts
             End If
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
 
     End Sub
@@ -570,10 +580,10 @@ Partial Public Class IMISExtracts
         Response.Redirect("Home.aspx")
     End Sub
     Protected Sub PhoneExtractLink_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PhoneExtractLink.Click
-
+        Dim district As String = If(ddlDistrictsPhone.SelectedValue.Equals(""), "0", ddlDistrictsPhone.SelectedValue)
         Response.AddHeader("Content-Disposition", "attachment;filename=ImisData.db3")
         Response.ContentType = "application/octet-stream"
-        Response.TransmitFile(Server.MapPath("Extracts\Phone\ImisData" & ddlDistrictsPhone.SelectedValue & ".db3"))
+        Response.TransmitFile(Server.MapPath("Extracts\Phone\ImisData" & district & ".db3"))
         Response.End()
         Response.Flush()
 
@@ -812,7 +822,8 @@ Partial Public Class IMISExtracts
             End If
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 
@@ -831,7 +842,8 @@ Partial Public Class IMISExtracts
             End If
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
 
@@ -877,6 +889,10 @@ Partial Public Class IMISExtracts
     End Sub
     Private Sub btnUploadEnrolments_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnUploadEnrolments.Click
         If fuEnrolments.HasFile Then
+            If Right(fuEnrolments.FileName, 4).ToLower() <> ".rar" Then
+                lblmsg.Text = imisgen.getMessage("M_EXTR_NOUPLOADLOADFILE")
+                Exit Sub
+            End If
             Dim FileName As String = Server.MapPath("Workspace\") & fuEnrolments.PostedFile.FileName
             fuEnrolments.SaveAs(FileName)
             Dim Output As New Dictionary(Of String, Integer)
@@ -942,7 +958,7 @@ Partial Public Class IMISExtracts
             imisgen.Alert(Msg, pnlButtons, alertPopupTitle:="IMIS", Queue:=True)
 
             If dt.Rows.Count > 0 Then
-                Msg = "<h4><u>" & imisgen.getMessage("M_ENROLLOG") & "</u></h4>" & "<br>" & _
+                Msg = "<h4><u>" & imisgen.getMessage("M_ENROLLOG") & "</u></h4>" & "<br>" &
                                    "<div style=""height:500px;overflow:auto;""><table class=""tblPopupMsg"" style=""width:100%;"">"
 
                 For i As Integer = 0 To dt.Rows.Count - 1
@@ -964,24 +980,30 @@ Partial Public Class IMISExtracts
     End Sub
 
 
-    Protected Sub btnDownLoadMasterData_Click(sender As Object, e As EventArgs)
+    Protected Sub btnDownLoadMasterData_Click(sender As Object, e As EventArgs) Handles btnDownLoadMasterData.Click
 
         Dim Extracts As New IMIS_BI.IMISExtractsBI
         Dim strCommand As String = "MasterData.RAR"
-        Dim FileName As String = Extracts.DownloadMasterData()
-        Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
-        If FileName.Length > 0 Then
+        Try
+            Dim FileName As String = Extracts.DownloadMasterData()
+            Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
+            If FileName.Length > 0 Then
 
-            strCommand = "attachment;filename=" & FileName
-            Response.AppendHeader("Content-Disposition", strCommand)
-            Response.ContentType = "application/octet-stream"
-            Response.WriteFile(Path & FileName)
-            Response.Flush()
-            IO.File.Delete(Path & FileName)
-            Response.End()
-        Else
-            lblmsg.Text = imisgen.getMessage("M_NOENROLMENTSFOUND")
-        End If
+                strCommand = "attachment;filename=" & FileName
+                Response.AppendHeader("Content-Disposition", strCommand)
+                Response.ContentType = "application/octet-stream"
+                Response.WriteFile(Path & FileName)
+                Response.Flush()
+                IO.File.Delete(Path & FileName)
+                Response.End()
+            Else
+                lblmsg.Text = imisgen.getMessage("M_NODATAFOUND")
+            End If
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
+        End Try
     End Sub
 
     'Protected Sub BtnUploadPhotosFromPhone_Click(sender As Object, e As EventArgs) Handles BtnUploadPhotosFromPhone.Click

@@ -86,7 +86,8 @@ lblDirty:   Try
             Catch ex As Exception
                 'lblMsg.Text = imisGen.getMessage("M_ERRORMESSAGE")
                 imisGen.Alert(ex.Message, pnlButtons, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisGen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
                 'txtCode.Text = ""
                 'txtCode.Focus()
                 hfMS.Value = 1
@@ -149,7 +150,8 @@ lblDirty:   Try
         Catch ex As Exception
             'lblMsg.Text = ex.Message
             imisGen.Alert(imisGen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", imisGen.getUserId(Session("User")) & " : " & ex.Message, EventLogEntryType.Information, 5, 3)
+            imisGen.Log(Page.Title & " : " & imisGen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", imisGen.getUserId(Session("User")) & " : " & ex.Message, EventLogEntryType.Information, 5, 3)
         End Try
 
     End Sub

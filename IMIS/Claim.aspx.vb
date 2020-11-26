@@ -40,6 +40,7 @@ Partial Public Class Claim
     Private hfBI As New IMIS_BI.HealthFacilityBI
     Private claimBI As New IMIS_BI.ClaimBI
     Private claimAdminBI As New IMIS_BI.ClaimAdministratorBI
+    Protected RestoreMode As Boolean = True
 
     Private Sub FormatForm()
 
@@ -215,7 +216,8 @@ Partial Public Class Claim
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
     End Sub
@@ -253,6 +255,7 @@ Partial Public Class Claim
     Private Sub StoreClaimDetails()
         Session("LoadedHFID") = hfHFID.Value
         Session("LoadedICD") = txtICDCode0.Text
+        Session("LoadedICD") = ddlICDData.SelectedValue
         Session("LoadedCHFID") = txtCHFIDData.Text ' CInt(txtCHFIDData.Text)
         Session("LoadedClaimCode") = txtCLAIMCODEData.Text
         Session("LoadedClaimedDate") = txtClaimDate.Text 'Date.Parse(txtClaimDate.Text)
@@ -260,6 +263,12 @@ Partial Public Class Claim
         Session("LoadedVisitDateTo") = If(eClaim.DateTo Is Nothing, txtSTARTData.Text, eClaim.DateTo)
         Session("LoadedExplanation") = eClaim.Explanation
         'Addition for Nepal >> Start
+
+        Session("LoadedICD1") = ddlICDData1.SelectedValue
+        Session("LoadedICD2") = ddlICDData2.SelectedValue
+        Session("LoadedICD3") = ddlICDData3.SelectedValue
+        Session("LoadedICD4") = ddlICDData4.SelectedValue
+
         Session("LoadedICD1") = txtICDCode1.Text
         'Remove icd 2,3,4
         'Session("LoadedICD2") = txtICDCode2.Text
@@ -275,6 +284,7 @@ Partial Public Class Claim
         If userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Claim, Page) Then
             B_SAVE.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimAdd, UserID)
             btnPrint.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimPrint, UserID)
+            btnRestore.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ClaimRestore, UserID)    'RFC 111 06/09/2019
 
             If Not B_SAVE.Visible Then
                 pnlBodyCLM.Attributes.Add("Class", "disabled")
@@ -408,7 +418,8 @@ Partial Public Class Claim
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 
@@ -465,12 +476,14 @@ Partial Public Class Claim
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
+        Session("RestoreMode") = Nothing
         Response.Redirect("FindClaims.aspx")
     End Sub
     Private Function IsClaimChanged(ByRef ClaimTotalValueFlag As Boolean) As Boolean
@@ -576,7 +589,8 @@ Partial Public Class Claim
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             'imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            ''EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             'Return "Exit"
             Throw New Exception(ex.Message)
         End Try
@@ -593,16 +607,29 @@ Partial Public Class Claim
                 End If
 
                 If Not eClaim.ClaimID = 0 Then
-                    If claim.IsClaimStatusChanged(eClaim) Then
-                        lblMsg.Text = imisgen.getMessage("M_CLAIMSTATUSCHANGEDFROMENTERED")
-                        Return
+                    'Added by Salumu 05092019 setting claim status to entered, review and feedback to idle for rejected claims
+                    'Starts
+                    If CInt(Session("RestoreMode")) = True Then
+                        If Not eClaim.ClaimStatus = 1 Then
+                            eClaim.ClaimStatus = 2
+                            eClaim.ReviewStatus = 1
+                            eClaim.FeedbackStatus = 1
+                            eClaim.ClaimCode = txtCLAIMCODEData.Text
+                        End If
+
+                        'Ends
+                    Else
+                        If claim.IsClaimStatusChanged(eClaim) Then
+                            lblMsg.Text = imisgen.getMessage("M_CLAIMSTATUSCHANGEDFROMENTERED")
+                            Return
+                        End If
                     End If
                 End If
 
                 eClaim.AuditUserID = imisgen.getUserId(Session("User"))
                 Dim CLMTotalValueFlag As Boolean
 
-                If eClaim.ClaimID = 0 Or IsClaimChanged(CLMTotalValueFlag) = True Or CLMTotalValueFlag = True Then
+                If eClaim.ClaimID = 0 Or IsClaimChanged(CLMTotalValueFlag) = True Or CLMTotalValueFlag = True Or Session("RestoreMode") = True Then
                     If CLMTotalValueFlag = True Then
                         eClaim.Claimed = hfClaimTotalValue.Value
                         claim.UpdateClaimTotalValue(eClaim)
@@ -650,7 +677,8 @@ Partial Public Class Claim
             Catch ex As Exception
                 'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
                 imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-                EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+                imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+                'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
                 Return
             End Try
         End If
@@ -801,10 +829,13 @@ Partial Public Class Claim
             ServiceItemGridBinding()
             AfterSaveMessages(chkSaveClaim, chkSaveClaimItems, chkSaveClaimServices)
             tdPrintW.Visible = eClaim.ClaimID > 0
+            'Added by Salumu to kill the session
+            Session("RestoreMode") = Nothing
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
     End Sub
@@ -868,7 +899,8 @@ Partial Public Class Claim
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Return
         End Try
 
@@ -969,9 +1001,53 @@ Partial Public Class Claim
             Url = "Report.aspx?r=c"
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
             Exit Sub
         End Try
         Response.Redirect(Url)
+    End Sub
+    Protected Sub btnRestore_Click(sender As Object, e As EventArgs) Handles btnRestore.Click
+        Try
+            Dim hfClaimUUID As Guid = Guid.Parse(HttpContext.Current.Request.QueryString("c"))
+            hfClaimID.Value = If(hfClaimUUID.Equals(Guid.Empty), 0, claimBI.GetClaimIdByUUID(hfClaimUUID))
+
+            eClaim.ClaimID = hfClaimID.Value
+            claim.LoadClaim(eClaim)
+
+            If (eClaim.ClaimItems.RejectionReason = 0 And eClaim.ClaimServices.RejectionReason = 0) Then
+                txtCHFIDData.Text = ""
+                txtNAMEData.Text = ""
+                txtNAMEData.Enabled = True
+            End If
+
+
+            pnlBodyCLM.Attributes.Add("Class", "enabled")
+            pnlBodyCLM.Enabled = True
+            pnlServiceDetails.Enabled = True
+            pnlItemsDetails.Enabled = True
+            B_ADD.Visible = True
+            B_SAVE.Visible = True
+            canClearRow = True
+            RestoreMode = True
+            btnPrint.Visible = False
+
+
+            Session("RestoreMode") = RestoreMode
+            If Session("RestoreMode") = True Then
+                Dim claimCodePrefix As String = IMIS_EN.AppConfiguration.ClaimCodePrefix
+                If Not claimCodePrefix Is Nothing Then
+                    txtCLAIMCODEData.Text = claimCodePrefix + eClaim.ClaimCode
+                Else
+                    txtCLAIMCODEData.Text = "@" + eClaim.ClaimCode
+                End If
+                btnRestore.Visible = False
+            End If
+        Catch ex As Exception
+            imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            Return
+        End Try
     End Sub
 End Class

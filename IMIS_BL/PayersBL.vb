@@ -61,10 +61,33 @@ Public Class PayersBL
             SaveData.InsertPayer(ePayers)
             Return 0
         Else
-            SaveData.UpdatePayer(ePayers)
-            Return 2
+            Dim ePayersOrg As New IMIS_EN.tblPayer
+            ePayersOrg.PayerID = ePayers.PayerID
+            SaveData.LoadPayer(ePayersOrg)
+            If (isDirtyPayers(ePayers, ePayersOrg)) Then
+                SaveData.UpdatePayer(ePayers)
+                Return 2
+            End If
         End If
     End Function
+
+    Private Function isDirtyPayers(ePayers As IMIS_EN.tblPayer, ePayersOrg As IMIS_EN.tblPayer) As Boolean
+        isDirtyPayers = True
+
+        If IIf(ePayers.LocationId Is Nothing, DBNull.Value, ePayers.LocationId).ToString() <> IIf(ePayersOrg.LocationId Is Nothing, DBNull.Value, ePayersOrg.LocationId).ToString() Then Exit Function
+        If IIf(ePayers.PayerName Is Nothing, DBNull.Value, ePayers.PayerName).ToString() <> IIf(ePayersOrg.PayerName Is Nothing, DBNull.Value, ePayersOrg.PayerName).ToString() Then Exit Function
+        If IIf(ePayers.Phone Is Nothing, DBNull.Value, ePayers.Phone).ToString() <> IIf(ePayersOrg.Phone Is Nothing, DBNull.Value, ePayersOrg.Phone).ToString() Then Exit Function
+        If IIf(ePayers.PayerType Is Nothing, DBNull.Value, ePayers.PayerType).ToString() <> IIf(ePayersOrg.PayerType Is Nothing, DBNull.Value, ePayersOrg.PayerType).ToString() Then Exit Function
+        If ePayers.PayerID <> ePayersOrg.PayerID Then Exit Function
+        If ePayers.ValidityFrom <> ePayersOrg.ValidityFrom Then Exit Function
+        If IIf(ePayers.PayerAddress Is Nothing, DBNull.Value, ePayers.PayerAddress).ToString() <> IIf(ePayersOrg.PayerAddress Is Nothing, DBNull.Value, ePayersOrg.PayerAddress).ToString() Then Exit Function
+        If IIf(ePayers.Fax Is Nothing, DBNull.Value, ePayers.Fax).ToString() <> IIf(ePayersOrg.Fax Is Nothing, DBNull.Value, ePayersOrg.Fax).ToString() Then Exit Function
+        If IIf(ePayers.eMail Is Nothing, DBNull.Value, ePayers.eMail).ToString() <> IIf(ePayersOrg.eMail Is Nothing, DBNull.Value, ePayersOrg.eMail).ToString() Then Exit Function
+        If ePayers.AuditUserID <> ePayersOrg.AuditUserID Then Exit Function
+        isDirtyPayers = False
+    End Function
+
+
 
     Public Sub LoadPayer(ByRef ePayers As IMIS_EN.tblPayer)
         Dim load As New IMIS_DAL.PayersDAL

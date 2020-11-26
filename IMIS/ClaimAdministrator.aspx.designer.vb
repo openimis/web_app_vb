@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class ClaimAdministrator
-    
+
     '''<summary>
     '''hfUserID control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfUserID As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''pnlDetails control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlDetails As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''lblCode control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblCode As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtCode control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCode As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldCode control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldCode As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''lblOtherNames control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblOtherNames As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtOtherNames control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtOtherNames As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldOtherNames control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldOtherNames As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''lblLastName control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblLastName As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtLastName control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtLastName As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldLastName control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldLastName As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''lblDOB control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblDOB As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtDOB control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDOB As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''txtDob_MaskedEditExtender control.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDob_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
-    
+
     '''<summary>
     '''btnDOB_Extender control.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnDOB_Extender As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''CalendarExtender1 control.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender1 As Global.AjaxControlToolkit.CalendarExtender
-    
+
     '''<summary>
     '''RegularExpressionValidatortxtDob control.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidatortxtDob As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
+
     '''<summary>
     '''lblPhone control.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPhone As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtPhone control.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhone As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''L_Email control.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Email As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtEmail control.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RegularExpressionValidator2 control.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
+
     '''<summary>
     '''lblHFCode control.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblHFCode As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''ddlHFCode control.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlHFCode As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''RequiredFieldHFCode control.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldHFCode As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''pnlClaimAdmiLogin control.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlClaimAdmiLogin As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''chkIncludeLogin control.
     '''</summary>
@@ -255,7 +255,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkIncludeLogin As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''lblLanguage control.
     '''</summary>
@@ -264,7 +264,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblLanguage As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''ddlLanguage control.
     '''</summary>
@@ -273,7 +273,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlLanguage As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''RequiredFieldLanguage control.
     '''</summary>
@@ -282,7 +282,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldLanguage As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''lblPassword control.
     '''</summary>
@@ -291,7 +291,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPassword As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtPassword control.
     '''</summary>
@@ -300,7 +300,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldPassword control.
     '''</summary>
@@ -309,7 +309,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''lblConfirmPassword control.
     '''</summary>
@@ -318,7 +318,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblConfirmPassword As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtConfirmPassword control.
     '''</summary>
@@ -327,7 +327,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtConfirmPassword As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldConfirmPassword control.
     '''</summary>
@@ -336,7 +336,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldConfirmPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''ComparePassword control.
     '''</summary>
@@ -345,7 +345,25 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ComparePassword As Global.System.Web.UI.WebControls.CompareValidator
-    
+
+    '''<summary>
+    '''MaskedEditExtender1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents MaskedEditExtender1 As Global.AjaxControlToolkit.MaskedEditExtender
+
+    '''<summary>
+    '''CalendarExtender2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
+
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -354,7 +372,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''B_SAVE control.
     '''</summary>
@@ -363,7 +381,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_SAVE As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -372,7 +390,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''lblmsg control.
     '''</summary>
@@ -381,7 +399,7 @@ Partial Public Class ClaimAdministrator
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblmsg As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''validationSummary1 control.
     '''</summary>

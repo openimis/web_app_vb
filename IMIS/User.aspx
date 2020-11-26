@@ -177,12 +177,45 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 });
 
             });
+            $('[id*=gvRoles] tr').each(function () {
+                var toolTip = $(this).attr("title");
+                $(this).find("td").eq(2).each(function () {
+                    $(this).simpletip({
+                        content: '<%= Resources.Resource.M_ASSIGNROLE %>'
+                    });
+                });
 
+                $(this).removeAttr("title");
+            });
 
         });
 
 
     </script>
+    <style type="text/css" >
+    .footer{top:665px;}
+     /*.backentry{ height:629px; }*/
+     .panelbuttons{ position:relative;top:0px;}
+
+     .tooltip
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        display: none;
+        background-color: rgb(102, 102, 102);
+        color: White;
+        padding: 5px;
+        font-size: 10pt;
+        font-family: Arial;
+    }
+    td
+    {
+        cursor: pointer;
+    }
+
+</style>
     <div class="divBody">
         <asp:Panel ID="Panel2" runat="server" ScrollBars="Auto"
             CssClass="panel" GroupingText='<%$ Resources:Resource,G_USER %>'>
@@ -290,6 +323,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <td>
                                     <asp:RequiredFieldValidator ID="RequiredFieldPassword" runat="server"
                                         ValidationGroup="check" ControlToValidate="txtPassword" Text="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="rePasswordStrength" runat="server" ControlToValidate="txtPassword" ErrorMessage='<%$ Resources:Resource, M_WEAKPASSWORD %>' SetFocusOnError="True" ValidationExpression="^(?=.*\d)(?=.*[A-Za-z\W]).{8,}$" ValidationGroup="check" ForeColor="Red" Display="Dynamic">*</asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -345,7 +379,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         HeaderText="<%$ Resources:Resource,L_ROLE %>" SortExpression="RoleName">
                                         <HeaderStyle Width="200px" />
                                     </asp:BoundField>
-
+                                    <asp:TemplateField HeaderText="A">
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkAssign" runat="server" HeaderStyle-Width="10px" Checked='<%#Eval("Assign") %>' />
+                                        </ItemTemplate>
+                                        <HeaderTemplate>
+                                        </HeaderTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="">
                                         <ItemTemplate>
                                             <asp:HiddenField ID="hfRoleId"  runat="server" value='<%#Eval("RoleId") %>' />
@@ -353,8 +393,15 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <HeaderTemplate>
                                         </HeaderTemplate>
                                     </asp:TemplateField>
-
+                                    <asp:TemplateField HeaderText="" >
+                                        <ItemTemplate>
+                                            <asp:HiddenField ID="UserRoleID"  runat="server" value='<%#Eval("UserRoleId") %>' />
+                                        </ItemTemplate>
+                                        <HeaderTemplate>
+                                        </HeaderTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
+                               
                                 <PagerStyle CssClass="pgr" />
                                 <AlternatingRowStyle CssClass="alt" />
                                 <SelectedRowStyle CssClass="srs" />

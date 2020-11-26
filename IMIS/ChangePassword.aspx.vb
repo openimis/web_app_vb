@@ -51,9 +51,12 @@ Public Class ChangePassword
             Else
                 lblMsg.Text = imisgen.getMessage("M_INCORRECTCURRENTPASSWORD")
             End If
+
+
         Catch ex As Exception
             lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
         End Try
     End Sub
     Public Function IsValidyCurrentPassword() As Boolean

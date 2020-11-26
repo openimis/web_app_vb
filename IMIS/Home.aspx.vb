@@ -29,16 +29,25 @@
 Imports System.IO
 Imports System.Net
 Imports System.Data
+Imports System.Reflection
+
 Partial Public Class Home
     Inherits System.Web.UI.Page
     Private Home As New IMIS_BI.HomeBI
     Private eUsers As New IMIS_EN.tblUsers
     Protected imisgen As New IMIS_Gen
+    Protected escapeBL As New IMIS_BL.EscapeBL
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Try
+
+            Dim version As Version
+            version = Assembly.GetExecutingAssembly().GetName().Version
+
+            compiledVersion.Text = version.ToString()
+
             eUsers.UserID = imisgen.getUserId(Session("User"))
             If IsPostBack = True Then Return
             Dim load As New IMIS_BI.UserBI
@@ -48,6 +57,11 @@ Partial Public Class Home
             gvDistrict.DataSource = Home.getUsersDistricts(eUsers.UserID)
             gvDistrict.DataBind()
 
+            Dim configDict As Dictionary(Of String, Object) = buildConfigDict()
+            txtCONFIGISSUE.Text = escapeBL.CheckConfiguration(configDict).Replace(Environment.NewLine, "<br />")
+            If Not txtCONFIGISSUE.Text.Equals("") Then
+                ConfigContent.Visible = True
+            End If
 
             If Not eUsers.UserID = 0 Then
                 Home.LoadUsers(eUsers)
@@ -60,7 +74,8 @@ Partial Public Class Home
             '  Assign(gvRoles)
         Catch ex As Exception
             Session("Msg") = imisgen.getMessage("M_ERRORMESSAGE")
-            EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.Message, EventLogEntryType.Error, 999)
+            imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
+            'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
 
         End Try
 
@@ -68,5 +83,11 @@ Partial Public Class Home
 
     End Sub
 
-  
+    Private Function buildConfigDict()
+        Dim configDict As New Dictionary(Of String, Object)
+        configDict.Add("eUser", eUsers)
+        Return configDict
+    End Function
+
+
 End Class

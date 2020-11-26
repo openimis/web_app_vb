@@ -29,23 +29,65 @@
 Public Class ReportingDAL
     Private data As New ExactSQL
     Private Query As String = ""
+
     'Corrected
     Public Function GetPreviousMatchingFundsReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?) As DataTable
-        Query = "SELECT RP.ReportingID,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" & _
-  "+ '  ' + Dis.DistrictName + '  ' + Prod.ProductCode " & _
-  "+ '  ' + CONVERT(NVARCHAR,RP.StartDate,103) + '  ' + CONVERT(NVARCHAR,RP.EndDate,103)" & _
-  "+ '  ' + ISNULL(PY.PayerName,'') Display FROM tblReporting RP" & _
-  " INNER JOIN  tblProduct Prod ON Prod.ProdID = RP.ProdId" & _
-  " INNER JOIN tblDistricts Dis ON Dis.DistrictID = RP.LocationId" & _
-  " LEFT OUTER JOIN tblPayer PY ON PY.PayerID = RP.PayerId" & _
-  " INNER JOIN tblUsersDistricts UD ON Dis.DistrictID = UD.LocationId" & _
-  " WHERE RP.ReportingID = CASE WHEN @ReportingID IS NULL THEN RP.ReportingID ELSE @ReportingID END" & _
-  " AND UD.ValidityTo IS NULL AND UD.UserID = @UserId" & _
+        Query = "SELECT RP.ReportingID,RP.StartDate,RP.EndDate,CAST(RP.ReportingDate AS CHAR(20))" &
+  "+ '  ' + Dis.DistrictName + '  ' + Prod.ProductCode " &
+  "+ '  ' + CONVERT(NVARCHAR,RP.StartDate,103) + '  ' + CONVERT(NVARCHAR,RP.EndDate,103)" &
+  "+ '  ' + ISNULL(PY.PayerName,'') Display FROM tblReporting RP" &
+  " INNER JOIN  tblProduct Prod ON Prod.ProdID = RP.ProdId" &
+  " INNER JOIN tblDistricts Dis ON Dis.DistrictID = RP.LocationId" &
+  " LEFT OUTER JOIN tblPayer PY ON PY.PayerID = RP.PayerId" &
+  " INNER JOIN tblUsersDistricts UD ON Dis.DistrictID = UD.LocationId" &
+  " WHERE RP.ReportingID = CASE WHEN @ReportingID IS NULL THEN RP.ReportingID ELSE @ReportingID END" &
+   " AND RP.ReportType =1" &
+  " AND UD.ValidityTo IS NULL AND UD.UserID = @UserId" &
   " AND RP.LocationId = CASE WHEN @LocationId = 0 THEN RP.LocationId ELSE @LocationId END ORDER BY ReportingId DESC"
         data.setSQLCommand(Query, CommandType.Text)
         data.params("@ReportingID", SqlDbType.Int, ReportingID)
         data.params("@UserID", SqlDbType.Int, UserID)
         data.params("@LocationId", SqlDbType.Int, LocationId)
         Return data.Filldata()
+    End Function
+    Public Function GetPreviousOvervireOfCommissiosReportDates(ByVal UserID As Integer, ByVal LocationId As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
+        Dim Overview As String = "'" + getMessage("T_OVERVIEW") + " - '"
+        Dim AllDetails As String = "'" + getMessage("T_ALLDETAILS") + " - '"
+
+        Query = "SELECT  RP.LocationId,RP.CommissionRate,R.RegionId,RP.OfficerID,RP.PayerId, RP.ProdId,Prod.ProductCode+' ' +Prod.ProductName ProductCode,RP.ReportMode,RP.CommissionRate,RP.ReportingId,RP.StartDate,RP.EndDate,
+CASE RP.Scope WHEN 0 THEN " & Overview & " WHEN 1 THEN " & AllDetails & " END " &
+ " + ' ' + CONCAT(FORMAT(RP.StartDate,'MMMM','en-US') , ' ' ,Year(RP.StartDate)) " &
+  " + ' ' + CASE RP.ReportMode  WHEN 0 THEN 'Prescribed Contributions' WHEN 1 THEN 'Actually Paid Contributions' ELSE ''  END" &
+  " + ' ' + CAST(RP.CommissionRate AS nvarchar)+'% ' + ' ' + ISNULL(Prod.ProductCode,'') + ' ' +ISNULL(O.LastName,'')+' '+ ISNULL(O.OtherNames,'')" &
+ " + ' ' +R.RegionName+ '  ' + Dis.DistrictName " &
+  "+ '  ' + CAST(RP.ReportingDate AS CHAR(20))" &
+  "+ '  ' + ISNULL(PY.PayerName,'') Display FROM tblReporting RP" &
+  " INNER JOIN tblDistricts Dis ON Dis.DistrictID = RP.LocationId" &
+  " INNER JOIN tblRegions R ON R.RegionId = Dis.Region" &
+  " LEFT JOIN tblProduct Prod ON Prod.ProdID = RP.ProdId" &
+  " LEFT OUTER JOIN tblPayer PY ON PY.PayerID = RP.PayerId" &
+  " INNER JOIN tblUsersDistricts UD ON Dis.DistrictID = UD.LocationId" &
+   " LEFT JOIN tblOfficer O ON O.OfficerID = RP.OfficerID" &
+  " WHERE RP.ReportingId = CASE WHEN @ReportingID IS NULL THEN RP.ReportingID ELSE @ReportingID END" &
+  " AND RP.ReportType =2" &
+   " AND Year(RP.StartDate) = @Year AND Month(RP.StartDate)  =@Month" &
+   " AND UD.ValidityTo IS NULL AND UD.UserID = @UserId" &
+  " AND RP.LocationId = CASE WHEN @LocationId = 0 THEN RP.LocationId ELSE @LocationId END ORDER BY ReportingId DESC"
+        data.setSQLCommand(Query, CommandType.Text)
+        data.params("@ReportingID", SqlDbType.Int, ReportingID)
+        data.params("@UserID", SqlDbType.Int, UserID)
+        data.params("@LocationId", SqlDbType.Int, LocationId)
+        data.params("@Year", SqlDbType.Int, Year)
+        data.params("@Month", SqlDbType.Int, Month)
+
+        Return data.Filldata()
+    End Function
+
+    Public Function getMessage(ByVal MessageID As String, Optional EncodeJS As Boolean = True) As String
+        If EncodeJS = True Then
+            Return HttpUtility.JavaScriptStringEncode(System.Web.HttpContext.GetGlobalResourceObject("Resource", MessageID))
+        Else
+            Return System.Web.HttpContext.GetGlobalResourceObject("Resource", MessageID)
+        End If
     End Function
 End Class
