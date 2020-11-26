@@ -135,7 +135,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="AddFunding.aspx" />
-    <Content Include="CappedItemService.aspx" />
     <Content Include="BgService.aspx" />
     <Content Include="ChangeFamily.aspx" />
     <Content Include="ChangePassword.aspx" />
@@ -144,7 +143,6 @@
     <Content Include="ClaimFeedback.aspx" />
     <Content Include="ClaimOverview.aspx" />
     <Content Include="ClaimReview.aspx" />
-    <Content Include="ClaimReviewNew.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
     <Content Include="EmailSettings.aspx" />
@@ -182,12 +180,10 @@
     <Content Include="Images\Modify.png" />
     <Content Include="Images\noimage.jpg" />
     <Content Include="Images\no_javascript.gif" />
-    <Content Include="Images\profile.png" />
     <Content Include="Images\progress.gif" />
     <Content Include="Images\Renew.png" />
     <Content Include="IMISExtracts.aspx" />
     <Content Include="Insuree.aspx" />
-    <Content Include="InsureeProfile.aspx" />
     <Content Include="Javascripts\autocomplete.js" />
     <Content Include="Javascripts\Exact.js" />
     <Content Include="Javascripts\ExactDropDown.js" />
@@ -202,15 +198,6 @@
     <Content Include="MedicalItem.aspx" />
     <Content Include="MedicalService.aspx" />
     <Content Include="MoveLocation.aspx" />
-    <Content Include="NepaliDate\dateConverter.js" />
-    <Content Include="NepaliDate\jquery.calendars.all.js" />
-    <Content Include="NepaliDate\jquery.calendars.nepali.js" />
-    <Content Include="NepaliDate\jquery.calendars.picker.css" />
-    <Content Include="NepaliDate\jquery.nepaliDatePicker.js" />
-    <Content Include="NepaliDate\jquery.plugin.min.js" />
-    <Content Include="NepaliDate\NepaliCalendar.js" />
-    <Content Include="NepaliDate\NepaliCalendarNew.js" />
-    <Content Include="NepaliDate\nepaliDatePicker.css" />
     <Content Include="nojs.htm" />
     <Content Include="Officer.aspx" />
     <Content Include="OverviewFamily.aspx" />
@@ -361,11 +348,6 @@
     <Compile Include="AutoCompleteHandlers\AutoCompleteHandler.ashx.vb">
       <DependentUpon>AutoCompleteHandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="CappedItemService.aspx.designer.vb">
-      <DependentUpon>CappedItemService.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CappedItemService.aspx.vb">
-      <DependentUpon>CappedItemService.aspx</DependentUpon>
     <Compile Include="BgService.aspx.designer.vb">
       <DependentUpon>BgService.aspx</DependentUpon>
     </Compile>
@@ -421,13 +403,6 @@
     <Compile Include="ClaimReview.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ClaimReview.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ClaimReviewNew.aspx.designer.vb">
-      <DependentUpon>ClaimReviewNew.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ClaimReviewNew.aspx.vb">
-      <DependentUpon>ClaimReviewNew.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -643,13 +618,6 @@
     <Compile Include="Insuree.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Insuree.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InsureeProfile.aspx.designer.vb">
-      <DependentUpon>InsureeProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InsureeProfile.aspx.vb">
-      <DependentUpon>InsureeProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Locations.aspx.designer.vb">
       <DependentUpon>Locations.aspx</DependentUpon>
@@ -1107,7 +1075,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57214</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57218/</IISUrl>
+          <IISUrl>http://localhost:57214/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

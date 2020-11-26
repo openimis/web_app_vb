@@ -62,24 +62,24 @@ Public Class IMIS
         Next
 
         'ItemCode
-        Adjustibility = General.getControlSetting("lblItemCode")
-        lblItemCode.Visible = Not (Adjustibility = "N")
+        'Adjustibility = General.getControlSetting("lblItemCode")
+        'lblItemCode.Visible = Not (Adjustibility = "N")
 
         'Item Left
-        Adjustibility = General.getControlSetting("lblItemLeft")
-        lblItemLeft.Visible = Not (Adjustibility = "N")
+        'Adjustibility = General.getControlSetting("lblItemLeft")
+        'lblItemLeft.Visible = Not (Adjustibility = "N")
 
         'Service Left
-        Adjustibility = General.getControlSetting("lblServiceLeft")
-        lblServiceLeft.Visible = Not (Adjustibility = "N")
+        'Adjustibility = General.getControlSetting("lblServiceLeft")
+        'lblServiceLeft.Visible = Not (Adjustibility = "N")
 
         'Service MidDate
-        Adjustibility = General.getControlSetting("lblServiceMinDate")
-        lblServiceMinDate.Visible = Not (Adjustibility = "N")
+        'Adjustibility = General.getControlSetting("lblServiceMinDate")
+        'lblServiceMinDate.Visible = Not (Adjustibility = "N")
 
         'Item MidDate
-        Adjustibility = General.getControlSetting("lblItemMinDate")
-        lblItemMinDate.Visible = Not (Adjustibility = "N")
+        'Adjustibility = General.getControlSetting("lblItemMinDate")
+        'lblItemMinDate.Visible = Not (Adjustibility = "N")
     End Sub
 
 

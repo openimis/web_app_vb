@@ -265,9 +265,9 @@ Partial Public Class Claim
         'Addition for Nepal >> Start
 
         Session("LoadedICD1") = ddlICDData1.SelectedValue
-        Session("LoadedICD2") = ddlICDData2.SelectedValue
-        Session("LoadedICD3") = ddlICDData3.SelectedValue
-        Session("LoadedICD4") = ddlICDData4.SelectedValue
+        'Session("LoadedICD2") = ddlICDData2.SelectedValue
+        'Session("LoadedICD3") = ddlICDData3.SelectedValue
+        'Session("LoadedICD4") = ddlICDData4.SelectedValue
 
         Session("LoadedICD1") = txtICDCode1.Text
         'Remove icd 2,3,4
