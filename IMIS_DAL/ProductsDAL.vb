@@ -300,7 +300,7 @@ Public Class ProductsDAL
         Dim sSQL As String = ""
 
 
-        sSQL = " SELECT Prod.ProdId, Prod.ProductCode , Prod.LocationId"
+        sSQL = " SELECT DISTINCT Prod.ProdId, Prod.ProductCode , Prod.LocationId, L.ParentLocationId"
         sSQL += " FROM tblProduct Prod"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(Prod.LocationId, 0)"
         sSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON Prod.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
