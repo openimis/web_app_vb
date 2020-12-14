@@ -310,6 +310,7 @@ Public Class ProductsDAL
         sSQL += " AND (L.DistrictId = @DistrictId OR @DistrictId = 0 OR L.DistrictId IS NULL)"
         sSQL += " AND (@EnrollDate BETWEEN Prod.DateFrom AND Prod.DateTo OR @EnrollDate IS NULL)"
         sSQL += " AND (@EnrollDate BETWEEN  ISNULL(CONVERT(DATE,HPROD.ValidityFrom,103) ,CONVERT(DATE,prod.ValidityFrom,103)) AND Prod.DateTo OR @EnrollDate IS NULL)"
+        sSQL += " AND (L.ParentLocationId! = Prod.LocationId Or Prod.LocationId Is null)"
         sSQL += " ORDER BY L.ParentLocationId"
 
         data.setSQLCommand(sSQL, CommandType.Text)
