@@ -303,8 +303,6 @@ Partial Public Class Claim
 
     '''<summary>
     '''txtENDData_CalendarExtender control.
-    '''RequiredFieldValidator3 control.
-    '''txtICDCode0 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
@@ -313,12 +311,43 @@ Partial Public Class Claim
     Protected WithEvents txtENDData_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
 
     '''<summary>
-    '''lblCLAIMCODE control.
-    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    '''lblICD control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblICD As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlICDData control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlICDData As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''txtICDCode0 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtICDCode0 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''RequiredFieldValidator3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''lblCLAIMCODE control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
@@ -468,7 +497,25 @@ Partial Public Class Claim
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    'Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''txtICDCode1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtICDCode1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddlICDData1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlICDData1 As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''lblICD1 control.
@@ -784,7 +831,7 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents td1 As Global.System.Web.UI.HtmlControls.HtmlTableCell
-    
+
     '''<summary>
     '''btnRestore control.
     '''</summary>
@@ -793,7 +840,7 @@ Partial Public Class Claim
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnRestore As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''tdPrintW control.
     '''</summary>

@@ -40,6 +40,9 @@
     <script type="text/javascript" src="NepaliDate/dateConverter.js"></script>    
      <script type="text/javascript" src="NepaliDate/NepaliCalendarNew.js"> </script>
     <%-- Nepali Calendar Popup --%>
+    <script type="text/javascript" src="Javascripts/select2.js"> </script>    
+    <link href="styleSheets/select2.css" rel="stylesheet" type="text/css" />
+     <script type="text/javascript" src="Javascripts/Select.js"> </script>
 
    <script type="text/javascript">
 
@@ -61,6 +64,7 @@
        popup.rejectBTN_Text = '<%#imisgen.getMessage("L_CANCEL", True) %>';
 
        $(document).ready(function () {
+           selectAutoComplete();
            
            //        $('#ctl00_hfDirty').val(false)
            /* View Insuree profile from Lsit insuree page */
@@ -144,6 +148,7 @@
        function pageLoad() {
            // Nepali Calendar Popup
            nepaliCalendarPopup();
+           selectAutoComplete();
 
            //ajax start & stop handler
            var intrvl = 0;
@@ -364,7 +369,7 @@
                return arr;
            }
        }
-    </script>
+   </script>
 
      <style type="text/css">
      
@@ -430,7 +435,7 @@
                             <asp:Label ID="Menu2" runat="server" Text='<%$ Resources:Resource,L_INSUREESANDPOLICIES %>'></asp:Label>
                             </a>
                             <ul>
-                                <li><a id="Family" class="candisable" href="Family.aspx">
+                                <li><a id="Family" class="candisable" href="FamilyNew.aspx">
                                     <asp:Label ID="SubAddFamily" runat="server" Text='<%$ Resources:Resource,L_ADDFAMILY %>'></asp:Label>
                                     </a></li>
                                 <li><cite></cite></li>

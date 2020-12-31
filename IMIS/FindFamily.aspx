@@ -242,8 +242,13 @@ title='<%$ Resources:Resource,L_Family%>'%>
                            <td id="tdConfirmationNoTXT" runat="server">
                                <asp:TextBox ID="txtConfirmationNo" runat="server" MaxLength="12" Width="150px"></asp:TextBox>
                            </td>
-                           <td></td>
-                           <td></td>
+                           <td class="FormLabel">
+                              <asp:Label ID="lblConfirmationType" runat="server" Text="<%$ Resources:Resource,L_CONFIRMATIONTYPE %>"></asp:Label>
+                          </td>
+                          <td class="DataEntry">
+                              <asp:DropDownList ID="ddlConfirmationType" runat="server" Width="150px">
+                              </asp:DropDownList>
+                          </td>
                        </tr>
         </table>
                 </td>

@@ -101,6 +101,10 @@ Partial Public Class FindFamily
             ddlPoverty.DataTextField = "Status"
             ddlPoverty.DataBind()
 
+			ddlConfirmationType.DataSource = Family.GetSubsidy
+            ddlConfirmationType.DataValueField = "ConfirmationTypeCode"
+            ddlConfirmationType.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "ConfirmationType", "AltLanguage")
+            ddlConfirmationType.DataBind()												  
             Session("ParentUrl") = "FindFamily.aspx"
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
@@ -216,6 +220,7 @@ Partial Public Class FindFamily
             eFamily.RegionId = Val(ddlRegion.SelectedValue)
             eFamily.WardId = CInt(If(ddlWard.SelectedValue = String.Empty, 0, ddlWard.SelectedValue))
             eFamily.LocationId = CInt(If(ddlVillage.SelectedValue = String.Empty, 0, ddlVillage.SelectedValue))
+			eFamily.ConfirmationTypeCode = CInt(If(ddlConfirmationType.SelectedValue = String.Empty, 0, ddlConfirmationType.SelectedValue))																															   
             If Val(ddlDistrict.SelectedValue) > 0 Then eFamily.DistrictId = CInt(ddlDistrict.SelectedValue)
             Dim allPoverty As Boolean = True
             If Trim(ddlPoverty.SelectedValue).Length > 0 Then

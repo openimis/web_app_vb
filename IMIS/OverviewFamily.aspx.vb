@@ -159,7 +159,10 @@ Partial Public Class OverviewFamily
             End If
             txtPoverty.Text = If(eFamily.Poverty Is Nothing, "", If(eFamily.Poverty = True, "Yes", "No"))
             txtConfirmationType.Text = eFamily.ConfirmationType
-          
+           If eFamily.ConfirmationType = "Senior Citizen" Then
+                AddInsuree.Visible = False
+                DeleteInsuree.Visible = False
+            End If
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
@@ -575,12 +578,12 @@ Partial Public Class OverviewFamily
         Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString() & "&p=" & ePremium.PremiumUUID.ToString())
     End Sub
     Private Sub AddInsuree_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles AddInsuree.Click
-        Response.Redirect("Insuree.aspx?f=" & FamilyUUID.ToString())
+        Response.Redirect("InsureeNew.aspx?f=" & FamilyUUID.ToString())
     End Sub
     Private Sub EditInsuree_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditInsuree.Click
         Dim InsureeUUID As Guid
         InsureeUUID = insureeBI.GetInsureeUUIDByID(gvInsurees.SelectedDataKey.Value)
-        Response.Redirect("Insuree.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
+        Response.Redirect("InsureeNew.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
     End Sub
     Private Sub DeleteInsuree_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles DeleteInsuree.Click
         RunPageSecurity(True, "deleteinsuree")
@@ -622,7 +625,7 @@ Partial Public Class OverviewFamily
         Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
     End Sub
     Private Sub AddPolicy_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles AddPolicy.Click
-        Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&stage=N")
+        Response.Redirect("PolicyNew.aspx?f=" & FamilyUUID.ToString() & "&stage=N")
     End Sub
 
     Private Sub btnRenewPolicy_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnRenewPolicy.Click

@@ -136,6 +136,7 @@
     </Content>
     <Content Include="AddFunding.aspx" />
     <Content Include="BgService.aspx" />
+    <Content Include="CappedItemService.aspx" />
     <Content Include="ChangeFamily.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Claim.aspx" />
@@ -143,12 +144,14 @@
     <Content Include="ClaimFeedback.aspx" />
     <Content Include="ClaimOverview.aspx" />
     <Content Include="ClaimReview.aspx" />
+    <Content Include="ClaimReviewNew.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
     <Content Include="EmailSettings.aspx" />
     <Content Include="EnterNewPassword.aspx" />
     <Content Include="Error.htm" />
     <Content Include="Family.aspx" />
+    <Content Include="FamilyNew.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="FeedbackPrompt.aspx" />
     <Content Include="FindClaimAdministrator.aspx" />
@@ -184,6 +187,8 @@
     <Content Include="Images\Renew.png" />
     <Content Include="IMISExtracts.aspx" />
     <Content Include="Insuree.aspx" />
+    <Content Include="InsureeNew.aspx" />
+    <Content Include="InsureeProfile.aspx" />
     <Content Include="Javascripts\autocomplete.js" />
     <Content Include="Javascripts\Exact.js" />
     <Content Include="Javascripts\ExactDropDown.js" />
@@ -192,18 +197,30 @@
     <Content Include="Javascripts\jquery.cookie.js" />
     <Content Include="Javascripts\jquery.ui.autocomplete.js" />
     <Content Include="Javascripts\jquery.ui.widget.js" />
+    <Content Include="Javascripts\Select.js" />
+    <Content Include="Javascripts\select2.js" />
     <Content Include="Javascripts\simpletip.js" />
     <Content Include="Locations.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MedicalItem.aspx" />
     <Content Include="MedicalService.aspx" />
     <Content Include="MoveLocation.aspx" />
+    <Content Include="NepaliDate\dateConverter.js" />
+    <Content Include="NepaliDate\jquery.calendars.all.js" />
+    <Content Include="NepaliDate\jquery.calendars.nepali.js" />
+    <Content Include="NepaliDate\jquery.calendars.picker.css" />
+    <Content Include="NepaliDate\jquery.nepaliDatePicker.js" />
+    <Content Include="NepaliDate\jquery.plugin.min.js" />
+    <Content Include="NepaliDate\NepaliCalendar.js" />
+    <Content Include="NepaliDate\NepaliCalendarNew.js" />
+    <Content Include="NepaliDate\nepaliDatePicker.css" />
     <Content Include="nojs.htm" />
     <Content Include="Officer.aspx" />
     <Content Include="OverviewFamily.aspx" />
     <Content Include="Payer.aspx" />
     <Content Include="PaymentOverview.aspx" />
     <Content Include="Policy.aspx" />
+    <Content Include="PolicyNew.aspx" />
     <Content Include="PolicyRenewal.aspx" />
     <Content Include="Premium.aspx" />
     <Content Include="PremiumCollection.aspx" />
@@ -242,6 +259,7 @@
     <Content Include="StyleSheets\jquery-ui.css" />
     <Content Include="StyleSheets\jquery.ui.autocomplete.css" />
     <Content Include="StyleSheets\MainMenu.css" />
+    <Content Include="StyleSheets\select2.css" />
     <Content Include="Templates\FamilySMSBeforeExpiry.txt" />
     <Content Include="Templates\ForgotPassword.html" />
     <Content Include="Templates\OfflineExtract.html" />
@@ -355,6 +373,13 @@
       <DependentUpon>BgService.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CappedItemService.aspx.designer.vb">
+      <DependentUpon>CappedItemService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CappedItemService.aspx.vb">
+      <DependentUpon>CappedItemService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ChangeFamily.aspx.designer.vb">
       <DependentUpon>ChangeFamily.aspx</DependentUpon>
     </Compile>
@@ -404,6 +429,13 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>ClaimReview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClaimReviewNew.aspx.designer.vb">
+      <DependentUpon>ClaimReviewNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimReviewNew.aspx.vb">
+      <DependentUpon>ClaimReviewNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -438,6 +470,13 @@
     <Compile Include="Family.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Family.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyNew.aspx.designer.vb">
+      <DependentUpon>FamilyNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyNew.aspx.vb">
+      <DependentUpon>FamilyNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FeedbackPrompt.aspx.designer.vb">
       <DependentUpon>FeedbackPrompt.aspx</DependentUpon>
@@ -619,6 +658,20 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Insuree.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InsureeNew.aspx.designer.vb">
+      <DependentUpon>InsureeNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsureeNew.aspx.vb">
+      <DependentUpon>InsureeNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsureeProfile.aspx.designer.vb">
+      <DependentUpon>InsureeProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsureeProfile.aspx.vb">
+      <DependentUpon>InsureeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Locations.aspx.designer.vb">
       <DependentUpon>Locations.aspx</DependentUpon>
     </Compile>
@@ -707,6 +760,13 @@
     <Compile Include="Policy.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyNew.aspx.designer.vb">
+      <DependentUpon>PolicyNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyNew.aspx.vb">
+      <DependentUpon>PolicyNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PolicyRenewal.aspx.designer.vb">
       <DependentUpon>PolicyRenewal.aspx</DependentUpon>

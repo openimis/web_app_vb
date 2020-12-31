@@ -464,4 +464,12 @@ Public Class PolicyDAL
         End If
         Return RenewalCount
     End Function
+    Public Function GetPremimumAmount(ByVal id As Integer) As DataTable
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+        sSQL = "select LumpSum, PremiumAdult from tblProduct where ProdID= @ProdId"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ProdId", SqlDbType.Int, id)
+        Return data.Filldata
+    End Function
 End Class

@@ -477,7 +477,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
             InitAutoCompl();
         }
         function InitAutoCompl() {
-<<<<<<< HEAD
             $("#<%=txtICDCode0.ClientID %>").focus(function () {
                 var datasource;
                 $.ajax({
@@ -577,7 +576,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 if ($(this).val() === "") {
                     $('#<% = hfICDID2.ClientID%>').val("")
                 }
-=======
             $("#<%=txtICDCode0.ClientID %>").autocomplete({
                 source: function (request, response) {
                     $.ajax({

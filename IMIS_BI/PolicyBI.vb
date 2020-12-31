@@ -108,4 +108,14 @@ Public Class PolicyBI
         Dim PolicyBL As New IMIS_BL.PolicyBL
         Return PolicyBL.GetRenewalCount(ProdID, FamilyID)
     End Function
+    Public Function GetPremimumAmount(ByVal id As Integer, ByVal PolicyValue As Integer) As DataTable
+        Dim Policy As New IMIS_BL.PolicyBL
+        Return Policy.GetPremimumAmount(id, PolicyValue)
+    End Function
+
+    Public Function SavePolicyNew(ByRef ePolicy As IMIS_EN.tblPolicy, Optional ByVal IsOffLine As Boolean = False) As Integer
+        Dim Policy As New IMIS_BL.PolicyBL
+        Return Policy.SavePolicyNew(ePolicy, IsOffLine)
+    End Function
+
 End Class

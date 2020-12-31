@@ -153,9 +153,12 @@ Public Class FamilyBL
         dt.Columns.Add("Ethnicity")
 
         dt.Rows.Add(New Object() {"", gen.getMessage("M_ETHNICITY")})
-        dt.Rows.Add(New Object() {"A", gen.getMessage("M_TESTA")})
-        dt.Rows.Add(New Object() {"B", gen.getMessage("M_TESTB")})
-        dt.Rows.Add(New Object() {"C", gen.getMessage("M_TESTC")})
+        dt.Rows.Add(New Object() {"1", "1"})
+        dt.Rows.Add(New Object() {"2", "2"})
+        dt.Rows.Add(New Object() {"3", "3"})
+        dt.Rows.Add(New Object() {"4", "4"})
+        dt.Rows.Add(New Object() {"5", "5"})
+        dt.Rows.Add(New Object() {"6", "6"})
 
         Return dt
     End Function
