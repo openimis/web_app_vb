@@ -464,60 +464,6 @@ Partial Public Class Claim
     Protected WithEvents txtAdultPremium_MaskedEditExtender As Global.AjaxControlToolkit.MaskedEditExtender
 
     '''<summary>
-    '''lblICD control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblICD As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ddlICDData control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlICDData As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''txtICDCode0 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtICDCode0 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''RequiredFieldValidator3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''txtICDCode1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtICDCode1 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''ddlICDData1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlICDData1 As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''lblICD1 control.
     '''</summary>
     '''<remarks>

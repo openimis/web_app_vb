@@ -117,5 +117,9 @@ Public Class PolicyBI
         Dim Policy As New IMIS_BL.PolicyBL
         Return Policy.SavePolicyNew(ePolicy, IsOffLine)
     End Function
+    Public Function GetPolicyByDate(ByVal StartDate As Date, ByVal ProdID As Integer, ByVal FamilyID As Integer) As Integer
+        Dim Policy As New IMIS_BL.PolicyBL
+        Return Policy.GetPolicyByDate(StartDate, ProdID, FamilyID)
+    End Function
 
 End Class

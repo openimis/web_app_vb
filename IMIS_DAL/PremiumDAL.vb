@@ -339,7 +339,10 @@ Public Class PremiumDAL
 
     End Function
     Public Function CheckCanBeDeleted(ByVal PremiumID As Integer) As DataTable
-        Dim str As String = ""
+        Dim str As String = "select top 1 PremiumId from tblPremium pr" &
+                            " inner join tblClaimServices cs on pr.PolicyID=cs.PolicyID" &
+                            " inner join tblClaimItems ci on pr.PolicyID=ci.PolicyID" &
+                            " where pr.PremiumId=@PremiumID and cs.ValidityTo is null and ci.ValidityTo is null"
 
         data.setSQLCommand(str, CommandType.Text)
         Data.params("@PremiumID", SqlDbType.Int, PremiumID)

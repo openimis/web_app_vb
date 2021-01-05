@@ -472,4 +472,24 @@ Public Class PolicyDAL
         data.params("@ProdId", SqlDbType.Int, id)
         Return data.Filldata
     End Function
+    Public Function GetPolicyByDate(ByVal StartDate As Date, ByVal ProdID As Integer, ByVal FamilyID As Integer) As Integer
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+        sSQL = "SELECT COUNT(*) AS PolicyCount FROM tblPolicy WHERE StartDate=@StartDate AND FamilyID =@FamilyID AND ValidityTo IS NULL AND ProdID = @ProductId"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@StartDate", StartDate)
+        data.params("@ProductId", ProdID)
+        data.params("@FamilyID", FamilyID)
+        Dim dt As DataTable = data.Filldata()
+        Dim PolicyCount As Integer = 0
+        If dt.Rows.Count > 0 Then
+            If Not dt(0)("PolicyCount") Is DBNull.Value Then
+                PolicyCount = dt(0)("PolicyCount")
+            Else
+                PolicyCount = 0
+            End If
+        End If
+        Return PolicyCount
+    End Function
+
 End Class

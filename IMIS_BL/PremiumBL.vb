@@ -127,8 +127,8 @@ Public Class PremiumBL
     Public Function DeletePremium(ByVal epremium As IMIS_EN.tblPremium) As Integer
         Dim premium As New IMIS_DAL.PremiumDAL
 
-        'Dim dt As DataTable = premium.CheckCanBeDeleted(epremium.PremiumId)
-        'If dt.Rows.Count > 0 Then Return 2
+        Dim dt As DataTable = premium.CheckCanBeDeleted(epremium.PremiumId)
+        If dt.Rows.Count > 0 Then Return 2
 
         If premium.DeletePremium(epremium) Then
             Return 1

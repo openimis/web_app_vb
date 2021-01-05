@@ -43,46 +43,46 @@
     <DocumentationFile>IMIS_BL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'BEPHA_Dev' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<DefineDebug>true</DefineDebug>
-		<DefineTrace>true</DefineTrace>
-		<OutputPath>bin\</OutputPath>
-		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
-		<DefineConstants>BEPHA=1</DefineConstants>
-		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'BEPHA_Release' ">
-		<DebugType>pdbonly</DebugType>
-		<DefineDebug>false</DefineDebug>
-		<DefineTrace>true</DefineTrace>
-		<Optimize>true</Optimize>
-		<OutputPath>bin\</OutputPath>
-		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
-		<DefineConstants>BEPHA=1</DefineConstants>
-		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'CHF_Dev' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<DefineDebug>true</DefineDebug>
-		<DefineTrace>true</DefineTrace>
-		<OutputPath>bin\</OutputPath>
-		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
-		<DefineConstants>CHF=1</DefineConstants>
-		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'CHF_Release' ">
-		<DebugType>pdbonly</DebugType>
-		<DefineDebug>false</DefineDebug>
-		<DefineTrace>true</DefineTrace>
-		<Optimize>true</Optimize>
-		<OutputPath>bin\</OutputPath>
-		<DocumentationFile>IMIS_BL.xml</DocumentationFile>
-		<DefineConstants>CHF=1</DefineConstants>
-		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-	</PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'BEPHA_Dev' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS_BL.xml</DocumentationFile>
+    <DefineConstants>BEPHA=1</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'BEPHA_Release' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS_BL.xml</DocumentationFile>
+    <DefineConstants>BEPHA=1</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'CHF_Dev' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS_BL.xml</DocumentationFile>
+    <DefineConstants>CHF=1</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'CHF_Release' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IMIS_BL.xml</DocumentationFile>
+    <DefineConstants>CHF=1</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -333,7 +333,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UseGlobalSettings="True" />
+      <UserProperties BuildVersion_UseGlobalSettings="True" BuildVersion_StartDate="2012/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.110.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net45\System.Data.SQLite.Core.targets')" />

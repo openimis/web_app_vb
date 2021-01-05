@@ -510,7 +510,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     $('#<% = hfICDID0.ClientID%>').val("")
                  }
              });
-
+            <%--
             $("#<%=txtICDCode1.ClientID %>").focus(function () {
                 var datasource;
                 $.ajax({
@@ -543,7 +543,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     $('#<% = hfICDID1.ClientID%>').val("")
                 }
             });
-            <%-- 
+            
             $("#<%=txtICDCode2.ClientID %>").focus(function () {
                 var datasource;
                 $.ajax({
@@ -927,8 +927,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                </td> 
             </tr>  
                
-             <tr>
-                 <td class="FormLabel">
+             <tr>                
              <td class="FormLabel">
                    <asp:Label ID="lblICD" runat="server" Text="<%$ Resources:Resource,L_ICD %>"  ></asp:Label>
                </td>
@@ -997,29 +996,27 @@ In case of dispute arising out or in relation to the use of the program, it is s
             </tr>  
               <tr>
                   <td class="FormLabel">
-                      <asp:Label ID="lblICD" runat="server" Text="<%$ Resources:Resource,L_ICD %>"  ></asp:Label>
+                      <asp:Label ID="lblICD1" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG1 %>"  ></asp:Label>  
                   </td>
-                  <td class="DataEntry">
-                    <asp:DropDownList ID="ddlICDData" runat="server" width="130px" Visible="False"></asp:DropDownList>
-                   <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8" width="125px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
+                  <td class="DataEntry">                   
+                   <%-- 
+                      <asp:TextBox ID="txtICDCode0" runat="server" MaxLength="8" width="125px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtICDCode0"
                        ValidationGroup="check" Visible="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                       --%>
                        <asp:TextBox ID="txtICDCode1" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:DropDownList ID="ddlICDData1" runat="server" width="135px" Visible="false">
                       </asp:DropDownList>
                   </td>
                   <td class="FormLabel">
-                     <%--  <asp:Label ID="lblICD2" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG2 %>"></asp:Label> --%>
-                       <asp:Label ID="lblICD1" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG1 %>"></asp:Label>
+                     <%--  <asp:Label ID="lblICD2" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG2 %>"></asp:Label> 
+                       <asp:Label ID="lblICD1" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG1 %>"></asp:Label> --%>
                   </td>
                   <td class="DataEntry">
                    <%--     <asp:TextBox ID="txtICDCode2" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:TextBox ID="txtICDCode2" runat="server" MaxLength="8"   width="135px" class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
                       <asp:DropDownList ID="ddlICDData2" runat="server" width="135px" Visible="false">
                       </asp:DropDownList> --%>
-                        <asp:TextBox ID="txtICDCode1" runat="server" MaxLength="8"  width="135px"  class="cmb txtICDCode" autocomplete="off"></asp:TextBox>
-                      <asp:DropDownList ID="ddlICDData1" runat="server" width="135px" Visible="false">
-                      </asp:DropDownList>
                   </td>
                   <td class="FormLabel">
                       <%-- <asp:Label ID="lblICD3" runat="server" Text="<%$ Resources:Resource,L_SECONDARYDG3 %>"></asp:Label> --%>
