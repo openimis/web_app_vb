@@ -29,7 +29,7 @@ title='<%$ Resources:Resource,L_FAMILY%>'%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
 
-<script type="text/javascript" language="javascript" >
+    <script type="text/javascript" language="javascript" >
     var url = "";
     var premiumAmountSum = 0;
 
@@ -306,7 +306,8 @@ title='<%$ Resources:Resource,L_FAMILY%>'%>
                         <asp:BoundField DataField="OtherNames" HeaderStyle-Width="110px" HeaderText='<%$ Resources:Resource,L_OTHERNAMES %>' SortExpression="OtherNames"> </asp:BoundField>
                         <asp:BoundField DataField="Gender" HeaderStyle-Width="50px" HeaderText='<%$ Resources:Resource,L_GENDER %>' SortExpression="Gender"> </asp:BoundField>
                         <asp:BoundField DataField="DOB" DataFormatString="{0:d}"  HeaderStyle-Width="70px" HeaderText='<%$ Resources:Resource,L_BIRTHDATE %>' SortExpression="DOB"> </asp:BoundField>
-                        <asp:CheckBoxField DataField="CardIssued" HeaderStyle-Width="50px" HeaderText='<%$ Resources:Resource,L_CARD %>' SortExpression="CardIssued"> </asp:CheckBoxField>
+                       <%--  <asp:CheckBoxField DataField="CardIssued" HeaderStyle-Width="50px" HeaderText='<%$ Resources:Resource,L_CARD %>' SortExpression="CardIssued"> </asp:CheckBoxField> --%>
+                        <asp:BoundField DataField="InsureeStatus" HeaderStyle-Width="50px" HeaderText='Status' SortExpression="InsureeStatus"> </asp:BoundField>
                     </Columns>
                     <SelectedRowStyle CssClass="srs" />
                     <PagerStyle CssClass="pgr" />

@@ -133,6 +133,9 @@ Partial Public Class OverviewFamily
 
             If Not gvPolicies.Rows.Count = 0 Then
                 dt = load.GetPremiumsByPolicy(gvPolicies.SelectedDataKey.Values("PolicyID"))
+#If HIB Then
+                AddPolicy.Visible = False
+#End If
                 loadGrid(gvPremiums, dt)
                 If gvPolicies.SelectedIndex >= 0 Then
                     hfPolicyValue.Value = gvPolicies.Rows(gvPolicies.SelectedIndex).Cells(7).Text
@@ -578,12 +581,20 @@ Partial Public Class OverviewFamily
         Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString() & "&po=" & ePolicy.PolicyUUID.ToString() & "&p=" & ePremium.PremiumUUID.ToString())
     End Sub
     Private Sub AddInsuree_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles AddInsuree.Click
-        Response.Redirect("InsureeNew.aspx?f=" & FamilyUUID.ToString())
+        Dim InsureePage As String = "Insuree.aspx"
+#If HIB Then
+        InsureePage = "InsureeNew.aspx"
+#End If
+        Response.Redirect(InsureePage & "?f=" & FamilyUUID.ToString())
     End Sub
     Private Sub EditInsuree_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditInsuree.Click
         Dim InsureeUUID As Guid
         InsureeUUID = insureeBI.GetInsureeUUIDByID(gvInsurees.SelectedDataKey.Value)
-        Response.Redirect("InsureeNew.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
+        Dim InsureePage As String = "Insuree.aspx"
+#If HIB Then
+        InsureePage = "InsureeNew.aspx"
+#End If
+        Response.Redirect(InsureePage & "?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
     End Sub
     Private Sub DeleteInsuree_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles DeleteInsuree.Click
         RunPageSecurity(True, "deleteinsuree")
@@ -625,7 +636,11 @@ Partial Public Class OverviewFamily
         Response.Redirect("OverviewFamily.aspx?f=" & FamilyUUID.ToString() & "&i=" & InsureeUUID.ToString())
     End Sub
     Private Sub AddPolicy_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles AddPolicy.Click
-        Response.Redirect("PolicyNew.aspx?f=" & FamilyUUID.ToString() & "&stage=N")
+        Dim PolicyPage As String = "Policy.aspx"
+#If HIB Then
+        PolicyPage = "PolicyNew.aspx"
+#End If
+        Response.Redirect(PolicyPage & "?f=" & FamilyUUID.ToString() & "&stage=N")
     End Sub
 
     Private Sub btnRenewPolicy_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnRenewPolicy.Click
@@ -643,7 +658,9 @@ Partial Public Class OverviewFamily
             PolicyUUID = policyBI.GetPolicyUUIDByID(rpo)
         End If
 
-        Response.Redirect("Policy.aspx?f=" & FamilyUUID.ToString() & "&stage=R&pd=" & ProdUUID.ToString() & "&ed=" & ed & "&rpo=" & PolicyUUID.ToString())
+        'Response.Redirect("PolicyNew.aspx?f=" & FamilyUUID.ToString() & "&stage=R&pd=" & ProdUUID.ToString() & "&ed=" & ed & "&rpo=" & PolicyUUID.ToString())
+        Response.Redirect("PolicyNew.aspx?f=" & FamilyUUID.ToString() & "&stage=R")
+
     End Sub
 
     Private Sub EditPolicy_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles EditPolicy.Click

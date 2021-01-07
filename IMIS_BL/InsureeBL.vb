@@ -261,5 +261,15 @@ Public Class InsureeBL
     Public Function GetClaimList(ByVal CHFID As String, Optional Language As String = "en")
         Return Insuree.GetClaimList(CHFID, Language)
     End Function
-
+    Public Function GetInsureeStatus() As DataTable
+        Dim Gen As New GeneralBL
+        Dim Insuree As New IMIS_DAL.InsureeDAL
+        Dim dt As DataTable = Insuree.GetInsureeStatus
+        Dim dr As DataRow
+        'dr = dt.NewRow
+        'dr("InsureeStatusCode") = 0
+        'dr("InsureeStatus") = "Select Status"
+        'dt.Rows.InsertAt(dr, 0)
+        Return dt
+    End Function
 End Class

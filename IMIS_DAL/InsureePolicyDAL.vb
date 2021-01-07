@@ -42,6 +42,9 @@ Public Class InsureePolicyDAL
         sSQL += " WHERE(I.ValidityTo Is NULL)"
         sSQL += " AND PL.ValidityTo IS NULL"
         sSQL += " AND Prod.ValidityTo IS NULL"
+#If HIB Then
+        sSQL += " AND i.InsureeStatus in (SELECT InsureeStatusCode FROM tblInsureeStatus WHERE AllowPolicy=1)"
+#End If
         sSQL += " AND PL.PolicyID = @PolicyId"
         sSQL += " )"
         sSQL += " INSERT INTO tblInsureePolicy(InsureeId,PolicyId,EnrollmentDate,StartDate,EffectiveDate,ExpiryDate,AuditUserId,isOffline)"
@@ -90,6 +93,9 @@ Public Class InsureePolicyDAL
     End Sub
     Public Sub AddInsuree(ByVal InsureeId As Integer, ByVal Activate As Boolean)
         sSQL = "uspAddInsureePolicy"
+#If HIB Then
+        sSQL = "uspAddInsureePolicyHIB"
+#End If
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@InsureeId", SqlDbType.Int, InsureeId)
         data.params("@Activate", SqlDbType.Bit, Activate)

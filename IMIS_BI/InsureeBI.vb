@@ -150,4 +150,25 @@ Public Class InsureeBI
         Dim Insuree As New IMIS_BL.InsureeBL
         Return Insuree.GetClaimList(CHFID, Language)
     End Function
+    Public Function GetInsureeStatus() As DataTable
+        Dim Insuree As New IMIS_BL.InsureeBL
+        Return Insuree.GetInsureeStatus()
+        Dim dt, rdt As New DataTable
+        rdt.Columns.Add("StatusID")
+        rdt.Columns.Add("StatusName")
+        Dim dr As DataRow = rdt.NewRow
+        dr = rdt.NewRow
+        dr("StatusID") = 0
+        dr("StatusName") = "Active"
+        rdt.Rows.InsertAt(dr, 0)
+        dr = rdt.NewRow
+        dr("StatusID") = 1
+        dr("StatusName") = "Inactive"
+        rdt.Rows.InsertAt(dr, 1)
+        dr = rdt.NewRow
+        dr("StatusID") = 2
+        dr("StatusName") = "Dead"
+        rdt.Rows.InsertAt(dr, 2)
+        Return rdt
+    End Function
 End Class

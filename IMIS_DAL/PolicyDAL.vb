@@ -136,6 +136,9 @@ Public Class PolicyDAL
     End Sub
     Public Sub getPolicyValue(ByRef ePolicy As IMIS_EN.tblPolicy, PreviousPolicyId As Integer)
         data.setSQLCommand("uspPolicyValue", CommandType.StoredProcedure)
+#If HIB Then
+        data.setSQLCommand("uspPolicyValueHIB", CommandType.StoredProcedure)
+#End If
         data.params("@FamilyId", SqlDbType.Int, ePolicy.tblFamilies.FamilyID)
         data.params("@ProdId", SqlDbType.Int, ePolicy.tblProduct.ProdID)
         data.params("@PolicyId", SqlDbType.Int, ePolicy.PolicyID)
@@ -148,6 +151,9 @@ Public Class PolicyDAL
 
     Public Function getPolicyValue(ByVal FamilyId As Integer, ByVal ProdId As Integer, ByVal PolicyId As Integer, ByVal PolicyStage As String, ByVal EnrollDate As String, ByVal PreviousPolicyId As Integer) As Double
         Dim sSQL As String = "uspPolicyValue"
+#If HIB Then
+        sSQL = "uspPolicyValueHIB"
+#End If
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@FamilyId", FamilyId)
         data.params("@ProdId", ProdId)

@@ -33,8 +33,10 @@ Public Class InsureeDAL
         Dim sSQL As String = ""
         sSQL += "SELECT TB.FamilyID, F.FamilyUUID, TB.InsureeId, TB.InsureeUUID, TB.CHFID, TB.LastName, TB.OtherNames, TB.DOB,"
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += " ,S.InsureeStatus"
         sSQL += ", TB.Marital,TB.cardIssued, TB.isOffline, TB.validityFrom, TB.ValidityTo,TB.RowID from tblInsuree TB"
         sSQL += " LEFT JOIN tblGender GE On GE.Code = TB.Gender"
+        sSQL += " LEFT JOIN tblInsureeStatus S On S.InsureeStatusCode = TB.InsureeStatus"
         sSQL += " INNER JOIN tblFamilies F On F.FamilyID = TB.FamilyID"
 
         sSQL += " WHERE TB.familyid = @FamilyId"
@@ -212,7 +214,8 @@ Public Class InsureeDAL
         sSQL = "SELECT I.FamilyId, I.ValidityTo, I.CHFID, I.LastName, I.OtherNames, I.DOB, I.Gender, I.Marital, I.isHead, I.Passport, I.PhotoId,"
         sSQL += " I.PhotoDate, I.CardIssued, PH.PhotoFolder, PH.PhotoFileName, ISNULL(I.Relationship, 0)Relationship, ISNULL(I.Profession, 0) Profession,"
         sSQL += " ISNULL(I.Education, 0) Education, I.Email,I.Phone,  I.isOffline, I.TypeOfId, I.HFID, HF.HFLevel, HFR.RegionId FSPRegionId, HFD.DistrictId,"
-        sSQL += " I.CurrentAddress, R.RegionId CurrentRegion, D.DistrictId CurrentDistrict, W.WardId CurrentWard, I.CurrentVillage"
+        sSQL += " I.CurrentAddress, R.RegionId CurrentRegion, D.DistrictId CurrentDistrict, W.WardId CurrentWard, I.CurrentVillage,"
+        sSQL += " I.InsureeStatus"
         sSQL += " FROM tblInsuree I"
         sSQL += " LEFT OUTER JOIN tblPhotos PH ON PH.InsureeId = I.InsureeID"
         sSQL += " LEFT OUTER JOIN tblHF HF ON HF.HFID = I.HFID"
@@ -277,7 +280,7 @@ Public Class InsureeDAL
             eInsuree.CurDistrict = if(dr.IsNull("CurrentDistrict"), 0, dr("CurrentDistrict"))
             eInsuree.CurWard = if(dr.IsNull("CurrentWard"), 0, dr("CurrentWard"))
             eInsuree.CurrentVillage = if(dr.IsNull("CurrentVillage"), 0, dr("CurrentVillage"))
-
+            eInsuree.InsureeStatus = If(dr("InsureeStatus") Is DBNull.Value, Nothing, dr("InsureeStatus"))
         End If
 
 
@@ -327,10 +330,10 @@ Public Class InsureeDAL
     End Sub
     Public Sub ModifyInsuree(ByVal eInsuree As IMIS_EN.tblInsuree)
         Dim data As New ExactSQL
-        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,[Relationship],[Profession],[Education],[Email],[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage]) " & _
-                           " select	[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId,[Relationship],[Profession],[Education],[Email] ,[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage]" & _
-                           " from tblInsuree where InsureeID = @InsureeID;" & _
-                           " UPDATE [tblInsuree] SET [CHFID] = @CHFID,[LastName] = @LastName,[OtherNames] = @OtherNames,[DOB] = @DOB,[Gender] = @Gender ,[Marital] = @Marital,[passport] = @passport,[Phone] = @Phone,[PhotoDate] = @PhotoDate,[CardIssued] = @CardIssued,isOffline=@isOffline,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID ,[Relationship] = @Relationship, [Profession] = @Profession, [Education] = @Education,[Email] = @Email ,TypeOfId = @TypeOfId,HFID = @HFID, CurrentAddress = @CurrentAddress, CurrentVillage = @CurrentVillage, GeoLocation = @GeoLocation" & _
+        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,[Relationship],[Profession],[Education],[Email],[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage],[InsureeStatus]) " &
+                           " select	[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId,[Relationship],[Profession],[Education],[Email] ,[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage],[InsureeStatus]" &
+                           " from tblInsuree where InsureeID = @InsureeID;" &
+                           " UPDATE [tblInsuree] SET [CHFID] = @CHFID,[LastName] = @LastName,[OtherNames] = @OtherNames,[DOB] = @DOB,[Gender] = @Gender ,[Marital] = @Marital,[passport] = @passport,[Phone] = @Phone,[PhotoDate] = @PhotoDate,[CardIssued] = @CardIssued,isOffline=@isOffline,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID ,[Relationship] = @Relationship, [Profession] = @Profession, [Education] = @Education,[Email] = @Email ,TypeOfId = @TypeOfId,HFID = @HFID, CurrentAddress = @CurrentAddress, CurrentVillage = @CurrentVillage, GeoLocation = @GeoLocation, InsureeStatus = @InsureeStatus" &
                            " WHERE InsureeId = @InsureeId", CommandType.Text)
         data.params("@InsureeID", SqlDbType.Int, eInsuree.InsureeID)
         data.params("@CHFID", SqlDbType.NVarChar, 12, eInsuree.CHFID)
@@ -358,7 +361,7 @@ Public Class InsureeDAL
         data.params("@CurrentAddress", SqlDbType.NVarChar, 50, eInsuree.CurrentAddress)
         data.params("@Currentvillage", SqlDbType.Int, eInsuree.CurrentVillage, ParameterDirection.Input)
         data.params("@GeoLocation", SqlDbType.NVarChar, 50, eInsuree.GeoLocation)
-
+        data.params("@InsureeStatus", SqlDbType.Int, eInsuree.InsureeStatus)
         data.ExecuteCommand()
 
     End Sub
@@ -626,6 +629,15 @@ Public Class InsureeDAL
             "where i.ValidityTo is null and c.ValidityTo is null and i.CHFID=@CHFID order by c.DateClaimed DESC "
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@CHFID", SqlDbType.NVarChar, 12, CHFID)
+        Return data.Filldata
+
+    End Function
+    Public Function GetInsureeStatus() As DataTable
+        Dim sSQL As String = String.Empty
+        Dim data As New ExactSQL
+        sSQL = "SELECT InsureeStatusCode, InsureeStatus, AllowPolicy from tblInsureeStatus"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
         Return data.Filldata
 
     End Function

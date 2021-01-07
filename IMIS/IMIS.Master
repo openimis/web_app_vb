@@ -435,7 +435,8 @@
                             <asp:Label ID="Menu2" runat="server" Text='<%$ Resources:Resource,L_INSUREESANDPOLICIES %>'></asp:Label>
                             </a>
                             <ul>
-                                <li><a id="Family" class="candisable" href="FamilyNew.aspx">
+                                <li>
+                                    <a id="Family" class="candisable" href="FamilyNew.aspx">
                                     <asp:Label ID="SubAddFamily" runat="server" Text='<%$ Resources:Resource,L_ADDFAMILY %>'></asp:Label>
                                     </a></li>
                                 <li><cite></cite></li>

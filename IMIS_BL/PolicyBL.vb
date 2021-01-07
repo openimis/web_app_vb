@@ -229,15 +229,7 @@ Public Class PolicyBL
         Dim dt, rdt As New DataTable
         rdt.Columns.Add("AmountID")
         rdt.Columns.Add("Amount")
-        'rdt.Columns(0).AutoIncrement = True
         Dim dr As DataRow = rdt.NewRow
-        'Dim Total, LumpSum, PremiumAdult As Integer
-        'Dim Policy As New IMIS_DAL.PolicyDAL
-        'dt = Policy.GetPremimumAmount(id)
-        'For Each row As DataRow In dt.Rows
-        'PremiumAdult = row.Item("PremiumAdult")
-        'Next row
-        'Total = PolicyValue
         dr = rdt.NewRow
         dr("AmountID") = 0
         dr("Amount") = "-- Select Amount --"
@@ -250,13 +242,6 @@ Public Class PolicyBL
         dr("AmountID") = PolicyValue / 2
         dr("Amount") = PolicyValue / 2
         rdt.Rows.InsertAt(dr, 2)
-        'For index As Integer = 3 To 6
-        'Total = Total + PremiumAdult
-        'dr = rdt.NewRow
-        'dr("AmountID") = index
-        'dr("Amount") = Total
-        'rdt.Rows.InsertAt(dr, index)
-        'Next
         Return rdt
     End Function
     Public Function SavePolicyNew(ByRef ePolicy As IMIS_EN.tblPolicy, Optional ByVal IsOffLine As Boolean = False) As Integer
