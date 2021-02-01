@@ -313,7 +313,7 @@ Partial Public Class ProcessRelIndex
     Private Sub FillYear()
         Dim dtYear As DataTable
 
-        dtYear = process.GetYears(2012, 2020)
+        dtYear = process.GetYears(2012, Year(Today))
 
         ddlYearProcess.DataSource = dtYear
         ddlYearProcess.DataValueField = "YearId"
