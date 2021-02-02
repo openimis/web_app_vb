@@ -220,7 +220,12 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		BuildVersion_AssemblyInfoFilename = IMIS\My Project\AssemblyInfo.vb
+		BuildVersion_UpdateAssemblyVersion = True
+		BuildVersion_BuildVersioningStyle = YearStamp.MonthStamp.DayStamp.TimeStamp
+		BuildVersion_DetectChanges = False
 		BuildVersion_StartDate = 2012/1/1
 		SolutionGuid = {7C0CCE48-7E8F-4820-82D5-9B709C6B969C}
+		BuildVersion_UseGlobalSettings = False
 	EndGlobalSection
 EndGlobal

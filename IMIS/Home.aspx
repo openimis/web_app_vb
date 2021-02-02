@@ -69,7 +69,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
 
-    <span id="version">v1.5.0 (build <asp:Label ID="compiledVersion" runat="server" Text=''></asp:Label>)
+    <span id="version">v1.5.1 (build <asp:Label ID="compiledVersion" runat="server" Text=''></asp:Label>)
         <% #If DEBUG Then %>
             DEVELOP
         <% #End If %>
