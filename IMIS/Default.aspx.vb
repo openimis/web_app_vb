@@ -142,9 +142,9 @@ Partial Public Class Login
         demo = False
 
 #If DEMO Then
-            txtUserName.Text = "Admin"
-            txtPassword.Text = "admin123"
-            demo = True
+        txtUserName.Text = "Admin"
+        txtPassword.Attributes.Add("value", "admin123")
+        demo = True
 #End If
 
         txtUserName.Focus()
