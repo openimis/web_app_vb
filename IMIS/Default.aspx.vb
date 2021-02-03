@@ -137,12 +137,14 @@ Partial Public Class Login
     End Sub
     Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+        If IsPostBack Then Exit Sub
+
         demo = False
 
 #If DEMO Then
-        txtUserName.Text = "Admin"
-        txtPassword.Text = "admin123"
-        demo = True
+            txtUserName.Text = "Admin"
+            txtPassword.Text = "admin123"
+            demo = True
 #End If
 
         txtUserName.Focus()
