@@ -296,10 +296,45 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>AddFunding.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_cm.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_cm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_tz.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_tz.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.es_es.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.es_es.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Resource.fr.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_cd.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_cd.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_dj.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_dj.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_td.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_td.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.sw.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.sw.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Resource1.designer.vb">
       <AutoGen>True</AutoGen>
@@ -799,6 +834,34 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.fr.designer.vb</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\Resource.en_cm.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_cm.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en_tz.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_tz.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.es_es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.es_es.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_cd.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_cd.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_dj.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_dj.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_td.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_td.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.sw.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -1047,7 +1110,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_AssemblyInfoFilename="My Project\AssemblyInfo.vb" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.Increment" BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="False" />
+      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.Increment" BuildVersion_AssemblyInfoFilename="My Project\AssemblyInfo.vb" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
