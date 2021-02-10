@@ -821,7 +821,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to openIMIS.
+        '''  Looks up a localized string similar to IMIS.
         '''</summary>
         Friend Shared ReadOnly Property L_ALERTPOPUPTITLE() As String
             Get
@@ -2018,7 +2018,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Display.
+        '''  Looks up a localized string similar to Relative Indexes.
         '''</summary>
         Friend Shared ReadOnly Property L_DISPLAY() As String
             Get
@@ -8075,7 +8075,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Code specified in Ward Does not exists in Either Database or District Excel.
+        '''  Looks up a localized string similar to District Code specified in Ward does not exists in Either Database or District Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_DISTRICTCODENOTEXISTSINEXCELORDB() As String
             Get
@@ -9335,7 +9335,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Wardcode in Village Excel Does not exist in Either  Database or Ward Excel.
+        '''  Looks up a localized string similar to Wardcode in Village Excel does not exist in Either Database or Ward Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_MUNICIPALITYCODENOTEXISTSINEXCELORDB() As String
             Get
@@ -9695,7 +9695,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No wards found.
+        '''  Looks up a localized string similar to No municipalities found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOWARD() As String
             Get
