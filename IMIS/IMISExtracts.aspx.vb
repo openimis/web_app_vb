@@ -41,6 +41,10 @@ Partial Public Class IMISExtracts
             pnlFeedbackUpload.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractFeedbackUpload, UserID)
             PnlFeedBackUploadHeader.Visible = pnlFeedbackUpload.Visible
 
+            PnlUploadRenewal.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractRenewalUpload, UserID)
+            PnlUploadRenewal.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractRenewalUpload, UserID)
+
+
         Else
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.IMISExtracts.ToString & "&retUrl=" & RefUrl)
         End If

@@ -376,6 +376,7 @@
                             <asp:TreeNode Text="<%$ Resources:Resource,R_CLAIMSUPLOAD %>" Value="131104" SelectAction="None"></asp:TreeNode> 
                             <asp:TreeNode Text="<%$ Resources:Resource,R_ENROLMENTSUPLOAD %>" Value="131105" SelectAction="None"></asp:TreeNode> 
                             <asp:TreeNode Text="<%$ Resources:Resource,R_FEEDBACKUPLOAD %>" Value="131106" SelectAction="None"></asp:TreeNode> 
+                            <asp:TreeNode Text="<%$ Resources:Resource,R_RENEWALUPLOAD %>" Value="131107" SelectAction="None"></asp:TreeNode> 
                         </asp:TreeNode>                   
                         <asp:TreeNode ShowCheckBox="True" Text="<%$ Resources:Resource,R_REPORTS %>" Value="131200" SelectAction="Expand" ImageUrl="~/Images/Renew.png"> 
                             <asp:TreeNode Text="<%$ Resources:Resource,R_PRIMARYOPERATIONALIP %>" Value="131201" SelectAction="None"></asp:TreeNode> 
