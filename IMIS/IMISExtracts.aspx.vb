@@ -32,8 +32,6 @@ Partial Public Class IMISExtracts
             pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And Not IMIS_Gen.OfflineCHF
             'pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
 
-
-
             'pnlOfflineClaims.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
             'pnlOfflineClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
 
