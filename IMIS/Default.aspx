@@ -154,8 +154,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 </td>
             </tr>
             <tr>
-                <td class="FormLabel" style="width:150px !important" ><%= imisgen.getMessage("L_PASSWORD" )%></td>
-                <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" MaxLength="25" Width="120px"></asp:TextBox>
+                <td class="FormLabel" style="width:150px !important" ><%= imisgen.getMessage("L_PASSWORD")%></td>
+                <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" MaxLength="25" Width="120px" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                         ControlToValidate="txtPassword" ErrorMessage="*" SetFocusOnError="True" ForeColor="Red" Display="Dynamic">*</asp:RequiredFieldValidator>
                 </td>
@@ -175,6 +175,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
             </tr>
         </table>
     </div>
+        <% If demo Then %>
+        <div align="center">
+	        <br/>* To use openIMIS in French, use the <strong>Admin_Fr</strong> login account <br>with <strong>admin_fr123</strong> as password
+	        <br/><br/>Note: The demo server database is restored every weekend to its initial state
+	    </div>
+        <% End If %>
     </form>
 </body>
 </html>

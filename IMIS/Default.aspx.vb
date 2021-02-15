@@ -32,6 +32,8 @@ Partial Public Class Login
     Private eLogin As New IMIS_EN.tblUsers
     Protected imisgen As New IMIS_Gen
     Private dt As New DataTable
+    Public demo As Boolean
+
 
 
     Protected Sub btnLogin_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLogin.Click
@@ -134,6 +136,17 @@ Partial Public Class Login
         Response.Redirect("Home.aspx")
     End Sub
     Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If IsPostBack Then Exit Sub
+
+        demo = False
+
+#If DEMO Then
+        txtUserName.Text = "Admin"
+        txtPassword.Attributes.Add("value", "admin123")
+        demo = True
+#End If
+
         txtUserName.Focus()
         If Request.Form("__EVENTARGUMENT") = "SaveOfflineHFID" Then
             Dim eDefaults As New IMIS_EN.tblIMISDefaults

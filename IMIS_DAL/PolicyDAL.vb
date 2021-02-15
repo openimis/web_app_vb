@@ -193,7 +193,10 @@ Public Class PolicyDAL
     Public Function GetPolicybyFamily(ByVal FamilyId As Integer, ByVal status As DataTable) As DataTable
 
 
-        data.setSQLCommand("SELECT PolicyId,PolicyUUID,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus ,PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage,ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,tblPolicy.FamilyId,F.FamilyUUID, tblProduct.ProdUUID, tblPolicy.PolicyStatus as PolicyStatusID" &
+        data.setSQLCommand("SELECT PolicyId,PolicyUUID,EnrollDate,EffectiveDate,StartDate,ExpiryDate,Status.name As PolicyStatus," &
+                           " PolicyValue,tblPolicy.isOffline,tblPolicy.ValidityFrom,tblPolicy.ValidityTo,tblPolicy.PolicyStage," &
+                           " ProductCode,LastName + ' ' + OtherNames OfficerName, tblPolicy.ProdID,tblPolicy.FamilyId,F.FamilyUUID, " &
+                           " tblProduct.ProdUUID, tblPolicy.PolicyStatus as PolicyStatusID" &
                            " FROM tblPolicy INNER JOIN tblProduct ON tblPolicy.ProdID = tblProduct.ProdId" &
                            " INNER JOIN tblFamilies F On F.FamilyID = tblPolicy.FamilyID " &
                            " LEFT OUTER JOIN tblOfficer ON tblPolicy.OfficerId = tblOfficer.OfficerID" &
@@ -244,16 +247,16 @@ Public Class PolicyDAL
        
 
         If DeactivatedPolicies = True Then
-            sSQL += "Select Case PL.PolicyID"
-            sSQL += "From tblInsuree I"
-            sSQL += "INNER Join tblPolicy PL ON I.FamilyId = PL.FamilyID"
-            sSQL += "Left OUTER JOIN tblInsureePolicy IP ON PL.PolicyId = IP.PolicyId And I.InsureeId = IP.InsureeId"
-            sSQL += "WHERE PL.ValidityTo Is NULL"
+            sSQL += " INNER JOIN (Select PL.PolicyID"
+            sSQL += " From tblInsuree I"
+            sSQL += " INNER Join tblPolicy PL ON I.FamilyId = PL.FamilyID"
+            sSQL += " Left OUTER JOIN tblInsureePolicy IP ON PL.PolicyId = IP.PolicyId And I.InsureeId = IP.InsureeId"
+            sSQL += " WHERE PL.ValidityTo Is NULL"
             sSQL += " And I.ValidityTo Is NULL"
-            sSQL += "And IP.ValidityTo Is NULL"
+            sSQL += " And IP.ValidityTo Is NULL"
             sSQL += " And PL.PolicyStatus > 1"
-            sSQL += "And IP.EffectiveDate Is NULL"
-            sSQL += "Group BY PL.PolicyId"
+            sSQL += " And IP.EffectiveDate Is NULL"
+            sSQL += " Group BY PL.PolicyId"
 
             sSQL += ")InActivePolicies ON PL.PolicyID = InActivePolicies.PolicyId"
         End If
