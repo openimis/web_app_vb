@@ -4699,6 +4699,9 @@
 	<data name="R_FEEDBACKUPLOAD" xml:space="preserve">
 		<value>Feedback Upload</value>
 	</data>
+	<data name="R_RENEWALUPLOAD" xml:space="preserve">
+		<value>Renewal Upload</value>
+	</data>
 	<data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
 		<value>Health Facilities Download</value>
 	</data>

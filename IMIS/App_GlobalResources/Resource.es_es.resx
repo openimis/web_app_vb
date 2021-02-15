@@ -4699,6 +4699,9 @@
 	<data name="R_FEEDBACKUPLOAD" xml:space="preserve">
 		<value>Subir retroalimentación </value>
 	</data>
+	<data name="R_RENEWALUPLOAD" xml:space="preserve">
+		<value></value>
+	</data>
 	<data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
 		<value>Descargar centro de salud </value>
 	</data>

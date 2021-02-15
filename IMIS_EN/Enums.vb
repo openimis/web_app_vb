@@ -197,6 +197,7 @@ Public Class Enums
         ExtractClaimUpload = 131104
         ExtractEnrolmentsUpload = 131105
         ExtractFeedbackUpload = 131106
+        ExtractRenewalUpload = 131107
 
         '****************************************Reports 1312 00
         'Reports

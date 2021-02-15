@@ -32,14 +32,16 @@ Partial Public Class IMISExtracts
             pnlUploadEnrolments.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload, UserID) And Not IMIS_Gen.OfflineCHF
             'pnlUploadEnrolmentXML.Visible = pnlExtractEntrolment.Visible
 
-
-
             'pnlOfflineClaims.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
             'pnlOfflineClaims.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.OfflineClaims, UserID) And IMIS_Gen.offlineHF
 
             pnlFeedbackUpload.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractFeedbackUpload, UserID)
             pnlFeedbackUpload.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractFeedbackUpload, UserID)
             PnlFeedBackUploadHeader.Visible = pnlFeedbackUpload.Visible
+
+            PnlUploadRenewal.Enabled = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractRenewalUpload, UserID)
+            PnlUploadRenewal.Visible = userBI.checkRights(IMIS_EN.Enums.Rights.ExtractRenewalUpload, UserID)
+
 
         Else
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.IMISExtracts.ToString & "&retUrl=" & RefUrl)

@@ -12440,6 +12440,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Renewal Upload.
+        '''</summary>
+        Friend Shared ReadOnly Property R_RENEWALUPLOAD() As String
+            Get
+                Return ResourceManager.GetString("R_RENEWALUPLOAD", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Reports.
         '''</summary>
         Friend Shared ReadOnly Property R_REPORTS() As String
