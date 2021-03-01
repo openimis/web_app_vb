@@ -475,52 +475,6 @@
 
             </asp:Panel>--%>
 
-            <asp:Panel ID="PnlFeedBackUploadHeader" runat="server">
-                <table class="catlabel">
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label7" runat="server"
-                                Text='<%$ Resources:Resource,L_UPLOADFEEDBACK %>'></asp:Label>
-
-                        </td>
-
-
-                    </tr>
-                </table>
-                <asp:Panel ID="pnlFeedbackUpload" runat="server" CssClass="panel"
-                    Height="60px" GroupingText="">
-                    <table>
-                        <tr>
-                            <td>
-                                <table>
-
-                                    <tr>
-
-                                        <td class="FormLabel">
-                                            <asp:FileUpload ID="FileUploadFeedBack" runat="server" /></td>
-                                        <td class="DataEntry">
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                                                ControlToValidate="FileUploadFeedBack" ErrorMessage="*" ValidationGroup="uFeedBack">*</asp:RequiredFieldValidator>
-                                        </td>
-                                        <td class="FormLabel">&nbsp;</td>
-                                        <td class="DataEntry">&nbsp;</td>
-                                        <td class="FormLabel"></td>
-                                        <td class="DataEntry"></td>
-                                        <td class="FormLabel"></td>
-                                        <td class="DataEntry"></td>
-                                        <td align="right">
-                                            <asp:Button ID="BtnUploadFeeBack" runat="server" OnClick="BtnUploadFeeBack_Click"
-                                                Text='<%$ Resources:Resource,B_UPLOAD %>' ValidationGroup="uFeedBack" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </asp:Panel>
-
-            </asp:Panel>
-
             <asp:Panel ID="PnlUploadRenewal" runat="server">
                 <table class="catlabel">
                     <tr>
@@ -557,6 +511,52 @@
                                         <td align="right">
                                             <asp:Button ID="BtnUploadRenewal" runat="server" OnClick="BtnUploadRenewal_Click" 
                                                 Text='<%$ Resources:Resource,B_UPLOAD %>' ValidationGroup="uRenewal" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+
+            </asp:Panel>
+
+            <asp:Panel ID="PnlFeedBackUploadHeader" runat="server">
+                <table class="catlabel">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label7" runat="server"
+                                Text='<%$ Resources:Resource,L_UPLOADFEEDBACK %>'></asp:Label>
+
+                        </td>
+
+
+                    </tr>
+                </table>
+                <asp:Panel ID="pnlFeedbackUpload" runat="server" CssClass="panel"
+                    Height="60px" GroupingText="">
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+
+                                    <tr>
+
+                                        <td class="FormLabel">
+                                            <asp:FileUpload ID="FileUploadFeedBack" runat="server" /></td>
+                                        <td class="DataEntry">
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                                ControlToValidate="FileUploadFeedBack" ErrorMessage="*" ValidationGroup="uFeedBack">*</asp:RequiredFieldValidator>
+                                        </td>
+                                        <td class="FormLabel">&nbsp;</td>
+                                        <td class="DataEntry">&nbsp;</td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td class="FormLabel"></td>
+                                        <td class="DataEntry"></td>
+                                        <td align="right">
+                                            <asp:Button ID="BtnUploadFeeBack" runat="server" OnClick="BtnUploadFeeBack_Click"
+                                                Text='<%$ Resources:Resource,B_UPLOAD %>' ValidationGroup="uFeedBack" />
                                         </td>
                                     </tr>
                                 </table>
