@@ -778,4 +778,22 @@ Public Class IMISExtractsDAL
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.FilldataSet()
     End Function
+
+    Public Function GetPhoneExtractsClaimAdmins(ByVal locationId As Integer) As DataTable
+        Dim sSQL = "SELECT LastName,OtherNames,ClaimAdminCode FROM tblClaimAdmin CA " &
+                        "INNER JOIN tblHF H ON CA.HFID = H.HfID " &
+                        "WHERE H.ValidityTo IS NULL AND CA.ValidityTo IS NULL"
+
+        If locationId > 0 Then
+            sSQL += " AND H.LocationID = @LocationID"
+        End If
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+
+        If locationId > 0 Then
+            data.params("@LocationID", SqlDbType.Int, locationId)
+        End If
+
+        Return data.Filldata
+    End Function
 End Class
