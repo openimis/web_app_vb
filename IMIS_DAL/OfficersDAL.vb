@@ -175,14 +175,14 @@ Public Class OfficersDAL
         Dim sSQL As String = ""
 
         'sSQL = "select tblOfficer.*,Districtname from tblOfficer left outer join tblDistricts on tblOfficer.LocationId = tblDistricts.DistrictID inner join tblUsersDistricts UD on UD.LocationId = tblOfficer.LocationId and UD.userid = @userid and UD.ValidityTo is null WHERE code like @Code AND  LastName LIKE @LastName AND OtherNames LIKE @OtherNames  AND Phone  like @Phone AND ISNULL(EmailId, '') LIKE @EmailId"
-
-        sSQL = " SELECT DISTINCT O.OfficerID,O.OfficerUUID,O.Code,O.OtherNames,O.LastName,O.Phone,O.DOB,O.ValidityFrom, O.ValidityTo,"
+        sSQL += " DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
+        sSQL += " SELECT DISTINCT O.OfficerID,O.OfficerUUID,O.Code,O.OtherNames,O.LastName,O.Phone,O.DOB,O.ValidityFrom, O.ValidityTo,"
         sSQL += " L.RegionName , L.DistrictName, ISNULL(HasLogin,0) HasLogin"
         sSQL += " FROM tblOfficer O"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(O.LocationId, 0) "
         sSQL += " INNER JOIN (SELECT UD.UserId, L.DistrictId, L.RegionId FROM tblUsersDistricts UD"
         sSQL += " INNER JOIN uvwLocations L ON L.DistrictId = UD.LocationId"
-        sSQL += " WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)"
+        sSQL += " WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0 OR @UserId = @AdminUser)"
         sSQL += " GROUP BY UD.UserId, L.DistrictId, L.RegionId )UD ON UD.DistrictId = O.LocationId"
         sSQL += " INNER JOIN tblUsers U ON U.UserId = UD.UserId"
 
