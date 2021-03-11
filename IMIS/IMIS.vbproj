@@ -274,7 +274,8 @@
     </Content>
     <Content Include="Manual\IMIS_manual_fr.pdf" />
     <None Include="My Project\PublishProfiles\IISProfile.pubxml" />
-    <None Include="My Project\PublishProfiles\IMIS.pubxml" />
+    <None Include="My Project\PublishProfiles\IMIS CHF Release.pubxml" />
+    <None Include="My Project\PublishProfiles\IMIS MV Release.pubxml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

@@ -60,10 +60,11 @@ Public Class ClaimAdminDAL
 
     'Corrected
     Public Function GetClaimAdmins(ByVal eClaimAdmin As IMIS_EN.tblClaimAdmin, ByVal All As Boolean) As DataTable
-        Query = "select ClaimAdminId,ClaimAdminUUID,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
+        Query = "DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL; " &
+           "select DISTINCT ClaimAdminId,ClaimAdminUUID,ClaimAdminCode,ClaimAdminCode +' - '+ ca.LastName Description,ca.LastName,ca.OtherNames,ca.DOB,ca.Phone,ca.ValidityFrom" &
            ",ca.ValidityTo,ca.LegacyId,ca.AuditUserId,tblHF.HfID,tblHF.HFCode, ca.EmailId,ISNULL(ca.HasLogin,0) HasLogin from tblClaimAdmin ca" &
            " inner join tblHF on ca.HFId = tblHF.HfID" &
-           " inner join tblUsersDistricts ud on tblHF.LocationId = ud.LocationId And ud.UserID = @UserID" &
+           " inner join tblUsersDistricts ud on tblHF.LocationId = ud.LocationId And (ud.UserID = @UserID OR @UserID = @AdminUser)" &
            " WHERE ca.ClaimAdminCode like @Code AND " &
            " LastName LIKE @LastName AND OtherNames LIKE @OtherNames  AND ISNULL(ca.Phone,'') LIKE @Phone" &
            " AND ISNULL(ca.EmailId,'') LIKE @EmailId"
