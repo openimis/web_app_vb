@@ -569,7 +569,7 @@ Public Class IMISExtractsBL
 
         Dim locationId = eExtractInfo.LocationId
         cmd = con.CreateCommand
-        sSQL = "CREATE TABLE tblAdministrators([Code] Text, [Name] Text)"
+        sSQL = "CREATE TABLE tblClaimAdmins([Code] Text, [Name] Text)"
         cmd.CommandText = sSQL
         cmd.ExecuteNonQuery()
 
@@ -580,7 +580,7 @@ Public Class IMISExtractsBL
         Using InsertCmd = New SQLiteCommand(con)
             Using transaction = con.BeginTransaction
                 For Each row In dtClaimAdmins.Rows
-                    sSQL = "INSERT INTO tblAdministrators([Code],[Name])" &
+                    sSQL = "INSERT INTO tblClaimAdmins([Code],[Name])" &
                            " VALUES(@Code,@Name)"
 
                     InsertCmd.CommandText = sSQL
