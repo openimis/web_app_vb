@@ -567,7 +567,35 @@ Public Class IMISExtractsBL
 
         cmd.Dispose()
 
+        Dim locationId = eExtractInfo.LocationId
+        cmd = con.CreateCommand
+        sSQL = "CREATE TABLE tblClaimAdmins([Code] Text, [Name] Text)"
+        cmd.CommandText = sSQL
+        cmd.ExecuteNonQuery()
 
+        Dim dtClaimAdmins As New DataTable
+        Dim ExtractsDAL As New IMIS_DAL.IMISExtractsDAL
+        dtClaimAdmins = ExtractsDAL.GetPhoneExtractsClaimAdmins(locationId)
+
+        Using InsertCmd = New SQLiteCommand(con)
+            Using transaction = con.BeginTransaction
+                For Each row In dtClaimAdmins.Rows
+                    sSQL = "INSERT INTO tblClaimAdmins([Code],[Name])" &
+                           " VALUES(@Code,@Name)"
+
+                    InsertCmd.CommandText = sSQL
+
+                    InsertCmd.Parameters.AddWithValue("@Code", row("ClaimAdminCode").ToString)
+                    InsertCmd.Parameters.AddWithValue("@Name", (row("LastName") + " " + row("OtherNames")).ToString)
+
+                    InsertCmd.ExecuteNonQuery()
+
+                Next
+                transaction.Commit()
+            End Using
+        End Using
+
+        cmd.Dispose()
 
         con.Close()
 
