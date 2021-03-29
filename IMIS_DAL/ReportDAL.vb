@@ -494,7 +494,7 @@ Public Class ReportDAL
 
     Public Function getCatchmentArea(RegionId As Integer, DistrictId As Integer, ByVal ProductId As Integer, ByVal Year As Integer, ByVal Month As Integer, ByVal dt As DataTable) As DataTable
         Dim data As New ExactSQL
-        Dim sSQL As String = "uspSSRSCapitationPayment"
+        Dim sSQL As String = "uspSSRSRetrieveCapitationPaymentReportData"
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@RegionId", SqlDbType.Int, If(RegionId = -1, DBNull.Value, RegionId))
         data.params("@DistrictId", SqlDbType.Int, If(DistrictId = 0, DBNull.Value, DistrictId)) ' DistrictId)

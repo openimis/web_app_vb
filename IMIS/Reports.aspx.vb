@@ -36,6 +36,7 @@ Partial Public Class Reports
     Private RoleID As Integer
     Private UserID As Integer
     Private userBI As New IMIS_BI.UserBI
+    Private batchRunBL As New IMIS_BL.BatchRunBL
     Private ds As New DataSet
     Private dt As New DataTable
     Private isClaimOverView As Boolean = False
@@ -1163,6 +1164,11 @@ Partial Public Class Reports
         End If
         dt = reports.getCatchmentArea(Val(ddlRegion.SelectedValue), Val(ddlDistrict.SelectedValue), Val(ddlProductStrict.SelectedValue), ddlYear.SelectedValue, ddlMonth.SelectedValue)
         If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+            Dim locationId = If(ddlDistrict.SelectedIndex > 0, ddlDistrict.SelectedValue, ddlRegion.SelectedValue)
+            If Not batchRunBL.WasAlreadyRun(locationId, ddlYear.SelectedValue, ddlMonth.SelectedValue) Then
+                lblMsg.Text = imisgen.getMessage("M_CAPITATION_PAYMENT_NO_BATCH_RUN")
+                Return False
+            End If
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
             hfCompleted.Value = 0
             Return False

@@ -5048,4 +5048,7 @@ adults/children)</value>
 	<data name="L_PAYMENTTYPE1" xml:space="preserve">
 		<value></value>
 	</data>
+	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
+		<value></value>
+	</data>
 </root>
