@@ -45,4 +45,11 @@ Public Class BatchRunBL
 
         Return dt.Rows.Count > 0
     End Function
+
+    Public Function GetBatchRunById(ByVal RunID As Integer) As DataRow
+        Dim batchRunDAL As New IMIS_DAL.BatchRunDAL
+        Dim dr As DataRow = batchRunDAL.GetBatchRunByID(RunID)
+
+        Return dr
+    End Function
 End Class

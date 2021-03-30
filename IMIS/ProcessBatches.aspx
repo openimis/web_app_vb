@@ -403,11 +403,12 @@ table tr td.FormLabel{width:auto;}
                     <table id="CriteriaTableAccount" class="CriteriaTable">
                         <tr>
                             <td colspan="2">
-                                <fieldset style="padding-left: 10px; width: 250px">
+                                <fieldset style="padding-left: 10px; width: 375px">
                                     <legend>Group By</legend>
 
                                     <asp:RadioButton CssClass="checkbox" ID="rbHF" runat="server" GroupName="groupby" Checked="true" TextAlign="Right" Style="padding-bottom: 1px; padding-top: 1px" Width="100px" Text='<%$ Resources:Resource,L_HF %>' />
                                     <asp:RadioButton CssClass="checkbox" ID="rbProduct" runat="server" GroupName="groupby" Checked="false" TextAlign="Right" Style="padding-bottom: 1px; padding-top: 1px" Width="100px" Text='<%$ Resources:Resource,L_PRODUCT%>' />
+                                    <asp:RadioButton CssClass="checkbox" ID="rbCapitation" runat="server" GroupName="groupby" Checked="false" TextAlign="Right" Style="padding-bottom: 1px; padding-top: 1px" Width="100px" Text='Capitation' />
 
                                 </fieldset>
                             </td>

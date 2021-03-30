@@ -60,4 +60,11 @@ Public Class BatchRunDAL
         data.params("@RunMonth", SqlDbType.Int, RunMonth)
         Return data.Filldata
     End Function
+
+    Public Function GetBatchRunByID(ByVal RunID As Integer) As DataRow
+        Dim sSQL As String = "SELECT RunID, RunYear, RunMonth, RunDate FROM tblBatchRun where RunID = @RunID"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@RunID", SqlDbType.Int, RunID)
+        Return data.Filldata()(0)
+    End Function
 End Class
