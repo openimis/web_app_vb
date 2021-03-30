@@ -251,12 +251,10 @@ Partial Public Class Reports
         ddlDistrict.DataBind()
         FillProducts()
         'If dtDistricts.Rows.Count > 0 Then
-        If Val(lstboxReportSelector.SelectedValue) <> 18 Then
-            FillHF(ddlDistrict)
-            FillPayer(ddlRegion, ddlDistrict)
-            FillPreviousReportsDate()
-            FillPreviousReportsDateForOverviewOfCommissions()
-        End If
+        FillHF(ddlDistrict)
+        FillPayer(ddlRegion, ddlDistrict)
+        FillPreviousReportsDate()
+        FillPreviousReportsDateForOverviewOfCommissions()
         ' FillWards()
         ' End If
 
@@ -1131,81 +1129,6 @@ Partial Public Class Reports
         Return dt
     End Function
 
-    Private Function getCapitationPayment()
-        Dim sSubTitle As String = ""
-        Dim dtCapitation As DataTable
-        ' Dim dtHFLevel As New DataTable
-        '  \dtHFLevel.Columns.Add("Code")
-        'dtHFLevel.Columns.Add("Name")
-
-        If Val(ddlProductStrict.SelectedValue) > 0 Then
-            dtCapitation = reports.getProductCapitationDetails(ddlProductStrict.SelectedValue)
-
-            If dtCapitation.Rows.Count Then
-                IMIS_EN.eReports.Level1 = getHFName(dtCapitation.Rows(0)("Level1").ToString)
-                IMIS_EN.eReports.Sublevel1 = dtCapitation.Rows(0)("HFSublevel1").ToString
-                IMIS_EN.eReports.Level2 = getHFName(dtCapitation.Rows(0)("Level2").ToString)
-                IMIS_EN.eReports.Sublevel2 = dtCapitation.Rows(0)("HFSublevel2").ToString
-                IMIS_EN.eReports.Level3 = getHFName(dtCapitation.Rows(0)("Level3").ToString)
-                IMIS_EN.eReports.Sublevel3 = dtCapitation.Rows(0)("HFSublevel3").ToString
-                IMIS_EN.eReports.Level4 = getHFName(dtCapitation.Rows(0)("Level4").ToString)
-                IMIS_EN.eReports.Sublevel4 = dtCapitation.Rows(0)("HFSublevel4").ToString
-                IMIS_EN.eReports.ShareContribution = If(dtCapitation.Rows(0)("ShareContribution") Is DBNull.Value, 0, dtCapitation.Rows(0)("ShareContribution"))
-                IMIS_EN.eReports.WeightPopulation = If(dtCapitation.Rows(0)("WeightPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightPopulation"))
-                IMIS_EN.eReports.WeightNumberFamilies = If(dtCapitation.Rows(0)("WeightNumberFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberFamilies"))
-                IMIS_EN.eReports.WeightInsuredPopulation = If(dtCapitation.Rows(0)("WeightInsuredPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightInsuredPopulation"))
-                IMIS_EN.eReports.WeightNumberInsuredFamilies = If(dtCapitation.Rows(0)("WeightNumberInsuredFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberInsuredFamilies"))
-                IMIS_EN.eReports.WeightNumberVisits = If(dtCapitation.Rows(0)("WeightNumberVisits") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberVisits"))
-                IMIS_EN.eReports.WeightAdjustedAmount = If(dtCapitation.Rows(0)("WeightAdjustedAmount") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightAdjustedAmount"))
-
-            End If
-
-            '   lblCatchmentArea.Text = dt.Rows(0)("Catchment")
-        End If
-        dt = reports.getCatchmentArea(Val(ddlRegion.SelectedValue), Val(ddlDistrict.SelectedValue), Val(ddlProductStrict.SelectedValue), ddlYear.SelectedValue, ddlMonth.SelectedValue)
-        If dt Is Nothing OrElse dt.Rows.Count = 0 Then
-            Dim locationId = If(ddlDistrict.SelectedIndex > 0, ddlDistrict.SelectedValue, ddlRegion.SelectedValue)
-            If Not batchRunBL.WasAlreadyRun(locationId, ddlYear.SelectedValue, ddlMonth.SelectedValue) Then
-                lblMsg.Text = imisgen.getMessage("M_CAPITATION_PAYMENT_NO_BATCH_RUN")
-                Return False
-            End If
-            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
-            hfCompleted.Value = 0
-            Return False
-        End If
-        If Val(ddlRegion.SelectedValue) > 0 Or Val(ddlRegion.SelectedValue) = -1 Or ddlProductStrict.SelectedValue > 0 Then
-            If Not Val(ddlRegion.SelectedValue) = 0 Then
-                'If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
-                sSubTitle += LocationName
-            End If
-        End If
-        If Not ddlProductStrict.SelectedValue = 0 Then
-            If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
-            Dim dtProdDetails As DataTable = reports.GetProductName_Account(Val(ddlProductStrict.SelectedValue))
-            Dim ProductName As String = ""
-
-            If Not dtProdDetails Is Nothing AndAlso dtProdDetails.Rows.Count > 0 Then
-                ProductName = dtProdDetails(0)("ProductName").ToString
-            End If
-            sSubTitle += imisgen.getMessage("L_PRODUCT") & ": " & ddlProductStrict.SelectedItem.Text & " - " & ProductName & ", " '& imisgen.getMessage("L_PRODUCTCODE") & ": " & AccountCode
-            'sSubTitle += imisgen.getMessage("L_CODE") & ": " & ddlProductStrict.SelectedItem.Text
-        End If
-
-
-        If Not ddlMonth.SelectedValue = 0 Then
-            If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
-            sSubTitle += imisgen.getMessage("L_MONTH") & ": " & ddlMonth.SelectedItem.Text
-        End If
-        If Not ddlYear.SelectedValue = 0 Then
-            If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
-            sSubTitle += imisgen.getMessage("L_YEAR") & ": " & ddlYear.SelectedItem.Text
-        End If
-
-
-        IMIS_EN.eReports.SubTitle = sSubTitle
-        Return True
-    End Function
-
     Private Function getContributionPayment()
         Dim StartDate As DateTime?
         Dim EndDate As DateTime?
@@ -1523,7 +1446,7 @@ Partial Public Class Reports
                     Return
                 End If
             End If
-            If SelectedValueID = 22 Then
+            If SelectedValueID = 21 Then
                 If Val(ddlCommissionScope.SelectedValue) = -1 Then
                     lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
                     Return
@@ -1544,7 +1467,7 @@ Partial Public Class Reports
                 End If
             End If
 
-            If SelectedValueID = 23 Then
+            If SelectedValueID = 22 Then
                 If txtInsuranceNumber.Text = "" Then
                     lblMsg.Text = imisgen.getMessage("L_PLEASEENTERINSURANCENUMBER")
                     Return
@@ -1647,26 +1570,22 @@ Partial Public Class Reports
                 Session("Report") = dt
                 url = "Report.aspx?r=rnw&tid=17"
             ElseIf SelectedValueID = 18 Then
-                If Not getCapitationPayment() Then Exit Sub
-                Session("Report") = dt
-                url = "Report.aspx?r=ca&tid=18"
-            ElseIf SelectedValueID = 19 Then
                 If Not getRejectedPhoto() Then Exit Sub
                 Session("Report") = dt
                 url = "Report.aspx?r=rp&tid=19"
-            ElseIf SelectedValueID = 20 Then
+            ElseIf SelectedValueID = 19 Then
                 If Not getContributionPayment() Then Exit Sub
                 Session("Report") = dt
                 url = "Report.aspx?r=cp&tid=20"
-            ElseIf SelectedValueID = 21 Then
+            ElseIf SelectedValueID = 20 Then
                 If Not getControlNumberAssignment() Then Exit Sub
                 Session("Report") = dt
                 url = "Report.aspx?r=cna&tid=21"
-            ElseIf SelectedValueID = 22 Then
+            ElseIf SelectedValueID = 21 Then
                 If Not OverviewOfCommissions() Then Exit Sub
                 Session("Report") = dt
                 url = "Report.aspx?r=oc&tid=22"
-            ElseIf SelectedValueID = 23 Then
+            ElseIf SelectedValueID = 22 Then
                 If Not ClaimHistoryReport() Then Exit Sub
                 Session("Report") = dt
                 url = "Report.aspx?r=chr&tid=23"
@@ -1761,9 +1680,7 @@ Partial Public Class Reports
 
     Private Sub ddlRegion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegion.SelectedIndexChanged
         FillDistricts()
-        If Val(lstboxReportSelector.SelectedValue) <> 18 Then
-            FillHF(sender)
-        End If
+        FillHF(sender)
     End Sub
 
     Private Sub ddlRegionWoNational_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegionWoNational.SelectedIndexChanged
