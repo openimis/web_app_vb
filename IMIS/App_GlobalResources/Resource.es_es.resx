@@ -5050,4 +5050,7 @@
 	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
 		<value></value>
 	</data>
+	<data name="R_CAPITATION" xml:space="preserve">
+		<value></value>
+	</data>
 </root>
