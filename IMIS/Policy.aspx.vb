@@ -176,7 +176,7 @@ Partial Public Class Policy
                 ddlProduct.Enabled = False
 
                 'Or ePolicy.PolicyStatus > 1 is taken out from the below condition after Jiri's visit 
-                If ePolicy.ValidityTo.HasValue Or ePolicy.PolicyStatus > 1 Or ((IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) And Not if(ePolicy.isOffline Is Nothing, False, ePolicy.isOffline)) Then
+                If ePolicy.ValidityTo.HasValue Or ePolicy.PolicyStatus > 1 Or ((IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) And Not If(ePolicy.isOffline Is Nothing, False, ePolicy.isOffline)) Then
                     PnlBody4.Enabled = False
                     L_FAMILYPANEL.Enabled = False
                     'pnlBody.Enabled = False
@@ -193,7 +193,6 @@ Partial Public Class Policy
 
                 'Policy is in Renewal Mode
             ElseIf Not ePolicy.PolicyID = 0 And hfPolicyStage.Value = "R" Then
-
                 Policy.LoadPolicy(ePolicy, 0)
                 txtEnrollmentDate.Text = Format(Date.Today, "dd/MM/yyyy")
                 'ddlProduct.SelectedValue = ePolicy.tblProduct.ProdID
@@ -202,7 +201,6 @@ Partial Public Class Policy
                 getPolicyValue(sender, e)
 
             ElseIf ePolicy.PolicyID = 0 And hfPolicyStage.Value = "R" Then 'Ruzo : Added on 11 Oct, to fix loading of product when renewing.  
-
                 txtEnrollmentDate.Text = Format(Date.Today, "dd/MM/yyyy")
                 'ddlProduct.SelectedValue = ePolicy.tblProduct.ProdID
                 SetProductForRenewal()
@@ -251,7 +249,13 @@ Partial Public Class Policy
         If IsDate(txtEnrollmentDate.Text) Then
 
             Dim dEnrolDate As Date = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
-
+            'OTC-183: Renewing of a policy on a previous date is not possible'
+            'eProduct was = 0 before that change and that is why the insurance product'
+            'in the field was dismissed'
+            If HttpContext.Current.Request.QueryString("pd") IsNot Nothing Then
+                eProduct.ProdUUID = Guid.Parse(HttpContext.Current.Request.QueryString("pd"))
+                eProduct.ProdID = If(eProduct.ProdUUID.Equals(Guid.Empty), 0, productBI.GetProdIdByUUID(eProduct.ProdUUID))
+            End If
             'if its renewal then we need to verify product for conversion
             If hfPolicyStage.Value = "R" Then
                 SetProductForRenewal()
@@ -580,11 +584,8 @@ Partial Public Class Policy
         Else
             EnrollDate = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
         End If
-
         eProd = Policy.GetProductForRenewal(CInt(eProduct.ProdID), EnrollDate)
-
         ddlProduct.SelectedValue = eProd.ProdID
-
         If ddlProduct.SelectedValue = 0 Then
             ddlProduct.Items.Add(New ListItem(eProd.ProductCode, eProd.ProdID))
             ddlProduct.SelectedValue = eProd.ProdID
