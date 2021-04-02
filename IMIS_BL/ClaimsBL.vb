@@ -528,4 +528,9 @@ Public Class ClaimsBL
         Dim Claim As New IMIS_DAL.ClaimsDAL
         Return Claim.GetClaimUUIDByID(id).Rows(0).Item(0)
     End Function
+    Public Function GetClaimUUIDByClaimCode(ByVal ClaimCode As String) As Guid
+        'OTC-160: Restoring claim doesn't work just after saving a new claim'
+        Dim Claim As New IMIS_DAL.ClaimsDAL
+        Return Claim.GetClaimUUIDByClaimCode(ClaimCode).Rows(0).Item(0)
+    End Function
 End Class

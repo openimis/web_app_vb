@@ -1046,4 +1046,16 @@ Public Class ClaimsDAL
 
         Return data.Filldata
     End Function
+    Public Function GetClaimUUIDByClaimCode(ByVal ClaimCode As String) As DataTable
+        'OTC-160: Restoring claim doesn't work just after saving a new claim'
+        Dim sSQL As String = ""
+        Dim data As New ExactSQL
+
+        sSQL = "select ClaimUUID from tblClaim where ClaimCode = @ClaimCode and ValidityTo is NULL"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@ClaimCode", SqlDbType.NVarChar, 8, ClaimCode)
+
+        Return data.Filldata
+    End Function
 End Class
