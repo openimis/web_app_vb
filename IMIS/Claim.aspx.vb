@@ -946,9 +946,6 @@ Partial Public Class Claim
     End Sub
     Protected Sub btnRestore_Click(sender As Object, e As EventArgs) Handles btnRestore.Click
         Try
-            'OTC-160: Restoring claim doesn't work just after saving a new claim'
-            'here was error because the URL structure was different after staying'
-            'in page after saving claim. Therefore we had an error in that case'
             Dim hfClaimUUID As Guid
             If HttpContext.Current.Request.QueryString("c") IsNot Nothing Then
                 hfClaimUUID = Guid.Parse(HttpContext.Current.Request.QueryString("c"))
