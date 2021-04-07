@@ -528,4 +528,13 @@ Public Class ClaimsBL
         Dim Claim As New IMIS_DAL.ClaimsDAL
         Return Claim.GetClaimUUIDByID(id).Rows(0).Item(0)
     End Function
+    Public Function GetClaimUUIDByClaimCode(ByVal ClaimCode As String) As Guid
+        Dim Claim As New IMIS_DAL.ClaimsDAL
+        Dim Result As DataTable = Claim.GetClaimUUIDByClaimCode(ClaimCode)
+        If Result IsNot Nothing And Result.Rows.Count > 0 Then
+            Return Result.Rows(0).Item(0)
+        Else
+            Return Guid.Empty
+        End If
+    End Function
 End Class
