@@ -29,6 +29,7 @@
 Partial Public Class ProcessRelIndex
     Inherits System.Web.UI.Page
     Private process As New IMIS_BI.ProcessBatchesBI
+    Private modularBatchProcess As New IMIS_BI.ModularBatchProcess
     Private eRelIndex As New IMIS_EN.tblRelIndex
     Protected imisgen As New IMIS_Gen
     Private ProcessControls As New Dictionary(Of String, String)
@@ -401,6 +402,7 @@ Partial Public Class ProcessRelIndex
         Try
             CacheCriteria("Process", True)
 
+
             Dim eProduct As New IMIS_EN.tblProduct
             Dim eLocations As New IMIS_EN.tblLocations
             eRelIndex.AuditUserID = imisgen.getUserId(Session("User"))
@@ -427,13 +429,32 @@ Partial Public Class ProcessRelIndex
                     RelType = 0
             End Select
 
+            Dim modularURL As String = System.Web.Configuration.WebConfigurationManager.AppSettings("ModularGQLSource").ToString()
+            Dim modularExecution As Boolean = Not (modularURL = "")
+
             eRelIndex.RelType = RelType
             eRelIndex.tblProduct = eProduct
-            eRelIndex.RelYear = if(IsNumeric(ddlYearProcess.SelectedValue), ddlYearProcess.SelectedValue, 0)
+            eRelIndex.RelYear = If(IsNumeric(ddlYearProcess.SelectedValue), ddlYearProcess.SelectedValue, 0)
             eRelIndex.RelPeriod = ddlMonthProcess.SelectedValue
             eRelIndex.RelCareType = ddlHFLevelFilter.SelectedValue
 
-            Dim Proc As Integer = process.ProcessBatch(eRelIndex)
+            Dim Proc = -1
+            If modularExecution Then
+                Dim result = modularBatchProcess.sendBatchRunGQLRequest(
+                    If(IsNumeric(ddlYearProcess.SelectedValue), ddlYearProcess.SelectedValue, 0), ' year
+                    If(IsNumeric(ddlMonthProcess.SelectedValue), ddlMonthProcess.SelectedValue, 0), ' month
+                    eLocations.LocationId, ' location
+                    imisgen.getLoginName(Session("User")) ' GQL endpoint
+                )
+                If result.error Is Nothing Then
+                    Proc = 0
+                Else
+                    Proc = IIf(result.error.Contains("2"), 2, 1)
+                End If
+            Else
+                Proc = process.ProcessBatch(eRelIndex)
+            End If
+
 
 
             Dim msg As String = ""
@@ -502,7 +523,7 @@ Partial Public Class ProcessRelIndex
 
             eRelIndex.RelType = iRelType
             eRelIndex.tblProduct = eProduct
-            eRelIndex.RelYear = if(IsNumeric(ddlYearFilter.SelectedValue), ddlYearFilter.SelectedValue, 0)
+            eRelIndex.RelYear = If(IsNumeric(ddlYearFilter.SelectedValue), ddlYearFilter.SelectedValue, 0)
             eRelIndex.RelPeriod = period
             eRelIndex.RelCareType = ddlHFLevelFilter.SelectedValue
 
@@ -547,9 +568,9 @@ Partial Public Class ProcessRelIndex
             End If
 
             Dim ProductID As Integer = Val(ddlProductAAC.SelectedValue)
-            Dim RunID As Integer = if(IsNumeric(ddlBatchAAC.SelectedValue), ddlBatchAAC.SelectedValue, 0)
-            Dim HFID As Integer = if(IsNumeric(ddlHF.SelectedValue), ddlHF.SelectedValue, 0)
-            Dim HFLevel As String = if(ddlHFLevel.SelectedIndex > 0, ddlHFLevel.SelectedValue, "")
+            Dim RunID As Integer = If(IsNumeric(ddlBatchAAC.SelectedValue), ddlBatchAAC.SelectedValue, 0)
+            Dim HFID As Integer = If(IsNumeric(ddlHF.SelectedValue), ddlHF.SelectedValue, 0)
+            Dim HFLevel As String = If(ddlHFLevel.SelectedIndex > 0, ddlHFLevel.SelectedValue, "")
 
             If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
 
@@ -793,5 +814,5 @@ Partial Public Class ProcessRelIndex
         End Select
     End Function
 
-
 End Class
+
