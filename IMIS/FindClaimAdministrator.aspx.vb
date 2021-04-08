@@ -267,6 +267,7 @@ Public Partial Class FindClaimAdministrator
         Try
             eClaimAdmin.eUsers = New IMIS_EN.tblUsers
             eClaimAdmin.eUsers.LoginName = eClaimAdmin.ClaimAdminCode
+            eClaimAdmin.eUsers.AuditUserID = ImisGen.getUserId(Session("User"))
             BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
             BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
         Catch ex As Exception
