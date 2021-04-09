@@ -657,13 +657,6 @@ Partial Public Class ProcessRelIndex
             ElseIf rbProduct.Checked Then
                 If chkClaims.Checked = False Then Response.Redirect("Report.aspx?r=pbp")
                 If chkClaims.Checked = True Then Response.Redirect("Report.aspx?r=pbc&group=P")
-            ElseIf rbCapitation.Checked Then
-                dt = getCapitationPayment(Val(ddlRegionACC.SelectedValue), Val(ddlDistrictACC.SelectedValue),
-                                          Val(ddlProductAAC.SelectedValue), Val(ddlBatchAAC.SelectedValue))
-                If dt Is Nothing Then Exit Sub
-                Session("Report") = dt
-
-                Response.Redirect("Report.aspx?r=ca&tid=18")
             End If
             imisgen.Alert(imisgen.getMessage("M_NODATAFORREPORT"), pnlButtons, alertPopupTitle:="IMIS")
         End If
