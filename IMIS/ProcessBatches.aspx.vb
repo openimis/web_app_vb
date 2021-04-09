@@ -595,7 +595,7 @@ Partial Public Class ProcessRelIndex
                                           Val(ddlProductAAC.SelectedValue), Val(ddlBatchAAC.SelectedValue))
                 If dt Is Nothing Then Exit Sub
                 Session("Report") = dt
-                Response.Redirect("Report.aspx?r=ca&tid=18")
+                Response.Redirect("Report.aspx?r=ca")
             End If
 
             If RunID > 0 Then sSubTitle = sSubTitle & " " & imisgen.getMessage("L_RUNID") & ": " & ddlBatchAAC.SelectedItem.Text

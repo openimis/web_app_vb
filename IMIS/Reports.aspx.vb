@@ -1572,23 +1572,23 @@ Partial Public Class Reports
             ElseIf SelectedValueID = 18 Then
                 If Not getRejectedPhoto() Then Exit Sub
                 Session("Report") = dt
-                url = "Report.aspx?r=rp&tid=19"
+                url = "Report.aspx?r=rp&tid=18"
             ElseIf SelectedValueID = 19 Then
                 If Not getContributionPayment() Then Exit Sub
                 Session("Report") = dt
-                url = "Report.aspx?r=cp&tid=20"
+                url = "Report.aspx?r=cp&tid=19"
             ElseIf SelectedValueID = 20 Then
                 If Not getControlNumberAssignment() Then Exit Sub
                 Session("Report") = dt
-                url = "Report.aspx?r=cna&tid=21"
+                url = "Report.aspx?r=cna&tid=20"
             ElseIf SelectedValueID = 21 Then
                 If Not OverviewOfCommissions() Then Exit Sub
                 Session("Report") = dt
-                url = "Report.aspx?r=oc&tid=22"
+                url = "Report.aspx?r=oc&tid=21"
             ElseIf SelectedValueID = 22 Then
                 If Not ClaimHistoryReport() Then Exit Sub
                 Session("Report") = dt
-                url = "Report.aspx?r=chr&tid=23"
+                url = "Report.aspx?r=chr&tid=22"
             End If
 
 
