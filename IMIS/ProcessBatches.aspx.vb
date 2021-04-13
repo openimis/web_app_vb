@@ -439,6 +439,8 @@ Partial Public Class ProcessRelIndex
             eRelIndex.RelCareType = ddlHFLevelFilter.SelectedValue
 
             Dim Proc = -1
+            Dim msg As String = ""
+
             If modularExecution Then
                 Dim result = modularBatchProcess.sendBatchRunGQLRequest(
                     If(IsNumeric(ddlYearProcess.SelectedValue), ddlYearProcess.SelectedValue, 0), ' year
@@ -449,36 +451,34 @@ Partial Public Class ProcessRelIndex
                 If result.error Is Nothing Then
                     Proc = 0
                 Else
-                    Proc = IIf(result.error.Contains("2"), 2, 1)
+                    Proc = -1
+                    msg = HttpUtility.HtmlEncode(result.error.ToString)
                 End If
             Else
                 Proc = process.ProcessBatch(eRelIndex)
+                Select Case Proc
+                    Case 2
+                        msg = imisgen.getMessage("M_BATCHPROCESSRUNDONETHISSELECTION")
+                    Case 1
+                        msg = imisgen.getMessage("M_ERRORWHILEPROCESSING")
+                End Select
             End If
 
 
-
-            Dim msg As String = ""
-            Select Case Proc
-                Case 0
-                    Dim LocationName As String = ""
-
-                    If Val(ddlDistrictsBatch.SelectedValue) = 0 Then
-                        LocationName = ddlRegionBatch.SelectedItem.Text
-                    Else
-                        LocationName = ddlDistrictsBatch.SelectedItem.Text
-                    End If
-
-                    msg = imisgen.getMessage("L_DISTRICT") & ": " & LocationName & "<BR />"
-                    msg = msg & imisgen.getMessage("L_YEAR") & ": " & eRelIndex.RelYear & "<BR />"
-                    msg = msg & imisgen.getMessage("L_MONTH") & ": " & eRelIndex.RelPeriod & "<BR />"
-                    msg = msg & imisgen.getMessage("M_PROCESSEDSUCCESSFULLY")
-                Case 2
-                    msg = imisgen.getMessage("M_BATCHPROCESSRUNDONETHISSELECTION")
-                Case Else
-                    msg = imisgen.getMessage("M_ERRORWHILEPROCESSING")
-            End Select
-
             If Proc = 0 Then
+                Dim LocationName As String = ""
+
+                If Val(ddlDistrictsBatch.SelectedValue) = 0 Then
+                    LocationName = ddlRegionBatch.SelectedItem.Text
+                Else
+                    LocationName = ddlDistrictsBatch.SelectedItem.Text
+                End If
+
+                msg = imisgen.getMessage("L_DISTRICT") & ": " & LocationName & "<BR />"
+                msg = msg & imisgen.getMessage("L_YEAR") & ": " & eRelIndex.RelYear & "<BR />"
+                msg = msg & imisgen.getMessage("L_MONTH") & ": " & eRelIndex.RelPeriod & "<BR />"
+                msg = msg & imisgen.getMessage("M_PROCESSEDSUCCESSFULLY")
+
                 gvRelIndex.DataSource = process.GetRelIndexes(eRelIndex, True)
                 gvRelIndex.DataBind()
                 FillBatches()

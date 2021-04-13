@@ -24,8 +24,8 @@ Public Class ModularBatchProcess
 
             Dim requestContent As String = buildRequestContent(year, month, locationId, clientMutationUUID)
             Dim result = sendRequest(requestContent, senderLogin)
-
-            Dim data = jsonSerializer.Deserialize(Of BatchRunMutationResponse)(result.Content.ReadAsStringAsync().Result)
+            Dim r = result.Content.ReadAsStringAsync().Result
+            Dim data = jsonSerializer.Deserialize(Of BatchRunMutationResponse)(r)
             Dim internal_client_uuid As String = data.data.processBatch.internalId
 
             requestContent = buildCheckMutationContent(internal_client_uuid)
