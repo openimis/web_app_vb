@@ -42,7 +42,6 @@ Public Class LocationsDAL
         sSQL += " and  tblDistricts.ValidityTo is NULL"
         sSQL += " and tblRegions.ValidityTo is null"
         sSQL += " order by DistrictName"
-
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, UserID)
         data.params("@RegionId", SqlDbType.Int, RegionId)
@@ -446,7 +445,7 @@ Public Class LocationsDAL
         sSQL += " )"
         sSQL += " SELECT Checked, RegionId, RegionName,RegionCode, ValidityFrom, ValidityTo, LegacyId, AuditUserId"
         sSQL += " FROM Regions"
-        sSQL += " WHERE RNo = 1"
+        sSQL += " WHERE RNo = 1 AND RegionName <> 'Funding'"
 
         Dim data As New ExactSQL
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -479,7 +478,7 @@ Public Class LocationsDAL
         sSQL += "   Group BY UD.UserID, R.RegionId, R.RegionName, R.ValidityFrom, R.ValidityTo, R.LegacyId, R.AuditUserId,RegionCode ) "
         sSQL += " SELECT Checked, RegionId, RegionName,RegionCode, ValidityFrom, ValidityTo, LegacyId, AuditUserId FROM Regions "
 
-        sSQL += " WHERE RNo = 1"
+        sSQL += " WHERE RNo = 1 AND RegionName <> 'Funding'"
 
 
         Dim data As New ExactSQL
@@ -499,7 +498,7 @@ Public Class LocationsDAL
         sSQL += " INNER JOIN tblDistricts D ON R.RegionId=D.Region"
         sSQL += " INNER JOIN tblUsersDistricts UD ON UD.LocationId = D.DistrictID"
         sSQL += " INNER JOIN tblUsers U ON U.UserID = UD.UserID"
-        sSQL += " WHERE R.ValidityTo IS NULL AND D.ValidityTo IS NULL AND UD.ValidityTo IS NULL AND UD.UserID= @UserId"
+        sSQL += " WHERE R.ValidityTo IS NULL AND D.ValidityTo IS NULL AND UD.ValidityTo IS NULL AND UD.UserID= @UserId AND R.RegionName <> 'Funding'"
         sSQL += " GROUP BY RegionName"
 
 
