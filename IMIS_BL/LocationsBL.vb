@@ -33,27 +33,22 @@ Public Class LocationsBL
     Public Function GetDistricts(ByVal userID As Integer, ByVal showSelect As Boolean, ByVal RegionId As Integer, Optional EnforceSelect As Boolean = False) As DataTable
         Dim Districts As New IMIS_DAL.LocationsDAL
         Dim dt As DataTable = Districts.GetDistricts(userID, RegionId:=RegionId)
-
-        If dt.Rows.Count > 1 Or EnforceSelect Then
-            If showSelect = True Then
-                Dim dr As DataRow = dt.NewRow
-                dr("DistrictId") = 0
-                dr("DistrictName") = imisgen.getMessage("T_SELECTDISTRICT")
-                dt.Rows.InsertAt(dr, 0)
-            End If
+        If showSelect = True Then
+            Dim dr As DataRow = dt.NewRow
+            dr("DistrictId") = 0
+            dr("DistrictName") = imisgen.getMessage("T_SELECTDISTRICT")
+            dt.Rows.InsertAt(dr, 0)
         End If
         Return dt
     End Function
     Public Function GetDistrictsAll(ByVal userID As Integer, Optional RegionId As Integer = 0, Optional ByVal showSelect As Boolean = False, Optional Authority As Integer = 0) As DataTable
         Dim Districts As New IMIS_DAL.LocationsDAL
         Dim dt As DataTable = Districts.GetDistrictsALL(userID, RegionId)
-        If dt.Rows.Count > 1 Then
-            If showSelect = True Then
-                Dim dr As DataRow = dt.NewRow
-                dr("DistrictId") = 0
-                dr("DistrictName") = imisgen.getMessage("T_SELECTDISTRICT")
-                dt.Rows.InsertAt(dr, 0)
-            End If
+        If showSelect = True Then
+            Dim dr As DataRow = dt.NewRow
+            dr("DistrictId") = 0
+            dr("DistrictName") = imisgen.getMessage("T_SELECTDISTRICT")
+            dt.Rows.InsertAt(dr, 0)
         End If
         Return dt
     End Function
@@ -64,29 +59,25 @@ Public Class LocationsBL
     Public Function GetVillages(ByVal WardID As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim Villages As New IMIS_DAL.LocationsDAL
         Dim dt As DataTable = Villages.GetVillages(WardID)
-        If dt.Rows.Count > 1 Then
-            If showSelect = True Then
-                Dim dr As DataRow = dt.NewRow
-                dr("VillageId") = 0
-                dr("VillageName") = imisgen.getMessage("T_SELECTAVILLAGE")
-                dt.Rows.InsertAt(dr, 0)
-            End If
+
+        If showSelect = True Then
+            Dim dr As DataRow = dt.NewRow
+            dr("VillageId") = 0
+            dr("VillageName") = imisgen.getMessage("T_SELECTAVILLAGE")
+            dt.Rows.InsertAt(dr, 0)
         End If
         Return dt
     End Function
     Public Function GetWards(ByVal DistrictID As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim Wards As New IMIS_DAL.LocationsDAL
         Dim dt As DataTable = Wards.GetWards(DistrictID)
-        If dt.Rows.Count > 1 Then
-            If showSelect = True Then
-                Dim dr As DataRow = dt.NewRow
-                dr("WardId") = 0
-                dr("WardName") = imisgen.getMessage("T_SELECTAWARD")
-                dt.Rows.InsertAt(dr, 0)
+        If showSelect = True Then
+            Dim dr As DataRow = dt.NewRow
+            dr("WardId") = 0
+            dr("WardName") = imisgen.getMessage("T_SELECTAWARD")
+            dt.Rows.InsertAt(dr, 0)
 
-            End If
         End If
-
         Return dt
     End Function
 
@@ -216,7 +207,7 @@ Public Class LocationsBL
             dr("RegionName") = imisgen.getMessage("M_NATIONAL")
             dt.Rows.InsertAt(dr, 0)
         End If
-        If ShowSelect = True And dt.Rows.Count > 1 Then
+        If ShowSelect = True Then
             Dim dr As DataRow
             dr = dt.NewRow
             dr("RegionId") = 0
@@ -236,7 +227,7 @@ Public Class LocationsBL
             dr("RegionName") = imisgen.getMessage("M_NATIONAL")
             dt.Rows.InsertAt(dr, 0)
         End If
-        If ShowSelect = True And dt.Rows.Count > 1 Then
+        If ShowSelect = True Then
             Dim dr As DataRow
             dr = dt.NewRow
             dr("RegionId") = 0

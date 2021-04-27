@@ -97,8 +97,8 @@ Partial Public Class ChangeFamily
             hfFamilyIDValue.Value = eFamily.FamilyID
             ChangeFamily.GetFamilyHeadInfo(eFamily)
             hfInsureeIDValue.Value = eFamily.tblInsuree.InsureeID
-        
-            Dim dtRegions As DataTable = ChangeFamily.GetRegions(imisgen.getUserId(Session("User")), True)
+
+            Dim dtRegions As DataTable = ChangeFamily.GetRegions(imisgen.getUserId(Session("User")), False)
             ddlRegion.DataSource = dtRegions
             ddlRegion.DataValueField = "RegionId"
             ddlRegion.DataTextField = "RegionName"
@@ -181,7 +181,7 @@ Partial Public Class ChangeFamily
         End Try
     End Sub
     Private Sub FillDistrict()
-        Dim dtDistricts As DataTable = ChangeFamily.GetDistricts(imisgen.getUserId(Session("User")), True, ddlRegion.SelectedValue)
+        Dim dtDistricts As DataTable = ChangeFamily.GetDistricts(imisgen.getUserId(Session("User")), False, ddlRegion.SelectedValue)
         ddlDistrict.DataSource = dtDistricts
         ddlDistrict.DataValueField = "DistrictId"
         ddlDistrict.DataTextField = "DistrictName"
@@ -211,7 +211,7 @@ Partial Public Class ChangeFamily
         getVillages()
     End Sub
     Private Sub GetWards()
-        Dim dtWards As DataTable = ChangeFamily.GetWards(ddlDistrict.SelectedValue, True)
+        Dim dtWards As DataTable = ChangeFamily.GetWards(ddlDistrict.SelectedValue, False)
         Dim wards As Integer = dtWards.Rows.Count
         If wards > 0 Then
             ddlWard.DataSource = dtWards
@@ -235,7 +235,7 @@ Partial Public Class ChangeFamily
         End If
 
         If Wards > 0 Then
-            ddlVillage.DataSource = ChangeFamily.GetVillages(ddlWard.SelectedValue, True)
+            ddlVillage.DataSource = ChangeFamily.GetVillages(ddlWard.SelectedValue, False)
             ddlVillage.DataValueField = "VillageId"
             ddlVillage.DataTextField = "VillageName"
             ddlVillage.DataBind()
