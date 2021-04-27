@@ -397,22 +397,8 @@ Partial Public Class Claim
             'hfClaimAdminId.Value = 0
             'txtClaimAdminCode.Text = String.Empty
 
-            Dim dtS As DataTable = CType(Session("vsServices"), DataTable)
-            Dim dtI As DataTable = CType(Session("vsItems"), DataTable)
-            Dim counter As Integer
+            ServiceItemGridBinding()
 
-            dtS.Clear()
-            dtI.Clear()
-            For counter = 1 To IMIS_EN.AppConfiguration.DefaultClaimRows
-                dtS.Rows.Add(dtS.NewRow())
-                dtI.Rows.Add(dtI.NewRow())
-            Next
-
-            gvService.DataSource = dtS
-            gvService.DataBind()
-
-            gvItems.DataSource = dtI
-            gvItems.DataBind()
             txtCHFIDData.Focus()
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
