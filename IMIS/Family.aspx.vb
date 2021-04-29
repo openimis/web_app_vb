@@ -154,7 +154,7 @@ Public Class Family
 
         RunPageSecurity()
         Try
-            Dim dtRegions As DataTable = Family.GetRegions(imisgen.getUserId(Session("User")), True)
+            Dim dtRegions As DataTable = Family.GetRegions(imisgen.getUserId(Session("User")), False)
             ddlRegion.DataSource = dtRegions
             ddlRegion.DataValueField = "RegionId"
             ddlRegion.DataTextField = "RegionName"
@@ -314,13 +314,13 @@ Public Class Family
 
 
     Private Sub FillFSPDistricts()
-        ddlFSPDistrict.DataSource = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), ddlFSPRegion.SelectedValue, True)
+        ddlFSPDistrict.DataSource = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), ddlFSPRegion.SelectedValue, False)
         ddlFSPDistrict.DataValueField = "DistrictId"
         ddlFSPDistrict.DataTextField = "DistrictName"
         ddlFSPDistrict.DataBind()
     End Sub
     Private Sub FillDistricts()
-        Dim dtDistricts As DataTable = Family.GetDistricts(imisgen.getUserId(Session("User")), True, ddlRegion.SelectedValue)
+        Dim dtDistricts As DataTable = Family.GetDistricts(imisgen.getUserId(Session("User")), False, ddlRegion.SelectedValue)
         ddlDistrict.DataSource = dtDistricts
         ddlDistrict.DataValueField = "DistrictId"
         ddlDistrict.DataTextField = "DistrictName"
@@ -353,7 +353,7 @@ Public Class Family
         End Try
     End Sub
     Private Sub GetWards()
-        Dim dtWards As DataTable = Family.GetWards(ddlDistrict.SelectedValue, True)
+        Dim dtWards As DataTable = Family.GetWards(ddlDistrict.SelectedValue, False)
         Dim wards As Integer = dtWards.Rows.Count
         If wards > 0 Then
             ddlWard.DataSource = dtWards
@@ -380,7 +380,7 @@ Public Class Family
     Private Sub getVillages(Optional ByVal Wards As Integer = 1)
         If ddlWard.SelectedIndex < 0 Then Exit Sub
         If Wards > 0 And Not ddlWard.SelectedValue = 0 Then
-            ddlVillage.DataSource = Family.GetVillages(ddlWard.SelectedValue, True)
+            ddlVillage.DataSource = Family.GetVillages(ddlWard.SelectedValue, False)
             ddlVillage.DataValueField = "VillageId"
             ddlVillage.DataTextField = "VillageName"
             ddlVillage.DataBind()
@@ -668,7 +668,7 @@ Public Class Family
         FillCurrentDistricts()
     End Sub
     Private Sub FillCurrentDistricts()
-        Dim dtCurDistrict As DataTable = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), Val(ddlCurrentRegion.SelectedValue), True)
+        Dim dtCurDistrict As DataTable = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), Val(ddlCurrentRegion.SelectedValue), False)
         ddlCurDistrict.DataSource = dtCurDistrict
         ddlCurDistrict.DataValueField = "DistrictId"
         ddlCurDistrict.DataTextField = "DistrictName"
