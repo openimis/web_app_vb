@@ -230,6 +230,8 @@ Public Class UsersBL
             Case IMIS_EN.Enums.Rights.ExtractClaimUpload : Return CheckUserRights(UserID, Right)'(Roles.CHFClerk And UserID)
             Case IMIS_EN.Enums.Rights.ExtractEnrolmentsUpload : Return CheckUserRights(UserID, Right)
             Case IMIS_EN.Enums.Rights.ExtractFeedbackUpload : Return CheckUserRights(UserID, Right)
+            Case IMIS_EN.Enums.Rights.ExtractRenewalUpload : Return CheckUserRights(UserID, Right)
+
 
             'REPORTS 
             Case IMIS_EN.Enums.Rights.Reports : Return CheckUserRights(UserID, Right, 1)'(Roles.CHFManager + Role.CHFClerk + Roles.CHFAccountant + Roles.IMISAdministrator + Roles.CHFAdministrator And UserID)

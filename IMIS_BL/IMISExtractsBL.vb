@@ -567,7 +567,35 @@ Public Class IMISExtractsBL
 
         cmd.Dispose()
 
+        Dim locationId = eExtractInfo.LocationId
+        cmd = con.CreateCommand
+        sSQL = "CREATE TABLE tblClaimAdmins([Code] Text, [Name] Text)"
+        cmd.CommandText = sSQL
+        cmd.ExecuteNonQuery()
 
+        Dim dtClaimAdmins As New DataTable
+        Dim ExtractsDAL As New IMIS_DAL.IMISExtractsDAL
+        dtClaimAdmins = ExtractsDAL.GetPhoneExtractsClaimAdmins(locationId)
+
+        Using InsertCmd = New SQLiteCommand(con)
+            Using transaction = con.BeginTransaction
+                For Each row In dtClaimAdmins.Rows
+                    sSQL = "INSERT INTO tblClaimAdmins([Code],[Name])" &
+                           " VALUES(@Code,@Name)"
+
+                    InsertCmd.CommandText = sSQL
+
+                    InsertCmd.Parameters.AddWithValue("@Code", row("ClaimAdminCode").ToString)
+                    InsertCmd.Parameters.AddWithValue("@Name", (row("LastName") + " " + row("OtherNames")).ToString)
+
+                    InsertCmd.ExecuteNonQuery()
+
+                Next
+                transaction.Commit()
+            End Using
+        End Using
+
+        cmd.Dispose()
 
         con.Close()
 
@@ -1760,26 +1788,26 @@ Public Class IMISExtractsBL
         Dim dtPhoneDefaults As DataTable = MasterData.Tables(13)
         Dim dtGenders As DataTable = MasterData.Tables(14)
 
-        Dim ConfirmationTypes As String = "{""ConfirmationTypes"":" & GetJsonFromDt(dtConfirmationTypes) & "}"
-        Dim Controls As String = "{""Controls"":" & GetJsonFromDt(dtControls) & "}"
-        Dim Education As String = "{""Education"":" & GetJsonFromDt(dtEducations) & "}"
-        Dim FamilyTypes As String = "{""FamilyTypes"":" & GetJsonFromDt(dtFamilyTypes) & "}"
-        Dim HF As String = "{""HF"":" & GetJsonFromDt(dtHF) & "}"
-        Dim IdentificationTypes As String = "{""IdentificationTypes"":" & GetJsonFromDt(dtIdentificationTypes) & "}"
-        Dim Languages As String = "{""Languages"":" & GetJsonFromDt(dtLanguages) & "}"
-        Dim Locations As String = "{""Locations"":" & GetJsonFromDt(dtLocations) & "}"
-        Dim Officers As String = "{""Officers"":" & GetJsonFromDt(dtOfficers) & "}"
-        Dim Payers As String = "{""Payers"":" & GetJsonFromDt(dtPayers) & "}"
-        Dim Products As String = "{""Products"":" & GetJsonFromDt(dtProducts) & "}"
-        Dim Professions As String = "{""Professions"":" & GetJsonFromDt(dtProfessions) & "}"
-        Dim Relations As String = "{""Relations"":" & GetJsonFromDt(dtRelations) & "}"
-        Dim PhoneDefaults As String = "{""PhoneDefaults"":" & GetJsonFromDt(dtPhoneDefaults) & "}"
-        Dim Genders As String = "{""Genders"":" & GetJsonFromDt(dtGenders) & "}"
+        Dim ConfirmationTypes As String = """confirmationTypes"":" & GetJsonFromDt(dtConfirmationTypes)
+        Dim Controls As String = """controls"":" & GetJsonFromDt(dtControls)
+        Dim Education As String = """education"":" & GetJsonFromDt(dtEducations)
+        Dim FamilyTypes As String = """familyTypes"":" & GetJsonFromDt(dtFamilyTypes)
+        Dim HF As String = """hf"":" & GetJsonFromDt(dtHF)
+        Dim IdentificationTypes As String = """identificationTypes"":" & GetJsonFromDt(dtIdentificationTypes)
+        Dim Languages As String = """languages"":" & GetJsonFromDt(dtLanguages)
+        Dim Locations As String = """locations"":" & GetJsonFromDt(dtLocations)
+        Dim Officers As String = """officers"":" & GetJsonFromDt(dtOfficers)
+        Dim Payers As String = """payers"":" & GetJsonFromDt(dtPayers)
+        Dim Products As String = """products"":" & GetJsonFromDt(dtProducts)
+        Dim Professions As String = """professions"":" & GetJsonFromDt(dtProfessions)
+        Dim Relations As String = """relations"":" & GetJsonFromDt(dtRelations)
+        Dim PhoneDefaults As String = """phoneDefaults"":" & GetJsonFromDt(dtPhoneDefaults)
+        Dim Genders As String = """genders"":" & GetJsonFromDt(dtGenders)
 
-        Dim FileContent As String = "["
+        Dim FileContent As String = "{"
         FileContent += ConfirmationTypes + ", " + Controls + ", " + Education + ", " + FamilyTypes + ", " + HF + ", " + IdentificationTypes + ", " + Languages + ", " + Locations + ", " +
             Officers + ", " + Payers + ", " + Products + ", " + Professions + ", " + Relations + ", " + PhoneDefaults + ", " + Genders
-        FileContent += "]"
+        FileContent += "}"
 
 
         Dim Path As String = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings("ExportFolder"))
@@ -1799,7 +1827,7 @@ Public Class IMISExtractsBL
         Dim json As String = String.Empty
         Dim js As New JavaScriptSerializer
         js.MaxJsonLength = Integer.MaxValue
-        json = js.Serialize(From dr As DataRow In dt.Rows Select dt.Columns.Cast(Of DataColumn)().ToDictionary(Function(Col) Col.ColumnName, Function(Col) If(dr(Col) Is DBNull.Value, String.Empty, dr(Col))))
+        json = js.Serialize(From dr As DataRow In dt.Rows Select dt.Columns.Cast(Of DataColumn)().ToDictionary(Function(Col) Col.ColumnName, Function(Col) If(dr(Col) Is DBNull.Value, Nothing, dr(Col))))
         Return json
     End Function
 

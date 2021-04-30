@@ -83,6 +83,9 @@ Partial Public Class User
                 txtPhone.Text = eUsers.Phone
                 txtEmail.Text = eUsers.EmailId
                 txtLoginName.Text = eUsers.LoginName
+                If eUsers.LoginName = "Admin" Then
+                    txtLoginName.Enabled = False
+                End If
                 ' txtPassword.Attributes.Add("value", eUsers.DummyPwd)
                 ' txtConfirmPassword.Attributes.Add("value", eUsers.DummyPwd)
                 If HttpContext.Current.Request.QueryString("r") = 1 Or eUsers.ValidityTo.HasValue Then
@@ -130,6 +133,7 @@ Partial Public Class User
         txtOtherNames.Enabled = enabled
         txtLastName.Enabled = enabled
         txtEmail.Enabled = enabled
+
         txtLoginName.Enabled = enabled
         ddlHFNAME.Enabled = enabled
         pnlRole.Enabled = enabled

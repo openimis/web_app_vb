@@ -4700,6 +4700,9 @@
 	<data name="R_FEEDBACKUPLOAD" xml:space="preserve">
 		<value>Téléverser les retours d'information</value>
 	</data>
+	<data name="R_RENEWALUPLOAD" xml:space="preserve">
+		<value></value>
+	</data>
 	<data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
 		<value>Télécharger établissement de santé</value>
 	</data>

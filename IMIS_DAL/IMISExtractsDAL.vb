@@ -751,31 +751,49 @@ Public Class IMISExtractsDAL
     End Function
 
     Public Function DownLoadMAsterData() As DataSet
-        Dim sSQL As String = "SELECT ConfirmationTypeCode, ConfirmationType, SortOrder, AltLanguage FROM tblConfirmationTypes; "
-        sSQL += " SELECT FieldName, Adjustibility FROM tblControls"
-        sSQL += " SELECT EducationId, Education, SortOrder, AltLanguage FROM tblEducations;"
-        sSQL += " SELECT FamilyTypeCode, FamilyType, SortOrder, AltLanguage FROM tblFamilyTypes;"
-        sSQL += " SELECT HFID, HFCode, HFName, LocationId, HFLevel FROM tblHF WHERE ValidityTo IS NULL;"
-        sSQL += " SELECT IdentificationCode, IdentificationTypes, SortOrder, AltLanguage FROM tblIdentificationTypes;"
-        sSQL += " SELECT LanguageCode, LanguageName, SortOrder FROM tblLanguages;"
-        sSQL += " SELECT LocationId, LocationCode, LocationName, ParentLocationId, LocationType FROM tblLocations WHERE ValidityTo IS NULL AND NOT(LocationName='Funding' OR LocationCode='FR' OR LocationCode='FD' OR LocationCode='FW' OR LocationCode='FV');"
-        sSQL += " SELECT OfficerId, Code, LastName, OtherNames, Phone, LocationId, OfficerIDSubst, FORMAT(WorksTo, 'yyyy-MM-dd')WorksTo FROM tblOfficer WHERE ValidityTo IS NULL"
-        sSQL += " SELECT payerId, PayerName, LocationId FROM tblPayer WHERE ValidityTo IS NULL"
-        sSQL += " SELECT ProdId, ProductCode, ProductName, LocationId, InsurancePeriod, FORMAT(DateFrom, 'yyyy-MM-dd')DateFrom, FORMAT(DateTo, 'yyyy-MM-dd')DateTo, ConversionProdId , Lumpsum,"
-        sSQL += " MemberCount, PremiumAdult, PremiumChild, RegistrationLumpsum, RegistrationFee, GeneralAssemblyLumpSum, GeneralAssemblyFee,"
-        sSQL += " StartCycle1, StartCycle2, StartCycle3, StartCycle4, GracePeriodRenewal, MaxInstallments, WaitingPeriod, Threshold,"
-        sSQL += " RenewalDiscountPerc, RenewalDiscountPeriod, AdministrationPeriod, EnrolmentDiscountPerc, EnrolmentDiscountPeriod, GracePeriod"
+        Dim sSQL As String = "SELECT confirmationTypeCode, confirmationType, sortOrder, altLanguage FROM tblConfirmationTypes; "
+        sSQL += " SELECT fieldName, adjustibility FROM tblControls"
+        sSQL += " SELECT educationId, education, sortOrder, altLanguage FROM tblEducations;"
+        sSQL += " SELECT familyTypeCode, familyType, sortOrder, altLanguage FROM tblFamilyTypes;"
+        sSQL += " SELECT hfid, hfCode, hfName, locationId, hfLevel FROM tblHF WHERE ValidityTo IS NULL;"
+        sSQL += " SELECT identificationCode, identificationTypes, sortOrder, altLanguage FROM tblIdentificationTypes;"
+        sSQL += " SELECT languageCode, languageName, sortOrder FROM tblLanguages;"
+        sSQL += " SELECT locationId, locationCode, locationName, parentLocationId, locationType FROM tblLocations WHERE ValidityTo IS NULL AND NOT(LocationName='Funding' OR LocationCode='FR' OR LocationCode='FD' OR LocationCode='FW' OR LocationCode='FV');"
+        sSQL += " SELECT officerId, officerUUID, code, lastName, otherNames, phone, locationId, officerIDSubst, FORMAT(WorksTo, 'yyyy-MM-dd')worksTo FROM tblOfficer WHERE ValidityTo IS NULL"
+        sSQL += " SELECT payerId, payerName, locationId FROM tblPayer WHERE ValidityTo IS NULL"
+        sSQL += " SELECT prodId, productCode, productName, locationId, insurancePeriod, FORMAT(DateFrom, 'yyyy-MM-dd')dateFrom, FORMAT(DateTo, 'yyyy-MM-dd')dateTo, conversionProdId , lumpsum,"
+        sSQL += " memberCount, premiumAdult, premiumChild, registrationLumpsum, registrationFee, generalAssemblyLumpSum, generalAssemblyFee,"
+        sSQL += " startCycle1, startCycle2, startCycle3, startCycle4, gracePeriodRenewal, maxInstallments, waitingPeriod, threshold,"
+        sSQL += " renewalDiscountPerc, renewalDiscountPeriod, administrationPeriod, enrolmentDiscountPerc, enrolmentDiscountPeriod, gracePeriod"
         sSQL += " FROM tblProduct WHERE ValidityTo IS NULL"
-        sSQL += " SELECT ProfessionId, Profession, SortOrder, AltLanguage FROM tblProfessions"
-        sSQL += " SELECT Relationid, Relation, SortOrder, AltLanguage FROM tblRelations"
-        sSQL += " SELECT RuleName, RuleValue FROM tblIMISDefaultsPhone;"
-        sSQL += " SELECT Code, Gender, AltLanguage,SortOrder FROM tblGender"
-        sSQL += " SELECT LV.LocationId,code,LW.locationname Ward,LV.LocationName Village,LW.LocationID WardID FROM tblOfficerVillages OV"
+        sSQL += " SELECT professionId, profession, sortOrder, altLanguage FROM tblProfessions"
+        sSQL += " SELECT relationid, relation, sortOrder, altLanguage FROM tblRelations"
+        sSQL += " SELECT ruleName, ruleValue FROM tblIMISDefaultsPhone;"
+        sSQL += " SELECT code, gender, altLanguage, sortOrder FROM tblGender"
+        sSQL += " SELECT LV.locationId,code,LW.locationname Ward,LV.LocationName Village,LW.LocationID WardID FROM tblOfficerVillages OV"
         sSQL += " INNER JOIN tblOfficer O ON OV.OfficerId = O.OfficerID AND O.ValidityTo IS NULL AND OV.ValidityTo IS NULL"
         sSQL += " LEFT JOIN tblLocations LV ON LV.LocationId = OV.LocationId AND LV.LocationType = 'V' AND LV.ValidityTo IS NULL"
         sSQL += " LEFT JOIN tblLocations LW ON LW.LocationId = LV.ParentLocationId AND LW.ValidityTo IS NULL"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.FilldataSet()
+    End Function
+
+    Public Function GetPhoneExtractsClaimAdmins(ByVal locationId As Integer) As DataTable
+        Dim sSQL = "SELECT LastName,OtherNames,ClaimAdminCode FROM tblClaimAdmin CA " &
+                        "INNER JOIN tblHF H ON CA.HFID = H.HfID " &
+                        "WHERE H.ValidityTo IS NULL AND CA.ValidityTo IS NULL"
+
+        If locationId > 0 Then
+            sSQL += " AND H.LocationID = @LocationID"
+        End If
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+
+        If locationId > 0 Then
+            data.params("@LocationID", SqlDbType.Int, locationId)
+        End If
+
+        Return data.Filldata
     End Function
 End Class
