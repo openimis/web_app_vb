@@ -743,6 +743,24 @@ Partial Public Class Reports
     Protected WithEvents txtInsuranceNumber As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''lblDateType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDateType As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlDateType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlDateType As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''upPrevReport control.
     '''</summary>
     '''<remarks>

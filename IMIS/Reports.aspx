@@ -653,6 +653,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <asp:Label ID="lblInsuranceNumber" runat="server" Text='<%$ Resources:Resource,L_CHFID%>' CssClass="FormLabel"></asp:Label>
                                         <asp:TextBox ID="txtInsuranceNumber" runat="server"></asp:TextBox>
                                     </li>
+                                    <li class="co" >
+                                    <asp:Label ID="lblDateType" CssClass="FormLabel" runat="server" Text='Date Type'></asp:Label>
+                                    <asp:DropDownList ID="ddlDateType" runat="server" Width="120px">
+                                          <asp:ListItem Text="Claimed Date" Value="C" Selected="True"></asp:ListItem>
+                                          <asp:ListItem Text="Submit Date" Value="S" ></asp:ListItem>
+                                          <asp:ListItem Text="Valuated Date" Value="V" ></asp:ListItem>
+                                      </asp:DropDownList>                               
+                                    </li>
 
                                 </ul>
                             </td>

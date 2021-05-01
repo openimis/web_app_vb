@@ -275,6 +275,15 @@ Partial Public Class FamilyNew
     Protected WithEvents txtConfirmationNo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''rfConfirmationNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfConfirmationNo As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''trType control.
     '''</summary>
     '''<remarks>

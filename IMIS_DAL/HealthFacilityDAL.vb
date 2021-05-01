@@ -160,6 +160,9 @@ Public Class HealthFacilityDAL
     Public Function GetFSPHF(DistrictId As Integer, HFLevel As String) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = "SELECT HFID, HFCode + '-' + HFName HFCode FROM tblHF WHERE ValidityTo Is NULL AND LocationID = @LocationId AND HFLevel = @HFLevel"
+#If HIB Then
+        sSQL = "SELECT HFID, HFCode + '-' + HFName HFCode FROM tblHF WHERE ValidityTo Is NULL AND LocationID = @LocationId AND HFLevel = @HFLevel AND LegalForm IN ('G','C')"
+#End If
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@LocationId", SqlDbType.Int, DistrictId)
         data.params("@HFLevel", SqlDbType.NVarChar, 1, HFLevel)

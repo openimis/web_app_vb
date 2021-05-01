@@ -436,7 +436,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <td class="FormLabel">
                                             <asp:Label ID="lblInsureeStatus" runat="server" Text="Status"></asp:Label></td>
                                         <td class="DataEntry">
-                                            <asp:DropDownList ID="ddlInsureeStatus" runat="server"></asp:DropDownList></td>
+                                            <asp:DropDownList ID="ddlInsureeStatus" runat="server" AutoPostBack="True"></asp:DropDownList>
+                                            
+                                        </td>
+                                        <td  class="FormLabel">
+                                            <asp:Label ID="lblinsureeStatusReason" runat="server" Text="Reason"></asp:Label>
+                                        </td>
+                                        <td class="DataEntry">
+                                           <asp:TextBox ID="txtInsureeStatusReason" runat="server" ></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rfInsureetatusReason" runat="server" ControlToValidate="txtInsureeStatusReason" SetFocusOnError="True" ValidationGroup="check" ForeColor="Red" Display="Dynamic" Text='*' Enabled="false">
+                                            </asp:RequiredFieldValidator>
+                                        </td>
                                     </tr>
                                 </table>
                             <%--</ContentTemplate>

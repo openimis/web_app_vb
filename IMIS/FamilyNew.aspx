@@ -214,7 +214,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             <asp:Label ID="lblConfirmationType0" runat="server" Text="<%$ Resources:Resource,L_POVERTY %>"></asp:Label>
                         </td>
                         <td class="DataEntry">
-                            <asp:DropDownList ID="ddlPoverty" runat="server" Width="150px">
+                            <asp:DropDownList ID="ddlPoverty" runat="server" Width="150px" AutoPostBack="True">
                             </asp:DropDownList>
                         </td>
                         <td>
@@ -224,7 +224,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                               <asp:Label ID="lblConfirmationType" runat="server" Text="<%$ Resources:Resource,L_CONFIRMATIONTYPE %>"></asp:Label>
                           </td>
                           <td class="DataEntry">
-                              <asp:DropDownList ID="ddlConfirmationType" runat="server" Width="150px">
+                              <asp:DropDownList ID="ddlConfirmationType" runat="server" Width="150px" AutoPostBack="True">
                               </asp:DropDownList>
                           </td>
                           <td><asp:RequiredFieldValidator 
@@ -240,13 +240,13 @@ In case of dispute arising out or in relation to the use of the program, it is s
                           </td>
                           <td class="DataEntry">
                               <asp:TextBox ID="txtConfirmationNo" runat="server" MaxLength="12" style="direction: ltr" Width="150px"></asp:TextBox>
-                             <%--  <asp:RequiredFieldValidator 
+                              <asp:RequiredFieldValidator 
                                 ID="rfConfirmationNo" 
                                 runat="server" 
                                 ControlToValidate="txtConfirmationNo" 
                                 SetFocusOnError="True" 
                                 ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                        Text='*'></asp:RequiredFieldValidator> --%>
+                                        Text='*'></asp:RequiredFieldValidator>
                           </td>
                       </tr>
                       <tr id="trType" runat="server">

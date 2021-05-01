@@ -226,6 +226,8 @@ Partial Public Class InsureeNew
             'End If
             lblInsureeStatus.Visible = False
             ddlInsureeStatus.Visible = False
+            lblinsureeStatusReason.Visible = False
+            txtInsureeStatusReason.Visible = False
             FillInsureeStatus()
             If Not eInsuree.InsureeID = 0 Then
                 Insuree.LoadInsuree(eInsuree)
@@ -275,6 +277,12 @@ Partial Public Class InsureeNew
                 lblInsureeStatus.Visible = True
                 ddlInsureeStatus.Visible = True
                 ddlInsureeStatus.SelectedValue = eInsuree.InsureeStatus
+                txtInsureeStatusReason.Text = eInsuree.InsureeStatusReason
+                If eInsuree.InsureeStatus <> 1 Then
+                    lblinsureeStatusReason.Visible = True
+                    txtInsureeStatusReason.Visible = True
+                    rfInsureetatusReason.Enabled = True
+                End If
 
             End If
             hfFamilyId.Value = efamily.FamilyID
@@ -426,6 +434,7 @@ Partial Public Class InsureeNew
             eInsuree.Email = txtEmail.Text
             eInsuree.tblFamilies1 = efamily
             eInsuree.InsureeStatus = ddlInsureeStatus.SelectedValue
+            eInsuree.InsureeStatusReason = txtInsureeStatusReason.Text
             If ddlIdType.SelectedValue <> "" Then eInsuree.TypeOfId = ddlIdType.SelectedValue
 
             Dim eHF As New IMIS_EN.tblHF
@@ -641,5 +650,12 @@ Partial Public Class InsureeNew
         ddlInsureeStatus.DataValueField = "InsureeStatusCode"
         ddlInsureeStatus.DataTextField = "InsureeStatus"
         ddlInsureeStatus.DataBind()
+    End Sub
+    Private Sub ddlInsureeStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlInsureeStatus.SelectedIndexChanged
+        If ddlInsureeStatus.SelectedValue <> 1 Then
+            rfInsureetatusReason.Enabled = True
+            txtInsureeStatusReason.Visible = True
+            lblinsureeStatusReason.Visible = True
+        End If
     End Sub
 End Class

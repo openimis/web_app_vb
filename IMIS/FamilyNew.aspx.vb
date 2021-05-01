@@ -138,6 +138,7 @@ Public Class FamilyNew
         'Adjustibility = General.getControlSetting("Profession")
         'trProfession.Visible = Not (Adjustibility = "N")
         'rfProfession.Enabled = (Adjustibility = "M")
+        rfConfirmationNo.Enabled = False
 
     End Sub
 
@@ -690,6 +691,22 @@ Public Class FamilyNew
             ddlCurVDC.SelectedValue = 0
             ddlCurWard.SelectedValue = 0
             txtCurrentAddress.Text = ""
+        End If
+    End Sub
+    Private Sub ddlPoverty_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlPoverty.SelectedIndexChanged
+        If ddlPoverty.SelectedValue = 1 Then
+            ddlConfirmationType.SelectedValue = 2
+            rfConfirmationNo.Enabled = True
+        Else
+            rfConfirmationNo.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ddlConfirmationType_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlConfirmationType.SelectedIndexChanged
+        If ddlConfirmationType.SelectedValue <> 1 Then
+            rfConfirmationNo.Enabled = True
+        Else
+            rfConfirmationNo.Enabled = False
         End If
     End Sub
 End Class

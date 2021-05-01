@@ -298,22 +298,23 @@ Public Class ReportDAL
     End Function
 
     'Corrected
-    Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer) As DataTable
+    Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByVal dtRejReasons As DataTable, ByRef oReturn As Integer, ByVal DateType As Char?) As DataTable
 
         Dim Data As New ExactSQL
         Dim sSQL As String = "uspSSRSGetClaimOverview"
- 		Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
+        Data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         Data.params("@HfID", SqlDbType.Int, HfID)
         Data.params("@LocationId", SqlDbType.Int, LocationId)
         Data.params("@ProdID", SqlDbType.Int, ProdID)
         Data.params("@StartDate", SqlDbType.Date, StartDate)
         Data.params("@EndDate", SqlDbType.Date, EndDate)
         Data.params("@ClaimStatus", SqlDbType.Int, ClaimStatus)
-		Data.params("@Scope", SqlDbType.Int, Scope)
+        Data.params("@Scope", SqlDbType.Int, Scope)
         If Not Scope = 0 Then
             Data.params("@ClaimRejReason", dtRejReasons, "xClaimRejReasons")
-        End If        
-		Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        End If
+        Data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
+        Data.params("@DateType", SqlDbType.Char, DateType)
         Dim dt As DataTable = Data.Filldata()
         oReturn = Data.sqlParameters("@RV")
         Return dt

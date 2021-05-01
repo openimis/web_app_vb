@@ -36,6 +36,7 @@ Partial Public Class tblInsuree
     Public Property DOBFrom As Date
     Public Property DOBTo As Date
     Public Property InsureeStatus As Integer?
+    Public Property InsureeStatusReason As String
 
 
 End Class

@@ -275,7 +275,7 @@ input[type="checkbox"]
 
 .divBody
 {
-    height: 600px;
+    height: 650px;
     display: flex;
     flex-direction: column;
     /*overflow-x:auto;*/
