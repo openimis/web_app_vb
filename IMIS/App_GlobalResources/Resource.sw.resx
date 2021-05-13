@@ -5097,4 +5097,10 @@ watu wazima / watoto)</value>
 	<data name="R_CAPITATION" xml:space="preserve">
 		<value></value>
 	</data>
+	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
+		<value></value>
+	</data>
 </root>

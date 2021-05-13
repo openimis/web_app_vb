@@ -591,6 +591,14 @@ Partial Public Class ProcessRelIndex
             End If
 
             If rbCapitation.Checked Then
+                If ddlRegionACC.SelectedValue = 0 Then
+                    imisgen.Alert(imisgen.getMessage("M_REGION_NOT_SELECTED"), pnlButtons, alertPopupTitle:="IMIS")
+                    Return
+                ElseIf ddlBatchAAC.SelectedValue = 0 Then
+                    imisgen.Alert(imisgen.getMessage("M_BATCH_RUN_NOT_SELECTED"), pnlButtons, alertPopupTitle:="IMIS")
+                    Return
+
+                End If
                 dt = getCapitationPayment(Val(ddlRegionACC.SelectedValue), Val(ddlDistrictACC.SelectedValue),
                                           Val(ddlProductAAC.SelectedValue), Val(ddlBatchAAC.SelectedValue))
                 If dt Is Nothing Then Exit Sub
@@ -726,30 +734,27 @@ Partial Public Class ProcessRelIndex
         If Val(DistrictID) > 0 Then locationName += " | " & imisgen.getMessage("L_DISTRICT") & ": " & ddlDistrictACC.SelectedItem.Text
 
 
-        If Val(ProductID) > 0 Then
-            dtCapitation = reports.getProductCapitationDetails(ProductID)
+        dtCapitation = reports.getProductCapitationDetails(ProductID)
 
-            If dtCapitation.Rows.Count Then
-                IMIS_EN.eReports.Level1 = getHFName(dtCapitation.Rows(0)("Level1").ToString)
-                IMIS_EN.eReports.Sublevel1 = dtCapitation.Rows(0)("HFSublevel1").ToString
-                IMIS_EN.eReports.Level2 = getHFName(dtCapitation.Rows(0)("Level2").ToString)
-                IMIS_EN.eReports.Sublevel2 = dtCapitation.Rows(0)("HFSublevel2").ToString
-                IMIS_EN.eReports.Level3 = getHFName(dtCapitation.Rows(0)("Level3").ToString)
-                IMIS_EN.eReports.Sublevel3 = dtCapitation.Rows(0)("HFSublevel3").ToString
-                IMIS_EN.eReports.Level4 = getHFName(dtCapitation.Rows(0)("Level4").ToString)
-                IMIS_EN.eReports.Sublevel4 = dtCapitation.Rows(0)("HFSublevel4").ToString
-                IMIS_EN.eReports.ShareContribution = If(dtCapitation.Rows(0)("ShareContribution") Is DBNull.Value, 0, dtCapitation.Rows(0)("ShareContribution"))
-                IMIS_EN.eReports.WeightPopulation = If(dtCapitation.Rows(0)("WeightPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightPopulation"))
-                IMIS_EN.eReports.WeightNumberFamilies = If(dtCapitation.Rows(0)("WeightNumberFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberFamilies"))
-                IMIS_EN.eReports.WeightInsuredPopulation = If(dtCapitation.Rows(0)("WeightInsuredPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightInsuredPopulation"))
-                IMIS_EN.eReports.WeightNumberInsuredFamilies = If(dtCapitation.Rows(0)("WeightNumberInsuredFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberInsuredFamilies"))
-                IMIS_EN.eReports.WeightNumberVisits = If(dtCapitation.Rows(0)("WeightNumberVisits") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberVisits"))
-                IMIS_EN.eReports.WeightAdjustedAmount = If(dtCapitation.Rows(0)("WeightAdjustedAmount") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightAdjustedAmount"))
+        If dtCapitation.Rows.Count Then
+            IMIS_EN.eReports.Level1 = getHFName(dtCapitation.Rows(0)("Level1").ToString)
+            IMIS_EN.eReports.Sublevel1 = dtCapitation.Rows(0)("HFSublevel1").ToString
+            IMIS_EN.eReports.Level2 = getHFName(dtCapitation.Rows(0)("Level2").ToString)
+            IMIS_EN.eReports.Sublevel2 = dtCapitation.Rows(0)("HFSublevel2").ToString
+            IMIS_EN.eReports.Level3 = getHFName(dtCapitation.Rows(0)("Level3").ToString)
+            IMIS_EN.eReports.Sublevel3 = dtCapitation.Rows(0)("HFSublevel3").ToString
+            IMIS_EN.eReports.Level4 = getHFName(dtCapitation.Rows(0)("Level4").ToString)
+            IMIS_EN.eReports.Sublevel4 = dtCapitation.Rows(0)("HFSublevel4").ToString
+            IMIS_EN.eReports.ShareContribution = If(dtCapitation.Rows(0)("ShareContribution") Is DBNull.Value, 0, dtCapitation.Rows(0)("ShareContribution"))
+            IMIS_EN.eReports.WeightPopulation = If(dtCapitation.Rows(0)("WeightPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightPopulation"))
+            IMIS_EN.eReports.WeightNumberFamilies = If(dtCapitation.Rows(0)("WeightNumberFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberFamilies"))
+            IMIS_EN.eReports.WeightInsuredPopulation = If(dtCapitation.Rows(0)("WeightInsuredPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightInsuredPopulation"))
+            IMIS_EN.eReports.WeightNumberInsuredFamilies = If(dtCapitation.Rows(0)("WeightNumberInsuredFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberInsuredFamilies"))
+            IMIS_EN.eReports.WeightNumberVisits = If(dtCapitation.Rows(0)("WeightNumberVisits") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberVisits"))
+            IMIS_EN.eReports.WeightAdjustedAmount = If(dtCapitation.Rows(0)("WeightAdjustedAmount") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightAdjustedAmount"))
 
-            End If
-
-            '   lblCatchmentArea.Text = dt.Rows(0)("Catchment")
         End If
+
 
         dt = reports.getCatchmentArea(Val(RegionId), Val(DistrictID), Val(ProductID), year, month)
 

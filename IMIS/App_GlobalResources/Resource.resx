@@ -5054,5 +5054,11 @@ adults/children)
 	</data>
 	<data name="R_CAPITATION" xml:space="preserve">
 		<value>Capitation</value>
+	</data>	
+	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
+		<value>Batch not selected</value>
+	</data>
+	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
+		<value>Region not selected</value>
 	</data>
 </root>
