@@ -577,9 +577,11 @@ Public Class ReportDAL
         If AssignmentStatus = "Not yet assigned" Then
             sSQL += " AND PY.PaymentStatus <= 2 AND PY.PaymentStatus > 0"
         End If
-        If RegionId <> Nothing Or DistrictId <> Nothing Then
+        If RegionId <> Nothing Then
+            sSQL += " AND R.LocationID = @RegionId"
+        End If
+        If RegionId <> Nothing And DistrictId <> Nothing Then
             sSQL += " AND D.LocationId = @DistrictId"
-            sSQL += " AND R.LocationId = @RegionId"
         End If
         If PostingStatus = "Posted" Then
             sSQL += " AND  PY.PaymentStatus >= 2"
