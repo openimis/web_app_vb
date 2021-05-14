@@ -572,7 +572,7 @@ Public Class ReportDAL
         End If
         'Rejected Assignment Status is -3
         If AssignmentStatus = "Rejected" Then
-            sSQL += " AND  PY.PaymentStatus= -3"
+            sSQL += " AND  PY.PaymentStatus in (-3, -2, -1)"
         End If
         If AssignmentStatus = "Not yet assigned" Then
             sSQL += " AND PY.PaymentStatus <= 2 AND PY.PaymentStatus > 0"
@@ -588,7 +588,7 @@ Public Class ReportDAL
         End If
         'Rejected posting status are -1,-2,-3
         If PostingStatus = "Rejected" Then
-            sSQL += " AND  PY.PaymentStatus = -1 OR  PY.PaymentStatus = -2"
+            sSQL += " AND  PY.PaymentStatus in (-3, -2, -1)"
         End If
         If PostingStatus = "Not yet confirmed" Then
             sSQL += " AND  PY.PaymentStatus =1 "
