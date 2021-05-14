@@ -49,6 +49,10 @@
           <DataField>AssignmentRejectedReason</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="BillID">
+          <DataField>BillID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="ControlNumber">
           <DataField>ControlNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -126,6 +130,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.76343in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.98425in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -576,6 +583,43 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>BillID</Value>
+                                  <Style>
+                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -968,6 +1012,39 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>ControlNumber</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!BillID.Value</Value>
+                                  <Style>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1386,12 +1463,46 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -1424,7 +1535,7 @@
             <Top>0.205in</Top>
             <Left>0.125in</Left>
             <Height>0.91122in</Height>
-            <Width>10.48937in</Width>
+            <Width>11.47362in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1435,7 +1546,7 @@
         <Height>2.8352cm</Height>
         <Style />
       </Body>
-      <Width>26.9605cm</Width>
+      <Width>29.4605cm</Width>
       <Page>
         <PageHeader>
           <Height>1.59314cm</Height>
@@ -1466,7 +1577,7 @@
               <Top>0.00236in</Top>
               <Left>0.125in</Left>
               <Height>0.79233cm</Height>
-              <Width>26.643cm</Width>
+              <Width>29.143cm</Width>
               <Style>
                 <Border>
                   <Color>DarkSlateBlue</Color>
@@ -1495,10 +1606,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>textbox8</rd:DefaultName>
-              <Top>1.09314cm</Top>
+              <Top>1.05786cm</Top>
               <Left>0.125in</Left>
               <Height>0.5cm</Height>
-              <Width>26.643cm</Width>
+              <Width>29.143cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>

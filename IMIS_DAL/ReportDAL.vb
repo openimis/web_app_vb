@@ -553,7 +553,7 @@ Public Class ReportDAL
         sSQL += " CASE PY.PaymentStatus WHEN 1 THEN 'Not yet Confirmed' WHEN 2 THEN 'Posted' WHEN 3 THEN 'Posted' WHEN 4 THEN  'Posted' WHEN 5 THEN 'Posted' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3 THEN 'Rejected' END PostingStatus,   "
         sSQL += " PY.RejectedReason PostingRejectedReason, CASE PY.PaymentStatus WHEN 3 THEN 'Assigned' WHEN 4 THEN 'Assigned' WHEN 5 THEN 'Assigned' WHEN 1 THEN 'Not yet assigned' WHEN 2 THEN 'Not yet assigned' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3  THEN 'Rejected' END AssigmentStatus,"
         sSQL += " PY.ExpectedAmount,PY.TransferFee,PY.TypeOfPayment, "
-        sSQL += " CN.Comment CAssignmentRejectedReason, cn.ControlNumber,NULL PaymenyStatusName FROM tblControlNumber CN "
+        sSQL += " CN.Comment CAssignmentRejectedReason, cn.ControlNumber,NULL PaymenyStatusName, PD.PaymentId as BillID FROM tblControlNumber CN "
         sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = CN.PaymentID"
         sSQL += "  LEFT OUTER JOIN tblPaymentDetails PD ON PD.PaymentID = PY.PaymentID"
         sSQL += " LEFT OUTER JOIN tblOfficer O ON O.Code = PY.OfficerCode"
