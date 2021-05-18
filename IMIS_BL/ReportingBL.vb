@@ -38,9 +38,16 @@ Public Class ReportingBL
         End If
         Return dt
     End Function
-    Public Function GetPreviousOverviewOfCommissionsReportDates(ByVal UserID As Integer, ByVal DistrictID As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
+    Public Function GetPreviousOverviewOfCommissionsReportDates(ByVal UserID As Integer, ByVal LocationID As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
+        Dim dt As DataTable
+        If ReportingID Is Nothing And LocationID = 0 And Year = 0 And Month = 0 Then
+            dt = New DataTable
+            dt.Columns.Add("ReportingId")
+            dt.Columns.Add("Display")
+        Else
+            dt = DALRep.GetPreviousOverviewOfCommissiosReportDates(UserID, LocationID, ReportingID, Year, Month)
+        End If
 
-        Dim dt = DALRep.GetPreviousOvervireOfCommissiosReportDates(UserID, DistrictID, ReportingID, Year, Month)
         If ReportingID Is Nothing Then
             Dim dr As DataRow = dt.NewRow
             dr("ReportingId") = 0

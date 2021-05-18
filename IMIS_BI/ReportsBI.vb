@@ -226,9 +226,9 @@ Public Class ReportsBI
         Dim gen As New IMIS_BL.GeneralBL
         Return gen.GetMode()
     End Function
-    Public Function GetPreviousOverviewOfCommissionsReportDates(ByVal UserID As Integer, ByVal DistrictID As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
+    Public Function GetPreviousOverviewOfCommissionsReportDates(ByVal UserID As Integer, ByVal LocationID As Integer, ByVal ReportingID As Integer?, Year As Integer, Month As Integer) As DataTable
         Dim Rep As New IMIS_BL.ReportingBL
-        Return Rep.GetPreviousOverviewOfCommissionsReportDates(UserID, DistrictID, ReportingID, Year, Month)
+        Return Rep.GetPreviousOverviewOfCommissionsReportDates(UserID, LocationID, ReportingID, Year, Month)
     End Function
 
     Public Function GetOverviewOfCommissions(ByVal LocationId As Integer?, ByVal ProductId As Integer?, ByVal Month As Integer?, ByVal Year As Integer?, ByVal PayerId As Integer?, ByVal OfficerId As Integer?, ByVal Mode As Integer, ByVal CommissionRate As Decimal?, ByVal Scope As Integer, ByVal ReportingID As Integer?, ByRef ErrorMessage As String, ByRef oReturn As Integer) As DataTable
