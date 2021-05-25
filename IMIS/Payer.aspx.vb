@@ -141,11 +141,11 @@ Partial Public Class Payer
                     eLocations.LocationId = Val(ddlRegion.SelectedValue)
                 End If
 
-                epayer.eMail = txtEmail.Text
-                epayer.Fax = txtFax.Text
-                epayer.PayerAddress = txtAddress.Text
-                epayer.PayerName = txtNameOfPayer.Text
-                epayer.Phone = txtPhone.Text
+                epayer.eMail = txtEmail.Text.Trim
+                epayer.Fax = txtFax.Text.Trim
+                epayer.PayerAddress = txtAddress.Text.Trim
+                epayer.PayerName = txtNameOfPayer.Text.Trim
+                epayer.Phone = txtPhone.Text.Trim
                 epayer.PayerType = ddlTypeOfPayer.Text
                 epayer.tblLocations = eLocations
                 epayer.AuditUserID = imisgen.getUserId(Session("User"))
@@ -173,10 +173,10 @@ Partial Public Class Payer
                 Return
             End Try
         End If
-        Response.Redirect("FindPayer.aspx?p=" & txtNameOfPayer.Text)
+        Response.Redirect("FindPayer.aspx?p=" & txtNameOfPayer.Text.Trim)
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindPayer.aspx?p=" & txtNameOfPayer.Text)
+        Response.Redirect("FindPayer.aspx?p=" & txtNameOfPayer.Text.Trim)
     End Sub
 
     Private Sub ddlRegion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegion.SelectedIndexChanged

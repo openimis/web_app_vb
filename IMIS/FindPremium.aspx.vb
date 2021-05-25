@@ -145,18 +145,18 @@ Partial Public Class FindPremium
         ePayer.tblLocations = eLocations
         ePremium.tblPayer = ePayer
         ePremium.AuditUserID = imisgen.getUserId(Session("User"))
-        If Trim(txtDateOfPaymentFrom.Text).Length > 0 Then
-            If IsDate(txtDateOfPaymentFrom.Text) Then
-                ePremium.PayDateFrom = Date.Parse(txtDateOfPaymentFrom.Text)
+        If Trim(txtDateOfPaymentFrom.Text.Trim).Length > 0 Then
+            If IsDate(txtDateOfPaymentFrom.Text.Trim) Then
+                ePremium.PayDateFrom = Date.Parse(txtDateOfPaymentFrom.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
         End If
 
-        If Trim(txtDateOfPaymentTo.Text).Length > 0 Then
-            If IsDate(txtDateOfPaymentTo.Text) Then
-                ePremium.PayDateTo = Date.Parse(txtDateOfPaymentTo.Text)
+        If Trim(txtDateOfPaymentTo.Text.Trim).Length > 0 Then
+            If IsDate(txtDateOfPaymentTo.Text.Trim) Then
+                ePremium.PayDateTo = Date.Parse(txtDateOfPaymentTo.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
@@ -166,17 +166,17 @@ Partial Public Class FindPremium
                 lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
             End If
         End If
-        If Trim(txtMatchedDateFrom.Text).Length > 0 Then
-            If IsDate(txtMatchedDateFrom.Text) Then
-                ePremium.MatchedDateFrom = Date.Parse(txtMatchedDateFrom.Text)
+        If Trim(txtMatchedDateFrom.Text.Trim).Length > 0 Then
+            If IsDate(txtMatchedDateFrom.Text.Trim) Then
+                ePremium.MatchedDateFrom = Date.Parse(txtMatchedDateFrom.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
         End If
-        If Trim(txtMatchedDateTo.Text).Length > 0 Then
-            If IsDate(txtMatchedDateTo.Text) Then
-                ePremium.MatchedDateTo = Date.Parse(txtMatchedDateTo.Text)
+        If Trim(txtMatchedDateTo.Text.Trim).Length > 0 Then
+            If IsDate(txtMatchedDateTo.Text.Trim) Then
+                ePremium.MatchedDateTo = Date.Parse(txtMatchedDateTo.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
@@ -184,9 +184,9 @@ Partial Public Class FindPremium
         End If
 
 
-        ePremium.Amount = if(IsNumeric(txtPremiumPaid.Text), txtPremiumPaid.Text, 0)
+        ePremium.Amount = If(IsNumeric(txtPremiumPaid.Text.Trim), txtPremiumPaid.Text.Trim, 0)
         ePremium.PayType = ddlPayType.SelectedValue
-        ePremium.Receipt = txtReceiptNo.Text
+        ePremium.Receipt = txtReceiptNo.Text.Trim
         ePremium.isOffline = chkOffline.Checked
 
 

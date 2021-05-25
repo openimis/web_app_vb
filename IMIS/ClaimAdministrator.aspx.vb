@@ -227,9 +227,9 @@ Partial Public Class ClaimAdministrator
         End If
         If eClaimAdmin.eUsers.UserID > 0 Then
             BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
-            eClaimAdmin.eUsers.LoginName = txtCode.Text
+            eClaimAdmin.eUsers.LoginName = txtCode.Text.Trim
         Else
-            eClaimAdmin.eUsers.LoginName = txtCode.Text
+            eClaimAdmin.eUsers.LoginName = txtCode.Text.Trim
             BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
         End If
         eClaimAdmin.eUsers.AuditUserID = eClaimAdmin.AuditUserId
@@ -243,13 +243,13 @@ Partial Public Class ClaimAdministrator
             lblmsg.Text = ImisGen.getMessage("V_CONFIRMPASSWORD")
             Return False
         End If
-        eClaimAdmin.eUsers.LastName = txtLastName.Text
-        eClaimAdmin.eUsers.OtherNames = txtOtherNames.Text
+        eClaimAdmin.eUsers.LastName = txtLastName.Text.Trim
+        eClaimAdmin.eUsers.OtherNames = txtOtherNames.Text.Trim
         If txtPassword.Text.Length > 0 Then
             eClaimAdmin.eUsers.DummyPwd = txtPassword.Text
         End If
-        eClaimAdmin.eUsers.Phone = txtPhone.Text
-        eClaimAdmin.eUsers.EmailId = txtEmail.Text
+        eClaimAdmin.eUsers.Phone = txtPhone.Text.Trim
+        eClaimAdmin.eUsers.EmailId = txtEmail.Text.Trim
         eClaimAdmin.eUsers.LanguageID = ddlLanguage.SelectedValue
         eClaimAdmin.eUsers.RoleID = 256
         eClaimAdmin.eUsers.AuditUserID = ImisGen.getUserId(Session("User"))

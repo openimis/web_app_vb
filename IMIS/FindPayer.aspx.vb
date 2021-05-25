@@ -142,9 +142,9 @@ Partial Public Class FindPayer
         eLocations.RegionId = RegionId
         eLocations.DistrictID = DistrictId
         epayer.tblLocations = eLocations
-        epayer.PayerName = txtName.Text
-        epayer.Phone = txtPhone.Text
-        epayer.eMail = txtEmail.Text
+        epayer.PayerName = txtName.Text.Trim
+        epayer.Phone = txtPhone.Text.Trim
+        epayer.eMail = txtEmail.Text.Trim
         epayer.PayerType = ddlPayerType.SelectedValue
         epayer.AuditUserID = imisGen.getUserId(Session("User"))
 

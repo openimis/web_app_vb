@@ -193,16 +193,16 @@ Public Partial Class PolicyRenewal
         If Val(ddlWard.SelectedValue) > 0 Then Ward = ddlWard.SelectedValue
 
 
-        If txtFromDate.Text = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
-        If IsDate(Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeFrom = Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)
+        If txtFromDate.Text.Trim = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
+        If IsDate(Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeFrom = Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
 
-        If txtToDate.Text = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
+        If txtToDate.Text.Trim = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
 
-        If IsDate(Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeTo = Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeTo = Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
 
@@ -261,7 +261,7 @@ Public Partial Class PolicyRenewal
             Dim SMSStatus As Integer = if(ddlSMSStatus.SelectedValue = "-1", 0, ddlSMSStatus.SelectedValue)
             Dim IntervalType As Integer = ddlOn.SelectedValue
 
-            Dim sSubTitle As String = imisgen.getMessage("L_DATEFROM") & " " & txtFromDate.Text & " " & imisgen.getMessage("L_TO") & " " & txtToDate.Text & " " & imisgen.getMessage("L_ON") & " " & ddlOn.SelectedItem.Text
+            Dim sSubTitle As String = imisgen.getMessage("L_DATEFROM") & " " & txtFromDate.Text.Trim & " " & imisgen.getMessage("L_TO") & " " & txtToDate.Text.Trim & " " & imisgen.getMessage("L_ON") & " " & ddlOn.SelectedItem.Text
 
             'If ddlDistrict.SelectedValue > 0 Or Val(ddlWard.SelectedValue) > 0 Or ddlOfficer.SelectedValue > 0 Or Val(ddlVillage.SelectedValue) > 0 Or ddlSMSStatus.SelectedValue > -1 Then
             'sSubTitle = sSubTitle & " Filter("
@@ -310,8 +310,8 @@ Public Partial Class PolicyRenewal
         RptDictionary.Add("WardID", ddlWard.SelectedValue)
         RptDictionary.Add("VillageID", ddlVillage.SelectedValue)
         RptDictionary.Add("OfficerID", ddlOfficer.SelectedValue)
-        RptDictionary.Add("DateFrom", txtFromDate.Text)
-        RptDictionary.Add("DateTo", txtToDate.Text)
+        RptDictionary.Add("DateFrom", txtFromDate.Text.Trim)
+        RptDictionary.Add("DateTo", txtToDate.Text.Trim)
         RptDictionary.Add("JournalOn", ddlOn.SelectedValue)
         Session("RptFilterPolicy") = RptDictionary
     End Sub
@@ -336,12 +336,12 @@ Public Partial Class PolicyRenewal
             If Val(ddlVillage.SelectedValue) > 0 Then VillageId = Val(ddlVillage.SelectedValue)
             If Val(ddlOfficer.SelectedValue) > 0 Then OfficerId = Val(ddlOfficer.SelectedValue)
 
-            If IsDate(Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)) Then
-                DateFrom = Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)
+            If IsDate(Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                DateFrom = Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)
             End If
 
-            If IsDate(Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)) Then
-                DateTo = Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)
+            If IsDate(Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                DateTo = Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)
             End If
 
             Update.UpdatPolicyRenewal(RemindingInterval, RegionId, DistrictId, WardId, VillageId, OfficerId, DateFrom, DateTo)
@@ -375,17 +375,17 @@ Public Partial Class PolicyRenewal
 
             Dim RangeTo As Date
             Dim RangeFrom As Date
-            If txtFromDate.Text = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
+            If txtFromDate.Text.Trim = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
 
-            If IsDate(Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)) Then
-                RangeFrom = Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)
+            If IsDate(Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                RangeFrom = Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)
             End If
 
 
-            If txtToDate.Text = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
+            If txtToDate.Text.Trim = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
 
-            If IsDate(Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)) Then
-                RangeTo = Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)
+            If IsDate(Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                RangeTo = Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)
             End If
 
             Dim str As String = PolicyRenewal.sendSMS(RangeFrom, RangeTo)

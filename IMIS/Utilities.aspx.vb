@@ -64,19 +64,19 @@ Public Partial Class Utilities
     Private Sub btnBackup_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnBackup.Click
         If Len(Trim(txtPath.Text)) = 0 Then Return
 
-        If Not My.Computer.FileSystem.DirectoryExists(txtPath.Text) Then
+        If Not My.Computer.FileSystem.DirectoryExists(txtPath.Text.Trim) Then
             imisgen.Alert(imisgen.getMessage("M_INVALIDBACKPATH"), pnlButtons, alertPopupTitle:="IMIS")
 
             Return
         End If
 
-        Utility.CreateDatabaseBackup(txtPath.Text, chkSavePath.Checked)
+        Utility.CreateDatabaseBackup(txtPath.Text.Trim, chkSavePath.Checked)
     End Sub
 
     Protected Sub btnRestore_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRestore.Click
-        If Len(Trim(txtRestore.Text)) = 0 then return
+        If Len(Trim(txtRestore.Text.Trim)) = 0 Then Return
         'Restore database
-        Utility.RestoreDatabases(txtRestore.Text)
+        Utility.RestoreDatabases(txtRestore.Text.Trim)
 
         'Run the SETUP_IMIS Stored Procedure
         'Utility.SetupIMIS()

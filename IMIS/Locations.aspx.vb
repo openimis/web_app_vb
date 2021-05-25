@@ -461,10 +461,10 @@ Partial Public Class Locations
 
         eVillages.LocationName = LocationName
         eVillages.LocationCode = LocationCode
-        If txtMale.Text.Trim.Length > 0 Then eVillages.MalePopulation = txtMale.Text
-        If txtFemale.Text.Trim.Length > 0 Then eVillages.FemalePopulation = txtFemale.Text
-        If txtFamily.Text.Trim.Length > 0 Then eVillages.Families = txtFamily.Text
-        If txtOthers.Text.Trim.Length > 0 Then eVillages.OtherPopulation = txtOthers.Text
+        If txtMale.Text.Trim.Length > 0 Then eVillages.MalePopulation = txtMale.Text.Trim
+        If txtFemale.Text.Trim.Length > 0 Then eVillages.FemalePopulation = txtFemale.Text.Trim
+        If txtFamily.Text.Trim.Length > 0 Then eVillages.Families = txtFamily.Text.Trim
+        If txtOthers.Text.Trim.Length > 0 Then eVillages.OtherPopulation = txtOthers.Text.Trim
         eVillages.AuditUserId = imisgen.getUserId(Session("User"))
         If Not gvWards.SelectedDataKey Is Nothing Then
             eVillages.ParentLocationId = gvWards.SelectedDataKey.Value
@@ -488,8 +488,8 @@ Partial Public Class Locations
 
     Private Sub btnSave_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSave.Click
         Dim LocationType = hfLocationType.Value
-        Dim LocationName = txtLocationName.Text
-        Dim LocationCode = txtLocationCode.Text
+        Dim LocationName = txtLocationName.Text.Trim
+        Dim LocationCode = txtLocationCode.Text.Trim
         Dim GridLocCode = hfLocationCode.Value
         If GridLocCode <> LocationCode Then
             If Locations.IsLocCodeUnique(LocationCode) Then

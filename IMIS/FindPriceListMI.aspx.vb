@@ -127,8 +127,8 @@ Partial Public Class FindPriceListMI
 
     Private Sub loadGrid() Handles B_SEARCH.Click, chkLegacy.CheckedChanged, gvPriceLists.PageIndexChanged
         Try
-            ePL.PLItemName = txtName.Text
-            If Len(Trim(txtDate.Text)) > 0 Then ePL.DatePL = Date.Parse(txtDate.Text)
+            ePL.PLItemName = txtName.Text.Trim
+            If Len(txtDate.Text.Trim) > 0 Then ePL.DatePL = Date.Parse(txtDate.Text.Trim)
             Dim eLocations As New IMIS_EN.tblLocations
             Dim RegionId As Integer?
             Dim DistrictId As Integer?
