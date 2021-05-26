@@ -266,13 +266,13 @@ Partial Public Class ChangeFamily
             eFamily.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
             eFamily.FamilyType = ddlType.SelectedValue
             'If ddlType.SelectedValue.Length > 0 Then eFamily.FamilyType = ddlType.SelectedValue
-            eFamily.FamilyAddress = txtAddress.Text
+            eFamily.FamilyAddress = txtAddress.Text.Trim
             If ddlEthnicity.SelectedValue.Length > 0 Then eFamily.Ethnicity = ddlEthnicity.SelectedValue
-            eFamily.ConfirmationNo = txtConfirmationNo.Text
+            eFamily.ConfirmationNo = txtConfirmationNo.Text.Trim
 
             Dim chk As Boolean = ChangeFamily.UpdateChangeFamily(eFamily)
             If chk = True Then
-                Session("Msg") = imisgen.getMessage("L_POLICYHOLDER") & " " & txtHeadLastName.Text & imisgen.getMessage("M_Updated")
+                Session("Msg") = imisgen.getMessage("L_POLICYHOLDER") & " " & txtHeadLastName.Text.Trim & imisgen.getMessage("M_Updated")
             End If
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
@@ -467,7 +467,7 @@ Partial Public Class ChangeFamily
             '    Return
             'End If
             'HVH CHANGED 
-            eIinsureeNEW.CHFID = txtCHFIDToMove.Text
+            eIinsureeNEW.CHFID = txtCHFIDToMove.Text.Trim
             eIinsureeNEW.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
             ChangeFamily.GetInsureesByCHFID(eIinsureeNEW)
             If eIinsureeNEW.CHFID = String.Empty Then

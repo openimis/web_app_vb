@@ -88,8 +88,8 @@ Partial Public Class ProcessRelIndex
         PreviewControls.Add("ddlHF", ddlHF.SelectedValue)
         PreviewControls.Add("ddlHFLevel", ddlHFLevel.SelectedValue)
         PreviewControls.Add("ddlBatchAAC", ddlBatchAAC.SelectedValue)
-        PreviewControls.Add("txtSTARTData", txtSTARTData.Text)
-        PreviewControls.Add("txtENDData", txtENDData.Text)
+        PreviewControls.Add("txtSTARTData", txtSTARTData.Text.Trim)
+        PreviewControls.Add("txtENDData", txtENDData.Text.Trim)
         PreviewControls.Add("chkClaims", chkClaims.Checked)
 
     End Sub
@@ -550,19 +550,19 @@ Partial Public Class ProcessRelIndex
             Dim HFID As Integer = if(IsNumeric(ddlHF.SelectedValue), ddlHF.SelectedValue, 0)
             Dim HFLevel As String = if(ddlHFLevel.SelectedIndex > 0, ddlHFLevel.SelectedValue, "")
 
-            If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
+            If txtENDData.Text.Trim = "" Then txtENDData.Text = txtSTARTData.Text.Trim
 
             If Not txtSTARTData.Text = "" Then
-                If IsDate(Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)) Then
-                    RangeFrom = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+                If IsDate(Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                    RangeFrom = Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing)
                 End If
             Else
                 ' RangeFrom = Nothing
             End If
 
             If Not txtENDData.Text = "" Then
-                If IsDate(Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)) Then
-                    RangeTo = Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)
+                If IsDate(Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                    RangeTo = Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing)
                 End If
             Else
                 'RangeTo = Nothing
@@ -572,9 +572,9 @@ Partial Public Class ProcessRelIndex
 
 
             If RunID > 0 Then sSubTitle = sSubTitle & " " & imisgen.getMessage("L_RUNID") & ": " & ddlBatchAAC.SelectedItem.Text
-            If Not txtSTARTData.Text = "" Then
+            If Not txtSTARTData.Text.Trim = "" Then
                 If sSubTitle.Length > 0 Then sSubTitle += " | "
-                sSubTitle += imisgen.getMessage("L_DATEFROM") & " " & txtSTARTData.Text & " " & imisgen.getMessage("L_TO") & " " & txtENDData.Text
+                sSubTitle += imisgen.getMessage("L_DATEFROM") & " " & txtSTARTData.Text.Trim & " " & imisgen.getMessage("L_TO") & " " & txtENDData.Text.Trim
             End If
 
             If Val(ddlRegionACC.SelectedValue) > 0 OrElse ddlRegionACC.SelectedValue = -1 Then

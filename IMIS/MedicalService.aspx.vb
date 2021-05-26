@@ -47,14 +47,14 @@ lblDirty:   Try
                 Dim dt As New DataTable
                 dt = DirectCast(Session("User"), DataTable)
 
-                eService.ServCode = txtCode.Text
-                eService.ServName = txtName.Text
+                eService.ServCode = txtCode.Text.Trim
+                eService.ServName = txtName.Text.Trim
                 'eService.ServType = if(rbPreventive.Checked, "P", "C")
                 eService.ServType = GetServType()
                 eService.ServLevel = ddServiceLevel.SelectedValue
-                eService.ServPrice = txtPrice.Text
+                eService.ServPrice = txtPrice.Text.Trim
                 eService.ServCareType = GetServiceCare()
-                eService.ServFrequency = txtFrequency.Text
+                eService.ServFrequency = txtFrequency.Text.Trim
                 eService.ServPatCat = GetServicePatCat()
                 eService.ServCategory = ddlCategory.SelectedValue
                 eService.AuditUserID = imisGen.getUserId(Session("User"))
@@ -267,6 +267,6 @@ lblDirty:   Try
 
     End Function
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindMedicalService.aspx?s=" & txtCode.Text)
+        Response.Redirect("FindMedicalService.aspx?s=" & txtCode.Text.Trim)
     End Sub
 End Class

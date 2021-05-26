@@ -557,15 +557,15 @@ Partial Public Class Reports
         Else
             LocationId = Val(ddlRegionWoNational.SelectedValue)
         End If
-        If IsDate(Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeFrom = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeFrom = Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
-        If IsDate(Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeTo = Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeTo = Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
-        Dim sSubTitle As String = imisgen.getMessage("L_DATEFROM") & " " & txtSTARTData.Text & " " & imisgen.getMessage("L_TO") & " " & txtENDData.Text
+        Dim sSubTitle As String = imisgen.getMessage("L_DATEFROM") & " " & txtSTARTData.Text.Trim & " " & imisgen.getMessage("L_TO") & " " & txtENDData.Text.Trim
 
         Dim PaymentType As String = ""
         Select Case ddlPaymentType.SelectedValue
@@ -599,7 +599,7 @@ Partial Public Class Reports
             Dim AccountCode As String = ""
             If Not dtProdDetails Is Nothing AndAlso dtProdDetails.Rows.Count > 0 Then
                 ProductName = dtProdDetails(0)("ProductName").ToString
-                AccountCode = If(dtProdDetails(0)("AccCodePremiums").ToString.Trim.Length = 0, "...", dtProdDetails(0)("AccCodePremiums").ToString)
+                AccountCode = If(dtProdDetails(0)("AccCodePremiums").ToString.Trim.Length = 0, "...", dtProdDetails(0)("AccCodePremiums").ToString.Trim)
             End If
             sSubTitle += imisgen.getMessage("L_PRODUCT") & ": " & ddlProduct.SelectedItem.Text & " - " & ProductName & ", " & imisgen.getMessage("L_ACCCODE") & ": " & AccountCode
         End If
@@ -788,8 +788,8 @@ Partial Public Class Reports
 
     End Sub
     Private Sub GetUserActivityData()
-        Dim StartDate As DateTime = txtSTARTData.Text
-        Dim EndDate As DateTime = txtENDData.Text
+        Dim StartDate As DateTime = txtSTARTData.Text.Trim
+        Dim EndDate As DateTime = txtENDData.Text.Trim
         Dim Action As String = ddlAction.SelectedValue
         Dim Entity As String = ddlEntity.SelectedValue
         Dim sSubTitle As String = ""
@@ -856,8 +856,8 @@ Partial Public Class Reports
 
     End Sub
     Private Sub GetPaymentCategoryOverview()
-        Dim DateFrom As DateTime = txtSTARTData.Text
-        Dim DateTo As DateTime = txtENDData.Text
+        Dim DateFrom As DateTime = txtSTARTData.Text.Trim
+        Dim DateTo As DateTime = txtENDData.Text.Trim
 
         Dim LocationId As Integer?
         If Val(ddlDistrictWoNational.SelectedValue) > 0 Then
@@ -886,8 +886,8 @@ Partial Public Class Reports
             DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
             ProdID = If(ddlProduct.SelectedValue > 0, CInt(ddlProduct.SelectedValue), Nothing)
             If ddlPayer.SelectedIndex > 0 Then PayerID = ddlPayer.SelectedValue
-            StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-            EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+            StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+            EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
             If Val(ddlDistrictWoNational.SelectedValue) > 0 Then
                 LocationId = Val(ddlDistrictWoNational.SelectedValue)
             Else
@@ -940,8 +940,8 @@ Partial Public Class Reports
         DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
         ProdID = If(Val(ddlAllProducts.SelectedValue) > 0, CInt(ddlAllProducts.SelectedValue), Nothing)
         HfID = If(Val(ddlHF.SelectedValue) > 0, CInt(ddlHF.SelectedValue), Nothing)
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
         If ddlClaimStatus.SelectedIndex > 0 Then ClaimStatus = ddlClaimStatus.SelectedValue
         'ClaimStatus = If(ddlClaimStatus.SelectedIndex > 0, ddlClaimStatus.SelectedValue, Nothing)
         Dim oReturn As Integer = -1
@@ -967,8 +967,8 @@ Partial Public Class Reports
 
 
         'DistrictId = if(ddlDistrict1.SelectedValue > 0, CInt(ddlDistrict1.SelectedValue), Nothing)
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
 
         dt = reports.GetPercentageReferral(Val(ddlRegion.SelectedValue), Val(ddlDistrict.SelectedValue), StartDate, EndDate)
 
@@ -1004,8 +1004,8 @@ Partial Public Class Reports
         'DistrictId = if(Val(ddlDistrict.SelectedValue) > 0, CInt(Val(ddlDistrict.SelectedValue)), Nothing)
         'If ddlWards.Items.Count > 0 Then WardId = if(ddlWards.SelectedValue > 0, CInt(ddlWards.SelectedValue), Nothing)
         'If ddlVillages.Items.Count > 0 Then VillageId = if(ddlVillages.SelectedValue > 0, CInt(ddlVillages.SelectedValue), Nothing)
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
 
         If ddlPolicyStatus.SelectedValue > 0 Then PolicyStatus = ddlPolicyStatus.SelectedValue
 
@@ -1036,8 +1036,8 @@ Partial Public Class Reports
 
         'DistrictId = if(Val(ddlDistrict.SelectedValue) > 0, CInt(Val(ddlDistrict.SelectedValue)), Nothing)
         OfficerId = If(Val(ddlEnrolmentOfficer.SelectedValue) > 0, CInt(ddlEnrolmentOfficer.SelectedValue), Nothing)
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
 
         dt = reports.GetPendingInsurees(LocationId, OfficerId, StartDate, EndDate)
 
@@ -1077,8 +1077,8 @@ Partial Public Class Reports
         Else
             OfficerId = Nothing
         End If
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
 
         dt = reports.GetRenewals(LocationId, ProductId, OfficerId, StartDate, EndDate, ddlSorting.SelectedValue)
 
@@ -1113,8 +1113,8 @@ Partial Public Class Reports
         Dim EndDate As Date
 
 
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
 
         dt = reports.getRejectedPhoto(StartDate, EndDate)
 
@@ -1209,15 +1209,15 @@ Partial Public Class Reports
 
         'StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
         'EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        If IsDate(txtSTARTData.Text) Then
-            StartDate = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(txtSTARTData.Text.Trim) Then
+            StartDate = Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
-        If IsDate(txtENDData.Text) Then
-            EndDate = Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(txtENDData.Text.Trim) Then
+            EndDate = Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
-        If Not txtControlNumber.Text = "" Then
-            ControlNumber = txtControlNumber.Text
+        If Not txtControlNumber.Text.Trim = "" Then
+            ControlNumber = txtControlNumber.Text.Trim
         Else
             ControlNumber = ""
         End If
@@ -1253,8 +1253,8 @@ Partial Public Class Reports
         Dim PostingStatus
         Dim DistrictId As Integer
         Dim RegionId As Integer
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
 
         AssignmentStatus = IIf(ddlAssignmentStatus.SelectedIndex > 0, ddlAssignmentStatus.SelectedItem.Text, Nothing)
         PostingStatus = IIf(ddlPostingStatus.SelectedIndex > 0, ddlPostingStatus.SelectedItem.Text, Nothing)
@@ -1317,7 +1317,7 @@ Partial Public Class Reports
 
         DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
 
-        CommissionRate = Val(txtCommissionRate.Text)
+        CommissionRate = Val(txtCommissionRate.Text.Trim)
         If ReportingID Is Nothing Then
 
             If Val(ddlProduct.SelectedValue) > 0 Then
@@ -1391,7 +1391,7 @@ Partial Public Class Reports
                     ReportMode = ""
             End Select
 
-            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & txtCommissionRate.Text & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
+            IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & txtCommissionRate.Text.Trim & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
             IMIS_EN.eReports.SubTitle += vbNewLine & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlProduct.SelectedIndex = 0, "", ddlProduct.SelectedItem.Text) & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt(0)("DistrictName") & " | " & imisgen.getMessage("L_PAYER") & " : " & If(ddlPayer.SelectedIndex = 0, "", ddlPayer.SelectedItem.Text) & " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & If(ddlEnrolmentOfficer.SelectedIndex = 0, "", ddlEnrolmentOfficer.SelectedItem.Text)
         Else
             lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
@@ -1416,11 +1416,11 @@ Partial Public Class Reports
         Region = If(Val(ddlRegionWoNational.SelectedValue) > 0, CInt(Val(ddlRegionWoNational.SelectedValue)), Nothing)
         ProdID = If(Val(ddlAllProducts.SelectedValue) > 0, CInt(ddlAllProducts.SelectedValue), Nothing)
         HfID = If(Val(ddlHF.SelectedValue) > 0, CInt(ddlHF.SelectedValue), Nothing)
-        StartDate = If(IsDate(txtSTARTData.Text), Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing), Nothing)
-        EndDate = If(IsDate(txtENDData.Text), Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing), Nothing)
+        StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
+        EndDate = If(IsDate(txtENDData.Text.Trim), Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
         If ddlClaimStatus.SelectedIndex > 0 Then ClaimStatus = ddlClaimStatus.SelectedValue
         'ClaimStatus = If(ddlClaimStatus.SelectedIndex > 0, ddlClaimStatus.SelectedValue, Nothing)
-        If Not txtInsuranceNumber.Text = "" Then InsuranceNumber = txtInsuranceNumber.Text
+        If Not txtInsuranceNumber.Text.Trim = "" Then InsuranceNumber = txtInsuranceNumber.Text.Trim
         Dim oReturn As Integer = -1
         If ddlScope.SelectedIndex > 0 Then Scope = ddlScope.SelectedValue
         Session("Scope") = Scope
@@ -1531,7 +1531,7 @@ Partial Public Class Reports
                         lblMsg.Text = imisgen.getMessage("M_PLEASESELECTMODE")
                         Return
                     End If
-                    If txtCommissionRate.Text = "" Then
+                    If txtCommissionRate.Text.Trim = "" Then
                         lblMsg.Text = imisgen.getMessage("M_PLEASESELECTCOMMISSIONRATE")
                         Return
                     End If
@@ -1539,7 +1539,7 @@ Partial Public Class Reports
             End If
 
             If SelectedValueID = 23 Then
-                If txtInsuranceNumber.Text = "" Then
+                If txtInsuranceNumber.Text.Trim = "" Then
                     lblMsg.Text = imisgen.getMessage("L_PLEASEENTERINSURANCENUMBER")
                     Return
                 End If

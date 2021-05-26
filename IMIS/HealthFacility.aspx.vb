@@ -182,23 +182,23 @@ Partial Public Class HealthFacility
                 dt = DirectCast(Session("User"), DataTable)
                 Dim ehfNew As New IMIS_EN.tblHF
 
-                eHF.HFName = txtFacilityName.Text
+                eHF.HFName = txtFacilityName.Text.Trim
                 eHF.LegalForm = ddlLegalForm.SelectedValue
                 eHF.HFLevel = ddlHFLevel.SelectedValue
                 eHF.HFSublevel = ddlSublevel.SelectedValue
-                eHF.HFCode = txtHFCode.Text
-                eHF.HFAddress = txtAddress.Text
+                eHF.HFCode = txtHFCode.Text.Trim
+                eHF.HFAddress = txtAddress.Text.Trim
                 eLocation.LocationId = ddlDistrict.SelectedValue
                 eHF.tblLocations = eLocation
-                eHF.Phone = if(txtPhone.Text Is Nothing, SqlTypes.SqlString.Null, txtPhone.Text)
-                eHF.Fax = if(txtFax.Text Is Nothing, SqlTypes.SqlString.Null, txtFax.Text)
-                eHF.eMail = if(txtEmail.Text Is Nothing, SqlTypes.SqlString.Null, txtEmail.Text)
+                eHF.Phone = If(txtPhone.Text.Trim Is Nothing, SqlTypes.SqlString.Null, txtPhone.Text.Trim)
+                eHF.Fax = If(txtFax.Text.Trim Is Nothing, SqlTypes.SqlString.Null, txtFax.Text.Trim)
+                eHF.eMail = If(txtEmail.Text.Trim Is Nothing, SqlTypes.SqlString.Null, txtEmail.Text.Trim)
                 eHF.HFCareType = ddlType.SelectedValue
                 ePLServices.PLServiceID = if(ddOwnPricerListService.SelectedValue = "", SqlTypes.SqlInt32.Null, ddOwnPricerListService.SelectedValue)
                 eHF.tblPLServices = ePLServices
                 ePLItems.PLItemID = if(ddOwnPricerListItem.SelectedValue = "", SqlTypes.SqlInt32.Null, ddOwnPricerListItem.SelectedValue)
                 eHF.tblPLItems = ePLItems
-                eHF.AccCode = if(txtAccCode.Text Is Nothing, SqlTypes.SqlString.Null, txtAccCode.Text)
+                eHF.AccCode = If(txtAccCode.Text.Trim Is Nothing, SqlTypes.SqlString.Null, txtAccCode.Text.Trim)
                 eHF.AuditUserID = imisgen.getUserId(Session("User"))
 
                 Dim chk As Integer = HF.SaveHealthFacilities(eHF, getCatchmentDt)
@@ -220,10 +220,10 @@ Partial Public Class HealthFacility
                 Return
             End Try
         End If
-        Response.Redirect("FindHealthFacility.aspx?h=" & txtHFCode.Text)
+        Response.Redirect("FindHealthFacility.aspx?h=" & txtHFCode.Text.Trim)
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindHealthFacility.aspx?h=" & txtHFCode.Text)
+        Response.Redirect("FindHealthFacility.aspx?h=" & txtHFCode.Text.Trim)
     End Sub
     Private Sub ddlDistrict_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlDistrict.SelectedIndexChanged
         FillPriceList()
@@ -434,8 +434,8 @@ RemoveRow:
             Dim VillageId As Integer = gvVillage.DataKeys(dr.RowIndex).Values("VillageID")
             Dim row As DataRow = dtSelectedVillages.Select("VillageId = " & VillageId & "")(0)
             row("Checked") = chk
-            If DirectCast(gvVillage.Rows(dr.RowIndex).Cells(3).Controls(1), TextBox).Text <> "" Then
-                Catchment = DirectCast(gvVillage.Rows(dr.RowIndex).Cells(3).Controls(1), TextBox).Text
+            If DirectCast(gvVillage.Rows(dr.RowIndex).Cells(3).Controls(1), TextBox).Text.Trim <> "" Then
+                Catchment = DirectCast(gvVillage.Rows(dr.RowIndex).Cells(3).Controls(1), TextBox).Text.Trim
                 row("Catchment") = Catchment
             End If
         Next
@@ -517,7 +517,7 @@ RemoveRow:
                 Dim LocationId As Integer = gvVillage.DataKeys(gvVillage.Rows(row.RowIndex).RowIndex)("VillageID")
                 Dim Catchment As Integer = 0
                 If Not CType(row.Cells(3).Controls(1), TextBox).Text.Trim = String.Empty Then
-                    Catchment = CType(row.Cells(3).Controls(1), TextBox).Text
+                    Catchment = CType(row.Cells(3).Controls(1), TextBox).Text.Trim
                 End If
                 dtData.Rows.Add(New Object() {HFCatchmentId, eHF.HfID, LocationId, Catchment})
             End If

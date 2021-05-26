@@ -172,8 +172,8 @@
         dtRights.Columns.Add("RightID")
         dtRights.Columns.Add("Description")
 
-        eRole.RoleName = txtRoles.Text
-        eRole.AltLanguage = txtAltLanguage.Text
+        eRole.RoleName = txtRoles.Text.Trim
+        eRole.AltLanguage = txtAltLanguage.Text.Trim
         eRole.IsSystem = chkIsSystem.Checked
         eRole.IsBlocked = chkIsBlocked.Checked
 
@@ -221,7 +221,7 @@
     End Sub
 
     Private Sub B_SAVE_Click(sender As Object, e As EventArgs) Handles B_SAVE.Click
-        If eRole.RoleID = 0 And BI.IsRoleNameUnique(txtRoles.Text) Then
+        If eRole.RoleID = 0 And BI.IsRoleNameUnique(txtRoles.Text.Trim) Then
             imisGen.Alert(imisGen.getMessage("M_UNIQUEROLENAME"), pnlHeader, alertPopupTitle:="IMIS")
             Return
         End If

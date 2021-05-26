@@ -49,18 +49,18 @@ Partial Public Class FindPolicy
         Try
             loadSecurity()
             Dim eProduct As New IMIS_EN.tblProduct
-            If txtEnrolmentDateFrom.Text.Length > 0 Then
+            If txtEnrolmentDateFrom.Text.Trim.Length > 0 Then
                 If IsDate(txtEnrolmentDateFrom.Text.Trim) Then
-                    ePolicy.EnrollDateFrom = Date.ParseExact(txtEnrolmentDateFrom.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.EnrollDateFrom = Date.ParseExact(txtEnrolmentDateFrom.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
 
             End If
-            If txtEnrolmentDateTo.Text.Length > 0 Then
+            If txtEnrolmentDateTo.Text.Trim.Length > 0 Then
                 If IsDate(txtEnrolmentDateTo.Text.Trim) Then
-                    ePolicy.EnrollDateTo = Date.ParseExact(txtEnrolmentDateTo.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.EnrollDateTo = Date.ParseExact(txtEnrolmentDateTo.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
@@ -69,18 +69,18 @@ Partial Public Class FindPolicy
             End If
 
 
-            If txtExpiryDateFrom.Text.Length > 0 Then
+            If txtExpiryDateFrom.Text.Trim.Length > 0 Then
                 If IsDate(txtExpiryDateFrom.Text.Trim) Then
-                    ePolicy.ExpiryDateFrom = Date.ParseExact(txtExpiryDateFrom.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.ExpiryDateFrom = Date.ParseExact(txtExpiryDateFrom.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
 
             End If
-            If txtExpiryDateTo.Text.Length > 0 Then
+            If txtExpiryDateTo.Text.Trim.Length > 0 Then
                 If IsDate(txtExpiryDateTo.Text.Trim) Then
-                    ePolicy.ExpiryDateTo = Date.ParseExact(txtExpiryDateTo.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.ExpiryDateTo = Date.ParseExact(txtExpiryDateTo.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
@@ -90,18 +90,18 @@ Partial Public Class FindPolicy
 
 
 
-            If txtStartDateFrom.Text.Length > 0 Then
+            If txtStartDateFrom.Text.Trim.Length > 0 Then
                 If IsDate(txtStartDateFrom.Text.Trim) Then
-                    ePolicy.StartDateFrom = Date.ParseExact(txtStartDateFrom.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.StartDateFrom = Date.ParseExact(txtStartDateFrom.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
 
             End If
-            If txtStartDateTo.Text.Length > 0 Then
+            If txtStartDateTo.Text.Trim.Length > 0 Then
                 If IsDate(txtStartDateTo.Text.Trim) Then
-                    ePolicy.StartDateTo = Date.ParseExact(txtStartDateTo.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.StartDateTo = Date.ParseExact(txtStartDateTo.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
@@ -111,18 +111,18 @@ Partial Public Class FindPolicy
 
 
 
-            If txtEffectiveDateFrom.Text.Length > 0 Then
+            If txtEffectiveDateFrom.Text.Trim.Length > 0 Then
                 If IsDate(txtEffectiveDateFrom.Text.Trim) Then
-                    ePolicy.EffectiveDateFrom = Date.ParseExact(txtEffectiveDateFrom.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.EffectiveDateFrom = Date.ParseExact(txtEffectiveDateFrom.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
 
             End If
-            If txtEffectiveDateTo.Text.Length > 0 Then
+            If txtEffectiveDateTo.Text.Trim.Length > 0 Then
                 If IsDate(txtEffectiveDateTo.Text.Trim) Then
-                    ePolicy.EffectiveDateTo = Date.ParseExact(txtEffectiveDateTo.Text, "dd/MM/yyyy", Nothing)
+                    ePolicy.EffectiveDateTo = Date.ParseExact(txtEffectiveDateTo.Text.Trim, "dd/MM/yyyy", Nothing)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
@@ -131,8 +131,8 @@ Partial Public Class FindPolicy
             End If
 
 
-            If txtBalance.Text.Length > 0 Then
-                ePolicy.PolicyValue = txtBalance.Text
+            If txtBalance.Text.Trim.Length > 0 Then
+                ePolicy.PolicyValue = txtBalance.Text.Trim
             Else
                 ePolicy.PolicyValue = Nothing
             End If
