@@ -1006,25 +1006,19 @@ Public Class GeneralBL
         End If
         If Not ForReport Then
             If Include = False Then
-                'dtStatus.Rows.Add(-1, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(-2, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(2, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(3, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(4, getMessage("T_PAYMENTRPAID"))
-                'dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-
-                dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-                dtStatus.Rows.Add(4, getMessage("T_UNMATCHED"))
+                dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
+                dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
+                dtStatus.Rows.Add(2, getMessage("T_PAYMENTSENT"))
+                dtStatus.Rows.Add(3, getMessage("T_PAYMENTCNNUMBERRECEIVED"))
+                dtStatus.Rows.Add(4, getMessage("T_PAYMENTRECEIVED"))
+                dtStatus.Rows.Add(5, getMessage("T_PAYMENTRECONCILIATED"))
             Else
-                'dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(4, getMessage("T_PAYMENTRPAID"))
-                'dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-
-                dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-                dtStatus.Rows.Add(4, getMessage("T_UNMATCHED"))
+                dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
+                dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
+                dtStatus.Rows.Add(2, getMessage("T_PAYMENTSENT"))
+                dtStatus.Rows.Add(3, getMessage("T_PAYMENTCNNUMBERRECEIVED"))
+                dtStatus.Rows.Add(4, getMessage("T_PAYMENTRECEIVED"))
+                dtStatus.Rows.Add(5, getMessage("T_PAYMENTRECONCILIATED"))
             End If
 
         Else

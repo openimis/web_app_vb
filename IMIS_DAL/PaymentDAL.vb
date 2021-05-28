@@ -92,7 +92,7 @@ Public Class PaymentDAL
     Public Function getPayment(PaymentId As String, dtPaymentStatus As DataTable) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
-        sSQL = " SELECT py.PaymentID,PD.InsuranceNumber, PY.OfficerCode, PY.ExpectedAmount,PS.StatusID, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber,  PY.PaymentDate, CONVERT(DATE, PY.ReceivedDate,103) ReceivedDate, CONVERT(DATE, PY.MatchedDate,103) MatchedDate,     PY.ReceivedAmount, PD.ProductCode, CASE  WHEN PY.PaymentStatus < 0 THEN 'Failed' ELSE PS.PaymenyStatusName END AS PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo FROM tblPaymentDetails PD"
+        sSQL = " SELECT py.PaymentID,PD.InsuranceNumber, PY.OfficerCode, PY.ExpectedAmount,PS.StatusID, PY.ReceiptNo, PY.RejectedReason, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber,  PY.PaymentDate, CONVERT(DATE, PY.ReceivedDate,103) ReceivedDate, CONVERT(DATE, PY.MatchedDate,103) MatchedDate,     PY.ReceivedAmount, PD.ProductCode, CASE  WHEN PY.PaymentStatus < 0 THEN 'Failed' ELSE PS.PaymenyStatusName END AS PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo FROM tblPaymentDetails PD"
         sSQL += " INNER Join tblPayment PY ON PY.PaymentID = PD.PaymentID"
         sSQL += " Left OUTER JOIN tblControlNumber CN ON CN.PaymentID = PY.PaymentID"
         sSQL += " Left OUTER JOIN @dtPaymentStatus PS ON PS.StatusID = PY.PaymentStatus"
@@ -111,7 +111,7 @@ Public Class PaymentDAL
         sSQL += "  WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)"
         sSQL += " GROUP BY L.DistrictId, L.Region )"
         sSQL = " SELECT " + UtilitiesDAL.GetEnvMaxRows()
-        sSQL += " py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo  FROM tblPaymentDetails PD "
+        sSQL += " py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, PY.RejectedReason, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo  FROM tblPaymentDetails PD "
         sSQL += " INNER Join tblPayment PY ON PY.PaymentID = PD.PaymentID"
         sSQL += "  INNER JOIN tblInsuree I ON I.CHFID = PD.InsuranceNumber"
         sSQL += "  INNER JOIN tblFamilies F ON F.FamilyID =  I.FamilyID"
@@ -182,15 +182,15 @@ Public Class PaymentDAL
 
         If ePayment.PaymentStatus IsNot Nothing Then
             If ePayment.PaymentStatus = -3 Then
-                sSQL += " AND PY.PaymentStatus = -1 OR PY.PaymentStatus = -2 OR PY.PaymentStatus = -3"
+                sSQL += " AND (PY.PaymentStatus = -1 OR PY.PaymentStatus = -2 OR PY.PaymentStatus = -3)"
             ElseIf ePayment.PaymentStatus = 1 Then
-                sSQL += " AND PY.PaymentStatus = 1 OR PY.PaymentStatus = 2 OR PY.PaymentStatus = 3"
+                sSQL += " AND (PY.PaymentStatus = 1 OR PY.PaymentStatus = 2 OR PY.PaymentStatus = 3)"
             Else
                 sSQL += " AND PY.PaymentStatus = @PaymentStatus"
             End If
 
         End If
-        sSQL += " GROUP BY  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate , PY.ReceivedAmount,PY.ExpectedAmount,  PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo"
+        sSQL += " GROUP BY  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate , PY.ReceivedAmount,PY.ExpectedAmount,  PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo, PY.RejectedReason"
         sSQL += " ORDER BY PaymentID DESC "
         'If ePayment.LocationID IsNot Nothing Then
         'sSQL += " AND PD.LocationID = @LocationID"

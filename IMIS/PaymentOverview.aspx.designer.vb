@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class PaymentOverview
-    
+
     '''<summary>
     '''hfClaimAdminAdjustibility control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfClaimAdminAdjustibility As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''L_POLICYHOLDER control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_POLICYHOLDER As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''L_FAMILYPANEL control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_FAMILYPANEL As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''lblOfficerCode control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblOfficerCode As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtOfficerCode control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtOfficerCode As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblPaymentDate control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPaymentDate As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtPaymentDate control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPaymentDate As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblStatus control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblStatus As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtStatus control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtStatus As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblReceiptNo control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblReceiptNo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtReceiptNo control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtReceiptNo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblReceivedDate control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblReceivedDate As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtReceivedDate control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtReceivedDate As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblReceivedAmount control.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblReceivedAmount As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtReceivedAmount control.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtReceivedAmount As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblControlNo control.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblControlNo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtControlNo control.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtControlNo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblMatchedDate control.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMatchedDate As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtMatchedDate control.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMatchedDate As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblPaymentOrigin control.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPaymentOrigin As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtPaymentOrigin control.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPaymentOrigin As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblTransactionNo control.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblTransactionNo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtTransactionNo control.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtTransactionNo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblMatchedDate0 control.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMatchedDate0 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtInternalIdentifier control.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtInternalIdentifier As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblExpectedAmount control.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblExpectedAmount As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtExpectedAmounts control.
     '''</summary>
@@ -255,7 +255,25 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtExpectedAmounts As Global.System.Web.UI.WebControls.Label
-    
+
+    '''<summary>
+    '''lblRejectedReason control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRejectedReason As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtRejectedReason control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtRejectedReason As Global.System.Web.UI.WebControls.Label
+
     '''<summary>
     '''lblPhoneNumber control.
     '''</summary>
@@ -264,7 +282,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblPhoneNumber As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtPhoneNo control.
     '''</summary>
@@ -273,7 +291,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhoneNo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''L_PAYMENTDETAILS control.
     '''</summary>
@@ -282,7 +300,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_PAYMENTDETAILS As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''chkLegacy control.
     '''</summary>
@@ -291,7 +309,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkLegacy As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''Panel4 control.
     '''</summary>
@@ -300,7 +318,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Panel4 As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''gvPaymentDetails control.
     '''</summary>
@@ -309,7 +327,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvPaymentDetails As Global.System.Web.UI.WebControls.GridView
-    
+
     '''<summary>
     '''L_EDITPAYMENTDETAILS control.
     '''</summary>
@@ -318,7 +336,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_EDITPAYMENTDETAILS As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Panel2 control.
     '''</summary>
@@ -327,7 +345,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Panel2 As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''Label1 control.
     '''</summary>
@@ -336,7 +354,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''up1 control.
     '''</summary>
@@ -345,7 +363,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents up1 As Global.System.Web.UI.UpdatePanel
-    
+
     '''<summary>
     '''txtEditInsuranceNumber control.
     '''</summary>
@@ -354,7 +372,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEditInsuranceNumber As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldCHFID0 control.
     '''</summary>
@@ -363,7 +381,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldCHFID0 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''lblRegion control.
     '''</summary>
@@ -372,7 +390,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblRegion As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''ddlRegion control.
     '''</summary>
@@ -381,7 +399,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlRegion As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''Label10 control.
     '''</summary>
@@ -390,7 +408,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label10 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''ddlDistrict control.
     '''</summary>
@@ -399,7 +417,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlDistrict As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''Label11 control.
     '''</summary>
@@ -408,7 +426,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label11 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''ddlProduct control.
     '''</summary>
@@ -417,7 +435,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlProduct As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''RequiredFieldValidator4 control.
     '''</summary>
@@ -426,7 +444,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''FormLabel control.
     '''</summary>
@@ -435,7 +453,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents FormLabel As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''ddlPolicyStage control.
     '''</summary>
@@ -444,7 +462,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlPolicyStage As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''RequiredFieldValidator3 control.
     '''</summary>
@@ -453,7 +471,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -462,7 +480,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''BtnMatchPayment control.
     '''</summary>
@@ -471,7 +489,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents BtnMatchPayment As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''btnSaveEditedPaymentDetails control.
     '''</summary>
@@ -480,7 +498,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnSaveEditedPaymentDetails As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''B_VIEW control.
     '''</summary>
@@ -489,7 +507,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_VIEW As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -498,7 +516,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''lblMsg control.
     '''</summary>
@@ -507,7 +525,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMsg As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''hfPolicyValue control.
     '''</summary>
@@ -516,7 +534,7 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfPolicyValue As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''pnlMsgHolder control.
     '''</summary>
