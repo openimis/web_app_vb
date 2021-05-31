@@ -183,8 +183,6 @@ Public Class PaymentDAL
         If ePayment.PaymentStatus IsNot Nothing Then
             If ePayment.PaymentStatus = -3 Then
                 sSQL += " AND (PY.PaymentStatus = -1 OR PY.PaymentStatus = -2 OR PY.PaymentStatus = -3)"
-            ElseIf ePayment.PaymentStatus = 1 Then
-                sSQL += " AND (PY.PaymentStatus = 1 OR PY.PaymentStatus = 2 OR PY.PaymentStatus = 3)"
             Else
                 sSQL += " AND PY.PaymentStatus = @PaymentStatus"
             End If

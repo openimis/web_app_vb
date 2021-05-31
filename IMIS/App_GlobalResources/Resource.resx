@@ -4185,8 +4185,8 @@
   <data name="T_PAYMENTREQUESTED" xml:space="preserve">
     <value>Requested</value>
   </data>
-  <data name="T_PAYMENTSENT" xml:space="preserve">
-    <value>Sent</value>
+  <data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
+    <value>Ctr No. Requested</value>
   </data>
   <data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
     <value>Ctr No. Received</value>
@@ -5125,5 +5125,8 @@ adults/children)
   </data>
   <data name="T_PAYMENTCANCELLED" xml:space="preserve">
     <value>cancelled</value>
+  </data>
+  <data name="T_PAYMENTCREATED" xml:space="preserve">
+    <value>Created</value>
   </data>
 </root>
