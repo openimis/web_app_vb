@@ -1007,6 +1007,7 @@ Public Class GeneralBL
         If Not ForReport Then
             If Include = False Then
                 dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
+                dtStatus.Rows.Add(0, getMessage("T_PAYMENTCANCELLED"))
                 dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
                 dtStatus.Rows.Add(2, getMessage("T_PAYMENTSENT"))
                 dtStatus.Rows.Add(3, getMessage("T_PAYMENTCNNUMBERRECEIVED"))
@@ -1014,6 +1015,7 @@ Public Class GeneralBL
                 dtStatus.Rows.Add(5, getMessage("T_PAYMENTRECONCILIATED"))
             Else
                 dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
+                dtStatus.Rows.Add(0, getMessage("T_PAYMENTCANCELLED"))
                 dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
                 dtStatus.Rows.Add(2, getMessage("T_PAYMENTSENT"))
                 dtStatus.Rows.Add(3, getMessage("T_PAYMENTCNNUMBERRECEIVED"))
