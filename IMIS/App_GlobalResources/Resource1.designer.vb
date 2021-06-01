@@ -5987,6 +5987,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Rejected reason.
+        '''</summary>
+        Friend Shared ReadOnly Property L_REJECTEDREASON() As String
+            Get
+                Return ResourceManager.GetString("L_REJECTEDREASON", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Relationship.
         '''</summary>
         Friend Shared ReadOnly Property L_RELATION() As String
@@ -13837,11 +13846,38 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Ctr No. Received.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCNNUMBERRECEIVED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCNNUMBERRECEIVED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Matched.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTMATCHED() As String
             Get
                 Return ResourceManager.GetString("T_PAYMENTMATCHED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pay. Received.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTRECEIVED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTRECEIVED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pay. Reconciliated.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTRECONCILIATED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTRECONCILIATED", resourceCulture)
             End Get
         End Property
         
@@ -13860,6 +13896,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_PAYMENTRPAID() As String
             Get
                 Return ResourceManager.GetString("T_PAYMENTRPAID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sent.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTSENT() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTSENT", resourceCulture)
             End Get
         End Property
         

@@ -61,6 +61,7 @@ Public Class tblPayment
     Private _PaymentStatusName As String
     Private _ReceivedDate As Date?
     Private _RegionId As Integer
+    Private _RejectedReason As String
     Private _DistrictId As Integer
 
     Public Property PaymentID() As Integer
@@ -341,6 +342,14 @@ Public Class tblPayment
         End Get
         Set(value As String)
             _ReceiptNo = value
+        End Set
+    End Property
+    Public Property RejectedReason As String
+        Get
+            Return _RejectedReason
+        End Get
+        Set(value As String)
+            _RejectedReason = value
         End Set
     End Property
 End Class

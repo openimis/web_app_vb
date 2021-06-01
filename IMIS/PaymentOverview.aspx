@@ -160,7 +160,17 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         <td class="ReadOnlyText">
                             <asp:Label ID="txtExpectedAmounts" runat="server"></asp:Label>
                         </td>
+
+                        <td class="FormLabel">
+                            <asp:Label ID="lblRejectedReason" runat="server" Text="<%$ Resources:Resource,L_REJECTEDREASON %>"></asp:Label>
+                        </td>
+                        <td class="ReadOnlyText">
+                            <asp:Label ID="txtRejectedReason" runat="server"></asp:Label>
+                        </td>
                     </tr>
+                   <tr>
+
+                   </tr>
                     <tr>
                         <td class="auto-style2">
                             <asp:Label ID="lblPhoneNumber" runat="server" Text="<%$ Resources:Resource,L_PHONE %>"></asp:Label>
