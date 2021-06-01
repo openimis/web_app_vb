@@ -104,13 +104,13 @@ lblDirty:   Dim chk As Integer = 0
             Try
                 Dim dt As New DataTable
                 dt = DirectCast(Session("User"), DataTable)
-                eItem.ItemCode = txtCode.Text
-                eItem.ItemName = txtName.Text
+                eItem.ItemCode = txtCode.Text.Trim
+                eItem.ItemName = txtName.Text.Trim
                 eItem.ItemType = GetItemType()
-                eItem.ItemPackage = txtPackage.Text
-                eItem.ItemPrice = txtPrice.Text
+                eItem.ItemPackage = txtPackage.Text.Trim
+                eItem.ItemPrice = txtPrice.Text.Trim
                 eItem.ItemCareType = GetItemCare()
-                eItem.ItemFrequency = If(txtFrequency.Text.Trim.Length = 0, 0, Val(txtFrequency.Text))
+                eItem.ItemFrequency = If(txtFrequency.Text.Trim.Length = 0, 0, Val(txtFrequency.Text.Trim))
                 eItem.ItemPatCat = GetItemPatCat()
                 eItem.AuditUserID = imisGen.getUserId(Session("User"))
                 chk = Item.SaveMedicalItem(eItem)
@@ -133,7 +133,7 @@ lblDirty:   Dim chk As Integer = 0
             End Try
            
         End If
-        Response.Redirect("FindMedicalItem.aspx?i=" & txtCode.Text)
+        Response.Redirect("FindMedicalItem.aspx?i=" & txtCode.Text.Trim)
     End Sub
 
 
@@ -232,6 +232,6 @@ lblDirty:   Dim chk As Integer = 0
 
    
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindMedicalItem.aspx?i=" & txtCode.Text)
+        Response.Redirect("FindMedicalItem.aspx?i=" & txtCode.Text.Trim)
     End Sub
 End Class

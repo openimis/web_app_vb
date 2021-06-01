@@ -42,7 +42,7 @@ Partial Public Class Login
 
             'Dim dt As New DataTable
 
-            eLogin.LoginName = txtUserName.Text
+            eLogin.LoginName = txtUserName.Text.Trim
             eLogin.DummyPwd = txtPassword.Text
 
             dt = Login.GetLogin(eLogin)

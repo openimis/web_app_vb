@@ -179,17 +179,17 @@ Partial Public Class FindFamily
 
             'Dim bdate As Nullable(Of DateTime) = New DateTime(1900, 1, 1)
             'If IsDate(txtBirthDate.Text) Then bdate = FormatDateTime(txtBirthDate.Text, "dd/MM/yyyy")
-            If Trim(txtBirthDateFrom.Text).Length > 0 Then
-                If IsDate(txtBirthDateFrom.Text) Then
-                    eInsuree.DOBFrom = Date.Parse(txtBirthDateFrom.Text)
+            If txtBirthDateFrom.Text.Trim.Length > 0 Then
+                If IsDate(txtBirthDateFrom.Text.Trim) Then
+                    eInsuree.DOBFrom = Date.Parse(txtBirthDateFrom.Text.Trim)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
             End If
-            If Trim(txtBirthDateTo.Text).Length > 0 Then
-                If IsDate(txtBirthDateTo.Text) Then
-                    eInsuree.DOBTo = Date.Parse(txtBirthDateTo.Text)
+            If txtBirthDateTo.Text.Trim.Length > 0 Then
+                If IsDate(txtBirthDateTo.Text.Trim) Then
+                    eInsuree.DOBTo = Date.Parse(txtBirthDateTo.Text.Trim)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
@@ -197,22 +197,22 @@ Partial Public Class FindFamily
             End If
             eFamily.AuditUserID = imisgen.getUserId(Session("User"))
             eFamily.isOffline = chkOffline.Checked
-            eInsuree.LastName = txtLastName.Text
-            eInsuree.OtherNames = txtOtherNames.Text
-            eInsuree.CHFID = txtCHFID.Text
-            eInsuree.Phone = txtPhone.Text
-            eInsuree.Email = txtEmail.Text
+            eInsuree.LastName = txtLastName.Text.Trim
+            eInsuree.OtherNames = txtOtherNames.Text.Trim
+            eInsuree.CHFID = txtCHFID.Text.Trim
+            eInsuree.Phone = txtPhone.Text.Trim
+            eInsuree.Email = txtEmail.Text.Trim
 
 
-            If Trim(ddlGender.SelectedValue).Length > 0 Then
-                eInsuree.Gender = ddlGender.SelectedValue
+            If ddlGender.SelectedValue.Length > 0 Then
+                eInsuree.Gender = ddlGender.SelectedValue.Trim
             End If
 
             If Trim(ddlMarital.SelectedValue).Length > 0 Then
-                eInsuree.Marital = ddlMarital.SelectedValue
+                eInsuree.Marital = ddlMarital.SelectedValue.Trim
             End If
 
-            eFamily.ConfirmationNo = txtConfirmationNo.Text
+            eFamily.ConfirmationNo = txtConfirmationNo.Text.Trim
             eFamily.RegionId = Val(ddlRegion.SelectedValue)
             eFamily.WardId = CInt(If(ddlWard.SelectedValue = String.Empty, 0, ddlWard.SelectedValue))
             eFamily.LocationId = CInt(If(ddlVillage.SelectedValue = String.Empty, 0, ddlVillage.SelectedValue))

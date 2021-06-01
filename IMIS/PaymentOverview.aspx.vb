@@ -199,13 +199,13 @@ Public Class PaymentOverview
             If txtEditInsuranceNumber.Text = "" Or Val(ddlProduct.SelectedValue) = 0 Or ddlPolicyStage.SelectedValue = "" Then
                 lblMsg.Text = imisgen.getMessage("V_SUMMARY", True)
                 Return
-            ElseIf Not BI.CheckCHFID(txtEditInsuranceNumber.Text) = True Then
+            ElseIf Not BI.CheckCHFID(txtEditInsuranceNumber.Text.Trim) = True Then
                 lblMsg.Text = imisgen.getMessage("M_NOTVALIDCHFNUMBER", True)
                 Return
             End If
             Dim dt As DataTable
 
-            ePaymentDetails.InsuranceNumber = txtEditInsuranceNumber.Text
+            ePaymentDetails.InsuranceNumber = txtEditInsuranceNumber.Text.Trim
 
             If ddlProduct.SelectedIndex > 0 Then
                 ePaymentDetails.ProductCode = ddlProduct.SelectedItem.Text

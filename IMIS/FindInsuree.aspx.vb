@@ -139,27 +139,27 @@ Partial Public Class FindInsuree
 
 
             eInsuree.AuditUserID = imisgen.getUserId(Session("User"))
-            eInsuree.LastName = txtLastName.Text
-            eInsuree.OtherNames = txtOtherNames.Text
-            eInsuree.CHFID = txtCHFID.Text
-            eInsuree.Email = txtEmail.Text
-            If Trim(txtBirthDateFrom.Text).Length > 0 Then
-                If IsDate(txtBirthDateFrom.Text) Then
-                    eInsuree.DOBFrom = Date.Parse(txtBirthDateFrom.Text)
+            eInsuree.LastName = txtLastName.Text.Trim
+            eInsuree.OtherNames = txtOtherNames.Text.Trim
+            eInsuree.CHFID = txtCHFID.Text.Trim
+            eInsuree.Email = txtEmail.Text.Trim
+            If txtBirthDateFrom.Text.Trim.Length > 0 Then
+                If IsDate(txtBirthDateFrom.Text.Trim) Then
+                    eInsuree.DOBFrom = Date.Parse(txtBirthDateFrom.Text.Trim)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
             End If
-            If Trim(txtBirthDateto.Text).Length > 0 Then
-                If IsDate(txtBirthDateTo.Text) Then
-                    eInsuree.DOBTo = Date.Parse(txtBirthDateTo.Text)
+            If txtBirthDateTo.Text.Trim.Length > 0 Then
+                If IsDate(txtBirthDateTo.Text.Trim) Then
+                    eInsuree.DOBTo = Date.Parse(txtBirthDateTo.Text.Trim)
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
             End If
-            eInsuree.Phone = txtPhone.Text
+            eInsuree.Phone = txtPhone.Text.Trim
             eInsuree.Gender = ddlGender.SelectedValue
             eInsuree.Marital = ddlMarital.SelectedValue
             eInsuree.isOffline = chkOffline.Checked

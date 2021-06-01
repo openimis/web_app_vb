@@ -103,10 +103,10 @@ Partial Public Class FindMedicalItem
     End Sub
     Private Sub loadGrid() Handles B_SEARCH.Click, chkLegacy.CheckedChanged, gvMedicalItems.PageIndexChanged
         lblMsg.Text = ""
-        eItems.ItemCode = txtItemCode.Text
-        eItems.ItemName = txtItemName.Text
-        eItems.ItemName = txtItemName.Text
-        eItems.ItemPackage = txtPackage.Text
+        eItems.ItemCode = txtItemCode.Text.Trim
+        eItems.ItemName = txtItemName.Text.Trim
+        eItems.ItemName = txtItemName.Text.Trim
+        eItems.ItemPackage = txtPackage.Text.Trim
         eItems.ItemType = ddlType.SelectedValue
         eItems.AuditUserID = imisGen.getUserId(Session("User"))
         getGridData()

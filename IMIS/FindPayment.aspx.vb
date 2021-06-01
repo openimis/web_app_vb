@@ -130,71 +130,71 @@ Partial Public Class FindPayment
         End If
 
         With ePayment
-            .InsuranceNumber = If(txtInsuranceNumber.Text = "", Nothing, txtInsuranceNumber.Text)
-            .PhoneNumber = If(txtPhoneNumber.Text = "", Nothing, txtPhoneNumber.Text)
-            .OfficerCode = If(txtOfficeCode.Text = "", Nothing, txtOfficeCode.Text)
-            .ReceiptNo = If(txtReceiptNo.Text = "", Nothing, txtReceiptNo.Text)
+            .InsuranceNumber = If(txtInsuranceNumber.Text.Trim = "", Nothing, txtInsuranceNumber.Text.Trim)
+            .PhoneNumber = If(txtPhoneNumber.Text.Trim = "", Nothing, txtPhoneNumber.Text.Trim)
+            .OfficerCode = If(txtOfficeCode.Text.Trim = "", Nothing, txtOfficeCode.Text.Trim)
+            .ReceiptNo = If(txtReceiptNo.Text.Trim = "", Nothing, txtReceiptNo.Text.Trim)
             .PaymentStatus = PaymentStatus
-            .ProductCode = If(txtProductCode.Text = "", Nothing, txtProductCode.Text)
+            .ProductCode = If(txtProductCode.Text.Trim = "", Nothing, txtProductCode.Text.Trim)
             .Legacy = chkLegacy.Checked
             .dtPaymentStatus = Payment.GetPayementStatus(False)
-            .ControlNumber = If(txtControlNumber.Text = "", Nothing, txtControlNumber.Text)
-            .TransactionNumber = If(txtTransactionNumber.Text = "", Nothing, txtTransactionNumber.Text)
-            .PaymentOrigin = If(txtPaymentOrigin.Text = "", Nothing, txtPaymentOrigin.Text)
+            .ControlNumber = If(txtControlNumber.Text.Trim = "", Nothing, txtControlNumber.Text.Trim)
+            .TransactionNumber = If(txtTransactionNumber.Text.Trim = "", Nothing, txtTransactionNumber.Text.Trim)
+            .PaymentOrigin = If(txtPaymentOrigin.Text.Trim = "", Nothing, txtPaymentOrigin.Text.Trim)
 
         End With
-        If IsNumeric(txtReceivedAmountFrom.Text) Then
-            ePayment.ReceivedAmountFrom = Val(txtReceivedAmountFrom.Text)
+        If IsNumeric(txtReceivedAmountFrom.Text.Trim) Then
+            ePayment.ReceivedAmountFrom = Val(txtReceivedAmountFrom.Text.Trim)
         End If
-        If IsNumeric(txtReceivedAmountTo.Text) Then
-            ePayment.ReceivedAmountTO = Val(txtReceivedAmountTo.Text)
+        If IsNumeric(txtReceivedAmountTo.Text.Trim) Then
+            ePayment.ReceivedAmountTO = Val(txtReceivedAmountTo.Text.Trim)
         End If
         ePayment.AuditUserID = imisgen.getUserId(Session("User"))
-        If Trim(txtDateOfPaymentFrom.Text).Length > 0 Then
-            If IsDate(txtDateOfPaymentFrom.Text) Then
-                ePayment.DateFrom = Date.Parse(txtDateOfPaymentFrom.Text)
+        If Trim(txtDateOfPaymentFrom.Text.Trim).Length > 0 Then
+            If IsDate(txtDateOfPaymentFrom.Text.Trim) Then
+                ePayment.DateFrom = Date.Parse(txtDateOfPaymentFrom.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
         End If
 
-        If Trim(txtDateOfPaymentTo.Text).Length > 0 Then
-            If IsDate(txtDateOfPaymentTo.Text) Then
-                ePayment.DateTo = Date.Parse(txtDateOfPaymentTo.Text)
+        If Trim(txtDateOfPaymentTo.Text.Trim).Length > 0 Then
+            If IsDate(txtDateOfPaymentTo.Text.Trim) Then
+                ePayment.DateTo = Date.Parse(txtDateOfPaymentTo.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
         End If
-        If Trim(txtReceivingDateFrom.Text).Length > 0 Then
-            If IsDate(txtReceivingDateFrom.Text) Then
-                ePayment.ReceivingDateFrom = Date.Parse(txtReceivingDateFrom.Text)
+        If Trim(txtReceivingDateFrom.Text.Trim).Length > 0 Then
+            If IsDate(txtReceivingDateFrom.Text.Trim) Then
+                ePayment.ReceivingDateFrom = Date.Parse(txtReceivingDateFrom.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
         End If
-        If Trim(txtReceivingDateTo.Text).Length > 0 Then
-            If IsDate(txtReceivingDateTo.Text) Then
-                ePayment.ReceivingDateTo = Date.Parse(txtReceivingDateTo.Text)
+        If Trim(txtReceivingDateTo.Text.Trim).Length > 0 Then
+            If IsDate(txtReceivingDateTo.Text.Trim) Then
+                ePayment.ReceivingDateTo = Date.Parse(txtReceivingDateTo.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
         End If
 
-        If Trim(txtMatchingDateFrom.Text).Length > 0 Then
-            If IsDate(txtMatchingDateFrom.Text) Then
-                ePayment.MatchDateFrom = Date.Parse(txtMatchingDateFrom.Text)
+        If Trim(txtMatchingDateFrom.Text.Trim).Length > 0 Then
+            If IsDate(txtMatchingDateFrom.Text.Trim) Then
+                ePayment.MatchDateFrom = Date.Parse(txtMatchingDateFrom.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
         End If
-        If Trim(txtMatchingDateTo.Text).Length > 0 Then
-            If IsDate(txtMatchingDateTo.Text) Then
-                ePayment.MatchedDateTo = Date.Parse(txtMatchingDateTo.Text)
+        If Trim(txtMatchingDateTo.Text.Trim).Length > 0 Then
+            If IsDate(txtMatchingDateTo.Text.Trim) Then
+                ePayment.MatchedDateTo = Date.Parse(txtMatchingDateTo.Text.Trim)
             Else
                 imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return

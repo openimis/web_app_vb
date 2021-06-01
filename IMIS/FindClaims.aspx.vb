@@ -331,8 +331,8 @@ Partial Public Class FindClaims
                 If ddlHFCode.SelectedIndex >= 0 Then
                     eHF.HfID = ddlHFCode.SelectedValue
                 End If
-                If Not txtHFName.Text = "" Then
-                    eHF.HFName = txtHFName.Text
+                If Not txtHFName.Text.Trim = "" Then
+                    eHF.HFName = txtHFName.Text.Trim
                 End If
 
                 eHF.RegionId = Val(ddlRegion.SelectedValue)
@@ -347,26 +347,26 @@ Partial Public Class FindClaims
                     eICDCodes.ICDID = 0
                 End If
 
-                If Not txtClaimCode.Text = "" Then
-                    eClaim.ClaimCode = txtClaimCode.Text
+                If Not txtClaimCode.Text.Trim = "" Then
+                    eClaim.ClaimCode = txtClaimCode.Text.Trim
                 End If
 
-                If Not txtVisitDateTo.Text = "" Then
-                    eClaim.DateTo = Date.Parse(txtVisitDateTo.Text)
+                If Not txtVisitDateTo.Text.Trim = "" Then
+                    eClaim.DateTo = Date.Parse(txtVisitDateTo.Text.Trim)
                 End If
 
-                If Not txtVisitDateFrom.Text = "" Then
-                    eClaim.DateFrom = Date.Parse(txtVisitDateFrom.Text)
+                If Not txtVisitDateFrom.Text.Trim = "" Then
+                    eClaim.DateFrom = Date.Parse(txtVisitDateFrom.Text.Trim)
                 End If
-                If Not txtClaimedDateFrom.Text = "" Then
-                    eClaim.DateClaimed = Date.Parse(txtClaimedDateFrom.Text)
+                If Not txtClaimedDateFrom.Text.Trim = "" Then
+                    eClaim.DateClaimed = Date.Parse(txtClaimedDateFrom.Text.Trim)
                 End If
 
-                If Not txtClaimedDateTo.Text = "" Then
-                    eClaim.DateProcessed = Date.Parse(txtClaimedDateTo.Text) 'Used as a carrier for ClaimedDate to range 
+                If Not txtClaimedDateTo.Text.Trim = "" Then
+                    eClaim.DateProcessed = Date.Parse(txtClaimedDateTo.Text.Trim) 'Used as a carrier for ClaimedDate to range 
                 End If
-                If Not txtCHFID.Text = "" Then
-                    eInsuree.CHFID = txtCHFID.Text
+                If Not txtCHFID.Text.Trim = "" Then
+                    eInsuree.CHFID = txtCHFID.Text.Trim
                 End If
                 If ddlClaimAdmin.SelectedIndex > -1 Then
                     eClaimAdmin.ClaimAdminId = ddlClaimAdmin.SelectedValue
@@ -433,19 +433,19 @@ Partial Public Class FindClaims
         dic.Add("RegionId", ddlRegion.SelectedValue)
         dic.Add("LocationId", ddlDistrict.SelectedValue)
         dic.Add("HFID", ddlHFCode.SelectedValue)
-        dic.Add("CHFNo", txtCHFID.Text)
-        dic.Add("ClaimCode", txtClaimCode.Text)
-        dic.Add("HFName", txtHFName.Text)
+        dic.Add("CHFNo", txtCHFID.Text.Trim)
+        dic.Add("ClaimCode", txtClaimCode.Text.Trim)
+        dic.Add("HFName", txtHFName.Text.Trim)
         dic.Add("ReviewStatus", ddlReviewStatus.SelectedValue)
         dic.Add("FeedbackStatus", ddlFBStatus.SelectedValue)
         dic.Add("ClaimStatus", ddlClaimStatus.SelectedValue)
         ' dic.Add("ICDID", ddlICD.SelectedValue)
-        dic.Add("ICDID", txtICDCode.Text)
+        dic.Add("ICDID", txtICDCode.Text.Trim)
         dic.Add("BatchRunID", ddlBatchRun.SelectedValue)
-        dic.Add("VisitDateFrom", If(txtVisitDateFrom.Text = "", "", txtVisitDateFrom.Text))
-        dic.Add("VisitDateTo", If(txtVisitDateTo.Text = "", "", txtVisitDateTo.Text))
-        dic.Add("ClaimedDateFrom", If(txtClaimedDateFrom.Text = "", "", txtClaimedDateFrom.Text))
-        dic.Add("ClaimedDateTo", If(txtClaimedDateTo.Text = "", "", txtClaimedDateTo.Text))
+        dic.Add("VisitDateFrom", If(txtVisitDateFrom.Text.Trim = "", "", txtVisitDateFrom.Text.Trim))
+        dic.Add("VisitDateTo", If(txtVisitDateTo.Text.Trim = "", "", txtVisitDateTo.Text.Trim))
+        dic.Add("ClaimedDateFrom", If(txtClaimedDateFrom.Text.Trim = "", "", txtClaimedDateFrom.Text.Trim))
+        dic.Add("ClaimedDateTo", If(txtClaimedDateTo.Text.Trim = "", "", txtClaimedDateTo.Text.Trim))
         dic.Add("ClaimAdminID", ddlClaimAdmin.SelectedValue)
         dic.Add("VisitType", ddlVisitType.SelectedValue)
 

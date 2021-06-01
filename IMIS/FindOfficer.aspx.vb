@@ -115,28 +115,28 @@ Partial Public Class FindOfficer
     Private Sub loadGrid() Handles B_SEARCH.Click, chkLegacy.CheckedChanged, gvOfficers.PageIndexChanged
         Try
             lblMsg.Text = ""
-            eofficer.Code = txtCode.Text
-            eofficer.LastName = txtLastName.Text
-            If txtDOBFROM.Text.Length > 0 Then
-                If IsDate(txtDOBFROM.Text) Then
-                    eofficer.DOBFrom = Date.Parse(txtDOBFROM.Text)
+            eofficer.Code = txtCode.Text.Trim
+            eofficer.LastName = txtLastName.Text.Trim
+            If txtDOBFROM.Text.Trim.Length > 0 Then
+                If IsDate(txtDOBFROM.Text.Trim) Then
+                    eofficer.DOBFrom = Date.Parse(txtDOBFROM.Text.Trim)
                 Else
                     imisGen.Alert(imisGen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
                     Return
                 End If
             End If
-           
-            If txtDOBTo.Text.Length > 0 Then
-                If IsDate(txtDOBTo.Text) Then
-                    eofficer.DOBTo = Date.Parse(txtDOBTo.Text)
-                Else
-                    imisGen.Alert(imisGen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
-                    Return
-                End If
-            End If
-          
 
-            eofficer.Phone = txtPhone.Text
+            If txtDOBTo.Text.Trim.Length > 0 Then
+                If IsDate(txtDOBTo.Text.Trim) Then
+                    eofficer.DOBTo = Date.Parse(txtDOBTo.Text.Trim)
+                Else
+                    imisGen.Alert(imisGen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
+                    Return
+                End If
+            End If
+
+
+            eofficer.Phone = txtPhone.Text.Trim
 
             Dim eLocations As New IMIS_EN.tblLocations
             Dim RegionId As Integer?
@@ -160,9 +160,9 @@ Partial Public Class FindOfficer
             eLocations.DistrictID = DistrictId
 
             eofficer.tblLocations = eLocations
-            eofficer.OtherNames = txtOtherNames.Text
+            eofficer.OtherNames = txtOtherNames.Text.Trim
             eofficer.AuditUserID = imisGen.getUserId(Session("User"))
-            eofficer.EmailId = txtEmail.Text
+            eofficer.EmailId = txtEmail.Text.Trim
             getGridData()
 
         Catch ex As Exception

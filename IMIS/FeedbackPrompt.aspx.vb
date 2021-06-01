@@ -148,17 +148,17 @@ Partial Public Class FeedbackPrompt
         Dim Ward As Integer = Val(ddlWard.SelectedValue)
         Dim SMSStatus As Integer = if(ddlSMSStatus.SelectedValue = "-1", 0, ddlSMSStatus.SelectedValue)
 
-        If txtFromDate.Text = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
+        If txtFromDate.Text.Trim = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
         'If ddlOfficer.SelectedValue > 0 Then
-        If IsDate(Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeFrom = Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeFrom = Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
 
-        If txtToDate.Text = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
+        If txtToDate.Text.Trim = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
 
-        If IsDate(Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeTo = Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeTo = Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
 
@@ -218,8 +218,8 @@ Partial Public Class FeedbackPrompt
         RptDictionary.Add("WardID", ddlWard.SelectedValue)
         RptDictionary.Add("VillageID", ddlVillage.SelectedValue)
         RptDictionary.Add("OfficerID", ddlOfficer.SelectedValue)
-        RptDictionary.Add("DateFrom", txtFromDate.Text)
-        RptDictionary.Add("DateTo", txtToDate.Text)
+        RptDictionary.Add("DateFrom", txtFromDate.Text.Trim)
+        RptDictionary.Add("DateTo", txtToDate.Text.Trim)
         Session("RptFilterCriteria") = RptDictionary
     End Sub
     Private Sub ddlDistricts_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlDistrict.SelectedIndexChanged
@@ -242,17 +242,17 @@ Partial Public Class FeedbackPrompt
 
             Dim RangeTo As Date
             Dim RangeFrom As Date
-            If txtFromDate.Text = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
+            If txtFromDate.Text.Trim = "" Then txtFromDate.Text = Format(Date.Now, "dd/MM/yyyy")
 
-            If IsDate(Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)) Then
-                RangeFrom = Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)
+            If IsDate(Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                RangeFrom = Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)
             End If
 
 
-            If txtToDate.Text = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
+            If txtToDate.Text.Trim = "" Then txtToDate.Text = Format(Date.Now, "dd/MM/yyyy")
 
-            If IsDate(Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)) Then
-                RangeTo = Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)
+            If IsDate(Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+                RangeTo = Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)
             End If
 
             Dim str As String = Feedback.sendSMS(RangeFrom, RangeTo)

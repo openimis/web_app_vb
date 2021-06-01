@@ -185,7 +185,7 @@ Partial Public Class ClaimFeedback
             efeedback.PaymentAsked = CType(ddlPaymentAsked.SelectedValue, Boolean)
             efeedback.DrugPrescribed = CType(ddlDrugsPrescribed.SelectedValue, Boolean)
             efeedback.DrugReceived = CType(ddlDrugsReceived.SelectedValue, Boolean)
-            efeedback.FeedbackDate = Date.Parse(txtFeedbackDate.Text)
+            efeedback.FeedbackDate = Date.Parse(txtFeedbackDate.Text.Trim)
             efeedback.Asessment = rbOverallAsessmentLevels.SelectedValue
           
 
