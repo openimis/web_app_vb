@@ -38,4 +38,18 @@ Public Class BatchRunBL
         dt.Rows.InsertAt(dr, 0)
         Return dt
     End Function
+
+    Public Function WasAlreadyRun(ByVal LocationId As Integer, ByVal RunYear As Integer, ByVal RunMonth As Integer) As Boolean
+        Dim batchRunDAL As New IMIS_DAL.BatchRunDAL
+        Dim dt As DataTable = batchRunDAL.GetBatchRun(LocationId, RunYear, RunMonth)
+
+        Return dt.Rows.Count > 0
+    End Function
+
+    Public Function GetBatchRunById(ByVal RunID As Integer) As DataRow
+        Dim batchRunDAL As New IMIS_DAL.BatchRunDAL
+        Dim dr As DataRow = batchRunDAL.GetBatchRunByID(RunID)
+
+        Return dr
+    End Function
 End Class

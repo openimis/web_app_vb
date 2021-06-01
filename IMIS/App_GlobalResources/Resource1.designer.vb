@@ -7382,6 +7382,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Batch not selected.
+        '''</summary>
+        Friend Shared ReadOnly Property M_BATCH_RUN_NOT_SELECTED() As String
+            Get
+                Return ResourceManager.GetString("M_BATCH_RUN_NOT_SELECTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to already belongs to.
         '''</summary>
         Friend Shared ReadOnly Property M_BELONGSTO() As String
@@ -7432,6 +7441,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_CANNOTPASSSERVICEREJECTED() As String
             Get
                 Return ResourceManager.GetString("M_CANNOTPASSSERVICEREJECTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Batch run for given location and period was not executed.
+        '''</summary>
+        Friend Shared ReadOnly Property M_CAPITATION_PAYMENT_NO_BATCH_RUN() As String
+            Get
+                Return ResourceManager.GetString("M_CAPITATION_PAYMENT_NO_BATCH_RUN", resourceCulture)
             End Get
         End Property
         
@@ -10370,6 +10388,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Region not selected.
+        '''</summary>
+        Friend Shared ReadOnly Property M_REGION_NOT_SELECTED() As String
+            Get
+                Return ResourceManager.GetString("M_REGION_NOT_SELECTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Rejected:.
         '''</summary>
         Friend Shared ReadOnly Property M_REJECTED() As String
@@ -11518,6 +11545,15 @@ Namespace Resources
         Friend Shared ReadOnly Property R_CALCULATEDCOMMISSIONFOR() As String
             Get
                 Return ResourceManager.GetString("R_CALCULATEDCOMMISSIONFOR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Capitation.
+        '''</summary>
+        Friend Shared ReadOnly Property R_CAPITATION() As String
+            Get
+                Return ResourceManager.GetString("R_CAPITATION", resourceCulture)
             End Get
         End Property
         

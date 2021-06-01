@@ -41,4 +41,30 @@ Public Class BatchRunDAL
         data.params("@DistrictID", SqlDbType.Int, DistrictID)
         Return data.Filldata
     End Function
+
+    Public Function GetBatchRun(ByVal LocationId As Integer, ByVal RunYear As Integer, ByVal RunMonth As Integer) As DataTable
+        Dim sSQL As String = "SELECT RunID, RunYear, RunMonth, RunDate
+                              FROM tblBatchRun 
+                              WHERE ValidityTo IS NULL 
+                              AND RunYear = @RunYear
+                              AND RunMonth = @RunMonth"
+        If LocationId = -1 Or LocationId = 0 Then
+            sSQL += " AND LocationId IS NULL"
+        Else
+            sSQL += " AND LocationId = @LocationId"
+        End If
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@LocationId", SqlDbType.Int, LocationId)
+        data.params("@RunYear", SqlDbType.Int, RunYear)
+        data.params("@RunMonth", SqlDbType.Int, RunMonth)
+        Return data.Filldata
+    End Function
+
+    Public Function GetBatchRunByID(ByVal RunID As Integer) As DataRow
+        Dim sSQL As String = "SELECT RunID, RunYear, RunMonth, RunDate FROM tblBatchRun where RunID = @RunID"
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@RunID", SqlDbType.Int, RunID)
+        Return data.Filldata()(0)
+    End Function
 End Class

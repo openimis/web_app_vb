@@ -130,12 +130,11 @@ Public Class ReportBL
         dict.Add(getMessage("T_FAMILIESINSUREESOVERVIEW"), IMIS_EN.Enums.Rights.ReportsFamiliesInsureesOverview) 'id = 15
         dict.Add(getMessage("T_PENDINGINSUREES"), IMIS_EN.Enums.Rights.ReportsPendingInsurees) 'id = 16
         dict.Add(getMessage("T_RENEWALS"), IMIS_EN.Enums.Rights.ReportsRenewals)    'id = 17
-        dict.Add(getMessage("T_CAPITATIONPAYMENT"), IMIS_EN.Enums.Rights.ReportsCapitationPayment)  'Id = 18
-        dict.Add(getMessage("T_REJECTEDPHOTOS"), IMIS_EN.Enums.Rights.ReportRejectedPhoto)  'Id = 19
-        dict.Add(getMessage("L_CONTRIBUTIONPAYMENT"), IMIS_EN.Enums.Rights.ReportsContributionPayment) 'Id =20 
-        dict.Add(getMessage("L_CONTROLNUMBERASSIGNMENT"), IMIS_EN.Enums.Rights.ReportsControlNumberAssignment) 'Id = 21
-        dict.Add(getMessage("L_OVERVIEWOFCOMMISSIONS"), IMIS_EN.Enums.Rights.ReportsOverviewOfCommissions) 'Id = 22
-        dict.Add(getMessage("L_CLAIMHISTORYREPORT"), IMIS_EN.Enums.Rights.ReportsClaimHistoryReport) 'Id = 23
+        dict.Add(getMessage("T_REJECTEDPHOTOS"), IMIS_EN.Enums.Rights.ReportRejectedPhoto)  'Id = 18
+        dict.Add(getMessage("L_CONTRIBUTIONPAYMENT"), IMIS_EN.Enums.Rights.ReportsContributionPayment) 'Id = 19
+        dict.Add(getMessage("L_CONTROLNUMBERASSIGNMENT"), IMIS_EN.Enums.Rights.ReportsControlNumberAssignment) 'Id = 20
+        dict.Add(getMessage("L_OVERVIEWOFCOMMISSIONS"), IMIS_EN.Enums.Rights.ReportsOverviewOfCommissions) 'Id = 21
+        dict.Add(getMessage("L_CLAIMHISTORYREPORT"), IMIS_EN.Enums.Rights.ReportsClaimHistoryReport) 'Id = 22
         Dim dr As DataRow
         Dim index As Integer = 1
         For Each Rtype As String In dict.Keys

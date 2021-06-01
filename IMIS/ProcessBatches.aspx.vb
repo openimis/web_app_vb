@@ -29,6 +29,7 @@
 Partial Public Class ProcessRelIndex
     Inherits System.Web.UI.Page
     Private process As New IMIS_BI.ProcessBatchesBI
+    Private modularBatchProcess As New IMIS_BI.ModularBatchProcess
     Private eRelIndex As New IMIS_EN.tblRelIndex
     Protected imisgen As New IMIS_Gen
     Private ProcessControls As New Dictionary(Of String, String)
@@ -82,6 +83,7 @@ Partial Public Class ProcessRelIndex
         FilterControls.Add("ddlHFLevelFilter", ddlHFLevelFilter.SelectedValue)
 
         PreviewControls.Add("rbHF", rbHF.Checked.ToString())
+        PreviewControls.Add("rbCapitation", rbCapitation.Checked.ToString())
         PreviewControls.Add("rbProduct", rbProduct.Checked.ToString())
         PreviewControls.Add("ddlDistrictACC", ddlDistrictACC.SelectedValue)
         PreviewControls.Add("ddlProductAAC", ddlProductAAC.SelectedValue)
@@ -400,6 +402,7 @@ Partial Public Class ProcessRelIndex
         Try
             CacheCriteria("Process", True)
 
+
             Dim eProduct As New IMIS_EN.tblProduct
             Dim eLocations As New IMIS_EN.tblLocations
             eRelIndex.AuditUserID = imisgen.getUserId(Session("User"))
@@ -426,37 +429,56 @@ Partial Public Class ProcessRelIndex
                     RelType = 0
             End Select
 
+            Dim modularURL As String = System.Web.Configuration.WebConfigurationManager.AppSettings("ModularGQLSource").ToString()
+            Dim modularExecution As Boolean = Not (modularURL = "")
+
             eRelIndex.RelType = RelType
             eRelIndex.tblProduct = eProduct
-            eRelIndex.RelYear = if(IsNumeric(ddlYearProcess.SelectedValue), ddlYearProcess.SelectedValue, 0)
+            eRelIndex.RelYear = If(IsNumeric(ddlYearProcess.SelectedValue), ddlYearProcess.SelectedValue, 0)
             eRelIndex.RelPeriod = ddlMonthProcess.SelectedValue
             eRelIndex.RelCareType = ddlHFLevelFilter.SelectedValue
 
-            Dim Proc As Integer = process.ProcessBatch(eRelIndex)
-
-
+            Dim Proc = -1
             Dim msg As String = ""
-            Select Case Proc
-                Case 0
-                    Dim LocationName As String = ""
 
-                    If Val(ddlDistrictsBatch.SelectedValue) = 0 Then
-                        LocationName = ddlRegionBatch.SelectedItem.Text
-                    Else
-                        LocationName = ddlDistrictsBatch.SelectedItem.Text
-                    End If
+            If modularExecution Then
+                Dim result = modularBatchProcess.sendBatchRunGQLRequest(
+                    If(IsNumeric(ddlYearProcess.SelectedValue), ddlYearProcess.SelectedValue, 0), ' year
+                    If(IsNumeric(ddlMonthProcess.SelectedValue), ddlMonthProcess.SelectedValue, 0), ' month
+                    eLocations.LocationId, ' location
+                    imisgen.getLoginName(Session("User")) ' GQL endpoint
+                )
+                If result.error Is Nothing Then
+                    Proc = 0
+                Else
+                    Proc = -1
+                    msg = HttpUtility.HtmlEncode(result.error.ToString)
+                End If
+            Else
+                Proc = process.ProcessBatch(eRelIndex)
+                Select Case Proc
+                    Case 2
+                        msg = imisgen.getMessage("M_BATCHPROCESSRUNDONETHISSELECTION")
+                    Case 1
+                        msg = imisgen.getMessage("M_ERRORWHILEPROCESSING")
+                End Select
+            End If
 
-                    msg = imisgen.getMessage("L_DISTRICT") & ": " & LocationName & "<BR />"
-                    msg = msg & imisgen.getMessage("L_YEAR") & ": " & eRelIndex.RelYear & "<BR />"
-                    msg = msg & imisgen.getMessage("L_MONTH") & ": " & eRelIndex.RelPeriod & "<BR />"
-                    msg = msg & imisgen.getMessage("M_PROCESSEDSUCCESSFULLY")
-                Case 2
-                    msg = imisgen.getMessage("M_BATCHPROCESSRUNDONETHISSELECTION")
-                Case Else
-                    msg = imisgen.getMessage("M_ERRORWHILEPROCESSING")
-            End Select
 
             If Proc = 0 Then
+                Dim LocationName As String = ""
+
+                If Val(ddlDistrictsBatch.SelectedValue) = 0 Then
+                    LocationName = ddlRegionBatch.SelectedItem.Text
+                Else
+                    LocationName = ddlDistrictsBatch.SelectedItem.Text
+                End If
+
+                msg = imisgen.getMessage("L_DISTRICT") & ": " & LocationName & "<BR />"
+                msg = msg & imisgen.getMessage("L_YEAR") & ": " & eRelIndex.RelYear & "<BR />"
+                msg = msg & imisgen.getMessage("L_MONTH") & ": " & eRelIndex.RelPeriod & "<BR />"
+                msg = msg & imisgen.getMessage("M_PROCESSEDSUCCESSFULLY")
+
                 gvRelIndex.DataSource = process.GetRelIndexes(eRelIndex, True)
                 gvRelIndex.DataBind()
                 FillBatches()
@@ -501,7 +523,7 @@ Partial Public Class ProcessRelIndex
 
             eRelIndex.RelType = iRelType
             eRelIndex.tblProduct = eProduct
-            eRelIndex.RelYear = if(IsNumeric(ddlYearFilter.SelectedValue), ddlYearFilter.SelectedValue, 0)
+            eRelIndex.RelYear = If(IsNumeric(ddlYearFilter.SelectedValue), ddlYearFilter.SelectedValue, 0)
             eRelIndex.RelPeriod = period
             eRelIndex.RelCareType = ddlHFLevelFilter.SelectedValue
 
@@ -546,9 +568,9 @@ Partial Public Class ProcessRelIndex
             End If
 
             Dim ProductID As Integer = Val(ddlProductAAC.SelectedValue)
-            Dim RunID As Integer = if(IsNumeric(ddlBatchAAC.SelectedValue), ddlBatchAAC.SelectedValue, 0)
-            Dim HFID As Integer = if(IsNumeric(ddlHF.SelectedValue), ddlHF.SelectedValue, 0)
-            Dim HFLevel As String = if(ddlHFLevel.SelectedIndex > 0, ddlHFLevel.SelectedValue, "")
+            Dim RunID As Integer = If(IsNumeric(ddlBatchAAC.SelectedValue), ddlBatchAAC.SelectedValue, 0)
+            Dim HFID As Integer = If(IsNumeric(ddlHF.SelectedValue), ddlHF.SelectedValue, 0)
+            Dim HFLevel As String = If(ddlHFLevel.SelectedIndex > 0, ddlHFLevel.SelectedValue, "")
 
             If txtENDData.Text.Trim = "" Then txtENDData.Text = txtSTARTData.Text.Trim
 
@@ -568,8 +590,21 @@ Partial Public Class ProcessRelIndex
                 'RangeTo = Nothing
             End If
 
+            If rbCapitation.Checked Then
+                If ddlRegionACC.SelectedValue = 0 Then
+                    imisgen.Alert(imisgen.getMessage("M_REGION_NOT_SELECTED"), pnlButtons, alertPopupTitle:="IMIS")
+                    Return
+                ElseIf ddlBatchAAC.SelectedValue = 0 Then
+                    imisgen.Alert(imisgen.getMessage("M_BATCH_RUN_NOT_SELECTED"), pnlButtons, alertPopupTitle:="IMIS")
+                    Return
 
-
+                End If
+                dt = getCapitationPayment(Val(ddlRegionACC.SelectedValue), Val(ddlDistrictACC.SelectedValue),
+                                          Val(ddlProductAAC.SelectedValue), Val(ddlBatchAAC.SelectedValue))
+                If dt Is Nothing Then Exit Sub
+                Session("Report") = dt
+                Response.Redirect("Report.aspx?r=ca")
+            End If
 
             If RunID > 0 Then sSubTitle = sSubTitle & " " & imisgen.getMessage("L_RUNID") & ": " & ddlBatchAAC.SelectedItem.Text
             If Not txtSTARTData.Text.Trim = "" Then
@@ -627,11 +662,10 @@ Partial Public Class ProcessRelIndex
             If rbHF.Checked Then
                 If chkClaims.Checked = False Then Response.Redirect("Report.aspx?r=pbh")
                 If chkClaims.Checked = True Then Response.Redirect("Report.aspx?r=pbc&group=H")
-            Else
+            ElseIf rbProduct.Checked Then
                 If chkClaims.Checked = False Then Response.Redirect("Report.aspx?r=pbp")
                 If chkClaims.Checked = True Then Response.Redirect("Report.aspx?r=pbc&group=P")
             End If
-        Else
             imisgen.Alert(imisgen.getMessage("M_NODATAFORREPORT"), pnlButtons, alertPopupTitle:="IMIS")
         End If
 
@@ -674,4 +708,109 @@ Partial Public Class ProcessRelIndex
         FillBatches()
         FillHealthFacility()
     End Sub
+
+    Private Function getCapitationPayment(RegionId, DistrictID, ProductID, RunID) As DataTable
+        Dim sSubTitle As String = ""
+        Dim year As Integer
+        Dim month As Integer
+        Dim batchRun As DataRow
+        Dim dtCapitation As DataTable
+        Dim reports As New IMIS_BI.ReportsBI
+        Dim batchRunBL As New IMIS_BL.BatchRunBL
+        Dim locationName As String = ""
+
+        Dim dt As New DataTable
+        ' Dim dtHFLevel As New DataTable
+        '  \dtHFLevel.Columns.Add("Code")
+        'dtHFLevel.Columns.Add("Name")
+
+        ' Run year and date depending on selected batch run
+        batchRun = batchRunBL.GetBatchRunById(RunID)
+        year = batchRun("RunYear")
+        month = batchRun("RunMonth")
+
+        ' LocationName 
+        If (Val(RegionId) > 0 Or Val(RegionId) = -1) Then locationName = imisgen.getMessage("L_REGION") & ": " & ddlRegionACC.SelectedItem.Text
+        If Val(DistrictID) > 0 Then locationName += " | " & imisgen.getMessage("L_DISTRICT") & ": " & ddlDistrictACC.SelectedItem.Text
+
+
+        dtCapitation = reports.getProductCapitationDetails(ProductID)
+
+        If dtCapitation.Rows.Count Then
+            IMIS_EN.eReports.Level1 = getHFName(dtCapitation.Rows(0)("Level1").ToString)
+            IMIS_EN.eReports.Sublevel1 = dtCapitation.Rows(0)("HFSublevel1").ToString
+            IMIS_EN.eReports.Level2 = getHFName(dtCapitation.Rows(0)("Level2").ToString)
+            IMIS_EN.eReports.Sublevel2 = dtCapitation.Rows(0)("HFSublevel2").ToString
+            IMIS_EN.eReports.Level3 = getHFName(dtCapitation.Rows(0)("Level3").ToString)
+            IMIS_EN.eReports.Sublevel3 = dtCapitation.Rows(0)("HFSublevel3").ToString
+            IMIS_EN.eReports.Level4 = getHFName(dtCapitation.Rows(0)("Level4").ToString)
+            IMIS_EN.eReports.Sublevel4 = dtCapitation.Rows(0)("HFSublevel4").ToString
+            IMIS_EN.eReports.ShareContribution = If(dtCapitation.Rows(0)("ShareContribution") Is DBNull.Value, 0, dtCapitation.Rows(0)("ShareContribution"))
+            IMIS_EN.eReports.WeightPopulation = If(dtCapitation.Rows(0)("WeightPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightPopulation"))
+            IMIS_EN.eReports.WeightNumberFamilies = If(dtCapitation.Rows(0)("WeightNumberFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberFamilies"))
+            IMIS_EN.eReports.WeightInsuredPopulation = If(dtCapitation.Rows(0)("WeightInsuredPopulation") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightInsuredPopulation"))
+            IMIS_EN.eReports.WeightNumberInsuredFamilies = If(dtCapitation.Rows(0)("WeightNumberInsuredFamilies") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberInsuredFamilies"))
+            IMIS_EN.eReports.WeightNumberVisits = If(dtCapitation.Rows(0)("WeightNumberVisits") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightNumberVisits"))
+            IMIS_EN.eReports.WeightAdjustedAmount = If(dtCapitation.Rows(0)("WeightAdjustedAmount") Is DBNull.Value, 0, dtCapitation.Rows(0)("WeightAdjustedAmount"))
+
+        End If
+
+
+        dt = reports.getCatchmentArea(Val(RegionId), Val(DistrictID), Val(ProductID), year, month)
+
+        If dt Is Nothing OrElse dt.Rows.Count = 0 Then
+            Dim locationId = If(DistrictID > 0, DistrictID, RegionId)
+            If Not batchRunBL.WasAlreadyRun(locationId, year, month) Then
+                lblMsg.Text = imisgen.getMessage("M_CAPITATION_PAYMENT_NO_BATCH_RUN")
+                Return Nothing
+            End If
+            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
+            Return Nothing
+        End If
+        If Val(RegionId) > 0 Or Val(RegionId) = -1 Or ProductID > 0 Then
+            If Not Val(RegionId) = 0 Then
+                'If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
+                sSubTitle += locationName
+            End If
+        End If
+        If Not ProductID = 0 Then
+            If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
+            Dim dtProdDetails As DataTable = reports.GetProductName_Account(Val(ProductID))
+            Dim ProductName As String = ""
+
+            If Not dtProdDetails Is Nothing AndAlso dtProdDetails.Rows.Count > 0 Then
+                ProductName = dtProdDetails(0)("ProductName").ToString
+            End If
+            sSubTitle += imisgen.getMessage("L_PRODUCT") & ": " & ddlProductAAC.SelectedItem.Text & " - " & ProductName & ", " '& imisgen.getMessage("L_PRODUCTCODE") & ": " & AccountCode
+            'sSubTitle += imisgen.getMessage("L_CODE") & ": " & ddlProductStrict.SelectedItem.Text
+        End If
+
+        ' Batch dropdown is in format year-month
+        Dim batchDateText() As String = Split(ddlBatchAAC.SelectedItem.Text, "-")
+        If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
+        sSubTitle += imisgen.getMessage("L_MONTH") & ": " & batchDateText(1)
+
+        If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
+        sSubTitle += imisgen.getMessage("L_YEAR") & ": " & batchDateText(0)
+
+
+
+        IMIS_EN.eReports.SubTitle = sSubTitle
+        Return dt
+    End Function
+
+    Private Function getHFName(ByVal Code As String)
+        Select Case Code
+            Case "H"
+                Return imisgen.getMessage("T_HOSPITAL")
+            Case "C"
+                Return imisgen.getMessage("T_HEALTHCENTRE")
+            Case "D"
+                Return imisgen.getMessage("T_DISPENSARY")
+            Case Else
+                Return ""
+        End Select
+    End Function
+
 End Class
+
