@@ -328,21 +328,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 $criterias = $(".rnw");
             }
             else if (tid == 18) {
-                $criterias = $(".ca");
-            }
-            else if (tid == 19) {
                 $criterias = $(".rp");
             }
-            else if (tid == 20) {
+            else if (tid == 19) {
                 $criterias = $(".cp");
             }
-            else if (tid == 21) {
+            else if (tid == 20) {
                 $criterias = $(".cna");
             }
-            else if (tid == 22) {
+            else if (tid == 21) {
                 $criterias = $(".oc").add("div.oc");
             }
-            else if (tid == 23) {
+            else if (tid == 22) {
                 $criterias = $(".chr")
             }
             if ($criterias != null) {
