@@ -63,6 +63,7 @@ Public Class PaymentBL
         ePayment.TransactionNumber = If(dr.Table.Columns.Contains("TransactionNo") AndAlso Not dr.IsNull("TransactionNo"), dr("TransactionNo"), Nothing)
         ePayment.ReceivedDate = If(dr.Table.Columns.Contains("ReceivedDate") AndAlso Not dr.IsNull("ReceivedDate"), dr("ReceivedDate"), Nothing)
         ePayment.PaymentStatus = If(dr.Table.Columns.Contains("StatusID") AndAlso Not dr.IsNull("StatusID"), dr("StatusID"), Nothing)
+        ePayment.RejectedReason = If(dr.Table.Columns.Contains("RejectedReason") AndAlso Not dr.IsNull("RejectedReason"), dr("RejectedReason"), Nothing)
 
         Return ePayment
     End Function
