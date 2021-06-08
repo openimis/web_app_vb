@@ -466,7 +466,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     </li>
                                     <li class="pd doi ca oc">
                                         <asp:Label ID="lblMonth" runat="server" Text='<%$ Resources:Resource, L_MONTH %>' CssClass="FormLabel"></asp:Label>
-                                        <asp:DropDownList ID="ddlMonth" Width="90px" runat="server">
+                                        <asp:DropDownList ID="ddlMonth" Width="90px" runat="server" AutoPostBack="true">
                                         </asp:DropDownList>
 
                                     </li>
@@ -496,7 +496,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     </li>
                                     <li class="pd doi poi poiC ca oc">
                                         <asp:Label ID="lblYear" runat="server" Text='<%$ Resources:Resource, L_YEAR %>' CssClass="FormLabel"></asp:Label>
-                                        <asp:DropDownList ID="ddlYear" Width="68px" runat="server">
+                                        <asp:DropDownList ID="ddlYear" Width="68px" runat="server" AutoPostBack="true">
                                         </asp:DropDownList>
                                     </li>
                                     <li class="pd doi  perc ca cp cna ">
