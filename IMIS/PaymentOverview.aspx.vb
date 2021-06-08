@@ -139,7 +139,9 @@ Public Class PaymentOverview
         txtControlNo.Text = If(entities.ControlNumber IsNot Nothing, entities.ControlNumber, "")
         txtTransactionNo.Text = If(entities.TransactionNumber IsNot Nothing, entities.TransactionNumber, "")
         txtReceiptNo.Text = If(entities.ReceiptNo IsNot Nothing, entities.ReceiptNo, "")
-        txtRejectedReason.Text = If(entities.RejectedReason IsNot Nothing, entities.RejectedReason, "")
+        Dim rejectedReasonText As String = If(entities.RejectedReason IsNot Nothing, entities.RejectedReason, "")
+        Dim rejectedReasonTextFormatter As String = Replace(rejectedReasonText, ";", "</br>")
+        txtRejectedReason.Text = rejectedReasonTextFormatter
     End Sub
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
