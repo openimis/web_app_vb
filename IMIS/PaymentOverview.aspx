@@ -183,13 +183,19 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 </table>      
                     
                 <div style="text-align:center;">
-                    <div style="width:50%; margin: 0 auto; text-align:left;">
-                        <table style="width:100%;">
+                    <div style="width:50%; margin: 0 auto; text-align:center;">
+                        <table align="center">
                             <tr>
-                                <td class="auto-style2">
+                                <th class="auto-style3">
+                                </th>
+                                <th class="auto-style2" style="text-align:left">
                                     <asp:Label ID="lblRejectedReason" runat="server" Text="<%$ Resources:Resource,L_REJECTEDREASON %>"></asp:Label>
-                                </td>
+                                </th>
+                            </tr>
+                            <tr>
                                 <td class="auto-style3">
+                                </td>
+                                <td class="auto-style3" style="text-align:left">
                                     <asp:Label ID="txtRejectedReason" runat="server"></asp:Label>
                                 </td>
                             </tr>
