@@ -80,7 +80,7 @@ Public Class PayersDAL
     Public Function GetPayers(ByVal ePayer As IMIS_EN.tblPayer, ByVal dtPayerType As DataTable, ByVal All As Boolean) As DataTable
         Dim data As New ExactSQL
         Dim sSql As String = ""
-
+        sSql += " DECLARE @AdminUser INT;SELECT @AdminUser = UserID FROM tblUsers WHERE LoginName = 'Admin' AND ValidityTo IS NULL"
         sSql += " SELECT P.PayerId, P.PayerUUID, P.PayerUUID, P.PayerName, P.PayerAddress, P.Phone, P.ValidityFrom, P.ValidityTo,"
         sSql += " L.RegionName , L.DistrictName,"
         sSql += " P.PayerType, PayerType.AltLanguage, L.RegionId, L.DistrictId"
@@ -89,7 +89,7 @@ Public Class PayersDAL
         sSql += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(P.LocationId, 0)"
 
         sSql += " INNER JOIN ( SELECT L.DistrictId, L.RegionId FROM tblUsersDistricts UD"
-        sSql += " INNER JOIN uvwLocations L ON L.DistrictId = UD.LocationId WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)"
+        sSql += " INNER JOIN uvwLocations L ON L.DistrictId = UD.LocationId WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0 OR @UserId = @AdminUser)"
         sSql += " GROUP BY L.DistrictId, L.RegionId )UD ON UD.DistrictId = P.LocationId  OR UD.RegionId = P.LocationId OR P.LocationId IS NULL"
 
 

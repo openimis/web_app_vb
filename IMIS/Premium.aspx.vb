@@ -263,9 +263,9 @@ Partial Public Class Premium
 
                 ePayer.PayerID = ddlPayer.SelectedValue
                 ' EMIS: 15223 (ePremium.Amount = val(txtPremiumPaid.Text)
-                ePremium.Amount = txtPremiumPaid.Text
-                ePremium.Receipt = txtReceiptNumber.Text
-                ePremium.PayDate = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
+                ePremium.Amount = txtPremiumPaid.Text.Trim
+                ePremium.Receipt = txtReceiptNumber.Text.Trim
+                ePremium.PayDate = Date.ParseExact(txtPaymentDate.Text.Trim, "dd/MM/yyyy", Nothing)
                 ePremium.PayType = ddlTypeOfPayment.SelectedValue
                 ePremium.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
                 ePremium.AuditUserID = imisgen.getUserId(Session("User"))
@@ -279,7 +279,7 @@ Partial Public Class Premium
                     ePremium.isPhotoFee = 0
                 End If
 
-                Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
+                Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text.Trim, "dd/MM/yyyy", Nothing)
                 Dim StartDate As Date = Date.ParseExact(hfPolicyStartDate.Value, "dd/MM/yyyy", Nothing)
                 Dim EffectiveDate As Date = if(PayDate < StartDate, StartDate, PayDate)
                 If ePremium.PayDate > System.DateTime.Now Then

@@ -337,7 +337,7 @@ Public Class IMIS
 
 
             ' Region Of FSP
-            Adjustibility = General.getControlSetting("RegionOfFSP")
+            Adjustibility = General.getControlSetting("FSPDistrict")
             Dim RegionOFSP As Label = (TryCast(item.FindControl("regionalFSP"), Label))
             Dim L_FSPREGION As Label = (TryCast(item.FindControl("L_FSPREGION"), Label))
             RegionOFSP.Visible = Not (Adjustibility = "N")
@@ -349,7 +349,7 @@ Public Class IMIS
             OtherName.Visible = Not (Adjustibility = "N")
 
             'District OF FSP
-            Adjustibility = General.getControlSetting("DistrictOfFSP")
+            Adjustibility = General.getControlSetting("FSPDistrict")
             Dim DistrictOfFSP As Label = TryCast(item.FindControl("district_of_fsp"), Label)
             Dim L_FSPDISTRICT As Label = TryCast(item.FindControl("L_FSPDISTRICT"), Label)
             DistrictOfFSP.Visible = Not (Adjustibility = "N")
@@ -367,7 +367,7 @@ Public Class IMIS
             Age.Visible = Not (Adjustibility = "N")
 
             'HF Level
-            Adjustibility = General.getControlSetting("HFLevel")
+            Adjustibility = General.getControlSetting("FSPCategory")
             Dim HFLevel As Label = TryCast(item.FindControl("hfLevel"), Label)
             Dim L_FSPLEVEL As Label = TryCast(item.FindControl("L_FSPLEVEL"), Label)
             HFLevel.Visible = Not (Adjustibility = "N")
@@ -379,7 +379,7 @@ Public Class IMIS
             Gender.Visible = Not (Adjustibility = "N")
 
             'FSP
-            Adjustibility = General.getControlSetting("FirstServicePoint")
+            Adjustibility = General.getControlSetting("FSP")
             Dim FSP As Label = TryCast(item.FindControl("fsp"), Label)
             Dim L_FSP As Label = TryCast(item.FindControl("L_FSP"), Label)
             FSP.Visible = Not (Adjustibility = "N")

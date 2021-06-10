@@ -63,15 +63,15 @@ Public Partial Class PremiumCollection_
         Dim RangeFrom As DateTime
         Dim RangeTo As DateTime
 
-        If IsDate(Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeFrom = Date.ParseExact(txtFromDate.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeFrom = Date.ParseExact(txtFromDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
-        If IsDate(Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)) Then
-            RangeTo = Date.ParseExact(txtToDate.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)) Then
+            RangeTo = Date.ParseExact(txtToDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
-        Dim sSubTitle As String = "Date from " & txtFromDate.Text & " To " & txtToDate.Text
+        Dim sSubTitle As String = "Date from " & txtFromDate.Text.Trim & " To " & txtToDate.Text.Trim
 
         Dim PaymentType As String = ""
         Select Case ddlPaymentType.SelectedValue

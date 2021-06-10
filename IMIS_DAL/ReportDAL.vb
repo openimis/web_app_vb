@@ -494,7 +494,16 @@ Public Class ReportDAL
 
     Public Function getCatchmentArea(RegionId As Integer, DistrictId As Integer, ByVal ProductId As Integer, ByVal Year As Integer, ByVal Month As Integer, ByVal dt As DataTable) As DataTable
         Dim data As New ExactSQL
-        Dim sSQL As String = "uspSSRSCapitationPayment"
+
+        Dim modularURL As String = System.Web.Configuration.WebConfigurationManager.AppSettings("ModularGQLSource").ToString()
+
+        Dim sSQL As String
+        If modularURL = "" Then
+            sSQL = "uspSSRSCapitationPayment"
+        Else
+            sSQL = "uspSSRSRetrieveCapitationPaymentReportData"
+        End If
+
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@RegionId", SqlDbType.Int, If(RegionId = -1, DBNull.Value, RegionId))
         data.params("@DistrictId", SqlDbType.Int, If(DistrictId = 0, DBNull.Value, DistrictId)) ' DistrictId)
@@ -553,7 +562,7 @@ Public Class ReportDAL
         sSQL += " CASE PY.PaymentStatus WHEN 1 THEN 'Not yet Confirmed' WHEN 2 THEN 'Posted' WHEN 3 THEN 'Posted' WHEN 4 THEN  'Posted' WHEN 5 THEN 'Posted' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3 THEN 'Rejected' END PostingStatus,   "
         sSQL += " PY.RejectedReason PostingRejectedReason, CASE PY.PaymentStatus WHEN 3 THEN 'Assigned' WHEN 4 THEN 'Assigned' WHEN 5 THEN 'Assigned' WHEN 1 THEN 'Not yet assigned' WHEN 2 THEN 'Not yet assigned' WHEN -1  THEN 'Rejected'  WHEN -2 THEN 'Rejected' WHEN -3  THEN 'Rejected' END AssigmentStatus,"
         sSQL += " PY.ExpectedAmount,PY.TransferFee,PY.TypeOfPayment, "
-        sSQL += " CN.Comment CAssignmentRejectedReason, cn.ControlNumber,NULL PaymenyStatusName FROM tblControlNumber CN "
+        sSQL += " CN.Comment CAssignmentRejectedReason, cn.ControlNumber,NULL PaymenyStatusName, PD.PaymentId as BillID FROM tblControlNumber CN "
         sSQL += " INNER JOIN tblPayment PY ON PY.PaymentID = CN.PaymentID"
         sSQL += "  LEFT OUTER JOIN tblPaymentDetails PD ON PD.PaymentID = PY.PaymentID"
         sSQL += " LEFT OUTER JOIN tblOfficer O ON O.Code = PY.OfficerCode"
@@ -572,21 +581,23 @@ Public Class ReportDAL
         End If
         'Rejected Assignment Status is -3
         If AssignmentStatus = "Rejected" Then
-            sSQL += " AND  PY.PaymentStatus= -3"
+            sSQL += " AND  PY.PaymentStatus in (-3, -2, -1)"
         End If
         If AssignmentStatus = "Not yet assigned" Then
             sSQL += " AND PY.PaymentStatus <= 2 AND PY.PaymentStatus > 0"
         End If
-        If RegionId <> Nothing Or DistrictId <> Nothing Then
+        If RegionId <> Nothing Then
+            sSQL += " AND R.LocationID = @RegionId"
+        End If
+        If RegionId <> Nothing And DistrictId <> Nothing Then
             sSQL += " AND D.LocationId = @DistrictId"
-            sSQL += " AND R.LocationId = @RegionId"
         End If
         If PostingStatus = "Posted" Then
             sSQL += " AND  PY.PaymentStatus >= 2"
         End If
         'Rejected posting status are -1,-2,-3
         If PostingStatus = "Rejected" Then
-            sSQL += " AND  PY.PaymentStatus = -1 OR  PY.PaymentStatus = -2"
+            sSQL += " AND  PY.PaymentStatus in (-3, -2, -1)"
         End If
         If PostingStatus = "Not yet confirmed" Then
             sSQL += " AND  PY.PaymentStatus =1 "

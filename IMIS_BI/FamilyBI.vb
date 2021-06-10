@@ -37,19 +37,19 @@ Public Class FamilyBI
     End Sub
     Public Function GetDistricts(ByVal userId As Integer, Optional ByVal showSelect As Boolean = False, Optional ByVal RegionId As Integer = 0) As DataTable
         Dim Districts As New IMIS_BL.LocationsBL
-        Return Districts.GetDistricts(userId, True, RegionId)
+        Return Districts.GetDistricts(userId, showSelect, RegionId)
     End Function
     Public Function GetDistrictsAll(ByVal userID As Integer, Optional RegionId As Integer = 0, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim Districts As New IMIS_BL.LocationsBL
-        Return Districts.GetDistrictsAll(userID, RegionId, True)
+        Return Districts.GetDistrictsAll(userID, RegionId, showSelect)
     End Function
     Public Function GetWards(ByVal DistrictID As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim Wards As New IMIS_BL.LocationsBL
-        Return Wards.GetWards(DistrictID, True)
+        Return Wards.GetWards(DistrictID, showSelect)
     End Function
     Public Function GetVillages(ByVal WardId As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim Villages As New IMIS_BL.LocationsBL
-        Return Villages.GetVillages(WardId, True)
+        Return Villages.GetVillages(WardId, showSelect)
     End Function
     Public Function GetGender() As DataTable
         Dim Gender As New IMIS_BL.GenderBL

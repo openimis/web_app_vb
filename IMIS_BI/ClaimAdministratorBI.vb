@@ -76,10 +76,6 @@ Public Class ClaimAdministratorBI
         Dim ClaimAdmin As New IMIS_BL.ClaimAdminBL
         Return ClaimAdmin.GetClaimAdminUUIDByID(id)
     End Function
-    Public Function getHFUserLocation(ByVal UserId As Integer, ByVal Hfid As Integer) As DataTable
-        Dim BL As New IMIS_BL.HealthFacilityBL
-        Return BL.getHFUserLocation(UserId, Hfid)
-    End Function
     Public Function CheckIfUserExists(ByVal eUser As IMIS_EN.tblUsers) As DataTable
         Dim BL As New IMIS_BL.ClaimAdminBL
         Return BL.CheckIfUserExists(eUser)

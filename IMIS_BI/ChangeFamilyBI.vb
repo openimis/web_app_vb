@@ -52,15 +52,15 @@ Public Class ChangeFamilyBI
     End Sub
     Public Function GetDistricts(ByVal userId As Integer, Optional ByVal showSelect As Boolean = False, Optional ByVal RegionId As Integer = 0) As DataTable
         Dim Districts As New IMIS_BL.LocationsBL
-        Return Districts.GetDistricts(userId, True, RegionId)
+        Return Districts.GetDistricts(userId, showSelect, RegionId)
     End Function
     Public Function GetWards(ByVal DistrictID As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim Wards As New IMIS_BL.LocationsBL
-        Return Wards.GetWards(DistrictID, True)
+        Return Wards.GetWards(DistrictID, showSelect)
     End Function
     Public Function GetVillages(ByVal WardId As Integer, Optional ByVal showSelect As Boolean = False) As DataTable
         Dim Villages As New IMIS_BL.LocationsBL
-        Return Villages.GetVillages(WardId, True)
+        Return Villages.GetVillages(WardId, showSelect)
     End Function
     Public Sub LoadFamily(ByRef eFamily As IMIS_EN.tblFamilies)
         Dim Family As New IMIS_BL.FamilyBL

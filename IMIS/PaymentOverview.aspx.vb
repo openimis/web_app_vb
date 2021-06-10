@@ -139,6 +139,9 @@ Public Class PaymentOverview
         txtControlNo.Text = If(entities.ControlNumber IsNot Nothing, entities.ControlNumber, "")
         txtTransactionNo.Text = If(entities.TransactionNumber IsNot Nothing, entities.TransactionNumber, "")
         txtReceiptNo.Text = If(entities.ReceiptNo IsNot Nothing, entities.ReceiptNo, "")
+        Dim rejectedReasonText As String = If(entities.RejectedReason IsNot Nothing, entities.RejectedReason, "")
+        Dim rejectedReasonTextFormatter As String = Replace(rejectedReasonText, ";", "</br>")
+        txtRejectedReason.Text = rejectedReasonTextFormatter
     End Sub
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
@@ -199,13 +202,13 @@ Public Class PaymentOverview
             If txtEditInsuranceNumber.Text = "" Or Val(ddlProduct.SelectedValue) = 0 Or ddlPolicyStage.SelectedValue = "" Then
                 lblMsg.Text = imisgen.getMessage("V_SUMMARY", True)
                 Return
-            ElseIf Not BI.CheckCHFID(txtEditInsuranceNumber.Text) = True Then
+            ElseIf Not BI.CheckCHFID(txtEditInsuranceNumber.Text.Trim) = True Then
                 lblMsg.Text = imisgen.getMessage("M_NOTVALIDCHFNUMBER", True)
                 Return
             End If
             Dim dt As DataTable
 
-            ePaymentDetails.InsuranceNumber = txtEditInsuranceNumber.Text
+            ePaymentDetails.InsuranceNumber = txtEditInsuranceNumber.Text.Trim
 
             If ddlProduct.SelectedIndex > 0 Then
                 ePaymentDetails.ProductCode = ddlProduct.SelectedItem.Text

@@ -1056,7 +1056,7 @@ Partial Public Class IMISExtracts
 
     Protected Sub btnDownLoadFeedback_Click(sender As Object, e As EventArgs)
         Dim OfficerCode As String
-        OfficerCode = txtOfficerCode.Text
+        OfficerCode = txtOfficerCode.Text.Trim
         Dim result As New Dictionary(Of String, String)
         result = Extracts.getFeedback(OfficerCode)
         Dim ResultCode As String = result("ResultCode")
@@ -1084,7 +1084,7 @@ Partial Public Class IMISExtracts
 
     Protected Sub btnDownLoadRenewal_Click(sender As Object, e As EventArgs)
         Dim OfficerCode As String
-        OfficerCode = txtOfficerCode.Text
+        OfficerCode = txtOfficerCode.Text.Trim
         Dim result As New Dictionary(Of String, String)
         result = Extracts.getRenewals(OfficerCode)
         Dim ResultCode As String = result("ResultCode")

@@ -219,9 +219,9 @@ Public Partial Class FindClaimAdministrator
                 Return
             End If
         End If
-       
 
-        If txtDOBTo.Text.Length > 0 Then
+
+        If txtDOBTo.Text.Trim.Length > 0 Then
             If IsDate(txtDOBTo.Text.Trim) Then
                 eClaimAdmin.DOBTo = Date.Parse(txtDOBTo.Text.Trim)
             Else
@@ -229,15 +229,15 @@ Public Partial Class FindClaimAdministrator
                 Return
             End If
         End If
- 
 
-        eClaimAdmin.Phone = txtPhone.Text
+
+        eClaimAdmin.Phone = txtPhone.Text.Trim
         eHF = New IMIS_EN.tblHF
         If ddlHFCode.SelectedIndex > -1 Then eHF.HfID = ddlHFCode.SelectedValue
         eClaimAdmin.tblHF = eHF
         eClaimAdmin.OtherNames = txtOtherNames.Text.Trim
         eClaimAdmin.AuditUserId = ImisGen.getUserId(Session("User"))
-        eClaimAdmin.EmailId = txtEmail.Text
+        eClaimAdmin.EmailId = txtEmail.Text.Trim
     End Sub
     Private Function DeleteClaimAdministrator() As Boolean
         lblMsg.Text = ""
@@ -267,6 +267,7 @@ Public Partial Class FindClaimAdministrator
         Try
             eClaimAdmin.eUsers = New IMIS_EN.tblUsers
             eClaimAdmin.eUsers.LoginName = eClaimAdmin.ClaimAdminCode
+            eClaimAdmin.eUsers.AuditUserID = ImisGen.getUserId(Session("User"))
             BIClaimAdmin.LoadUsers(eClaimAdmin.eUsers)
             BIClaimAdmin.DeleteUser(eClaimAdmin.eUsers)
         Catch ex As Exception

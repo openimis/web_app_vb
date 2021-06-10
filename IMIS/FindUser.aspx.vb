@@ -134,13 +134,13 @@ Partial Public Class FindUser
         Try
             lblMsg.Text = ""
             eUser.AuditUserID = imisGen.getUserId(Session("User"))
-            eUser.LastName = txtLastName.Text
-            eUser.OtherNames = txtOtherNames.Text
+            eUser.LastName = txtLastName.Text.Trim
+            eUser.OtherNames = txtOtherNames.Text.Trim
             If Not ddlRole.SelectedValue = 0 Then
                 eUser.RoleID = ddlRole.SelectedValue
             End If
-            eUser.LoginName = txtUsername.Text
-            eUser.Phone = txtPhone.Text
+            eUser.LoginName = txtUsername.Text.Trim
+            eUser.Phone = txtPhone.Text.Trim
             If ddlHFName.SelectedIndex >= 0 Then
                 eUser.HFID = ddlHFName.SelectedValue
             End If
@@ -150,7 +150,7 @@ Partial Public Class FindUser
             '  If Not ddlLanguage.SelectedValue = -1 Then
             eUser.LanguageID = ddlLanguage.SelectedValue
             '   End If
-            eUser.EmailId = txtEmail.Text
+            eUser.EmailId = txtEmail.Text.Trim
 
             getGridData()
 

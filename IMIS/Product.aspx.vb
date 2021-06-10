@@ -965,21 +965,21 @@ Partial Public Class Product
     End Function
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
         Dim chk As Integer = 1
-        eProduct.ProductCode = txtProductCode.Text
+        eProduct.ProductCode = txtProductCode.Text.Trim
         Dim bRelative As Boolean = False ' This flag will check if Relative has been used
         Dim sumWeigth As Double = 0
-        sumWeigth += (If(txtWeightOfPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(txtWeightOfPopulation.Text))) + (If(txtNumberOfFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfFamilies.Text)))) + (If(txtNoOfInsuredPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInsuredPopulation.Text)))))
-        sumWeigth += (If(txtNoOfInseredFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInseredFamilies.Text))) + (If(txtNumberOfClaims.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfClaims.Text)))) + (If(txtAdjustedAmount.Text Is Nothing, 0, Convert.ToDouble(Val(txtAdjustedAmount.Text)))))
+        sumWeigth += (If(txtWeightOfPopulation.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtWeightOfPopulation.Text.Trim))) + (If(txtNumberOfFamilies.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfFamilies.Text.Trim)))) + (If(txtNoOfInsuredPopulation.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInsuredPopulation.Text.Trim)))))
+        sumWeigth += (If(txtNoOfInseredFamilies.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInseredFamilies.Text.Trim))) + (If(txtNumberOfClaims.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfClaims.Text.Trim)))) + (If(txtAdjustedAmount.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtAdjustedAmount.Text.Trim)))))
         'Changed by Salumu 10-12-2018 Start
 
         'Edited by Emmanuel 11/12/2018 
         If sumWeigth = 0 Then
             eProduct.WeightInsuredPopulation = 100
-            sumWeigth += (If(txtWeightOfPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(txtWeightOfPopulation.Text))) + (If(txtNumberOfFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfFamilies.Text)))) + (If(txtNoOfInsuredPopulation.Text Is Nothing, 0, Convert.ToDouble(Val(eProduct.WeightInsuredPopulation)))))
-            sumWeigth += (If(txtNoOfInseredFamilies.Text Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInseredFamilies.Text))) + (If(txtNumberOfClaims.Text Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfClaims.Text)))) + (If(txtAdjustedAmount.Text Is Nothing, 0, Convert.ToDouble(Val(txtAdjustedAmount.Text)))))
+            sumWeigth += (If(txtWeightOfPopulation.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtWeightOfPopulation.Text.Trim))) + (If(txtNumberOfFamilies.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfFamilies.Text.Trim)))) + (If(txtNoOfInsuredPopulation.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(eProduct.WeightInsuredPopulation)))))
+            sumWeigth += (If(txtNoOfInseredFamilies.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtNoOfInseredFamilies.Text.Trim))) + (If(txtNumberOfClaims.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtNumberOfClaims.Text.Trim)))) + (If(txtAdjustedAmount.Text.Trim Is Nothing, 0, Convert.ToDouble(Val(txtAdjustedAmount.Text.Trim)))))
 
         Else
-            eProduct.WeightInsuredPopulation = Val(txtNoOfInsuredPopulation.Text)
+            eProduct.WeightInsuredPopulation = Val(txtNoOfInsuredPopulation.Text.Trim)
         End If
         If sumWeigth > 100 Then
             Dim msg As String = imisgen.getMessage("M_WEIGHTMUSTBE100")
@@ -992,7 +992,7 @@ Partial Public Class Product
             Exit Sub
             'Edited by Emmanuel End 
 
-        ElseIf Val(txtShareContribution.Text) > 100 Then
+        ElseIf Val(txtShareContribution.Text.Trim) > 100 Then
             imisgen.Alert(imisgen.getMessage("M_SHAREDCONTRIBUTIONPARCENT"), pnlButtons, alertPopupTitle:="IMIS")
             Exit Sub
         End If
@@ -1030,20 +1030,20 @@ Partial Public Class Product
 
                 'End If
 
-                eProduct.ProductName = txtProductName.Text
+                eProduct.ProductName = txtProductName.Text.Trim
                 eProduct.tblLocation = eLocations
                 ''eProduct.DateFrom = if(Len(Trim(txtDateFrom.Text)) > 0, Date.Parse(txtDateFrom.Text), DBNull.Value)
                 ''eProduct.DateTo = if(Len(Trim(txtDateTo.Text)) > 0, Date.Parse(txtDateTo.Text), DBNull.Value)
 
-                If Not String.IsNullOrEmpty(txtDateFrom.Text) Then
-                    eProduct.DateFrom = txtDateFrom.Text
+                If Not String.IsNullOrEmpty(txtDateFrom.Text.Trim) Then
+                    eProduct.DateFrom = txtDateFrom.Text.Trim
                     'Else
                     '    lblMsg.Text = eProduct.DateFrom & imisgen.getMessage("M_WRONGDATEFORMAT")
                     '    Return
                 End If
 
-                If Not String.IsNullOrEmpty(txtDateTo.Text) Then
-                    eProduct.DateTo = txtDateTo.Text
+                If Not String.IsNullOrEmpty(txtDateTo.Text.Trim) Then
+                    eProduct.DateTo = txtDateTo.Text.Trim
                     'Else
                     '    lblMsg.Text = eProduct.DateTo & imisgen.getMessage("M_WRONGDATEFORMAT")
                     '    Return
@@ -1061,26 +1061,26 @@ Partial Public Class Product
                     End If
                 End If
 
-                If Not String.IsNullOrEmpty(txtLumpSum.Text) Then
-                    eProduct.LumpSum = txtLumpSum.Text
+                If Not String.IsNullOrEmpty(txtLumpSum.Text.Trim) Then
+                    eProduct.LumpSum = txtLumpSum.Text.Trim
                 End If
 
-                Dim MaxNumberMember As Integer = txtMaxNoOfMembers.Text
+                Dim MaxNumberMember As Integer = txtMaxNoOfMembers.Text.Trim
                 If Not String.IsNullOrEmpty(MaxNumberMember) Then
                     eProduct.MemberCount = MaxNumberMember
                 End If
 
-                If Not String.IsNullOrEmpty(txtAdultPremium.Text) Then
-                    eProduct.PremiumAdult = txtAdultPremium.Text
+                If Not String.IsNullOrEmpty(txtAdultPremium.Text.Trim) Then
+                    eProduct.PremiumAdult = txtAdultPremium.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtChildPremium.Text) Then
-                    eProduct.PremiumChild = txtChildPremium.Text
+                If Not String.IsNullOrEmpty(txtChildPremium.Text.Trim) Then
+                    eProduct.PremiumChild = txtChildPremium.Text.Trim
                 End If
 
 
-                If Not String.IsNullOrEmpty(txtInsurancrePeriod.Text) Then
-                    eProduct.InsurancePeriod = txtInsurancrePeriod.Text
+                If Not String.IsNullOrEmpty(txtInsurancrePeriod.Text.Trim) Then
+                    eProduct.InsurancePeriod = txtInsurancrePeriod.Text.Trim
                 End If
                 'Additon for BEPHA: start
                 If IsNumeric(txtGracePeriodRenewal.Text.Trim) Then
@@ -1120,88 +1120,88 @@ Partial Public Class Product
                 End If
                 'Additon for BEPHA: end
 
-                If Not String.IsNullOrEmpty(txtDedutibleForTreatment.Text) Then
-                    eProduct.DedTreatment = txtDedutibleForTreatment.Text
+                If Not String.IsNullOrEmpty(txtDedutibleForTreatment.Text.Trim) Then
+                    eProduct.DedTreatment = txtDedutibleForTreatment.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedOPTreatment.Text) Then
-                    eProduct.DedOPTreatment = txtDedOPTreatment.Text
+                If Not String.IsNullOrEmpty(txtDedOPTreatment.Text.Trim) Then
+                    eProduct.DedOPTreatment = txtDedOPTreatment.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedIPTreatment.Text) Then
-                    eProduct.DedIPTreatment = txtDedIPTreatment.Text
+                If Not String.IsNullOrEmpty(txtDedIPTreatment.Text.Trim) Then
+                    eProduct.DedIPTreatment = txtDedIPTreatment.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedIPTreatment.Text) Then
-                    eProduct.DedIPTreatment = txtDedIPTreatment.Text
+                If Not String.IsNullOrEmpty(txtDedIPTreatment.Text.Trim) Then
+                    eProduct.DedIPTreatment = txtDedIPTreatment.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxTreatment.Text) Then
-                    eProduct.MaxTreatment = txtMaxTreatment.Text
+                If Not String.IsNullOrEmpty(txtMaxTreatment.Text.Trim) Then
+                    eProduct.MaxTreatment = txtMaxTreatment.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxOPTreatment.Text) Then
-                    eProduct.MaxOPTreatment = txtMaxOPTreatment.Text
+                If Not String.IsNullOrEmpty(txtMaxOPTreatment.Text.Trim) Then
+                    eProduct.MaxOPTreatment = txtMaxOPTreatment.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxIPTreatment.Text) Then
-                    eProduct.MaxIPTreatment = txtMaxIPTreatment.Text
+                If Not String.IsNullOrEmpty(txtMaxIPTreatment.Text.Trim) Then
+                    eProduct.MaxIPTreatment = txtMaxIPTreatment.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedPolicy.Text) Then
-                    eProduct.DedPolicy = txtDedPolicy.Text
+                If Not String.IsNullOrEmpty(txtDedPolicy.Text.Trim) Then
+                    eProduct.DedPolicy = txtDedPolicy.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedOPPolicy.Text) Then
-                    eProduct.DedOPPolicy = txtDedOPPolicy.Text
+                If Not String.IsNullOrEmpty(txtDedOPPolicy.Text.Trim) Then
+                    eProduct.DedOPPolicy = txtDedOPPolicy.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedIPPolicy.Text) Then
-                    eProduct.DedIPPolicy = txtDedIPPolicy.Text
+                If Not String.IsNullOrEmpty(txtDedIPPolicy.Text.Trim) Then
+                    eProduct.DedIPPolicy = txtDedIPPolicy.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedIPPolicy.Text) Then
-                    eProduct.DedIPPolicy = txtDedIPPolicy.Text
+                If Not String.IsNullOrEmpty(txtDedIPPolicy.Text.Trim) Then
+                    eProduct.DedIPPolicy = txtDedIPPolicy.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxPolicy.Text) Then
-                    eProduct.MaxPolicy = txtMaxPolicy.Text
+                If Not String.IsNullOrEmpty(txtMaxPolicy.Text.Trim) Then
+                    eProduct.MaxPolicy = txtMaxPolicy.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxOPPolicy.Text) Then
-                    eProduct.MaxOPPolicy = txtMaxOPPolicy.Text
+                If Not String.IsNullOrEmpty(txtMaxOPPolicy.Text.Trim) Then
+                    eProduct.MaxOPPolicy = txtMaxOPPolicy.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxIPPOlicy.Text) Then
-                    eProduct.MaxIPPolicy = txtMaxIPPOlicy.Text
+                If Not String.IsNullOrEmpty(txtMaxIPPOlicy.Text.Trim) Then
+                    eProduct.MaxIPPolicy = txtMaxIPPOlicy.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedInsuree.Text) Then
-                    eProduct.DedInsuree = txtDedInsuree.Text
+                If Not String.IsNullOrEmpty(txtDedInsuree.Text.Trim) Then
+                    eProduct.DedInsuree = txtDedInsuree.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedOPInsuree.Text) Then
-                    eProduct.DedOPInsuree = txtDedOPInsuree.Text
+                If Not String.IsNullOrEmpty(txtDedOPInsuree.Text.Trim) Then
+                    eProduct.DedOPInsuree = txtDedOPInsuree.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtDedIPInsuree.Text) Then
-                    eProduct.DedIPInsuree = txtDedIPInsuree.Text
+                If Not String.IsNullOrEmpty(txtDedIPInsuree.Text.Trim) Then
+                    eProduct.DedIPInsuree = txtDedIPInsuree.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxInsuree.Text) Then
-                    eProduct.MaxInsuree = txtMaxInsuree.Text
+                If Not String.IsNullOrEmpty(txtMaxInsuree.Text.Trim) Then
+                    eProduct.MaxInsuree = txtMaxInsuree.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxOPInsuree.Text) Then
-                    eProduct.MaxOPInsuree = txtMaxOPInsuree.Text
+                If Not String.IsNullOrEmpty(txtMaxOPInsuree.Text.Trim) Then
+                    eProduct.MaxOPInsuree = txtMaxOPInsuree.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtMaxIPInsuree.Text) Then
-                    eProduct.MaxIPInsuree = txtMaxIPInsuree.Text
+                If Not String.IsNullOrEmpty(txtMaxIPInsuree.Text.Trim) Then
+                    eProduct.MaxIPInsuree = txtMaxIPInsuree.Text.Trim
                 End If
 
-                If Not String.IsNullOrEmpty(txtGracePeriod.Text) Then
-                    eProduct.GracePeriod = txtGracePeriod.Text
+                If Not String.IsNullOrEmpty(txtGracePeriod.Text.Trim) Then
+                    eProduct.GracePeriod = txtGracePeriod.Text.Trim
                 End If
 
                 'Additon for BEPHA: start
@@ -1259,8 +1259,8 @@ Partial Public Class Product
                 eProduct.PeriodRelPrices = If(ddlDistribution.SelectedValue = "0", Nothing, ddlDistribution.SelectedValue)
                 eProduct.PeriodRelPricesOP = If(ddlDistributionOP.SelectedValue = "0", Nothing, ddlDistributionOP.SelectedValue)
                 eProduct.PeriodRelPricesIP = If(ddlDistributionIP.SelectedValue = "0", Nothing, ddlDistributionIP.SelectedValue)
-                eProduct.AccCodePremiums = txtAccCodePremiums.Text
-                eProduct.AccCodeRemuneration = txtAccCodeRemuneration.Text
+                eProduct.AccCodePremiums = txtAccCodePremiums.Text.Trim
+                eProduct.AccCodeRemuneration = txtAccCodeRemuneration.Text.Trim
 
                 If Not ValidateDeductableCeilingValueCombination() Then
                     imisgen.Alert(imisgen.getMessage("M_WRONGDEDUCTABLECEILINGCOMBINATION"), pnlButtons, alertPopupTitle:="IMIS")
@@ -1280,8 +1280,8 @@ Partial Public Class Product
                 If ddlCycle4Day.SelectedIndex > 0 And ddlCycle4Month.SelectedIndex > 0 Then
                     eProduct.StartCycle4 = ddlCycle4Day.SelectedValue & "-" & ddlCycle4Month.SelectedValue
                 End If
-                If IsNumeric(txtEnrolmentDiscountPerc.Text.Trim) Then eProduct.EnrolmentDiscountPerc = txtEnrolmentDiscountPerc.Text
-                If IsNumeric(txtEnrolmentDiscountPeriod.Text.Trim) Then eProduct.EnrolmentDiscountPeriod = txtEnrolmentDiscountPeriod.Text
+                If IsNumeric(txtEnrolmentDiscountPerc.Text.Trim) Then eProduct.EnrolmentDiscountPerc = txtEnrolmentDiscountPerc.Text.Trim
+                If IsNumeric(txtEnrolmentDiscountPeriod.Text.Trim) Then eProduct.EnrolmentDiscountPeriod = txtEnrolmentDiscountPeriod.Text.Trim
                 'Addition for Nepal >> End
 
                 If ddlCeilingInterpretation.SelectedValue.Length > 0 Then eProduct.CeilingInterpretation = ddlCeilingInterpretation.SelectedValue
@@ -1314,14 +1314,14 @@ Partial Public Class Product
                     eProduct.Sublevel4 = ddlSubLevel4.SelectedValue
                 End If
 
-                eProduct.ShareContribution = Val(txtShareContribution.Text)
-                eProduct.WeightPopulation = Val(txtWeightOfPopulation.Text)
-                eProduct.WeightNumberFamilies = Val(txtNumberOfFamilies.Text)
+                eProduct.ShareContribution = Val(txtShareContribution.Text.Trim)
+                eProduct.WeightPopulation = Val(txtWeightOfPopulation.Text.Trim)
+                eProduct.WeightNumberFamilies = Val(txtNumberOfFamilies.Text.Trim)
 
 
-                eProduct.WeightNumberInsuredFamilies = Val(txtNoOfInseredFamilies.Text)
-                eProduct.WeightNumberVisits = Val(txtNumberOfClaims.Text)
-                eProduct.WeightAdjustedAmount = Val(txtAdjustedAmount.Text)
+                eProduct.WeightNumberInsuredFamilies = Val(txtNoOfInseredFamilies.Text.Trim)
+                eProduct.WeightNumberVisits = Val(txtNumberOfClaims.Text.Trim)
+                eProduct.WeightAdjustedAmount = Val(txtAdjustedAmount.Text.Trim)
 
 
 
@@ -1364,55 +1364,55 @@ Partial Public Class Product
                     eItems.ItemID = gvMedicalItems.DataKeys.Item(row.RowIndex).Values("ItemId")
                     eProductItem.tblItems = eItems
 
-                    eProductItem.LimitationType = if(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text))
+                    eProductItem.LimitationType = If(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text.Trim))
                     'Changes for Nepal >> Start
-                    eProductItem.LimitationTypeR = if(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text))
-                    eProductItem.LimitationTypeE = if(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text))
+                    eProductItem.LimitationTypeR = If(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text.Trim))
+                    eProductItem.LimitationTypeE = If(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text.Trim))
                     'Changes for Nepal >> End
-                    eProductItem.PriceOrigin = if(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text))
+                    eProductItem.PriceOrigin = If(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text.Trim))
                     If eProductItem.PriceOrigin = "R" Then bRelative = True
-                    If Not CType(row.Cells(10).Controls(1), TextBox).Text = "" Then
-                        eProductItem.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(10).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductItem.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> Start
-                    If Not CType(row.Cells(11).Controls(1), TextBox).Text = "" Then
-                        eProductItem.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(11).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductItem.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text.Trim
                     End If
-                    If Not CType(row.Cells(12).Controls(1), TextBox).Text = "" Then
-                        eProductItem.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(12).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductItem.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> End
-                    If Not CType(row.Cells(13).Controls(1), TextBox).Text = "" Then
-                        eProductItem.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(13).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductItem.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> Start
-                    If Not CType(row.Cells(14).Controls(1), TextBox).Text = "" Then
-                        eProductItem.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(14).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductItem.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text.Trim
                     End If
-                    If Not CType(row.Cells(15).Controls(1), TextBox).Text = "" Then
-                        eProductItem.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(15).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductItem.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> End
                     'Extra for Beptha >>> Start
                     If Not CType(row.Cells(16).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductItem.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text
+                        eProductItem.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(17).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductItem.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text
+                        eProductItem.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(18).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductItem.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text
+                        eProductItem.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(19).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductItem.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text
+                        eProductItem.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text.Trim
                     End If
                     'Extra for Bepha >>> End
                     'Changes for Nepal >> Start
                     If Not CType(row.Cells(20).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductItem.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text
+                        eProductItem.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(21).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductItem.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text
+                        eProductItem.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> End
 
@@ -1432,23 +1432,23 @@ Partial Public Class Product
                     Dim chkSelect As CheckBox = CType(gvMedicalItems.Rows(row.RowIndex).Cells(0).Controls(1), CheckBox)
                     If chkSelect.Checked = True Then
 
-                        If Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitationType").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(6).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("PriceOrigin").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(9).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitAdult").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(10).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitChild").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(13).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitNoAdult").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(16).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitNoChild").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(17).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("WaitingPeriodAdult").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(18).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("WaitingPeriodChild").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(19).Controls(1), TextBox).Text Then
+                        If Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitationType").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(6).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("PriceOrigin").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(9).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitAdult").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(10).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitChild").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(13).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitNoAdult").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(16).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitNoChild").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(17).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("WaitingPeriodAdult").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(18).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("WaitingPeriodChild").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(19).Controls(1), TextBox).Text.Trim Then
                             'Changes for Nepal >> Start
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitationTypeR").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(7).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitationTypeE").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(8).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitAdultR").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(11).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitAdultE").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(12).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitChildR").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(14).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitChildE").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(15).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("CeilingExclusionAdult").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(20).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("CeilingExclusionChild").ToString = CType(gvMedicalItems.Rows(row.RowIndex).Cells(21).Controls(1), TextBox).Text Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitationTypeR").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(7).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitationTypeE").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(8).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitAdultR").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(11).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitAdultE").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(12).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitChildR").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(14).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("LimitChildE").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(15).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("CeilingExclusionAdult").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(20).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalItems.DataKeys.Item(row.RowIndex).Values("CeilingExclusionChild").ToString.Trim = CType(gvMedicalItems.Rows(row.RowIndex).Cells(21).Controls(1), TextBox).Text.Trim Then
                             'Changes for Nepal >> End
                         Else
                             If gvMedicalItems.DataKeys.Item(row.RowIndex).Values("PriceOrigin") = "R" Then bRelative = True
@@ -1459,55 +1459,55 @@ Partial Public Class Product
                             eProductItem.ProdItemID = gvMedicalItems.DataKeys.Item(row.RowIndex).Values("ProdItemID")
                         End If
 
-                        eProductItem.LimitationType = if(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text))
+                        eProductItem.LimitationType = If(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text.Trim))
                         'Changes for Nepal >> Start
-                        eProductItem.LimitationTypeR = if(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text))
-                        eProductItem.LimitationTypeE = if(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text))
+                        eProductItem.LimitationTypeR = If(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text.Trim))
+                        eProductItem.LimitationTypeE = If(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text.Trim))
                         'Changes for Nepal >> End
-                        eProductItem.PriceOrigin = if(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text))
+                        eProductItem.PriceOrigin = If(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text.Trim))
                         If eProductItem.PriceOrigin = "R" Then bRelative = True
-                        If Not CType(row.Cells(10).Controls(1), TextBox).Text = "" Then
-                            eProductItem.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(10).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductItem.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> Start
-                        If Not CType(row.Cells(11).Controls(1), TextBox).Text = "" Then
-                            eProductItem.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(11).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductItem.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text.Trim
                         End If
-                        If Not CType(row.Cells(12).Controls(1), TextBox).Text = "" Then
-                            eProductItem.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(12).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductItem.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> End
-                        If Not CType(row.Cells(13).Controls(1), TextBox).Text = "" Then
-                            eProductItem.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(13).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductItem.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> Start
-                        If Not CType(row.Cells(14).Controls(1), TextBox).Text = "" Then
-                            eProductItem.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(14).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductItem.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text.Trim
                         End If
-                        If Not CType(row.Cells(15).Controls(1), TextBox).Text = "" Then
-                            eProductItem.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(15).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductItem.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> End
                         'Extra for Beptha >>> Start
                         If Not CType(row.Cells(16).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductItem.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text
+                            eProductItem.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(17).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductItem.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text
+                            eProductItem.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(18).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductItem.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text
+                            eProductItem.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(19).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductItem.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text
+                            eProductItem.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text.Trim
                         End If
                         'Extra for Bepha >>> End
                         'Changes for Nepal >> Start
                         If Not CType(row.Cells(20).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductItem.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text
+                            eProductItem.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(21).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductItem.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text
+                            eProductItem.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> End
 
@@ -1533,55 +1533,55 @@ Partial Public Class Product
                     eServices.ServiceID = gvMedicalServices.DataKeys.Item(row.RowIndex).Values("ServiceID")
                     eProductServices.tblServices = eServices
                     eProductServices.tblProduct = eProduct
-                    eProductServices.LimitationType = if(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text))
+                    eProductServices.LimitationType = If(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text.Trim))
                     'Changes for Nepal >> Start
-                    eProductServices.LimitationTypeR = if(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text))
-                    eProductServices.LimitationTypeE = if(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text))
+                    eProductServices.LimitationTypeR = If(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text.Trim))
+                    eProductServices.LimitationTypeE = If(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text.Trim))
                     'Changes for Nepal >> End
-                    eProductServices.PriceOrigin = if(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text))
+                    eProductServices.PriceOrigin = If(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text.Trim))
                     If eProductServices.PriceOrigin = "R" Then bRelative = True
-                    If Not CType(row.Cells(10).Controls(1), TextBox).Text = "" Then
-                        eProductServices.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(10).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductServices.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> Start
-                    If Not CType(row.Cells(11).Controls(1), TextBox).Text = "" Then
-                        eProductServices.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(11).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductServices.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text.Trim
                     End If
-                    If Not CType(row.Cells(12).Controls(1), TextBox).Text = "" Then
-                        eProductServices.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(12).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductServices.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> End
-                    If Not CType(row.Cells(13).Controls(1), TextBox).Text = "" Then
-                        eProductServices.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(13).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductServices.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> Start
-                    If Not CType(row.Cells(14).Controls(1), TextBox).Text = "" Then
-                        eProductServices.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(14).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductServices.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text.Trim
                     End If
-                    If Not CType(row.Cells(15).Controls(1), TextBox).Text = "" Then
-                        eProductServices.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text
+                    If Not CType(row.Cells(15).Controls(1), TextBox).Text.Trim = "" Then
+                        eProductServices.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> End
                     'Extra for Beptha >>> Start
                     If Not CType(row.Cells(16).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductServices.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text
+                        eProductServices.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(17).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductServices.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text
+                        eProductServices.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(18).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductServices.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text
+                        eProductServices.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(19).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductServices.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text
+                        eProductServices.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text.Trim
                     End If
                     'Extra for Bepha >>> End
                     'Changes for Nepal >> Start
                     If Not CType(row.Cells(20).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductServices.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text
+                        eProductServices.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text.Trim
                     End If
                     If Not CType(row.Cells(21).Controls(1), TextBox).Text.Trim = String.Empty Then
-                        eProductServices.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text
+                        eProductServices.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text.Trim
                     End If
                     'Changes for Nepal >> End
                     eProductServices.AuditUserID = eProduct.AuditUserID
@@ -1594,23 +1594,23 @@ Partial Public Class Product
                     If chkSelect.Checked = True Then
 
 
-                        If Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitationType").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(6).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("PriceOrigin").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(9).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitAdult").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(10).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitChild").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(13).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitNoAdult").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(16).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitNoChild").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(17).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("WaitingPeriodAdult").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(18).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("WaitingPeriodChild").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(19).Controls(1), TextBox).Text Then
+                        If Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitationType").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(6).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("PriceOrigin").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(9).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitAdult").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(10).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitChild").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(13).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitNoAdult").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(16).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitNoChild").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(17).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("WaitingPeriodAdult").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(18).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("WaitingPeriodChild").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(19).Controls(1), TextBox).Text.Trim Then
                             'Changes for Nepal >> Start
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitationTypeR").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(7).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitationTypeE").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(8).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitAdultR").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(11).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitAdultE").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(12).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitChildR").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(14).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitChildE").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(15).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("CeilingExclusionAdult").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(20).Controls(1), TextBox).Text Then
-                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("CeilingExclusionChild").ToString = CType(gvMedicalServices.Rows(row.RowIndex).Cells(21).Controls(1), TextBox).Text Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitationTypeR").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(7).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitationTypeE").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(8).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitAdultR").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(11).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitAdultE").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(12).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitChildR").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(14).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("LimitChildE").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(15).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("CeilingExclusionAdult").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(20).Controls(1), TextBox).Text.Trim Then
+                        ElseIf Not gvMedicalServices.DataKeys.Item(row.RowIndex).Values("CeilingExclusionChild").ToString.Trim = CType(gvMedicalServices.Rows(row.RowIndex).Cells(21).Controls(1), TextBox).Text.Trim Then
                             'Changes for Nepal >> End
                         Else
                             If gvMedicalServices.DataKeys.Item(row.RowIndex).Values("PriceOrigin").ToString = "R" Then bRelative = True
@@ -1622,55 +1622,55 @@ Partial Public Class Product
                             eProductServices.ProdServiceID = gvMedicalServices.DataKeys.Item(row.RowIndex).Values("ProdServiceId")
                         End If
 
-                        eProductServices.LimitationType = if(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text))
+                        eProductServices.LimitationType = If(String.IsNullOrEmpty(CType(row.Cells(6).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(6).Controls(1), TextBox).Text.Trim))
                         'Changes for Nepal >> Start
-                        eProductServices.LimitationTypeR = if(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text))
-                        eProductServices.LimitationTypeE = if(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text))
+                        eProductServices.LimitationTypeR = If(String.IsNullOrEmpty(CType(row.Cells(7).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(7).Controls(1), TextBox).Text.Trim))
+                        eProductServices.LimitationTypeE = If(String.IsNullOrEmpty(CType(row.Cells(8).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(8).Controls(1), TextBox).Text.Trim))
                         'Changes for Nepal >> End
-                        eProductServices.PriceOrigin = if(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text))
+                        eProductServices.PriceOrigin = If(String.IsNullOrEmpty(CType(row.Cells(9).Controls(1), TextBox).Text.Trim), "-", UCase(CType(row.Cells(9).Controls(1), TextBox).Text.Trim))
                         If eProductServices.PriceOrigin = "R" Then bRelative = True
-                        If Not CType(row.Cells(10).Controls(1), TextBox).Text = "" Then
-                            eProductServices.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(10).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductServices.LimitAdult = CType(row.Cells(10).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> Start
-                        If Not CType(row.Cells(11).Controls(1), TextBox).Text = "" Then
-                            eProductServices.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(11).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductServices.LimitAdultR = CType(row.Cells(11).Controls(1), TextBox).Text.Trim
                         End If
-                        If Not CType(row.Cells(12).Controls(1), TextBox).Text = "" Then
-                            eProductServices.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(12).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductServices.LimitAdultE = CType(row.Cells(12).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> End
-                        If Not CType(row.Cells(13).Controls(1), TextBox).Text = "" Then
-                            eProductServices.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(13).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductServices.LimitChild = CType(row.Cells(13).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> Start
-                        If Not CType(row.Cells(14).Controls(1), TextBox).Text = "" Then
-                            eProductServices.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(14).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductServices.LimitChildR = CType(row.Cells(14).Controls(1), TextBox).Text.Trim
                         End If
-                        If Not CType(row.Cells(15).Controls(1), TextBox).Text = "" Then
-                            eProductServices.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text
+                        If Not CType(row.Cells(15).Controls(1), TextBox).Text.Trim = "" Then
+                            eProductServices.LimitChildE = CType(row.Cells(15).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> End
                         'Extra for Beptha >>> Start
                         If Not CType(row.Cells(16).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductServices.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text
+                            eProductServices.LimitNoAdult = CType(row.Cells(16).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(17).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductServices.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text
+                            eProductServices.LimitNoChild = CType(row.Cells(17).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(18).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductServices.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text
+                            eProductServices.WaitingPeriodAdult = CType(row.Cells(18).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(19).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductServices.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text
+                            eProductServices.WaitingPeriodChild = CType(row.Cells(19).Controls(1), TextBox).Text.Trim
                         End If
                         'Extra for Bepha >>> End
                         'Changes for Nepal >> Start
                         If Not CType(row.Cells(20).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductServices.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text
+                            eProductServices.CeilingExclusionAdult = CType(row.Cells(20).Controls(1), TextBox).Text.Trim
                         End If
                         If Not CType(row.Cells(21).Controls(1), TextBox).Text.Trim = String.Empty Then
-                            eProductServices.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text
+                            eProductServices.CeilingExclusionChild = CType(row.Cells(21).Controls(1), TextBox).Text.Trim
                         End If
                         'Changes for Nepal >> End
 
@@ -1692,18 +1692,18 @@ Partial Public Class Product
             Dim RowV As String
             For Each row As GridViewRow In gvHiddenDistribution.Rows
                 txtbox = gvHiddenDistribution.Rows(row.RowIndex).Cells(4).Controls(1)
-                BeforeDistrPerc = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(5).Text, Decimal)
-                AfterDistrPerc = CType(txtbox.Text, Decimal)
+                BeforeDistrPerc = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(5).Text.Trim, Decimal)
+                AfterDistrPerc = CType(txtbox.Text.Trim, Decimal)
 
                 If Not Request.QueryString("action") = "duplicate" Then
-                    eRelDistr.DistrID = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(0).Text, Integer)
+                    eRelDistr.DistrID = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(0).Text.Trim, Integer)
                 End If
 
 
-                eRelDistr.DistrType = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(1).Text, Integer)
-                eRelDistr.DistrCareType = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(2).Text, Char)
-                eRelDistr.Period = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(3).Text, Integer)
-                RowV = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(6).Text, String)
+                eRelDistr.DistrType = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(1).Text.Trim, Integer)
+                eRelDistr.DistrCareType = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(2).Text.Trim, Char)
+                eRelDistr.Period = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(3).Text.Trim, Integer)
+                RowV = CType(gvHiddenDistribution.Rows(row.RowIndex).Cells(6).Text.Trim, String)
                 eRelDistr.DistrPerc = AfterDistrPerc
 
                 If Request.QueryString("Action") = "duplicate" Then
@@ -1747,7 +1747,7 @@ Partial Public Class Product
     End Function
     Protected Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_CANCEL.Click
         If String.IsNullOrEmpty(eProduct.ProductCode) Then
-            eProduct.ProductCode = txtProductCode.Text
+            eProduct.ProductCode = txtProductCode.Text.Trim
         End If
         Response.Redirect("FindProduct.aspx?p=" & eProduct.ProductCode)
 

@@ -110,8 +110,8 @@ Public Class ClaimAdminBL
             Dim DALHealthFacility As New IMIS_DAL.HealthFacilityDAL
             eUsersDistricts.AuditUserID = eclaimAdmin.eUsers.AuditUserID
 
-            Dim dtOnlineAdminDistricts As DataTable = DALHealthFacility.getHFUserLocation(eclaimAdmin.AuditUserId, eclaimAdmin.tblHF.HfID)
-            eLocations.LocationId = dtOnlineAdminDistricts.Rows(0)("DistrictId")
+            Dim dtHFDistricts As DataTable = DALHealthFacility.getHFDistrict(eclaimAdmin.tblHF.HfID)
+            eLocations.LocationId = dtHFDistricts.Rows(0)("DistrictId")
             eUsersDistricts.tblUsers = eclaimAdmin.eUsers
             eUsersDistricts.UserDistrictID = 0
             eUsersDistricts.tblLocations = eLocations

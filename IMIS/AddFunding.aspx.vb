@@ -117,9 +117,9 @@ Public Class AddFunding
             .PremiumId = 0
             .isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
             If ddlPayer.SelectedValue > 0 Then ePayer.PayerID = ddlPayer.SelectedValue
-            .Amount = txtPremiumPaid.Text
-            .Receipt = txtReceiptNumber.Text
-            .PayDate = Date.ParseExact(txtPaymentDate.Text, "dd/MM/yyyy", Nothing)
+            .Amount = txtPremiumPaid.Text.Trim
+            .Receipt = txtReceiptNumber.Text.Trim
+            .PayDate = Date.ParseExact(txtPaymentDate.Text.Trim, "dd/MM/yyyy", Nothing)
             .PayType = "F"
             .AuditUserID = imisgen.getUserId(Session("User"))
 
