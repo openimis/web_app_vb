@@ -257,24 +257,6 @@ Partial Public Class PaymentOverview
     Protected WithEvents txtExpectedAmounts As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblRejectedReason control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblRejectedReason As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtRejectedReason control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtRejectedReason As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''lblPhoneNumber control.
     '''</summary>
     '''<remarks>
@@ -291,6 +273,24 @@ Partial Public Class PaymentOverview
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhoneNo As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblRejectedReason control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRejectedReason As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtRejectedReason control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtRejectedReason As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''L_PAYMENTDETAILS control.
