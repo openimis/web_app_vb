@@ -260,7 +260,6 @@ Public Class PaymentDAL
         End If
 
         ' sSQL += " AND PD.ValidityTo IS NULL	"
-        sSQL += " And PY.ValidityTo Is NULL"
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@PaymentDetailsID", SqlDbType.Int, PaymentDetailsID)
         data.params("@dtPaymentStatus", ePayment.dtPaymentStatus, "xPayementStatus")
