@@ -3905,7 +3905,7 @@
 		<value>Code de municipalité du fichier déjà dans la base de donnée</value>
 	</data>
 	<data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value>Municipalité du ficher  Village n'existe ni dans la base de donnée in dans le fichier municipalité</value>
+		<value>WardCode du fichier &quot;Village&quot; n'existe ni dans la base de donnée in dans le fichier &quot;municipalité&quot;</value>
 	</data>
 	<data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
 		<value>Code de région dans le fichier existe déjà dans la base de donnée</value>
@@ -4286,7 +4286,7 @@
 		<value>Lien envoyé par courriel</value>
 	</data>
 	<data name="M_NOUSERSLOGIN" xml:space="preserve">
-		<value>Aucun utilisateur trouvé pour ce username</value>
+		<value>Aucun utilisateur trouvé</value>
 	</data>
 	<data name="M_PASSWORDINVALID" xml:space="preserve">
 		<value>Cette demande ne peut être validé, veuillez utiliser le même mot de passe
@@ -4700,9 +4700,6 @@
 	<data name="R_FEEDBACKUPLOAD" xml:space="preserve">
 		<value>Téléverser comptes rendus de contrôle</value>
 	</data>
-	<data name="R_RENEWALUPLOAD" xml:space="preserve">
-		<value></value>
-	</data>
 	<data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
 		<value>Télécharger établissement de santé</value>
 	</data>
@@ -4866,16 +4863,16 @@
 		<value>Méthode de paiement</value>
 	</data>
 	<data name="T_MEDICALPROSTHESES" xml:space="preserve">
-		<value></value>
+		<value>Consommable médical</value>
 	</data>
 	<data name="L_RECURRENCE" xml:space="preserve">
-		<value></value>
+		<value>Périodicité (Mois)</value>
 	</data>
 	<data name="M_NORIGHTSSELECTED" xml:space="preserve">
-		<value></value>
+		<value>Veuillez sélectionner au moins un droit de sécurité</value>
 	</data>
 	<data name="M_USERCANNOTBEEDITED" xml:space="preserve">
-		<value></value>
+		<value>Vous n'êtes pas autorisé à modifier l'utilisateur sélectionné.</value>
 	</data>
 	<data name="M_ASSIGNROLE" xml:space="preserve">
 		<value>Autoriser l'attribution de rôle</value>
@@ -4890,18 +4887,159 @@
 		<value>Aucun message à afficher</value>
 	</data>
 	<data name="L_GENDER1" xml:space="preserve">
-		<value></value>
+		<value>Genre</value>
 	</data>
 	<data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
-		<value></value>
+		<value>Recherche du numéro d'assurance</value>
 	</data>
 	<data name="T_CHARITY" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
-		<value></value>
+		<value>Charity</value>
 	</data>
 	<data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
+		<value>Importation photos</value>
+	</data>
+	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
+		<value>Photos compressées</value>
+	</data>
+	<data name="L_FULLNAME" xml:space="preserve">
+		<value>Nom complet</value>
+	</data>
+	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
+		<value>Montant</value>
+	</data>
+	<data name="L_RECEIPTCODE" xml:space="preserve">
+		<value>Reçu du code</value>
+	</data>
+	<data name="L_IMEI" xml:space="preserve">
+		<value>IMEI</value>
+	</data>
+	<data name="L_EMAILSETTINGS" xml:space="preserve">
+		<value>Email</value>
+	</data>
+	<data name="T_READY" xml:space="preserve">
+		<value>Prêt</value>
+	</data>
+	<data name="M_PLEASESELECTMODE" xml:space="preserve">
+		<value>Veuillez sélectionner le mode</value>
+	</data>
+	<data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Commission calculée</value>
+	</data>
+	<data name="G_PROJECTDETAILS" xml:space="preserve">
+		<value>Détails du projet</value>
+	</data>
+	<data name="L_COMMENTS" xml:space="preserve">
+		<value>Commentaires</value>
+	</data>
+	<data name="L_COSTCENTRE" xml:space="preserve">
+		<value>Centre de coût</value>
+	</data>
+	<data name="L_PROJECTCENTRE" xml:space="preserve">
+		<value>Centre de projet</value>
+	</data>
+	<data name="L_ACTIVITYCENTRE" xml:space="preserve">
+		<value>Centre d'activité</value>
+	</data>
+	<data name="L_CC" xml:space="preserve">
+		<value>CC</value>
+	</data>
+	<data name="L_PC" xml:space="preserve">
+		<value>PC</value>
+	</data>
+	<data name="L_AC" xml:space="preserve">
+		<value>AC</value>
+	</data>
+	<data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
+		<value>Projet(s) trouvé(s)</value>
+	</data>
+	<data name="L_UNITS" xml:space="preserve">
+		<value>Unités</value>
+	</data>
+	<data name="L_EMPLOYEE" xml:space="preserve">
+		<value>Employé</value>
+	</data>
+	<data name="L_EMPLOYEEID" xml:space="preserve">
+		<value>ID d’employé</value>
+	</data>
+	<data name="L_UNITS2" xml:space="preserve">
+		<value>Unités2</value>
+	</data>
+	<data name="T_SELECTCOSTCENTRE" xml:space="preserve">
+		<value>Sélectionnez le centre de coûts</value>
+	</data>
+	<data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
+		<value>Sélectionnez Centre de projets</value>
+	</data>
+	<data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
+		<value>Sélectionnez le centre d'activités</value>
+	</data>
+	<data name="T_SELECTEMPLOYEE" xml:space="preserve">
+		<value>Sélectionner un employé</value>
+	</data>
+	<data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
+		<value>Les détails du projet ont été insérés avec succès</value>
+	</data>
+	<data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
+		<value>Les détails du projet ont été mis à jour avec succès</value>
+	</data>
+	<data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Total des contributions payées pour</value>
+	</data>
+	<data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Commission calculée</value>
+	</data>
+	<data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
+		<value>Commission calculée pour</value>
+	</data>
+	<data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
+		<value>Total de la contribution de paiement réelle pour</value>
+	</data>
+	<data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
+		<value>Total de toutes les contributions de paiement réalisés</value>
+	</data>
+	<data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
+		<value>Total de toutes les contributions prescrites</value>
+	</data>
+	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Total des contributions prescrites pour</value>
+	</data>
+	<data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+		<value>Nombre total de polices pour</value>
+	</data>
+	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+		<value>Contribution totale prescrite pour</value>
+	</data>
+	<data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
+		<value>Veuillez sélectionner le taux de commission</value>
+	</data>
+	<data name="R_TOTALAPPROVED" xml:space="preserve">
+		<value>Total approuvé</value>
+	</data>
+	<data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
+		<value>Montant total ajusté</value>
+	</data>
+	<data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
+		<value>Montant total payé</value>
+	</data>
+	<data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+		<value>Tâche terminée en </value>
+	</data>
+	<data name="M_EXTR_HOURS" xml:space="preserve">
+		<value> heures</value>
+	</data>
+	<data name="T_OVERVIEW" xml:space="preserve">
+		<value>Aperçu</value>
+	</data>
+	<data name="T_ALLDETAILS" xml:space="preserve">
+		<value>Tous les détails</value>
+	</data>
+	<data name="L_PAYMENTTYPE1" xml:space="preserve">
+		<value>Type de paiement</value>
+	</data>
+	<data name="R_RENEWALUPLOAD" xml:space="preserve">
+		<value>Renewal Upload</value>
+	</data>
+	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
 		<value></value>
 	</data>
 	<data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
@@ -4910,142 +5048,43 @@
 	<data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
 		<value></value>
 	</data>
-	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
-		<value></value>
+	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
+		<value>Batch run for given location and period was not executed</value>
 	</data>
-	<data name="L_FULLNAME" xml:space="preserve">
-		<value></value>
+	<data name="R_CAPITATION" xml:space="preserve">
+		<value>Capitation</value>
 	</data>
-	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
-		<value></value>
+	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
+		<value>Batch not selected</value>
 	</data>
-	<data name="L_RECEIPTCODE" xml:space="preserve">
-		<value></value>
+	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
+		<value>Region not selected</value>
 	</data>
-	<data name="L_IMEI" xml:space="preserve">
-		<value></value>
+	<data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
+		<value>Ctr No. Requested</value>
 	</data>
-	<data name="L_EMAILSETTINGS" xml:space="preserve">
-		<value></value>
+	<data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
+		<value>Ctr No. Received</value>
 	</data>
-	<data name="T_READY" xml:space="preserve">
-		<value></value>
+	<data name="T_PAYMENTRECEIVED" xml:space="preserve">
+		<value>Pay. Received</value>
 	</data>
-	<data name="M_PLEASESELECTMODE" xml:space="preserve">
-		<value></value>
+	<data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
+		<value>Pay. Reconciliated</value>
 	</data>
-	<data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
-		<value></value>
+	<data name="L_REJECTEDREASON" xml:space="preserve">
+		<value>Rejected reason</value>
 	</data>
-	<data name="G_PROJECTDETAILS" xml:space="preserve">
-		<value></value>
+	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
+		<value>cancelled</value>
 	</data>
-	<data name="L_COMMENTS" xml:space="preserve">
-		<value></value>
+	<data name="T_PAYMENTCREATED" xml:space="preserve">
+		<value>Created</value>
 	</data>
-	<data name="L_COSTCENTRE" xml:space="preserve">
-		<value></value>
+	<data name="L_UPLOADFEEDBACKS" xml:space="preserve">
+		<value>Upload Feedbacks</value>
 	</data>
-	<data name="L_PROJECTCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_ACTIVITYCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_CC" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PC" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_AC" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_UNITS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EMPLOYEE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EMPLOYEEID" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_UNITS2" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTCOSTCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTEMPLOYEE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALAPPROVED" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_EXTR_HOURS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_OVERVIEW" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_ALLDETAILS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PAYMENTTYPE1" xml:space="preserve">
-		<value></value>
+	<data name="L_UPLOADRENEWALS" xml:space="preserve">
+		<value>Upload Renewals</value>
 	</data>
 </root>

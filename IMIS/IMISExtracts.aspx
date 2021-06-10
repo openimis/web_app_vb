@@ -480,7 +480,7 @@
                     <tr>
                         <td>
                             <asp:Label ID="Label8" runat="server"
-                                Text='<%$ Resources:Resource,L_UPLOADRENEWAL %>'></asp:Label>
+                                Text='<%$ Resources:Resource,L_UPLOADRENEWALS %>'></asp:Label>
 
                         </td>
 
@@ -526,7 +526,7 @@
                     <tr>
                         <td>
                             <asp:Label ID="Label7" runat="server"
-                                Text='<%$ Resources:Resource,L_UPLOADFEEDBACK %>'></asp:Label>
+                                Text='<%$ Resources:Resource,L_UPLOADFEEDBACKS %>'></asp:Label>
 
                         </td>
 

@@ -86,19 +86,19 @@
 		<value>Role name</value>
 	</data>
 	<data name="L_OTHERNAMES" xml:space="preserve">
-		<value>Given names</value>
+		<value>Other Names</value>
 	</data>
 	<data name="L_VILLAGE" xml:space="preserve">
 		<value>Village</value>
 	</data>
 	<data name="L_WARD" xml:space="preserve">
-		<value>Municipality</value>
+		<value>Ward</value>
 	</data>
 	<data name="L_DISTRICT" xml:space="preserve">
 		<value>District</value>
 	</data>
 	<data name="L_CHFID" xml:space="preserve">
-		<value>Insurance Number</value>
+		<value>CHF Number</value>
 	</data>
 	<data name="L_POVERTY" xml:space="preserve">
 		<value>Poverty Status</value>
@@ -119,7 +119,8 @@
 		<value>Marital Status</value>
 	</data>
 	<data name="L_BLOCKED" xml:space="preserve">
-		<value>Blocked</value>
+		<value>	
+Blocked</value>
 	</data>
 	<data name="L_PASSPORT" xml:space="preserve">
 		<value>Identification Number</value>
@@ -158,7 +159,7 @@
 		<value>Please state if a Beneficiary Card has been issued.</value>
 	</data>
 	<data name="V_CHFID" xml:space="preserve">
-		<value>Please select Insurance Number.</value>
+		<value>Please select CHF Number.</value>
 	</data>
 	<data name="V_DISTRICT" xml:space="preserve">
 		<value>Please select a District.</value>
@@ -173,7 +174,7 @@
 		<value>Please select Marital Status</value>
 	</data>
 	<data name="V_OTHERNAMES" xml:space="preserve">
-		<value>Please enter Given Names.</value>
+		<value>Please enter First Name.</value>
 	</data>
 	<data name="V_POVERTY" xml:space="preserve">
 		<value>Please select if the Family/Group has poverty Status.</value>
@@ -182,7 +183,7 @@
 		<value>Please select a Village</value>
 	</data>
 	<data name="V_WARD" xml:space="preserve">
-		<value>Please select a Municipality.</value>
+		<value>Please select a Ward.</value>
 	</data>
 	<data name="B_ADDPREMIUM" xml:space="preserve">
 		<value>Add Contribution</value>
@@ -260,7 +261,7 @@
 		<value>Password</value>
 	</data>
 	<data name="L_SYSTEM" xml:space="preserve">
-		<value>System</value>
+		<value>system</value>
 	</data>
 	<data name="L_FOUNDPRODUCTS" xml:space="preserve">
 		<value>Products Found</value>
@@ -464,7 +465,7 @@
 		<value>Payer Details</value>
 	</data>
 	<data name="G_USER" xml:space="preserve">
-		<value>Role Details</value>
+		<value>User Details</value>
 	</data>
 	<data name="G_MEDICALITEM" xml:space="preserve">
 		<value>Medical Item Details</value>
@@ -476,7 +477,7 @@
 		<value>Care Type</value>
 	</data>
 	<data name="L_FREQUENCY" xml:space="preserve">
-		<value>Frequency (days)</value>
+		<value>Frequency</value>
 	</data>
 	<data name="L_PATIENT" xml:space="preserve">
 		<value>Patient</value>
@@ -488,7 +489,7 @@
 		<value>Please select at least one patient</value>
 	</data>
 	<data name="V_SELECTTYPE" xml:space="preserve">
-		<value>Select Type</value>
+		<value>--Select Type--</value>
 	</data>
 	<data name="L_DATE" xml:space="preserve">
 		<value>Date</value>
@@ -533,7 +534,7 @@
 		<value>Distribution</value>
 	</data>
 	<data name="L_LUMPSUM" xml:space="preserve">
-		<value>Lump Sum (Amount)</value>
+		<value>Lump Sum</value>
 	</data>
 	<data name="L_MEMBERS" xml:space="preserve">
 		<value>Maximum Members</value>
@@ -917,10 +918,10 @@
 		<value>Preview</value>
 	</data>
 	<data name="L_GRACEPERIOD" xml:space="preserve">
-		<value>Grace Period Enrolment (months)</value>
+		<value>Grace Period Enrolment</value>
 	</data>
 	<data name="L_INSURANCEPERIOD" xml:space="preserve">
-		<value>Insurance Period (months)</value>
+		<value>Insurance Period</value>
 	</data>
 	<data name="L_DEDUCTABLEINCEILING" xml:space="preserve">
 		<value>Deductable (Hospital) Ceiling</value>
@@ -980,13 +981,13 @@
 		<value>Move</value>
 	</data>
 	<data name="L_ENTERCHFIDOFINSUREE" xml:space="preserve">
-		<value>Enter the Insurance Number of Insuree to move</value>
+		<value>Enter the CHF Number of Insuree to move</value>
 	</data>
 	<data name="L_ENTERNEWHEADCHFID" xml:space="preserve">
-		<value>Enter the new Head of Family/Group Insurance Number</value>
+		<value>Enter the new Head of Family/Group CHF Number</value>
 	</data>
 	<data name="M_PREMIUMCOVEREDPROMPT" xml:space="preserve">
-		<value>Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution?</value>
+		<value>Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution</value>
 	</data>
 	<data name="M_POLICYCOMEINFORCEPROMPT" xml:space="preserve">
 		<value>Should the policy come into force</value>
@@ -1028,19 +1029,19 @@
 		<value>Combination of Deductable Ceiling Value Filling is not Correct</value>
 	</data>
 	<data name="M_CANNOTCHANGEFAMILYHEAD" xml:space="preserve">
-		<value>Selected  Insurance Number is already a Head of Family can not change Head of Family/Group</value>
+		<value>Selected  CHF Number is already a Head of Family can not change Head of Family/Group</value>
 	</data>
 	<data name="M_CHFNUMBERFEWCHARACTERS" xml:space="preserve">
-		<value>Insurance  Number is short, should be 9 characters</value>
+		<value>CHF Number is short, should be 9 characters</value>
 	</data>
 	<data name="M_CHFNUMBERMEMBEREXISTS" xml:space="preserve">
-		<value>Head of Family/Group with that  Insurance Number already exists in system</value>
+		<value>Head of Family/Group with that  CHF Number already exists in system</value>
 	</data>
 	<data name="M_CHFNUMBERNOTEXISTS" xml:space="preserve">
-		<value>Selected Insurance Number does not exist !</value>
+		<value>Selected CHF Number does not exist !</value>
 	</data>
 	<data name="M_INVALIDCHFNUMBER" xml:space="preserve">
-		<value>Selected Insurance Number is not valid !</value>
+		<value>Selected CHF Number is not valid !</value>
 	</data>
 	<data name="L_ADULTPREMIUM" xml:space="preserve">
 		<value>Adult Contribution</value>
@@ -1058,7 +1059,7 @@
 		<value>Redirect</value>
 	</data>
 	<data name="M_NOPAGEACCESSPERMISSION" xml:space="preserve">
-		<value>You do not have enough permission to access the page</value>
+		<value>You don't have enough permission to access the page</value>
 	</data>
 	<data name="L_EXPIREDATE" xml:space="preserve">
 		<value>Expire Date</value>
@@ -1079,10 +1080,10 @@
 		<value>Combination of deductables/ceilings configured wrongly</value>
 	</data>
 	<data name="L_SEARCHCHFNUMBER" xml:space="preserve">
-		<value>Enquiry</value>
+		<value>Search CHF No</value>
 	</data>
 	<data name="M_ENTERCHFNUMBER" xml:space="preserve">
-		<value>Please enter a Insurance  Number</value>
+		<value>Please enter a CHF Number</value>
 	</data>
 	<data name="P_FINDUSERS" xml:space="preserve">
 		<value>User Control Panel</value>
@@ -1115,19 +1116,19 @@
 		<value>No village found</value>
 	</data>
 	<data name="M_NOWARDS" xml:space="preserve">
-		<value>No Municipality found</value>
+		<value>No Ward found</value>
 	</data>
 	<data name="M_POLICYVALUECHANGE" xml:space="preserve">
 		<value>Value of policy with the enrolment date:</value>
 	</data>
 	<data name="M_NOTVALIDCHFNUMBER" xml:space="preserve">
-		<value> is not a valid Insurance Number</value>
+		<value> is not a valid CHF Number</value>
 	</data>
 	<data name="M_VILLAGESINWARD" xml:space="preserve">
-		<value>Please delete Villages in Municipality first</value>
+		<value>Please delete Villages in Ward first</value>
 	</data>
 	<data name="M_WARDSINDISTRICT" xml:space="preserve">
-		<value>Please delete Municipality in District first</value>
+		<value>Please delete Ward in District first</value>
 	</data>
 	<data name="M_CHANGEHEAD" xml:space="preserve">
 		<value> successfully changed to Head of Family/Group</value>
@@ -1346,7 +1347,7 @@
 		<value>-- Select a Village --</value>
 	</data>
 	<data name="T_SELECTAWARD" xml:space="preserve">
-		<value>-- Select a Municipality--</value>
+		<value>-- Select a Ward--</value>
 	</data>
 	<data name="T_SELECTDISTRICT" xml:space="preserve">
 		<value>-- Select a District --</value>
@@ -1544,10 +1545,10 @@
 		<value>Create Phone Extract</value>
 	</data>
 	<data name="L_INSERTED" xml:space="preserve">
-		<value>Inserted</value>
+		<value>Ins</value>
 	</data>
 	<data name="L_UPDATED" xml:space="preserve">
-		<value>Updated</value>
+		<value>Upd</value>
 	</data>
 	<data name="M_EXTR_NOUPLOADLOADFILE" xml:space="preserve">
 		<value>No valid Upload file selected </value>
@@ -1571,7 +1572,7 @@
 		<value>Duplicate village found. Import cancelled.</value>
 	</data>
 	<data name="M_DUPLICATEWARD" xml:space="preserve">
-		<value>Duplicate Municipality found. Import cancelled.</value>
+		<value>Duplicate Ward found. Import cancelled.</value>
 	</data>
 	<data name="M_LOCATIONUPLOADED" xml:space="preserve">
 		<value>Locations uploaded successfully.</value>
@@ -1679,7 +1680,7 @@
 		<value>Please add at least one Item or Service to proceed</value>
 	</data>
 	<data name="M_CHFIDNOTFOUND" xml:space="preserve">
-		<value>Insurance  Number not Found!</value>
+		<value>CHF  Number not Found!</value>
 	</data>
 	<data name="M_CLAIMCODEEXISTS" xml:space="preserve">
 		<value>Claim Code Already exists</value>
@@ -1694,7 +1695,7 @@
 		<value>The claim was deleted successfully</value>
 	</data>
 	<data name="M_CLAIMNOTENTEREDNODELETE" xml:space="preserve">
-		<value>The status of this Claim is not ENTERED and thus can not be deleted</value>
+		<value>The status of this Claim is not ENTERED and thus can't be deleted</value>
 	</data>
 	<data name="M_CLAIMNOTFORFEEDBACKPROCESS" xml:space="preserve">
 		<value>The claim status does not allow it to be viewed for feedback process</value>
@@ -1916,10 +1917,10 @@
 		<value> Would you like to process the claims?</value>
 	</data>
 	<data name="L_EXTR_DOWNLOADCLAIMS" xml:space="preserve">
-		<value>Download Claims</value>
+		<value>Download Claim XMLs</value>
 	</data>
 	<data name="L_EXTR_UPLOADCLAIMS" xml:space="preserve">
-		<value>Upload Claims</value>
+		<value>Upload Claims XML</value>
 	</data>
 	<data name="M_CLMALREADYREVIEWEDBYUSER" xml:space="preserve">
 		<value>This claim has already been reviewed by another user</value>
@@ -2057,7 +2058,7 @@
 		<value>Payment Type</value>
 	</data>
 	<data name="M_CANNOTCHANGECHFNOISHEADFMLY" xml:space="preserve">
-		<value>Can not change, selected Insurance Number is already Head of Family/Group</value>
+		<value>Can not change, selected CHF Number is already Head of Family/Group</value>
 	</data>
 	<data name="M_FAMILYANDHEADOFFLY_" xml:space="preserve">
 		<value>Family/Group and the Head of Family/Group</value>
@@ -2072,13 +2073,13 @@
 		<value>Insuree is already in this Family/Group</value>
 	</data>
 	<data name="M_INSUREEHEADFMLYDELETENOT" xml:space="preserve">
-		<value>Insuree is Head of Family/Group, ca not be deleted</value>
+		<value>Insuree is Head of Family/Group, can't be deleted</value>
 	</data>
 	<data name="M_INSUREENOTDELETED" xml:space="preserve">
 		<value>Insuree not deleted</value>
 	</data>
 	<data name="M_POLICYHASPREMIUMNODELETE" xml:space="preserve">
-		<value>Policy has Contribution(s), Can not be deleted</value>
+		<value>Policy has Contribution(s), Can't be deleted</value>
 	</data>
 	<data name="M_PREMIUMISINUSE" xml:space="preserve">
 		<value>Contribution is in use</value>
@@ -2087,7 +2088,7 @@
 		<value>Contribution not deleted</value>
 	</data>
 	<data name="M_SELECTEDCHFNONOTEXIT" xml:space="preserve">
-		<value>Selected Insurance Number does not exist !</value>
+		<value>Selected CHF Number does not exist !</value>
 	</data>
 	<data name="L_AMOUNT" xml:space="preserve">
 		<value>Amount</value>
@@ -2186,7 +2187,7 @@
 		<value>Collection</value>
 	</data>
 	<data name="L_DERIVEDINDICATORSREPORT" xml:space="preserve">
-		<value>Product - Derived Indicators Report</value>
+		<value>Derived Indicators Report</value>
 	</data>
 	<data name="L_DIAGNOSIS" xml:space="preserve">
 		<value>Diagnosis</value>
@@ -2396,7 +2397,7 @@
 		<value>Village Name</value>
 	</data>
 	<data name="L_WardName" xml:space="preserve">
-		<value>Municipality Name</value>
+		<value>Ward Name</value>
 	</data>
 	<data name="M_DELETEDISTRICTPROMPT" xml:space="preserve">
 		<value>Are you sure you want to delete District</value>
@@ -2405,7 +2406,7 @@
 		<value>Are you sure you want to delete village</value>
 	</data>
 	<data name="M_DELETEWARDPROMPT" xml:space="preserve">
-		<value>Are you sure you want to delete Municipality</value>
+		<value>Are you sure you want to delete Ward</value>
 	</data>
 	<data name="M_EMPTYLOCATIONNAME" xml:space="preserve">
 		<value>Location name can not be empty</value>
@@ -2429,16 +2430,16 @@
 		<value>Claim Administrators Found</value>
 	</data>
 	<data name="L_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
-		<value>Claims - Primary Operational Indicators</value>
+		<value>Primary Operational Indicators-claims</value>
 	</data>
 	<data name="L_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
-		<value>Policies - Primary Operational Indicators</value>
+		<value>Primary Operational Indicators-policies</value>
 	</data>
 	<data name="T_PRIMARYOPERATIONALINDICATORS-CLAIMS" xml:space="preserve">
-		<value>Claims - Primary Operational Indicators</value>
+		<value>Primary Operational Indicators-claims</value>
 	</data>
 	<data name="T_PRIMARYOPERATIONALINDICATORS-POLICIES" xml:space="preserve">
-		<value>Policies - Primary Operational Indicators</value>
+		<value>Primary Operational Indicators-policies</value>
 	</data>
 	<data name="T_USERACTIVITYREPORT" xml:space="preserve">
 		<value>User Activity Report</value>
@@ -2519,7 +2520,7 @@
 		<value>Enrolment Officers Code</value>
 	</data>
 	<data name="L_EXTR_OFFLINENROLMENT" xml:space="preserve">
-		<value>Download Enrolments</value>
+		<value>Download Enrolment XMLs</value>
 	</data>
 	<data name="M_NOENROLMENTFOUND" xml:space="preserve">
 		<value>No new enrolment found.</value>
@@ -2588,7 +2589,7 @@
 		<value>Please enter an identifier number</value>
 	</data>
 	<data name="M_CREATEOFFLINEEXTRACTPROMPT" xml:space="preserve">
-		<value>&lt;/BR&gt;&lt;/BR&gt;You have not selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region.</value>
+		<value>&lt;/BR&gt;&lt;/BR&gt;You haven\'t selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region.</value>
 	</data>
 	<data name="M_VALIDATEADDBUTTONCLAIMADMIN" xml:space="preserve">
 		<value>Please select a Claim Administrator first</value>
@@ -2606,7 +2607,7 @@
 		<value>No village specified</value>
 	</data>
 	<data name="M_NOWARDSPECIFIED" xml:space="preserve">
-		<value>No Municipality specified</value>
+		<value>No Ward specified</value>
 	</data>
 	<data name="M_SELECTMONTH" xml:space="preserve">
 		<value>Please select month</value>
@@ -2672,7 +2673,7 @@
 		<value>Assembly Lump Sum</value>
 	</data>
 	<data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
-		<value>Grace Period Renewal (months)</value>
+		<value>Grace Period Renewal</value>
 	</data>
 	<data name="L_HOSPITALIZATIONS" xml:space="preserve">
 		<value>Hospitalizations</value>
@@ -2717,7 +2718,7 @@
 		<value>Max Installments</value>
 	</data>
 	<data name="L_WAITINGPERIOD" xml:space="preserve">
-		<value>Grace Period Payment (months)</value>
+		<value>Grace Period Payment</value>
 	</data>
 	<data name="M_INVALIDCYCLE1DATE" xml:space="preserve">
 		<value>Invalid cycle 1 date</value>
@@ -2807,34 +2808,34 @@
 		<value>Service</value>
 	</data>
 	<data name="L_CONSULTATIONAMOUNTLEFT" xml:space="preserve">
-		<value>Consultation Amount/Claim</value>
+		<value>Cons Amt/Claim</value>
 	</data>
 	<data name="L_DELIVERYAMOUNTLEFT" xml:space="preserve">
-		<value>Delivery Amount/Claim</value>
+		<value>Del Amt/Claim</value>
 	</data>
 	<data name="L_HOSPITALIZATIONAMOUNTLEFT" xml:space="preserve">
-		<value>Admission Amount/Claim</value>
+		<value>Hosp Amt/Claim</value>
 	</data>
 	<data name="L_PRODUCTID" xml:space="preserve">
 		<value>Product ID</value>
 	</data>
 	<data name="L_SURGERYAMOUNTLEFT" xml:space="preserve">
-		<value>Surgery Amount/Claim</value>
+		<value>Surg Amt/Claim</value>
 	</data>
 	<data name="L_TOTALADMISSIONSLEFT" xml:space="preserve">
-		<value>Admissions Left</value>
+		<value>Adm Left</value>
 	</data>
 	<data name="L_TOTALCONSULTATIONSLEFT" xml:space="preserve">
-		<value>Consultations Left</value>
+		<value>Cons Left</value>
 	</data>
 	<data name="L_TOTALDELIVERIESLEFT" xml:space="preserve">
-		<value>Deliveries Left</value>
+		<value>Del Left</value>
 	</data>
 	<data name="L_TOTALSURGERIESLEFT" xml:space="preserve">
-		<value>Surgeries Left</value>
+		<value>Surg Left</value>
 	</data>
 	<data name="L_TOTALVISITSLEFT" xml:space="preserve">
-		<value>Visits Left</value>
+		<value>Vis Left</value>
 	</data>
 	<data name="L_ITEMLEFT" xml:space="preserve">
 		<value>Item Left</value>
@@ -2864,7 +2865,7 @@
 		<value>Village saved successfully</value>
 	</data>
 	<data name="M_WARDSAVED" xml:space="preserve">
-		<value>Municipality saved successfully</value>
+		<value>Ward saved successfully</value>
 	</data>
 	<data name="M_CONTINUEPROMPT" xml:space="preserve">
 		<value>Do you want to continue?</value>
@@ -2900,13 +2901,13 @@
 		<value>Confirmation No.</value>
 	</data>
 	<data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
-		<value>Administration Period (months)</value>
+		<value>Administration Period</value>
 	</data>
 	<data name="L_RENEWALDISCOUNTPERCENTAGE" xml:space="preserve">
 		<value>Renewal Disc. %</value>
 	</data>
 	<data name="L_RENEWALDISCOUNTPERIOD" xml:space="preserve">
-		<value>Renewal Disc. Period (months)</value>
+		<value>Renewal Disc. Period</value>
 	</data>
 	<data name="L_STARTCYCLE3" xml:space="preserve">
 		<value>Start Cycle 3</value>
@@ -2915,7 +2916,7 @@
 		<value>Start Cyle 4</value>
 	</data>
 	<data name="L_THRESHOLDMEMBERS" xml:space="preserve">
-		<value>Threshold Members (Nbr)</value>
+		<value>Threshold Members</value>
 	</data>
 	<data name="M_RENEWDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
 		<value>Renew discount percentage should be less than or equal to hundred</value>
@@ -2996,7 +2997,7 @@
 		<value>Adj.Qty</value>
 	</data>
 	<data name="R_CHFID" xml:space="preserve">
-		<value>Insurance Number</value>
+		<value>CHF Number</value>
 	</data>
 	<data name="R_CLAIMADMINNAME" xml:space="preserve">
 		<value>Claim Admin</value>
@@ -3140,7 +3141,7 @@
 		<value>Enrolment Disc. %</value>
 	</data>
 	<data name="L_ENROLMENTDISCOUNTPERIOD" xml:space="preserve">
-		<value>Enrolment Disc. Period (months)</value>
+		<value>Enrolment Disc. Period</value>
 	</data>
 	<data name="M_ENROLDISCOUNTPERCEXCEEDPERC" xml:space="preserve">
 		<value>Enrolment discount percentage should be less than or equal to hundred</value>
@@ -3152,7 +3153,7 @@
 		<value>Current Address Details</value>
 	</data>
 	<data name="L_CVDC" xml:space="preserve">
-		<value>Current Municipality</value>
+		<value>Current ward</value>
 	</data>
 	<data name="L_CWARD" xml:space="preserve">
 		<value>Current Village</value>
@@ -3407,13 +3408,13 @@
 		<value>Yearly</value>
 	</data>
 	<data name="M_ACCOUNTANT" xml:space="preserve">
-		<value>Accountant</value>
+		<value>CHF Accountant</value>
 	</data>
 	<data name="M_CLAIMCONTRIBUTOR" xml:space="preserve">
 		<value>Claim Contributor</value>
 	</data>
 	<data name="M_CLERK" xml:space="preserve">
-		<value>Clerk</value>
+		<value>CHF Clerk</value>
 	</data>
 	<data name="M_HFADMINISTRATOR" xml:space="preserve">
 		<value>HF Administrator</value>
@@ -3422,19 +3423,19 @@
 		<value>IMIS Administrator</value>
 	</data>
 	<data name="M_MANAGER" xml:space="preserve">
-		<value>Manager</value>
+		<value>CHF Manager</value>
 	</data>
 	<data name="M_MEDICALOFFICER" xml:space="preserve">
-		<value>Medical Officer</value>
+		<value>CHF Medical Officer</value>
 	</data>
 	<data name="M_OFFLINESCHEMEADMIN" xml:space="preserve">
-		<value>Offline Scheme Administrator</value>
+		<value>Offline CHF Administrator</value>
 	</data>
 	<data name="M_RECEPTIONIST" xml:space="preserve">
 		<value>Receptionist</value>
 	</data>
 	<data name="M_SCHEMEADMINISTRATOR" xml:space="preserve">
-		<value>Scheme Administrator</value>
+		<value>CHF Scheme Administrator</value>
 	</data>
 	<data name="L_SHOWCLAIM" xml:space="preserve">
 		<value>Show Claims</value>
@@ -3497,13 +3498,13 @@
 		<value>-- Select Subcategory --</value>
 	</data>
 	<data name="L_GROUPTYPE" xml:space="preserve">
-		<value>Family / Group Type</value>
+		<value>Group Type</value>
 	</data>
 	<data name="L_ANTENATALAMOUNTLEFT" xml:space="preserve">
-		<value>Antenanal Amount/Claim</value>
+		<value>Ant Amt/Claim</value>
 	</data>
 	<data name="L_TOTALANTENATALLEFT" xml:space="preserve">
-		<value>Antenatal left</value>
+		<value>Ant left</value>
 	</data>
 	<data name="T_SELECTMAINDG" xml:space="preserve">
 		<value>--Select Main Dg.--</value>
@@ -3515,7 +3516,7 @@
 		<value>Forgot password</value>
 	</data>
 	<data name="L_FOROGOTPASSWORDHEADING" xml:space="preserve">
-		<value>Enter username and new password to reset password</value>
+		<value>Enter email id to retrieve password</value>
 	</data>
 	<data name="L_BACKTOLOGIN" xml:space="preserve">
 		<value>Go to Login</value>
@@ -3527,7 +3528,7 @@
 		<value>Invalid email id</value>
 	</data>
 	<data name="L_PASSWORDSENT" xml:space="preserve">
-		<value>A link has been sent to your email, click on link to confirm new password</value>
+		<value>Your password is sent to your email id</value>
 	</data>
 	<data name="M_WEAKPASSWORD" xml:space="preserve">
 		<value>Password must contain at least 8 characters including at  least one number</value>
@@ -3548,7 +3549,7 @@
 		<value>Incorrect current password</value>
 	</data>
 	<data name="X_EMAILSENTFAIL" xml:space="preserve">
-		<value>We could not send email. Please try again later.</value>
+		<value>We could not send email. Please try again letter.</value>
 	</data>
 	<data name="L_REGION" xml:space="preserve">
 		<value>Region</value>
@@ -3683,7 +3684,7 @@
 		<value>Village Code</value>
 	</data>
 	<data name="L_WARDCODE" xml:space="preserve">
-		<value>Municipality Code</value>
+		<value>Ward Code</value>
 	</data>
 	<data name="M_EMPTYLOCATIONCODE" xml:space="preserve">
 		<value>Location code can not be empty</value>
@@ -3731,7 +3732,7 @@
 		<value>Value can not exceed 100%</value>
 	</data>
 	<data name="M_NOWARD" xml:space="preserve">
-		<value>No municipalities found</value>
+		<value>No ward found</value>
 	</data>
 	<data name="L_FSPREGION" xml:space="preserve">
 		<value>Region of FSP</value>
@@ -3860,7 +3861,7 @@
 		<value>District Code in excel Already Exists in Database</value>
 	</data>
 	<data name="M_DISTRICTCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value>District Code specified in Municipality does not exists in Either Database or District Excel</value>
+		<value>District Code specified in Ward does not exists in Either Database or District Excel</value>
 	</data>
 	<data name="M_DUPLICATEDISTRICTCODEINEXCEL" xml:space="preserve">
 		<value>Duplicate District Code in excel</value>
@@ -3905,7 +3906,7 @@
 		<value>Municipality Code in excel Already Exist in Database</value>
 	</data>
 	<data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value>WardCode in Village Excel does not exist in Either Database or Municipality Excel</value>
+		<value>Namba ya kata kwenye kijiji haipo kwenye hifadhidata au makaratasi ya kata</value>
 	</data>
 	<data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
 		<value>Region Code in excel Already Exists in Database</value>
@@ -4163,7 +4164,7 @@
 		<value>Received Date</value>
 	</data>
 	<data name="L_SERVICEMINDATE" xml:space="preserve">
-		<value>Minimum duration of the service ?</value>
+		<value>Service MinDate</value>
 	</data>
 	<data name="M_SELECTPAYMENTDETAIL" xml:space="preserve">
 		<value>Please Select Payment Detail to edit</value>
@@ -4337,7 +4338,7 @@
 		<value>Please fill a Role name</value>
 	</data>
 	<data name="L_USERPROFILES" xml:space="preserve">
-		<value>User Roles</value>
+		<value>User Profiles</value>
 	</data>
 	<data name="M_NOTDELETEASSOCIATEDUSER" xml:space="preserve">
 		<value>could not be deleted because is associated</value>
@@ -4436,7 +4437,7 @@
 		<value>Batch</value>
 	</data>
 	<data name="R_CAPITATIONPAYMENT" xml:space="preserve">
-		<value>Product - Capitation Payment</value>
+		<value>Capitation Payment</value>
 	</data>
 	<data name="R_CLAIM" xml:space="preserve">
 		<value>Claim</value>
@@ -4445,10 +4446,10 @@
 		<value>Claim Administrators</value>
 	</data>
 	<data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
-		<value>Claims - History Report</value>
+		<value>Claim History Report</value>
 	</data>
 	<data name="R_CLAIMOVERVIEW" xml:space="preserve">
-		<value>Claims - Overview</value>
+		<value>Claim Overview</value>
 	</data>
 	<data name="R_CLAIMREVIEW" xml:space="preserve">
 		<value>Review</value>
@@ -4460,16 +4461,16 @@
 		<value>Contribution</value>
 	</data>
 	<data name="R_CONTRIBUTIONCOLLECTION" xml:space="preserve">
-		<value>Contributions - Collection</value>
+		<value>Contribution Collection</value>
 	</data>
 	<data name="R_CONTRIBUTIONDISTRIBUTION" xml:space="preserve">
-		<value>Contributions -  Distribution</value>
+		<value>Contribution Distribution</value>
 	</data>
 	<data name="R_CONTRIBUTIONPAYMENT" xml:space="preserve">
-		<value>Contributions - Payment</value>
+		<value>Contribution Payment</value>
 	</data>
 	<data name="R_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
-		<value>Payments - Control Number Assignment</value>
+		<value>Control Number Assignment</value>
 	</data>
 	<data name="R_CREATE" xml:space="preserve">
 		<value>Create</value>
@@ -4478,7 +4479,7 @@
 		<value>Delete</value>
 	</data>
 	<data name="R_DERIVEDOPERATIONALI" xml:space="preserve">
-		<value>Product - Derived Operational Indicators</value>
+		<value>Derived Operational Indicators</value>
 	</data>
 	<data name="R_DIAGNOSES" xml:space="preserve">
 		<value>Diagnoses</value>
@@ -4502,7 +4503,7 @@
 		<value>Enrollment Officers</value>
 	</data>
 	<data name="R_ENROLMENTPERFORMANCEI" xml:space="preserve">
-		<value>Insurees - Enrolments Performance Indicators</value>
+		<value>Enrollment Performance Indicators</value>
 	</data>
 	<data name="R_ENROLMENTS" xml:space="preserve">
 		<value>Enrollments</value>
@@ -4514,7 +4515,7 @@
 		<value>Extracts</value>
 	</data>
 	<data name="R_FAMILIESANDINSUREESOVERVIEW" xml:space="preserve">
-		<value>Insurees - Overview with Families</value>
+		<value>Families and insurees Overview</value>
 	</data>
 	<data name="R_FEEDBACK" xml:space="preserve">
 		<value>Feedback</value>
@@ -4535,7 +4536,7 @@
 		<value>Insurees and Policies</value>
 	</data>
 	<data name="R_INSUREESWITHOUTPHOTOS" xml:space="preserve">
-		<value>Insurees - Missing Photos</value>
+		<value>Insurees without Photos</value>
 	</data>
 	<data name="R_LOAD" xml:space="preserve">
 		<value>Load</value>
@@ -4547,7 +4548,7 @@
 		<value>Master Data</value>
 	</data>
 	<data name="R_MATCHINGFUNDS" xml:space="preserve">
-		<value>Contributions - Matching Funds</value>
+		<value>Matching Funds</value>
 	</data>
 	<data name="R_MEDICALITEMS" xml:space="preserve">
 		<value>Medical Items</value>
@@ -4562,7 +4563,7 @@
 		<value>Offline Extracts</value>
 	</data>
 	<data name="R_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
-		<value>Contributions - Overview Of Commissions</value>
+		<value>Overview Of Commissions</value>
 	</data>
 	<data name="R_PAYERS" xml:space="preserve">
 		<value>Payers</value>
@@ -4571,13 +4572,13 @@
 		<value>Payment</value>
 	</data>
 	<data name="R_PAYMENTCATEGORYOVERVIEW" xml:space="preserve">
-		<value>Payments - Category Overview</value>
+		<value>Payment Category Overview</value>
 	</data>
 	<data name="R_PENDINGINSUREES" xml:space="preserve">
-		<value>Insurees - Pending enrolment</value>
+		<value>Pending Insurees</value>
 	</data>
 	<data name="R_PERCENTAGEOFREFERRALS" xml:space="preserve">
-		<value>Policies - Percentage of Referrals</value>
+		<value>Percentage of Referrals</value>
 	</data>
 	<data name="R_PHONEEXTRACTS" xml:space="preserve">
 		<value>Phone Extracts</value>
@@ -4595,10 +4596,10 @@
 		<value>Price lists - Medical Services</value>
 	</data>
 	<data name="R_PRIMARYOPERATIONALIC" xml:space="preserve">
-		<value>Claims - Primary Operational Indicators</value>
+		<value>Primary Operational Indicators-claims</value>
 	</data>
 	<data name="R_PRIMARYOPERATIONALIP" xml:space="preserve">
-		<value>Policies - Primary Operational Indicators</value>
+		<value>Primary Operational Indicators-policies</value>
 	</data>
 	<data name="R_PRINT" xml:space="preserve">
 		<value>Print</value>
@@ -4610,19 +4611,19 @@
 		<value>Products</value>
 	</data>
 	<data name="R_PRODUCTSALES" xml:space="preserve">
-		<value>Products - Sales</value>
+		<value>Product Sales</value>
 	</data>
 	<data name="R_REGISTERS" xml:space="preserve">
 		<value>Registers</value>
 	</data>
 	<data name="R_REJECTEDPHOTOS" xml:space="preserve">
-		<value>Insuree - Rejected Photos</value>
+		<value>Rejected Photos</value>
 	</data>
 	<data name="R_RENEW" xml:space="preserve">
 		<value>Renew</value>
 	</data>
 	<data name="R_RENEWALS" xml:space="preserve">
-		<value>Policies - Renewals</value>
+		<value>Renewals</value>
 	</data>
 	<data name="R_REPORTS" xml:space="preserve">
 		<value>Reports</value>
@@ -4640,7 +4641,7 @@
 		<value>Search</value>
 	</data>
 	<data name="R_STATUSOFREGISTERS" xml:space="preserve">
-		<value>Admin - Status of Registers</value>
+		<value>Status of Registers</value>
 	</data>
 	<data name="R_SUBMIT" xml:space="preserve">
 		<value>Submit</value>
@@ -4655,10 +4656,10 @@
 		<value>Upload</value>
 	</data>
 	<data name="R_USERACTIVITYREPORT" xml:space="preserve">
-		<value>Admin - User Activity Report</value>
+		<value>User Activity Report</value>
 	</data>
 	<data name="R_USERPROFILES" xml:space="preserve">
-		<value>User Roles</value>
+		<value>User Profiles</value>
 	</data>
 	<data name="R_USERS" xml:space="preserve">
 		<value>Users</value>
@@ -5035,7 +5036,7 @@ adults/children)
 		<value>All details</value>
 	</data>
 	<data name="L_PAYMENTTYPE1" xml:space="preserve">
-		<value>Payment Type</value>
+		<value>Aina ya Malipo</value>
 	</data>
 	<data name="R_RENEWALUPLOAD" xml:space="preserve">
 		<value>Renewal Upload</value>

@@ -896,13 +896,13 @@
 		<value>Les deux</value>
 	</data>
 	<data name="L_LIMITADULT" xml:space="preserve">
-		<value>Adulte O</value>
+		<value>Adulte A</value>
 	</data>
 	<data name="L_LIMITATIONTYPE" xml:space="preserve">
-		<value>Limite O</value>
+		<value>Limite A</value>
 	</data>
 	<data name="L_LIMITCHILD" xml:space="preserve">
-		<value>Enfant O</value>
+		<value>Enfant A</value>
 	</data>
 	<data name="L_PRICEORIGIN" xml:space="preserve">
 		<value>Origine</value>
@@ -2666,10 +2666,10 @@
 		<value>Accouchements</value>
 	</data>
 	<data name="L_GENERALASSEMBLYFEE" xml:space="preserve">
-		<value>Frais pour les réunions</value>
+		<value>Frais d'assemblage</value>
 	</data>
 	<data name="L_GENERALASSEMBLYLUMPSUM" xml:space="preserve">
-		<value>Montant forfaitaire pour les réunions</value>
+		<value>Montant forfaitaire de base</value>
 	</data>
 	<data name="L_GRACEPERIODRENEWAL" xml:space="preserve">
 		<value>Période de grâce pour le renouvellement</value>
@@ -2774,10 +2774,10 @@
 		<value>Sél. le sous niveau</value>
 	</data>
 	<data name="L_LIMITNOADULT" xml:space="preserve">
-		<value>AUCUN ADULTE</value>
+		<value>Nb ADULTE</value>
 	</data>
 	<data name="L_LIMITNOCHILD" xml:space="preserve">
-		<value>AUCUN ENFANT</value>
+		<value>Nb ENFANT</value>
 	</data>
 	<data name="L_WAITINGPERIODADULT" xml:space="preserve">
 		<value>Attente adulte</value>
@@ -2930,19 +2930,19 @@
 		<value>Plafond pour enfant</value>
 	</data>
 	<data name="L_LIMITADULTE" xml:space="preserve">
-		<value>Adulte E</value>
+		<value>Adulte U</value>
 	</data>
 	<data name="L_LIMITADULTR" xml:space="preserve">
 		<value>Adulte R</value>
 	</data>
 	<data name="L_LIMITATIONTYPEE" xml:space="preserve">
-		<value>Limite E</value>
+		<value>Limite U</value>
 	</data>
 	<data name="L_LIMITATIONTYPER" xml:space="preserve">
 		<value>Limite R</value>
 	</data>
 	<data name="L_LIMITCHILDE" xml:space="preserve">
-		<value>Enfant E</value>
+		<value>Enfant U</value>
 	</data>
 	<data name="L_LIMITCHILDR" xml:space="preserve">
 		<value>Enfant R</value>
@@ -3905,7 +3905,7 @@
 		<value>Code de municipalité du fichier déjà dans la base de donnée</value>
 	</data>
 	<data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value>Municipalité du fichier &quot;Village&quot; n'existe ni dans la base de donnée in dans le fichier &quot;municipalité&quot;</value>
+		<value>WardCode du fichier &quot;Village&quot; n'existe ni dans la base de donnée in dans le fichier &quot;municipalité&quot;</value>
 	</data>
 	<data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
 		<value>Code de région dans le fichier existe déjà dans la base de donnée</value>
@@ -4700,9 +4700,6 @@
 	<data name="R_FEEDBACKUPLOAD" xml:space="preserve">
 		<value>Téléverser les retours d'information</value>
 	</data>
-	<data name="R_RENEWALUPLOAD" xml:space="preserve">
-		<value></value>
-	</data>
 	<data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
 		<value>Télécharger établissement de santé</value>
 	</data>
@@ -4898,17 +4895,8 @@
 	<data name="T_CHARITY" xml:space="preserve">
 		<value>Charity</value>
 	</data>
-	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
-		<value>Exportation phots</value>
-	</data>
 	<data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
 		<value>Importation photos</value>
-	</data>
-	<data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
-		<value>Extraction téléphone hors ligne</value>
-	</data>
-	<data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
-		<value>Extraction téléphone</value>
 	</data>
 	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
 		<value>Photos compressées</value>
@@ -5046,6 +5034,57 @@
 		<value>Tous les détails</value>
 	</data>
 	<data name="L_PAYMENTTYPE1" xml:space="preserve">
-		<value>Type de paiement</value>
+		<value>``Type de paiement``</value>
+	</data>
+	<data name="R_RENEWALUPLOAD" xml:space="preserve">
+		<value>Renewal Upload</value>
+	</data>
+	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
+		<value>Exportation phots</value>
+	</data>
+	<data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
+		<value>Extraction téléphone hors ligne</value>
+	</data>
+	<data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
+		<value>Extraction téléphone</value>
+	</data>
+	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
+		<value>Batch run for given location and period was not executed</value>
+	</data>
+	<data name="R_CAPITATION" xml:space="preserve">
+		<value>Capitation</value>
+	</data>
+	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
+		<value>Batch not selected</value>
+	</data>
+	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
+		<value>Region not selected</value>
+	</data>
+	<data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
+		<value>Ctr No. Requested</value>
+	</data>
+	<data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
+		<value>Ctr No. Received</value>
+	</data>
+	<data name="T_PAYMENTRECEIVED" xml:space="preserve">
+		<value>Pay. Received</value>
+	</data>
+	<data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
+		<value>Pay. Reconciliated</value>
+	</data>
+	<data name="L_REJECTEDREASON" xml:space="preserve">
+		<value>Rejected reason</value>
+	</data>
+	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
+		<value>cancelled</value>
+	</data>
+	<data name="T_PAYMENTCREATED" xml:space="preserve">
+		<value>Created</value>
+	</data>
+	<data name="L_UPLOADFEEDBACKS" xml:space="preserve">
+		<value>Upload Feedbacks</value>
+	</data>
+	<data name="L_UPLOADRENEWALS" xml:space="preserve">
+		<value>Upload Renewals</value>
 	</data>
 </root>

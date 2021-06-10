@@ -89,19 +89,19 @@
 		<value>Given names</value>
 	</data>
 	<data name="L_VILLAGE" xml:space="preserve">
-		<value>Village</value>
+		<value>गाउँ</value>
 	</data>
 	<data name="L_WARD" xml:space="preserve">
-		<value>Municipality</value>
+		<value>नगरपालिका</value>
 	</data>
 	<data name="L_DISTRICT" xml:space="preserve">
-		<value>District</value>
+		<value>जिल्ला</value>
 	</data>
 	<data name="L_CHFID" xml:space="preserve">
 		<value>Insurance Number</value>
 	</data>
 	<data name="L_POVERTY" xml:space="preserve">
-		<value>Poverty Status</value>
+		<value>गरीबी स्थिति</value>
 	</data>
 	<data name="L_CARD" xml:space="preserve">
 		<value>Beneficiary Card</value>
@@ -110,16 +110,16 @@
 		<value>Select Criteria</value>
 	</data>
 	<data name="L_BIRTHDATE" xml:space="preserve">
-		<value>Birth Date</value>
+		<value>जन्म मिति</value>
 	</data>
 	<data name="L_GENDER" xml:space="preserve">
-		<value>Gender</value>
+		<value>लिंग</value>
 	</data>
 	<data name="L_MARITAL" xml:space="preserve">
-		<value>Marital Status</value>
+		<value>वैवाहिक स्थिति</value>
 	</data>
 	<data name="L_BLOCKED" xml:space="preserve">
-		<value>Blocked</value>
+		<value>अवरुद्ध</value>
 	</data>
 	<data name="L_PASSPORT" xml:space="preserve">
 		<value>Identification Number</value>
@@ -200,13 +200,13 @@
 		<value>No Contributions found for selected policy</value>
 	</data>
 	<data name="B_CANCEL" xml:space="preserve">
-		<value>Cancel</value>
+		<value>रद्द</value>
 	</data>
 	<data name="B_SAVE" xml:space="preserve">
 		<value>Save</value>
 	</data>
 	<data name="B_ADD" xml:space="preserve">
-		<value>Add</value>
+		<value>थप</value>
 	</data>
 	<data name="B_DELETE" xml:space="preserve">
 		<value>Delete</value>
@@ -215,7 +215,7 @@
 		<value>Edit</value>
 	</data>
 	<data name="B_FIND" xml:space="preserve">
-		<value>Find</value>
+		<value>खोज्नुहोस्</value>
 	</data>
 	<data name="L_ADDFAMILY" xml:space="preserve">
 		<value>Add Family/Group</value>
@@ -533,7 +533,7 @@
 		<value>Distribution</value>
 	</data>
 	<data name="L_LUMPSUM" xml:space="preserve">
-		<value>Lump Sum (Amount)</value>
+		<value>एकमुश्त रकम (रकम)</value>
 	</data>
 	<data name="L_MEMBERS" xml:space="preserve">
 		<value>Maximum Members</value>
@@ -830,7 +830,7 @@
 		<value>Calculated Date</value>
 	</data>
 	<data name="L_DISPLAY" xml:space="preserve">
-		<value>Relative Indexes</value>
+		<value>सापेक्ष सूचकांक</value>
 	</data>
 	<data name="L_FILTER" xml:space="preserve">
 		<value>Filter</value>
@@ -1292,7 +1292,7 @@
 		<value>Man</value>
 	</data>
 	<data name="T_MEDICALCONSUMABLE" xml:space="preserve">
-		<value>Medical consumable</value>
+		<value>चिकित्सा उपभोग्य</value>
 	</data>
 	<data name="T_MOBILEPHONE" xml:space="preserve">
 		<value>Mobile Phone</value>
@@ -3659,7 +3659,7 @@
 		<value>Fund added successfully</value>
 	</data>
 	<data name="L_WELCOME" xml:space="preserve">
-		<value>Welcome</value>
+		<value>स्वागत छ</value>
 	</data>
 	<data name="M_GOODAFTERNOON" xml:space="preserve">
 		<value>Good Afternoon</value>
@@ -4091,7 +4091,7 @@
 		<value>Renewal upload summary</value>
 	</data>
 	<data name="L_ACCEPTED" xml:space="preserve">
-		<value>Accepted</value>
+		<value>स्वीकार गरियो</value>
 	</data>
 	<data name="L_EXISTS" xml:space="preserve">
 		<value>Exists</value>
@@ -4205,7 +4205,7 @@
 		<value>Find Payments</value>
 	</data>
 	<data name="L_EXPECTEDAMOUNT" xml:space="preserve">
-		<value>Expected Amount</value>
+		<value>अपेक्षित रकम</value>
 	</data>
 	<data name="L_PAYMENTID" xml:space="preserve">
 		<value>Payment ID</value>
@@ -4268,7 +4268,7 @@
 		<value>Failed</value>
 	</data>
 	<data name="L_AGE" xml:space="preserve">
-		<value>Age</value>
+		<value>उमेर</value>
 	</data>
 	<data name="L_FSPLEVEL" xml:space="preserve">
 		<value>Level of FSP</value>
@@ -4301,16 +4301,16 @@
 		<value>Find Role</value>
 	</data>
 	<data name="P_ROLE" xml:space="preserve">
-		<value>Role</value>
+		<value>भूमिका</value>
 	</data>
 	<data name="L_SEARCHS" xml:space="preserve">
-		<value>Search</value>
+		<value>खोज्नुहोस्</value>
 	</data>
 	<data name="L_LASTNAME" xml:space="preserve">
-		<value>Last Name</value>
+		<value>थर</value>
 	</data>
 	<data name="L_OTHERNAME" xml:space="preserve">
-		<value>Given Name</value>
+		<value>दिइएको नाम</value>
 	</data>
 	<data name="L_PHONE" xml:space="preserve">
 		<value>Phone</value>
@@ -4355,7 +4355,7 @@
 		<value>The role can not be deleted, while it is used by users.</value>
 	</data>
 	<data name="M_DELETEUSERLOGIN" xml:space="preserve">
-		<value>Are you sure you want to delete the User Login?</value>
+		<value>के तपाइँ पक्का हुनुहुन्छ कि तपाइँ प्रयोगकर्ता लगइन हटाउन चाहानुहुन्छ?</value>
 	</data>
 	<data name="L_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
 		<value>Overview of Commissions</value>
@@ -4424,10 +4424,10 @@
 		<value>Include User Login</value>
 	</data>
 	<data name="R_ADD" xml:space="preserve">
-		<value>Add</value>
+		<value>थप</value>
 	</data>
 	<data name="R_ADMINISTRATION" xml:space="preserve">
-		<value>Administration</value>
+		<value>प्रशासन</value>
 	</data>
 	<data name="R_BACKUP" xml:space="preserve">
 		<value>Backup</value>
@@ -4439,7 +4439,7 @@
 		<value>Product - Capitation Payment</value>
 	</data>
 	<data name="R_CLAIM" xml:space="preserve">
-		<value>Claim</value>
+		<value>दावी</value>
 	</data>
 	<data name="R_CLAIMADMINISTRATOR" xml:space="preserve">
 		<value>Claim Administrators</value>
@@ -4454,7 +4454,7 @@
 		<value>Review</value>
 	</data>
 	<data name="R_CLAIMS" xml:space="preserve">
-		<value>Claims</value>
+		<value>दावी</value>
 	</data>
 	<data name="R_CONTRIBUTION" xml:space="preserve">
 		<value>Contribution</value>
@@ -4472,7 +4472,7 @@
 		<value>Payments - Control Number Assignment</value>
 	</data>
 	<data name="R_CREATE" xml:space="preserve">
-		<value>Create</value>
+		<value>सिर्जना</value>
 	</data>
 	<data name="R_DELETE" xml:space="preserve">
 		<value>Delete</value>
@@ -4496,16 +4496,16 @@
 		<value>Email Setting</value>
 	</data>
 	<data name="R_ENQUIRE" xml:space="preserve">
-		<value>Inquire</value>
+		<value>सोधपुछ</value>
 	</data>
 	<data name="R_ENROLMENTOFFICER" xml:space="preserve">
-		<value>Enrollment Officers</value>
+		<value>नामांकन अधिकारीहरू</value>
 	</data>
 	<data name="R_ENROLMENTPERFORMANCEI" xml:space="preserve">
 		<value>Insurees - Enrolments Performance Indicators</value>
 	</data>
 	<data name="R_ENROLMENTS" xml:space="preserve">
-		<value>Enrollments</value>
+		<value>भर्ना</value>
 	</data>
 	<data name="R_EXCUTESCRIPT" xml:space="preserve">
 		<value>Execute Script</value>
@@ -4589,10 +4589,10 @@
 		<value>Preview</value>
 	</data>
 	<data name="R_PRICELISTMI" xml:space="preserve">
-		<value>Price lists - Medical Items</value>
+		<value>मूल्य सूचि - चिकित्सा वस्तुहरू</value>
 	</data>
 	<data name="R_PRICELISTMS" xml:space="preserve">
-		<value>Price lists - Medical Services</value>
+		<value>मूल्य सूचि - चिकित्सा सेवाहरू</value>
 	</data>
 	<data name="R_PRIMARYOPERATIONALIC" xml:space="preserve">
 		<value>Claims - Primary Operational Indicators</value>
@@ -4607,37 +4607,37 @@
 		<value>Process</value>
 	</data>
 	<data name="R_PRODUCTS" xml:space="preserve">
-		<value>Products</value>
+		<value>उत्पादनहरू</value>
 	</data>
 	<data name="R_PRODUCTSALES" xml:space="preserve">
 		<value>Products - Sales</value>
 	</data>
 	<data name="R_REGISTERS" xml:space="preserve">
-		<value>Registers</value>
+		<value>दर्ता गर्नु</value>
 	</data>
 	<data name="R_REJECTEDPHOTOS" xml:space="preserve">
-		<value>Insuree - Rejected Photos</value>
+		<value>अस्वीकृत फोटोहरू</value>
 	</data>
 	<data name="R_RENEW" xml:space="preserve">
-		<value>Renew</value>
+		<value>नवीकरण गर्नुहोस्</value>
 	</data>
 	<data name="R_RENEWALS" xml:space="preserve">
-		<value>Policies - Renewals</value>
+		<value>नवीकरण</value>
 	</data>
 	<data name="R_REPORTS" xml:space="preserve">
-		<value>Reports</value>
+		<value>प्रतिवेदनहरू</value>
 	</data>
 	<data name="R_RESTORE" xml:space="preserve">
-		<value>Restore</value>
+		<value>पुनर्स्थापना</value>
 	</data>
 	<data name="R_REVIEW" xml:space="preserve">
 		<value>Review Claim</value>
 	</data>
 	<data name="R_SAVE" xml:space="preserve">
-		<value>Save</value>
+		<value>बचत</value>
 	</data>
 	<data name="R_SEARCH" xml:space="preserve">
-		<value>Search</value>
+		<value>खोज्नुहोस्</value>
 	</data>
 	<data name="R_STATUSOFREGISTERS" xml:space="preserve">
 		<value>Admin - Status of Registers</value>
@@ -4646,7 +4646,7 @@
 		<value>Submit</value>
 	</data>
 	<data name="R_TOOLS" xml:space="preserve">
-		<value>Tools</value>
+		<value>उपकरणहरू</value>
 	</data>
 	<data name="R_UPDATE" xml:space="preserve">
 		<value>Update</value>
@@ -4658,10 +4658,10 @@
 		<value>Admin - User Activity Report</value>
 	</data>
 	<data name="R_USERPROFILES" xml:space="preserve">
-		<value>User Roles</value>
+		<value>प्रयोगकर्ता प्रोफाइल</value>
 	</data>
 	<data name="R_USERS" xml:space="preserve">
-		<value>Users</value>
+		<value>प्रयोगकर्ताहरू</value>
 	</data>
 	<data name="R_UTILITIES" xml:space="preserve">
 		<value>Utilities/Email settings</value>
@@ -4673,10 +4673,10 @@
 		<value>Matched Payments</value>
 	</data>
 	<data name="L_RECEIPTNO" xml:space="preserve">
-		<value>Receipt No.</value>
+		<value>रसिद नं.</value>
 	</data>
 	<data name="L_RECEIVEDATE" xml:space="preserve">
-		<value>Receiving Date</value>
+		<value>प्राप्त मिति</value>
 	</data>
 	<data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
 		<value>Please enter a Main Dg. code</value>
@@ -4712,7 +4712,7 @@
 		<value>Location Upload</value>
 	</data>
 	<data name="R_MASTERDATADOWNLOAD" xml:space="preserve">
-		<value>Master Download</value>
+		<value>मास्टर डाउनलोड</value>
 	</data>
 	<data name="R_OFFLINEEXTRACTSCREATE" xml:space="preserve">
 		<value>Create offline extract</value>
@@ -4721,16 +4721,16 @@
 		<value>Create Phone extract</value>
 	</data>
 	<data name="L_CONTRIBUTIONPREMIUM" xml:space="preserve">
-		<value>Contribution</value>
+		<value>योगदान</value>
 	</data>
 	<data name="M_PREVIOUSCOMMISSIONREPORT" xml:space="preserve">
 		<value>Generating of the report from past perspective may result in duplication of request for Overview of commissions. &lt;br/&gt; Do you want to continue?</value>
 	</data>
 	<data name="L_ALTLANGUAGE" xml:space="preserve">
-		<value>Alternative Language</value>
+		<value>वैकल्पिक भाषा</value>
 	</data>
 	<data name="T_ACCEPTED" xml:space="preserve">
-		<value>Accepted</value>
+		<value>स्वीकार गरियो</value>
 	</data>
 	<data name="T_DIAGNOSISCODENOTINTHECURRENTLIST" xml:space="preserve">
 		<value>Diagnosis code not in the current list of diagnoses</value>
@@ -4750,58 +4750,58 @@ adults/children)
 		</value>
 	</data>
 	<data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
-		<value>Item/Service duplicated</value>
+		<value>वस्तु / सेवा दोहोरिएको</value>
 	</data>
 	<data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
-		<value>Item/Service is not covered by an active policy of the patient</value>
+		<value>मेडिकल आईटम / सेवा बिरामीको बीमालेख अन्तर्गत पर्दैन</value>
 	</data>
 	<data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
-		<value>Item/Service not in the price lists associated with the health facility</value>
+		<value>मेडिकल आईटम / सेवा स्वास्थ्य संस्थाको मूल्य सूचिमा पर्दैन</value>
 	</data>
 	<data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
-		<value>Item/Service not in the registers of medical items/services</value>
+		<value>मेडिकल आईटम / सेवाहरूको रेजिस्टरमा छैन</value>
 	</data>
 	<data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
-		<value>Not valid insurance number</value>
+		<value>अवैध सदस्यता नम्बर</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
-		<value>Maximum number of antenatal contacts exceeded</value>
+		<value>गर्भवती जाँचको अधिकतम संख्या नाघ्यो</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED" xml:space="preserve">
-		<value>Maximum number of consultations exceeded</value>
+		<value>परामर्श सेवाको अधिकतम संख्या नाघ्यो</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
-		<value>Maximum number of deliveries exceeded</value>
+		<value>प्रसुती सेवाको अधिकतम संख्या नाघ्यो</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
-		<value>Maximum number of in-patient admissions exceeded</value>
+		<value>अन्तरङ्ग भ्रमणहरूको अधिकतम संख्या नाघ्यो</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
-		<value>Maximum number of out-patient visits exceeded</value>
+		<value>बहिरङ्ग भ्रमणहरूको अधिकतम संख्या नाघ्यो</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
-		<value>Maximum number of provisions of item/service exceeded</value>
+		<value>आईटम / सेवाको प्रावधान को अधिकतम संख्या नाघ्यो</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
-		<value>Maximum number of surgeries exceeded</value>
+		<value>शल्यक्रियाको अधिकतम संख्या नाघ्यो</value>
 	</data>
 	<data name="T_NA" xml:space="preserve">
-		<value>N/A</value>
+		<value>N / A</value>
 	</data>
 	<data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
-		<value>Rejected by a medical officer</value>
+		<value>चिकित्सा अधिकारी द्वारा अस्वीकृत</value>
 	</data>
 	<data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
-		<value>Target date of provision of health care invalid</value>
+		<value>स्वास्थ्य सेवा लिने लक्षित मिति अवैध</value>
 	</data>
 	<data name="L_PLEASESELECTSCOPE" xml:space="preserve">
-		<value>Please select scope</value>
+		<value>कृपया क्षेत्र चयन गर्नुहोस्</value>
 	</data>
 	<data name="L_PROLICYVALUE" xml:space="preserve">
-		<value>policy value</value>
+		<value>बीमालेख मूल्य</value>
 	</data>
 	<data name="M_SELECTSERVICECODE" xml:space="preserve">
-		<value>Please select the service code</value>
+		<value>कृपया सेवा कोड चयन गर्नुहोस्</value>
 	</data>
 	<data name="T_NEWPOLICIES" xml:space="preserve">
 		<value>New policies</value>
@@ -4831,13 +4831,13 @@ adults/children)
 		<value>at least one upper case letter</value>
 	</data>
 	<data name="V_PASSWORD_NUMBER" xml:space="preserve">
-		<value>at least one number</value>
+		<value>कम्तिमा एक नम्बर</value>
 	</data>
 	<data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
 		<value>at least one special symbol</value>
 	</data>
 	<data name="V_PASSWORDREQUIRED" xml:space="preserve">
-		<value>Password is required</value>
+		<value>पासवर्ड आवश्यक छ</value>
 	</data>
 	<data name="L_PAYCATEGORY1" xml:space="preserve">
 		<value>Pay Category</value>
@@ -4852,16 +4852,16 @@ adults/children)
 		<value>Payment Date To</value>
 	</data>
 	<data name="L_PAYMENT1" xml:space="preserve">
-		<value>Payment</value>
+		<value>भुक्तानी</value>
 	</data>
 	<data name="L_PAYMENTASKED1" xml:space="preserve">
 		<value>Payment Asked</value>
 	</data>
 	<data name="L_PAYMENTDATE1" xml:space="preserve">
-		<value>Payment Date</value>
+		<value>भुक्तान मिति</value>
 	</data>
 	<data name="L_PAYMETHOD1" xml:space="preserve">
-		<value>Pay Method</value>
+		<value>भुक्तानी विधि</value>
 	</data>
 	<data name="T_MEDICALPROSTHESES" xml:space="preserve">
 		<value>Medical Prostheses</value>
@@ -4876,19 +4876,19 @@ adults/children)
 		<value>You have no authority to edit the selected user.</value>
 	</data>
 	<data name="M_ASSIGNROLE" xml:space="preserve">
-		<value>Allow assignement of Role</value>
+		<value>Autoriser l'attribution de rôle</value>
 	</data>
 	<data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
-		<value>Claimed date cannot be in future</value>
+		<value>दावी गरिएको मिति भविष्यमा हुन सक्दैन</value>
 	</data>
 	<data name="B_RESTORE" xml:space="preserve">
-		<value>Restore</value>
+		<value>पुनर्स्थापना</value>
 	</data>
 	<data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
-		<value>No Message to be displayed</value>
+		<value>कुनै सन्देश प्रदर्शित हुने छैन</value>
 	</data>
 	<data name="L_GENDER1" xml:space="preserve">
-		<value>Gender</value>
+		<value>लिङ्ग</value>
 	</data>
 	<data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
 		<value>Search  Insurance Number</value>
@@ -4903,19 +4903,19 @@ adults/children)
 		<value>zipped photos</value>
 	</data>
 	<data name="L_FULLNAME" xml:space="preserve">
-		<value>Full Name</value>
+		<value>पुरा नाम</value>
 	</data>
 	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
-		<value>Amount</value>
+		<value>भुक्तानी रकम</value>
 	</data>
 	<data name="L_RECEIPTCODE" xml:space="preserve">
-		<value>Receipt code</value>
+		<value>रसिद नम्बर</value>
 	</data>
 	<data name="L_IMEI" xml:space="preserve">
 		<value>IMEI</value>
 	</data>
 	<data name="L_EMAILSETTINGS" xml:space="preserve">
-		<value>Email</value>
+		<value>ईमेल</value>
 	</data>
 	<data name="T_READY" xml:space="preserve">
 		<value>Ready</value>
@@ -5026,7 +5026,7 @@ adults/children)
 		<value>Task completed in </value>
 	</data>
 	<data name="M_EXTR_HOURS" xml:space="preserve">
-		<value> hours</value>
+		<value>घण्टा</value>
 	</data>
 	<data name="T_OVERVIEW" xml:space="preserve">
 		<value>Overview</value>
