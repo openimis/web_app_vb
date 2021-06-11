@@ -129,7 +129,7 @@ Public Class PaymentOverview
         txtPhoneNo.Text = entities.PhoneNumber
         txtMatchedDate.Text = If(entities.MatchedDate Is Nothing, "", entities.MatchedDate)
         txtStatus.Text = If(entities.PaymentStatusName IsNot Nothing, entities.PaymentStatusName, "")
-        txtInternalIdentifier.Text = payment_id
+        txtPaymentId.Text = If(entities.PaymentID <> Nothing, entities.PaymentID, "")
         txtPaymentOrigin.Text = If(entities.PaymentOrigin IsNot Nothing, entities.PaymentOrigin, "")
         txtExpectedAmounts.Text = If(entities.ExpectedAmount IsNot Nothing, entities.ExpectedAmount, "")
         txtReceivedAmount.Text = If(entities.ReceivedAmount IsNot Nothing, entities.ReceivedAmount, "")
