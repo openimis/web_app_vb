@@ -5048,6 +5048,9 @@ Blocked</value>
 	<data name="L_PAYMENTTYPE1" xml:space="preserve">
 		<value>Aina ya Malipo</value>
 	</data>
+	<data name="L_REJECTEDREASON" xml:space="preserve">
+        <value>Sababu za katazo</value>
+  </data>
 	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
 		<value></value>
 	</data>	

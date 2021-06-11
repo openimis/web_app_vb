@@ -5120,7 +5120,7 @@ adults/children)</value>
     <value />
   </data>
   <data name="L_REJECTEDREASON" xml:space="preserve">
-    <value>Rejected reason</value>
+    <value>Rejection reasons</value>
   </data>
   <data name="T_PAYMENTCANCELLED" xml:space="preserve">
     <value>cancelled</value>
