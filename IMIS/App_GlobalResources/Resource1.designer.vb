@@ -5987,7 +5987,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected reason.
+        '''  Looks up a localized string similar to Rejection reasons.
         '''</summary>
         Friend Shared ReadOnly Property L_REJECTEDREASON() As String
             Get
@@ -13837,6 +13837,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to cancelled.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCANCELLED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCANCELLED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Payment Category Overview.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTCATEGORYOVERVIEW() As String
@@ -13851,6 +13860,24 @@ Namespace Resources
         Friend Shared ReadOnly Property T_PAYMENTCNNUMBERRECEIVED() As String
             Get
                 Return ResourceManager.GetString("T_PAYMENTCNNUMBERRECEIVED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ctr No. Requested.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCNUMBERREQUESTED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCNUMBERREQUESTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Created.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCREATED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCREATED", resourceCulture)
             End Get
         End Property
         
@@ -13896,15 +13923,6 @@ Namespace Resources
         Friend Shared ReadOnly Property T_PAYMENTRPAID() As String
             Get
                 Return ResourceManager.GetString("T_PAYMENTRPAID", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Sent.
-        '''</summary>
-        Friend Shared ReadOnly Property T_PAYMENTSENT() As String
-            Get
-                Return ResourceManager.GetString("T_PAYMENTSENT", resourceCulture)
             End Get
         End Property
         

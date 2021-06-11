@@ -140,8 +140,16 @@ Public Class PaymentOverview
         txtTransactionNo.Text = If(entities.TransactionNumber IsNot Nothing, entities.TransactionNumber, "")
         txtReceiptNo.Text = If(entities.ReceiptNo IsNot Nothing, entities.ReceiptNo, "")
         Dim rejectedReasonText As String = If(entities.RejectedReason IsNot Nothing, entities.RejectedReason, "")
-        Dim rejectedReasonTextFormatter As String = Replace(rejectedReasonText, ";", "</br>")
-        txtRejectedReason.Text = rejectedReasonTextFormatter
+        If rejectedReasonText <> "" Then
+            lblRejectedReason.Visible = True
+            txtRejectedReason.Visible = True
+            Dim rejectedReasonTextFormatter As String = Replace(rejectedReasonText, ";", "</br>")
+            txtRejectedReason.Text = rejectedReasonTextFormatter
+        Else
+            'hide rejection reason label and text'
+            lblRejectedReason.Visible = False
+            txtRejectedReason.Visible = False
+        End If
     End Sub
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
