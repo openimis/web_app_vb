@@ -62,7 +62,7 @@ Public Class EscapeBL
 
         'MatchApi = "http://localhost:63401/api/webmatchpayment"
         Dim dt As New Dictionary(Of String, Object)
-        dt.Add("internal_identifier", DBNull.Value)
+        dt.Add("internal_identifier", "0")
         dt.Add("audit_user_id", "0")
         dt.Add("api_key", "Xdfg8796021ff89Df4654jfjHeHidas987vsdg97e54ggdfHjdt")
 
