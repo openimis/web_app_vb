@@ -83,7 +83,7 @@
 		<value>Family/Group</value>
 	</data>
 	<data name="L_ROLENAME" xml:space="preserve">
-		<value></value>
+		<value>Role name</value>
 	</data>
 	<data name="L_OTHERNAMES" xml:space="preserve">
 		<value>Other Names</value>
@@ -1293,7 +1293,7 @@ Blocked</value>
 		<value>Man</value>
 	</data>
 	<data name="T_MEDICALCONSUMABLE" xml:space="preserve">
-		<value></value>
+		<value>Medical consumable</value>
 	</data>
 	<data name="T_MOBILEPHONE" xml:space="preserve">
 		<value>Mobile Phone</value>
@@ -2739,7 +2739,7 @@ Blocked</value>
 		<value>Do you want to renew the selected policy?</value>
 	</data>
 	<data name="T_NEWPOLICY" xml:space="preserve">
-		<value></value>
+		<value>New Policy</value>
 	</data>
 	<data name="T_RENEWAL" xml:space="preserve">
 		<value>Renewal</value>
@@ -3153,7 +3153,7 @@ Blocked</value>
 		<value>Current Address Details</value>
 	</data>
 	<data name="L_CVDC" xml:space="preserve">
-		<value>Current Ward</value>
+		<value>Current ward</value>
 	</data>
 	<data name="L_CWARD" xml:space="preserve">
 		<value>Current Village</value>
@@ -3732,7 +3732,7 @@ Blocked</value>
 		<value>Value can not exceed 100%</value>
 	</data>
 	<data name="M_NOWARD" xml:space="preserve">
-		<value>Manispaa haipo</value>
+		<value>No ward found</value>
 	</data>
 	<data name="L_FSPREGION" xml:space="preserve">
 		<value>Region of FSP</value>
@@ -3750,1158 +3750,1298 @@ Blocked</value>
 		<value>Your request is submitted and the requested extract is being created now. Once the task is completed, you will receive an email with the download link. Meanwhile you can leave this page and continue with other work.</value>
 	</data>
 	<data name="T_NOPOLICY" xml:space="preserve">
-		<value></value>
+		<value>No policy</value>
 	</data>
 	<data name="T_CAPITATIONPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Capitation Payment</value>
 	</data>
 	<data name="L_LEVEL1" xml:space="preserve">
-		<value></value>
+		<value>Level 1</value>
 	</data>
 	<data name="L_LEVEL2" xml:space="preserve">
-		<value></value>
+		<value>Level 2</value>
 	</data>
 	<data name="L_LEVEL3" xml:space="preserve">
-		<value></value>
+		<value>Level 3</value>
 	</data>
 	<data name="L_LEVEL4" xml:space="preserve">
-		<value></value>
+		<value>Level 4</value>
 	</data>
 	<data name="L_SHAREOFCONTRIBUTION" xml:space="preserve">
-		<value></value>
+		<value>Share of Contribution</value>
 	</data>
 	<data name="L_SUBLEVEL1" xml:space="preserve">
-		<value></value>
+		<value>Sub Level 1</value>
 	</data>
 	<data name="L_SUBLEVEL2" xml:space="preserve">
-		<value></value>
+		<value>Sub Level 2</value>
 	</data>
 	<data name="L_SUBLEVEL3" xml:space="preserve">
-		<value></value>
+		<value>Sub Level 3</value>
 	</data>
 	<data name="L_SUBLEVEL4" xml:space="preserve">
-		<value></value>
+		<value>Sub Level 4</value>
 	</data>
 	<data name="L_WEGHTOFNUMBERFAMILIES" xml:space="preserve">
-		<value></value>
+		<value>Weight of Number of Families</value>
 	</data>
 	<data name="L_WEIGHTOFADJUSTEDAMOUT" xml:space="preserve">
-		<value></value>
+		<value>Weight of Adjusted Amount</value>
 	</data>
 	<data name="L_WEIGHTOFINSUREDPOPULATION" xml:space="preserve">
-		<value></value>
+		<value>Weight of Insured Population</value>
 	</data>
 	<data name="L_WEIGHTOFNUMBERINSUREDFAMILIES" xml:space="preserve">
-		<value></value>
+		<value>Weight of Number of Insured Families</value>
 	</data>
 	<data name="L_WEIGHTOFNUMBERVISITS" xml:space="preserve">
-		<value></value>
+		<value>Weight of Number of Visits</value>
 	</data>
 	<data name="L_WEIGHTOFPOPUATION" xml:space="preserve">
-		<value></value>
+		<value>Weight of Population</value>
 	</data>
 	<data name="L_CAPITATIONPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Capitation Payment</value>
 	</data>
 	<data name="L_NOOFCLAIMS" xml:space="preserve">
-		<value></value>
+		<value>Number of Claims</value>
 	</data>
 	<data name="L_NOOFFAMILIES" xml:space="preserve">
-		<value></value>
+		<value>Number of Families</value>
 	</data>
 	<data name="L_NOOFINSUREDPOPULATION" xml:space="preserve">
-		<value></value>
+		<value>Number of Insured Population</value>
 	</data>
 	<data name="L_NOOFINSURESFAMILY" xml:space="preserve">
-		<value></value>
+		<value>Number of Insured Families</value>
 	</data>
 	<data name="L_POPULATION" xml:space="preserve">
-		<value></value>
+		<value>Population</value>
 	</data>
 	<data name="L_PERMADDERESS" xml:space="preserve">
-		<value></value>
+		<value>Permanent address details</value>
 	</data>
 	<data name="M_SHAREDCONTRIBUTIONPARCENT" xml:space="preserve">
-		<value></value>
+		<value>Shared contribution  can not exceed 100%</value>
 	</data>
 	<data name="M_WEIGHTMUSTBE100" xml:space="preserve">
-		<value></value>
+		<value>Sum of the weights must be 100%</value>
 	</data>
 	<data name="L_ALLOCATEDCONTRIBUTION" xml:space="preserve">
-		<value></value>
+		<value>Allocated Contribution</value>
 	</data>
 	<data name="L_DISTRICTTOTAL" xml:space="preserve">
-		<value></value>
+		<value>District Total</value>
 	</data>
 	<data name="L_REGIONTOTAL" xml:space="preserve">
-		<value></value>
+		<value>Region Total</value>
 	</data>
 	<data name="L_UNITPRICE" xml:space="preserve">
-		<value></value>
+		<value>Unit Price</value>
 	</data>
 	<data name="M_SHAREOFCONTRIBUTIONRANGE" xml:space="preserve">
-		<value></value>
+		<value>Share of Contribution must be greater than 0% and  less or equal to 100%</value>
 	</data>
 	<data name="L_UPLOADREGISTERS" xml:space="preserve">
-		<value></value>
+		<value>Registers</value>
 	</data>
 	<data name="L_UPLOADHEALTHFACILITIES" xml:space="preserve">
-		<value></value>
+		<value>Upload Health Facilities</value>
 	</data>
 	<data name="L_UPLOADLOCATIONS" xml:space="preserve">
-		<value></value>
+		<value>Upload Locations</value>
 	</data>
 	<data name="M_AREYOUSUREUPLOADLOCATIONS" xml:space="preserve">
-		<value></value>
+		<value>Are you sure you want to upload a new list of locations?</value>
 	</data>
 	<data name="M_SELECTONLYEXCELFILE" xml:space="preserve">
-		<value></value>
+		<value>Select only excel File</value>
 	</data>
 	<data name="M_DISTRICTCODEEXISTSINDB" xml:space="preserve">
-		<value></value>
+		<value>District Code in excel Already Exists in Database</value>
 	</data>
 	<data name="M_DISTRICTCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value>Namba ya Wilaya iliyoainishwa katika Kata haipo kwenye  Hifadhidata au makaratasi ya Wilaya</value>
+		<value>District Code specified in Ward does not exists in Either Database or District Excel</value>
 	</data>
 	<data name="M_DUPLICATEDISTRICTCODEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Duplicate District Code in excel</value>
 	</data>
 	<data name="M_DUPLICATEMUNICIPALITYCODEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Duplicate Municipality Code in excel</value>
 	</data>
 	<data name="M_DUPLICATEREGIONCODEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Duplicate Region Code in excel</value>
 	</data>
 	<data name="M_DUPLICATEVILLAGECODEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Duplicate Village Code in excel</value>
 	</data>
 	<data name="M_INVALIDDISTRICTFILEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Invalid District File(Either Tab name or Column names or inputs are invalid)</value>
 	</data>
 	<data name="M_INVALIDMUNICIPALITYFILEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Invalid Municipality File(Either Tab name or Column names or inputs are invalid)</value>
 	</data>
 	<data name="M_INVALIDREGIONFILEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Invalid Region File(Either Tab name or Column names or inputs are invalid)!</value>
 	</data>
 	<data name="M_INVALIDVILLAGEFILEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Invalid Village File(Either Tab name or Column names or inputs are invalid)</value>
 	</data>
 	<data name="M_INVALIDVILLAGEPOPULATIONINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Village population must be numeric in excel</value>
 	</data>
 	<data name="M_MISSINGDISTRICTCODEORNAMEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Missing District name or Code in Excel</value>
 	</data>
 	<data name="M_MISSINGMUNICIPALITYCODEORNAMEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Missing Municipality name or Code in Excel</value>
 	</data>
 	<data name="M_MISSINGREGIONCODEORNAMEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Missing Region name or Code in Excel</value>
 	</data>
 	<data name="M_MISSINGVILLAGECODEORNAMEINEXCEL" xml:space="preserve">
-		<value></value>
+		<value>Missing Village name or Code in Excel</value>
 	</data>
 	<data name="M_MUNICIPALITYCODEEXISTSINDB" xml:space="preserve">
-		<value></value>
+		<value>Municipality Code in excel Already Exist in Database</value>
 	</data>
 	<data name="M_MUNICIPALITYCODENOTEXISTSINEXCELORDB" xml:space="preserve">
 		<value>Namba ya kata kwenye kijiji haipo kwenye hifadhidata au makaratasi ya kata</value>
 	</data>
 	<data name="M_REGIONCODEEXISTSINDB" xml:space="preserve">
-		<value></value>
+		<value>Region Code in excel Already Exists in Database</value>
 	</data>
 	<data name="M_REGIONCODENOTEXISTSINEXCELORDB" xml:space="preserve">
-		<value></value>
+		<value>Region Code specified in District Does not exist in Either  Database or Region Excel</value>
 	</data>
 	<data name="M_UNEXPECTEDERRORONIMPORTLOCATIONS" xml:space="preserve">
-		<value></value>
+		<value>Unexpected Error when Importing Locations</value>
 	</data>
 	<data name="M_VILLAGECODEEXISTSINDB" xml:space="preserve">
-		<value></value>
+		<value>Village Code in excel Already Exists in Database</value>
 	</data>
 	<data name="M_UPLOADEDLOCATIONS" xml:space="preserve">
-		<value></value>
+		<value>Uploaded Locations</value>
 	</data>
 	<data name="L_DOWNLOADHEALTHFACILITIES" xml:space="preserve">
-		<value></value>
+		<value>Download Health Facilities</value>
 	</data>
 	<data name="L_DOWNLOADICD" xml:space="preserve">
-		<value></value>
+		<value>Download Diagnoses</value>
 	</data>
 	<data name="L_DOWNLOADLOCATIONS" xml:space="preserve">
-		<value></value>
+		<value>Download Locations</value>
 	</data>
 	<data name="L_DRYRUN" xml:space="preserve">
-		<value></value>
+		<value>Dry Run</value>
 	</data>
 	<data name="L_ICDUPLOADSTRATEGY" xml:space="preserve">
-		<value></value>
+		<value>Strategy</value>
 	</data>
 	<data name="M_SELECTONLYXMLFILE" xml:space="preserve">
-		<value></value>
+		<value>Select only .xml File</value>
 	</data>
 	<data name="M_DELETEDDIAGNOSES" xml:space="preserve">
-		<value></value>
+		<value>Deleted</value>
 	</data>
 	<data name="M_DIAGNOSESUPLOADED" xml:space="preserve">
-		<value></value>
+		<value>Diagnoses uploaded successfully.</value>
 	</data>
 	<data name="M_INSERTEDDIAGNOSES" xml:space="preserve">
-		<value></value>
+		<value>Inserted</value>
 	</data>
 	<data name="M_UPDETEDDIAGNOSES" xml:space="preserve">
-		<value></value>
+		<value>Updated</value>
 	</data>
 	<data name="M_UPLOADEDDIAGNOSES" xml:space="preserve">
-		<value></value>
+		<value>Uploaded Diagnoses</value>
 	</data>
 	<data name="M_DIAGNOSESSENT" xml:space="preserve">
-		<value></value>
+		<value>Sent</value>
 	</data>
 	<data name="L_DELETED" xml:space="preserve">
-		<value></value>
+		<value>Deleted</value>
 	</data>
 	<data name="M_HFUPLOADED" xml:space="preserve">
-		<value></value>
+		<value>Health facilite(s) uploaded successfully.</value>
 	</data>
 	<data name="M_UNEXPECTEDERRORONUPLOADHF" xml:space="preserve">
-		<value></value>
+		<value>Unexpected Error when Uploading Health facities</value>
 	</data>
 	<data name="M_UPLOADEDHF" xml:space="preserve">
-		<value></value>
+		<value>Uploaded Health facilities</value>
 	</data>
 	<data name="L_CONFILCTS" xml:space="preserve">
-		<value></value>
+		<value>Conflicts</value>
 	</data>
 	<data name="L_ERRORS" xml:space="preserve">
-		<value></value>
+		<value>Errors</value>
 	</data>
 	<data name="L_FATALERROR" xml:space="preserve">
-		<value></value>
+		<value>Fatal Error</value>
 	</data>
 	<data name="M_UNEXPECTEDERRORONUPLOADICD" xml:space="preserve">
-		<value></value>
+		<value>Unexpected Error when Uploading Diagnoses</value>
 	</data>
 	<data name="L_INSERTANDUPDATE" xml:space="preserve">
-		<value></value>
+		<value>Insert and Update</value>
 	</data>
 	<data name="L_INSERTONLY" xml:space="preserve">
-		<value></value>
+		<value>Insert Only</value>
 	</data>
 	<data name="L_INSERTUPDATEDELETE" xml:space="preserve">
-		<value></value>
+		<value>Insert, Update and Delete</value>
 	</data>
 	<data name="L_SELECTSTRATEGY" xml:space="preserve">
-		<value></value>
+		<value>--Select Strategy--</value>
 	</data>
 	<data name="L_UPDATEONLY" xml:space="preserve">
-		<value></value>
+		<value>Update Only</value>
 	</data>
 	<data name="L_CONFILCT" xml:space="preserve">
-		<value></value>
+		<value>Conflict</value>
 	</data>
 	<data name="L_ERROR" xml:space="preserve">
-		<value></value>
+		<value>Error</value>
 	</data>
 	<data name="B_DOWNLOADLOG" xml:space="preserve">
-		<value></value>
+		<value>DownLoad  Log</value>
 	</data>
 	<data name="L_FILENAME" xml:space="preserve">
-		<value></value>
+		<value>File Name</value>
 	</data>
 	<data name="L_LASTUPLOADLOG" xml:space="preserve">
-		<value></value>
+		<value>Last Upload Log</value>
 	</data>
 	<data name="L_REGISTER" xml:space="preserve">
-		<value></value>
+		<value>Register</value>
 	</data>
 	<data name="M_SELECTSTRATEGY" xml:space="preserve">
-		<value></value>
+		<value>Please select strategy</value>
 	</data>
 	<data name="T_UPLOADDOWNLOADREGISTERS" xml:space="preserve">
-		<value></value>
+		<value>Upload/Download Registers</value>
 	</data>
 	<data name="L_LASTUPLOADEDFILENAME" xml:space="preserve">
-		<value></value>
+		<value>Last uploaded file Name</value>
 	</data>
 	<data name="M_AREYOUSUREUPLOADHF" xml:space="preserve">
-		<value></value>
+		<value>Are you sure you want to upload a new list of HF?</value>
 	</data>
 	<data name="B_DownLoadMasterData" xml:space="preserve">
-		<value></value>
+		<value>Download Master Data</value>
 	</data>
 	<data name="L_DOWNLOADMASTERDATA" xml:space="preserve">
-		<value></value>
+		<value>Download Master Data</value>
 	</data>
 	<data name="T_REJECTEDDATE" xml:space="preserve">
-		<value></value>
+		<value>Rejected Date</value>
 	</data>
 	<data name="T_REJECTEDPHOTOS" xml:space="preserve">
-		<value></value>
+		<value>Rejected Photos</value>
 	</data>
 	<data name="T_TOTALREJECTEDPHOTOS" xml:space="preserve">
-		<value></value>
+		<value>Total Rejected Photos</value>
 	</data>
 	<data name="L_EXTR_UPLOADPHOTO" xml:space="preserve">
-		<value></value>
+		<value>Upload Photos</value>
 	</data>
 	<data name="B_DownLoadFeedback" xml:space="preserve">
-		<value></value>
+		<value>Download Feedback</value>
 	</data>
 	<data name="B_DownLoadRenewals" xml:space="preserve">
-		<value></value>
+		<value>Download Renewals</value>
 	</data>
 	<data name="M_NODATAFOUND" xml:space="preserve">
-		<value></value>
+		<value>No Data</value>
 	</data>
 	<data name="M_OFFICERNOTFOUND" xml:space="preserve">
-		<value></value>
+		<value>Officer Not Found</value>
 	</data>
 	<data name="B_UPLOADFEEDBACK" xml:space="preserve">
-		<value></value>
+		<value>Upload Feedback</value>
 	</data>
 	<data name="B_UPLOADRENEWAL" xml:space="preserve">
-		<value></value>
+		<value>Upload Renewal</value>
 	</data>
 	<data name="M_CLAIMNOTEXIST" xml:space="preserve">
-		<value></value>
+		<value>Claim does not exist</value>
 	</data>
 	<data name="M_DUPLICATEDRECEIPTFOUND" xml:space="preserve">
-		<value></value>
+		<value>Duplicate receipt found</value>
 	</data>
 	<data name="M_FEEDFILEACCEPTED" xml:space="preserve">
-		<value></value>
+		<value>FeedBack  upload summary</value>
 	</data>
 	<data name="M_GRACEPERIODISOVER" xml:space="preserve">
-		<value></value>
+		<value>The grace period of the given policy is over</value>
 	</data>
 	<data name="M_INVALIDCHFID" xml:space="preserve">
-		<value></value>
+		<value>Invalid CHFID</value>
 	</data>
 	<data name="M_INVALIDFEEDBACKFILE" xml:space="preserve">
-		<value></value>
+		<value>Invalid feedBack file</value>
 	</data>
 	<data name="M_INVALIDOFFICERCODE" xml:space="preserve">
-		<value></value>
+		<value>Invalid officer code</value>
 	</data>
 	<data name="M_INVALIDRENEWALFILE" xml:space="preserve">
-		<value></value>
+		<value>Invalid renewal file</value>
 	</data>
 	<data name="M_RENEWALUPLOADED" xml:space="preserve">
-		<value></value>
+		<value>Renewal upload summary</value>
 	</data>
 	<data name="L_ACCEPTED" xml:space="preserve">
-		<value></value>
+		<value>Accepted</value>
 	</data>
 	<data name="L_EXISTS" xml:space="preserve">
-		<value></value>
+		<value>Exists</value>
 	</data>
 	<data name="L_FAILED" xml:space="preserve">
-		<value></value>
+		<value>Failed</value>
 	</data>
 	<data name="L_REJECTED" xml:space="preserve">
-		<value></value>
+		<value>Rejected</value>
 	</data>
 	<data name="L_UPLOADFEEDBACK" xml:space="preserve">
-		<value></value>
+		<value>Upload Feedback</value>
 	</data>
 	<data name="L_UPLOADRENEWAL" xml:space="preserve">
-		<value></value>
+		<value>Upload Renewal</value>
 	</data>
 	<data name="M_NOENROLLMENTFOUND" xml:space="preserve">
-		<value></value>
+		<value>No Enrollment Found</value>
 	</data>
 	<data name="L_PAYMENTS" xml:space="preserve">
-		<value></value>
+		<value>Payments</value>
 	</data>
 	<data name="L_PAYMENTSTATUS" xml:space="preserve">
-		<value></value>
+		<value>Payment Status</value>
 	</data>
 	<data name="L_PAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Payment</value>
 	</data>
 	<data name="T_PAYMENTMATCHED" xml:space="preserve">
-		<value></value>
+		<value>Matched</value>
 	</data>
 	<data name="T_PAYMENTREQUESTED" xml:space="preserve">
-		<value></value>
+		<value>Requested</value>
 	</data>
 	<data name="T_PAYMENTRPAID" xml:space="preserve">
-		<value></value>
+		<value>Paid</value>
 	</data>
 	<data name="L_FOUNDPAYMENTS" xml:space="preserve">
-		<value></value>
+		<value>Payments Found</value>
 	</data>
 	<data name="L_SELECTPAYMENTSTATUS" xml:space="preserve">
-		<value></value>
+		<value>--Select Status--</value>
 	</data>
 	<data name="L_CONTROLNUMBER" xml:space="preserve">
-		<value></value>
+		<value>Control No.</value>
 	</data>
 	<data name="B_MATCHPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Match</value>
 	</data>
 	<data name="L_MATCHEDDATED" xml:space="preserve">
-		<value></value>
+		<value>Matched Date</value>
 	</data>
 	<data name="L_PAYMENTDETAILS" xml:space="preserve">
-		<value></value>
+		<value>Payment Details</value>
 	</data>
 	<data name="L_PAYMENTOVERVIEW" xml:space="preserve">
-		<value></value>
+		<value>Payment Overview</value>
 	</data>
 	<data name="L_POLICYSTAGE" xml:space="preserve">
-		<value></value>
+		<value>Policy Stage</value>
 	</data>
 	<data name="L_RECEIVEDAMOUNT" xml:space="preserve">
-		<value></value>
+		<value>Received Amount</value>
 	</data>
 	<data name="L_EDITPAYMENTDETAILS" xml:space="preserve">
-		<value></value>
+		<value>Edit Payment Details</value>
 	</data>
 	<data name="L_RECEIVEDDATE" xml:space="preserve">
-		<value></value>
+		<value>Received Date</value>
 	</data>
 	<data name="L_SERVICEMINDATE" xml:space="preserve">
 		<value>Service MinDate</value>
 	</data>
 	<data name="M_SELECTPAYMENTDETAIL" xml:space="preserve">
-		<value></value>
+		<value>Please Select Payment Detail to edit</value>
 	</data>
 	<data name="L_MATCHINGDATEFROM" xml:space="preserve">
-		<value></value>
+		<value>Matching Date From</value>
 	</data>
 	<data name="L_MATCHINGDATETO" xml:space="preserve">
-		<value></value>
+		<value>Matching Date To</value>
 	</data>
 	<data name="L_PAYMENTDATEFROM" xml:space="preserve">
-		<value></value>
+		<value>Payment Date From</value>
 	</data>
 	<data name="L_PAYMENTDATETO" xml:space="preserve">
-		<value></value>
+		<value>Payment Date To</value>
 	</data>
 	<data name="L_PAYMENTORIGIN" xml:space="preserve">
-		<value></value>
+		<value>Payment Origin</value>
 	</data>
 	<data name="L_RECEIVEDAMOUNTFROM" xml:space="preserve">
-		<value></value>
+		<value>Received Amount From</value>
 	</data>
 	<data name="L_RECEIVEDAMOUNTTO" xml:space="preserve">
-		<value></value>
+		<value>Received Amount To</value>
 	</data>
 	<data name="L_RECEIVINGDATEFROM" xml:space="preserve">
-		<value></value>
+		<value>Receiving Date From</value>
 	</data>
 	<data name="L_RECEIVINGDATETO" xml:space="preserve">
-		<value></value>
+		<value>Receiving Date To</value>
 	</data>
 	<data name="L_TRANSACTIONNUMBER" xml:space="preserve">
-		<value></value>
+		<value>Transaction No.</value>
 	</data>
 	<data name="L_MATCHEDAMOUNT" xml:space="preserve">
-		<value></value>
+		<value>Matched Amount</value>
 	</data>
 	<data name="L_FINDPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Find Payments</value>
 	</data>
 	<data name="L_EXPECTEDAMOUNT" xml:space="preserve">
-		<value></value>
+		<value>Expected Amount</value>
 	</data>
 	<data name="L_PAYMENTID" xml:space="preserve">
-		<value></value>
+		<value>Payment ID</value>
 	</data>
 	<data name="L_INTERNALID" xml:space="preserve">
-		<value></value>
+		<value>Internal ID</value>
 	</data>
 	<data name="L_CONTRIBUTIONPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Contribution Payment</value>
 	</data>
 	<data name="L_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
-		<value></value>
+		<value>Control Number Assignment</value>
 	</data>
 	<data name="T_CONTRIBUTIONPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Contribution Payment</value>
 	</data>
 	<data name="L_ASSIGNMENTSTATUS" xml:space="preserve">
-		<value></value>
+		<value>Assignment Status</value>
 	</data>
 	<data name="L_POSTINGSTATUS" xml:space="preserve">
-		<value></value>
+		<value>Posting Status</value>
 	</data>
 	<data name="T_ASSIGNED" xml:space="preserve">
-		<value></value>
+		<value>Assigned</value>
 	</data>
 	<data name="T_NOTYETASSIGNED" xml:space="preserve">
-		<value></value>
+		<value>Not yet assigned</value>
 	</data>
 	<data name="T_NOTYETCONFIRMED" xml:space="preserve">
-		<value></value>
+		<value>Not yet confirmed</value>
 	</data>
 	<data name="T_POSTED" xml:space="preserve">
-		<value></value>
+		<value>Posted</value>
 	</data>
 	<data name="T_REJECTEDASSIGNMENTS" xml:space="preserve">
-		<value></value>
+		<value>Rejected</value>
 	</data>
 	<data name="T_REJECTEDPOSTED" xml:space="preserve">
-		<value></value>
+		<value>Rejected</value>
 	</data>
 	<data name="T_SELECTASSIGNMENTSTATUS" xml:space="preserve">
-		<value></value>
+		<value>--Select Status--</value>
 	</data>
 	<data name="T_SELECTPOSTINGSTATUS" xml:space="preserve">
-		<value></value>
+		<value>--Select  Status--</value>
 	</data>
 	<data name="T_UNMATCHED" xml:space="preserve">
-		<value></value>
+		<value>Unmatched</value>
 	</data>
 	<data name="M_NOTPAYMENTMATCHED" xml:space="preserve">
-		<value></value>
+		<value>Payment Not Matched</value>
 	</data>
 	<data name="M_PAYMENTMATCHED" xml:space="preserve">
-		<value></value>
+		<value>Payment Matched</value>
 	</data>
 	<data name="T_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
-		<value></value>
+		<value>Control Number Assignment</value>
 	</data>
 	<data name="T_FAILEDSTATUS" xml:space="preserve">
-		<value></value>
+		<value>Failed</value>
 	</data>
 	<data name="L_AGE" xml:space="preserve">
-		<value></value>
+		<value>Age</value>
 	</data>
 	<data name="L_FSPLEVEL" xml:space="preserve">
-		<value></value>
+		<value>Level of FSP</value>
 	</data>
 	<data name="T_NEWPASSWORD" xml:space="preserve">
-		<value></value>
+		<value>New Password</value>
 	</data>
 	<data name="L_CONFIRMEMAILANDPASSWORD" xml:space="preserve">
-		<value></value>
+		<value>Enter username and confirm new password</value>
 	</data>
 	<data name="L_PASSWORDCHANGED" xml:space="preserve">
-		<value></value>
+		<value>Password changed successfully</value>
 	</data>
 	<data name="M_LINKSENT" xml:space="preserve">
-		<value></value>
+		<value>Link sent to email</value>
 	</data>
 	<data name="M_NOUSERSLOGIN" xml:space="preserve">
-		<value></value>
+		<value>No user found with this username</value>
 	</data>
 	<data name="M_PASSWORDINVALID" xml:space="preserve">
-		<value></value>
+		<value>The request could not be validated, please try again using the same password used while making the request</value>
 	</data>
 	<data name="M_VALIDITYEXPIRED" xml:space="preserve">
-		<value></value>
+		<value>There are no reset password requests within the valid request period</value>
 	</data>
 	<data name="M_MUSTFILLPRODUCT" xml:space="preserve">
-		<value></value>
+		<value>Please enter a product</value>
 	</data>
 	<data name="L_FINDROLE" xml:space="preserve">
-		<value></value>
+		<value>Find Role</value>
 	</data>
 	<data name="P_ROLE" xml:space="preserve">
-		<value></value>
+		<value>Role</value>
 	</data>
 	<data name="L_SEARCHS" xml:space="preserve">
-		<value></value>
+		<value>Search</value>
 	</data>
 	<data name="L_LASTNAME" xml:space="preserve">
-		<value></value>
+		<value>Last Name</value>
 	</data>
 	<data name="L_OTHERNAME" xml:space="preserve">
-		<value></value>
+		<value>Given Name</value>
 	</data>
 	<data name="L_PHONE" xml:space="preserve">
-		<value></value>
+		<value>Phone</value>
 	</data>
 	<data name="L_ROLEFOUNDS" xml:space="preserve">
-		<value></value>
+		<value>Roles Found</value>
 	</data>
 	<data name="L_USERNAME" xml:space="preserve">
-		<value></value>
+		<value>User Name</value>
 	</data>
 	<data name="G_CLAIMADMINISTRATORLOGIN" xml:space="preserve">
-		<value></value>
+		<value>Include User Login</value>
 	</data>
 	<data name="L_INCLUDELOGIN" xml:space="preserve">
-		<value></value>
+		<value>Include Login</value>
 	</data>
 	<data name="B_DELETELOGIN" xml:space="preserve">
-		<value></value>
+		<value>Delete Login</value>
 	</data>
 	<data name="L_HASLOGIN" xml:space="preserve">
-		<value></value>
+		<value>Has Login</value>
 	</data>
 	<data name="M_MUSTFILLROLE" xml:space="preserve">
-		<value></value>
+		<value>Please fill a Role name</value>
 	</data>
 	<data name="L_USERPROFILES" xml:space="preserve">
-		<value></value>
+		<value>User Profiles</value>
 	</data>
 	<data name="M_NOTDELETEASSOCIATEDUSER" xml:space="preserve">
-		<value></value>
+		<value>could not be deleted because is associated</value>
 	</data>
 	<data name="M_OFFICEREXISTS" xml:space="preserve">
-		<value></value>
+		<value>already exists and associated in the login</value>
 	</data>
 	<data name="M_NOTDELETEASSOCIATEDROLE" xml:space="preserve">
-		<value></value>
+		<value>Could not be deleted because is associated</value>
 	</data>
 	<data name="B_CLAIMSREVIEWS" xml:space="preserve">
-		<value></value>
+		<value>Claims Reviewed</value>
 	</data>
 	<data name="M_NOTDELETEASSOCIATEDROLM_NOTDELETEASSOCIATEDROLE" xml:space="preserve">
-		<value></value>
+		<value>The role can not be deleted, while it is used by users.</value>
 	</data>
 	<data name="M_DELETEUSERLOGIN" xml:space="preserve">
-		<value></value>
+		<value>Are you sure you want to delete the User Login?</value>
 	</data>
 	<data name="L_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
-		<value></value>
+		<value>Overview of Commissions</value>
 	</data>
 	<data name="L_COMMISSIONRATE" xml:space="preserve">
-		<value></value>
+		<value>Commission Rate (%)</value>
 	</data>
 	<data name="L_MODE" xml:space="preserve">
-		<value></value>
+		<value>Mode</value>
 	</data>
 	<data name="M_ENTERMONTH" xml:space="preserve">
-		<value></value>
+		<value>Please select month</value>
 	</data>
 	<data name="T_ACTUALPAIDCONTRIBUTIONS" xml:space="preserve">
-		<value></value>
+		<value>Actually Paid Contributions</value>
 	</data>
 	<data name="T_PRESCRIBEDCONTRIBUTIONS" xml:space="preserve">
-		<value></value>
+		<value>Prescribed Contributions</value>
 	</data>
 	<data name="T_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
-		<value></value>
+		<value>Overview of commissions</value>
 	</data>
 	<data name="T_SELECTMODE" xml:space="preserve">
-		<value></value>
+		<value>--Select Mode--</value>
 	</data>
 	<data name="L_TOTALACTUALPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Total actual payments</value>
 	</data>
 	<data name="L_TOTALNUMBEROFPOLICIES" xml:space="preserve">
-		<value></value>
+		<value>Total number of policies</value>
 	</data>
 	<data name="L_TOTALPRESCRIBEDCONTRIBUTION" xml:space="preserve">
-		<value></value>
+		<value>Total Prescribed Contributions</value>
 	</data>
 	<data name="L_CLAIMHISTORYREPORT" xml:space="preserve">
-		<value></value>
+		<value>Claim History Report</value>
 	</data>
 	<data name="L_SCOPE" xml:space="preserve">
-		<value></value>
+		<value>Scope</value>
 	</data>
 	<data name="T_CLAIMSANDALLDETAILS" xml:space="preserve">
-		<value></value>
+		<value>Claims and All Details</value>
 	</data>
 	<data name="T_CLAIMSANDREJECTIONDETAILS" xml:space="preserve">
-		<value></value>
+		<value>Claims and Rejection Details</value>
 	</data>
 	<data name="T_CLAIMSONLY" xml:space="preserve">
-		<value></value>
+		<value>Claims Only</value>
 	</data>
 	<data name="T_SELECTSCOPE" xml:space="preserve">
-		<value></value>
+		<value>--Select Scope--</value>
 	</data>
 	<data name="T_CLAIMHISTORYREPORT" xml:space="preserve">
-		<value></value>
+		<value>Claim History Report</value>
 	</data>
 	<data name="L_INSURANCENUMBERNOTFOUND" xml:space="preserve">
-		<value></value>
+		<value>Insurance number not found</value>
 	</data>
 	<data name="L_PLEASEENTERINSURANCENUMBER" xml:space="preserve">
-		<value></value>
+		<value>Please enter insurance number</value>
 	</data>
 	<data name="G_OFFICERLOGIN" xml:space="preserve">
-		<value></value>
+		<value>Include Login</value>
 	</data>
 	<data name="L_OFFICERLOGIN" xml:space="preserve">
-		<value></value>
+		<value>Include User Login</value>
 	</data>
 	<data name="R_ADD" xml:space="preserve">
-		<value></value>
+		<value>Add</value>
 	</data>
 	<data name="R_ADMINISTRATION" xml:space="preserve">
-		<value></value>
+		<value>Administration</value>
 	</data>
 	<data name="R_BACKUP" xml:space="preserve">
-		<value></value>
+		<value>Backup</value>
 	</data>
 	<data name="R_BATCH" xml:space="preserve">
-		<value></value>
+		<value>Batch</value>
 	</data>
 	<data name="R_CAPITATIONPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Capitation Payment</value>
 	</data>
 	<data name="R_CLAIM" xml:space="preserve">
-		<value></value>
+		<value>Claim</value>
 	</data>
 	<data name="R_CLAIMADMINISTRATOR" xml:space="preserve">
-		<value></value>
+		<value>Claim Administrators</value>
 	</data>
 	<data name="R_CLAIMHISTORYREPORT" xml:space="preserve">
-		<value></value>
+		<value>Claim History Report</value>
 	</data>
 	<data name="R_CLAIMOVERVIEW" xml:space="preserve">
-		<value></value>
+		<value>Claim Overview</value>
 	</data>
 	<data name="R_CLAIMREVIEW" xml:space="preserve">
-		<value></value>
+		<value>Review</value>
 	</data>
 	<data name="R_CLAIMS" xml:space="preserve">
-		<value></value>
+		<value>Claims</value>
 	</data>
 	<data name="R_CONTRIBUTION" xml:space="preserve">
-		<value></value>
+		<value>Contribution</value>
 	</data>
 	<data name="R_CONTRIBUTIONCOLLECTION" xml:space="preserve">
-		<value></value>
+		<value>Contribution Collection</value>
 	</data>
 	<data name="R_CONTRIBUTIONDISTRIBUTION" xml:space="preserve">
-		<value></value>
+		<value>Contribution Distribution</value>
 	</data>
 	<data name="R_CONTRIBUTIONPAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Contribution Payment</value>
 	</data>
 	<data name="R_CONTROLNUMBERASSIGNMENT" xml:space="preserve">
-		<value></value>
+		<value>Control Number Assignment</value>
 	</data>
 	<data name="R_CREATE" xml:space="preserve">
-		<value></value>
+		<value>Create</value>
 	</data>
 	<data name="R_DELETE" xml:space="preserve">
-		<value></value>
+		<value>Delete</value>
 	</data>
 	<data name="R_DERIVEDOPERATIONALI" xml:space="preserve">
-		<value></value>
+		<value>Derived Operational Indicators</value>
 	</data>
 	<data name="R_DIAGNOSES" xml:space="preserve">
-		<value></value>
+		<value>Diagnoses</value>
 	</data>
 	<data name="R_DOWNLOAD" xml:space="preserve">
-		<value></value>
+		<value>Download</value>
 	</data>
 	<data name="R_DUPLICATE" xml:space="preserve">
-		<value></value>
+		<value>Duplicate</value>
 	</data>
 	<data name="R_EDIT" xml:space="preserve">
-		<value></value>
+		<value>Edit</value>
 	</data>
 	<data name="R_EMAILSETTING" xml:space="preserve">
-		<value></value>
+		<value>Email Setting</value>
 	</data>
 	<data name="R_ENQUIRE" xml:space="preserve">
-		<value></value>
+		<value>Inquire</value>
 	</data>
 	<data name="R_ENROLMENTOFFICER" xml:space="preserve">
-		<value></value>
+		<value>Enrollment Officers</value>
 	</data>
 	<data name="R_ENROLMENTPERFORMANCEI" xml:space="preserve">
-		<value></value>
+		<value>Enrollment Performance Indicators</value>
 	</data>
 	<data name="R_ENROLMENTS" xml:space="preserve">
-		<value></value>
+		<value>Enrollments</value>
 	</data>
 	<data name="R_EXCUTESCRIPT" xml:space="preserve">
-		<value></value>
+		<value>Execute Script</value>
 	</data>
 	<data name="R_EXTRACTS" xml:space="preserve">
-		<value></value>
+		<value>Extracts</value>
 	</data>
 	<data name="R_FAMILIESANDINSUREESOVERVIEW" xml:space="preserve">
-		<value></value>
+		<value>Families and insurees Overview</value>
 	</data>
 	<data name="R_FEEDBACK" xml:space="preserve">
-		<value></value>
+		<value>Feedback</value>
 	</data>
 	<data name="R_FILTER" xml:space="preserve">
-		<value></value>
+		<value>Filter</value>
 	</data>
 	<data name="R_FUNDING" xml:space="preserve">
-		<value></value>
+		<value>Funding</value>
 	</data>
 	<data name="R_HEALTHFACILITIES" xml:space="preserve">
-		<value></value>
+		<value>Health Facilities</value>
 	</data>
 	<data name="R_INSUREE" xml:space="preserve">
-		<value></value>
+		<value>Insuree</value>
 	</data>
 	<data name="R_INSUREEANDPOLICIES" xml:space="preserve">
-		<value></value>
+		<value>Insurees and Policies</value>
 	</data>
 	<data name="R_INSUREESWITHOUTPHOTOS" xml:space="preserve">
-		<value></value>
+		<value>Insurees without Photos</value>
 	</data>
 	<data name="R_LOAD" xml:space="preserve">
-		<value></value>
+		<value>Load</value>
 	</data>
 	<data name="R_LOCATIONS" xml:space="preserve">
-		<value></value>
+		<value>Locations</value>
 	</data>
 	<data name="R_MASTERDATA" xml:space="preserve">
-		<value></value>
+		<value>Master Data</value>
 	</data>
 	<data name="R_MATCHINGFUNDS" xml:space="preserve">
-		<value></value>
+		<value>Matching Funds</value>
 	</data>
 	<data name="R_MEDICALITEMS" xml:space="preserve">
-		<value></value>
+		<value>Medical Items</value>
 	</data>
 	<data name="R_MEDICALSERVICES" xml:space="preserve">
-		<value></value>
+		<value>Medical Services</value>
 	</data>
 	<data name="R_MOVE" xml:space="preserve">
-		<value></value>
+		<value>Move</value>
 	</data>
 	<data name="R_OFFLINEEXTRACTS" xml:space="preserve">
-		<value></value>
+		<value>Offline Extracts</value>
 	</data>
 	<data name="R_OVERVIEWOFCOMMISSIONS" xml:space="preserve">
-		<value></value>
+		<value>Overview Of Commissions</value>
 	</data>
 	<data name="R_PAYERS" xml:space="preserve">
-		<value></value>
+		<value>Payers</value>
 	</data>
 	<data name="R_PAYMENT" xml:space="preserve">
-		<value></value>
+		<value>Payment</value>
 	</data>
 	<data name="R_PAYMENTCATEGORYOVERVIEW" xml:space="preserve">
-		<value></value>
+		<value>Payment Category Overview</value>
 	</data>
 	<data name="R_PENDINGINSUREES" xml:space="preserve">
-		<value></value>
+		<value>Pending Insurees</value>
 	</data>
 	<data name="R_PERCENTAGEOFREFERRALS" xml:space="preserve">
-		<value></value>
+		<value>Percentage of Referrals</value>
 	</data>
 	<data name="R_PHONEEXTRACTS" xml:space="preserve">
-		<value></value>
+		<value>Phone Extracts</value>
 	</data>
 	<data name="R_Policy" xml:space="preserve">
-		<value></value>
+		<value>Policy</value>
 	</data>
 	<data name="R_PREVIEW" xml:space="preserve">
-		<value></value>
+		<value>Preview</value>
 	</data>
 	<data name="R_PRICELISTMI" xml:space="preserve">
-		<value></value>
+		<value>Price lists - Medical Items</value>
 	</data>
 	<data name="R_PRICELISTMS" xml:space="preserve">
-		<value></value>
+		<value>Price lists - Medical Services</value>
 	</data>
 	<data name="R_PRIMARYOPERATIONALIC" xml:space="preserve">
-		<value></value>
+		<value>Primary Operational Indicators-claims</value>
 	</data>
 	<data name="R_PRIMARYOPERATIONALIP" xml:space="preserve">
-		<value></value>
+		<value>Primary Operational Indicators-policies</value>
 	</data>
 	<data name="R_PRINT" xml:space="preserve">
-		<value></value>
+		<value>Print</value>
 	</data>
 	<data name="R_PROCESS" xml:space="preserve">
-		<value></value>
+		<value>Process</value>
 	</data>
 	<data name="R_PRODUCTS" xml:space="preserve">
-		<value></value>
+		<value>Products</value>
 	</data>
 	<data name="R_PRODUCTSALES" xml:space="preserve">
-		<value></value>
+		<value>Product Sales</value>
 	</data>
 	<data name="R_REGISTERS" xml:space="preserve">
-		<value></value>
+		<value>Registers</value>
 	</data>
 	<data name="R_REJECTEDPHOTOS" xml:space="preserve">
-		<value></value>
+		<value>Rejected Photos</value>
 	</data>
 	<data name="R_RENEW" xml:space="preserve">
-		<value></value>
+		<value>Renew</value>
 	</data>
 	<data name="R_RENEWALS" xml:space="preserve">
-		<value></value>
+		<value>Renewals</value>
 	</data>
 	<data name="R_REPORTS" xml:space="preserve">
-		<value></value>
+		<value>Reports</value>
 	</data>
 	<data name="R_RESTORE" xml:space="preserve">
-		<value></value>
+		<value>Restore</value>
 	</data>
 	<data name="R_REVIEW" xml:space="preserve">
-		<value></value>
+		<value>Review Claim</value>
 	</data>
 	<data name="R_SAVE" xml:space="preserve">
-		<value></value>
+		<value>Save</value>
 	</data>
 	<data name="R_SEARCH" xml:space="preserve">
-		<value></value>
+		<value>Search</value>
 	</data>
 	<data name="R_STATUSOFREGISTERS" xml:space="preserve">
-		<value></value>
+		<value>Status of Registers</value>
 	</data>
 	<data name="R_SUBMIT" xml:space="preserve">
-		<value></value>
+		<value>Submit</value>
 	</data>
 	<data name="R_TOOLS" xml:space="preserve">
-		<value></value>
+		<value>Tools</value>
 	</data>
 	<data name="R_UPDATE" xml:space="preserve">
-		<value></value>
+		<value>Update</value>
 	</data>
 	<data name="R_UPLOAD" xml:space="preserve">
-		<value></value>
+		<value>Upload</value>
 	</data>
 	<data name="R_USERACTIVITYREPORT" xml:space="preserve">
-		<value></value>
+		<value>User Activity Report</value>
 	</data>
 	<data name="R_USERPROFILES" xml:space="preserve">
-		<value></value>
+		<value>User Profiles</value>
 	</data>
 	<data name="R_USERS" xml:space="preserve">
-		<value></value>
+		<value>Users</value>
 	</data>
 	<data name="R_UTILITIES" xml:space="preserve">
-		<value></value>
+		<value>Utilities/Email settings</value>
 	</data>
 	<data name="L_MATCHINGDATE" xml:space="preserve">
-		<value></value>
+		<value>Matching Date</value>
 	</data>
 	<data name="L_PAYMENTGRIDVIEW" xml:space="preserve">
-		<value></value>
+		<value>Matched Payments</value>
 	</data>
 	<data name="L_RECEIPTNO" xml:space="preserve">
-		<value></value>
+		<value>Receipt No.</value>
 	</data>
 	<data name="L_RECEIVEDATE" xml:space="preserve">
-		<value></value>
+		<value>Receiving Date</value>
 	</data>
 	<data name="M_PLEASEENTERANMDGCODE" xml:space="preserve">
-		<value></value>
+		<value>Please enter a Main Dg. code</value>
 	</data>
 	<data name="M_PAYDATETOEXCEEDCURRENDATE" xml:space="preserve">
-		<value></value>
+		<value>Payment date should not exceed current date</value>
 	</data>
 	<data name="R_CLAIMSUPLOAD" xml:space="preserve">
-		<value></value>
+		<value>Claims Upload</value>
 	</data>
 	<data name="R_DIAGNOSESDOWNLOAD" xml:space="preserve">
-		<value></value>
+		<value>Diagnoses Download</value>
 	</data>
 	<data name="R_DIAGNOSESUPLOAD" xml:space="preserve">
-		<value></value>
+		<value>Diagnoses Upload</value>
 	</data>
 	<data name="R_ENROLMENTSUPLOAD" xml:space="preserve">
-		<value></value>
+		<value>Enrollment Upload</value>
 	</data>
 	<data name="R_FEEDBACKUPLOAD" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_RENEWALUPLOAD" xml:space="preserve">
-		<value></value>
+		<value>Feedback Upload</value>
 	</data>
 	<data name="R_HEALTHFACILITIESDOWNLOAD" xml:space="preserve">
-		<value></value>
+		<value>Health Facilities Download</value>
 	</data>
 	<data name="R_HEALTHFACILITIESUPLOAD" xml:space="preserve">
-		<value></value>
+		<value>Health Facilities Upload</value>
 	</data>
 	<data name="R_LOCATIONSDOWNLOAD" xml:space="preserve">
-		<value></value>
+		<value>Location download</value>
 	</data>
 	<data name="R_LOCATIONSUPLOAD" xml:space="preserve">
-		<value></value>
+		<value>Location Upload</value>
 	</data>
 	<data name="R_MASTERDATADOWNLOAD" xml:space="preserve">
-		<value></value>
+		<value>Master Download</value>
 	</data>
 	<data name="R_OFFLINEEXTRACTSCREATE" xml:space="preserve">
-		<value></value>
+		<value>Create offline extract</value>
 	</data>
 	<data name="R_PHONEEXTRACTSCREATE" xml:space="preserve">
-		<value></value>
+		<value>Create Phone extract</value>
 	</data>
 	<data name="L_CONTRIBUTIONPREMIUM" xml:space="preserve">
-		<value></value>
+		<value>Contribution</value>
 	</data>
 	<data name="M_PREVIOUSCOMMISSIONREPORT" xml:space="preserve">
-		<value></value>
+		<value>Generating of the report from past perspective may result in duplication of request for Overview of commissions. &lt;br/&gt; Do you want to continue?</value>
 	</data>
 	<data name="L_ALTLANGUAGE" xml:space="preserve">
-		<value></value>
+		<value>Alternative Language</value>
 	</data>
 	<data name="T_ACCEPTED" xml:space="preserve">
-		<value></value>
+		<value>Accepted</value>
 	</data>
 	<data name="T_DIAGNOSISCODENOTINTHECURRENTLIST" xml:space="preserve">
-		<value></value>
+		<value>Diagnosis code not in the current list of diagnoses</value>
 	</data>
 	<data name="T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD" xml:space="preserve">
-		<value></value>
+		<value>Item/service cannot be covered within waiting period</value>
 	</data>
 	<data name="T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT" xml:space="preserve">
-		<value></value>
+		<value>Item/Service doesn’t comply with type of care constraint</value>
 	</data>
 	<data name="T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY" xml:space="preserve">
-		<value></value>
+		<value>Item/Service doesn’t comply with frequency constraint</value>
 	</data>
 	<data name="T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION" xml:space="preserve">
-		<value></value>
+		<value>Item/Service doesn’t comply with limitations on patients (men/women,
+adults/children)
+		</value>
 	</data>
 	<data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
-		<value></value>
+		<value>Item/Service duplicated</value>
 	</data>
 	<data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
-		<value></value>
+		<value>Item/Service is not covered by an active policy of the patient</value>
 	</data>
 	<data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
-		<value></value>
+		<value>Item/Service not in the price lists associated with the health facility</value>
 	</data>
 	<data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
-		<value></value>
+		<value>Item/Service not in the registers of medical items/services</value>
 	</data>
 	<data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
-		<value></value>
+		<value>Not valid insurance number</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
-		<value></value>
+		<value>Maximum number of antenatal contacts exceeded</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED" xml:space="preserve">
-		<value></value>
+		<value>Maximum number of consultations exceeded</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
-		<value></value>
+		<value>Maximum number of deliveries exceeded</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
-		<value></value>
+		<value>Maximum number of in-patient admissions exceeded</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
-		<value></value>
+		<value>Maximum number of out-patient visits exceeded</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
-		<value></value>
+		<value>Maximum number of provisions of item/service exceeded</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
-		<value></value>
+		<value>Maximum number of surgeries exceeded</value>
 	</data>
 	<data name="T_NA" xml:space="preserve">
-		<value></value>
+		<value>N/A</value>
 	</data>
 	<data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
-		<value></value>
+		<value>Rejected by a medical officer</value>
 	</data>
 	<data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
-		<value></value>
+		<value>Target date of provision of health care invalid</value>
 	</data>
 	<data name="L_PLEASESELECTSCOPE" xml:space="preserve">
-		<value></value>
+		<value>Please select scope</value>
 	</data>
 	<data name="L_PROLICYVALUE" xml:space="preserve">
-		<value></value>
+		<value>policy value</value>
 	</data>
 	<data name="M_SELECTSERVICECODE" xml:space="preserve">
-		<value></value>
+		<value>Please select the service code</value>
 	</data>
 	<data name="T_NEWPOLICIES" xml:space="preserve">
-		<value></value>
+		<value>New policies</value>
 	</data>
 	<data name="G_ROLE_DETAILS" xml:space="preserve">
-		<value></value>
+		<value>Role Details</value>
 	</data>
 	<data name="M_UNIQUEROLENAME" xml:space="preserve">
-		<value></value>
+		<value>This role name has already been used, please use different name.</value>
 	</data>
 	<data name="V_PASSWORD_PREFIX" xml:space="preserve">
-		<value></value>
+		<value>Password must contain</value>
 	</data>
 	<data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
-		<value></value>
+		<value>at least</value>
 	</data>
 	<data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
-		<value></value>
+		<value>characters</value>
 	</data>
 	<data name="V_PASSWORD_INCLUDING" xml:space="preserve">
-		<value></value>
+		<value>including</value>
 	</data>
 	<data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
-		<value></value>
+		<value>at least one lower case letter</value>
 	</data>
 	<data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
-		<value></value>
+		<value>at least one upper case letter</value>
 	</data>
 	<data name="V_PASSWORD_NUMBER" xml:space="preserve">
-		<value></value>
+		<value>at least one number</value>
 	</data>
 	<data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
-		<value></value>
+		<value>at least one special symbol</value>
 	</data>
 	<data name="V_PASSWORDREQUIRED" xml:space="preserve">
-		<value></value>
+		<value>Password is required</value>
 	</data>
 	<data name="L_PAYCATEGORY1" xml:space="preserve">
-		<value></value>
+		<value>Pay Category</value>
 	</data>
 	<data name="L_PAYDATE1" xml:space="preserve">
-		<value></value>
+		<value>Payment Date</value>
 	</data>
 	<data name="L_PAYDATEFROM1" xml:space="preserve">
-		<value></value>
+		<value>Payment Date From</value>
 	</data>
 	<data name="L_PAYDATETO1" xml:space="preserve">
-		<value></value>
+		<value>Payment Date To</value>
 	</data>
 	<data name="L_PAYMENT1" xml:space="preserve">
-		<value></value>
+		<value>Payment</value>
 	</data>
 	<data name="L_PAYMENTASKED1" xml:space="preserve">
-		<value></value>
+		<value>Payment Asked</value>
 	</data>
 	<data name="L_PAYMENTDATE1" xml:space="preserve">
-		<value></value>
+		<value>Payment Date</value>
 	</data>
 	<data name="L_PAYMETHOD1" xml:space="preserve">
-		<value></value>
+		<value>Pay Method</value>
 	</data>
 	<data name="T_MEDICALPROSTHESES" xml:space="preserve">
-		<value></value>
+		<value>Medical Prostheses</value>
 	</data>
 	<data name="L_RECURRENCE" xml:space="preserve">
-		<value></value>
+		<value>Recurrence (Months)</value>
 	</data>
 	<data name="M_NORIGHTSSELECTED" xml:space="preserve">
-		<value></value>
+		<value>Please select at least one security right</value>
 	</data>
 	<data name="M_USERCANNOTBEEDITED" xml:space="preserve">
-		<value></value>
+		<value>You have no authority to edit the selected user.</value>
 	</data>
 	<data name="M_ASSIGNROLE" xml:space="preserve">
-		<value></value>
+		<value>Allow assignement of Role</value>
 	</data>
 	<data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
-		<value></value>
+		<value>Claimed date cannot be in future</value>
 	</data>
 	<data name="B_RESTORE" xml:space="preserve">
-		<value></value>
+		<value>Restore</value>
 	</data>
 	<data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
-		<value></value>
+		<value>No Message to be displayed</value>
 	</data>
 	<data name="L_GENDER1" xml:space="preserve">
-		<value></value>
+		<value>Gender</value>
 	</data>
 	<data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
-		<value></value>
+		<value>Search  Insurance Number</value>
 	</data>
 	<data name="T_CHARITY" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
-		<value></value>
+		<value>Charity</value>
 	</data>
 	<data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
+		<value>Import photos</value>
+	</data>
+	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
+		<value>zipped photos</value>
+	</data>
+	<data name="L_FULLNAME" xml:space="preserve">
+		<value>Full Name</value>
+	</data>
+	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
+		<value>Amount</value>
+	</data>
+	<data name="L_RECEIPTCODE" xml:space="preserve">
+		<value>Receipt code</value>
+	</data>
+	<data name="L_IMEI" xml:space="preserve">
+		<value>IMEI</value>
+	</data>
+	<data name="L_EMAILSETTINGS" xml:space="preserve">
+		<value>Email</value>
+	</data>
+	<data name="T_READY" xml:space="preserve">
+		<value>Ready</value>
+	</data>
+	<data name="M_PLEASESELECTMODE" xml:space="preserve">
+		<value>Please select mode</value>
+	</data>
+	<data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Calculated commission</value>
+	</data>
+	<data name="G_PROJECTDETAILS" xml:space="preserve">
+		<value>Project Details</value>
+	</data>
+	<data name="L_COMMENTS" xml:space="preserve">
+		<value>Comments</value>
+	</data>
+	<data name="L_COSTCENTRE" xml:space="preserve">
+		<value>Cost Centre</value>
+	</data>
+	<data name="L_PROJECTCENTRE" xml:space="preserve">
+		<value>Project Centre</value>
+	</data>
+	<data name="L_ACTIVITYCENTRE" xml:space="preserve">
+		<value>Activity Centre</value>
+	</data>
+	<data name="L_CC" xml:space="preserve">
+		<value>CC</value>
+	</data>
+	<data name="L_PC" xml:space="preserve">
+		<value>PC</value>
+	</data>
+	<data name="L_AC" xml:space="preserve">
+		<value>AC</value>
+	</data>
+	<data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
+		<value>Project(s) Found</value>
+	</data>
+	<data name="L_UNITS" xml:space="preserve">
+		<value>Units</value>
+	</data>
+	<data name="L_EMPLOYEE" xml:space="preserve">
+		<value>Employee</value>
+	</data>
+	<data name="L_EMPLOYEEID" xml:space="preserve">
+		<value>Employee ID</value>
+	</data>
+	<data name="L_UNITS2" xml:space="preserve">
+		<value>Units2</value>
+	</data>
+	<data name="T_SELECTCOSTCENTRE" xml:space="preserve">
+		<value>Select Cost Centre</value>
+	</data>
+	<data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
+		<value>Select Project Centre</value>
+	</data>
+	<data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
+		<value>Select Activity Centre</value>
+	</data>
+	<data name="T_SELECTEMPLOYEE" xml:space="preserve">
+		<value>Select Employee</value>
+	</data>
+	<data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
+		<value>Project Details have been inserted successfully</value>
+	</data>
+	<data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
+		<value>Project Details have been updated successfully</value>
+	</data>
+	<data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Total paid Contributions for</value>
+	</data>
+	<data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
+		<value>Calculated Commission</value>
+	</data>
+	<data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
+		<value>Calculated Commission for</value>
+	</data>
+	<data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
+		<value>Total Actual Payment Contribution for</value>
+	</data>
+	<data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
+		<value>Total of all Actual Payment Contributions</value>
+	</data>
+	<data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
+		<value>Total of all Prescribed Contributions</value>
+	</data>
+	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
+		<value>Total Prescribed Contributions for</value>
+	</data>
+	<data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+		<value>Total number of policies for</value>
+	</data>
+	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+		<value>Total Prescribed Contribution for</value>
+	</data>
+	<data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
+		<value>Please select commission rate</value>
+	</data>
+	<data name="R_TOTALAPPROVED" xml:space="preserve">
+		<value>Total Approved</value>
+	</data>
+	<data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
+		<value>Total Adjusted Amount</value>
+	</data>
+	<data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
+		<value>Total Paid Amount</value>
+	</data>
+	<data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+		<value>Task completed in </value>
+	</data>
+	<data name="M_EXTR_HOURS" xml:space="preserve">
+		<value> hours</value>
+	</data>
+	<data name="T_OVERVIEW" xml:space="preserve">
+		<value>Overview</value>
+	</data>
+	<data name="T_ALLDETAILS" xml:space="preserve">
+		<value>All details</value>
+	</data>
+	<data name="L_PAYMENTTYPE1" xml:space="preserve">
+		<value>Aina ya Malipo</value>
+	</data>
+	<data name="R_RENEWALUPLOAD" xml:space="preserve">
+		<value>Renewal Upload</value>
+	</data>
+	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
 		<value></value>
 	</data>
 	<data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
@@ -4910,157 +5050,43 @@ Blocked</value>
 	<data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
 		<value></value>
 	</data>
-	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_FULLNAME" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_RECEIPTCODE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_IMEI" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EMAILSETTINGS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_READY" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_PLEASESELECTMODE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="G_PROJECTDETAILS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_COMMENTS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_COSTCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PROJECTCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_ACTIVITYCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_CC" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PC" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_AC" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_UNITS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EMPLOYEE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EMPLOYEEID" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_UNITS2" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTCOSTCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_SELECTEMPLOYEE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALAPPROVED" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_EXTR_HOURS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_OVERVIEW" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="T_ALLDETAILS" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_PAYMENTTYPE1" xml:space="preserve">
-		<value>Aina ya Malipo</value>
-	</data>
-	<data name="L_REJECTEDREASON" xml:space="preserve">
-        <value>Sababu za katazo</value>
-  </data>
 	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
-		<value></value>
-	</data>	
+		<value>Batch run for given location and period was not executed</value>
+	</data>
 	<data name="R_CAPITATION" xml:space="preserve">
-		<value></value>
+		<value>Capitation</value>
 	</data>
 	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
-		<value></value>
+		<value>Batch not selected</value>
 	</data>
 	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
-		<value></value>
+		<value>Region not selected</value>
+	</data>
+	<data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
+		<value>Ctr No. Requested</value>
+	</data>
+	<data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
+		<value>Ctr No. Received</value>
+	</data>
+	<data name="T_PAYMENTRECEIVED" xml:space="preserve">
+		<value>Pay. Received</value>
+	</data>
+	<data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
+		<value>Pay. Reconciliated</value>
+	</data>
+	<data name="L_REJECTEDREASON" xml:space="preserve">
+		<value>Rejection reason</value>
+	</data>
+	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
+		<value>cancelled</value>
+	</data>
+	<data name="T_PAYMENTCREATED" xml:space="preserve">
+		<value>Created</value>
+	</data>
+	<data name="L_UPLOADFEEDBACKS" xml:space="preserve">
+		<value>Upload Feedbacks</value>
+	</data>
+	<data name="L_UPLOADRENEWALS" xml:space="preserve">
+		<value>Upload Renewals</value>
 	</data>
 </root>

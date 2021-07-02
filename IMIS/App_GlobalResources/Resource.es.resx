@@ -4775,145 +4775,145 @@
 		<value> Número máximo de estancias hospitalarias excedidas </value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
-		<value> Número máximo de visitas ambulatorias excedido </value>
+		<value>Se ha superado el número máximo de visitas ambulatorias</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
-		<value>Número máximo de visitas de inventario para productos médicos y de cuidado excedido </value>
+		<value>Se ha superado el número máximo de provisiones de artículos/servicios</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
-		<value> Número máximo de operaciones excedido </value>
+		<value>Se ha superado el número máximo de cirugías</value>
 	</data>
 	<data name="T_NA" xml:space="preserve">
-		<value>N/A </value>
+		<value>N/A</value>
 	</data>
 	<data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
-		<value>Rechazado por el oficial médico </value>
+		<value>Rechazado por un oficial médico</value>
 	</data>
 	<data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
-		<value>Fecha prevista para la atención de los inválidos </value>
+		<value>Fecha prevista de prestación de atención médica inválida</value>
 	</data>
 	<data name="L_PLEASESELECTSCOPE" xml:space="preserve">
-		<value>Por favor, seleccione un perímetro </value>
+		<value>Por favor seleccione alcance (ámbito)</value>
 	</data>
 	<data name="L_PROLICYVALUE" xml:space="preserve">
-		<value>Monto de la política </value>
+		<value>valor de la póliza</value>
 	</data>
 	<data name="M_SELECTSERVICECODE" xml:space="preserve">
-		<value>Por favor, seleccione el código de tratamiento </value>
+		<value>Por favor seleccione el código de servicio</value>
 	</data>
 	<data name="T_NEWPOLICIES" xml:space="preserve">
-		<value>Nueva fuente </value>
+		<value>Nuevas pólizas</value>
 	</data>
 	<data name="G_ROLE_DETAILS" xml:space="preserve">
-		<value>Detalles del papel </value>
+		<value>Detalles del rol</value>
 	</data>
 	<data name="M_UNIQUEROLENAME" xml:space="preserve">
-		<value>Este nombre del rol ya ha sido usado, por favor use un nombre diferente. </value>
+		<value>Este nombre del rol ya ha sido usado, por favor use un nombre diferente.</value>
 	</data>
 	<data name="V_PASSWORD_PREFIX" xml:space="preserve">
-		<value>La contraseña debe contener </value>
+		<value>La contraseña debe contener</value>
 	</data>
 	<data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
-		<value>al menos </value>
+		<value>al menos</value>
 	</data>
 	<data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
-		<value>caracteres </value>
+		<value>caracteres</value>
 	</data>
 	<data name="V_PASSWORD_INCLUDING" xml:space="preserve">
-		<value>que comprende </value>
+		<value>incluyendo</value>
 	</data>
 	<data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
-		<value>al menos una letra minúscula </value>
+		<value>al menos una letra minúscula</value>
 	</data>
 	<data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
-		<value>al menos una letra mayúscula </value>
+		<value>al menos una letra mayúscula</value>
 	</data>
 	<data name="V_PASSWORD_NUMBER" xml:space="preserve">
-		<value>al menos un número </value>
+		<value>al menos un número</value>
 	</data>
 	<data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
-		<value>al menos un símbolo especial </value>
+		<value>al menos un símbolo especial</value>
 	</data>
 	<data name="V_PASSWORDREQUIRED" xml:space="preserve">
-		<value>Contraseña requerida </value>
+		<value>Se requiere una contraseña</value>
 	</data>
 	<data name="L_PAYCATEGORY1" xml:space="preserve">
-		<value>Categoría de pago </value>
+		<value>Categoría de pago</value>
 	</data>
 	<data name="L_PAYDATE1" xml:space="preserve">
-		<value>Fecha de pago </value>
+		<value>Fecha de pago</value>
 	</data>
 	<data name="L_PAYDATEFROM1" xml:space="preserve">
-		<value>Fecha de pago desde </value>
+		<value>Fecha de pago desde</value>
 	</data>
 	<data name="L_PAYDATETO1" xml:space="preserve">
-		<value> Fecha de pago hasta </value>
+		<value>Fecha de pago a</value>
 	</data>
 	<data name="L_PAYMENT1" xml:space="preserve">
-		<value>Pago </value>
+		<value>Pago</value>
 	</data>
 	<data name="L_PAYMENTASKED1" xml:space="preserve">
-		<value>Pago solicitado </value>
+		<value>Pago solicitado</value>
 	</data>
 	<data name="L_PAYMENTDATE1" xml:space="preserve">
-		<value>Fecha de pago </value>
+		<value>Fecha de pago</value>
 	</data>
 	<data name="L_PAYMETHOD1" xml:space="preserve">
-		<value>Método de pago </value>
+		<value>Método de pago</value>
 	</data>
 	<data name="T_MEDICALPROSTHESES" xml:space="preserve">
 		<value>Consumibles médicos</value>
 	</data>
 	<data name="L_RECURRENCE" xml:space="preserve">
-		<value>Periodicidad (Meses) </value>
+		<value>Recurrencia (Meses)</value>
 	</data>
 	<data name="M_NORIGHTSSELECTED" xml:space="preserve">
-		<value>Por favor, seleccione al menos un derecho de seguridad </value>
+		<value>Por favor, seleccione al menos un derecho de seguridad</value>
 	</data>
 	<data name="M_USERCANNOTBEEDITED" xml:space="preserve">
-		<value>No se le permite cambiar el usuario seleccionado. 7f0dab02-8b20-47e5-9746-6402569b4e92</value>
+		<value>No tiene autoridad para editar el usuario seleccionado.</value>
 	</data>
 	<data name="M_ASSIGNROLE" xml:space="preserve">
-		<value>Permitir la asignación de roles </value>
+		<value>Permitir asignación de rol</value>
 	</data>
 	<data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
-		<value>La fecha del beneficio no puede ser posterior a hoy </value>
+		<value>La fecha reclamada no puede ser en el futuro</value>
 	</data>
 	<data name="B_RESTORE" xml:space="preserve">
-		<value>Restaurar </value>
+		<value>Restaurar</value>
 	</data>
 	<data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
-		<value>No hay mensaje que mostrar </value>
+		<value>No hay mensaje para mostrar</value>
 	</data>
 	<data name="L_GENDER1" xml:space="preserve">
-		<value>Gender</value>
+		<value>Género</value>
 	</data>
 	<data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
-		<value>Search  Insurance Number</value>
+		<value>Buscar número de seguro</value>
 	</data>
 	<data name="T_CHARITY" xml:space="preserve">
-		<value>Charity</value>
+		<value>Caridad</value>
 	</data>
 	<data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
-		<value>Import photos</value>
+		<value>Importar fotos</value>
 	</data>
 	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
-		<value>zipped photos</value>
+		<value>fotos comprimidas</value>
 	</data>
 	<data name="L_FULLNAME" xml:space="preserve">
-		<value>Full Name</value>
+		<value>Nombre completo</value>
 	</data>
 	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
-		<value>Amount</value>
+		<value>Cantidad</value>
 	</data>
 	<data name="L_RECEIPTCODE" xml:space="preserve">
-		<value>Receipt code</value>
+		<value>Código de recibo</value>
 	</data>
 	<data name="L_IMEI" xml:space="preserve">
 		<value>IMEI</value>
 	</data>
 	<data name="L_EMAILSETTINGS" xml:space="preserve">
-		<value>Email</value>
+		<value>Correo electrónico</value>
 	</data>
 	<data name="T_READY" xml:space="preserve">
 		<value>Ready</value>
