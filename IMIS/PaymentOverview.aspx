@@ -148,10 +148,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </td>
                        
                         <td class="FormLabel">
-                            <asp:Label ID="lblMatchedDate0" runat="server" Text="<%$ Resources:Resource,L_INTERNALID %>"></asp:Label>
+                            <asp:Label ID="lblMatchedDate0" runat="server" Text="<%$ Resources:Resource,L_PAYMENTID %>"></asp:Label>
                         </td>
                         <td class="ReadOnlyText">
-                            <asp:Label ID="txtInternalIdentifier" runat="server"></asp:Label>
+                            <asp:Label ID="txtPaymentId" runat="server"></asp:Label>
                         </td>
 
                         <td class="FormLabel">

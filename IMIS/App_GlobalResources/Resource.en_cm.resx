@@ -5073,7 +5073,7 @@ adults/children)</value>
 		<value>Pay. Reconciliated</value>
 	</data>
 	<data name="L_REJECTEDREASON" xml:space="preserve">
-		<value>Rejected reason</value>
+		<value>Rejection reason</value>
 	</data>
 	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
 		<value>cancelled</value>

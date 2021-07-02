@@ -230,13 +230,13 @@ Partial Public Class PaymentOverview
     Protected WithEvents lblMatchedDate0 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtInternalIdentifier control.
+    '''txtPaymentId control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtInternalIdentifier As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtPaymentId As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblExpectedAmount control.

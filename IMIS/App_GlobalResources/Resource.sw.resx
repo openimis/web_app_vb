@@ -5095,42 +5095,42 @@ watu wazima / watoto)</value>
 		<value></value>
 	</data>
 	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
-		<value>Batch run for given location and period was not executed</value>
+		<value>Kundi la madai kwa eneo fulani na kipindi hakikutekelezwa</value>
 	</data>
 	<data name="R_CAPITATION" xml:space="preserve">
-		<value>Capitation</value>
+		<value>Ruzuku</value>
 	</data>
 	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
-		<value>Batch not selected</value>
+		<value>Kundi halijachaguliwa</value>
 	</data>
 	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
-		<value>Region not selected</value>
+		<value>Mkoa haujachaguliwa</value>
 	</data>
 	<data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
-		<value>Ctr No. Requested</value>
+		<value>Ankara iliyoombwa</value>
 	</data>
 	<data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
-		<value>Ctr No. Received</value>
+		<value>Ankara iliyopokelewa</value>
 	</data>
 	<data name="T_PAYMENTRECEIVED" xml:space="preserve">
-		<value>Pay. Received</value>
+		<value>Lipa. Imepokelewa</value>
 	</data>
 	<data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
 		<value>Pay. Reconciliated</value>
 	</data>
 	<data name="L_REJECTEDREASON" xml:space="preserve">
-		<value>Rejected reason</value>
+		<value>Sababu za katazo</value>
 	</data>
 	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
-		<value>cancelled</value>
+		<value>imekatishwa</value>
 	</data>
 	<data name="T_PAYMENTCREATED" xml:space="preserve">
-		<value>Created</value>
+		<value>Imetengenezwa</value>
 	</data>
 	<data name="L_UPLOADFEEDBACKS" xml:space="preserve">
-		<value>Upload Feedbacks</value>
+		<value>Pakia maoni</value>
 	</data>
 	<data name="L_UPLOADRENEWALS" xml:space="preserve">
-		<value>Upload Renewals</value>
+		<value>Pakia uhuishaji</value>
 	</data>
 </root>
