@@ -27,7 +27,6 @@
 '
 
 Public Class ProductsDAL
-    'Correct by Rogers & Hiren
 
     Public Sub LoadProduct(ByRef eProducts As IMIS_EN.tblProduct)
         Dim data As New ExactSQL
@@ -296,13 +295,12 @@ Public Class ProductsDAL
 
 
 
-    'Corrected + Rogers
     Public Function GetProducts(ByVal UserId As Integer, Optional ByVal RegionId As Integer = 0, Optional ByVal DistrictId As Integer = 0, Optional ByVal ByDate As Date? = Nothing) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""
 
 
-        sSQL = " SELECT Prod.ProdId, Prod.ProductCode , Prod.LocationId"
+        sSQL = " SELECT DISTINCT Prod.ProdId, Prod.ProductCode , Prod.LocationId, L.ParentLocationId"
         sSQL += " FROM tblProduct Prod"
         sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(Prod.LocationId, 0)"
         sSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON Prod.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
@@ -312,6 +310,7 @@ Public Class ProductsDAL
         sSQL += " AND (L.DistrictId = @DistrictId OR @DistrictId = 0 OR L.DistrictId IS NULL)"
         sSQL += " AND (@EnrollDate BETWEEN Prod.DateFrom AND Prod.DateTo OR @EnrollDate IS NULL)"
         sSQL += " AND (@EnrollDate BETWEEN  ISNULL(CONVERT(DATE,HPROD.ValidityFrom,103) ,CONVERT(DATE,prod.ValidityFrom,103)) AND Prod.DateTo OR @EnrollDate IS NULL)"
+        sSQL += " AND (L.ParentLocationId != Prod.LocationId Or Prod.LocationId Is null)"
         sSQL += " ORDER BY L.ParentLocationId"
 
         data.setSQLCommand(sSQL, CommandType.Text)
@@ -324,7 +323,6 @@ Public Class ProductsDAL
         Return data.Filldata
     End Function
 
-    'Corrected By Rogers & Hiren
     Public Function GetProducts(ByVal eProducts As IMIS_EN.tblProduct, ByVal All As Boolean) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = ""

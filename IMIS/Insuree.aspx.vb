@@ -413,25 +413,25 @@ Partial Public Class Insuree
     Private Sub btnSave_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         Try
 
-            If Not Insuree.CheckCHFID(txtCHFID.Text) = True Then
-                imisgen.Alert(txtCHFID.Text & imisgen.getMessage("M_NOTVALIDCHFNUMBER", True), pnlButtons, alertPopupTitle:="IMIS")
+            If Not Insuree.CheckCHFID(txtCHFID.Text.Trim) = True Then
+                imisgen.Alert(txtCHFID.Text.Trim & imisgen.getMessage("M_NOTVALIDCHFNUMBER", True), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
 
             eInsuree.CHFID = txtCHFID.Text.Trim
-            eInsuree.LastName = txtLastName.Text
-            eInsuree.OtherNames = txtOtherNames.Text
-            eInsuree.DOB = Date.ParseExact(txtBirthDate.Text, "dd/MM/yyyy", Nothing)
+            eInsuree.LastName = txtLastName.Text.Trim
+            eInsuree.OtherNames = txtOtherNames.Text.Trim
+            eInsuree.DOB = Date.ParseExact(txtBirthDate.Text.Trim, "dd/MM/yyyy", Nothing)
             eInsuree.Gender = ddlGender.SelectedValue
             If ddlMarital.SelectedValue <> "" Then eInsuree.Marital = ddlMarital.SelectedValue
             If ddlCardIssued.SelectedValue <> "" Then eInsuree.CardIssued = ddlCardIssued.SelectedValue
-            eInsuree.passport = txtPassport.Text
-            eInsuree.Phone = txtPhone.Text
+            eInsuree.passport = txtPassport.Text.Trim
+            eInsuree.Phone = txtPhone.Text.Trim
             eInsuree.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
             If ddlRelation.SelectedValue > 0 Then eInsuree.Relationship = ddlRelation.SelectedValue
             If ddlProfession.SelectedValue > 0 Then eInsuree.Profession = ddlProfession.SelectedValue
             If ddlEducation.SelectedValue > 0 Then eInsuree.Education = ddlEducation.SelectedValue
-            eInsuree.Email = txtEmail.Text
+            eInsuree.Email = txtEmail.Text.Trim
             eInsuree.tblFamilies1 = efamily
             If ddlVulnerability.SelectedValue <> "" Then eInsuree.Vulnerability = ddlVulnerability.SelectedValue
 
@@ -442,7 +442,7 @@ Partial Public Class Insuree
                 eHF.HfID = ddlFSP.SelectedValue
             End If
 
-            eInsuree.CurrentAddress = txtCurrentAddress.Text
+            eInsuree.CurrentAddress = txtCurrentAddress.Text.Trim
             eInsuree.CurrentVillage = Val(ddlCurrentVillage.SelectedValue)
 
 
@@ -598,7 +598,7 @@ Partial Public Class Insuree
     Protected Sub txtCHFID_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txtCHFID.TextChanged
         eInsuree.CHFID = txtCHFID.Text.Trim
         ' If txtCHFID.Text.Length = 9 Then
-        If Insuree.CheckCHFID(txtCHFID.Text) = True Then
+        If Insuree.CheckCHFID(txtCHFID.Text.Trim) = True Then
             FetchNewImage()
             FillImageDL()
             Return

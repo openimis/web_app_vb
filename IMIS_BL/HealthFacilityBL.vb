@@ -295,8 +295,4 @@ Public Class HealthFacilityBL
         Return Hf.GetHfUUIDByID(id).Rows(0).Item(0)
     End Function
 
-    Public Function getHFUserLocation(ByVal UserId As Integer, ByVal Hfid As Integer) As DataTable
-        Dim DAL As New IMIS_DAL.HealthFacilityDAL
-        Return DAL.getHFUserLocation(UserId, Hfid)
-    End Function
 End Class

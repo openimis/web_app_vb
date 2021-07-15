@@ -328,21 +328,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 $criterias = $(".rnw");
             }
             else if (tid == 18) {
-                $criterias = $(".ca");
-            }
-            else if (tid == 19) {
                 $criterias = $(".rp");
             }
-            else if (tid == 20) {
+            else if (tid == 19) {
                 $criterias = $(".cp");
             }
-            else if (tid == 21) {
+            else if (tid == 20) {
                 $criterias = $(".cna");
             }
-            else if (tid == 22) {
+            else if (tid == 21) {
                 $criterias = $(".oc").add("div.oc");
             }
-            else if (tid == 23) {
+            else if (tid == 22) {
                 $criterias = $(".chr")
             }
             if ($criterias != null) {
@@ -469,7 +466,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     </li>
                                     <li class="pd doi ca oc">
                                         <asp:Label ID="lblMonth" runat="server" Text='<%$ Resources:Resource, L_MONTH %>' CssClass="FormLabel"></asp:Label>
-                                        <asp:DropDownList ID="ddlMonth" Width="90px" runat="server">
+                                        <asp:DropDownList ID="ddlMonth" Width="90px" runat="server" AutoPostBack="true">
                                         </asp:DropDownList>
 
                                     </li>
@@ -499,7 +496,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     </li>
                                     <li class="pd doi poi poiC ca oc">
                                         <asp:Label ID="lblYear" runat="server" Text='<%$ Resources:Resource, L_YEAR %>' CssClass="FormLabel"></asp:Label>
-                                        <asp:DropDownList ID="ddlYear" Width="68px" runat="server">
+                                        <asp:DropDownList ID="ddlYear" Width="68px" runat="server" AutoPostBack="true">
                                         </asp:DropDownList>
                                     </li>
                                     <li class="pd doi  perc ca cp cna ">

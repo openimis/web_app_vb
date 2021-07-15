@@ -78,7 +78,7 @@ Partial Public Class Officer
                 txtpermaddress.Text = eOfficer.PermanentAddress
                 txtEmail.Text = eOfficer.EmailId
                 ddlSubstitution.SelectedValue = eOfficer.tblOfficer2.OfficerID
-                txtWorksTo.Text = If(txtWorksTo.Text Is Nothing, "", eOfficer.WorksTo)
+                txtWorksTo.Text = If(txtWorksTo.Text.Trim Is Nothing, "", eOfficer.WorksTo)
 
                 txtVeoCode.Text = If(eOfficer.VEOCode Is Nothing, "", eOfficer.VEOCode)
                 txtVeoLastName.Text = If(eOfficer.VEOLastName Is Nothing, "", eOfficer.VEOLastName)
@@ -126,7 +126,7 @@ Partial Public Class Officer
             Exit Sub
         End If
 
-        Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
+        Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text.Trim)
     End Sub
 
     Protected Sub chkOfficerIncludeLogin_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
@@ -163,34 +163,34 @@ Partial Public Class Officer
             End If
 
             eLocations.LocationId = LocationId
-            eOfficer.Code = txtCode.Text
-            eOfficer.LastName = txtLastName.Text
-            eOfficer.OtherNames = txtOtherNames.Text
+            eOfficer.Code = txtCode.Text.Trim
+            eOfficer.LastName = txtLastName.Text.Trim
+            eOfficer.OtherNames = txtOtherNames.Text.Trim
 
-            If Not txtDob.Text.Length = 0 Then
-                eOfficer.DOB = Date.Parse(txtDob.Text)
+            If Not txtDob.Text.Trim.Length = 0 Then
+                eOfficer.DOB = Date.Parse(txtDob.Text.Trim)
             End If
 
-            eOfficer.EmailId = txtEmail.Text
-            eOfficer.PermanentAddress = txtpermaddress.Text
+            eOfficer.EmailId = txtEmail.Text.Trim
+            eOfficer.PermanentAddress = txtpermaddress.Text.Trim
 
-            eOfficer.Phone = txtPhone.Text
+            eOfficer.Phone = txtPhone.Text.Trim
             eOfficer.tblLocations = eLocations
-            eOfficer.VEOCode = txtVeoCode.Text
-            eOfficer.VEOLastName = txtVeoLastName.Text
-            eOfficer.VEOOtherNames = txtVeoOtherName.Text
-            eOfficer.VEOPhone = txtVeoPhone.Text
+            eOfficer.VEOCode = txtVeoCode.Text.Trim
+            eOfficer.VEOLastName = txtVeoLastName.Text.Trim
+            eOfficer.VEOOtherNames = txtVeoOtherName.Text.Trim
+            eOfficer.VEOPhone = txtVeoPhone.Text.Trim
             eOfficer.PhoneCommunication = chkCommunicate.Checked
-            If Not txtVeoDOB.Text.Length = 0 Then
-                eOfficer.VEODOB = Date.Parse(txtVeoDOB.Text)
+            If Not txtVeoDOB.Text.Trim.Length = 0 Then
+                eOfficer.VEODOB = Date.Parse(txtVeoDOB.Text.Trim)
             End If
             Dim eofficer2 As New IMIS_EN.tblOfficer
 
             If Not ddlSubstitution.SelectedValue = "" Then
                 eofficer2.OfficerID = ddlSubstitution.SelectedValue
             End If
-            If txtWorksTo.Text.Length > 0 Then
-                eOfficer.WorksTo = Date.Parse(txtWorksTo.Text)
+            If txtWorksTo.Text.Trim.Length > 0 Then
+                eOfficer.WorksTo = Date.Parse(txtWorksTo.Text.Trim)
             End If
 
             eOfficer.AuditUserID = imisgen.getUserId(Session("User"))
@@ -229,9 +229,9 @@ Partial Public Class Officer
         End If
         If eOfficer.eUsers.UserID > 0 Then
             BIOfficer.LoadUsers(eOfficer.eUsers)
-            eOfficer.eUsers.LoginName = txtCode.Text
+            eOfficer.eUsers.LoginName = txtCode.Text.Trim
         Else
-            eOfficer.eUsers.LoginName = txtCode.Text
+            eOfficer.eUsers.LoginName = txtCode.Text.Trim
             BIOfficer.LoadUsers(eOfficer.eUsers)
         End If
         eOfficer.eUsers.AuditUserID = eOfficer.AuditUserID
@@ -245,15 +245,15 @@ Partial Public Class Officer
             lblmsg.Text = imisgen.getMessage("V_CONFIRMPASSWORD")
             Return False
         End If
-        eOfficer.eUsers.LastName = txtLastName.Text
-        eOfficer.eUsers.OtherNames = txtOtherNames.Text
+        eOfficer.eUsers.LastName = txtLastName.Text.Trim
+        eOfficer.eUsers.OtherNames = txtOtherNames.Text.Trim
         If txtPassword.Text.Length > 0 Then
             eOfficer.eUsers.DummyPwd = txtPassword.Text
             eOfficer.eUsers.DummyPwd = txtConfirmPassword.Text
         End If
 
-        eOfficer.eUsers.Phone = txtPhone.Text
-        eOfficer.eUsers.EmailId = txtEmail.Text
+        eOfficer.eUsers.Phone = txtPhone.Text.Trim
+        eOfficer.eUsers.EmailId = txtEmail.Text.Trim
         eOfficer.eUsers.LanguageID = ddlLanguage.SelectedValue
         eOfficer.eUsers.RoleID = 1
         eOfficer.eUsers.AuditUserID = imisgen.getUserId(Session("User"))
@@ -287,7 +287,7 @@ Partial Public Class Officer
 
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text)
+        Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text.Trim)
     End Sub
 
     Private Sub ddlDistrict_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlDistrict.SelectedIndexChanged
@@ -345,11 +345,11 @@ Partial Public Class Officer
 
     Private Function OfficerExists()
         Dim eUser = New IMIS_EN.tblUsers
-        eUser.LoginName = txtCode.Text
+        eUser.LoginName = txtCode.Text.Trim
         Dim dt As DataTable = BIOfficer.CheckIfUserExists(eUser)
         If dt.Rows.Count > 0 Then
             Dim loginName = If(dt.Rows(0)("LoginName") = "", "", dt.Rows(0)("LoginName"))
-            If loginName <> "" And loginName = txtCode.Text Then
+            If loginName <> "" And loginName = txtCode.Text.Trim Then
                 imisgen.Alert(eOfficer.Code & imisgen.getMessage("M_OFFICEREXISTS"), pnlButtons, alertPopupTitle:="IMIS")
                 Return True
             End If
@@ -418,7 +418,7 @@ Partial Public Class Officer
             If Not eOfficer.OfficerID = 0 Then
                 SaveOfficer()
             End If
-            Session("msg") = txtCode.Text & " " & imisgen.getMessage("M_DELETED")
+            Session("msg") = txtCode.Text.Trim & " " & imisgen.getMessage("M_DELETED")
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlVeoOfficer, alertPopupTitle:="IMIS")
             imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)

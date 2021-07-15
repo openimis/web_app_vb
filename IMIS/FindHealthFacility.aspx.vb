@@ -144,10 +144,10 @@ Partial Public Class FindHealthFacility
             lblMsg.Text = ""
             loadSecurity()
             eHF.AuditUserID = imisGen.getUserId(Session("User"))
-            eHF.HFName = txtName.Text
-            eHF.HFCode = txtHFCode.Text
-            eHF.Phone = txtPhone.Text
-            
+            eHF.HFName = txtName.Text.Trim
+            eHF.HFCode = txtHFCode.Text.Trim
+            eHF.Phone = txtPhone.Text.Trim
+
             Dim RegionId As Integer?
             Dim DistrictId As Integer?
 
@@ -168,8 +168,8 @@ Partial Public Class FindHealthFacility
             eLocations.RegionId = RegionId
             eLocations.DistrictID = DistrictId
             eHF.tblLocations = eLocations
-            eHF.Fax = txtFax.Text
-            eHF.eMail = txtEmail.Text
+            eHF.Fax = txtFax.Text.Trim
+            eHF.eMail = txtEmail.Text.Trim
             eHF.HFCareType = ddlType.SelectedValue
             eHF.HFLevel = ddlLevel.SelectedValue
             eHF.LegalForm = ddlLegal.SelectedValue

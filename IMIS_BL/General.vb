@@ -31,6 +31,18 @@ Imports System.IO
 Imports System.Text
 Public Class GeneralBL
 
+    Public Shared ReadOnly paymentStatus As New Dictionary(Of String, System.Int32) From {
+        {"FailedReconciliated", -5},
+        {"FailedReceived ", -4},
+        {"FailedControlNumberReceived", -3},
+        {"FailedControlNumberRequested", -2},
+        {"FailedPaymentCreated", -1},
+        {"Cancelled", 0},
+        {"PaymentCreated", 1},
+        {"ControlNumberRequested", 2},
+        {"ControlNumberReceived", 3},
+        {"Received", 4},
+        {"Reconciliated", 5}}
 
     Public Function getMessage(ByVal MessageID As String) As String
         Return System.Web.HttpContext.GetGlobalResourceObject("Resource", MessageID)
@@ -1004,27 +1016,24 @@ Public Class GeneralBL
         If Include = True Then
             dtStatus.Rows.Add(-1, getMessage("L_SELECTPAYMENTSTATUS"))
         End If
+
         If Not ForReport Then
             If Include = False Then
-                'dtStatus.Rows.Add(-1, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(-2, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(2, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(3, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(4, getMessage("T_PAYMENTRPAID"))
-                'dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-
-                dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-                dtStatus.Rows.Add(4, getMessage("T_UNMATCHED"))
+                dtStatus.Rows.Add(paymentStatus("FailedControlNumberReceived"), getMessage("T_FAILEDSTATUS"))
+                dtStatus.Rows.Add(paymentStatus("Cancelled"), getMessage("T_PAYMENTCANCELLED"))
+                dtStatus.Rows.Add(paymentStatus("PaymentCreated"), getMessage("T_PAYMENTCREATED"))
+                dtStatus.Rows.Add(paymentStatus("ControlNumberRequested"), getMessage("T_PAYMENTCNUMBERREQUESTED"))
+                dtStatus.Rows.Add(paymentStatus("ControlNumberReceived"), getMessage("T_PAYMENTCNNUMBERRECEIVED"))
+                dtStatus.Rows.Add(paymentStatus("Received"), getMessage("T_PAYMENTRECEIVED"))
+                dtStatus.Rows.Add(paymentStatus("Reconciliated"), getMessage("T_PAYMENTRECONCILIATED"))
             Else
-                'dtStatus.Rows.Add(-3, getMessage("T_FAILEDSTATUS"))
-                'dtStatus.Rows.Add(1, getMessage("T_PAYMENTREQUESTED"))
-                'dtStatus.Rows.Add(4, getMessage("T_PAYMENTRPAID"))
-                'dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-
-                dtStatus.Rows.Add(5, getMessage("T_PAYMENTMATCHED"))
-                dtStatus.Rows.Add(4, getMessage("T_UNMATCHED"))
+                dtStatus.Rows.Add(paymentStatus("FailedControlNumberReceived"), getMessage("T_FAILEDSTATUS"))
+                dtStatus.Rows.Add(paymentStatus("Cancelled"), getMessage("T_PAYMENTCANCELLED"))
+                dtStatus.Rows.Add(paymentStatus("PaymentCreated"), getMessage("T_PAYMENTCREATED"))
+                dtStatus.Rows.Add(paymentStatus("ControlNumberRequested"), getMessage("T_PAYMENTCNUMBERREQUESTED"))
+                dtStatus.Rows.Add(paymentStatus("ControlNumberReceived"), getMessage("T_PAYMENTCNNUMBERRECEIVED"))
+                dtStatus.Rows.Add(paymentStatus("Received"), getMessage("T_PAYMENTRECEIVED"))
+                dtStatus.Rows.Add(paymentStatus("Reconciliated"), getMessage("T_PAYMENTRECONCILIATED"))
             End If
 
         Else

@@ -443,7 +443,7 @@ Public Class InsureeDAL
         UpdatedFolder = System.Web.Configuration.WebConfigurationManager.AppSettings("UpdatedFolder").ToString()
         Dim sSQL As String = " SELECT HF.HFCode+' ' +HF.HFName AS FirstServicePoint, CASE HF.HFLevel WHEN 'D' THEN 'Dispensary' WHEN 'C' THEN 'Health Centre' WHEN 'H' THEN 'Hospital' END HFLevel, R.LocationName RegionOfFSP,D.LocationName DistrictOfFSP, I.CHFID,I.LastName,I.OtherNames,CONVERT(VARCHAR,I.DOB,103)DOB, (YEAR(GETDATE()) - YEAR(I.DOB)) AS Age,"
         sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
-        sSQL += ", P.PhotoFileName AS PhotoPath FROM tblInsuree I"
+        sSQL += ", P.PhotoFolder + P.PhotoFileName AS PhotoPath FROM tblInsuree I"
         sSQL += " INNER JOIN tblFamilies F On I.FamilyID = F.FamilyID"
         sSQL += " LEFT OUTER JOIN tblPhotos P On I.PhotoID = P.PhotoID"
         sSQL += " LEFT OUTER JOIN tblHF HF On HF.HfID = I.HFID"

@@ -57,10 +57,10 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
 
-    <asp:Panel ID="L_FAMILYPANEL" runat="server"  height="130px" 
+    <asp:Panel ID="L_FAMILYPANEL" runat="server"  height="200px" 
              CssClass="panel" >
            
-               <table >
+               <table>
                     <tr>
                         
                          <td class="FormLabel">
@@ -148,19 +148,22 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </td>
                        
                         <td class="FormLabel">
-                            <asp:Label ID="lblMatchedDate0" runat="server" Text="<%$ Resources:Resource,L_INTERNALID %>"></asp:Label>
+                            <asp:Label ID="lblMatchedDate0" runat="server" Text="<%$ Resources:Resource,L_PAYMENTID %>"></asp:Label>
                         </td>
                         <td class="ReadOnlyText">
-                            <asp:Label ID="txtInternalIdentifier" runat="server"></asp:Label>
+                            <asp:Label ID="txtPaymentId" runat="server"></asp:Label>
                         </td>
+
                         <td class="FormLabel">
                             <asp:Label ID="lblExpectedAmount" runat="server" Text="<%$ Resources:Resource,L_EXPECTEDAMOUNT %>"></asp:Label>
                         </td>
-                      
                         <td class="ReadOnlyText">
                             <asp:Label ID="txtExpectedAmounts" runat="server"></asp:Label>
                         </td>
                     </tr>
+                   <tr>
+
+                   </tr>
                     <tr>
                         <td class="auto-style2">
                             <asp:Label ID="lblPhoneNumber" runat="server" Text="<%$ Resources:Resource,L_PHONE %>"></asp:Label>
@@ -179,6 +182,26 @@ In case of dispute arising out or in relation to the use of the program, it is s
                     </tr>
                 </table>      
                     
+                <div style="text-align:center;">
+                    <div style="width:50%; margin: 0 auto; text-align:center;">
+                        <table align="center">
+                            <tr>
+                                <th class="auto-style3">
+                                </th>
+                                <th class="auto-style2" style="text-align:left">
+                                    <asp:Label ID="lblRejectedReason" runat="server" Text="<%$ Resources:Resource,L_REJECTEDREASON %>"></asp:Label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="auto-style3">
+                                </td>
+                                <td class="auto-style3" style="text-align:left">
+                                    <asp:Label ID="txtRejectedReason" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
                     
          </asp:Panel>
     <table class="catlabel">

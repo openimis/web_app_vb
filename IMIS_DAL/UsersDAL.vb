@@ -141,7 +141,7 @@ AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,256, 128,16,32,64,512,524288))) )"
         sSQL += "  Where U.UserID In"
         sSQL += " (SELECT DISTINCT UD.Userid FROM tblUsersDistricts AD"
         sSQL += "  INNER Join tblUsersDistricts UD ON UD.LocationId = AD.LocationId And AD.ValidityTo Is NULL And UD.ValidityTo Is NULL"
-        sSQL += "  WHERE AD.UserID =@AuthorityID AND (AD.LocationID = @DistrictID Or @DistrictID =0)"
+        sSQL += "  WHERE (AD.UserID =@AuthorityID OR @AuthorityID = @AdminUser) AND (AD.LocationID = @DistrictID Or @DistrictID =0)"
         'Below was a self join of tblLocation on LocationID, changed by Salumu on the 7th Aug 2019, joined with tblRegion
         If eUser.tblLocations.RegionId > 0 And eUser.tblLocations.DistrictId = 0 Then
             sSQL += " AND  UD.LocationId IN (SELECT DI.LocationID FROM tblLocations DI

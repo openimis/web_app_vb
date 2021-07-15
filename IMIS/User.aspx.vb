@@ -83,6 +83,9 @@ Partial Public Class User
                 txtPhone.Text = eUsers.Phone
                 txtEmail.Text = eUsers.EmailId
                 txtLoginName.Text = eUsers.LoginName
+                If eUsers.LoginName = "Admin" Then
+                    txtLoginName.Enabled = False
+                End If
                 ' txtPassword.Attributes.Add("value", eUsers.DummyPwd)
                 ' txtConfirmPassword.Attributes.Add("value", eUsers.DummyPwd)
                 If HttpContext.Current.Request.QueryString("r") = 1 Or eUsers.ValidityTo.HasValue Then
@@ -130,6 +133,7 @@ Partial Public Class User
         txtOtherNames.Enabled = enabled
         txtLastName.Enabled = enabled
         txtEmail.Enabled = enabled
+
         txtLoginName.Enabled = enabled
         ddlHFNAME.Enabled = enabled
         pnlRole.Enabled = enabled
@@ -244,12 +248,12 @@ Partial Public Class User
                     lblMsg.Text = imisgen.getMessage("V_SELECTROLE")
                     Return
                 End If
-                eUsers.LastName = txtLastName.Text
-                eUsers.OtherNames = txtOtherNames.Text
+                eUsers.LastName = txtLastName.Text.Trim
+                eUsers.OtherNames = txtOtherNames.Text.Trim
                 eUsers.DummyPwd = txtPassword.Text
-                eUsers.Phone = txtPhone.Text
-                eUsers.EmailId = txtEmail.Text
-                eUsers.LoginName = txtLoginName.Text
+                eUsers.Phone = txtPhone.Text.Trim
+                eUsers.EmailId = txtEmail.Text.Trim
+                eUsers.LoginName = txtLoginName.Text.Trim
                 eUsers.LanguageID = ddlLanguage.SelectedValue
                 'eUsers.RoleID = GetRoles(gvRoles)
                 eUsers.AuditUserID = imisgen.getUserId(Session("User"))
@@ -327,10 +331,10 @@ Partial Public Class User
         End If
 
 
-        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
+        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text.Trim)
     End Sub
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
+        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text.Trim)
     End Sub
 End Class
