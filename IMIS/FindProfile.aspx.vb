@@ -150,7 +150,7 @@ Partial Public Class FindProfile
             eRole.LegacyID = 1
         End If
 
-        Dim dtRole As DataTable = BIFindRole.GetRoles(eRole)
+        Dim dtRole As DataTable = BIFindRole.GetRoles(eRole, imisGen.getUserId(Session("User")))
         Dim sindex As Integer = 0
         Dim dv As DataView = dtRole.DefaultView
         If Not IsPostBack = True Then
