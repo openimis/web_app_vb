@@ -35,6 +35,6 @@ Partial Public Class tblInsuree
     Public Property FSPCategory As String
     Public Property DOBFrom As Date
     Public Property DOBTo As Date
-
+    Public Property Vulnerability As Boolean
 
 End Class
