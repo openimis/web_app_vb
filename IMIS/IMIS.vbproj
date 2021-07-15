@@ -286,8 +286,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Workspace\dummy.dmd" />
-    <None Include="Web.Debug.config.dist" />
-    <None Include="Web.Release.config.dist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddFunding.aspx.designer.vb">
@@ -296,6 +294,11 @@
     <Compile Include="AddFunding.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>AddFunding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_MR.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_MR.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Resource.en_cm.designer.vb">
       <AutoGen>True</AutoGen>
@@ -863,6 +866,10 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\Resource.fr_MR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_MR.designer.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -1111,7 +1118,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_DetectChanges="False" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.Increment" BuildVersion_AssemblyInfoFilename="My Project\AssemblyInfo.vb" />
+      <UserProperties BuildVersion_AssemblyInfoFilename="My Project\AssemblyInfo.vb" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.Increment" BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
