@@ -29,12 +29,15 @@ Public Class RoleDAL
 
 
 
-    Public Function GetRoles(erole As IMIS_EN.tblRole) As DataTable
+    Public Function GetRoles(erole As IMIS_EN.tblRole, userId As Integer) As DataTable
 
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
 
-        sSQL = "SELECT [RoleID],[RoleUUID],[RoleName], CASE WHEN [IsSystem] > 0 THEN 'True' Else 'False' END System,isSystem,ISNULL(AltLanguage,RoleName) AltLanguage,"
+        sSQL = "DECLARE @IsDefaultLanguage BIT = 1; "
+        sSQL += "IF NOT EXISTS (SELECT 1 FROM tblUsers WHERE UserId=  @UserId AND ValidityTo IS NULL AND LanguageID = dbo.udfDefaultLanguageCode())"
+        sSQL += "SET @IsDefaultLanguage = 0"
+        sSQL += "SELECT [RoleID],[RoleUUID],CASE WHEN @IsDefaultLanguage = 1 THEN [RoleName] ELSE ISNULL(NULLIF(AltLanguage, ''),RoleName) END RoleName, CASE WHEN [IsSystem] > 0 THEN 'True' Else 'False' END System,isSystem,ISNULL(AltLanguage,RoleName) AltLanguage,"
         sSQL += " CASE WHEN [IsBlocked] = 1 THEN 'True' ELSE 'False' END Blocked,[ValidityFrom],[ValidityTo],[AuditUserID],[LegacyID] FROM tblRole"
         sSQL += " WHERE (Rolename like '" & erole.RoleName & "%' OR AltLanguage LIKE '" & erole.AltLanguage & "%') AND (isBlocked = @isBlocked OR @isBlocked IS NULL)"
         If erole.IsSystem IsNot Nothing Then
@@ -54,6 +57,7 @@ Public Class RoleDAL
         'data.params("@RoleName", SqlDbType.NVarChar, 50, erole.RoleName)
         data.params("@IsSystem", SqlDbType.Bit, erole.IsSystem)
         data.params("@IsBlocked", SqlDbType.Bit, erole.IsBlocked)
+        data.params("@UserId", SqlDbType.Int, userId)
 
         Return data.Filldata
     End Function
