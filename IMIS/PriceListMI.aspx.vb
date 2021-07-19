@@ -223,6 +223,16 @@ Partial Public Class PriceListsMI
                 ePLItems.DatePL = Pricedate
 
                 ePLItems.tblLocations = eLocations
+
+                ' Check if the pricelist is used in any HF before modifying (only the location)
+                Dim usedHFs As String = PriceList.GetHFsByPriceListItem(ePLItems.PLItemID, LocationId)
+
+                If usedHFs.ToString <> "" Then
+                    imisgen.Alert(imisgen.getMessage("T_REMOVEHOSPITALS") & "<br><hr><br>" & usedHFs, pnlButtons, alertPopupTitle:="IMIS")
+                    Return
+                End If
+
+
                 chk = PriceList.SavePriceListMI(ePLItems)
 
                 If chk = 0 Then

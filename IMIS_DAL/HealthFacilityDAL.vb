@@ -410,4 +410,55 @@ Public Class HealthFacilityDAL
 
         Return data.Filldata
     End Function
+
+    Public Function GetHFsByPriceListService(PLServiceId As Integer, NewLocationId As Integer) As String
+        Dim sSQL As String = "SELECT STRING_AGG(QUOTENAME(CONCAT(HFCode, '-', HFName), '['), ', ')HFs
+                                FROM tblHF HF
+                                INNER JOIN tblPLServices PLS ON HF.PLServiceID = PLS.PLServiceID
+                                WHERE PLS.PLServiceId  = @PLServiceId
+                                AND PLS.LocationId <> @LocationId
+                                AND PLS.ValidityTO IS NULL
+                                AND HF.ValidityTo IS NULL;"
+
+        Dim data As New ExactSQL
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PLServiceId", SqlDbType.Int, PLServiceId)
+        data.params("@LocationId", SqlDbType.Int, NewLocationId)
+
+        Dim dt As DataTable = data.Filldata
+
+        If dt.Rows.Count > 0 AndAlso dt.Rows(0)("HFs") IsNot DBNull.Value Then
+            Return dt.Rows(0)("HFs").ToString
+        End If
+
+        Return ""
+
+    End Function
+
+    Public Function GetHFsByPriceListItem(PLItemId As Integer, NewLocationId As Integer) As String
+        Dim sSQL As String = "SELECT STRING_AGG(QUOTENAME(CONCAT(HFCode, '-', HFName), '['), ', ')HFs
+                                FROM tblHF HF
+                                INNER JOIN tblPLItems PLI ON HF.PLItemID = PLI.PLItemID
+                                WHERE PLI.PLItemID = @PLItemId
+                                AND PLI.LocationId <> @LocationId
+                                AND PLI.ValidityTO IS NULL
+                                AND HF.ValidityTo IS NULL;"
+
+        Dim data As New ExactSQL
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PLItemId", SqlDbType.Int, PLItemId)
+        data.params("@LocationId", SqlDbType.Int, NewLocationId)
+
+        Dim dt As DataTable = data.Filldata
+
+        If dt.Rows.Count > 0 AndAlso dt.Rows(0)("HFs") IsNot DBNull.Value Then
+            Return dt.Rows(0)("HFs").ToString
+        End If
+
+        Return ""
+
+    End Function
+
 End Class
