@@ -300,4 +300,11 @@ Public Class HealthFacilityBL
 
         Return dal.GetHFsByPriceListService(PLServiceId, NewLocationId)
     End Function
+
+    Public Function GetHFsByPriceListItem(PLItemId As Integer, NewLocationId As Integer) As String
+        Dim dal As New IMIS_DAL.HealthFacilityDAL()
+
+        Return dal.GetHFsByPriceListItem(PLItemId, NewLocationId)
+    End Function
+
 End Class

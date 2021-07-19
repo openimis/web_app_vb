@@ -56,4 +56,9 @@ Public Class PricelisMIBI
         Dim PLItem As New IMIS_BL.PriceListMIBL
         Return PLItem.GetPLItemIdByUUID(uuid)
     End Function
+
+    Public Function GetHFsByPriceListItem(PLItemId As Integer, NewLocationId As Integer) As String
+        Dim BL As New IMIS_BL.HealthFacilityBL
+        Return BL.GetHFsByPriceListItem(PLItemId, NewLocationId)
+    End Function
 End Class
