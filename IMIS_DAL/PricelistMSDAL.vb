@@ -233,7 +233,7 @@ Public Class PricelistMSDAL
 
     Public Function CheckIfPLServiceExists(ByVal ePLService As IMIS_EN.tblPLServices) As Boolean
         Dim data As New ExactSQL
-        Dim strSQL As String = "Select Count(*) from tblPLServices where PLServName = @PLServName AND LegacyID <> @PLServiceID"
+        Dim strSQL As String = "Select Count(*) from tblPLServices where PLServName = @PLServName AND ValidityTo IS NULL"
 
         If Not ePLService.PLServiceID = 0 Then
             strSQL += " AND PLServiceID <> @PLServiceID"
