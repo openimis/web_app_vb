@@ -164,7 +164,7 @@ Public Class Family
             ddlRegion.DataValueField = "RegionId"
             ddlRegion.DataTextField = "RegionName"
             ddlRegion.DataBind()
-            If dtRegions.Rows.Count = 1 Then
+            If dtRegions.Rows.Count = 1 Or ddlRegion.SelectedValue > 0 Then
                 FillDistricts()
             End If
             ddlGender.DataSource = Family.GetGender
@@ -336,7 +336,7 @@ Public Class Family
         ddlDistrict.DataValueField = "DistrictId"
         ddlDistrict.DataTextField = "DistrictName"
         ddlDistrict.DataBind()
-        If dtDistricts.Rows.Count = 1 Then
+        If dtDistricts.Rows.Count = 1 Or ddlDistrict.SelectedValue > 0 Then
             GetWards()
         End If
     End Sub
