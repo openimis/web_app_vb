@@ -5108,4 +5108,7 @@ adults/children)
   <data name="L_VULNERABILITY" xml:space="preserve">
     <value>Vulnerability</value>
   </data>
+  <data name="T_REMOVEHOSPITALS" xml:space="preserve">
+    <value>Please remove the pricelist from the following hospitals before changing the location:</value>
+  </data>
 </root>

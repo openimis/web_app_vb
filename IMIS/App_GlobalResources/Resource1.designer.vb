@@ -14116,6 +14116,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Please remove the pricelist from the following hospitals before changing the location:.
+        '''</summary>
+        Friend Shared ReadOnly Property T_REMOVEHOSPITALS() As String
+            Get
+                Return ResourceManager.GetString("T_REMOVEHOSPITALS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Renewal.
         '''</summary>
         Friend Shared ReadOnly Property T_RENEWAL() As String
