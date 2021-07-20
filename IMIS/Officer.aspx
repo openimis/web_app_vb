@@ -250,14 +250,15 @@ In case of dispute arising out or in relation to the use of the program, it is s
             $('#<%= gvWards.ClientID %> input[type=checkbox]').each(function () {
                 $(this).attr("checked", status);
             });
-            toggleCheckVillages(status);
             OnLoadToggleVillages();
+            toggleCheckVillages(status);
         }
         function toggleCheckVillages(status) {
             $('#<%= gvVillage.ClientID%> input[type=checkbox]').each(function () {
-                $(this).attr("checked", status);
+                if ($(this).is(":visible")) {
+                    $(this).attr("checked", status);
+                }
             });
-            toggleCheckWards(status);
         }
         function ToggleVillages(WardId, checked) {
            var $RowsNo = $('#<%= gvVillage.ClientID %> tr').filter(function () {
