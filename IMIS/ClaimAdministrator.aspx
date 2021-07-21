@@ -185,8 +185,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
                             </td>
                             <td class="DataEntry">
                                 <asp:TextBox ID="txtEmail" runat="server" MaxLength="200" Width="150px"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                                    ControlToValidate="txtEmail" ErrorMessage="<%$ Resources:Resource,L_INVALIDEMAIL %>" 
+                                <asp:RequiredFieldValidator ID="RequiredFieldEmail" runat="server" ControlToValidate="txtEmail"
+                                    SetFocusOnError="True" Text="*" ValidationGroup="check" ForeColor="Red"
+                                    Display="Dynamic"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionEmailValidator" runat="server"
+                                    ControlToValidate="txtEmail" ErrorMessage="<%$ Resources:Resource,L_INVALIDEMAIL %>"
                                     SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="check"
                                     ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                             </td>
