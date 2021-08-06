@@ -343,11 +343,11 @@ Partial Public Class UploadICD
                                  "<b>" & imisgen.getMessage("L_HF") & "</b><br>" &
                                  imisgen.getMessage("L_SENT") & ": " & Output("SentHF") & "<br>" &
                                  imisgen.getMessage("L_INSERTED") & ": " & Output("Inserts") & "<br>" &
-                                 imisgen.getMessage("L_UPDATED") & ": " & Output("Updates") & "</br><br>" &
-                                 "<b>" & imisgen.getMessage("L_HFCATCHMENT") & "</b><br>" &
-                                 imisgen.getMessage("L_SENT") & ": " & Output("sentCatchment") & "</br>" &
-                                 imisgen.getMessage("L_INSERTED") & ": " & Output("InsertCatchment") & "</br>" &
-                                 imisgen.getMessage("L_UPDATED") & ": " & Output("UpdateCatchment") & "</br>"
+                                 imisgen.getMessage("L_UPDATED") & ": " & Output("Updates") & "</br><br>"
+                '"<b>" & imisgen.getMessage("L_HFCATCHMENT") & "</b><br>" &
+                'imisgen.getMessage("L_SENT") & ": " & Output("sentCatchment") & "</br>" &
+                'imisgen.getMessage("L_INSERTED") & ": " & Output("InsertCatchment") & "</br>" &
+                'imisgen.getMessage("L_UPDATED") & ": " & Output("UpdateCatchment") & "</br>"
 
                 imisgen.Alert(Msg, Panel1, alertPopupTitle:="IMIS", Queue:=True)
                 If dtFatalError.Rows.Count > 0 Then
