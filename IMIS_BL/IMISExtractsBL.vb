@@ -41,6 +41,7 @@ Imports System.Web.Script.Serialization
 Imports IMIS_EN
 
 Public Class IMISExtractsBL
+    Private EscapeBL As New IMIS_BL.EscapeBL
 
     Private DB3_PWD As String = System.Configuration.ConfigurationManager.AppSettings("Offline:SQLite:Password").ToString()
     Private DESKEY As String = System.Configuration.ConfigurationManager.AppSettings("Offline:Encryption:Password").ToString()
@@ -347,38 +348,6 @@ Public Class IMISExtractsBL
         Return dtblDecrypted
     End Function
 
-    Private Function ImageToBlob(ByVal id As String, ByVal filePath As String) As SQLiteParameter
-
-        Dim SQLParam As New SQLiteParameter
-
-        If Not System.IO.File.Exists(HttpContext.Current.Server.MapPath(filePath)) Then
-
-            SQLParam = New SQLiteParameter("@Image", Nothing)
-            SQLParam.DbType = DbType.Binary
-            SQLParam.Value = Nothing
-
-            Return SQLParam
-
-        End If
-
-        Dim fs As FileStream = New FileStream(HttpContext.Current.Server.MapPath(filePath), FileMode.Open, FileAccess.Read)
-        Dim br As BinaryReader = New BinaryReader(fs)
-        Dim bm() As Byte = br.ReadBytes(fs.Length)
-
-        br.Close()
-        fs.Close()
-
-
-        Dim Photo() As Byte = bm
-        SQLParam = New SQLiteParameter("@Image", Photo)
-        SQLParam.DbType = DbType.Binary
-        SQLParam.Value = Photo
-
-        Return SQLParam
-
-
-    End Function
-
     Private Sub DeleteWorkingFolder(WorkingFolder As String)
         If My.Computer.FileSystem.DirectoryExists(WorkingFolder) Then My.Computer.FileSystem.DeleteDirectory(WorkingFolder, FileIO.DeleteDirectoryOption.DeleteAllContents)
     End Sub
@@ -477,7 +446,7 @@ Public Class IMISExtractsBL
                         InsertCmd.CommandText = sSQL
 
                         InsertCmd.Parameters.AddWithValue("@CHFID", row("CHFID").ToString)
-                        InsertCmd.Parameters.Add(ImageToBlob("@image", row("PhotoPath").ToString))
+                        InsertCmd.Parameters.Add(EscapeBL.ImageToBlob("@image", row("PhotoPath").ToString))
                         InsertCmd.Parameters.AddWithValue("@InsureeName", row("InsureeName").ToString)
                         InsertCmd.Parameters.AddWithValue("@DOB", row("DOB"))
                         InsertCmd.Parameters.AddWithValue("@Gender", row("Gender").ToString)
@@ -492,8 +461,7 @@ Public Class IMISExtractsBL
                         InsertCmd.Parameters.AddWithValue("@Ceiling2", row("Ceiling2"))
 
                         InsertCmd.ExecuteNonQuery()
-                        i = i + 1
-
+                        i += 1
                     Next
                     transaction.Commit()
                     InsertCmd.Dispose()
