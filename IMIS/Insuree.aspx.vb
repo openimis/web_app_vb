@@ -443,7 +443,10 @@ Partial Public Class Insuree
             End If
 
             eInsuree.CurrentAddress = txtCurrentAddress.Text.Trim
-            eInsuree.CurrentVillage = Val(ddlCurrentVillage.SelectedValue)
+
+            If Val(ddlCurrentVillage.SelectedValue) > 0 Then
+                eInsuree.CurrentVillage = Val(ddlCurrentVillage.SelectedValue)
+            End If
 
 
             eInsuree.tblHF = eHF
