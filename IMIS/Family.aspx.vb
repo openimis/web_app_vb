@@ -389,8 +389,7 @@ Public Class Family
 
     End Sub
     Private Sub getVillages(Optional ByVal Wards As Integer = 1)
-        If ddlWard.SelectedIndex < 0 Then Exit Sub
-        If Wards > 0 And Not ddlWard.SelectedValue = 0 Then
+        If Wards > 0 AndAlso Not Val(ddlWard.SelectedValue) = 0 Then
             ddlVillage.DataSource = Family.GetVillages(ddlWard.SelectedValue, False)
             ddlVillage.DataValueField = "VillageId"
             ddlVillage.DataTextField = "VillageName"
