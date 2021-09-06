@@ -5110,4 +5110,7 @@
   <data name="T_REMOVEHOSPITALS" xml:space="preserve">
     <value>Veuillez retirer la liste de prix des hôpitaux suivants avant de changer de lieu</value>
   </data>
+  <data name="R_CAPITATION" xml:space="preserve">
+    <value>Capitation</value>
+  </data>
 </root>

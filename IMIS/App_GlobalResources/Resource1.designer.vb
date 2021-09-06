@@ -11522,6 +11522,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Capitation.
+        '''</summary>
+        Friend Shared ReadOnly Property R_CAPITATION() As String
+            Get
+                Return ResourceManager.GetString("R_CAPITATION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Capitation Payment.
         '''</summary>
         Friend Shared ReadOnly Property R_CAPITATIONPAYMENT() As String
