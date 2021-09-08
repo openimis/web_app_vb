@@ -1,3 +1,23 @@
+$(document).ready(function () {
+    createSelect2();
+})
+
+$(function () {
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+});
+
+function EndRequestHandler(sender, args) {
+    createSelect2();
+}
+
+function createSelect2() {
+    $("select:not(.noSelect2)").select2({
+        dropdownAutoWidth: true
+    });
+
+    // This is for calendar control
+    $('.dateCheck').parent().css("position", "relative")
+}
 
 $(document).ready(function() { bindAlphaNumber(); });
 function bindAlphaNumber() {

@@ -4,10 +4,10 @@
     margin: 0;
 }
 
-body, html
-{
+body, html {
     font: 11px Tahoma;
     background-color: #F7F7E9;
+    position: relative;
 }
 
 -moz::selection
