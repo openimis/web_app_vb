@@ -5110,4 +5110,10 @@
   <data name="T_REMOVEHOSPITALS" xml:space="preserve">
     <value>Veuillez retirer la liste de prix des hôpitaux suivants avant de changer de lieu</value>
   </data>
+  <data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
+    <value>Synthèse des Commissions (Détaillé)</value>
+  </data>
+  <data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
+    <value>Synthèse des Commissions (Aperçu)</value>
+  </data>
 </root>

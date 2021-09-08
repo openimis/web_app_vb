@@ -5111,4 +5111,10 @@ adults/children)
   <data name="T_REMOVEHOSPITALS" xml:space="preserve">
     <value>Please remove the pricelist from the following hospitals before changing the location:</value>
   </data>
+  <data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
+    <value>Overview of Commissions (Detailed)</value>
+  </data>
+  <data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
+    <value>Overview of Commissions (Overview)</value>
+  </data>
 </root>
