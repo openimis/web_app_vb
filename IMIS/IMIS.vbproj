@@ -862,6 +862,8 @@
     <Content Include="Reports\rptClaimOverviewHistoryAllDetails.rdlc" />
     <Content Include="Reports\rptClaimOverviewHistoryClaimsOnly.rdlc" />
     <Content Include="Reports\rptClaimOverviewHistoryRejecteServItem.rdlc" />
+    <Content Include="Reports\rptOverviewOfCommissionsO.rdlc" />
+    <Content Include="Reports\rptOverviewOfCommissionsD.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />
@@ -1013,7 +1015,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
+      <UserProperties BuildVersion_DetectChanges="True" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

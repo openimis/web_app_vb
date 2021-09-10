@@ -13792,6 +13792,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Overview of Commissions (Detailed).
+        '''</summary>
+        Friend Shared ReadOnly Property T_OVERVIEWOFCOMMISSIONS_D() As String
+            Get
+                Return ResourceManager.GetString("T_OVERVIEWOFCOMMISSIONS_D", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Overview of Commissions (Overview).
+        '''</summary>
+        Friend Shared ReadOnly Property T_OVERVIEWOFCOMMISSIONS_O() As String
+            Get
+                Return ResourceManager.GetString("T_OVERVIEWOFCOMMISSIONS_O", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Passed.
         '''</summary>
         Friend Shared ReadOnly Property T_PASSED() As String
