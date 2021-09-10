@@ -5116,5 +5116,7 @@ adults/children)
   </data>
   <data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
     <value>Overview of Commissions (Overview)</value>
+  <data name="R_CAPITATION" xml:space="preserve">
+    <value>Capitation</value>
   </data>
 </root>

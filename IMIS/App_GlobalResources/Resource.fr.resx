@@ -5115,5 +5115,7 @@
   </data>
   <data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
     <value>Synthèse des Commissions (Aperçu)</value>
+  <data name="R_CAPITATION" xml:space="preserve">
+    <value>Capitation</value>
   </data>
 </root>
