@@ -192,6 +192,7 @@
     <Content Include="Javascripts\jquery.cookie.js" />
     <Content Include="Javascripts\jquery.ui.autocomplete.js" />
     <Content Include="Javascripts\jquery.ui.widget.js" />
+    <Content Include="Javascripts\select2.min.js" />
     <Content Include="Javascripts\simpletip.js" />
     <Content Include="Locations.aspx" />
     <Content Include="Logout.aspx" />
@@ -242,6 +243,7 @@
     <Content Include="StyleSheets\jquery-ui.css" />
     <Content Include="StyleSheets\jquery.ui.autocomplete.css" />
     <Content Include="StyleSheets\MainMenu.css" />
+    <Content Include="StyleSheets\select2.min.css" />
     <Content Include="Templates\FamilySMSBeforeExpiry.txt" />
     <Content Include="Templates\ForgotPassword.html" />
     <Content Include="Templates\OfflineExtract.html" />

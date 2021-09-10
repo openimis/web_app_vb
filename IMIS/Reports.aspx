@@ -682,7 +682,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         </ContentTemplate>
 
                     </asp:UpdatePanel>
-                    <asp:ListBox ID="lstboxReportSelector" runat="server" Height="380px" Width="364px" CssClass="panel" ClientIDMode="Static"></asp:ListBox>
+                    <asp:ListBox ID="lstboxReportSelector" runat="server" Height="380px" Width="364px" CssClass="panel noSelect2" ClientIDMode="Static"></asp:ListBox>
 
 
 

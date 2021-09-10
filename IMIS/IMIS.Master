@@ -11,14 +11,14 @@
            
   </noscript>
 
-    
+    <link href="StyleSheets/select2.min.css" rel="Stylesheet" />
     <link href="styleSheets/Imis.css" rel="stylesheet" type="text/css" />
     <link href="styleSheets/MainMenu.css" rel="stylesheet" type="text/css" />
     <link href="StyleSheets/jquery-ui.css" rel="stylesheet" />
     <link href="StyleSheets/jquery.ui.autocomplete.css" rel="stylesheet" />
   
     <script src="Javascripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script src="Javascripts/Exact.js?c=<%#(New Random()).Next%>" type="text/javascript"></script>
+    <script type="text/javascript" src="Javascripts/select2.min.js"></script>
     <script src="Javascripts/jquery.cookie.js" type="text/javascript"></script>
     <script type="text/javascript" src="Javascripts/ExactDropDown.js"></script>
     <script type="text/javascript" src="Javascripts/jquery.ui.widget.js" ></script>
@@ -26,6 +26,8 @@
     <script type="text/javascript" src="Javascripts/autocomplete.js"></script>
     <script type="text/javascript" src="Javascripts/jquery-ui.js"></script>
     <script type="text/javascript" src="Javascripts/simpletip.js"></script>
+    <script src="Javascripts/Exact.js?c=<%#(New Random()).Next%>" type="text/javascript"></script>
+
    <%-- <script type="text/javascript" language="javascript">
         setTimeout(function() {
             $('.footer').text('');
