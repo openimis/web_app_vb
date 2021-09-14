@@ -160,6 +160,26 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 <tr>
                     <td class="FormLabel">
                         <asp:Label
+                            ID="Label1"
+                            runat="server"
+                            Text='<%$ Resources:Resource,L_QUANTITY %>'></asp:Label>
+                    </td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="txtQuantity" runat="server" class="numbersOnly" Style="text-align: right;" ></asp:TextBox>
+                        <%--Width="150px"--%>
+                        <asp:RequiredFieldValidator
+                            ID="rfQuantity" runat="server"
+                            ControlToValidate="txtQuantity"
+                            SetFocusOnError="True"
+                            ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                            Text="*">
+                        </asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="FormLabel">
+                        <asp:Label
                             ID="L_Package"
                             runat="server"
                             Text='<%$ Resources:Resource,L_PACKAGE %>'></asp:Label>
