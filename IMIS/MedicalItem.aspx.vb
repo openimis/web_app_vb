@@ -68,8 +68,9 @@ Partial Public Class MedicalItem
                 Item.LoadItem(eItem)
                 txtCode.Text = eItem.ItemCode
                 txtName.Text = eItem.ItemName
+                txtQuantity.Text = eItem.Quantity
                 txtPackage.Text = eItem.ItemPackage
-                txtPrice.Text = FormatNumber(eItem.ItemPrice, 0)
+                txtPrice.Text = FormatNumber(eItem.ItemPrice, 2)
                 txtFrequency.Text = eItem.ItemFrequency
                 setItemCare()
                 setItemPatCat()
@@ -108,6 +109,7 @@ lblDirty:   Dim chk As Integer = 0
                 eItem.ItemName = txtName.Text.Trim
                 eItem.ItemType = GetItemType()
                 eItem.ItemPackage = txtPackage.Text.Trim
+                eItem.Quantity = txtQuantity.Text.Trim
                 eItem.ItemPrice = txtPrice.Text.Trim
                 eItem.ItemCareType = GetItemCare()
                 eItem.ItemFrequency = If(txtFrequency.Text.Trim.Length = 0, 0, Val(txtFrequency.Text.Trim))
