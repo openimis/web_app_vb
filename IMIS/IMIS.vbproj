@@ -867,6 +867,9 @@
     <Content Include="Reports\rptClaimOverviewHistoryRejecteServItem.rdlc" />
     <Content Include="Reports\rptOverviewOfCommissionsO.rdlc" />
     <Content Include="Reports\rptOverviewOfCommissionsD.rdlc" />
+	<Content Include="set_folder_rights.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />
