@@ -1040,6 +1040,42 @@ Partial Public Class Family
     Protected WithEvents rfIdNo1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''trVulnerability control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents trVulnerability As Global.System.Web.UI.HtmlControls.HtmlTableRow
+
+    '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlVulnerability control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlVulnerability As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''rfVulnerability control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfVulnerability As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''trFSPRegion control.
     '''</summary>
     '''<remarks>
@@ -1182,42 +1218,6 @@ Partial Public Class Family
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfFSP As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''trVulnerability control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents trVulnerability As Global.System.Web.UI.HtmlControls.HtmlTableRow
-
-    '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ddlVulnerability control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlVulnerability As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''rfVulnerability control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfVulnerability As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''upDL control.
