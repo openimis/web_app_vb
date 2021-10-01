@@ -280,7 +280,9 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
-    <Content Include="set_folders_rights.ps1" />
+    <Content Include="set_folders_rights.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web References\IMISService\imisservices.disco" />
     <None Include="web.base.config" />
     <Content Include="Web.config">
@@ -867,9 +869,6 @@
     <Content Include="Reports\rptClaimOverviewHistoryRejecteServItem.rdlc" />
     <Content Include="Reports\rptOverviewOfCommissionsO.rdlc" />
     <Content Include="Reports\rptOverviewOfCommissionsD.rdlc" />
-	<Content Include="set_folder_rights.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />
@@ -1021,7 +1020,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_DetectChanges="True" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
+      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
