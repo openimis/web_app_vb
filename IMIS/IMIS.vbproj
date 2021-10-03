@@ -280,7 +280,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
-    <Content Include="set_folder_rights.ps1">
+    <Content Include="set_folders_rights.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Web References\IMISService\imisservices.disco" />

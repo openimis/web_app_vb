@@ -680,7 +680,7 @@ Public Class Family
         FillCurrentDistricts()
     End Sub
     Private Sub FillCurrentDistricts()
-        Dim dtCurDistrict As DataTable = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), Val(ddlCurrentRegion.SelectedValue), False)
+        Dim dtCurDistrict As DataTable = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), Val(ddlCurrentRegion.SelectedValue), True)
         ddlCurDistrict.DataSource = dtCurDistrict
         ddlCurDistrict.DataValueField = "DistrictId"
         ddlCurDistrict.DataTextField = "DistrictName"
