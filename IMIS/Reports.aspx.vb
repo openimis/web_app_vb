@@ -1323,7 +1323,7 @@ Partial Public Class Reports
             IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & txtCommissionRate.Text.Trim & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
             IMIS_EN.eReports.SubTitle += vbNewLine & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlProduct.SelectedIndex = 0, "", ddlProduct.SelectedItem.Text) & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt(0)("DistrictName") & " | " & imisgen.getMessage("L_PAYER") & " : " & If(ddlPayer.SelectedIndex = 0, "", ddlPayer.SelectedItem.Text) & " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & If(ddlEnrolmentOfficer.SelectedIndex = 0, "", ddlEnrolmentOfficer.SelectedItem.Text)
         Else
-            lblMsg.Text = imisgen.getMessage("M_NODATAFORREPORT")
+            lblMsg.Text = IIf(String.IsNullOrEmpty(ErrorMessage), imisgen.getMessage("M_NODATAFORREPORT"), ErrorMessage)
             hfCompleted.Value = 0
             Return False
         End If
