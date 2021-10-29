@@ -36,7 +36,7 @@ Public Class FamilyDAL
         sSQL += " SELECT I.InsureeId, I.CHFID, I.LastName, I.OtherNames, I.DOB, I.Phone, I.isOffline InsureeIsOffline, I.Education, I.Profession,"
         sSQL += " F.Poverty, F.ConfirmationType, R.RegionId, R.RegionName, D.DistrictName, D.DistrictId, V.VillageId, V.VillageName, W.wardId, W.WardName, I.TypeOfId,"
         sSQL += " I.CurrentAddress, I.CurrentVillage , I.HFID, HF.LocationId FSPDistrictId, HF.HFCareType, F.FamilyType,"
-        sSQL += " F.FamilyAddress, F.Ethnicity,F.ConfirmationNo, F.ValidityTo, F.isOffline"
+        sSQL += " F.FamilyAddress, F.Ethnicity,F.ConfirmationNo, F.ValidityTo, F.isOffline, I.Vulnerability"
         sSQL += " from tblFamilies F"
         sSQL += " INNER JOIN tblVillages V ON V.VillageId = F.LocationId"
         sSQL += " INNER JOIN tblWards W ON W.WardId = V.WardId"
@@ -93,6 +93,7 @@ Public Class FamilyDAL
             eInsurees.FSPCategory = dr("HFCareType").ToString
 
             'Addition for Nepal >> End
+            eInsurees.Vulnerability = dr("Vulnerability")
 
             eFamily.tblInsuree = eInsurees
             eFamily.FamilyType = dr("FamilyType")
@@ -120,12 +121,12 @@ Public Class FamilyDAL
     Public Sub InsertInsuredFamily(ByRef eFamily As IMIS_EN.tblFamilies)
         Dim data As New ExactSQL
         data.setSQLCommand("Insert into tblFamilies (LocationId,Poverty,ConfirmationType,isOffline,AuditUserID,FamilyType,FamilyAddress,Ethnicity,ConfirmationNo) VALUES (@LocationId,@Poverty,@ConfirmationType, @isOffline,@AuditUserID,@FamilyType,@FamilyAddress,@Ethnicity,@ConfirmationNo ); select @FamilyId = scope_identity();" _
-                           & "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[Email],Education,Profession, TypeOfId, HFID,CurrentAddress,CurrentVillage, GeoLocation)" _
-     & " VALUES (@FamilyID,@CHFID,@LastName,@OtherNames,@DOB,@Gender,@Marital,@IsHead,@passport,@Phone,@PhotoID, @PhotoDate,@CardIssued,@isOffline,@AuditUserID,@Email,@Education,@Profession, @TypeOfId, @HFID,@CurrentAddress, @CurrentVillage, @GeoLocation);select @InsureeID = scope_identity()" _
-     & "Update tblFamilies set InsureeId = @Insureeid where FamilyId = @FamilyId;" & _
-     " INSERT INTO tblPhotos (InsureeID,CHFID,PhotoDate,PhotoFolder,PhotoFileName,OfficerID,ValidityFrom,AuditUserID)" & _
-     " VALUES(@InsureeID,@CHFID,@PhotoDate,@PhotoFolder,@PhotoFileName,@OfficerID,@ValidityFrom,@AuditUserID);" & _
-     " update tblInsuree SET PhotoID = (SELECT PhotoID from TblPhotos where InsureeID = @InsureeID)" & _
+                           & "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[Email],Education,Profession, TypeOfId, HFID,CurrentAddress,CurrentVillage, GeoLocation, Vulnerability)" _
+     & " VALUES (@FamilyID,@CHFID,@LastName,@OtherNames,@DOB,@Gender,@Marital,@IsHead,@passport,@Phone,@PhotoID, @PhotoDate,@CardIssued,@isOffline,@AuditUserID,@Email,@Education,@Profession, @TypeOfId, @HFID,@CurrentAddress, @CurrentVillage, @GeoLocation, @Vulnerability);select @InsureeID = scope_identity()" _
+     & "Update tblFamilies set InsureeId = @Insureeid where FamilyId = @FamilyId;" &
+     " INSERT INTO tblPhotos (InsureeID,CHFID,PhotoDate,PhotoFolder,PhotoFileName,OfficerID,ValidityFrom,AuditUserID)" &
+     " VALUES(@InsureeID,@CHFID,@PhotoDate,@PhotoFolder,@PhotoFileName,@OfficerID,@ValidityFrom,@AuditUserID);" &
+     " update tblInsuree SET PhotoID = (SELECT PhotoID from TblPhotos where InsureeID = @InsureeID)" &
      " WHERE InsureeID = @InsureeID", CommandType.Text)
         data.params("@FamilyId", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@InsureeId", SqlDbType.Int, 0, ParameterDirection.Output)
@@ -173,6 +174,8 @@ Public Class FamilyDAL
         'data.params("@CurWard", SqlDbType.Int, eFamily.tblInsuree.CurrentVillage, ParameterDirection.Input)
         data.params("@GeoLocation", SqlDbType.NVarChar, 50, eFamily.tblInsuree.GeoLocation)
         'Addition for Nepal >> End
+        data.params("@Vulnerability", SqlDbType.Bit, eFamily.tblInsuree.Vulnerability)
+
         data.ExecuteCommand()
         eFamily.FamilyID = data.sqlParameters("@FamilyID")
 

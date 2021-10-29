@@ -17,6 +17,7 @@ Partial Public Class tblItems
     Public Property ItemName As String
     Public Property ItemType As String
     Public Property ItemPackage As String
+    Public Property Quantity As Decimal
     Public Property ItemPrice As Decimal
     Public Property ItemCareType As String
     Public Property ItemFrequency As Nullable(Of Short)

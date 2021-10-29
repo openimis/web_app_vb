@@ -136,7 +136,7 @@ Public Class PricelistMSDAL
         data.params("@PLServiceID", SqlDbType.Int, ePLServices.PLServiceID)
         data.params("@PLServName", SqlDbType.NVarChar, 100, ePLServices.PLServName)
         data.params("@DatePL", SqlDbType.SmallDateTime, ePLServices.DatePL)
-        data.params("@LocationId", SqlDbType.Int, if(ePLServices.tblLocations.LocationId = -1, Nothing, ePLServices.tblLocations.LocationId))
+        data.params("@LocationId", SqlDbType.Int, If(ePLServices.tblLocations.LocationId = -1, DBNull.Value, ePLServices.tblLocations.LocationId))
         data.params("@LegacyID", SqlDbType.Int, 1, ParameterDirection.Output)
         data.params("@AuditUserID", SqlDbType.Int, ePLServices.AuditUserID)
         data.ExecuteCommand()
@@ -233,7 +233,7 @@ Public Class PricelistMSDAL
 
     Public Function CheckIfPLServiceExists(ByVal ePLService As IMIS_EN.tblPLServices) As Boolean
         Dim data As New ExactSQL
-        Dim strSQL As String = "Select Count(*) from tblPLServices where PLServName = @PLServName AND LegacyID <> @PLServiceID"
+        Dim strSQL As String = "Select Count(*) from tblPLServices where PLServName = @PLServName AND ValidityTo IS NULL"
 
         If Not ePLService.PLServiceID = 0 Then
             strSQL += " AND PLServiceID <> @PLServiceID"

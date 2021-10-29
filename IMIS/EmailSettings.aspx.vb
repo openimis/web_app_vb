@@ -54,11 +54,11 @@ Public Class EmailSettings
     Private Sub SetEntity()
         eEmailSettings = New IMIS_EN.tblEmailSettings
         With eEmailSettings
-            .EmailId = txtEmail.Text
+            .EmailId = txtEmail.Text.Trim
             .EmailPassword = txtPassword.Text
-            .SMTPHost = txtSMTPHost.Text
+            .SMTPHost = txtSMTPHost.Text.Trim
             .EnableSSL = chkEnableSSL.Checked
-            If txtPort.Text.Trim.Length > 0 Then .Port = Val(txtPort.Text)
+            If txtPort.Text.Trim.Length > 0 Then .Port = Val(txtPort.Text.Trim)
         End With
     End Sub
     Private Sub Save()

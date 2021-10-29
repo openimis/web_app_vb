@@ -1,10 +1,10 @@
 ﻿Public Class RoleBL
 
-    Public Function GetRoles(erole As IMIS_EN.tblRole) As DataTable
+    Public Function GetRoles(erole As IMIS_EN.tblRole, userId As Integer) As DataTable
 
         Dim DAL As New IMIS_DAL.RoleDAL
         Dim BL As New UsersBL
-        Dim dtRoles As DataTable = DAL.GetRoles(erole)
+        Dim dtRoles As DataTable = DAL.GetRoles(erole, userId)
         'For Each row As DataRow In dtRoles.Rows
         '    If row("IsSystem") > 0 Then
 

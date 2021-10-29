@@ -163,7 +163,7 @@ Partial Public Class Claim
                 ddlVisitType.SelectedValue = eClaim.VisitType
             End If
             'Addition for Nepal >> End
-            txtCLAIMCODEData.Attributes.Add("ClaimCodetag", txtCLAIMCODEData.Text)
+            txtCLAIMCODEData.Attributes.Add("ClaimCodetag", txtCLAIMCODEData.Text.Trim)
 
             If Not eClaim.DateClaimed = Nothing Then
                 txtClaimDate.Text = Left(eClaim.DateClaimed.ToString, 10)
@@ -182,8 +182,8 @@ Partial Public Class Claim
             ServiceItemGridBinding()
 
 
-            hfPrevItemRows.Value = CInt(txtAddItemRows.Text)
-            hfPrevServiceRows.Value = CInt(txtAddServiceRows.Text)
+            hfPrevItemRows.Value = CInt(txtAddItemRows.Text.Trim)
+            hfPrevServiceRows.Value = CInt(txtAddServiceRows.Text.Trim)
 
             Dim dzt As DataTable = claim.GetServiceCode(eClaim.tblHF.HfID)
 
@@ -246,13 +246,13 @@ Partial Public Class Claim
     End Sub
     Private Sub StoreClaimDetails()
         Session("LoadedHFID") = hfHFID.Value
-        Session("LoadedICD") = txtICDCode0.Text
+        Session("LoadedICD") = txtICDCode0.Text.Trim
         Session("LoadedICD") = ddlICDData.SelectedValue
-        Session("LoadedCHFID") = txtCHFIDData.Text ' CInt(txtCHFIDData.Text)
-        Session("LoadedClaimCode") = txtCLAIMCODEData.Text
-        Session("LoadedClaimedDate") = txtClaimDate.Text 'Date.Parse(txtClaimDate.Text)
-        Session("LoadedVisitDateFrom") = txtSTARTData.Text 'Date.Parse(txtSTARTData.Text)
-        Session("LoadedVisitDateTo") = If(eClaim.DateTo Is Nothing, txtSTARTData.Text, eClaim.DateTo)
+        Session("LoadedCHFID") = txtCHFIDData.Text.Trim ' CInt(txtCHFIDData.Text)
+        Session("LoadedClaimCode") = txtCLAIMCODEData.Text.Trim
+        Session("LoadedClaimedDate") = txtClaimDate.Text.Trim 'Date.Parse(txtClaimDate.Text)
+        Session("LoadedVisitDateFrom") = txtSTARTData.Text.Trim 'Date.Parse(txtSTARTData.Text)
+        Session("LoadedVisitDateTo") = If(eClaim.DateTo Is Nothing, txtSTARTData.Text.Trim, eClaim.DateTo)
         Session("LoadedExplanation") = eClaim.Explanation
         'Addition for Nepal >> Start
 
@@ -261,10 +261,10 @@ Partial Public Class Claim
         Session("LoadedICD3") = ddlICDData3.SelectedValue
         Session("LoadedICD4") = ddlICDData4.SelectedValue
 
-        Session("LoadedICD1") = txtICDCode1.Text
-        Session("LoadedICD2") = txtICDCode2.Text
-        Session("LoadedICD3") = txtICDCode3.Text
-        Session("LoadedICD4") = txtICDCode4.Text
+        Session("LoadedICD1") = txtICDCode1.Text.Trim
+        Session("LoadedICD2") = txtICDCode2.Text.Trim
+        Session("LoadedICD3") = txtICDCode3.Text.Trim
+        Session("LoadedICD4") = txtICDCode4.Text.Trim
         Session("LoadedVisitType") = ddlVisitType.SelectedValue
         'Addition for Nepal >> End
     End Sub
@@ -397,22 +397,8 @@ Partial Public Class Claim
             'hfClaimAdminId.Value = 0
             'txtClaimAdminCode.Text = String.Empty
 
-            Dim dtS As DataTable = CType(Session("vsServices"), DataTable)
-            Dim dtI As DataTable = CType(Session("vsItems"), DataTable)
-            Dim counter As Integer
+            ServiceItemGridBinding()
 
-            dtS.Clear()
-            dtI.Clear()
-            For counter = 1 To IMIS_EN.AppConfiguration.DefaultClaimRows
-                dtS.Rows.Add(dtS.NewRow())
-                dtI.Rows.Add(dtI.NewRow())
-            Next
-
-            gvService.DataSource = dtS
-            gvService.DataBind()
-
-            gvItems.DataSource = dtI
-            gvItems.DataBind()
             txtCHFIDData.Focus()
         Catch ex As Exception
             'lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE")
@@ -431,19 +417,19 @@ Partial Public Class Claim
         Dim EndDate As Date = CType(Session("LoadedVisitDateTo"), Date)
 
         If Not Session("LoadedHFID") = hfHFID.Value Then
-        ElseIf Not Session("LoadedCHFID") = txtCHFIDData.Text Then
-        ElseIf Not Session("LoadedClaimCode") = txtCLAIMCODEData.Text Then
-        ElseIf Not Session("LoadedClaimedDate") = txtClaimDate.Text Then
-        ElseIf Not Session("LoadedVisitDateFrom") = txtSTARTData.Text Then
-        ElseIf Not If(EndDate = Nothing, "", Format(EndDate, "dd/MM/yyyy")) = txtENDData.Text Then
-        ElseIf Not Session("LoadedICD") = txtICDCode0.Text Then
+        ElseIf Not Session("LoadedCHFID") = txtCHFIDData.Text.Trim Then
+        ElseIf Not Session("LoadedClaimCode") = txtCLAIMCODEData.Text.Trim Then
+        ElseIf Not Session("LoadedClaimedDate") = txtClaimDate.Text.Trim Then
+        ElseIf Not Session("LoadedVisitDateFrom") = txtSTARTData.Text.Trim Then
+        ElseIf Not If(EndDate = Nothing, "", Format(EndDate, "dd/MM/yyyy")) = txtENDData.Text.Trim Then
+        ElseIf Not Session("LoadedICD") = txtICDCode0.Text.Trim Then
         ElseIf hfGuaranteeId.Value <> txtGuaranteeId.Text.Trim Then
         ElseIf Not Session("LoadedExplanation") = txtEXPLANATION.Text.Trim Then
             'Addition for Nepal >> Start
-        ElseIf Not Session("LoadedICD1") = txtICDCode1.Text Then
-        ElseIf Not Session("LoadedICD2") = txtICDCode2.Text Then
-        ElseIf Not Session("LoadedICD3") = txtICDCode3.Text Then
-        ElseIf Not Session("LoadedICD4") = txtICDCode4.Text Then
+        ElseIf Not Session("LoadedICD1") = txtICDCode1.Text.Trim Then
+        ElseIf Not Session("LoadedICD2") = txtICDCode2.Text.Trim Then
+        ElseIf Not Session("LoadedICD3") = txtICDCode3.Text.Trim Then
+        ElseIf Not Session("LoadedICD4") = txtICDCode4.Text.Trim Then
         ElseIf Not CType(Session("LoadedVisitType"), String) = ddlVisitType.SelectedValue Then
             'Addition for Nepal >> End
         Else
@@ -498,18 +484,18 @@ Partial Public Class Claim
             '    End If
 
             'End If
-            If txtICDCode0.Text = "" Then
+            If txtICDCode0.Text.Trim = "" Then
                 imisgen.Alert(imisgen.getMessage("M_PLEASEENTERANMDGCODE"), pnlButtons, alertPopupTitle:="IMIS")
                 Return "Exit"
             End If
-            If txtNAMEData.Text = "" Then
+            If txtNAMEData.Text.Trim = "" Then
                 imisgen.Alert(imisgen.getMessage("M_CHFIDNOTFOUND"), pnlButtons, alertPopupTitle:="IMIS")
                 Return "Exit"
             End If
 
             eHF.HfID = hfHFID.Value
             eClaim.tblHF = eHF
-            eClaim.ClaimCode = txtCLAIMCODEData.Text
+            eClaim.ClaimCode = txtCLAIMCODEData.Text.Trim
 
             If eClaim.ClaimID > 0 Then
                 If Not txtCLAIMCODEData.Attributes.Item("ClaimCodetag") = eClaim.ClaimCode Then
@@ -576,36 +562,36 @@ Partial Public Class Claim
                         Dim eInsuree As New IMIS_EN.tblInsuree
                         eInsuree.InsureeID = hfInsureeId.Value
                         eClaim.tblInsuree = eInsuree
-                        eClaim.DateClaimed = Date.ParseExact(txtClaimDate.Text, "dd/MM/yyyy", Nothing)
-                        eClaim.DateFrom = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
-                        If txtENDData.Text.Length > 0 Then
-                            eClaim.DateTo = Date.ParseExact(txtENDData.Text, "dd/MM/yyyy", Nothing)
+                        eClaim.DateClaimed = Date.ParseExact(txtClaimDate.Text.Trim, "dd/MM/yyyy", Nothing)
+                        eClaim.DateFrom = Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing)
+                        If txtENDData.Text.Trim.Length > 0 Then
+                            eClaim.DateTo = Date.ParseExact(txtENDData.Text.Trim, "dd/MM/yyyy", Nothing)
                         Else
-                            eClaim.DateTo = Date.ParseExact(txtSTARTData.Text, "dd/MM/yyyy", Nothing)
+                            eClaim.DateTo = Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing)
                         End If
                         eClaim.Claimed = hfClaimTotalValue.Value
                         Dim eICDCodes As New IMIS_EN.tblICDCodes
                         eICDCodes.ICDID = If(hfICDID0.Value = "", 0, CInt(Int(hfICDID0.Value)))
 
                         'Addition for Nepal >> Start
-                        If Not txtICDCode1.Text = "" Then eClaim.ICDID1 = If(hfICDID1.Value = "", 0, CInt(Int(hfICDID1.Value)))
-                        If Not txtICDCode2.Text = "" Then eClaim.ICDID2 = If(hfICDID2.Value = "", 0, CInt(Int(hfICDID2.Value)))
-                        If Not txtICDCode3.Text = "" Then eClaim.ICDID3 = If(hfICDID3.Value = "", 0, CInt(Int(hfICDID3.Value)))
-                        If Not txtICDCode4.Text = "" Then eClaim.ICDID4 = If(hfICDID4.Value = "", 0, CInt(Int(hfICDID4.Value)))
+                        If Not txtICDCode1.Text.Trim = "" Then eClaim.ICDID1 = If(hfICDID1.Value = "", 0, CInt(Int(hfICDID1.Value)))
+                        If Not txtICDCode2.Text.Trim = "" Then eClaim.ICDID2 = If(hfICDID2.Value = "", 0, CInt(Int(hfICDID2.Value)))
+                        If Not txtICDCode3.Text.Trim = "" Then eClaim.ICDID3 = If(hfICDID3.Value = "", 0, CInt(Int(hfICDID3.Value)))
+                        If Not txtICDCode4.Text.Trim = "" Then eClaim.ICDID4 = If(hfICDID4.Value = "", 0, CInt(Int(hfICDID4.Value)))
                         If ddlVisitType.SelectedValue.Trim <> "" Then eClaim.VisitType = ddlVisitType.SelectedValue
                         'Addition for Nepal >> End
 
                         eClaim.tblICDCodes = eICDCodes
-                        eClaim.Explanation = txtEXPLANATION.Text
+                        eClaim.Explanation = txtEXPLANATION.Text.Trim
                         If hfClaimAdminId.Value.Trim <> String.Empty Then
                             eClaimAdmin.ClaimAdminId = CInt(hfClaimAdminId.Value)
                         End If
                         eClaim.tblClaimAdmin = eClaimAdmin
-                        eClaim.GuaranteeId = txtGuaranteeId.Text
+                        eClaim.GuaranteeId = txtGuaranteeId.Text.Trim
                         chkSaveClaim = claim.SaveClaim(eClaim)
                         hfClaimID.Value = eClaim.ClaimID
                         txtCLAIMCODEData.Attributes.Add("ClaimCodetag", eClaim.ClaimCode)
-                        If txtENDData.Text = "" Then txtENDData.Text = txtSTARTData.Text
+                        If txtENDData.Text.Trim = "" Then txtENDData.Text = txtSTARTData.Text.Trim
                         StoreClaimDetails()
                     End If
 
@@ -640,10 +626,10 @@ Partial Public Class Claim
                     'eItem.ItemID = gvItems.DataKeys.Item(row.RowIndex).Values("ItemID")
                     eClaimItems.ClaimItemID = gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId")
                     'Ruzo:start:Added on 2 July 13 - On update of items, new item id should be ready
-                    Dim ItemCod As String = CType(row.Cells(0).Controls(1), TextBox).Text
+                    Dim ItemCod As String = CType(row.Cells(0).Controls(1), TextBox).Text.Trim
                     If ItemCod.Trim <> String.Empty Then
                         For Each r As GridViewRow In gvHiddenItemCodes.Rows
-                            If ItemCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+                            If ItemCod = r.Cells(0).Text.Trim & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.Trim.ToString) Then
                                 eItem.ItemID = gvHiddenItemCodes.DataKeys(r.RowIndex).Values("ItemID")
                                 Exit For
                             End If
@@ -657,11 +643,11 @@ Partial Public Class Claim
                     End If
                     'Ruzo:end
                 Else
-                    If Not CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+                    If Not CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text.Trim = "" Then
                         eClaimItems.tblClaim = eClaim
-                        Dim ItemCod As String = CType(row.Cells(0).Controls(1), TextBox).Text
+                        Dim ItemCod As String = CType(row.Cells(0).Controls(1), TextBox).Text.Trim
                         For Each r As GridViewRow In gvHiddenItemCodes.Rows
-                            If ItemCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+                            If ItemCod = r.Cells(0).Text.Trim & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.Trim.ToString) Then
                                 eItem.ItemID = gvHiddenItemCodes.DataKeys(r.RowIndex).Values("ItemID")
                                 eClaimItems.ClaimItemID = 0
                                 Exit For
@@ -673,10 +659,10 @@ Partial Public Class Claim
                         End If
                     End If
                 End If
-                If Not CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Or Not gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId") Is DBNull.Value Then
+                If Not CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text.Trim = "" Or Not gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId") Is DBNull.Value Then
                     eClaimItems.tblItems = eItem
                     eClaimItems.AuditUserID = eClaim.AuditUserID
-                    If CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+                    If CType(gvItems.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text.Trim = "" Then
 
                         If Not hfClaimItemID.Value = gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemId") Then
                             claim.DeleteClaimItems(eClaimItems)
@@ -686,9 +672,9 @@ Partial Public Class Claim
                         End If
 
                     Else
-                        eClaimItems.QtyProvided = CType(row.Cells(1).Controls(1), TextBox).Text
-                        eClaimItems.PriceAsked = CType(row.Cells(2).Controls(1), TextBox).Text
-                        eClaimItems.Explanation = CType(row.Cells(3).Controls(1), TextBox).Text
+                        eClaimItems.QtyProvided = CType(row.Cells(1).Controls(1), TextBox).Text.Trim
+                        eClaimItems.PriceAsked = CType(row.Cells(2).Controls(1), TextBox).Text.Trim
+                        eClaimItems.Explanation = CType(row.Cells(3).Controls(1), TextBox).Text.Trim
                         chkSaveClaimItems = claim.SaveClaimItems(eClaimItems)
                     End If
 
@@ -697,10 +683,10 @@ Partial Public Class Claim
 
             For Each row In gvService.Rows
                 If Not gvService.DataKeys.Item(row.RowIndex).Values("ServCode") Is DBNull.Value Then
-                    If Not gvService.DataKeys.Item(row.RowIndex).Values("ServCode") = CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text Then
-                    ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("QtyProvided") = CType(gvService.Rows(row.RowIndex).Cells(1).Controls(1), TextBox).Text Then
-                    ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("PriceAsked") = CType(gvService.Rows(row.RowIndex).Cells(2).Controls(1), TextBox).Text Then
-                    ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("Explanation").ToString = CType(gvService.Rows(row.RowIndex).Cells(3).Controls(1), TextBox).Text Then
+                    If Not gvService.DataKeys.Item(row.RowIndex).Values("ServCode") = CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text.Trim Then
+                    ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("QtyProvided") = CType(gvService.Rows(row.RowIndex).Cells(1).Controls(1), TextBox).Text.Trim Then
+                    ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("PriceAsked") = CType(gvService.Rows(row.RowIndex).Cells(2).Controls(1), TextBox).Text.Trim Then
+                    ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("Explanation").ToString = CType(gvService.Rows(row.RowIndex).Cells(3).Controls(1), TextBox).Text.Trim Then
                     Else
                         Continue For
                     End If
@@ -709,10 +695,10 @@ Partial Public Class Claim
                     'eService.ServiceID = gvService.DataKeys.Item(row.RowIndex).Values("ServiceID")
                     eClaimServices.ClaimServiceID = gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId")
                     'Ruzo:start:Added on 2 July 13 - On update of services, new service id should be ready
-                    Dim ServiceCod As String = CType(row.cells(0).controls(1), TextBox).Text
+                    Dim ServiceCod As String = CType(row.cells(0).controls(1), TextBox).Text.Trim
                     If ServiceCod.Trim <> String.Empty Then
                         For Each r As GridViewRow In gvHiddenServiceCodes.Rows
-                            If ServiceCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+                            If ServiceCod = r.Cells(0).Text.Trim & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.Trim.ToString) Then
                                 eService.ServiceID = gvHiddenServiceCodes.DataKeys(r.RowIndex).Values("ServiceID")
                                 Exit For
                             End If
@@ -726,12 +712,12 @@ Partial Public Class Claim
                     End If
                     'Ruzo:end
                 Else
-                    If Not CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+                    If Not CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text.Trim = "" Then
                         eClaimServices.tblClaim = eClaim
-                        Dim ServiceCod As String = CType(row.cells(0).controls(1), TextBox).Text
+                        Dim ServiceCod As String = CType(row.cells(0).controls(1), TextBox).Text.Trim
                         For Each r As GridViewRow In gvHiddenServiceCodes.Rows
-                            Dim str As String = (r.Cells(1).Text.ToString)
-                            If ServiceCod = r.Cells(0).Text & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.ToString) Then
+                            Dim str As String = (r.Cells(1).Text.Trim.ToString)
+                            If ServiceCod = r.Cells(0).Text.Trim & "  " & HttpUtility.HtmlDecode(r.Cells(1).Text.Trim.ToString) Then
                                 eService.ServiceID = gvHiddenServiceCodes.DataKeys(r.RowIndex).Values("ServiceID")
                                 eClaimServices.ClaimServiceID = 0
                                 Exit For
@@ -743,10 +729,10 @@ Partial Public Class Claim
                         End If
                     End If
                 End If
-                If Not CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Or Not gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId") Is DBNull.Value Then
+                If Not CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text.Trim = "" Or Not gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId") Is DBNull.Value Then
                     eClaimServices.tblServices = eService
                     eClaimServices.AuditUserID = eClaim.AuditUserID
-                    If CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text = "" Then
+                    If CType(gvService.Rows(row.RowIndex).Cells(0).Controls(1), TextBox).Text.Trim = "" Then
                         If Not hfClaimServiceID.Value = gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId") Then
                             claim.DeleteClaimService(eClaimServices)
                             chkSaveClaimServices = 3
@@ -755,9 +741,9 @@ Partial Public Class Claim
                         End If
 
                     Else
-                        eClaimServices.QtyProvided = CType(row.cells(1).controls(1), TextBox).Text
-                        eClaimServices.PriceAsked = CType(row.cells(2).controls(1), TextBox).Text
-                        eClaimServices.Explanation = CType(row.cells(3).controls(1), TextBox).Text
+                        eClaimServices.QtyProvided = CType(row.cells(1).controls(1), TextBox).Text.Trim
+                        eClaimServices.PriceAsked = CType(row.cells(2).controls(1), TextBox).Text.Trim
+                        eClaimServices.Explanation = CType(row.cells(3).controls(1), TextBox).Text.Trim
                         chkSaveClaimServices = claim.SaveClaimServices(eClaimServices)
                     End If
                 End If
@@ -852,24 +838,24 @@ Partial Public Class Claim
         Dim dr As DataRow
 
         For Each r As GridViewRow In gvService.Rows
-            If Not CType(r.Cells(0).Controls(1), TextBox).Text = "" Then
+            If Not CType(r.Cells(0).Controls(1), TextBox).Text.Trim = "" Then
                 dr = dtS.NewRow
-                dr.Item("ServCode") = CType(r.Cells(0).Controls(1), TextBox).Text
-                dr.Item("QtyProvided") = CType(r.Cells(1).Controls(1), TextBox).Text
-                dr.Item("PriceAsked") = CType(r.Cells(2).Controls(1), TextBox).Text
-                dr.Item("Explanation") = CType(r.Cells(3).Controls(1), TextBox).Text
+                dr.Item("ServCode") = CType(r.Cells(0).Controls(1), TextBox).Text.Trim
+                dr.Item("QtyProvided") = CType(r.Cells(1).Controls(1), TextBox).Text.Trim
+                dr.Item("PriceAsked") = CType(r.Cells(2).Controls(1), TextBox).Text.Trim
+                dr.Item("Explanation") = CType(r.Cells(3).Controls(1), TextBox).Text.Trim
                 dtS.Rows.Add(dr)
 
             End If
         Next
 
         For Each r As GridViewRow In gvItems.Rows
-            If Not CType(r.Cells(0).Controls(1), TextBox).Text = "" Then
+            If Not CType(r.Cells(0).Controls(1), TextBox).Text.Trim = "" Then
                 dr = dtI.NewRow
-                dr.Item("ItemCode") = CType(r.Cells(0).Controls(1), TextBox).Text
-                dr.Item("QtyProvided") = CType(r.Cells(1).Controls(1), TextBox).Text
-                dr.Item("PriceAsked") = CType(r.Cells(2).Controls(1), TextBox).Text
-                dr.Item("Explanation") = CType(r.Cells(3).Controls(1), TextBox).Text
+                dr.Item("ItemCode") = CType(r.Cells(0).Controls(1), TextBox).Text.Trim
+                dr.Item("QtyProvided") = CType(r.Cells(1).Controls(1), TextBox).Text.Trim
+                dr.Item("PriceAsked") = CType(r.Cells(2).Controls(1), TextBox).Text.Trim
+                dr.Item("Explanation") = CType(r.Cells(3).Controls(1), TextBox).Text.Trim
                 dtI.Rows.Add(dr)
             End If
         Next
@@ -896,20 +882,20 @@ Partial Public Class Claim
     End Sub
     Private Sub txtAddServiceRows_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtAddServiceRows.TextChanged
         LoadGridOnTextChange()
-        If CInt(txtAddServiceRows.Text) > hfPrevServiceRows.Value Then
-            Dim c As Integer = CInt(txtAddServiceRows.Text) - hfPrevServiceRows.Value
+        If CInt(txtAddServiceRows.Text.Trim) > hfPrevServiceRows.Value Then
+            Dim c As Integer = CInt(txtAddServiceRows.Text.Trim) - hfPrevServiceRows.Value
             AddNewRow(gvService, CType(Session("vsServices"), DataTable), c)
-            hfPrevServiceRows.Value = CInt(txtAddServiceRows.Text)
+            hfPrevServiceRows.Value = CInt(txtAddServiceRows.Text.Trim)
         Else
             txtAddServiceRows.Text = hfPrevServiceRows.Value
         End If
     End Sub
     Private Sub txtAddItemRows_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtAddItemRows.TextChanged
         LoadGridOnTextChange()
-        If CInt(txtAddItemRows.Text) > hfPrevItemRows.Value Then
-            Dim c As Integer = CInt(txtAddItemRows.Text) - hfPrevItemRows.Value
+        If CInt(txtAddItemRows.Text.Trim) > hfPrevItemRows.Value Then
+            Dim c As Integer = CInt(txtAddItemRows.Text.Trim) - hfPrevItemRows.Value
             AddNewRow(gvItems, CType(Session("vsItems"), DataTable), c)
-            hfPrevItemRows.Value = CInt(txtAddItemRows.Text)
+            hfPrevItemRows.Value = CInt(txtAddItemRows.Text.Trim)
         Else
             txtAddItemRows.Text = hfPrevItemRows.Value
         End If
@@ -929,7 +915,7 @@ Partial Public Class Claim
             ds.Tables.Add(dt)
 
             'get the current position of the deductino and ceilings
-            Dim dtInq As DataTable = claim.GetInsureeByCHFIDGrid(txtCHFIDData.Text)
+            Dim dtInq As DataTable = claim.GetInsureeByCHFIDGrid(txtCHFIDData.Text.Trim)
             dtInq.TableName = "Policy"
             ds.Tables.Add(dtInq)
 
@@ -951,7 +937,7 @@ Partial Public Class Claim
                 hfClaimUUID = Guid.Parse(HttpContext.Current.Request.QueryString("c"))
             Else
                 'No claim uuid in URL. Take the claims by code from text field'
-                Dim ClaimCode As String = txtCLAIMCODEData.Text
+                Dim ClaimCode As String = txtCLAIMCODEData.Text.Trim
                 hfClaimUUID = claim.GetClaimUUIDByClaimCode(ClaimCode)
             End If
             hfClaimID.Value = If(hfClaimUUID.Equals(Guid.Empty), 0, claimBI.GetClaimIdByUUID(hfClaimUUID))

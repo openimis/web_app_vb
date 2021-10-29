@@ -248,12 +248,12 @@ Partial Public Class User
                     lblMsg.Text = imisgen.getMessage("V_SELECTROLE")
                     Return
                 End If
-                eUsers.LastName = txtLastName.Text
-                eUsers.OtherNames = txtOtherNames.Text
+                eUsers.LastName = txtLastName.Text.Trim
+                eUsers.OtherNames = txtOtherNames.Text.Trim
                 eUsers.DummyPwd = txtPassword.Text
-                eUsers.Phone = txtPhone.Text
-                eUsers.EmailId = txtEmail.Text
-                eUsers.LoginName = txtLoginName.Text
+                eUsers.Phone = txtPhone.Text.Trim
+                eUsers.EmailId = txtEmail.Text.Trim
+                eUsers.LoginName = txtLoginName.Text.Trim
                 eUsers.LanguageID = ddlLanguage.SelectedValue
                 'eUsers.RoleID = GetRoles(gvRoles)
                 eUsers.AuditUserID = imisgen.getUserId(Session("User"))
@@ -331,10 +331,10 @@ Partial Public Class User
         End If
 
 
-        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
+        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text.Trim)
     End Sub
 
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
-        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text)
+        Response.Redirect("FindUser.aspx?u=" & txtLoginName.Text.Trim)
     End Sub
 End Class

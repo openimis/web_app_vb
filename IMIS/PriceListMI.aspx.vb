@@ -61,7 +61,7 @@ Partial Public Class PriceListsMI
             If Not ePLItems.PLItemID = 0 Then
                 PriceList.LoadPriceListMI(ePLItems)
                 txtName.Text = ePLItems.PLItemName
-                hfCancel.Value = txtName.Text
+                hfCancel.Value = txtName.Text.Trim
                 Dim datevalue As Date = ePLItems.DatePL
                 txtDate.Text = datevalue.Date
                 If ePLItems.RegionId IsNot Nothing Then
@@ -88,8 +88,8 @@ Partial Public Class PriceListsMI
                 ePLItems.PLItemName = ""
                 txtName.Text = ""
             End If
-            txtName.Attributes.Add("Nametag", txtName.Text)
-            txtDate.Attributes.Add("Datetag", txtDate.Text)
+            txtName.Attributes.Add("Nametag", txtName.Text.Trim)
+            txtDate.Attributes.Add("Datetag", txtDate.Text.Trim)
             ddlDistrict.Attributes.Add("Districttag", Val(ddlDistrict.SelectedValue))
             ddlRegion.Attributes.Add("RegionTag", Val(ddlRegion.SelectedValue))
         Catch ex As Exception
@@ -154,8 +154,8 @@ Partial Public Class PriceListsMI
         Dim dNewValue As Decimal?
         Dim dOldValue As Decimal?
 
-        If Not CType(gvMedicalItems.Rows(RowIndex).Cells(5).Controls(3), TextBox).Text = "" Then
-            dNewValue = CType(gvMedicalItems.Rows(RowIndex).Cells(5).Controls(3), TextBox).Text
+        If Not CType(gvMedicalItems.Rows(RowIndex).Cells(5).Controls(3), TextBox).Text.Trim = "" Then
+            dNewValue = CType(gvMedicalItems.Rows(RowIndex).Cells(5).Controls(3), TextBox).Text.Trim
             'Else
             '    dNewValue = 0
         End If
@@ -185,7 +185,7 @@ Partial Public Class PriceListsMI
 
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
         Dim chk As Integer = 1
-        ePLItems.PLItemName = txtName.Text
+        ePLItems.PLItemName = txtName.Text.Trim
         If Request.QueryString("Action") = "duplicate" Then
             ePLItems.PLItemID = 0
         End If
@@ -196,11 +196,11 @@ Partial Public Class PriceListsMI
 
                 Dim Pricedate As Date
 
-                If Not String.IsNullOrEmpty(txtDate.Text) Then
-                    If Not IsDate(FormatDateTime(txtDate.Text, DateFormat.GeneralDate)) Then
+                If Not String.IsNullOrEmpty(txtDate.Text.Trim) Then
+                    If Not IsDate(FormatDateTime(txtDate.Text.Trim, DateFormat.GeneralDate)) Then
                         Return
                     Else
-                        Pricedate = FormatDateTime(txtDate.Text, DateFormat.GeneralDate)
+                        Pricedate = FormatDateTime(txtDate.Text.Trim, DateFormat.GeneralDate)
                     End If
                 Else
                     imisgen.Alert(imisgen.getMessage("M_INVALIDDATE"), pnlButtons, alertPopupTitle:="IMIS")
@@ -223,6 +223,16 @@ Partial Public Class PriceListsMI
                 ePLItems.DatePL = Pricedate
 
                 ePLItems.tblLocations = eLocations
+
+                ' Check if the pricelist is used in any HF before modifying (only the location)
+                Dim usedHFs As String = PriceList.GetHFsByPriceListItem(ePLItems.PLItemID, LocationId)
+
+                If usedHFs.ToString <> "" Then
+                    imisgen.Alert(imisgen.getMessage("T_REMOVEHOSPITALS") & "<br><hr><br>" & usedHFs, pnlButtons, alertPopupTitle:="IMIS")
+                    Return
+                End If
+
+
                 chk = PriceList.SavePriceListMI(ePLItems)
 
                 If chk = 0 Then
@@ -251,8 +261,8 @@ Partial Public Class PriceListsMI
                     'insert and update grid here
                     Dim eItemDetails As New IMIS_EN.tblPLItemsDetail
                     Dim Item As New IMIS_EN.tblItems
-                    If Not gvMedicalItems.DataKeys.Item(r.RowIndex).Values("PriceOverule") Is DBNull.Value Or Not CType(gvMedicalItems.Rows(r.RowIndex).Cells(5).Controls(3), TextBox).Text = "" Then
-                        eItemDetails.PriceOverule = CType(gvMedicalItems.Rows(r.RowIndex).Cells(5).Controls(3), TextBox).Text
+                    If Not gvMedicalItems.DataKeys.Item(r.RowIndex).Values("PriceOverule") Is DBNull.Value Or Not CType(gvMedicalItems.Rows(r.RowIndex).Cells(5).Controls(3), TextBox).Text.Trim = "" Then
+                        eItemDetails.PriceOverule = CType(gvMedicalItems.Rows(r.RowIndex).Cells(5).Controls(3), TextBox).Text.Trim
                     End If
                     Item.ItemID = gvMedicalItems.DataKeys.Item(r.RowIndex).Values("ItemID")
                     If action > 0 Then
@@ -290,8 +300,8 @@ Partial Public Class PriceListsMI
     End Sub
 
     Private Function checkOrgValues() As Boolean
-        If txtName.Attributes.Item("Nametag") <> txtName.Text Then
-        ElseIf txtDate.Attributes.Item("datetag") <> txtDate.Text Then
+        If txtName.Attributes.Item("Nametag") <> txtName.Text.Trim Then
+        ElseIf txtDate.Attributes.Item("datetag") <> txtDate.Text.Trim Then
         ElseIf ddlDistrict.Attributes.Item("Districttag") <> ddlDistrict.SelectedValue Then
         ElseIf ddlRegion.Attributes.Item("RegionTag") <> ddlRegion.SelectedValue Then
         Else

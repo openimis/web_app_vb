@@ -125,8 +125,8 @@ Partial Public Class FindProfile
         End Try
     End Sub
     Private Sub getGridData()
-        eRole.RoleName = txtRolename.Text
-        eRole.AltLanguage = txtRolename.Text
+        eRole.RoleName = txtRolename.Text.Trim
+        eRole.AltLanguage = txtRolename.Text.Trim
         If ddlBlocked.SelectedIndex > 0 Then
             If ddlBlocked.SelectedValue = "True" Then
                 eRole.IsBlocked = 1
@@ -150,7 +150,7 @@ Partial Public Class FindProfile
             eRole.LegacyID = 1
         End If
 
-        Dim dtRole As DataTable = BIFindRole.GetRoles(eRole)
+        Dim dtRole As DataTable = BIFindRole.GetRoles(eRole, imisGen.getUserId(Session("User")))
         Dim sindex As Integer = 0
         Dim dv As DataView = dtRole.DefaultView
         If Not IsPostBack = True Then

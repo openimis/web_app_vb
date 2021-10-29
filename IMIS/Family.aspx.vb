@@ -139,6 +139,11 @@ Public Class Family
         trProfession.Visible = Not (Adjustibility = "N")
         rfProfession.Enabled = (Adjustibility = "M")
 
+        'Vulnerability
+        Adjustibility = General.getControlSetting("Vulnerability")
+        trVulnerability.Visible = Not (Adjustibility = "N")
+        rfVulnerability.Enabled = (Adjustibility = "M")
+
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -159,7 +164,7 @@ Public Class Family
             ddlRegion.DataValueField = "RegionId"
             ddlRegion.DataTextField = "RegionName"
             ddlRegion.DataBind()
-            If dtRegions.Rows.Count = 1 Then
+            If dtRegions.Rows.Count = 1 Or ddlRegion.SelectedValue > 0 Then
                 FillDistricts()
             End If
             ddlGender.DataSource = Family.GetGender
@@ -243,6 +248,10 @@ Public Class Family
                 FillCurrentDistricts()
             End If
 
+            ddlVulnerability.DataSource = Family.GetYesNO
+            ddlVulnerability.DataValueField = "Code"
+            ddlVulnerability.DataTextField = "Status"
+            ddlVulnerability.DataBind()
 
             If Not eFamily.FamilyID = 0 Then
                 Family.LoadFamily(eFamily)
@@ -302,6 +311,8 @@ Public Class Family
                     btnBrowse.Enabled = False
                     Panel1.Enabled = False
                 End If
+
+                ddlVulnerability.SelectedValue = If(eInsuree.Vulnerability = True, "1", "0")
             End If
             FillImageDL()
             Session("ParentUrl") = "FindFamily.aspx"
@@ -314,7 +325,7 @@ Public Class Family
 
 
     Private Sub FillFSPDistricts()
-        ddlFSPDistrict.DataSource = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), ddlFSPRegion.SelectedValue, True)
+        ddlFSPDistrict.DataSource = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), ddlFSPRegion.SelectedValue, False)
         ddlFSPDistrict.DataValueField = "DistrictId"
         ddlFSPDistrict.DataTextField = "DistrictName"
         ddlFSPDistrict.DataBind()
@@ -325,7 +336,7 @@ Public Class Family
         ddlDistrict.DataValueField = "DistrictId"
         ddlDistrict.DataTextField = "DistrictName"
         ddlDistrict.DataBind()
-        If dtDistricts.Rows.Count = 1 Then
+        If dtDistricts.Rows.Count = 1 Or ddlDistrict.SelectedValue > 0 Then
             GetWards()
         End If
     End Sub
@@ -378,8 +389,7 @@ Public Class Family
 
     End Sub
     Private Sub getVillages(Optional ByVal Wards As Integer = 1)
-        If ddlWard.SelectedIndex < 0 Then Exit Sub
-        If Wards > 0 And Not ddlWard.SelectedValue = 0 Then
+        If Wards > 0 AndAlso Not Val(ddlWard.SelectedValue) = 0 Then
             ddlVillage.DataSource = Family.GetVillages(ddlWard.SelectedValue, True)
             ddlVillage.DataValueField = "VillageId"
             ddlVillage.DataTextField = "VillageName"
@@ -451,8 +461,8 @@ Public Class Family
             '    birthdate = Date.ParseExact(txtBirthDate.Text, "dd/MM/yyyy", Nothing)
             'End If
 
-            If Not Family.CheckCHFID(txtCHFID.Text) = True Then
-                imisgen.Alert(txtCHFID.Text & imisgen.getMessage("M_NOTVALIDCHFNUMBER"), pnlButtons, alertPopupTitle:="IMIS")
+            If Not Family.CheckCHFID(txtCHFID.Text.Trim) = True Then
+                imisgen.Alert(txtCHFID.Text.Trim & imisgen.getMessage("M_NOTVALIDCHFNUMBER"), pnlButtons, alertPopupTitle:="IMIS")
                 Return
             End If
 
@@ -464,7 +474,7 @@ Public Class Family
             '    msg = imisgen.getMessage("M_CHFNUMBERFEWCHARACTERS")
 
             'Else
-            If Family.FamilyExists(txtCHFID.Text) Then
+            If Family.FamilyExists(txtCHFID.Text.Trim) Then
                 msg = imisgen.getMessage("M_CHFNUMBERMEMBEREXISTS")
 
             End If
@@ -488,12 +498,12 @@ Public Class Family
             If ddlConfirmationType.SelectedValue.Length > 0 Then eFamily.ConfirmationType = ddlConfirmationType.SelectedValue
             If ddlEthnicity.SelectedValue.Length > 0 Then eFamily.Ethnicity = ddlEthnicity.SelectedValue
             eInsuree.CHFID = txtCHFID.Text.Trim
-            eInsuree.LastName = txtLastName.Text
-            eInsuree.OtherNames = txtOtherNames.Text
+            eInsuree.LastName = txtLastName.Text.Trim
+            eInsuree.OtherNames = txtOtherNames.Text.Trim
 
             ' If Trim(txtBirthDate.Text).Length > 0 Then
             ' If IsDate(txtBirthDate.Text) Then
-            eInsuree.DOB = Date.ParseExact(txtBirthDate.Text, "dd/MM/yyyy", Nothing)
+            eInsuree.DOB = Date.ParseExact(txtBirthDate.Text.Trim, "dd/MM/yyyy", Nothing)
             'Else
             '  lblMsg.Text = "Invalid Date Format"
             '  Return
@@ -503,9 +513,9 @@ Public Class Family
             eInsuree.Gender = ddlGender.SelectedValue
             If ddlMarital.SelectedValue <> "" Then eInsuree.Marital = ddlMarital.SelectedValue
             If ddlCardIssued.SelectedValue.Length > 0 Then eInsuree.CardIssued = ddlCardIssued.SelectedValue
-            eInsuree.passport = txtPassport.Text
-            eInsuree.Phone = txtPhone.Text
-            eInsuree.Email = txtEmail.Text
+            eInsuree.passport = txtPassport.Text.Trim
+            eInsuree.Phone = txtPhone.Text.Trim
+            eInsuree.Email = txtEmail.Text.Trim
             If ddlProfession.SelectedValue > 0 Then
                 eInsuree.Profession = ddlProfession.SelectedValue
             End If
@@ -519,8 +529,8 @@ Public Class Family
             ePhotos.PhotoFolder = IMIS_EN.AppConfiguration.UpdatedFolder
 
             If ddlType.SelectedValue <> "" Then eFamily.FamilyType = ddlType.SelectedValue
-            eFamily.FamilyAddress = txtAddress.Text
-            eFamily.ConfirmationNo = txtConfirmationNo.Text
+            eFamily.FamilyAddress = txtAddress.Text.Trim
+            eFamily.ConfirmationNo = txtConfirmationNo.Text.Trim
 
             Dim ImageName As String = Mid(Image1.ImageUrl, Image1.ImageUrl.LastIndexOf("\") + 2, Image1.ImageUrl.Length)
 
@@ -553,7 +563,7 @@ Public Class Family
             End If
             eInsuree.tblHF = eHF
 
-            eInsuree.CurrentAddress = txtCurrentAddress.Text
+            eInsuree.CurrentAddress = txtCurrentAddress.Text.Trim
             If ddlCurDistrict.SelectedIndex > 0 Then eInsuree.CurDistrict = ddlCurDistrict.SelectedValue
             If ddlCurVDC.SelectedValue.Length > 0 Then eInsuree.CurWard = ddlCurVDC.SelectedValue
             If ddlCurWard.SelectedValue.Length > 0 Then eInsuree.CurrentVillage = ddlCurWard.SelectedValue
@@ -562,6 +572,8 @@ Public Class Family
                 eInsuree.GeoLocation = Family.ExtractLatitude(ImageName) & " " & Family.ExtractLongitude(ImageName)
             End If
             'Addition for Nepal >> End
+
+            If ddlVulnerability.SelectedValue <> "" Then eInsuree.Vulnerability = ddlVulnerability.SelectedValue
 
             eFamily.AuditUserID = dt.Rows(0)("UserID")
             eFamily.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
@@ -610,7 +622,7 @@ Public Class Family
         Try
             eInsuree.CHFID = txtCHFID.Text.Trim
             eInsuree.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
-            If Family.CheckCHFID(txtCHFID.Text) = True Then
+            If Family.CheckCHFID(txtCHFID.Text.Trim) = True Then
                 FetchNewImage()
                 FillImageDL()
             End If

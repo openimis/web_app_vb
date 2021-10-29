@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class MedicalItem
-    
+
     '''<summary>
     '''Panel2 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Panel2 As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''L_Code control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Code As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtCode control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCode As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldCode control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldCode As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''L_Name control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Name As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtName control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtName As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldValidatorName control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidatorName As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''L_Type control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Type As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''rbDrug control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbDrug As Global.System.Web.UI.WebControls.RadioButton
-    
+
     '''<summary>
     '''rbMedicalConsumable control.
     '''</summary>
@@ -102,7 +102,34 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbMedicalConsumable As Global.System.Web.UI.WebControls.RadioButton
-    
+
+    '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtQuantity control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtQuantity As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfQuantity control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfQuantity As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
     '''<summary>
     '''L_Package control.
     '''</summary>
@@ -111,7 +138,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Package As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtPackage control.
     '''</summary>
@@ -120,7 +147,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPackage As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldValidatorPackage control.
     '''</summary>
@@ -129,7 +156,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidatorPackage As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''L_Price control.
     '''</summary>
@@ -138,7 +165,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Price As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtPrice control.
     '''</summary>
@@ -147,7 +174,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPrice As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''CompareValidator1 control.
     '''</summary>
@@ -156,7 +183,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator1 As Global.System.Web.UI.WebControls.CompareValidator
-    
+
     '''<summary>
     '''RequiredFieldValidator1 control.
     '''</summary>
@@ -165,7 +192,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''L_CareType control.
     '''</summary>
@@ -174,7 +201,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_CareType As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''rbOutPatient control.
     '''</summary>
@@ -183,7 +210,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbOutPatient As Global.System.Web.UI.WebControls.RadioButton
-    
+
     '''<summary>
     '''rbInPatient control.
     '''</summary>
@@ -192,7 +219,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbInPatient As Global.System.Web.UI.WebControls.RadioButton
-    
+
     '''<summary>
     '''rbBoth control.
     '''</summary>
@@ -201,7 +228,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbBoth As Global.System.Web.UI.WebControls.RadioButton
-    
+
     '''<summary>
     '''L_Frequency control.
     '''</summary>
@@ -210,7 +237,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Frequency As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtFrequency control.
     '''</summary>
@@ -219,7 +246,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtFrequency As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''CompareValidator2 control.
     '''</summary>
@@ -228,7 +255,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator2 As Global.System.Web.UI.WebControls.CompareValidator
-    
+
     '''<summary>
     '''L_Patient control.
     '''</summary>
@@ -237,7 +264,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents L_Patient As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''chkMan control.
     '''</summary>
@@ -246,7 +273,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkMan As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''chkWoman control.
     '''</summary>
@@ -255,7 +282,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkWoman As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''chkAdult control.
     '''</summary>
@@ -264,7 +291,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkAdult As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''chkChild control.
     '''</summary>
@@ -273,7 +300,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkChild As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''pnlButtons control.
     '''</summary>
@@ -282,7 +309,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlButtons As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''B_SAVE control.
     '''</summary>
@@ -291,7 +318,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_SAVE As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''B_CANCEL control.
     '''</summary>
@@ -300,7 +327,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents B_CANCEL As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''lblMsg control.
     '''</summary>
@@ -309,7 +336,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMsg As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''validationSummary control.
     '''</summary>
@@ -318,7 +345,7 @@ Partial Public Class MedicalItem
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents validationSummary As Global.System.Web.UI.WebControls.ValidationSummary
-    
+
     '''<summary>
     '''hfMI control.
     '''</summary>

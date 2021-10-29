@@ -51,6 +51,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.DynamicData" />
@@ -96,6 +97,7 @@
     <Compile Include="ClaimFeedbackBI.vb" />
     <Compile Include="ClaimOverviewBI.vb" />
     <Compile Include="ClaimReviewBI.vb" />
+    <Compile Include="ModularBatchProcess.vb" />
     <Compile Include="EmailSettingsBI.vb" />
     <Compile Include="EnterNewPasswordBI.vb" />
     <Compile Include="FamilyBI.vb" />

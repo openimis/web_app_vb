@@ -379,34 +379,32 @@ Public Partial Class ClaimOverview
                 eClaim.FeedbackStatus = ddlFBStatus.SelectedValue
                 eClaim.ReviewStatus = ddlReviewStatus.SelectedValue
                 eClaim.ClaimStatus = ddlClaimStatus.SelectedValue
-                eICDCodes.ICDID = IIf(hfICDID.Value = "", 0, eICDCodes.ICDID)
+                eICDCodes.ICDID = IIf(hfICDID.Value = "", 0, hfICDID.Value)
                 If Not ddlBatchRun.SelectedValue = "" Then
                     eBatchRun.RunID = ddlBatchRun.SelectedValue
                 End If
 
-                If Not txtClaimCode.Text = "" Then
-                    eClaim.ClaimCode = txtClaimCode.Text
+                If Not txtClaimCode.Text.Trim = "" Then
+                    eClaim.ClaimCode = txtClaimCode.Text.Trim
                 End If
-                If Not txtCHFID.Text = "" Then
-                    eInsuree.CHFID = txtCHFID.Text
+                If Not txtCHFID.Text.Trim = "" Then
+                    eInsuree.CHFID = txtCHFID.Text.Trim
                 End If
-                If Not txtClaimTo.Text = "" Then
-                    eClaim.DateTo = Date.Parse(txtClaimTo.Text)
+                If Not txtClaimTo.Text.Trim = "" Then
+                    eClaim.DateTo = Date.Parse(txtClaimTo.Text.Trim)
                 End If
 
-                If Not txtClaimFrom.Text = "" Then
-
-                    eClaim.DateFrom = Date.Parse(txtClaimFrom.Text)
-
+                If Not txtClaimFrom.Text.Trim = "" Then
+                    eClaim.DateFrom = Date.Parse(txtClaimFrom.Text.Trim)
                 End If
-                If Not txtClaimedDateFrom.Text = "" Then
-                    eClaim.DateClaimed = Date.Parse(txtClaimedDateFrom.Text)
+                If Not txtClaimedDateFrom.Text.Trim = "" Then
+                    eClaim.DateClaimed = Date.Parse(txtClaimedDateFrom.Text.Trim)
                 End If
-                If Not txtHFName.Text = "" Then
-                    eHF.HFName = txtHFName.Text
+                If Not txtHFName.Text.Trim = "" Then
+                    eHF.HFName = txtHFName.Text.Trim
                 End If
-                If Not txtClaimedDateTo.Text = "" Then
-                    eClaim.DateProcessed = Date.Parse(txtClaimedDateTo.Text) 'Used as a carrier for ClaimedDate to range 
+                If Not txtClaimedDateTo.Text.Trim = "" Then
+                    eClaim.DateProcessed = Date.Parse(txtClaimedDateTo.Text.Trim) 'Used as a carrier for ClaimedDate to range 
                 End If
                 If ddlClaimAdmin.SelectedIndex > -1 Then
                     eClaimAdmin.ClaimAdminId = ddlClaimAdmin.SelectedValue
@@ -473,18 +471,18 @@ Public Partial Class ClaimOverview
         Dim dic As New Dictionary(Of String, String)
         dic.Add("LocationId", ddlDistrict.SelectedValue)
         dic.Add("HFID", ddlHFCode.SelectedValue)
-        dic.Add("CHFNo", txtCHFID.Text)
-        dic.Add("ClaimCode", txtClaimCode.Text)
-        dic.Add("HFName", txtHFName.Text)
+        dic.Add("CHFNo", txtCHFID.Text.Trim)
+        dic.Add("ClaimCode", txtClaimCode.Text.Trim)
+        dic.Add("HFName", txtHFName.Text.Trim)
         dic.Add("ReviewStatus", ddlReviewStatus.SelectedValue)
         dic.Add("FeedbackStatus", ddlFBStatus.SelectedValue)
         dic.Add("ClaimStatus", ddlClaimStatus.SelectedValue)
-        dic.Add("ICDID", txtICDCode.Text)
+        dic.Add("ICDID", txtICDCode.Text.Trim)
         dic.Add("BatchRun", ddlBatchRun.SelectedValue)
-        dic.Add("VisitDateFrom", If(txtClaimFrom.Text = "", "", txtClaimFrom.Text))
-        dic.Add("VisitDateTo", If(txtClaimTo.Text = "", "", txtClaimTo.Text))
-        dic.Add("ClaimedDateFrom", If(txtClaimedDateFrom.Text = "", "", txtClaimedDateFrom.Text))
-        dic.Add("ClaimedDateTo", If(txtClaimedDateTo.Text = "", "", txtClaimedDateTo.Text))
+        dic.Add("VisitDateFrom", If(txtClaimFrom.Text.Trim = "", "", txtClaimFrom.Text.Trim))
+        dic.Add("VisitDateTo", If(txtClaimTo.Text.Trim = "", "", txtClaimTo.Text.Trim))
+        dic.Add("ClaimedDateFrom", If(txtClaimedDateFrom.Text.Trim = "", "", txtClaimedDateFrom.Text.Trim))
+        dic.Add("ClaimedDateTo", If(txtClaimedDateTo.Text.Trim = "", "", txtClaimedDateTo.Text.Trim))
         dic.Add("ClaimAdminID", ddlClaimAdmin.SelectedValue)
         dic.Add("VisitType", ddlVisitType.SelectedValue)
         Session("ClaimOverviewCriteria") = dic
@@ -637,16 +635,16 @@ Public Partial Class ClaimOverview
     End Function
     Private Function getValue() As Decimal
         If chkValue.Checked = True Then
-            Return If(txtValue.Text = "", 0, txtValue.Text)
+            Return If(txtValue.Text.Trim = "", 0, txtValue.Text.Trim)
         Else
             Return 0
         End If
     End Function
     Private Function GetSelectionValue() As Decimal
         If chkRandom.Checked Then
-            Return If(txtRandom.Text = "", 100, txtRandom.Text)
+            Return If(txtRandom.Text.Trim = "", 100, txtRandom.Text.Trim)
         ElseIf chkVariance.Checked Then
-            Return If(txtVariance.Text = "", 0, txtVariance.Text)
+            Return If(txtVariance.Text.Trim = "", 0, txtVariance.Text.Trim)
         Else
             Return 0
         End If

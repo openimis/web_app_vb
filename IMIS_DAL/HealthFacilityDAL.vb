@@ -250,26 +250,26 @@ Public Class HealthFacilityDAL
         data.params("@HFID", SqlDbType.Int, eHF.HfID)
         Dim dr As DataRow = data.Filldata()(0)
         If Not dr Is Nothing Then
-            eHF.HFName = dr("HFName")
-            eHF.LegalForm = dr("LegalForm")
-            eHF.HFLevel = dr("HFLevel")
-            eHF.HFSublevel = dr("HFSublevel").ToString
-            eHF.HFCode = dr("HFCode")
-            eHF.HFAddress = dr("HFAddress")
-            eHF.RegionId = dr("RegionId")
+            eHF.HFName = IIf(dr("HFName") Is DBNull.Value, Nothing, dr("HFName"))
+            eHF.LegalForm = IIf(dr("LegalForm") Is DBNull.Value, Nothing, dr("LegalForm"))
+            eHF.HFLevel = IIf(dr("HFLevel") Is DBNull.Value, Nothing, dr("HFLevel"))
+            eHF.HFSublevel = IIf(dr("HFSublevel") Is DBNull.Value, Nothing, dr("HFSublevel").ToString)
+            eHF.HFCode = IIf(dr("HFCode") Is DBNull.Value, Nothing, dr("HFCode"))
+            eHF.HFAddress = IIf(dr("HFAddress") Is DBNull.Value, Nothing, dr("HFAddress"))
+            eHF.RegionId = IIf(dr("RegionId") Is DBNull.Value, Nothing, dr("RegionId"))
             eLocations.LocationId = dr("DistrictId")
             eHF.tblLocations = eLocations
-            eHF.Phone = dr("Phone")
-            eHF.Fax = dr("Fax")
-            eHF.eMail = dr("eMail")
-            eHF.HFCareType = dr("HFCareType")
+            eHF.Phone = IIf(dr("Phone") Is DBNull.Value, Nothing, dr("Phone"))
+            eHF.Fax = IIf(dr("Fax") Is DBNull.Value, Nothing, dr("Fax"))
+            eHF.eMail = IIf(dr("eMail") Is DBNull.Value, Nothing, dr("eMail"))
+            eHF.HFCareType = IIf(dr("HFCareType") Is DBNull.Value, Nothing, dr("HFCareType"))
             ePLService.PLServiceID = dr("PLServiceID")
             eHF.tblPLServices = ePLService
             ePLItem.PLItemID = dr("PLItemID")
             eHF.AccCode = dr("AccCode")
             eHF.tblPLItems = ePLItem
 
-            eHF.ValidityTo = if(dr("ValidityTo").ToString = String.Empty, Nothing, dr("ValidityTo"))
+            eHF.ValidityTo = IIf(dr("ValidityTo") Is DBNull.Value Or dr("ValidityTo").ToString = String.Empty, Nothing, dr("ValidityTo"))
         End If
 
     End Sub
@@ -410,4 +410,55 @@ Public Class HealthFacilityDAL
 
         Return data.Filldata
     End Function
+
+    Public Function GetHFsByPriceListService(PLServiceId As Integer, NewLocationId As Integer) As String
+        Dim sSQL As String = "SELECT STRING_AGG(QUOTENAME(CONCAT(HFCode, '-', HFName), '['), ', ')HFs
+                                FROM tblHF HF
+                                INNER JOIN tblPLServices PLS ON HF.PLServiceID = PLS.PLServiceID
+                                WHERE PLS.PLServiceId  = @PLServiceId
+                                AND PLS.LocationId <> @LocationId
+                                AND PLS.ValidityTO IS NULL
+                                AND HF.ValidityTo IS NULL;"
+
+        Dim data As New ExactSQL
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PLServiceId", SqlDbType.Int, PLServiceId)
+        data.params("@LocationId", SqlDbType.Int, NewLocationId)
+
+        Dim dt As DataTable = data.Filldata
+
+        If dt.Rows.Count > 0 AndAlso dt.Rows(0)("HFs") IsNot DBNull.Value Then
+            Return dt.Rows(0)("HFs").ToString
+        End If
+
+        Return ""
+
+    End Function
+
+    Public Function GetHFsByPriceListItem(PLItemId As Integer, NewLocationId As Integer) As String
+        Dim sSQL As String = "SELECT STRING_AGG(QUOTENAME(CONCAT(HFCode, '-', HFName), '['), ', ')HFs
+                                FROM tblHF HF
+                                INNER JOIN tblPLItems PLI ON HF.PLItemID = PLI.PLItemID
+                                WHERE PLI.PLItemID = @PLItemId
+                                AND PLI.LocationId <> @LocationId
+                                AND PLI.ValidityTO IS NULL
+                                AND HF.ValidityTo IS NULL;"
+
+        Dim data As New ExactSQL
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@PLItemId", SqlDbType.Int, PLItemId)
+        data.params("@LocationId", SqlDbType.Int, NewLocationId)
+
+        Dim dt As DataTable = data.Filldata
+
+        If dt.Rows.Count > 0 AndAlso dt.Rows(0)("HFs") IsNot DBNull.Value Then
+            Return dt.Rows(0)("HFs").ToString
+        End If
+
+        Return ""
+
+    End Function
+
 End Class

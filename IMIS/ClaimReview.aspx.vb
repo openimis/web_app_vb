@@ -292,7 +292,7 @@ Partial Public Class ClaimReview
                 eClaim.ReviewStatus = 8
             End If
 
-            If Not txtADJUSTMENTData.Attributes("InitialAdjust") = txtADJUSTMENTData.Text Then
+            If Not txtADJUSTMENTData.Attributes("InitialAdjust") = txtADJUSTMENTData.Text.Trim Then
                 AdjustFalg = True
             Else
                 If Not hfClaimedValue.Value = hfApprovedValue.Value Then
@@ -306,7 +306,7 @@ Partial Public Class ClaimReview
                     eClaim.Approved = hfApprovedValue.Value
                 End If
                 'eClaim.DateProcessed = Today
-                eClaim.Adjustment = IIf(txtADJUSTMENTData.Text Is Nothing, "", txtADJUSTMENTData.Text)
+                eClaim.Adjustment = IIf(txtADJUSTMENTData.Text.Trim Is Nothing, "", txtADJUSTMENTData.Text.Trim)
 
                 eClaim.AuditUserID = imisgen.getUserId(Session("User"))
                 chkSaveClmReview = claim.SaveClaimReview(eClaim)
@@ -320,24 +320,24 @@ Partial Public Class ClaimReview
                     Else
                         eClaimReviewItem.RejectionReason = 0
                     End If
-                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("QtyApproved").ToString = CType(gvItems.Rows(row.rowindex).Cells(4).Controls(1), TextBox).Text Then
-                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("PriceApproved").ToString = CType(gvItems.Rows(row.rowindex).Cells(5).Controls(1), TextBox).Text Then
-                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("Justification").ToString = CType(gvItems.Rows(row.rowindex).Cells(6).Controls(1), TextBox).Text Then
+                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("QtyApproved").ToString = CType(gvItems.Rows(row.rowindex).Cells(4).Controls(1), TextBox).Text.Trim Then
+                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("PriceApproved").ToString = CType(gvItems.Rows(row.rowindex).Cells(5).Controls(1), TextBox).Text.Trim Then
+                ElseIf Not gvItems.DataKeys.Item(row.RowIndex).Values("Justification").ToString = CType(gvItems.Rows(row.rowindex).Cells(6).Controls(1), TextBox).Text.Trim Then
                 Else
                     Continue For
                 End If
 
-                If Not CType(row.Cells(4).Controls(1), TextBox).Text = "" Then
-                    eClaimReviewItem.QtyApproved = CDec(CType(row.Cells(4).Controls(1), TextBox).Text)
+                If Not CType(row.Cells(4).Controls(1), TextBox).Text.Trim = "" Then
+                    eClaimReviewItem.QtyApproved = CDec(CType(row.Cells(4).Controls(1), TextBox).Text.Trim)
                 End If
-                If Not CType(row.Cells(5).Controls(1), TextBox).Text = "" Then
-                    eClaimReviewItem.PriceApproved = CDec(CType(row.Cells(5).Controls(1), TextBox).Text)
+                If Not CType(row.Cells(5).Controls(1), TextBox).Text.Trim = "" Then
+                    eClaimReviewItem.PriceApproved = CDec(CType(row.Cells(5).Controls(1), TextBox).Text.Trim)
                 End If
                 eClaimReviewItem.ClaimItemStatus = CType(gvItems.Rows(row.rowindex).Cells(7).Controls(1), DropDownList).SelectedValue
-                eClaimReviewItem.Justification = CType(row.Cells(6).Controls(1), TextBox).Text
+                eClaimReviewItem.Justification = CType(row.Cells(6).Controls(1), TextBox).Text.Trim
                 eClaimReviewItem.AuditUserID = imisgen.getUserId(Session("User"))
                 eClaimReviewItem.ClaimItemID = gvItems.DataKeys.Item(row.RowIndex).Values("ClaimItemID")
-                eClaimReviewItem.ClaimItemStatus = CType(gvItems.Rows(row.RowIndex).Cells(7).Controls(1), DropDownList).Text
+                eClaimReviewItem.ClaimItemStatus = CType(gvItems.Rows(row.RowIndex).Cells(7).Controls(1), DropDownList).Text.Trim
                 'If eClaimReviewItem.RejectionReason Is Nothing Then
                 '    Return "Exit"
                 'End If
@@ -355,24 +355,24 @@ Partial Public Class ClaimReview
                     Else
                         eClaimReviewServices.RejectionReason = 0
                     End If
-                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("QtyApproved").ToString = CType(gvService.Rows(row.rowindex).Cells(4).Controls(1), TextBox).Text Then
-                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("PriceApproved").ToString = CType(gvService.Rows(row.rowindex).Cells(5).Controls(1), TextBox).Text Then
-                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("Justification").ToString = CType(gvService.Rows(row.rowindex).Cells(6).Controls(1), TextBox).Text Then
+                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("QtyApproved").ToString.Trim = CType(gvService.Rows(row.rowindex).Cells(4).Controls(1), TextBox).Text.Trim Then
+                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("PriceApproved").ToString.Trim = CType(gvService.Rows(row.rowindex).Cells(5).Controls(1), TextBox).Text.Trim Then
+                ElseIf Not gvService.DataKeys.Item(row.RowIndex).Values("Justification").ToString.Trim = CType(gvService.Rows(row.rowindex).Cells(6).Controls(1), TextBox).Text.Trim Then
 
                 Else
                     Continue For
                 End If
-                If Not CType(row.Cells(4).Controls(1), TextBox).Text = "" Then
-                    eClaimReviewServices.QtyApproved = CDec(CType(row.Cells(4).Controls(1), TextBox).Text)
+                If Not CType(row.Cells(4).Controls(1), TextBox).Text.Trim = "" Then
+                    eClaimReviewServices.QtyApproved = CDec(CType(row.Cells(4).Controls(1), TextBox).Text.Trim)
                 End If
-                If Not CType(row.Cells(5).Controls(1), TextBox).Text = "" Then
-                    eClaimReviewServices.PriceApproved = CDec(CType(row.Cells(5).Controls(1), TextBox).Text)
+                If Not CType(row.Cells(5).Controls(1), TextBox).Text.Trim = "" Then
+                    eClaimReviewServices.PriceApproved = CDec(CType(row.Cells(5).Controls(1), TextBox).Text.Trim)
                 End If
                 eClaimReviewServices.ClaimServiceStatus = CType(gvService.Rows(row.rowindex).Cells(7).Controls(1), DropDownList).SelectedValue
-                eClaimReviewServices.Justification = CType(row.Cells(6).Controls(1), TextBox).Text
+                eClaimReviewServices.Justification = CType(row.Cells(6).Controls(1), TextBox).Text.Trim
                 eClaimReviewServices.AuditUserID = eClaimReviewItem.AuditUserID
                 eClaimReviewServices.ClaimServiceID = gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceID")
-                eClaimReviewServices.ClaimServiceStatus = CType(gvService.Rows(row.RowIndex).Cells(7).Controls(1), DropDownList).Text
+                eClaimReviewServices.ClaimServiceStatus = CType(gvService.Rows(row.RowIndex).Cells(7).Controls(1), DropDownList).Text.Trim
                 'If eClaimReviewServices.RejectionReason Is Nothing Then
                 '    Return "Exit"
                 'End If

@@ -36,20 +36,21 @@ Public Class MedicalItemsDAL
             eItems.ItemCode = dr("ItemCode")
             eItems.ItemName = dr("ItemName")
             eItems.ItemType = dr("ItemType")
+            eItems.Quantity = IIf(dr("Quantity") Is DBNull.Value, 0, dr("Quantity"))
             eItems.ItemPackage = dr("ItemPackage")
             eItems.ItemPrice = dr("ItemPrice")
             eItems.ItemCareType = dr("ItemCareType")
             eItems.ItemFrequency = dr("ItemFrequency")
             eItems.ItemPatCat = dr("ItemPatCat")
 
-            eItems.ValidityTo = if(dr("ValidityTo").ToString = String.Empty, Nothing, dr("ValidityTo"))
+            eItems.ValidityTo = If(dr("ValidityTo").ToString = String.Empty, Nothing, dr("ValidityTo"))
         End If
 
     End Sub
     Public Sub DeleteMedicalItems(ByRef eItems As IMIS_EN.tblItems)
         Dim data As New ExactSQL
-        data.setSQLCommand("INSERT INTO tblItems ([ItemCode],[ItemName],[ItemType],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID])" _
-      & " select [ItemCode],[ItemName],[ItemType],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],getdate(),@ItemID,[AuditUserID] from tblItems where ItemID = @ItemID;" _
+        data.setSQLCommand("INSERT INTO tblItems ([ItemCode],[ItemName],[ItemType],[Quantity],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID])" _
+      & " select [ItemCode],[ItemName],[ItemType],[Quantity],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],getdate(),@ItemID,[AuditUserID] from tblItems where ItemID = @ItemID;" _
       & "UPDATE [tblItems] SET [ValidityFrom] = GetDate(),[ValidityTo] = GetDate(),[AuditUserID] = @AuditUserID  WHERE ItemID = @ItemID", CommandType.Text)
         data.params("@ItemID", SqlDbType.Int, eItems.ItemID)
         data.params("@AuditUserID", SqlDbType.Int, eItems.AuditUserID)
@@ -74,14 +75,15 @@ Public Class MedicalItemsDAL
    
     Public Sub InsertMedicalItems(ByRef eItems As IMIS_EN.tblItems)
         Dim data As New ExactSQL
-        Dim sSQL As String = "INSERT INTO tblItems(ItemCode,ItemName,ItemType,ItemPackage,ItemPrice,ItemCareType,ItemFrequency,ItemPatCat,AuditUserID)" & _
-            " VALUES(@ItemCode,@ItemName,@ItemType,@ItemPackage,@ItemPrice,@ItemCareType,@ItemFrequency,@ItemPatCat,@AuditUserID)"
+        Dim sSQL As String = "INSERT INTO tblItems(ItemCode,ItemName,ItemType,ItemPackage, Quantity,ItemPrice,ItemCareType,ItemFrequency,ItemPatCat,AuditUserID)" &
+            " VALUES(@ItemCode,@ItemName,@ItemType,@ItemPackage, @Quantity,@ItemPrice,@ItemCareType,@ItemFrequency,@ItemPatCat,@AuditUserID)"
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@ItemCode", SqlDbType.NVarChar, 25, eItems.ItemCode)
         data.params("@ItemName", SqlDbType.NVarChar, 100, eItems.ItemName)
         data.params("@itemType", SqlDbType.NVarChar, 1, eItems.ItemType)
         data.params("@ItemPackage", SqlDbType.NVarChar, 255, eItems.ItemPackage)
-        data.params("@ItemPrice", SqlDbType.Int, eItems.ItemPrice)
+        data.params("@Quantity", SqlDbType.Decimal, eItems.Quantity)
+        data.params("@ItemPrice", SqlDbType.Decimal, eItems.ItemPrice)
         data.params("@ItemCareType", SqlDbType.Char, 1, eItems.ItemCareType)
         data.params("@ItemFrequency", SqlDbType.SmallInt, eItems.ItemFrequency)
         data.params("@ItemPatCat", SqlDbType.TinyInt, eItems.ItemPatCat)
@@ -90,14 +92,15 @@ Public Class MedicalItemsDAL
     End Sub
     Public Sub UpdateMedicalItems(ByRef eItems As IMIS_EN.tblItems)
         Dim data As New ExactSQL
-        data.setSQLCommand("INSERT INTO tblItems ([ItemCode],[ItemName],[ItemType],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID])" _
-      & " select [ItemCode],[ItemName],[ItemType],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],getdate(),@ItemID,[AuditUserID] from tblItems where ItemID = @ItemID;" _
-      & "UPDATE [tblItems] SET [ItemCode] = @ItemCode,[ItemName] = @ItemName,[ItemType] = @ItemType,[ItemPackage] = @ItemPackage,[ItemPrice] = @ItemPrice,[ItemCareType] = @ItemCareType,[ItemFrequency] = @ItemFrequency, [ItemPatCat] = @ItemPatCat" _
+        data.setSQLCommand("INSERT INTO tblItems ([ItemCode],[ItemName],[ItemType],[Quantity],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID])" _
+      & " select [ItemCode],[ItemName],[ItemType],[Quantity],[ItemPackage],[ItemPrice],[ItemCareType],[ItemFrequency],[ItemPatCat],[ValidityFrom],getdate(),@ItemID,[AuditUserID] from tblItems where ItemID = @ItemID;" _
+      & "UPDATE [tblItems] SET [ItemCode] = @ItemCode,[ItemName] = @ItemName,[ItemType] = @ItemType,[ItemPackage] = @ItemPackage, [Quantity] = @Quantity, [ItemPrice] = @ItemPrice,[ItemCareType] = @ItemCareType,[ItemFrequency] = @ItemFrequency, [ItemPatCat] = @ItemPatCat" _
       & ",[ValidityFrom] = GetDate(),[LegacyID] = @LegacyID,[AuditUserID] = @AuditUserID  WHERE ItemID = @ItemID", CommandType.Text)
         data.params("@ItemID", SqlDbType.Int, eItems.ItemID)
         data.params("@ItemCode", SqlDbType.NVarChar, 25, eItems.ItemCode)
         data.params("@ItemName", SqlDbType.NVarChar, 100, eItems.ItemName)
         data.params("@ItemType", SqlDbType.Char, 1, eItems.ItemType)
+        data.params("@Quantity", SqlDbType.Decimal, eItems.Quantity)
         data.params("@ItemPackage", SqlDbType.NVarChar, 255, eItems.ItemPackage)
         data.params("@ItemPrice", SqlDbType.Decimal, eItems.ItemPrice)
         data.params("@ItemCareType", SqlDbType.Char, 1, eItems.ItemCareType)

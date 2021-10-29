@@ -63,4 +63,11 @@ Public Class PricelistMSBI
         Dim PLService As New IMIS_BL.PricelistMSBL
         Return PLService.GetPLServiceIdByUUID(uuid)
     End Function
+
+
+    Public Function GetHFsByPriceListService(PLServiceId As Integer, NewLocationId As Integer) As String
+        Dim BL As New IMIS_BL.HealthFacilityBL
+        Return BL.GetHFsByPriceListService(PLServiceId, NewLocationId)
+    End Function
+
 End Class

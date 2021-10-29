@@ -248,9 +248,9 @@ Partial Public Class Policy
     End Sub
 
     Public Sub getPolicyValue(ByVal sender As Object, ByVal e As EventArgs) Handles txtEnrollmentDate.TextChanged, ddlProduct.SelectedIndexChanged
-        If IsDate(txtEnrollmentDate.Text) Then
+        If IsDate(txtEnrollmentDate.Text.Trim) Then
 
-            Dim dEnrolDate As Date = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
+            Dim dEnrolDate As Date = Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing)
 
             'OTC-183: Renewing of a policy on a previous date is not possible'
             'eProduct was = 0 before that change and that is why the insurance product'
@@ -274,7 +274,7 @@ Partial Public Class Policy
             '    'End If
             'End If
 
-            ePolicy.EnrollDate = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
+            ePolicy.EnrollDate = Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing)
 
             Dim PreviousPolicyId As Integer = 0
 
@@ -344,7 +344,7 @@ Partial Public Class Policy
                 End If
 
                 dt = Policy.GetPeriodForPolicy(eProduct.ProdID, dEnrolDate, HasCycle, hfPolicyStage.Value)
-                If (dt.Rows.Count > 0 And HasCycle = True) Or (Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing) <= dt(0)("StartDate") And hfPolicyStage.Value = "N") Then
+                If (dt.Rows.Count > 0 And HasCycle = True) Or (Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing) <= dt(0)("StartDate") And hfPolicyStage.Value = "N") Then
                     If IsDate(dt(0)("StartDate")) Then
                         txtStartDate.Text = dt(0)("StartDate")
                     End If
@@ -363,8 +363,8 @@ Partial Public Class Policy
                 Else
                     Dim dStartDate As Date
                     If hfPolicyStage.Value = "N" Then
-                        txtStartDate.Text = txtEnrollmentDate.Text
-                        dStartDate = Date.ParseExact(txtStartDate.Text, "dd/MM/yyyy", Nothing)
+                        txtStartDate.Text = txtEnrollmentDate.Text.Trim
+                        dStartDate = Date.ParseExact(txtStartDate.Text.Trim, "dd/MM/yyyy", Nothing)
                         txtExpiryDate.Text = DateAdd(DateInterval.Day, -1, DateAdd(DateInterval.Month, CDbl(hfInsurancePeriod.Value), dStartDate))
                     Else
 
@@ -394,7 +394,7 @@ Partial Public Class Policy
 
     Private Sub FillOfficers()
         Dim EnrolmentDate As Date?
-        If IsDate(txtEnrollmentDate.Text) Then EnrolmentDate = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
+        If IsDate(txtEnrollmentDate.Text.Trim) Then EnrolmentDate = Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing)
         ddlEnrolementOfficer.DataSource = Policy.GetOfficers(hfDistrictID.Value, True, hfLocationId.Value, EnrolmentDate)
         ddlEnrolementOfficer.DataValueField = "OfficerID"
         ddlEnrolementOfficer.DataTextField = "Code"
@@ -405,7 +405,7 @@ Partial Public Class Policy
         Dim dt As New DataTable
         Dim EnrollDate As Date?
         If IsDate(txtEnrollmentDate.Text.Trim) Then
-            EnrollDate = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
+            EnrollDate = Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
         dt = Policy.GetProducts(imisgen.getUserId(Session("User")), True, hfRegionId.Value, hfDistrictID.Value, EnrollDate)
         ddlProduct.DataSource = dt
@@ -436,11 +436,11 @@ Partial Public Class Policy
                 efamily.FamilyID = hfFamilyID.Value
                 efamily.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
                 'ePolicy.PolicyID = Request.QueryString("p")
-                ePolicy.EnrollDate = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
+                ePolicy.EnrollDate = Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing)
                 If Not ePolicy.PolicyID = 0 Then
 
-                    If IsDate(txtEffectiveDate.Text) Then
-                        ePolicy.EffectiveDate = Date.ParseExact(txtEffectiveDate.Text, "dd/MM/yyyy", Nothing)
+                    If IsDate(txtEffectiveDate.Text.Trim) Then
+                        ePolicy.EffectiveDate = Date.ParseExact(txtEffectiveDate.Text.Trim, "dd/MM/yyyy", Nothing)
                         'ePolicy.ExpiryDate = Date.ParseExact(txtExpiryDate.Text, "dd/MM/yyyy", Nothing)
                     End If
 
@@ -450,13 +450,13 @@ Partial Public Class Policy
 
                 End If
                 'Addition for Nepal >> Start
-                If IsDate(txtEffectiveDate.Text) Then
-                    ePolicy.EffectiveDate = Date.ParseExact(txtEffectiveDate.Text, "dd/MM/yyyy", Nothing)
+                If IsDate(txtEffectiveDate.Text.Trim) Then
+                    ePolicy.EffectiveDate = Date.ParseExact(txtEffectiveDate.Text.Trim, "dd/MM/yyyy", Nothing)
                 End If
                 'Addition for Nepal >> End
-                ePolicy.ExpiryDate = Date.ParseExact(txtExpiryDate.Text, "dd/MM/yyyy", Nothing)
+                ePolicy.ExpiryDate = Date.ParseExact(txtExpiryDate.Text.Trim, "dd/MM/yyyy", Nothing)
                 ePolicy.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
-                ePolicy.StartDate = Date.ParseExact(txtStartDate.Text, "dd/MM/yyyy", Nothing)
+                ePolicy.StartDate = Date.ParseExact(txtStartDate.Text.Trim, "dd/MM/yyyy", Nothing)
 
                 Dim dtchk As Integer = DateCheck()
                 If dtchk = 1 Then
@@ -515,7 +515,7 @@ Partial Public Class Policy
 
                 If IsNumeric(rpo) Then
                     If hfIsRenewalLate.Value = 1 Then
-                        Dim chk1 As Boolean = Policy.IsRenewalLate(rpo, Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing))
+                        Dim chk1 As Boolean = Policy.IsRenewalLate(rpo, Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing))
                         If chk1 = True Then
                             Dim Msg As String = imisgen.getMessage("M_LATEPOLICYRENEWAL", True)
                             imisgen.Confirm(Msg, pnlButtons, "promptPolicyRenewal", "", AcceptButtonText:=imisgen.getMessage("L_YES", True), RejectButtonText:=imisgen.getMessage("L_NO", True))
@@ -575,17 +575,17 @@ Partial Public Class Policy
     End Sub
 
     Private Sub txtStartDate_TextChanged(sender As Object, e As EventArgs) Handles txtStartDate.TextChanged
-         Dim EnStart As Date = txtStartDate.Text
+        Dim EnStart As Date = txtStartDate.Text.Trim
         Dim ExDate As Date = DateAdd(DateInterval.Day, -1, DateAdd(DateInterval.Month, Val(hfInsurancePeriod.Value), EnStart))
         txtExpiryDate.Text = ExDate
     End Sub
     Private Sub SetProductForRenewal()
         Dim EnrollDate As Date
         Dim eProd As New IMIS_EN.tblProduct
-        If IsDate(txtEnrollmentDate.Text) = False Then
+        If IsDate(txtEnrollmentDate.Text.Trim) = False Then
             EnrollDate = "1900-01-01"
         Else
-            EnrollDate = Date.ParseExact(txtEnrollmentDate.Text, "dd/MM/yyyy", Nothing)
+            EnrollDate = Date.ParseExact(txtEnrollmentDate.Text.Trim, "dd/MM/yyyy", Nothing)
         End If
 
         eProd = Policy.GetProductForRenewal(CInt(eProduct.ProdID), EnrollDate)

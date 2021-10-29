@@ -141,12 +141,12 @@ Partial Public Class FindProduct
             'eLocations.LocationId = If(Val(ddlDistrict.SelectedValue) = 0, Nothing, Val(ddlDistrict.SelectedValue))
             'End If
             EpRODUCTS.tblLocation = eLocations
-            EpRODUCTS.ProductCode = txtProductCode.Text
-            EpRODUCTS.ProductName = txtProductName.Text
+            EpRODUCTS.ProductCode = txtProductCode.Text.Trim
+            EpRODUCTS.ProductName = txtProductName.Text.Trim
             EpRODUCTS.AuditUserID = imisgen.getUserId(Session("User"))
-            If Len(Trim(txtDateFrom.Text)) > 0 AndAlso txtDateFrom.Text <> "__/__/____" Then EpRODUCTS.DateFrom = Date.Parse(txtDateFrom.Text)
+            If Len(txtDateFrom.Text.Trim) > 0 AndAlso txtDateFrom.Text.Trim <> "__/__/____" Then EpRODUCTS.DateFrom = Date.Parse(txtDateFrom.Text.Trim)
 
-            If Len(Trim(txtDateTo.Text)) > 0 AndAlso txtDateTo.Text <> "__/__/____" Then EpRODUCTS.DateTo = Date.Parse(txtDateTo.Text)
+            If Len(txtDateTo.Text.Trim) > 0 AndAlso txtDateTo.Text.Trim <> "__/__/____" Then EpRODUCTS.DateTo = Date.Parse(txtDateTo.Text.Trim)
             getGridData()
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")

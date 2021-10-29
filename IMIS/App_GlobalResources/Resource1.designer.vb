@@ -1982,7 +1982,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Derived Indicators Report.
+        '''  Looks up a localized string similar to Product - Derived Indicators Report.
         '''</summary>
         Friend Shared ReadOnly Property L_DERIVEDINDICATORSREPORT() As String
             Get
@@ -5510,7 +5510,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators-claims.
+        '''  Looks up a localized string similar to Claims - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property L_PRIMARYOPERATIONALINDICATORS_CLAIMS() As String
             Get
@@ -5519,7 +5519,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators-policies.
+        '''  Looks up a localized string similar to Policies - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property L_PRIMARYOPERATIONALINDICATORS_POLICIES() As String
             Get
@@ -5983,6 +5983,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_REJECTEDCLAIMS() As String
             Get
                 Return ResourceManager.GetString("L_REJECTEDCLAIMS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Rejection reason.
+        '''</summary>
+        Friend Shared ReadOnly Property L_REJECTEDREASON() As String
+            Get
+                Return ResourceManager.GetString("L_REJECTEDREASON", resourceCulture)
             End Get
         End Property
         
@@ -6896,6 +6905,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Upload Feedbacks.
+        '''</summary>
+        Friend Shared ReadOnly Property L_UPLOADFEEDBACKS() As String
+            Get
+                Return ResourceManager.GetString("L_UPLOADFEEDBACKS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Upload Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADHEALTHFACILITIES() As String
@@ -6941,6 +6959,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Upload Renewals.
+        '''</summary>
+        Friend Shared ReadOnly Property L_UPLOADRENEWALS() As String
+            Get
+                Return ResourceManager.GetString("L_UPLOADRENEWALS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to User Name.
         '''</summary>
         Friend Shared ReadOnly Property L_USERNAME() As String
@@ -6950,7 +6977,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Profiles.
+        '''  Looks up a localized string similar to User Roles.
         '''</summary>
         Friend Shared ReadOnly Property L_USERPROFILES() As String
             Get
@@ -7090,6 +7117,15 @@ Namespace Resources
         Friend Shared ReadOnly Property L_VISITTYPE() As String
             Get
                 Return ResourceManager.GetString("L_VISITTYPE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Vulnerability.
+        '''</summary>
+        Friend Shared ReadOnly Property L_VULNERABILITY() As String
+            Get
+                Return ResourceManager.GetString("L_VULNERABILITY", resourceCulture)
             End Get
         End Property
         
@@ -7373,6 +7409,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Batch not selected.
+        '''</summary>
+        Friend Shared ReadOnly Property M_BATCH_RUN_NOT_SELECTED() As String
+            Get
+                Return ResourceManager.GetString("M_BATCH_RUN_NOT_SELECTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to already belongs to.
         '''</summary>
         Friend Shared ReadOnly Property M_BELONGSTO() As String
@@ -7423,6 +7468,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_CANNOTPASSSERVICEREJECTED() As String
             Get
                 Return ResourceManager.GetString("M_CANNOTPASSSERVICEREJECTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Batch run for given location and period was not executed.
+        '''</summary>
+        Friend Shared ReadOnly Property M_CAPITATION_PAYMENT_NO_BATCH_RUN() As String
+            Get
+                Return ResourceManager.GetString("M_CAPITATION_PAYMENT_NO_BATCH_RUN", resourceCulture)
             End Get
         End Property
         
@@ -8075,7 +8129,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Code specified in Ward does not exists in Either Database or District Excel.
+        '''  Looks up a localized string similar to District Code specified in Municipality does not exists in Either Database or District Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_DISTRICTCODENOTEXISTSINEXCELORDB() As String
             Get
@@ -9335,7 +9389,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Wardcode in Village Excel does not exist in Either Database or Ward Excel.
+        '''  Looks up a localized string similar to WardCode in Village Excel does not exist in Either Database or Municipality Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_MUNICIPALITYCODENOTEXISTSINEXCELORDB() As String
             Get
@@ -10357,6 +10411,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_REGIONSAVED() As String
             Get
                 Return ResourceManager.GetString("M_REGIONSAVED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Region not selected.
+        '''</summary>
+        Friend Shared ReadOnly Property M_REGION_NOT_SELECTED() As String
+            Get
+                Return ResourceManager.GetString("M_REGION_NOT_SELECTED", resourceCulture)
             End Get
         End Property
         
@@ -11513,7 +11576,16 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Capitation Payment.
+        '''  Looks up a localized string similar to Capitation.
+        '''</summary>
+        Friend Shared ReadOnly Property R_CAPITATION() As String
+            Get
+                Return ResourceManager.GetString("R_CAPITATION", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Product - Capitation Payment.
         '''</summary>
         Friend Shared ReadOnly Property R_CAPITATIONPAYMENT() As String
             Get
@@ -11576,7 +11648,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim History Report.
+        '''  Looks up a localized string similar to Claims - History Report.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMHISTORYREPORT() As String
             Get
@@ -11585,7 +11657,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Overview.
+        '''  Looks up a localized string similar to Claims - Overview.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMOVERVIEW() As String
             Get
@@ -11666,7 +11738,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Collection.
+        '''  Looks up a localized string similar to Contributions - Collection.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTRIBUTIONCOLLECTION() As String
             Get
@@ -11675,7 +11747,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Distribution.
+        '''  Looks up a localized string similar to Contributions -  Distribution.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTRIBUTIONDISTRIBUTION() As String
             Get
@@ -11684,7 +11756,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Payment.
+        '''  Looks up a localized string similar to Contributions - Payment.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTRIBUTIONPAYMENT() As String
             Get
@@ -11693,7 +11765,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Control Number Assignment.
+        '''  Looks up a localized string similar to Payments - Control Number Assignment.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTROLNUMBERASSIGNMENT() As String
             Get
@@ -11720,7 +11792,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Derived Operational Indicators.
+        '''  Looks up a localized string similar to Product - Derived Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_DERIVEDOPERATIONALI() As String
             Get
@@ -11819,7 +11891,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrollment Performance Indicators.
+        '''  Looks up a localized string similar to Insurees - Enrolments Performance Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_ENROLMENTPERFORMANCEI() As String
             Get
@@ -11873,7 +11945,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Families and insurees Overview.
+        '''  Looks up a localized string similar to Insurees - Overview with Families.
         '''</summary>
         Friend Shared ReadOnly Property R_FAMILIESANDINSUREESOVERVIEW() As String
             Get
@@ -11999,7 +12071,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees without Photos.
+        '''  Looks up a localized string similar to Insurees - Missing Photos.
         '''</summary>
         Friend Shared ReadOnly Property R_INSUREESWITHOUTPHOTOS() As String
             Get
@@ -12098,7 +12170,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matching Funds.
+        '''  Looks up a localized string similar to Contributions - Matching Funds.
         '''</summary>
         Friend Shared ReadOnly Property R_MATCHINGFUNDS() As String
             Get
@@ -12188,7 +12260,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overview Of Commissions.
+        '''  Looks up a localized string similar to Contributions - Overview Of Commissions.
         '''</summary>
         Friend Shared ReadOnly Property R_OVERVIEWOFCOMMISSIONS() As String
             Get
@@ -12215,7 +12287,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Category Overview.
+        '''  Looks up a localized string similar to Payments - Category Overview.
         '''</summary>
         Friend Shared ReadOnly Property R_PAYMENTCATEGORYOVERVIEW() As String
             Get
@@ -12224,7 +12296,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pending Insurees.
+        '''  Looks up a localized string similar to Insurees - Pending enrolment.
         '''</summary>
         Friend Shared ReadOnly Property R_PENDINGINSUREES() As String
             Get
@@ -12233,7 +12305,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Percentage of Referrals.
+        '''  Looks up a localized string similar to Policies - Percentage of Referrals.
         '''</summary>
         Friend Shared ReadOnly Property R_PERCENTAGEOFREFERRALS() As String
             Get
@@ -12332,7 +12404,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators-claims.
+        '''  Looks up a localized string similar to Claims - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_PRIMARYOPERATIONALIC() As String
             Get
@@ -12341,7 +12413,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators-policies.
+        '''  Looks up a localized string similar to Policies - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_PRIMARYOPERATIONALIP() As String
             Get
@@ -12377,7 +12449,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product Sales.
+        '''  Looks up a localized string similar to Products - Sales.
         '''</summary>
         Friend Shared ReadOnly Property R_PRODUCTSALES() As String
             Get
@@ -12404,7 +12476,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected Photos.
+        '''  Looks up a localized string similar to Insuree - Rejected Photos.
         '''</summary>
         Friend Shared ReadOnly Property R_REJECTEDPHOTOS() As String
             Get
@@ -12431,7 +12503,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewals.
+        '''  Looks up a localized string similar to Policies - Renewals.
         '''</summary>
         Friend Shared ReadOnly Property R_RENEWALS() As String
             Get
@@ -12521,7 +12593,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Status of Registers.
+        '''  Looks up a localized string similar to Admin - Status of Registers.
         '''</summary>
         Friend Shared ReadOnly Property R_STATUSOFREGISTERS() As String
             Get
@@ -12683,7 +12755,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Activity Report.
+        '''  Looks up a localized string similar to Admin - User Activity Report.
         '''</summary>
         Friend Shared ReadOnly Property R_USERACTIVITYREPORT() As String
             Get
@@ -12692,7 +12764,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Profiles.
+        '''  Looks up a localized string similar to User Roles.
         '''</summary>
         Friend Shared ReadOnly Property R_USERPROFILES() As String
             Get
@@ -13783,11 +13855,38 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Overview of Commissions (Detailed).
+        '''</summary>
+        Friend Shared ReadOnly Property T_OVERVIEWOFCOMMISSIONS_D() As String
+            Get
+                Return ResourceManager.GetString("T_OVERVIEWOFCOMMISSIONS_D", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Overview of Commissions (Overview).
+        '''</summary>
+        Friend Shared ReadOnly Property T_OVERVIEWOFCOMMISSIONS_O() As String
+            Get
+                Return ResourceManager.GetString("T_OVERVIEWOFCOMMISSIONS_O", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Passed.
         '''</summary>
         Friend Shared ReadOnly Property T_PASSED() As String
             Get
                 Return ResourceManager.GetString("T_PASSED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to cancelled.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCANCELLED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCANCELLED", resourceCulture)
             End Get
         End Property
         
@@ -13801,11 +13900,56 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Ctr No. Received.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCNNUMBERRECEIVED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCNNUMBERRECEIVED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ctr No. Requested.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCNUMBERREQUESTED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCNUMBERREQUESTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Created.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTCREATED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTCREATED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Matched.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTMATCHED() As String
             Get
                 Return ResourceManager.GetString("T_PAYMENTMATCHED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pay. Received.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTRECEIVED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTRECEIVED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pay. Reconciliated.
+        '''</summary>
+        Friend Shared ReadOnly Property T_PAYMENTRECONCILIATED() As String
+            Get
+                Return ResourceManager.GetString("T_PAYMENTRECONCILIATED", resourceCulture)
             End Get
         End Property
         
@@ -13927,7 +14071,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators-claims.
+        '''  Looks up a localized string similar to Claims - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIMARYOPERATIONALINDICATORS_CLAIMS() As String
             Get
@@ -13936,7 +14080,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators-policies.
+        '''  Looks up a localized string similar to Policies - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIMARYOPERATIONALINDICATORS_POLICIES() As String
             Get
@@ -14112,6 +14256,15 @@ Namespace Resources
         Friend Shared ReadOnly Property T_REJECTEDPOSTED() As String
             Get
                 Return ResourceManager.GetString("T_REJECTEDPOSTED", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Please remove the pricelist from the following hospitals before changing the location:.
+        '''</summary>
+        Friend Shared ReadOnly Property T_REMOVEHOSPITALS() As String
+            Get
+                Return ResourceManager.GetString("T_REMOVEHOSPITALS", resourceCulture)
             End Get
         End Property
         

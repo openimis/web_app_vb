@@ -144,9 +144,9 @@ Partial Public Class FindPriceListMS
             eLocations.DistrictID = DistrictId
 
             ePL.tblLocations = eLocations
-            ePL.PLServName = txtName.Text
+            ePL.PLServName = txtName.Text.Trim
             ePL.AuditUserID = imisGen.getUserId(Session("User"))
-            If Len(Trim(txtDate.Text)) > 0 Then ePL.DatePL = Date.Parse(txtDate.Text)
+            If Len(txtDate.Text.Trim) > 0 Then ePL.DatePL = Date.Parse(txtDate.Text.Trim)
             getGridData()
         Catch ex As Exception
             'lblMsg.Text = ex.Message

@@ -103,8 +103,8 @@ Partial Public Class FindMedicalService
     Private Sub loadGrid() Handles B_SEARCH.Click, chkLegacy.CheckedChanged, gvService.PageIndexChanged
         Try
             lblMsg.Text = ""
-            eService.ServCode = txtServiceCode.Text
-            eService.ServName = txtServiceName.Text
+            eService.ServCode = txtServiceCode.Text.Trim
+            eService.ServName = txtServiceName.Text.Trim
             eService.ServType = ddlType.SelectedValue
 
             getGridData()

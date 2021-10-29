@@ -135,7 +135,7 @@ Partial Public Class OverviewFamily
                 dt = load.GetPremiumsByPolicy(gvPolicies.SelectedDataKey.Values("PolicyID"))
                 loadGrid(gvPremiums, dt)
                 If gvPolicies.SelectedIndex >= 0 Then
-                    hfPolicyValue.Value = gvPolicies.Rows(gvPolicies.SelectedIndex).Cells(7).Text
+                    hfPolicyValue.Value = gvPolicies.Rows(gvPolicies.SelectedIndex).Cells(7).Text.Trim
                 End If
             Else
                 gvPremiums.DataSource = New DataTable()
@@ -494,7 +494,7 @@ Partial Public Class OverviewFamily
                     dt = load.GetPremiumsByPolicy(gvPolicies.SelectedDataKey.Values("PolicyID"))
                     loadGrid(gvPremiums, dt)
                     If gvPolicies.SelectedIndex >= 0 Then
-                        hfPolicyValue.Value = gvPolicies.Rows(gvPolicies.SelectedIndex).Cells(7).Text
+                        hfPolicyValue.Value = gvPolicies.Rows(gvPolicies.SelectedIndex).Cells(7).Text.Trim
                     End If
                 Else
                     gvPremiums.DataSource = New DataTable()
@@ -522,7 +522,7 @@ Partial Public Class OverviewFamily
         gvPremiums.DataBind()
         DisableEmptyGridEditDeleteButtons(gvPremiums)
         If gvPolicies.SelectedIndex >= 0 Then
-            hfPolicyValue.Value = gvPolicies.Rows(gvPolicies.SelectedIndex).Cells(7).Text
+            hfPolicyValue.Value = gvPolicies.Rows(gvPolicies.SelectedIndex).Cells(7).Text.Trim
         End If
     End Sub
     Private Sub AddFamily_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles AddFamily.Click

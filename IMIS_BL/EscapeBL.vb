@@ -31,7 +31,7 @@ Imports System.Web
 Imports System.Web.Services
 Imports Newtonsoft.Json
 Imports IMIS_DAL
-
+Imports System.Data.SQLite
 
 Public Class EscapeBL
     Public Function isValidInsuranceNumber(ByVal InsuranceNumber As String) As Boolean
@@ -193,5 +193,35 @@ Public Class EscapeBL
             End If
         Next
         Return True
+    End Function
+
+    Public Function ImageToBlob(ByVal id As String, ByVal filePath As String) As SQLiteParameter
+        Dim fullFilePath As String = HttpContext.Current.Server.MapPath(filePath)
+        Dim SQLParam As SQLiteParameter
+
+        If Not File.Exists(fullFilePath) Then
+            SQLParam = New SQLiteParameter(id, Nothing) With {
+                .DbType = DbType.Binary,
+                .Value = Nothing
+            }
+
+            Return SQLParam
+        End If
+
+        Dim fs As FileStream = New FileStream(HttpContext.Current.Server.MapPath(filePath), FileMode.Open, FileAccess.Read)
+        Dim br As BinaryReader = New BinaryReader(fs)
+        Dim bm() As Byte = br.ReadBytes(fs.Length)
+
+        br.Close()
+        fs.Close()
+
+        Dim Photo() As Byte = bm
+        SQLParam = New SQLiteParameter(id, Photo) With {
+            .DbType = DbType.Binary,
+            .Value = Photo
+        }
+
+        Return SQLParam
+
     End Function
 End Class

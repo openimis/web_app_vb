@@ -27,9 +27,9 @@
 '
 
 Public Class FindProfileBI
-    Public Function GetRoles(erole As IMIS_EN.tblRole) As DataTable
+    Public Function GetRoles(erole As IMIS_EN.tblRole, userId As Integer) As DataTable
         Dim RoleBL As New IMIS_BL.RoleBL
-        Return RoleBL.GetRoles(erole)
+        Return RoleBL.GetRoles(erole, userId)
     End Function
     Public Function DeleteRole(ByVal eRole As IMIS_EN.tblRole) As Boolean
         Dim Role As New IMIS_BL.RoleBL
