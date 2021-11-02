@@ -3368,6 +3368,8 @@ Partial Public Class ds
         
         Private columnPhoneNumber As Global.System.Data.DataColumn
         
+        Private columnCommission As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -3660,6 +3662,14 @@ Partial Public Class ds
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CommissionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCommission
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3723,9 +3733,10 @@ Partial Public Class ds
                     ByVal WardName As String,  _
                     ByVal PolicyStage As String,  _
                     ByVal TransactionNo As String,  _
-                    ByVal PhoneNumber As String) As uspSSRSOverviewOfCommissionsRow
+                    ByVal PhoneNumber As String,  _
+                    ByVal Commission As Decimal) As uspSSRSOverviewOfCommissionsRow
             Dim rowuspSSRSOverviewOfCommissionsRow As uspSSRSOverviewOfCommissionsRow = CType(Me.NewRow,uspSSRSOverviewOfCommissionsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ProductCode, Nothing, ProductName, Product, Nothing, Nothing, DistrictName, Nothing, CHFID, InsName, Officer, DOB, IsHead, EnrollDate, ReportMode, Month, Paydate, Receipt, Amount, PrescribedContribution, ActualPayment, PayerName, PaymentDate, CommissionRate, PaymentAmount, OfficerCode, VillageName, WardName, PolicyStage, TransactionNo, PhoneNumber}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ProductCode, Nothing, ProductName, Product, Nothing, Nothing, DistrictName, Nothing, CHFID, InsName, Officer, DOB, IsHead, EnrollDate, ReportMode, Month, Paydate, Receipt, Amount, PrescribedContribution, ActualPayment, PayerName, PaymentDate, CommissionRate, PaymentAmount, OfficerCode, VillageName, WardName, PolicyStage, TransactionNo, PhoneNumber, Commission}
             rowuspSSRSOverviewOfCommissionsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowuspSSRSOverviewOfCommissionsRow)
             Return rowuspSSRSOverviewOfCommissionsRow
@@ -3786,6 +3797,7 @@ Partial Public Class ds
             Me.columnPolicyStage = MyBase.Columns("PolicyStage")
             Me.columnTransactionNo = MyBase.Columns("TransactionNo")
             Me.columnPhoneNumber = MyBase.Columns("PhoneNumber")
+            Me.columnCommission = MyBase.Columns("Commission")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3855,6 +3867,8 @@ Partial Public Class ds
             MyBase.Columns.Add(Me.columnTransactionNo)
             Me.columnPhoneNumber = New Global.System.Data.DataColumn("PhoneNumber", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPhoneNumber)
+            Me.columnCommission = New Global.System.Data.DataColumn("Commission", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCommission)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnPremiumId, Me.columnProdID, Me.columnPolicyID, Me.columnOfficerID}, true))
             Me.columnPremiumId.AutoIncrement = true
             Me.columnPremiumId.AutoIncrementSeed = -1
@@ -3911,6 +3925,7 @@ Partial Public Class ds
             Me.columnPolicyStage.MaxLength = 1
             Me.columnTransactionNo.MaxLength = 50
             Me.columnPhoneNumber.MaxLength = 50
+            Me.columnCommission.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7167,6 +7182,22 @@ Partial Public Class ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Commission() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableuspSSRSOverviewOfCommissions.CommissionColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Commission' in table 'uspSSRSOverviewOfCommissions' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableuspSSRSOverviewOfCommissions.CommissionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsProductNull() As Boolean
             Return Me.IsNull(Me.tableuspSSRSOverviewOfCommissions.ProductColumn)
         End Function
@@ -7403,6 +7434,18 @@ Partial Public Class ds
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetPhoneNumberNull()
             Me(Me.tableuspSSRSOverviewOfCommissions.PhoneNumberColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCommissionNull() As Boolean
+            Return Me.IsNull(Me.tableuspSSRSOverviewOfCommissions.CommissionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCommissionNull()
+            Me(Me.tableuspSSRSOverviewOfCommissions.CommissionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -9411,6 +9454,7 @@ Namespace dsTableAdapters
             tableMapping.ColumnMappings.Add("PolicyStage", "PolicyStage")
             tableMapping.ColumnMappings.Add("TransactionNo", "TransactionNo")
             tableMapping.ColumnMappings.Add("PhoneNumber", "PhoneNumber")
+            tableMapping.ColumnMappings.Add("Commission", "Commission")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
