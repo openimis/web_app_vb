@@ -11,12 +11,12 @@ function EndRequestHandler(sender, args) {
 }
 
 function createSelect2() {
-    $("select:not(.noSelect2)").select2({
-        dropdownAutoWidth: true
-    });
+    //$("select:not(.noSelect2)").select2({
+    //    dropdownAutoWidth: true
+    //});
 
-    // This is for calendar control
-    $('.dateCheck').parent().css("position", "relative")
+    //// This is for calendar control
+    //$('.dateCheck').parent().css("position", "relative")
 }
 
 $(document).ready(function() { bindAlphaNumber(); });
