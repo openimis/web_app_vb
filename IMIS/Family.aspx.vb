@@ -325,7 +325,7 @@ Public Class Family
 
 
     Private Sub FillFSPDistricts()
-        ddlFSPDistrict.DataSource = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), ddlFSPRegion.SelectedValue, False)
+        ddlFSPDistrict.DataSource = Family.GetDistrictsAll(imisgen.getUserId(Session("User")), ddlFSPRegion.SelectedValue, True)
         ddlFSPDistrict.DataValueField = "DistrictId"
         ddlFSPDistrict.DataTextField = "DistrictName"
         ddlFSPDistrict.DataBind()
