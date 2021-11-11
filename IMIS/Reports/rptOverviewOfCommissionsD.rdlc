@@ -212,7 +212,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CHFID</Value>
+                                  <Value>=Parameters!paramInsuranceNumber.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -232,6 +232,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1171,11 +1172,17 @@
       <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="paramInsuranceNumber">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -1191,6 +1198,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>prmMode</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>paramInsuranceNumber</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

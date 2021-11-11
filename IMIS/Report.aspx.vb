@@ -1004,11 +1004,11 @@ Partial Public Class Report
                             ds.Name = "ds_uspSSRSGetOverviewCommissions"
                             Page.Title = imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS_D")
 
-                            Dim Param(2) As ReportParameter
+                            Dim Param(3) As ReportParameter
                             Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
                             Param(1) = New ReportParameter("paramUAMainTitle", imisgen.getMessage("T_OVERVIEWOFCOMMISSIONS_D", False))
                             Param(2) = New ReportParameter("prmMode", IMIS_EN.eReports.Mode)
-
+                            Param(3) = New ReportParameter("paramInsuranceNumber", imisgen.getMessage("L_CHFID", False))
 
                             'Dim Param(28) As ReportParameter
                             'Param(0) = New ReportParameter("paramSubtitle", IMIS_EN.eReports.SubTitle)
