@@ -188,6 +188,11 @@ Public Class PaymentDAL
             End If
 
         End If
+
+        If ePayment.SpReconcReqId.ToString.Length > 0 Then
+            sSQL += " AND PY.SpReconcReqId IS NOT NULL"
+        End If
+
         sSQL += " GROUP BY  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate , PY.ReceivedAmount,PY.ExpectedAmount,  PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo, PY.RejectedReason"
         sSQL += " ORDER BY PaymentID DESC "
         'If ePayment.LocationID IsNot Nothing Then
