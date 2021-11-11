@@ -63,6 +63,8 @@ Public Class tblPayment
     Private _RegionId As Integer
     Private _RejectedReason As String
     Private _DistrictId As Integer
+    Private _SpReconcReqId As String
+    Private _ReconciliationDate As Date
 
     Public Property PaymentID() As Integer
         Get
@@ -350,6 +352,25 @@ Public Class tblPayment
         End Get
         Set(value As String)
             _RejectedReason = value
+        End Set
+    End Property
+
+    Public Property SpReconcReqId() As String
+        Get
+            Return _SpReconcReqId
+        End Get
+        Set(ByVal value As String)
+            _SpReconcReqId = value
+        End Set
+    End Property
+
+
+    Public Property ReconciliationDate() As Date
+        Get
+            Return _ReconciliationDate
+        End Get
+        Set(ByVal value As Date)
+            _ReconciliationDate = value
         End Set
     End Property
 End Class
