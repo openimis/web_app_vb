@@ -111,7 +111,7 @@ Public Class PaymentDAL
         sSQL += "  WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)"
         sSQL += " GROUP BY L.DistrictId, L.Region )"
         sSQL = " SELECT " + UtilitiesDAL.GetEnvMaxRows()
-        sSQL += "  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, PY.RejectedReason, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  
+        sSQL += "  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, PY.RejectedReason, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, PY.ReceivedAmount,  
                  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo    
                 FROM tblPayment PY
                  INNER JOIN tblPaymentDetails PD ON PY.PaymentId = PD.PaymentID
