@@ -1025,7 +1025,7 @@ Public Class GeneralBL
                 dtStatus.Rows.Add(paymentStatus("ControlNumberRequested"), getMessage("T_PAYMENTCNUMBERREQUESTED"))
                 dtStatus.Rows.Add(paymentStatus("ControlNumberReceived"), getMessage("T_PAYMENTCNNUMBERRECEIVED"))
                 dtStatus.Rows.Add(paymentStatus("Received"), getMessage("T_PAYMENTRECEIVED"))
-                dtStatus.Rows.Add(paymentStatus("Reconciliated"), getMessage("T_PAYMENTRECONCILIATED"))
+                dtStatus.Rows.Add(paymentStatus("Reconciliated"), getMessage("T_PAYMENTMATCHED"))
             Else
                 dtStatus.Rows.Add(paymentStatus("FailedControlNumberReceived"), getMessage("T_FAILEDSTATUS"))
                 dtStatus.Rows.Add(paymentStatus("Cancelled"), getMessage("T_PAYMENTCANCELLED"))
@@ -1033,7 +1033,7 @@ Public Class GeneralBL
                 dtStatus.Rows.Add(paymentStatus("ControlNumberRequested"), getMessage("T_PAYMENTCNUMBERREQUESTED"))
                 dtStatus.Rows.Add(paymentStatus("ControlNumberReceived"), getMessage("T_PAYMENTCNNUMBERRECEIVED"))
                 dtStatus.Rows.Add(paymentStatus("Received"), getMessage("T_PAYMENTRECEIVED"))
-                dtStatus.Rows.Add(paymentStatus("Reconciliated"), getMessage("T_PAYMENTRECONCILIATED"))
+                dtStatus.Rows.Add(paymentStatus("Reconciliated"), getMessage("T_PAYMENTMATCHED"))
             End If
 
         Else

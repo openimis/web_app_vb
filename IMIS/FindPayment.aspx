@@ -378,16 +378,18 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         </td>
 
                                          
+                                        <td class="auto-style1">
+                                            <asp:CheckBox ID="chkReconciled" runat="server" Text="<%$ Resources:Resource,T_PAYMENTRECONCILIATED %>"  />
+                                        </td>
+                                        <td class="FormLabel">
+                                            
+                                        </td>
 
-
-
-                                       
-
-                                       
-
-                                        <%-- <td class="FormLabel">
+                                         <caption>
+                                              <%-- <td class="FormLabel">
                                             <asp:Label ID="Label11" runat="server"  Visible="false"></asp:Label>
                                         </td>--%>
+                                         </caption>
 
                                     
 
