@@ -204,7 +204,7 @@ Partial Public Class FindPayment
         ePayment.RegionId = Val(ddlRegion.SelectedValue)
 
         If chkReconciled.Checked Then
-            ePayment.SpReconcReqId = "AnyRendomText"
+            ePayment.SpReconcReqId = "1"
         Else
             ePayment.SpReconcReqId = ""
         End If
