@@ -10865,6 +10865,15 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Please select substitute officer.
+        '''</summary>
+        Friend Shared ReadOnly Property M_SUBSTITUTE() As String
+            Get
+                Return ResourceManager.GetString("M_SUBSTITUTE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to successfully moved to .
         '''</summary>
         Friend Shared ReadOnly Property M_SUCCESSFULLYMOVED() As String
@@ -11239,6 +11248,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_WLDLIKETOPROCESSCLAIMS() As String
             Get
                 Return ResourceManager.GetString("M_WLDLIKETOPROCESSCLAIMS", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Please select works to date.
+        '''</summary>
+        Friend Shared ReadOnly Property M_WORKSTO() As String
+            Get
+                Return ResourceManager.GetString("M_WORKSTO", resourceCulture)
             End Get
         End Property
         
