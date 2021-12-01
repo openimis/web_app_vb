@@ -1474,6 +1474,7 @@ Public Class IMISExtractsBL
                 Dim i As Integer = 0
                 For Each row In dt.Rows
                     R(i) = New Renewal()
+                    R(i).RenewalUUID = row("RenewalUUID")
                     R(i).RenewalId = row("RenewalId")
                     R(i).PolicyId = row("PolicyId")
                     R(i).OfficerId = row("OfficerId")
