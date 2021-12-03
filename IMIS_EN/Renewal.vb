@@ -25,6 +25,7 @@
 
 
 Public Class Renewal
+    Private _RenewalUUID As Guid
     Private _RenewalId As Integer
     Private _PolicyId As Integer
     Private _OfficerId As Integer
@@ -39,7 +40,14 @@ Public Class Renewal
     Private _IMEI As String
     Private _Phone As String
 
-
+    Public Property RenewalUUID() As Guid
+        Get
+            RenewalUUID = _RenewalUUID
+        End Get
+        Set(ByVal value As Guid)
+            _RenewalUUID = value
+        End Set
+    End Property
     Public Property RenewalId() As Integer
         Get
             RenewalId = _RenewalId
