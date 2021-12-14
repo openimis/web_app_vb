@@ -837,7 +837,7 @@ Partial Public Class IMISExtracts
                 Dim WorkFolder As String = HttpContext.Current.Server.MapPath("Workspace\")
                 Dim RandomFolderName As String = Path.GetRandomFileName
                 My.Computer.FileSystem.CreateDirectory(WorkFolder & RandomFolderName)
-                Dim FileName As String = Server.MapPath("Workspace\") & RandomFolderName & "\" & FileUpload1.PostedFile.FileName
+                Dim FileName As String = Server.MapPath("Workspace\") & RandomFolderName & "\" & FileUpload1.FileName
                 FileUpload1.SaveAs(FileName)
                 Extracts.SubmitClaimFromXML(FileName)
                 lblmsg.Text = imisgen.getMessage("M_CLAIMUPLOADED")
@@ -895,7 +895,7 @@ Partial Public Class IMISExtracts
                 lblmsg.Text = imisgen.getMessage("M_EXTR_NOUPLOADLOADFILE")
                 Exit Sub
             End If
-            Dim FileName As String = Server.MapPath("Workspace\") & fuEnrolments.PostedFile.FileName
+            Dim FileName As String = Server.MapPath("Workspace\") & fuEnrolments.FileName
             fuEnrolments.SaveAs(FileName)
             Dim Output As New Dictionary(Of String, Integer)
             Dim ResultType As Integer
