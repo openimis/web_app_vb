@@ -394,8 +394,9 @@ Public Class FamilyDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         Dim dt As New DataTable
-        sSQL = "Select * FROM tblInsuree WHERE CHFID = '" & CHFID & "' AND ValidityTo IS NULL"
+        sSQL = "Select * FROM tblInsuree WHERE CHFID = @chfid AND ValidityTo IS NULL"
         data.setSQLCommand(sSQL, CommandType.Text)
+        data.params("@chfid", SqlDbType.NVarChar, 12, CHFID)
         Return data.Filldata
     End Function
     Public Function CheckCanBeDeleted(ByVal FamilyID As Integer) As DataTable
