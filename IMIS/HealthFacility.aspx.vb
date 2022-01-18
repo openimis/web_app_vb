@@ -84,7 +84,7 @@ Partial Public Class HealthFacility
 
             ddlLegalForm.DataSource = HF.GetHFLegal(True)
             ddlLegalForm.DataValueField = "LegalFormCode"
-            ddlLegalForm.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "LegalForms", "AltLanguage")
+            ddlLegalForm.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "LegalForms", "AltLanguage")
             ddlLegalForm.DataBind()
 
             ddlHFLevel.DataSource = HF.GetHFLevel(True)
@@ -99,7 +99,7 @@ Partial Public Class HealthFacility
 
             ddlSublevel.DataSource = HF.GetSublevel
             ddlSublevel.DataValueField = "HFSublevel"
-            ddlSublevel.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "HFSublevelDesc", "AltLanguage")
+            ddlSublevel.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "HFSublevelDesc", "AltLanguage")
             ddlSublevel.DataBind()
 
 

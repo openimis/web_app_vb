@@ -55,4 +55,8 @@ Public Class MasterBI
         Dim Insuree As New IMIS_BL.InsureeBL
         Return Insuree.GetInsureeProductDetails(oDict, CHFID, ItemCode, ServiceCode)
     End Function
+    Public Function GetLanguages() As DataTable
+        Dim lan As New IMIS_BL.LanguagesBL
+        Return lan.GetLanguages()
+    End Function
 End Class

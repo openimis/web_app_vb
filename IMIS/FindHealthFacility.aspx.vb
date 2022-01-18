@@ -79,7 +79,7 @@ Partial Public Class FindHealthFacility
 
                 ddlLegal.DataSource = hf.GetHFLegal(True)
                 ddlLegal.DataValueField = "LegalFormCode"
-                ddlLegal.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "LegalForms", "AltLanguage")
+                ddlLegal.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "LegalForms", "AltLanguage")
                 ddlLegal.DataBind()
                 LoadGrid()
             Else

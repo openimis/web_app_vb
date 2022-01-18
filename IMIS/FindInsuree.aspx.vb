@@ -79,7 +79,7 @@ Partial Public Class FindInsuree
 
             ddlGender.DataSource = Insuree.GetGender
             ddlGender.DataValueField = "Code"
-            ddlGender.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Gender", "AltLanguage")
+            ddlGender.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "Gender", "AltLanguage")
             ddlGender.DataBind()
             ddlMarital.DataSource = Insuree.GetMaritalStatus
             ddlMarital.DataValueField = "Code"

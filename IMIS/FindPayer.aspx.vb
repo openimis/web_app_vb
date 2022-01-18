@@ -98,7 +98,7 @@ Partial Public Class FindPayer
 
                 ddlPayerType.DataSource = payers.GetPayerType(True)
                 ddlPayerType.DataValueField = "Code"
-                ddlPayerType.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "PayerType", "AltLanguage")
+                ddlPayerType.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "PayerType", "AltLanguage")
                 ddlPayerType.DataBind()
                 LoadGrid()
 

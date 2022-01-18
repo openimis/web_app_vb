@@ -79,6 +79,14 @@ Public Class IMIS
         'Item MidDate
         Adjustibility = General.getControlSetting("lblItemMinDate")
         lblItemMinDate.Visible = Not (Adjustibility = "N")
+
+
+        ' Set the languages
+        Dim dt As DataTable = MasterBI.GetLanguages
+        lblFirstLanguage.Text = dt(0)("LanguageName")
+        aFirstLanguage.Name = dt(0)("LanguageCode")
+        lblAltLanguage.Text = dt(1)("LanguageName")
+        aAltLanguage.Name = dt(1)("LanguageCode")
     End Sub
 
 

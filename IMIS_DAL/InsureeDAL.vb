@@ -106,7 +106,7 @@ Public Class InsureeDAL
         sSQL += " LEFT JOIN tblPhotos On I.PhotoID = tblPhotos.PhotoID And tblPhotos.ValidityTo Is null  "
         sSQL += " LEFT JOIN tblGender GE On GE.Code = I.Gender"
         sSQL += " LEFT JOIN @dtMarital dtMarital ON I.Marital = dtMarital.Code"
-        'If (Request.Cookies("CultureInfo").Value = "en", "Education", "AltLanguage") Then
+        'If (Request.Cookies("CultureInfo").Value.Contains("en"), "Education", "AltLanguage") Then
 
         'End If
 
