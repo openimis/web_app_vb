@@ -275,7 +275,10 @@
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Manual\IMIS_manual_fr.pdf" />
+    <None Include="My Project\PublishProfiles\Debug.pubxml" />
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
+    <None Include="My Project\PublishProfiles\Mauritania Release.pubxml" />
+    <None Include="My Project\PublishProfiles\MV-Debug.pubxml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -1020,7 +1023,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
+      <UserProperties BuildVersion_DetectChanges="True" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
