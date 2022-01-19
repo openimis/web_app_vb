@@ -59,4 +59,14 @@ Public Class MasterBI
         Dim lan As New IMIS_BL.LanguagesBL
         Return lan.GetLanguages()
     End Function
+
+    Public Sub LoadUsers(ByRef eUser As IMIS_EN.tblUsers)
+        Dim users As New IMIS_BL.UsersBL
+        users.LoadUsers(eUser)
+    End Sub
+
+    Public Function UpdateUserLanguage(ByRef eUser As IMIS_EN.tblUsers) As Integer
+        Dim users As New IMIS_BL.UsersBL
+        Return users.SaveUser(eUser)
+    End Function
 End Class

@@ -83,9 +83,14 @@ Public Class IMIS
 
         ' Set the languages
         Dim dt As DataTable = MasterBI.GetLanguages
-        lblFirstLanguage.Text = dt(0)("LanguageName")
+        Dim flagPath As String = "Images/flags/4x3/"
+
+        imgFirstLanguage.Src = flagPath & dt(0)("CountryCode") & ".svg"
+        imgFirstLanguage.Alt = dt(0)("LanguageName")
         aFirstLanguage.Name = dt(0)("LanguageCode")
-        lblAltLanguage.Text = dt(1)("LanguageName")
+
+        imgAltLanguage.Src = flagPath & dt(1)("CountryCode") & ".svg"
+        imgAltLanguage.Alt = dt(1)("LanguageName")
         aAltLanguage.Name = dt(1)("LanguageCode")
     End Sub
 
@@ -395,5 +400,21 @@ Public Class IMIS
 
 
         End If
+    End Sub
+
+    Private Sub aFirstLanguage_ServerClick(sender As Object, e As EventArgs) Handles aFirstLanguage.ServerClick, aAltLanguage.ServerClick
+        Dim user As New IMIS_EN.tblUsers
+
+
+        Dim dt As DataTable = DirectCast(Session("User"), DataTable)
+
+        user.UserID = dt.Rows(0)("UserId")
+
+        MasterBI.LoadUsers(user)
+
+        user.LanguageID = sender.name
+        user.AuditUserID = dt.Rows(0)("UserId")
+
+        MasterBI.UpdateUserLanguage(user)
     End Sub
 End Class

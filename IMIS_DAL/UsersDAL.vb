@@ -300,7 +300,7 @@ AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,256, 128,16,32,64,512,524288))) )"
 
         data.setSQLCommand(sSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, eUser.UserID)
-        data.params("@LanguageID", SqlDbType.NVarChar, 2, eUser.LanguageID)
+        data.params("@LanguageID", SqlDbType.NVarChar, 5, eUser.LanguageID)
         data.params("@LastName", SqlDbType.NVarChar, 100, eUser.LastName)
         data.params("@OtherNames", SqlDbType.NVarChar, 100, eUser.OtherNames)
         data.params("@Phone", SqlDbType.NVarChar, 50, eUser.Phone)

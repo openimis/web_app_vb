@@ -62,42 +62,42 @@
 
             if ('<%#If(IsPostBack, 1, 0) %>' == 0) {
 
-               $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
-                   if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio")
-                       $(this).data("originalVal", $(this).attr("checked"));
-                   else
-                       $(this).data("originalVal", $(this).val());
-               });
-           }
+                $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
+                    if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio")
+                        $(this).data("originalVal", $(this).attr("checked"));
+                    else
+                        $(this).data("originalVal", $(this).val());
+                });
+            }
 
-           $('#Body_B_SAVE').click(function () {
-               $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
-                   if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio") {
-                       if ($(this).attr("checked") != $(this).data("originalVal")) {
-                           //alert("new: " + $(this).attr("checked") + " old: " + $(this).data("originalVal"));
-                           $('#<%#hfDirty.ClientID%>').val(true); // alert("dirt");
-                       }
-                   } else {
+            $('#Body_B_SAVE').click(function () {
+                $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
+                    if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio") {
+                        if ($(this).attr("checked") != $(this).data("originalVal")) {
+                            //alert("new: " + $(this).attr("checked") + " old: " + $(this).data("originalVal"));
+                            $('#<%#hfDirty.ClientID%>').val(true); // alert("dirt");
+                        }
+                    } else {
 
-                       if ($(this).val() != $(this).data("originalVal")) {
-                           //alert("new: " + $(this).val() + " old: " + $(this).data("originalVal"));
-                           $('#<%#hfDirty.ClientID%>').val(true); //alert("dirt");
-                       }
-                   }
-               });
-           });
+                        if ($(this).val() != $(this).data("originalVal")) {
+                            //alert("new: " + $(this).val() + " old: " + $(this).data("originalVal"));
+                            $('#<%#hfDirty.ClientID%>').val(true); //alert("dirt");
+                        }
+                    }
+                });
+            });
 
-           //$('#PleaseWait').hide();
+            //$('#PleaseWait').hide();
 
 
-           HighlightMandatoryFields();
-       });
+            HighlightMandatoryFields();
+        });
 
         function showmodalPopup() {
             //$find('modalPopup').show();
             popup.acceptBTN_Text = '<%#imisgen.getMessage("L_YES", True)%>';
-           popup.rejectBTN_Text = '<%#imisgen.getMessage("L_NO", True)%>';
-           popup.confirm('<%#imisgen.getMessage("M_DELETEPROMPT", True)%>', DoPostBack);
+            popup.rejectBTN_Text = '<%#imisgen.getMessage("L_NO", True)%>';
+            popup.confirm('<%#imisgen.getMessage("M_DELETEPROMPT", True)%>', DoPostBack);
             return false;
         }
 
@@ -110,23 +110,23 @@
 
         $(document).ready(function () {
             $("#<%#txtSearch.ClientID %>").val("");
-           $(".candisable").each(function (i) {
-               if ($(this).find("span:disabled").length > 0) {
+            $(".candisable").each(function (i) {
+                if ($(this).find("span:disabled").length > 0) {
 
-                   $(this).attr("href", "javascript:void 0");
-               }
-           });
-           $("#manual").attr("href", manual);
+                    $(this).attr("href", "javascript:void 0");
+                }
+            });
+            $("#manual").attr("href", manual);
 
-           //** Focus first editable textbox on the page >>> Start
-           try {
-               $txtbx = $("input[type=text]").not("[readonly],[disabled],#<%#txtSearch.ClientID %>");
-               if ($txtbx.length > 0)
-                   $txtbx.eq(0).focus();
-           } catch (ex) { }
-           //** Focus first editable textbox on the page >>> End
+            //** Focus first editable textbox on the page >>> Start
+            try {
+                $txtbx = $("input[type=text]").not("[readonly],[disabled],#<%#txtSearch.ClientID %>");
+                if ($txtbx.length > 0)
+                    $txtbx.eq(0).focus();
+            } catch (ex) { }
+            //** Focus first editable textbox on the page >>> End
 
-       });
+        });
 
 
 
@@ -139,67 +139,67 @@
                 $(".scriptServerPopup").remove();
 
                 $msgDiv = $('<div id="AjaxMsgDiv"><span id="text"><%#imisgen.getMessage("M_INPROGRESS", True ) %></span><span id="dots"></span></div>');
-               $msgDiv.css({
-                   "background": "none",
-                   "padding": "2px",
-                   "position": "relative",
-                   /*"display":"inline",*/
-                   "font-size": "12px",
-                   "color": "#333333",
-                   "border": "0px solid #FFFFFF",
-                   /*"top": $("#aspnetForm").height() / 2 - $msgDiv.height() / 2  + "px",
-                   "left": $(window).width() / 2 - $msgDiv.width() / 2 + "px",*/
-                   "z-index": 1000
-               });
-               $msgDiv.find("span#text").css({
-                   "padding": "3px 0px 3px 6px",
-                   "position": "relative"
-               });
-               $msgDiv.find("span#dots").css({
-                   "padding": "3px 6px 3px 0px",
-                   "position": "relative"
-               });
-               $msgDiv.appendTo($("#<%#FooterID.ClientID%>"));
-               timer();
-           });
-           var toggle = 0;
-           function timer() {
-               var $dots = $("span#dots");
-               intrvl = setTimeout(function () {
+                $msgDiv.css({
+                    "background": "none",
+                    "padding": "2px",
+                    "position": "relative",
+                    /*"display":"inline",*/
+                    "font-size": "12px",
+                    "color": "#333333",
+                    "border": "0px solid #FFFFFF",
+                    /*"top": $("#aspnetForm").height() / 2 - $msgDiv.height() / 2  + "px",
+                    "left": $(window).width() / 2 - $msgDiv.width() / 2 + "px",*/
+                    "z-index": 1000
+                });
+                $msgDiv.find("span#text").css({
+                    "padding": "3px 0px 3px 6px",
+                    "position": "relative"
+                });
+                $msgDiv.find("span#dots").css({
+                    "padding": "3px 6px 3px 0px",
+                    "position": "relative"
+                });
+                $msgDiv.appendTo($("#<%#FooterID.ClientID%>"));
+                timer();
+            });
+            var toggle = 0;
+            function timer() {
+                var $dots = $("span#dots");
+                intrvl = setTimeout(function () {
 
-                   if (toggle == 0) {
-                       $dots.append($("<span>.</span>"));
-                       if ($dots.find("span").length == 50)
-                           toggle = 1;
-                   } else {
-                       $dots.find("span").last().remove();
-                       if ($dots.find("span").length == 0)
-                           toggle = 0;
-                   }
+                    if (toggle == 0) {
+                        $dots.append($("<span>.</span>"));
+                        if ($dots.find("span").length == 50)
+                            toggle = 1;
+                    } else {
+                        $dots.find("span").last().remove();
+                        if ($dots.find("span").length == 0)
+                            toggle = 0;
+                    }
 
-                   if ($("#AjaxMsgDiv").length > 0)
-                       timer();
-               }, 500);
-           }
-           Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function (sender, args) {
+                    if ($("#AjaxMsgDiv").length > 0)
+                        timer();
+                }, 500);
+            }
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function (sender, args) {
 
-               ///alert("error script: " + $("#scriptServerPopup").html() + " --- args.get_error: " + args.get_error());
-               if (args.get_error() != undefined) {
-                   //alert('error --: ' + args.get_error());
-                   //alert(sender.val());
-                   popup.alert('<%#imisgen.getMessage("M_AJAXERROR", True)%>', '', '', false);
-                   args.set_errorHandled(true);
-               } else {
-                   if ($(".scriptServerPopup").length > 0) {
-                       $(".scriptServerPopup").each(function () {
+                ///alert("error script: " + $("#scriptServerPopup").html() + " --- args.get_error: " + args.get_error());
+                if (args.get_error() != undefined) {
+                    //alert('error --: ' + args.get_error());
+                    //alert(sender.val());
+                    popup.alert('<%#imisgen.getMessage("M_AJAXERROR", True)%>', '', '', false);
+                    args.set_errorHandled(true);
+                } else {
+                    if ($(".scriptServerPopup").length > 0) {
+                        $(".scriptServerPopup").each(function () {
 
-                           eval($(this).html());
-                       });
-                   }
-               }
-               $("#AjaxMsgDiv").remove();
-               clearInterval(intrvl);
-           });
+                            eval($(this).html());
+                        });
+                    }
+                }
+                $("#AjaxMsgDiv").remove();
+                clearInterval(intrvl);
+            });
             //....end of ajax start & stop handler
             if (typeof (pageLoadExtend) == "function") // calls pageLoad(i.e pageLoadExtend) in pages ...
                 pageLoadExtend();
@@ -279,22 +279,22 @@
 
 
             $("#<%#txtSearch.ClientID %>").keyup(function () {
-                   if ($(this).val() != '') {
-                       $(this).css('background', 'white');
-                   } else {
-                       $(this).css('background', 'none');
-                   }
-               });
+                if ($(this).val() != '') {
+                    $(this).css('background', 'white');
+                } else {
+                    $(this).css('background', 'none');
+                }
+            });
 
-               //            $(".numbersOnly").live("paste",function(e) {
-               //                e.preventDefault();
-               //            });
+            //            $(".numbersOnly").live("paste",function(e) {
+            //                e.preventDefault();
+            //            });
 
-               $(".search").click(function () {
-                   $("#<%#txtSearch.ClientID %>").focus();
-           });
+            $(".search").click(function () {
+                $("#<%#txtSearch.ClientID %>").focus();
+            });
 
-           });
+        });
 
 
         $(document).ready(function () {
@@ -303,22 +303,22 @@
                 if ($(".AdvancedSearch div").is(':hidden')) {
                     $(".AdvancedSearch div").show();
                     $("#<%#txtItemCode.ClientID %>").focus();
-                   $(this).html('▲');
-               } else {
-                   $(".AdvancedSearch div").hide();
-                   $(this).html('▼');
-               }
-           });
+                    $(this).html('▲');
+                } else {
+                    $(".AdvancedSearch div").hide();
+                    $(this).html('▼');
+                }
+            });
 
-           $(".AdvancedSearch div table input").click(function (e) {
-               e.stopPropagation();
-           });
-           $(".AdvancedSearch div").parents().click(function () {
-               $(".AdvancedSearch div").hide();
-               $("#btnAdvance").html('▼');
-           });
-           advSearch.init();
-       });
+            $(".AdvancedSearch div table input").click(function (e) {
+                e.stopPropagation();
+            });
+            $(".AdvancedSearch div").parents().click(function () {
+                $(".AdvancedSearch div").hide();
+                $("#btnAdvance").html('▼');
+            });
+            advSearch.init();
+        });
 
 
         $(window).load(function () {
@@ -356,9 +356,9 @@
             if ($.cookie("CultureInfo") != null) {
                 var currentLanguage = $.cookie("CultureInfo");
                 $.cookie("CultureInfo", lang);
-                location.reload();
+
             }
-            
+
         }
     </script>
 
@@ -387,11 +387,41 @@
         span.aspNetDisabled {
             color: #888888;
         }
+
+        .language {
+            padding: 5px 5px;
+            border-radius: 4px;
+            border-color: #46b8da;
+            display: block;
+            margin: 4px;
+        }
+
+            .language img {
+                width: 30px;
+                height: 25px;
+            }
+
+        #mybutton {
+            position: fixed;
+            top: 40%;
+            right: 10px;
+        }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <div id="mybutton">
+        <a class="language" runat="server" id="aFirstLanguage" style="cursor: pointer" onclick='ChangeLanguage($(this).attr("name"))'>
+            <asp:Label ID="lblFirstLanguage" runat="server" Text=''></asp:Label>
+            <img runat="server" id="imgFirstLanguage" src="" />
+        </a>
+        <a class="language" runat="server" id="aAltLanguage" style="cursor: pointer" onclick='ChangeLanguage($(this).attr("name"))'>
+            <asp:Label ID="lblAltLanguage" runat="server" Text=''></asp:Label>
+            <img runat="server" id="imgAltLanguage" src="" />
+        </a>
+
+    </div>
 
     <%--<span id="PleaseWait" style="font-size:16px; color:black; display:block; direction: ltr; position:absolute; left:0">Please wait...</span>--%>
     <img id="PleaseWait" src="Images/progress.gif" alt="Please wait..." style="width: 50px; font-size: 16px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; z-index: 1000;" />
@@ -554,18 +584,6 @@
                                 <li><a href="ChangePassword.aspx">
                                     <asp:Label ID="lblChangePassword" runat="server" Text='<%$ Resources:Resource, L_CHANGEPASSWORD %>'></asp:Label>
                                 </a></li>
-                                <li><a href="#">
-                                    <asp:Label ID="Label8" runat="server" Text='<%$ Resources:Resource,L_LANGUAGE %>'></asp:Label>
-                                </a>
-                                    <ul>
-                                        <li><a class="candisable" runat="server" id="aFirstLanguage" style="cursor:pointer" onclick='ChangeLanguage($(this).attr("name"))'>
-                                            <asp:Label ID="lblFirstLanguage" runat="server" Text=''></asp:Label>
-                                        </a></li>
-                                        <li><a class="candisable" runat="server" id="aAltLanguage"  style="cursor:pointer" onclick='ChangeLanguage($(this).attr("name"))'>
-                                            <asp:Label ID="lblAltLanguage" runat="server" Text=''></asp:Label>
-                                        </a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </li>
                         <li><a href="Logout.aspx">
@@ -948,6 +966,8 @@
         <asp:ContentPlaceHolder ID="HiddenContainer" runat="server">
         </asp:ContentPlaceHolder>
     </form>
+
+
 
 </body>
 

@@ -32,6 +32,60 @@ Partial Public Class IMIS
     Protected WithEvents head As Global.System.Web.UI.WebControls.ContentPlaceHolder
 
     '''<summary>
+    '''aFirstLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents aFirstLanguage As Global.System.Web.UI.HtmlControls.HtmlAnchor
+
+    '''<summary>
+    '''lblFirstLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFirstLanguage As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''imgFirstLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgFirstLanguage As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
+    '''aAltLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents aAltLanguage As Global.System.Web.UI.HtmlControls.HtmlAnchor
+
+    '''<summary>
+    '''lblAltLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAltLanguage As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''imgAltLanguage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgAltLanguage As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
     '''form1 control.
     '''</summary>
     '''<remarks>
@@ -471,51 +525,6 @@ Partial Public Class IMIS
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblChangePassword As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label8 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label8 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''aFirstLanguage control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents aFirstLanguage As Global.System.Web.UI.HtmlControls.HtmlAnchor
-
-    '''<summary>
-    '''lblFirstLanguage control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblFirstLanguage As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''aAltLanguage control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents aAltLanguage As Global.System.Web.UI.HtmlControls.HtmlAnchor
-
-    '''<summary>
-    '''lblAltLanguage control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblAltLanguage As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblLogout control.
