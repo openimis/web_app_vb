@@ -369,7 +369,7 @@
             $.cookie.raw = true;
             $.cookie("CultureInfo", cultureInfo);
 
-            location.reload();
+            
         }
     </script>
 
