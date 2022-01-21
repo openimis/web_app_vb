@@ -184,7 +184,7 @@ Public Class Family
 
             ddlConfirmationType.DataSource = Family.GetSubsidy
             ddlConfirmationType.DataValueField = "ConfirmationTypeCode"
-            ddlConfirmationType.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "ConfirmationType", "AltLanguage")
+            ddlConfirmationType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "ConfirmationType", "AltLanguage")
             ddlConfirmationType.DataBind()
 
             ddlCardIssued.DataSource = Family.GetYesNO
@@ -194,17 +194,17 @@ Public Class Family
 
             ddlType.DataSource = Family.GetTypes
             ddlType.DataValueField = "FamilyTypeCode"
-            ddlType.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "FamilyType", "AltLanguage") '"FamilyType"
+            ddlType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "FamilyType", "AltLanguage") '"FamilyType"
             ddlType.DataBind()
 
             ddlProfession.DataSource = Family.GetProfession
             ddlProfession.DataValueField = "ProfessionId"
-            ddlProfession.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "Profession", "AltLanguage")
+            ddlProfession.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "Profession", "AltLanguage")
             ddlProfession.DataBind()
 
             ddlEducation.DataSource = Family.GetEducation
             ddlEducation.DataValueField = "EducationId"
-            ddlEducation.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "Education", "AltLanguage")
+            ddlEducation.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "Education", "AltLanguage")
             ddlEducation.DataBind()
 
             ddlEthnicity.DataSource = Family.GetEthnicity
@@ -214,7 +214,7 @@ Public Class Family
 
             ddlIdType.DataSource = Family.GetTypeOfIdentity
             ddlIdType.DataValueField = "IdentificationCode"
-            ddlIdType.DataTextField = If(Request.Cookies("CultureInfo").Value.Contains("en"), "IdentificationTypes", "AltLanguage") ' 
+            ddlIdType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "IdentificationTypes", "AltLanguage") ' 
             ddlIdType.DataBind()
 
 

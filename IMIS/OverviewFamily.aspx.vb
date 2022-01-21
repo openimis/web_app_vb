@@ -163,7 +163,7 @@ Partial Public Class OverviewFamily
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
-            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo").Value.Contains("en"), eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
+            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
             txtConfirmationNo.Text = eFamily.ConfirmationNo
             txtPermanentAddress.Text = eFamily.FamilyAddress
         Catch ex As Exception

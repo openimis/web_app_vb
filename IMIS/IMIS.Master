@@ -368,6 +368,8 @@
             cultureInfo = cultureInfo.toString().replace(',','&');
             $.cookie.raw = true;
             $.cookie("CultureInfo", cultureInfo);
+
+            location.reload();
         }
     </script>
 
