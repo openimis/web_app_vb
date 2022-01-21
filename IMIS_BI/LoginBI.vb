@@ -55,4 +55,8 @@ Public Class LoginBI
         Dim Components As New IMIS_BL.ComponentsBL
         Return Components.getControlsSettings
     End Function
+    Public Function GetLanguages() As DataTable
+        Dim lan As New IMIS_BL.LanguagesBL
+        Return lan.GetLanguages()
+    End Function
 End Class

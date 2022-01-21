@@ -354,11 +354,20 @@
 
         function ChangeLanguage(lang) {
             if ($.cookie("CultureInfo") != null) {
-                var currentLanguage = $.cookie("CultureInfo");
-                $.cookie("CultureInfo", lang);
+                var cultureInfo = $.cookie("CultureInfo").split("&");
 
+                cultureInfo = $.map(cultureInfo, function (value, i) {
+                    if (value.split("=")[0] == "SelectedLanguage") {
+                        return value.split("=")[0] + '=' + lang;
+                    } else {
+                        return value;
+                    }
+                })
             }
-
+            
+            cultureInfo = cultureInfo.toString().replace(',','&');
+            $.cookie.raw = true;
+            $.cookie("CultureInfo", cultureInfo);
         }
     </script>
 

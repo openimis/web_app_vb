@@ -405,7 +405,6 @@ Public Class IMIS
     Private Sub aFirstLanguage_ServerClick(sender As Object, e As EventArgs) Handles aFirstLanguage.ServerClick, aAltLanguage.ServerClick
         Dim user As New IMIS_EN.tblUsers
 
-
         Dim dt As DataTable = DirectCast(Session("User"), DataTable)
 
         user.UserID = dt.Rows(0)("UserId")

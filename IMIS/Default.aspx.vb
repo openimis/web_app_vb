@@ -60,8 +60,13 @@ Partial Public Class Login
                 Dim cookie As HttpCookie
                 cookie = New HttpCookie("CultureInfo")
 
+                Dim dtLang As DataTable = Login.GetLanguages
 
-                cookie.Value = dt.Rows(0)("LanguageID").ToString
+                cookie.Values.Add("SelectedLanguage", dt.Rows(0)("LanguageID").ToString)
+
+                For i As Integer = 0 To dtLang.Rows.Count - 1
+                    cookie.Values.Add("Language" & i + 1, dtLang(i)("LanguageCode"))
+                Next
 
                 Response.Cookies.Add(cookie)
                 Session("User") = dt
