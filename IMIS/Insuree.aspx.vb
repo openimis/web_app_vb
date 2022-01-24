@@ -184,15 +184,15 @@ Partial Public Class Insuree
             ddlCardIssued.DataBind()
             ddlRelation.DataSource = Insuree.GetRelations
             ddlRelation.DataValueField = "RelationId"
-            ddlRelation.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Relation", "AltLanguage")
+            ddlRelation.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "Relation", "AltLanguage")
             ddlRelation.DataBind()
             ddlProfession.DataSource = Insuree.GetProfession
             ddlProfession.DataValueField = "ProfessionId"
-            ddlProfession.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Profession", "AltLanguage")
+            ddlProfession.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "Profession", "AltLanguage")
             ddlProfession.DataBind()
             ddlEducation.DataSource = Insuree.GetEducation
             ddlEducation.DataValueField = "EducationId"
-            ddlEducation.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "Education", "AltLanguage")
+            ddlEducation.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "Education", "AltLanguage")
             ddlEducation.DataBind()
             ddlVulnerability.DataSource = Insuree.GetYesNO
             ddlVulnerability.DataValueField = "Code"
@@ -201,7 +201,7 @@ Partial Public Class Insuree
 
             ddlIdType.DataSource = Insuree.GetTypeOfIdentity
             ddlIdType.DataValueField = "IdentificationCode"
-            ddlIdType.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "IdentificationTypes", "AltLanguage")
+            ddlIdType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "IdentificationTypes", "AltLanguage")
             ddlIdType.DataBind()
 
             Dim dtFSPRegion As DataTable = Insuree.GetRegionsAll(imisgen.getUserId(Session("User")), True)

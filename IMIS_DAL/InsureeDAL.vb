@@ -32,7 +32,7 @@ Public Class InsureeDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         sSQL += "SELECT TB.FamilyID, F.FamilyUUID, TB.InsureeId, TB.InsureeUUID, TB.CHFID, TB.LastName, TB.OtherNames, TB.DOB,"
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
         sSQL += ", TB.Marital,TB.cardIssued, TB.isOffline, TB.validityFrom, TB.ValidityTo,TB.RowID from tblInsuree TB"
         sSQL += " LEFT JOIN tblGender GE On GE.Code = TB.Gender"
         sSQL += " INNER JOIN tblFamilies F On F.FamilyID = TB.FamilyID"
@@ -98,7 +98,7 @@ Public Class InsureeDAL
         sSQL += " GROUP BY L.DistrictId, L.Region ) "
         sSQL += " SELECT " + UtilitiesDAL.GetEnvMaxRows()
         sSQL += " I.isOffline,I.FamilyID,I.InsureeID,I.InsureeUUID,RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,"
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)") & " Gender"
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)") & " Gender"
         sSQL += ",dtMarital.Name Marital, phone, DOB, I.validityfrom, I.validityTo, F.FamilyUUID  "
         sSQL += " FROM tblInsuree I  "
         sSQL += " INNER JOIN tblFamilies F On F.FamilyID = I.FamilyID  "
@@ -106,7 +106,7 @@ Public Class InsureeDAL
         sSQL += " LEFT JOIN tblPhotos On I.PhotoID = tblPhotos.PhotoID And tblPhotos.ValidityTo Is null  "
         sSQL += " LEFT JOIN tblGender GE On GE.Code = I.Gender"
         sSQL += " LEFT JOIN @dtMarital dtMarital ON I.Marital = dtMarital.Code"
-        'If (Request.Cookies("CultureInfo").Value = "en", "Education", "AltLanguage") Then
+        'If (Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "Education", "AltLanguage") Then
 
         'End If
 
@@ -177,7 +177,7 @@ Public Class InsureeDAL
 
         sSQL += " GROUP BY  I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,I.Gender, I.InsureeUUID, F.FamilyUUID,"
 
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)")
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)")
         sSQL += ",dtMarital.Name,phone,DOB,  I.validityfrom,I.validityTo"
         strWhere += " order by LastName,I.ValidityFrom desc ,I.ValidityTo desc"
         Dim data As New ExactSQL
@@ -442,7 +442,7 @@ Public Class InsureeDAL
         Dim UpdatedFolder As String
         UpdatedFolder = System.Web.Configuration.WebConfigurationManager.AppSettings("UpdatedFolder").ToString()
         Dim sSQL As String = " SELECT HF.HFCode+' ' +HF.HFName AS FirstServicePoint, CASE HF.HFLevel WHEN 'D' THEN 'Dispensary' WHEN 'C' THEN 'Health Centre' WHEN 'H' THEN 'Hospital' END HFLevel, R.LocationName RegionOfFSP,D.LocationName DistrictOfFSP, I.CHFID,I.LastName,I.OtherNames,CONVERT(VARCHAR,I.DOB,103)DOB, (YEAR(GETDATE()) - YEAR(I.DOB)) AS Age,"
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
         sSQL += ", P.PhotoFolder + P.PhotoFileName AS PhotoPath FROM tblInsuree I"
         sSQL += " INNER JOIN tblFamilies F On I.FamilyID = F.FamilyID"
         sSQL += " LEFT OUTER JOIN tblPhotos P On I.PhotoID = P.PhotoID"

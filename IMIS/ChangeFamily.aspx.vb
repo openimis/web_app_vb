@@ -106,7 +106,7 @@ Partial Public Class ChangeFamily
 
             ddlType.DataSource = ChangeFamily.GetTypes
             ddlType.DataValueField = "FamilyTypeCode"
-            ddlType.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "FamilyType", "AltLanguage")
+            ddlType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "FamilyType", "AltLanguage")
             ddlType.DataBind()
 
             ddlEthnicity.DataSource = ChangeFamily.GetEthnicity
@@ -148,7 +148,7 @@ Partial Public Class ChangeFamily
 
                 ddlConfirmationType.DataSource = ChangeFamily.GetSubsidy
                 ddlConfirmationType.DataValueField = "ConfirmationTypeCode"
-                ddlConfirmationType.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "ConfirmationType", "AltLanguage")
+                ddlConfirmationType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "ConfirmationType", "AltLanguage")
                 ddlConfirmationType.DataBind()
                 ddlConfirmationType.SelectedValue = eFamily.ConfirmationType
                 ddlEthnicity.SelectedValue = eFamily.Ethnicity
