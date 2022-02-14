@@ -71,9 +71,6 @@ Partial Public Class Home
                 'txtCURRENTUSER.Text = eUsers.OtherNames & " " & eUsers.LastName
             End If
 
-            'Dim currentUserRoles = Home.GetRoles(eUsers.UserID)
-            'Dim currRole = getUserRoles(eUsers.UserID)
-
 
             gvRoles.DataSource = Home.GetRoles(eUsers.UserID)
             Dim security_warning_message = DefaultPasswordWarning(gvRoles.DataSource)
