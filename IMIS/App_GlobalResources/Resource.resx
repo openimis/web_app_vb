@@ -5165,4 +5165,11 @@ adults/children)
   <data name="M_WORKSTO" xml:space="preserve">
     <value>Please select works to date</value>
   </data>
+  <data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
+    <value>The following secret keys were left at a default value. Please change it in config file immediately!</value>
+  </data>
+  <data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
+    <value>Security Warning</value>
+  </data>
 </root>
+

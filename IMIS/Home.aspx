@@ -31,6 +31,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
          $('#btnCancel').click(function() {
              $('#SelectPic').hide();
          });
+
          GreetUser();
      }
 
@@ -50,10 +51,11 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
          $('#<%=L_CURRENTUSER.ClientID%>').html(greeting);
 
-     }
+        }
+
+    </script>
 
 
- </script>
 <style type="text/css">
     div.backentry{position:relative;}
     .footer{ bottom:2px;top:auto; }
@@ -68,7 +70,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
-
     <span id="version">v1.5.2 (build <asp:Label ID="compiledVersion" runat="server" Text=''></asp:Label>)
         <% #If DEBUG Then %>
             DEVELOP
@@ -121,6 +122,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
     </asp:GridView>
+            <asp:Label ID="DEFAULTPASSWORDWARNINGFIELD" runat="server" />  
 
         </div>
     <div style="bottom: 23px; left: 5px; font-size: 14px; margin-bottom: 6px;">

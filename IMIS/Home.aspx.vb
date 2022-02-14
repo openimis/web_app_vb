@@ -57,6 +57,8 @@ Partial Public Class Home
             gvDistrict.DataSource = Home.getUsersDistricts(eUsers.UserID)
             gvDistrict.DataBind()
 
+
+
             Dim configDict As Dictionary(Of String, Object) = buildConfigDict()
             txtCONFIGISSUE.Text = escapeBL.CheckConfiguration(configDict).Replace(Environment.NewLine, "<br />")
             If Not txtCONFIGISSUE.Text.Equals("") Then
@@ -69,7 +71,13 @@ Partial Public Class Home
                 'txtCURRENTUSER.Text = eUsers.OtherNames & " " & eUsers.LastName
             End If
 
+            'Dim currentUserRoles = Home.GetRoles(eUsers.UserID)
+            'Dim currRole = getUserRoles(eUsers.UserID)
+
+
             gvRoles.DataSource = Home.GetRoles(eUsers.UserID)
+            Dim security_warning_message = DefaultPasswordWarning(gvRoles.DataSource)
+
             gvRoles.DataBind()
             '  Assign(gvRoles)
         Catch ex As Exception
@@ -87,6 +95,46 @@ Partial Public Class Home
         Dim configDict As New Dictionary(Of String, Object)
         configDict.Add("eUser", eUsers)
         Return configDict
+    End Function
+
+    Public Function DefaultPasswordWarning(ByRef currentUserRoles)
+        ' This functions checks whether admin changed default secret keys from config files. (ex. Web.debug.config)
+        ' If not a security alert is raised when main page is opened.
+
+        ' Check if user is admin
+        Dim userRolesList = imisgen.DataTableToList(currentUserRoles)
+        Dim isAdmin = False
+        For Each role In userRolesList
+            If role.Item("Code") = "64" Then
+                isAdmin = True
+            End If
+        Next
+        If isAdmin = False Then
+            Return False
+        End If
+
+        Dim passwordSQL As String = System.Configuration.ConfigurationManager.AppSettings("Offline:SQLite:Password").ToString()
+        Dim passwordEncryption As String = System.Configuration.ConfigurationManager.AppSettings("Offline:Encryption:Password").ToString()
+        Dim passwordRAR As String = System.Configuration.ConfigurationManager.AppSettings("Offline:RAR:Password").ToString()
+        Dim passwordWarningsList As New List(Of String)
+
+        If passwordSQL = "%^Klp)*3" Then
+            passwordWarningsList.Add("Offline:SQLite:Password")
+        End If
+        If passwordEncryption = ":-+A7V@=" Then
+            passwordWarningsList.Add("Offline:Encryption:Password")
+        End If
+        If passwordRAR = ")(#$1HsD" Then
+            passwordWarningsList.Add("Offline:RAR:Password")
+        End If
+
+        If passwordWarningsList.Count() = 0 Then
+            Return False
+        Else
+            Dim alert_message = imisgen.getMessage("M_DEFAULTPASSWORDWARNING") + "</br>" + String.Join("</br>", passwordWarningsList)
+            imisgen.Alert(alert_message, DEFAULTPASSWORDWARNINGFIELD, alertPopupTitle:=imisgen.getMessage("M_DEFAULTPASSWORDWARNINGLABEL"))
+            Return True
+        End If
     End Function
 
 
