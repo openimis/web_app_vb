@@ -384,7 +384,6 @@ Partial Public Class UploadICD
         Dim strCommand As String = ""
         Dim file As System.IO.FileInfo = New System.IO.FileInfo(path)
         Dim settingsPath As String = System.Configuration.ConfigurationManager.AppSettings("ExportFolder").ToString()
-        Debug.WriteLine(settingsPath)
         ' To prevent LFI exploit check if files comes from reports folder
         ' To prevent cases such as "exports\..\..\secret_file.txt" use getfullpath
         If file.Exists And System.IO.Path.GetFullPath(path).Contains(settingsPath) Then
