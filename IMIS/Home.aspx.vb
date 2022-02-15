@@ -57,8 +57,6 @@ Partial Public Class Home
             gvDistrict.DataSource = Home.getUsersDistricts(eUsers.UserID)
             gvDistrict.DataBind()
 
-
-
             Dim configDict As Dictionary(Of String, Object) = buildConfigDict()
             txtCONFIGISSUE.Text = escapeBL.CheckConfiguration(configDict).Replace(Environment.NewLine, "<br />")
             If Not txtCONFIGISSUE.Text.Equals("") Then
@@ -71,7 +69,6 @@ Partial Public Class Home
                 'txtCURRENTUSER.Text = eUsers.OtherNames & " " & eUsers.LastName
             End If
 
-
             gvRoles.DataSource = Home.GetRoles(eUsers.UserID)
             Dim security_warning_message = DefaultPasswordWarning(gvRoles.DataSource)
 
@@ -83,9 +80,6 @@ Partial Public Class Home
             'EventLog.WriteEntry("IMIS", Page.Title & " : " & imisgen.getLoginName(Session("User")) & " : " & ex.ToString(), EventLogEntryType.Error, 999)
 
         End Try
-
-
-
     End Sub
 
     Private Function buildConfigDict()
@@ -101,8 +95,9 @@ Partial Public Class Home
         ' Check if user is admin
         Dim userRolesList = imisgen.DataTableToList(currentUserRoles)
         Dim isAdmin = False
+        Dim IMIS_ADMINISTRATOR_ROLE = "64"
         For Each role In userRolesList
-            If role.Item("Code") = "64" Then
+            If role.Item("Code") = IMIS_ADMINISTRATOR_ROLE Then
                 isAdmin = True
             End If
         Next
