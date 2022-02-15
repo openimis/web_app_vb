@@ -26,7 +26,6 @@
 ' 
 '
 
-
 Partial Public Class UploadICD
     Inherits System.Web.UI.Page
 
@@ -384,7 +383,11 @@ Partial Public Class UploadICD
     Private Sub DownloadFile(path As String, contentType As String)
         Dim strCommand As String = ""
         Dim file As System.IO.FileInfo = New System.IO.FileInfo(path)
-        If file.Exists Then
+        Dim settingsPath As String = System.Configuration.ConfigurationManager.AppSettings("ExportFolder").ToString()
+        Debug.WriteLine(settingsPath)
+        ' To prevent LFI exploit check if files comes from reports folder
+        ' To prevent cases such as "exports\..\..\secret_file.txt" use getfullpath
+        If file.Exists And System.IO.Path.GetFullPath(path).Contains(settingsPath) Then
             strCommand = "attachment;filename=" & System.IO.Path.GetFileName(path)
             Response.AppendHeader("Content-Disposition", strCommand)
             Response.ContentType = contentType
