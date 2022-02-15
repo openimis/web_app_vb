@@ -5166,7 +5166,7 @@ adults/children)
     <value>Please select works to date</value>
   </data>
   <data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
-    <value>The following secret keys were left at a default value. Please change it in config file immediately!</value>
+    <value>The following secret keys were left at a default value. For security reasons, please change them in Web.config file. Make sure secret keys are also updated in mobile applications.</value>
   </data>
   <data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
     <value>Security Warning</value>
