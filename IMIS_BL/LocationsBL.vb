@@ -105,6 +105,7 @@ Public Class LocationsBL
         Dim Locations As New IMIS_DAL.LocationsDAL
 
         Dim XMLfile As New XmlDocument
+        XMLfile.XmlResolver = Nothing
         XMLfile.Load(File)
 
         For Each node As XmlNode In XMLfile
