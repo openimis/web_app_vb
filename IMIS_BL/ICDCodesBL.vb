@@ -75,6 +75,7 @@ Public Class ICDCodesBL
         Dim ICD As New IMIS_DAL.ICDCodesDAL
 
         Dim XMLfile As New XmlDocument
+        XMLfile.XmlResolver = Nothing
         XMLfile.Load(FilePath)
 
         For Each node As XmlNode In XMLfile

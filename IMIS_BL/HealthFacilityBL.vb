@@ -251,6 +251,7 @@ Public Class HealthFacilityBL
         Dim DAL As New IMIS_DAL.HealthFacilityDAL
 
         Dim XMLfile As New XmlDocument
+        XMLfile.XmlResolver = Nothing
         XMLfile.Load(FilePath)
 
         For Each node As XmlNode In XMLfile
