@@ -151,13 +151,13 @@ Partial Public Class Officer
             Dim dt As New DataTable
             dt = DirectCast(Session("User"), DataTable)
 
-            If IsDate(txtWorksTo.Text) And ddlSubstitution.SelectedValue = 0 Then
+            If IsDate(txtWorksTo.Text) And String.IsNullOrEmpty(ddlSubstitution.SelectedValue) Then
                 Session("msg") = imisgen.getMessage("M_SUBSTITUTE")
                 Return False
             End If
 
 
-            If ddlSubstitution.SelectedValue > 0 And Not IsDate(txtWorksTo.Text) Then
+            If Not String.IsNullOrEmpty(ddlSubstitution.SelectedValue) And Not IsDate(txtWorksTo.Text) Then
                 Session("msg") = imisgen.getMessage("M_WORKSTO")
                 Return False
             End If
