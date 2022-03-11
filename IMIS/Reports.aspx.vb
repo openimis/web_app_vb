@@ -1010,14 +1010,21 @@ Partial Public Class Reports
         Return True
     End Function
     Private Function GetClaimOverview() As Boolean
-        Dim DistrictID As Integer?
+        Dim LocationId As Integer?
         Dim ProdID As Integer?
         Dim HfID As Integer?
         Dim StartDate As Date?
         Dim EndDate As Date?
         Dim ClaimStatus As Integer?
         Dim Scope As Integer?
-        DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
+        If Val(ddlDistrictWoNational.SelectedValue) > 0 Then
+            LocationId = CInt(ddlDistrictWoNational.SelectedValue)
+        ElseIf Val(ddlRegionWoNational.SelectedValue) > 0 Then
+            LocationId = ddlRegionWoNational.SelectedValue
+
+        Else
+            LocationId = Nothing
+        End If
         ProdID = If(Val(ddlAllProducts.SelectedValue) > 0, CInt(ddlAllProducts.SelectedValue), Nothing)
         HfID = If(Val(ddlHF.SelectedValue) > 0, CInt(ddlHF.SelectedValue), Nothing)
         StartDate = If(IsDate(txtSTARTData.Text.Trim), Date.ParseExact(txtSTARTData.Text.Trim, "dd/MM/yyyy", Nothing), Nothing)
@@ -1028,8 +1035,8 @@ Partial Public Class Reports
         If ddlScope.SelectedIndex > 0 Then
             Scope = ddlScope.SelectedValue
         End If
-        dt = reports.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus, Scope, oReturn)
-        Session("Scope") = Scope
+            dt = reports.GetClaimOverview(LocationId, ProdID, HfID, StartDate, EndDate, ClaimStatus, Scope, oReturn)
+            Session("Scope") = Scope
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_HFACILITY") & " : " & dt.Rows(0)("HFCode") & " - " & dt.Rows(0)("HFName") & If(ddlAllProducts.SelectedValue > 0, " | " & imisgen.getMessage("L_PRODUCT") & " : " & ddlAllProducts.SelectedItem.Text, "") & " | " & LocationName & " | " & imisgen.getMessage("L_PERIOD") & "  " & imisgen.getMessage("L_FROM") & " " & StartDate & " " & imisgen.getMessage("L_TO") & " " & EndDate
             IMIS_EN.eReports.SubTitle += vbNewLine & " | " & imisgen.getMessage("L_SCOPE") & " : " & ddlScope.SelectedItem.Text

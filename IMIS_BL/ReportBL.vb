@@ -176,12 +176,12 @@ Public Class ReportBL
         Dim DAL As New IMIS_DAL.ReportDAL
         Return DAL.GetMatchingFunds(DistrictID, ProdID, PayerID, StartDate, EndDate, ReportingID, ErrorMessage, oReturn)
     End Function
-    Public Function GetClaimOverview(ByVal DistrictID As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByRef oReturn As Integer) As DataTable
+    Public Function GetClaimOverview(ByVal LocationId As Integer?, ByVal ProdID As Integer?, ByVal HfID As Integer?, ByVal StartDate As Date?, ByVal EndDate As Date?, ByVal ClaimStatus As Integer?, ByVal Scope As Integer?, ByRef oReturn As Integer) As DataTable
         Dim DAL As New IMIS_DAL.ReportDAL
         Dim imisgen As New GeneralBL
         Dim dtRejReason = New DataTable
         dtRejReason = imisgen.GetAllRejectedReasons()
-        Return DAL.GetClaimOverview(DistrictID, ProdID, HfID, StartDate, EndDate, ClaimStatus, Scope, dtRejReason, oReturn)
+        Return DAL.GetClaimOverview(LocationId, ProdID, HfID, StartDate, EndDate, ClaimStatus, Scope, dtRejReason, oReturn)
     End Function
     Public Function GetPercentageReferral(RegionId As Integer, DistrictId As Integer, StartDate As Date, EndDate As Date) As DataTable
         Dim Report As New IMIS_DAL.ReportDAL
