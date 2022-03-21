@@ -1506,7 +1506,7 @@ Partial Public Class Reports
         Try
 
             CacheCriteria()
-
+            ' SelectedValueID tells which element of the list is chosen 
             Dim SelectedValueID As Integer = lstboxReportSelector.SelectedValue
             If SelectedValueID = 1 Then
                 If Val(ddlProduct.SelectedValue) = 0 Then
@@ -1527,8 +1527,8 @@ Partial Public Class Reports
                     Return
                 End If
             End If
-
-            If SelectedValueID = 2 Or SelectedValueID = 22 Then
+            ' SelectedValueID = 13 is ClaimOverview
+            If SelectedValueID = 2 Or SelectedValueID = 22 Or SelectedValueID = 13 Then
                 If Val(ddlRegionWoNational.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAREGION")
                     Return
