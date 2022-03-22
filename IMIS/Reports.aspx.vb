@@ -1325,7 +1325,7 @@ Partial Public Class Reports
             Year = Nothing
         End If
 
-        DistrictID = If(Val(ddlDistrictWoNational.SelectedValue) > 0, CInt(Val(ddlDistrictWoNational.SelectedValue)), Nothing)
+        If Val(ddlDistrictWoNational.SelectedValue) > 0 Then DistrictID = CInt(Val(ddlDistrictWoNational.SelectedValue))
 
         CommissionRate = Val(txtCommissionRate.Text.Trim)
         If ReportingID Is Nothing Then
@@ -1402,7 +1402,11 @@ Partial Public Class Reports
             End Select
 
             IMIS_EN.eReports.SubTitle = imisgen.getMessage("L_MODE") & " : " & ReportMode & " | " & imisgen.getMessage("L_COMMISSIONRATE") & " : " & txtCommissionRate.Text.Trim & " | " & imisgen.getMessage("L_PERIOD") & " : " & monthstring
-            IMIS_EN.eReports.SubTitle += vbNewLine & imisgen.getMessage("L_PRODUCT") & " : " & If(ddlProduct.SelectedIndex = 0, "", ddlProduct.SelectedItem.Text) & " | " & imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text & " | " & imisgen.getMessage("L_DISTRICT") & " : " & dt(0)("DistrictName") & " | " & imisgen.getMessage("L_PAYER") & " : " & If(ddlPayer.SelectedIndex = 0, "", ddlPayer.SelectedItem.Text) & " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & If(ddlEnrolmentOfficer.SelectedIndex = 0, "", ddlEnrolmentOfficer.SelectedItem.Text)
+            IMIS_EN.eReports.SubTitle += vbNewLine & IIf(ProdID IsNot Nothing, imisgen.getMessage("L_PRODUCT") & " : " & ddlProduct.SelectedItem.Text, "") &
+                imisgen.getMessage("L_REGION") & " : " & ddlRegionWoNational.SelectedItem.Text &
+                IIf(DistrictID IsNot Nothing, " | " & imisgen.getMessage("L_DISTRICT") & " : " & ddlDistrictWoNational.SelectedItem.Text, "") &
+                IIf(PayerID IsNot Nothing, " | " & imisgen.getMessage("L_PAYER") & " : " & ddlPayer.SelectedItem.Text, "") &
+                IIf(OfficerID IsNot Nothing, " | " & imisgen.getMessage("R_ENROLLMENTOFFICER") & " : " & ddlEnrolmentOfficer.SelectedItem.Text, "")
         Else
             lblMsg.Text = IIf(String.IsNullOrEmpty(ErrorMessage), imisgen.getMessage("M_NODATAFORREPORT"), ErrorMessage)
             hfCompleted.Value = 0
