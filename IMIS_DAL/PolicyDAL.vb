@@ -31,8 +31,8 @@ Public Class PolicyDAL
 
     Public Sub UpdatePolicy(ByVal ePolicy As IMIS_EN.tblPolicy)
 
-        Dim str As String = "INSERT INTO tblPolicy (FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, ValidityTo, LegacyID, AuditUserID,RenewalOrder)" _
-           & "SELECT FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, GetDate(), @PolicyID, AuditUserID,RenewalOrder from tblPolicy where PolicyID = @PolicyID;"
+        Dim str As String = "INSERT INTO tblPolicy (FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, ValidityFrom, ValidityTo, LegacyID, AuditUserID,RenewalOrder)" _
+           & "SELECT FamilyID, EnrollDate, StartDate, EffectiveDate, ExpiryDate, ProdID, OfficerID,PolicyStage,PolicyStatus,PolicyValue,isOffline, ValidityFrom, GetDate(), @PolicyID, AuditUserID,RenewalOrder from tblPolicy where PolicyID = @PolicyID;"
         If Not ePolicy.StartDate = Nothing And (ePolicy.PolicyStatus Is Nothing) Then 'When on policy page
             str += " UPDATE tblPolicy set FamilyID=@FamilyID, EnrollDate=@EnrollDate, StartDate=@StartDate, EffectiveDate=@EffectiveDate, ExpiryDate=@ExpiryDate, ProdID=@ProdID, OfficerID=@OfficerID,PolicyStage = @PolicyStage "
         ElseIf ePolicy.PolicyStatus = 2 Then 'When on premium page ( enforcing policy to active on prompt/premium matches policy value
