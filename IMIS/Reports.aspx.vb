@@ -1516,7 +1516,7 @@ Partial Public Class Reports
             Dim SelectedValueID As Integer = lstboxReportSelector.SelectedValue
 
             ' Check for selected product
-            Dim ProductReportsList = {1, 4}
+            Dim ProductReportsList = {1, 4, 5, 11, 21}
             If ProductReportsList.Contains(SelectedValueID) Then
                 If Val(ddlProduct.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
@@ -1533,7 +1533,6 @@ Partial Public Class Reports
                 End If
             End If
 
-
             ' Check for selected region
             Dim RegionReportsList = {3}
             If RegionReportsList.Contains(SelectedValueID) Then
@@ -1544,10 +1543,19 @@ Partial Public Class Reports
             End If
 
             ' Alternative variable - WoNational
-            Dim RegionWoNationalReportsList = {2, 22}
+            Dim RegionWoNationalReportsList = {2, 22, 8, 17}
             If RegionWoNationalReportsList.Contains(SelectedValueID) Then
                 If Val(ddlRegionWoNational.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAREGION")
+                    Return
+                End If
+            End If
+
+            ' Check for selected region
+            Dim DistrictReportsList = {12}
+            If DistrictReportsList.Contains(SelectedValueID) Then
+                If Val(ddlDistrictWoNational.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTADISTRICT")
                     Return
                 End If
             End If
