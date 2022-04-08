@@ -1504,47 +1504,85 @@ Partial Public Class Reports
         End If
 
     End Sub
+
     Private Sub btnProcess_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnPreview.Click
         RunPageSecurity()
         Dim url As String = ""
         Try
-
             CacheCriteria()
+
             ' SelectedValueID tells which element of the list is chosen 
+            ' ex. 1 = Policies - Primary Operational Indicators
             Dim SelectedValueID As Integer = lstboxReportSelector.SelectedValue
-            If SelectedValueID = 1 Then
+
+            ' Check for selected product
+            Dim ProductReportsList = {1, 4}
+            If ProductReportsList.Contains(SelectedValueID) Then
                 If Val(ddlProduct.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
                     Return
                 End If
             End If
 
-            If SelectedValueID = 6 Then
+            ' Check for selected product strict
+            Dim ProductStrictReportsList = {6}
+            If ProductStrictReportsList.Contains(SelectedValueID) Then
                 If Val(ddlProductStrict.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAPRODUCT")
                     Return
                 End If
             End If
-            If SelectedValueID = 3 Then
+
+
+            ' Check for selected region
+            Dim RegionReportsList = {3}
+            If RegionReportsList.Contains(SelectedValueID) Then
                 If Val(ddlRegion.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAREGION")
                     Return
                 End If
             End If
-            ' SelectedValueID = 13 is ClaimOverview
-            If SelectedValueID = 2 Or SelectedValueID = 22 Or SelectedValueID = 13 Then
+
+            ' Alternative variable - WoNational
+            Dim RegionWoNationalReportsList = {2, 22}
+            If RegionWoNationalReportsList.Contains(SelectedValueID) Then
                 If Val(ddlRegionWoNational.SelectedValue) = 0 Then
                     lblMsg.Text = imisgen.getMessage("M_PLEASESELECTAREGION")
                     Return
                 End If
             End If
-            If SelectedValueID = 21 Then
-                If Val(ddlCommissionScope.SelectedValue) = -1 Then
+
+            ' Check for selected month
+            Dim MonthReportsList = {21}
+            If MonthReportsList.Contains(SelectedValueID) Then
+                If Val(ddlMonth.SelectedValue) = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_SELECTMONTH")
+                    Return
+                End If
+            End If
+
+            ' Check for selected scope
+            Dim ScopeReportsList = {13, 22}
+            If ScopeReportsList.Contains(SelectedValueID) Then
+                If Val(ddlScope.SelectedIndex) = 0 Then
                     lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
                     Return
                 End If
-                If Val(ddlMonth.SelectedValue) = 0 Then
-                    lblMsg.Text = imisgen.getMessage("M_SELECTMONTH")
+            End If
+
+            ' Check for selected insurance number
+            Dim InsuranceNumberReportsList = {22}
+            If InsuranceNumberReportsList.Contains(SelectedValueID) Then
+                If txtInsuranceNumber.Text.Trim = "" Then
+                    lblMsg.Text = imisgen.getMessage("L_PLEASEENTERINSURANCENUMBER")
+                    Return
+                End If
+            End If
+
+            ' Case specific checks
+            If SelectedValueID = 21 Then
+                If Val(ddlCommissionScope.SelectedValue) = -1 Then
+                    lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
                     Return
                 End If
                 If ddlPreviousReportDateCommission.SelectedValue <= 0 Then
@@ -1556,23 +1594,6 @@ Partial Public Class Reports
                         lblMsg.Text = imisgen.getMessage("M_PLEASESELECTCOMMISSIONRATE")
                         Return
                     End If
-                End If
-            End If
-
-            If SelectedValueID = 22 Then
-                If txtInsuranceNumber.Text.Trim = "" Then
-                    lblMsg.Text = imisgen.getMessage("L_PLEASEENTERINSURANCENUMBER")
-                    Return
-                End If
-                If ddlScope.SelectedIndex = 0 Then
-                    lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
-                    Return
-                End If
-            End If
-            If SelectedValueID = 13 Then
-                If ddlScope.SelectedIndex = 0 Then
-                    lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
-                    Return
                 End If
             End If
 
