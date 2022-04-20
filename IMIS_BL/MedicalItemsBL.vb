@@ -30,10 +30,11 @@ Public Class MedicalItemsBL
     Private imisgen As New GeneralBL
     Public Function GetMedicalItems(ByVal eItems As IMIS_EN.tblItems, Optional ByVal All As Boolean = False) As DataTable
         Dim getDataTable As New IMIS_DAL.MedicalItemsDAL
-        eItems.ItemCode += "%"
-        eItems.ItemName += "%"
-        eItems.ItemType += "%"
-        eItems.ItemPackage += "%"
+        eItems.ItemCode = "%" & eItems.ItemCode & "%"
+        eItems.ItemName = "%" & eItems.ItemName & "%"
+        eItems.ItemType = "%" & eItems.ItemType & "%"
+        eItems.ItemPackage = "%" & eItems.ItemPackage & "%"
+
         Dim dtIType As DataTable = GetItemType()
         Return getDataTable.GetMI(eItems, All, dtIType)
 

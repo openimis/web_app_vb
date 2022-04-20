@@ -52,9 +52,10 @@ Public Class MedicalServicesBL
         If Not dtSType.Columns.Contains("AltLanguage") Then dtSType.Columns.Add("AltLanguage")
         If Not dtServLevel.Columns.Contains("AltLanguage") Then dtServLevel.Columns.Add("AltLanguage")
 
-        eService.ServCode += "%"
-        eService.ServName += "%"
-        eService.ServType += "%"
+        eService.ServCode = "%" & eService.ServCode & "%"
+        eService.ServName = "%" & eService.ServName & "%"
+        eService.ServType = "%" & eService.ServType & "%"
+
         If All = True Then
             Return getDataTable.GetMSLegacy(eService, dtSType, dtServLevel)
         Else
