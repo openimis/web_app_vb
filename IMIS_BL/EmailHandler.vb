@@ -35,9 +35,6 @@ Imports System.Data.SqlClient
 
 Public Class EmailHandler
 
-    Private _CompanyName As String = "IMIS"
-    
-
 
     Private Function getEmailSettings() As DataTable
 
@@ -97,6 +94,7 @@ Public Class EmailHandler
             Dim FromEmail As String = dtEmailSettings(0)("EmailId")
             Dim EmailPassword As String = dtEmailSettings(0)("EmailPassword")
             Dim EnableSSL As Boolean = dtEmailSettings(0)("EnableSSL")
+            Dim SenderDisplayname As String = dtEmailSettings(0)("SenderDisplayName")
 
             'eMail = ToMailMessage(Message)
 
@@ -112,7 +110,7 @@ Public Class EmailHandler
             'eMail.CC.Add(dtEmailSettings(0)("EmailId").ToString)
 
             With eMail
-                .From = New MailAddress(FromEmail, _CompanyName)
+                .From = New MailAddress(FromEmail, SenderDisplayname)
                 .To.Add(Recipient)
                 If Bcc.Trim.Length > 0 Then .Bcc.Add(Bcc)
                 If Cc.Trim.Length > 0 Then .CC.Add(Cc)

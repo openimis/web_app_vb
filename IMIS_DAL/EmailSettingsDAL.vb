@@ -28,7 +28,7 @@
 
 Public Class EmailSettingsDAL
     Public Function getEmailSettings() As DataTable
-        Dim sSQL As String = "SELECT TOP 1 EmailId, CONVERT(NVARCHAR(200),DECRYPTBYPASSPHRASE(N'EmailSettings', EmailPassword)) EmailPassword, SMTPHost, Port ,EnableSSL FROM tblEmailSettings"
+        Dim sSQL As String = "SELECT TOP 1 EmailId, CONVERT(NVARCHAR(200),DECRYPTBYPASSPHRASE(N'EmailSettings', EmailPassword)) EmailPassword, SMTPHost, Port ,EnableSSL, SenderDisplayName FROM tblEmailSettings"
         Dim data As New ExactSQL
 
         data.setSQLCommand(sSQL, CommandType.Text)
