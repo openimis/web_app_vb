@@ -40,6 +40,20 @@ Public Class PriceListMIBL
         Return dtbl
 
     End Function
+
+    Public Function GetPriceListDistrictMI(ByVal UserId As Integer, ByVal DistrictId As Integer, Optional ByVal ShowSelectedRow As Boolean = False) As DataTable
+        Dim Gen As New GeneralBL
+        Dim getDataTable As New IMIS_DAL.PriceListMIDAL
+        Dim dtbl As DataTable = getDataTable.GetPriceListDistrictMI(UserId, DistrictId)
+        If ShowSelectedRow = True Then
+            Dim dr As DataRow = dtbl.NewRow
+            dr("PLItemId") = 0
+            dr("PLItemName") = Gen.getMessage("M_ITEMNAME") '"-- Select Price List --"
+            dtbl.Rows.InsertAt(dr, 0)
+        End If
+        Return dtbl
+
+    End Function
     Public Function GetPriceListMI(ByVal ePL As IMIS_EN.tblPLItems, Optional ByVal All As Boolean = False) As DataTable
         Dim getDataTable As New IMIS_DAL.PriceListMIDAL
         ePL.PLItemName += "%"

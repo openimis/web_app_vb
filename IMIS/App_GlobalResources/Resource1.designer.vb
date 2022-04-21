@@ -7994,6 +7994,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to The following secret keys were left at a default value. For security reasons, please change them in Web.config file. Make sure secret keys are also updated in mobile applications..
+        '''</summary>
+        Friend Shared ReadOnly Property M_DEFAULTPASSWORDWARNING() As String
+            Get
+                Return ResourceManager.GetString("M_DEFAULTPASSWORDWARNING", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Security Warning.
+        '''</summary>
+        Friend Shared ReadOnly Property M_DEFAULTPASSWORDWARNINGLABEL() As String
+            Get
+                Return ResourceManager.GetString("M_DEFAULTPASSWORDWARNINGLABEL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to deleted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETED() As String
@@ -9367,6 +9385,24 @@ Namespace Resources
         Friend Shared ReadOnly Property M_MISSINGVILLAGECODEORNAMEINEXCEL() As String
             Get
                 Return ResourceManager.GetString("M_MISSINGVILLAGECODEORNAMEINEXCEL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Moving a district is not possible - there are pricelists connected to this district. Please remove them first..
+        '''</summary>
+        Friend Shared ReadOnly Property M_MOVEDISTRICTSPLWARNING() As String
+            Get
+                Return ResourceManager.GetString("M_MOVEDISTRICTSPLWARNING", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Local pricelists detected..
+        '''</summary>
+        Friend Shared ReadOnly Property M_MOVEDISTRICTSPLWARNINGLABEL() As String
+            Get
+                Return ResourceManager.GetString("M_MOVEDISTRICTSPLWARNINGLABEL", resourceCulture)
             End Get
         End Property
         

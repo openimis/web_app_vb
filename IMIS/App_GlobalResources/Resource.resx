@@ -5171,5 +5171,11 @@ adults/children)
   <data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
     <value>Security Warning</value>
   </data>
+  <data name="M_MOVEDISTRICTSPLWARNING" xml:space="preserve">
+    <value>Moving a district is not possible - there are pricelists connected to this district. Please remove them first.</value>
+  </data>
+  <data name="M_MOVEDISTRICTSPLWARNINGLABEL" xml:space="preserve">
+    <value>Local pricelists detected.</value>
+  </data>
 </root>
 

@@ -29,6 +29,8 @@
 Public Class MoveLocation
     Inherits System.Web.UI.Page
     Protected imisgen As New IMIS_Gen
+    Private PricelistsItems As New IMIS_BL.PriceListMIBL
+    Private PricelistsServices As New IMIS_BL.PricelistMSBL
     Private MoveLocationBI As New IMIS_BI.MoveLocationBI
     Private AffectedFamilies As Integer = 0
     Private DistrictId As Integer
@@ -243,6 +245,14 @@ Public Class MoveLocation
     Private Sub ImgBtnMoveDistrict_Click(sender As Object, e As ImageClickEventArgs) Handles ImgBtnMoveDistrict.Click
         Dim ErrorMessage As Integer = 0
         Dim Msg As String = ""
+        ' Check for local pricelist - if there is pricelist defined on a district level, block the move.
+        Dim dtPricelistsItems As DataTable = PricelistsItems.GetPriceListDistrictMI(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"), False)
+        Dim dtPricelistsServices As DataTable = PricelistsServices.GetPriceListDistrictMS(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"), False)
+
+        If dtPricelistsItems.Rows.Count > 0 Or dtPricelistsServices.Rows.Count > 0 Then
+            imisgen.Alert(imisgen.getMessage("M_MOVEDISTRICTSPLWARNING"), pnlRegions, alertPopupTitle:=imisgen.getMessage("M_MOVEDISTRICTSPLWARNINGLABEL"))
+            Exit Sub
+        End If
         If ViewState("SelectedRegion") Is Nothing AndAlso ViewState("SelectedDistrict") Is Nothing Then
             Msg = imisgen.getMessage("M_PLEASESELECT") & " " & imisgen.getMessage("L_DISTRICT") & " " & imisgen.getMessage("m_AND") & " " & imisgen.getMessage("L_REGION")
             lblMsg.Text = Msg
