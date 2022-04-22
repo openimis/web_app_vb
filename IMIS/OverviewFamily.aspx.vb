@@ -264,7 +264,11 @@ Partial Public Class OverviewFamily
                 epolicy = New IMIS_EN.tblPolicy
                 policyValueCurrent = 0
                 epolicy.PolicyStatus = dr("PolicyStatusID")
-                epolicy.ExpiryDate = dr("ExpiryDate")
+                If dr("ExpiryDate") Is Nothing Then
+                    epolicy.ExpiryDate = dr("ExpiryDate")
+                Else
+                    epolicy.ExpiryDate = Nothing
+                End If
                 If epolicy.PolicyStatus > 1 Then
                     Continue For
                 End If
