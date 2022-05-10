@@ -142,8 +142,6 @@ Partial Public Class Login
     End Sub
     Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        If IsPostBack Then Exit Sub
-
         demo = False
 
 #If DEMO Then
@@ -151,6 +149,8 @@ Partial Public Class Login
         txtPassword.Attributes.Add("value", "admin123")
         demo = True
 #End If
+
+        If IsPostBack Then Exit Sub
 
         txtUserName.Focus()
         If Request.Form("__EVENTARGUMENT") = "SaveOfflineHFID" Then
