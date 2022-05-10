@@ -203,6 +203,12 @@ Partial Public Class FindPayment
 
         ePayment.RegionId = Val(ddlRegion.SelectedValue)
 
+        If chkReconciled.Checked Then
+            ePayment.SpReconcReqId = "1"
+        Else
+            ePayment.SpReconcReqId = ""
+        End If
+
         If Val(ddlDistrict.SelectedValue) > 0 Then ePayment.DistrictId = ddlDistrict.SelectedValue
 
 

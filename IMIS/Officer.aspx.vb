@@ -151,6 +151,17 @@ Partial Public Class Officer
             Dim dt As New DataTable
             dt = DirectCast(Session("User"), DataTable)
 
+            If IsDate(txtWorksTo.Text) And String.IsNullOrEmpty(ddlSubstitution.SelectedValue) Then
+                Session("msg") = imisgen.getMessage("M_SUBSTITUTE")
+                Return False
+            End If
+
+
+            If Not String.IsNullOrEmpty(ddlSubstitution.SelectedValue) And Not IsDate(txtWorksTo.Text) Then
+                Session("msg") = imisgen.getMessage("M_WORKSTO")
+                Return False
+            End If
+
             Dim eLocations As New IMIS_EN.tblLocations
 
             Dim LocationId As Integer = -1

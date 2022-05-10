@@ -192,7 +192,6 @@
     <Content Include="Javascripts\jquery.cookie.js" />
     <Content Include="Javascripts\jquery.ui.autocomplete.js" />
     <Content Include="Javascripts\jquery.ui.widget.js" />
-    <Content Include="Javascripts\select2.min.js" />
     <Content Include="Javascripts\simpletip.js" />
     <Content Include="Locations.aspx" />
     <Content Include="Logout.aspx" />
@@ -243,7 +242,6 @@
     <Content Include="StyleSheets\jquery-ui.css" />
     <Content Include="StyleSheets\jquery.ui.autocomplete.css" />
     <Content Include="StyleSheets\MainMenu.css" />
-    <Content Include="StyleSheets\select2.min.css" />
     <Content Include="Templates\FamilySMSBeforeExpiry.txt" />
     <Content Include="Templates\ForgotPassword.html" />
     <Content Include="Templates\OfflineExtract.html" />
@@ -275,20 +273,21 @@
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Manual\IMIS_manual_fr.pdf" />
-    <None Include="My Project\PublishProfiles\IMIS.pubxml" />
+    <None Include="My Project\PublishProfiles\IISProfile.pubxml" />
+    <None Include="My Project\PublishProfiles\IMIS CHF Release.pubxml" />
+    <None Include="My Project\PublishProfiles\IMIS MV Release.pubxml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Reports\rptOverviewOfCommissions.rdlc" />
-    <Content Include="set_folders_rights.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Web References\IMISService\imisservices.disco" />
     <None Include="web.base.config" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Workspace\dummy.dmd" />
+    <None Include="Web.Debug.config.dist" />
+    <None Include="Web.Release.config.dist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddFunding.aspx.designer.vb">
@@ -298,10 +297,45 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>AddFunding.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_cm.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_cm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.en_tz.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en_tz.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.es_es.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.es_es.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Resource.fr.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_cd.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_cd.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_dj.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_dj.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr_td.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr_td.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.sw.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.sw.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Resource1.designer.vb">
       <AutoGen>True</AutoGen>
@@ -801,6 +835,34 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.fr.designer.vb</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\Resource.en_cm.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_cm.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en_tz.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en_tz.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.es_es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.es_es.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_cd.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_cd.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_dj.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_dj.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr_td.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr_td.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.sw.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -867,8 +929,6 @@
     <Content Include="Reports\rptClaimOverviewHistoryAllDetails.rdlc" />
     <Content Include="Reports\rptClaimOverviewHistoryClaimsOnly.rdlc" />
     <Content Include="Reports\rptClaimOverviewHistoryRejecteServItem.rdlc" />
-    <Content Include="Reports\rptOverviewOfCommissionsO.rdlc" />
-    <Content Include="Reports\rptOverviewOfCommissionsD.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS.Master" />
@@ -1078,7 +1138,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="True" />
+      <UserProperties BuildVersion_AssemblyInfoFilename="My Project\AssemblyInfo.vb" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.Increment" BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

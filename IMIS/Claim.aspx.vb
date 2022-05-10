@@ -442,25 +442,40 @@ Partial Public Class Claim
     End Function
     Private Function ClaimValidation() As String
         Try
-            If eClaim.ClaimID = 0 Then
-                Dim ServiceExists As Boolean
-                Dim ItemExists As Boolean
-                For Each Row As GridViewRow In gvService.Rows
-                    If CType(Row.Cells(0).Controls(1), TextBox).Text.Trim <> "" Then
-                        ServiceExists = True
-                        Exit For
+            Dim ServiceExists As Boolean
+            Dim ItemExists As Boolean
+            For Each Row As GridViewRow In gvService.Rows
+                If CType(Row.Cells(0).Controls(1), TextBox).Text.Trim <> "" Then
+                    ServiceExists = True
+
+                    If Not IsNumeric(CType(Row.Cells(1).Controls(1), TextBox).Text.Trim) Then
+                        imisgen.Alert(imisgen.getMessage("M_ENTERVALIDQUANTITY"), pnlButtons, alertPopupTitle:="IMIS")
+                        Return "Exit"
                     End If
-                Next
-                For Each Row As GridViewRow In gvItems.Rows
-                    If CType(Row.Cells(0).Controls(1), TextBox).Text.Trim <> "" Then
-                        ItemExists = True
-                        Exit For
+                    If Not IsNumeric(CType(Row.Cells(2).Controls(1), TextBox).Text.Trim) Then
+                        imisgen.Alert(imisgen.getMessage("M_ENTERVALIDPRICEVALUE"), pnlButtons, alertPopupTitle:="IMIS")
+                        Return "Exit"
                     End If
-                Next
-                If Not ServiceExists And Not ItemExists Then
-                    imisgen.Alert(imisgen.getMessage("M_ADDATLEASTONEITEMORSERVICE"), pnlButtons, alertPopupTitle:="IMIS")
-                    Return "Exit"
                 End If
+
+            Next
+            For Each Row As GridViewRow In gvItems.Rows
+                If CType(Row.Cells(0).Controls(1), TextBox).Text.Trim <> "" Then
+                    ItemExists = True
+
+                    If Not IsNumeric(CType(Row.Cells(1).Controls(1), TextBox).Text.Trim) Then
+                        imisgen.Alert(imisgen.getMessage("M_ENTERVALIDQUANTITY"), pnlButtons, alertPopupTitle:="IMIS")
+                        Return "Exit"
+                    End If
+                    If Not IsNumeric(CType(Row.Cells(2).Controls(1), TextBox).Text.Trim) Then
+                        imisgen.Alert(imisgen.getMessage("M_ENTERVALIDPRICEVALUE"), pnlButtons, alertPopupTitle:="IMIS")
+                        Return "Exit"
+                    End If
+                End If
+            Next
+            If Not ServiceExists And Not ItemExists Then
+                imisgen.Alert(imisgen.getMessage("M_ADDATLEASTONEITEMORSERVICE"), pnlButtons, alertPopupTitle:="IMIS")
+                Return "Exit"
             End If
 
             'If ddlHFCode.SelectedValue = 0 Then
@@ -739,7 +754,6 @@ Partial Public Class Claim
                             hfClaimServiceID.Value = gvService.DataKeys.Item(row.RowIndex).Values("ClaimServiceId")
                             'lblMsg.Text = "The Services were deleted successfully"
                         End If
-
                     Else
                         eClaimServices.QtyProvided = CType(row.cells(1).controls(1), TextBox).Text.Trim
                         eClaimServices.PriceAsked = CType(row.cells(2).controls(1), TextBox).Text.Trim

@@ -111,16 +111,22 @@ Public Class PaymentDAL
         sSQL += "  WHERE UD.ValidityTo IS NULL AND (UD.UserId = @UserId OR @UserId = 0)"
         sSQL += " GROUP BY L.DistrictId, L.Region )"
         sSQL = " SELECT " + UtilitiesDAL.GetEnvMaxRows()
-        sSQL += " py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, PY.RejectedReason, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, ISNULL(PY.ReceivedAmount,PY.ExpectedAmount) ReceivedAmount,  PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo  FROM tblPaymentDetails PD "
-        sSQL += " INNER Join tblPayment PY ON PY.PaymentID = PD.PaymentID"
-        sSQL += "  INNER JOIN tblInsuree I ON I.CHFID = PD.InsuranceNumber"
-        sSQL += "  INNER JOIN tblFamilies F ON F.FamilyID =  I.FamilyID"
-        sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId,0) = ISNULL(F.LocationId,0)"
-        sSQL += " Left OUTER JOIN tblControlNumber CN ON CN.PaymentID = PY.PaymentID"
-        sSQL += " INNER JOIN @dtPaymentStatus PS ON PS.StatusID = PY.PaymentStatus"
+        sSQL += "  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, PY.RejectedReason, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate MatchingDate, PY.ReceivedAmount,  
+                 PY.PaymentOrigin,PS.PaymenyStatusName, PY.ValidityFrom, PY.ValidityTo    
+                FROM tblPayment PY
+                 INNER JOIN tblPaymentDetails PD ON PY.PaymentId = PD.PaymentID
+                 INNER JOIN @dtPaymentStatus PS ON PY.PaymentStatus = PS.StatusID
+                 LEFT OUTER JOIN tblControlNumber CN ON PY.PaymentID = CN.PaymentID
+                 LEFT OUTER JOIN tblInsuree I ON PD.InsuranceNumber = I.CHFID AND I.IsHead = 1
+                 LEFT OUTER JOIN tblFamilies F ON I.FamilyID = F.FamilyID
+                 INNER JOIN uvwLocations L ON ISNULL(F.LocationId, 0) = ISNULL(L.LocationId, 0)"
+
         sSQL += " WHERE"
-        'sSQL += " PD.ValidityTo IS NULL"
-        sSQL += " CN.ValidityTo IS NULL"
+
+        sSQL += " PY.ValidityTo IS NULL
+                 AND CN.ValidityTo IS NULL
+                 AND I.ValidityTo IS NULL
+                 AND F.ValidityTo IS NULL"
 
         If ePayment.Legacy = False Then
             sSQL += " AND PD.ValidityTo IS NULL"
@@ -188,6 +194,11 @@ Public Class PaymentDAL
             End If
 
         End If
+
+        If ePayment.SpReconcReqId.ToString.Length > 0 Then
+            sSQL += " AND PY.SpReconcReqId IS NOT NULL"
+        End If
+
         sSQL += " GROUP BY  py.PaymentID, py.PaymentUUID, PY.OfficerCode, PY.ExpectedAmount, PY.ReceiptNo, CN.ControlNumber, PY.TransactionNo, PY.PhoneNumber, PY.PaymentDate, PY.ReceivedDate,  PY.MatchedDate , PY.ReceivedAmount,PY.ExpectedAmount,  PaymenyStatusName, PY.PaymentOrigin, PY.ValidityFrom, PY.ValidityTo, PY.RejectedReason"
         sSQL += " ORDER BY PaymentID DESC "
         'If ePayment.LocationID IsNot Nothing Then

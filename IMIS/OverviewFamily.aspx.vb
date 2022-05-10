@@ -159,11 +159,11 @@ Partial Public Class OverviewFamily
             End If
             txtPoverty.Text = If(eFamily.Poverty Is Nothing, "", If(eFamily.Poverty = True, "Yes", "No"))
             txtConfirmationType.Text = eFamily.ConfirmationType
-          
+
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
-            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo").Value = "en", eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
+            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
             txtConfirmationNo.Text = eFamily.ConfirmationNo
             txtPermanentAddress.Text = eFamily.FamilyAddress
         Catch ex As Exception
@@ -264,7 +264,11 @@ Partial Public Class OverviewFamily
                 epolicy = New IMIS_EN.tblPolicy
                 policyValueCurrent = 0
                 epolicy.PolicyStatus = dr("PolicyStatusID")
-                epolicy.ExpiryDate = dr("ExpiryDate")
+                If dr("ExpiryDate") Is Nothing Then
+                    epolicy.ExpiryDate = dr("ExpiryDate")
+                Else
+                    epolicy.ExpiryDate = Nothing
+                End If
                 If epolicy.PolicyStatus > 1 Then
                     Continue For
                 End If

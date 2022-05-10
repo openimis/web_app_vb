@@ -152,6 +152,10 @@
           <DataField>PhoneNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Commission">
+          <DataField>Commission</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ds</rd:DataSetName>
@@ -672,14 +676,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CommissionRate">
+                        <Textbox Name="Commission">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CommissionRate.Value</Value>
+                                  <Value>=Fields!Commission.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,###.00</Format>
@@ -691,7 +695,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CommissionRate</rd:DefaultName>
+                          <rd:DefaultName>Commission</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -833,7 +837,6 @@
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -907,14 +910,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox33">
+                        <Textbox Name="Commission1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!CommissionRate.Value)</Value>
+                                  <Value>=Sum(Fields!Commission.Value)</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,###.00</Format>
@@ -926,7 +929,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox33</rd:DefaultName>
+                          <rd:DefaultName>Commission1</rd:DefaultName>
                           <Style>
                             <TopBorder>
                               <Style>Solid</Style>

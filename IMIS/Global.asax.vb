@@ -57,7 +57,7 @@ Public Class Global_asax
         ' Fires at the beginning of each request
         Dim cookie As HttpCookie = Request.Cookies.Get("CultureInfo")
         If Not cookie Is Nothing Then
-            Dim culture_info As New System.Globalization.CultureInfo(cookie.Value)
+            Dim culture_info As New System.Globalization.CultureInfo(cookie("SelectedLanguage"))
 
             System.Threading.Thread.CurrentThread.CurrentUICulture = culture_info
         Else

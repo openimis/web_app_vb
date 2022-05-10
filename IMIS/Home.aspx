@@ -70,8 +70,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
-
-    <span id="version">v1.6.0 (build <asp:Label ID="compiledVersion" runat="server" Text=''></asp:Label>)
+    <span id="version">v1.5.2 (build <asp:Label ID="compiledVersion" runat="server" Text=''></asp:Label>)
         <% #If DEBUG Then %>
             DEVELOP
         <% #End If %>
@@ -123,7 +122,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
 
     </asp:GridView>
-            <asp:Label ID="DEFAULTPASSWORDWARNINGFIELD" runat="server" />
+            <asp:Label ID="DEFAULTPASSWORDWARNINGFIELD" runat="server" />  
 
         </div>
     <div style="bottom: 23px; left: 5px; font-size: 14px; margin-bottom: 6px;">

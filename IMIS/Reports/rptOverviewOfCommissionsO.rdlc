@@ -152,6 +152,10 @@
           <DataField>PhoneNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Commission">
+          <DataField>Commission</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ds</rd:DataSetName>
@@ -599,14 +603,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CommissionRate1">
+                        <Textbox Name="Commission">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!CommissionRate.Value)</Value>
+                                  <Value>=Sum(Fields!Commission.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,###.00</Format>
@@ -618,7 +622,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CommissionRate1</rd:DefaultName>
+                          <rd:DefaultName>Commission</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -826,14 +830,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox25">
+                        <Textbox Name="Commission1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!CommissionRate.Value)</Value>
+                                  <Value>=Sum(Fields!Commission.Value)</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,###.00</Format>
@@ -845,7 +849,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox25</rd:DefaultName>
+                          <rd:DefaultName>Commission1</rd:DefaultName>
                           <Style>
                             <TopBorder>
                               <Style>Solid</Style>
@@ -856,6 +860,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -915,14 +920,14 @@
             <DataSetName>ds_uspSSRSGetOverviewCommissions</DataSetName>
             <Top>0.3175cm</Top>
             <Height>1.86984cm</Height>
-            <Width>24.5cm</Width>
+            <Width>24.50001cm</Width>
             <Style />
           </Tablix>
         </ReportItems>
         <Height>2.46184cm</Height>
         <Style />
       </Body>
-      <Width>24.5cm</Width>
+      <Width>24.50001cm</Width>
       <Page>
         <PageHeader>
           <Height>1.98283cm</Height>

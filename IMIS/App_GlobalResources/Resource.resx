@@ -9,11 +9,11 @@
 						<xsd:complexType>
 							<xsd:sequence>
 								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
+						</xsd:sequence>
+						<xsd:attribute name="name" use="required" type="xsd:string" />
+						<xsd:attribute name="type" type="xsd:string" />
+						<xsd:attribute name="mimetype" type="xsd:string" />
+						<xsd:attribute ref="xml:space" />
 						</xsd:complexType>
 					</xsd:element>
 					<xsd:element name="assembly">
@@ -5099,5 +5099,17 @@ adults/children)
 	</data>
 	<data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
 		<value>Overview of Commissions (Overview)</value>
+	</data>
+	<data name="M_SUBSTITUTE" xml:space="preserve">
+		<value>Please select substitute officer</value>
+	</data>
+	<data name="M_WORKSTO" xml:space="preserve">
+		<value>Please select works to date</value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
+		<value>The following secret keys were left at a default value. For security reasons, please change them in Web.config file. Make sure secret keys are also updated in mobile applications.</value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
+		<value>Security Warning</value>
 	</data>
 </root>

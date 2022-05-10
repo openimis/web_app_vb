@@ -512,8 +512,15 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                     <asp:Label ID="L_SUBSTITUTION" runat="server" Text='<%$ Resources:Resource,L_SUBSTITUTION %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
-                                    <asp:DropDownList ID="ddlSubstitution" runat="server">
-                                    </asp:DropDownList>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="ddlSubstitution" runat="server">
+                                            </asp:DropDownList>
+                                            <asp:Label ID="Label2" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlSubstitution" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
+                                            Text='*'></asp:RequiredFieldValidator>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </td>
                                 <td class="auto-style36"></td>
                             </tr>

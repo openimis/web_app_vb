@@ -20,9 +20,9 @@ Namespace Resources
     'To add or remove a member, edit your .ResX file then rerun ResGen
     'with the /str option or rebuild the Visual Studio project.
     '''<summary>
-    '''  A strongly-typed resource class, for looking up localized strings, etc.
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Class Resource
@@ -37,7 +37,7 @@ Namespace Resources
         End Sub
         
         '''<summary>
-        '''  Returns the cached ResourceManager instance used by this class.
+        '''   Returns the cached ResourceManager instance used by this class.
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend Shared ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
@@ -51,8 +51,8 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Overrides the current thread's CurrentUICulture property for all
-        '''  resource lookups using this strongly typed resource class.
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend Shared Property Culture() As Global.System.Globalization.CultureInfo
@@ -65,7 +65,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add.
+        '''   Looks up a localized string similar to Add.
         '''</summary>
         Friend Shared ReadOnly Property B_ADD() As String
             Get
@@ -74,7 +74,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add Family/Group.
+        '''   Looks up a localized string similar to Add Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property B_ADDFAMILY() As String
             Get
@@ -83,7 +83,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add Insuree.
+        '''   Looks up a localized string similar to Add Insuree.
         '''</summary>
         Friend Shared ReadOnly Property B_ADDINSUREE() As String
             Get
@@ -92,7 +92,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add Policy.
+        '''   Looks up a localized string similar to Add Policy.
         '''</summary>
         Friend Shared ReadOnly Property B_ADDPOLICY() As String
             Get
@@ -101,7 +101,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add Contribution.
+        '''   Looks up a localized string similar to Add Contribution.
         '''</summary>
         Friend Shared ReadOnly Property B_ADDPREMIUM() As String
             Get
@@ -110,7 +110,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Browse.
+        '''   Looks up a localized string similar to Browse.
         '''</summary>
         Friend Shared ReadOnly Property B_BROWSE() As String
             Get
@@ -119,7 +119,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cancel.
+        '''   Looks up a localized string similar to Cancel.
         '''</summary>
         Friend Shared ReadOnly Property B_CANCEL() As String
             Get
@@ -128,7 +128,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Change.
+        '''   Looks up a localized string similar to Change.
         '''</summary>
         Friend Shared ReadOnly Property B_CHANGE() As String
             Get
@@ -137,7 +137,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Check.
+        '''   Looks up a localized string similar to Check.
         '''</summary>
         Friend Shared ReadOnly Property B_CHECK() As String
             Get
@@ -146,7 +146,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims.
+        '''   Looks up a localized string similar to Claims.
         '''</summary>
         Friend Shared ReadOnly Property B_CLAIM() As String
             Get
@@ -155,7 +155,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims Reviewed.
+        '''   Looks up a localized string similar to Claims Reviewed.
         '''</summary>
         Friend Shared ReadOnly Property B_CLAIMSREVIEWS() As String
             Get
@@ -164,7 +164,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Create.
+        '''   Looks up a localized string similar to Create.
         '''</summary>
         Friend Shared ReadOnly Property B_CREATE() As String
             Get
@@ -173,7 +173,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete.
+        '''   Looks up a localized string similar to Delete.
         '''</summary>
         Friend Shared ReadOnly Property B_DELETE() As String
             Get
@@ -182,7 +182,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete Family/Group.
+        '''   Looks up a localized string similar to Delete Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property B_DELETEFAMILY() As String
             Get
@@ -191,7 +191,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete Insuree.
+        '''   Looks up a localized string similar to Delete Insuree.
         '''</summary>
         Friend Shared ReadOnly Property B_DELETEINSUREE() As String
             Get
@@ -200,7 +200,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete Login.
+        '''   Looks up a localized string similar to Delete Login.
         '''</summary>
         Friend Shared ReadOnly Property B_DELETELOGIN() As String
             Get
@@ -209,7 +209,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete Policy.
+        '''   Looks up a localized string similar to Delete Policy.
         '''</summary>
         Friend Shared ReadOnly Property B_DELETEPOLICY() As String
             Get
@@ -218,7 +218,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete Contribution.
+        '''   Looks up a localized string similar to Delete Contribution.
         '''</summary>
         Friend Shared ReadOnly Property B_DELETEPREMIUM() As String
             Get
@@ -227,7 +227,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download.
+        '''   Looks up a localized string similar to Download.
         '''</summary>
         Friend Shared ReadOnly Property B_DOWNLOAD() As String
             Get
@@ -236,7 +236,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Feedback.
+        '''   Looks up a localized string similar to Download Feedback.
         '''</summary>
         Friend Shared ReadOnly Property B_DownLoadFeedback() As String
             Get
@@ -245,7 +245,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to DownLoad  Log.
+        '''   Looks up a localized string similar to DownLoad  Log.
         '''</summary>
         Friend Shared ReadOnly Property B_DOWNLOADLOG() As String
             Get
@@ -254,7 +254,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Master Data.
+        '''   Looks up a localized string similar to Download Master Data.
         '''</summary>
         Friend Shared ReadOnly Property B_DownLoadMasterData() As String
             Get
@@ -263,7 +263,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Renewals.
+        '''   Looks up a localized string similar to Download Renewals.
         '''</summary>
         Friend Shared ReadOnly Property B_DownLoadRenewals() As String
             Get
@@ -272,7 +272,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate.
+        '''   Looks up a localized string similar to Duplicate.
         '''</summary>
         Friend Shared ReadOnly Property B_DUPLICATE() As String
             Get
@@ -281,7 +281,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Edit.
+        '''   Looks up a localized string similar to Edit.
         '''</summary>
         Friend Shared ReadOnly Property B_EDIT() As String
             Get
@@ -290,7 +290,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to EXECUTE.
+        '''   Looks up a localized string similar to EXECUTE.
         '''</summary>
         Friend Shared ReadOnly Property B_EXECUTE() As String
             Get
@@ -299,7 +299,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extract.
+        '''   Looks up a localized string similar to Extract.
         '''</summary>
         Friend Shared ReadOnly Property B_EXTRACT() As String
             Get
@@ -308,7 +308,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback.
+        '''   Looks up a localized string similar to Feedback.
         '''</summary>
         Friend Shared ReadOnly Property B_FEEDBACK() As String
             Get
@@ -317,7 +317,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find.
+        '''   Looks up a localized string similar to Find.
         '''</summary>
         Friend Shared ReadOnly Property B_FIND() As String
             Get
@@ -326,7 +326,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Load.
+        '''   Looks up a localized string similar to Load.
         '''</summary>
         Friend Shared ReadOnly Property B_LOAD() As String
             Get
@@ -335,7 +335,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Match.
+        '''   Looks up a localized string similar to Match.
         '''</summary>
         Friend Shared ReadOnly Property B_MATCHPAYMENT() As String
             Get
@@ -344,7 +344,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Modify Family/Group.
+        '''   Looks up a localized string similar to Modify Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property B_MODIFYFAMILY() As String
             Get
@@ -353,7 +353,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Modify Insuree.
+        '''   Looks up a localized string similar to Modify Insuree.
         '''</summary>
         Friend Shared ReadOnly Property B_MODIFYINSUREE() As String
             Get
@@ -362,7 +362,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Modify Policy.
+        '''   Looks up a localized string similar to Modify Policy.
         '''</summary>
         Friend Shared ReadOnly Property B_MODIFYPOLICY() As String
             Get
@@ -371,7 +371,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Modify Contribution.
+        '''   Looks up a localized string similar to Modify Contribution.
         '''</summary>
         Friend Shared ReadOnly Property B_MODIFYPREMIUM() As String
             Get
@@ -380,7 +380,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Move.
+        '''   Looks up a localized string similar to Move.
         '''</summary>
         Friend Shared ReadOnly Property B_Move() As String
             Get
@@ -389,7 +389,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Preview.
+        '''   Looks up a localized string similar to Preview.
         '''</summary>
         Friend Shared ReadOnly Property B_PREVIEW() As String
             Get
@@ -398,7 +398,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Print.
+        '''   Looks up a localized string similar to Print.
         '''</summary>
         Friend Shared ReadOnly Property B_PRINT() As String
             Get
@@ -407,7 +407,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Process.
+        '''   Looks up a localized string similar to Process.
         '''</summary>
         Friend Shared ReadOnly Property B_PROCESS() As String
             Get
@@ -416,7 +416,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Restore.
+        '''   Looks up a localized string similar to Restore.
         '''</summary>
         Friend Shared ReadOnly Property B_RESTORE() As String
             Get
@@ -425,7 +425,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review.
+        '''   Looks up a localized string similar to Review.
         '''</summary>
         Friend Shared ReadOnly Property B_REVIEW() As String
             Get
@@ -434,7 +434,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Reviewed.
+        '''   Looks up a localized string similar to Reviewed.
         '''</summary>
         Friend Shared ReadOnly Property B_REVIEWED() As String
             Get
@@ -443,7 +443,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Save.
+        '''   Looks up a localized string similar to Save.
         '''</summary>
         Friend Shared ReadOnly Property B_SAVE() As String
             Get
@@ -452,7 +452,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Search.
+        '''   Looks up a localized string similar to Search.
         '''</summary>
         Friend Shared ReadOnly Property B_SEARCH() As String
             Get
@@ -461,7 +461,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select.
+        '''   Looks up a localized string similar to Select.
         '''</summary>
         Friend Shared ReadOnly Property B_SELECT() As String
             Get
@@ -470,7 +470,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Submit.
+        '''   Looks up a localized string similar to Submit.
         '''</summary>
         Friend Shared ReadOnly Property B_SUBMIT() As String
             Get
@@ -479,7 +479,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Update.
+        '''   Looks up a localized string similar to Update.
         '''</summary>
         Friend Shared ReadOnly Property B_UPDATE() As String
             Get
@@ -488,7 +488,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload.
+        '''   Looks up a localized string similar to Upload.
         '''</summary>
         Friend Shared ReadOnly Property B_UPLOAD() As String
             Get
@@ -497,7 +497,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Feedback.
+        '''   Looks up a localized string similar to Upload Feedback.
         '''</summary>
         Friend Shared ReadOnly Property B_UPLOADFEEDBACK() As String
             Get
@@ -506,7 +506,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Renewal.
+        '''   Looks up a localized string similar to Upload Renewal.
         '''</summary>
         Friend Shared ReadOnly Property B_UPLOADRENEWAL() As String
             Get
@@ -515,7 +515,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to View.
+        '''   Looks up a localized string similar to View.
         '''</summary>
         Friend Shared ReadOnly Property B_VIEW() As String
             Get
@@ -524,7 +524,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to XML Export.
+        '''   Looks up a localized string similar to XML Export.
         '''</summary>
         Friend Shared ReadOnly Property B_XML() As String
             Get
@@ -533,7 +533,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Administrator Details.
+        '''   Looks up a localized string similar to Claim Administrator Details.
         '''</summary>
         Friend Shared ReadOnly Property G_CLAIMADMINISTRATOR() As String
             Get
@@ -542,7 +542,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Include User Login.
+        '''   Looks up a localized string similar to Include User Login.
         '''</summary>
         Friend Shared ReadOnly Property G_CLAIMADMINISTRATORLOGIN() As String
             Get
@@ -551,7 +551,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facility Details.
+        '''   Looks up a localized string similar to Health Facility Details.
         '''</summary>
         Friend Shared ReadOnly Property G_HEALTHFACILITY() As String
             Get
@@ -560,7 +560,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Item Details.
+        '''   Looks up a localized string similar to Medical Item Details.
         '''</summary>
         Friend Shared ReadOnly Property G_MEDICALITEM() As String
             Get
@@ -569,7 +569,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Service Details.
+        '''   Looks up a localized string similar to Medical Service Details.
         '''</summary>
         Friend Shared ReadOnly Property G_MEDICALSERVICE() As String
             Get
@@ -578,7 +578,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers Details.
+        '''   Looks up a localized string similar to Enrolment Officers Details.
         '''</summary>
         Friend Shared ReadOnly Property G_OFFICER() As String
             Get
@@ -587,7 +587,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Include Login.
+        '''   Looks up a localized string similar to Include Login.
         '''</summary>
         Friend Shared ReadOnly Property G_OFFICERLOGIN() As String
             Get
@@ -596,7 +596,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payer Details.
+        '''   Looks up a localized string similar to Payer Details.
         '''</summary>
         Friend Shared ReadOnly Property G_PAYER() As String
             Get
@@ -605,7 +605,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price Lists (Medical Items).
+        '''   Looks up a localized string similar to Price Lists (Medical Items).
         '''</summary>
         Friend Shared ReadOnly Property G_PRICELISTSMI() As String
             Get
@@ -614,7 +614,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price Lists (Medical Services).
+        '''   Looks up a localized string similar to Price Lists (Medical Services).
         '''</summary>
         Friend Shared ReadOnly Property G_PRICELISTSMS() As String
             Get
@@ -623,7 +623,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Project Details.
+        '''   Looks up a localized string similar to Project Details.
         '''</summary>
         Friend Shared ReadOnly Property G_PROJECTDETAILS() As String
             Get
@@ -632,7 +632,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Role Details.
+        '''   Looks up a localized string similar to Role Details.
         '''</summary>
         Friend Shared ReadOnly Property G_ROLE_DETAILS() As String
             Get
@@ -641,7 +641,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Role Details.
+        '''   Looks up a localized string similar to Role Details.
         '''</summary>
         Friend Shared ReadOnly Property G_USER() As String
             Get
@@ -650,7 +650,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to AC.
+        '''   Looks up a localized string similar to AC.
         '''</summary>
         Friend Shared ReadOnly Property L_AC() As String
             Get
@@ -659,7 +659,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Account Code.
+        '''   Looks up a localized string similar to Account Code.
         '''</summary>
         Friend Shared ReadOnly Property L_ACCCODE() As String
             Get
@@ -668,7 +668,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Account Code(Contribution).
+        '''   Looks up a localized string similar to Account Code(Contribution).
         '''</summary>
         Friend Shared ReadOnly Property L_ACCCODEPREMIUM() As String
             Get
@@ -677,7 +677,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Account Code(Remuneration).
+        '''   Looks up a localized string similar to Account Code(Remuneration).
         '''</summary>
         Friend Shared ReadOnly Property L_ACCCODEREMUNERATION() As String
             Get
@@ -686,7 +686,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Accepted.
+        '''   Looks up a localized string similar to Accepted.
         '''</summary>
         Friend Shared ReadOnly Property L_ACCEPTED() As String
             Get
@@ -695,7 +695,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Action.
+        '''   Looks up a localized string similar to Action.
         '''</summary>
         Friend Shared ReadOnly Property L_ACTION() As String
             Get
@@ -704,7 +704,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Action Time.
+        '''   Looks up a localized string similar to Action Time.
         '''</summary>
         Friend Shared ReadOnly Property L_ACTIONTIME() As String
             Get
@@ -713,7 +713,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Action Type.
+        '''   Looks up a localized string similar to Action Type.
         '''</summary>
         Friend Shared ReadOnly Property L_ACTIONTYPE() As String
             Get
@@ -722,7 +722,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Activity Centre.
+        '''   Looks up a localized string similar to Activity Centre.
         '''</summary>
         Friend Shared ReadOnly Property L_ACTIVITYCENTRE() As String
             Get
@@ -731,7 +731,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add Batch.
+        '''   Looks up a localized string similar to Add Batch.
         '''</summary>
         Friend Shared ReadOnly Property L_ADDBATCH() As String
             Get
@@ -740,7 +740,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add Family/Group.
+        '''   Looks up a localized string similar to Add Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property L_ADDFAMILY() As String
             Get
@@ -749,7 +749,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add new Family/Group.
+        '''   Looks up a localized string similar to Add new Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property L_ADDNEWFAMILY() As String
             Get
@@ -758,7 +758,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Address Details.
+        '''   Looks up a localized string similar to Address Details.
         '''</summary>
         Friend Shared ReadOnly Property L_ADDRESS() As String
             Get
@@ -767,7 +767,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adjusted.
+        '''   Looks up a localized string similar to Adjusted.
         '''</summary>
         Friend Shared ReadOnly Property L_ADJUSTED() As String
             Get
@@ -776,7 +776,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adjustment.
+        '''   Looks up a localized string similar to Adjustment.
         '''</summary>
         Friend Shared ReadOnly Property L_ADJUSTMENT() As String
             Get
@@ -785,7 +785,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Administration.
+        '''   Looks up a localized string similar to Administration.
         '''</summary>
         Friend Shared ReadOnly Property L_ADMINISTRATION() As String
             Get
@@ -794,7 +794,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Administration Period (months).
+        '''   Looks up a localized string similar to Administration Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_ADMINISTRATIONPERIOD() As String
             Get
@@ -803,7 +803,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adult Contribution.
+        '''   Looks up a localized string similar to Adult Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_ADULTPREMIUM() As String
             Get
@@ -812,7 +812,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Age.
+        '''   Looks up a localized string similar to Age.
         '''</summary>
         Friend Shared ReadOnly Property L_AGE() As String
             Get
@@ -821,7 +821,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IMIS.
+        '''   Looks up a localized string similar to IMIS.
         '''</summary>
         Friend Shared ReadOnly Property L_ALERTPOPUPTITLE() As String
             Get
@@ -830,7 +830,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Historical.
+        '''   Looks up a localized string similar to Historical.
         '''</summary>
         Friend Shared ReadOnly Property L_ALL() As String
             Get
@@ -839,7 +839,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Allocated.
+        '''   Looks up a localized string similar to Allocated.
         '''</summary>
         Friend Shared ReadOnly Property L_ALLOCATED() As String
             Get
@@ -848,7 +848,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Allocated Contribution.
+        '''   Looks up a localized string similar to Allocated Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_ALLOCATEDCONTRIBUTION() As String
             Get
@@ -857,7 +857,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Alternative Language.
+        '''   Looks up a localized string similar to Alternative Language.
         '''</summary>
         Friend Shared ReadOnly Property L_ALTLANGUAGE() As String
             Get
@@ -866,7 +866,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Amount.
+        '''   Looks up a localized string similar to Amount.
         '''</summary>
         Friend Shared ReadOnly Property L_AMOUNT() As String
             Get
@@ -875,7 +875,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to And Year.
+        '''   Looks up a localized string similar to And Year.
         '''</summary>
         Friend Shared ReadOnly Property L_ANDYEAR() As String
             Get
@@ -884,7 +884,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Antenanal Amount/Claim.
+        '''   Looks up a localized string similar to Antenanal Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_ANTENATALAMOUNTLEFT() As String
             Get
@@ -893,7 +893,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to App. Qty.
+        '''   Looks up a localized string similar to App. Qty.
         '''</summary>
         Friend Shared ReadOnly Property L_APPQTY() As String
             Get
@@ -902,7 +902,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Approved.
+        '''   Looks up a localized string similar to Approved.
         '''</summary>
         Friend Shared ReadOnly Property L_APPROVED() As String
             Get
@@ -911,7 +911,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to App. Price.
+        '''   Looks up a localized string similar to App. Price.
         '''</summary>
         Friend Shared ReadOnly Property L_APPVALUE() As String
             Get
@@ -920,7 +920,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Assignment Status.
+        '''   Looks up a localized string similar to Assignment Status.
         '''</summary>
         Friend Shared ReadOnly Property L_ASSIGNMENTSTATUS() As String
             Get
@@ -929,7 +929,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Available Contribution.
+        '''   Looks up a localized string similar to Available Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_AVAILABLEPREMIUM() As String
             Get
@@ -938,7 +938,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Average Cost per Claim.
+        '''   Looks up a localized string similar to Average Cost per Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_AVERAGECOSTPERCLAIM() As String
             Get
@@ -947,7 +947,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Backend Version:.
+        '''   Looks up a localized string similar to Backend Version:.
         '''</summary>
         Friend Shared ReadOnly Property L_BACKENDVERSION() As String
             Get
@@ -956,7 +956,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Go to Login.
+        '''   Looks up a localized string similar to Go to Login.
         '''</summary>
         Friend Shared ReadOnly Property L_BACKTOLOGIN() As String
             Get
@@ -965,7 +965,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to BACKUP.
+        '''   Looks up a localized string similar to BACKUP.
         '''</summary>
         Friend Shared ReadOnly Property L_BACKUP() As String
             Get
@@ -974,7 +974,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Balance.
+        '''   Looks up a localized string similar to Balance.
         '''</summary>
         Friend Shared ReadOnly Property L_BALANCE() As String
             Get
@@ -983,7 +983,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch.
+        '''   Looks up a localized string similar to Batch.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCH() As String
             Get
@@ -992,7 +992,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Code.
+        '''   Looks up a localized string similar to Batch Code.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHCODE() As String
             Get
@@ -1001,7 +1001,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Date.
+        '''   Looks up a localized string similar to Batch Date.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHDATE() As String
             Get
@@ -1010,7 +1010,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Batches.
+        '''   Looks up a localized string similar to Claim Batches.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHES() As String
             Get
@@ -1019,7 +1019,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Details.
+        '''   Looks up a localized string similar to Batch Details.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHFORM() As String
             Get
@@ -1028,7 +1028,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch.
+        '''   Looks up a localized string similar to Batch.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHPAGETITLE() As String
             Get
@@ -1037,7 +1037,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Run.
+        '''   Looks up a localized string similar to Batch Run.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHRUN() As String
             Get
@@ -1046,7 +1046,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Selected.
+        '''   Looks up a localized string similar to Batch Selected.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHSELECTED() As String
             Get
@@ -1055,7 +1055,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Status.
+        '''   Looks up a localized string similar to Status.
         '''</summary>
         Friend Shared ReadOnly Property L_BATCHSTATUS() As String
             Get
@@ -1064,7 +1064,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Birth Date.
+        '''   Looks up a localized string similar to Birth Date.
         '''</summary>
         Friend Shared ReadOnly Property L_BIRTHDATE() As String
             Get
@@ -1073,7 +1073,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Birth Date From.
+        '''   Looks up a localized string similar to Birth Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_BIRTHDATEFROM() As String
             Get
@@ -1082,7 +1082,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Birth Date To.
+        '''   Looks up a localized string similar to Birth Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_BIRTHDATETO() As String
             Get
@@ -1091,7 +1091,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Blocked.
+        '''   Looks up a localized string similar to Blocked.
         '''</summary>
         Friend Shared ReadOnly Property L_BLOCKED() As String
             Get
@@ -1100,7 +1100,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Both.
+        '''   Looks up a localized string similar to Both.
         '''</summary>
         Friend Shared ReadOnly Property L_BOTH() As String
             Get
@@ -1109,7 +1109,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Calculated Date.
+        '''   Looks up a localized string similar to Calculated Date.
         '''</summary>
         Friend Shared ReadOnly Property L_CALCDATE() As String
             Get
@@ -1118,7 +1118,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Calculated commission.
+        '''   Looks up a localized string similar to Calculated commission.
         '''</summary>
         Friend Shared ReadOnly Property L_CALCULATEDCOMMISSION() As String
             Get
@@ -1127,7 +1127,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cancel.
+        '''   Looks up a localized string similar to Cancel.
         '''</summary>
         Friend Shared ReadOnly Property L_CANCEL() As String
             Get
@@ -1136,7 +1136,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Capitation Payment.
+        '''   Looks up a localized string similar to Capitation Payment.
         '''</summary>
         Friend Shared ReadOnly Property L_CAPITATIONPAYMENT() As String
             Get
@@ -1145,7 +1145,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Beneficiary Card.
+        '''   Looks up a localized string similar to Beneficiary Card.
         '''</summary>
         Friend Shared ReadOnly Property L_CARD() As String
             Get
@@ -1154,7 +1154,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Care Rendered.
+        '''   Looks up a localized string similar to Care Rendered.
         '''</summary>
         Friend Shared ReadOnly Property L_CARERENDERED() As String
             Get
@@ -1163,7 +1163,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Care Type.
+        '''   Looks up a localized string similar to Care Type.
         '''</summary>
         Friend Shared ReadOnly Property L_CARETYPE() As String
             Get
@@ -1172,7 +1172,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Category.
+        '''   Looks up a localized string similar to Category.
         '''</summary>
         Friend Shared ReadOnly Property L_CATEGORY() As String
             Get
@@ -1181,7 +1181,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to CC.
+        '''   Looks up a localized string similar to CC.
         '''</summary>
         Friend Shared ReadOnly Property L_CC() As String
             Get
@@ -1190,7 +1190,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Current District.
+        '''   Looks up a localized string similar to Current District.
         '''</summary>
         Friend Shared ReadOnly Property L_CDISTRICT() As String
             Get
@@ -1199,7 +1199,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ceiling.
+        '''   Looks up a localized string similar to Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_CEILING() As String
             Get
@@ -1208,7 +1208,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ceiling Adult.
+        '''   Looks up a localized string similar to Ceiling Adult.
         '''</summary>
         Friend Shared ReadOnly Property L_CEILINGADULT() As String
             Get
@@ -1217,7 +1217,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ceiling Child.
+        '''   Looks up a localized string similar to Ceiling Child.
         '''</summary>
         Friend Shared ReadOnly Property L_CEILINGCHILD() As String
             Get
@@ -1226,7 +1226,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ceiling for Treatment.
+        '''   Looks up a localized string similar to Ceiling for Treatment.
         '''</summary>
         Friend Shared ReadOnly Property L_CEILINGFORTREATMENT() As String
             Get
@@ -1235,7 +1235,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ceiling Interpretation.
+        '''   Looks up a localized string similar to Ceiling Interpretation.
         '''</summary>
         Friend Shared ReadOnly Property L_CEILINGINTERPRETATION() As String
             Get
@@ -1244,7 +1244,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Change Family/Group.
+        '''   Looks up a localized string similar to Change Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property L_CHANGEFAMILY() As String
             Get
@@ -1253,7 +1253,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Change Head of Family/Group.
+        '''   Looks up a localized string similar to Change Head of Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property L_CHANGEHEAD() As String
             Get
@@ -1262,7 +1262,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Change Password.
+        '''   Looks up a localized string similar to Change Password.
         '''</summary>
         Friend Shared ReadOnly Property L_CHANGEPASSWORD() As String
             Get
@@ -1271,7 +1271,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Check All.
+        '''   Looks up a localized string similar to Check All.
         '''</summary>
         Friend Shared ReadOnly Property L_CHECKALL() As String
             Get
@@ -1280,7 +1280,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance Number.
+        '''   Looks up a localized string similar to Insurance Number.
         '''</summary>
         Friend Shared ReadOnly Property L_CHFID() As String
             Get
@@ -1289,7 +1289,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Child Contribution.
+        '''   Looks up a localized string similar to Child Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_CHILDPREMIUM() As String
             Get
@@ -1298,7 +1298,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim.
+        '''   Looks up a localized string similar to Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIM() As String
             Get
@@ -1307,7 +1307,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Administrator.
+        '''   Looks up a localized string similar to Claim Administrator.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMADMIN() As String
             Get
@@ -1316,7 +1316,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Administrator.
+        '''   Looks up a localized string similar to Claim Administrator.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMADMINISTRATOR() As String
             Get
@@ -1325,7 +1325,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Administrators.
+        '''   Looks up a localized string similar to Claim Administrators.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMADMINISTRATORS() As String
             Get
@@ -1334,7 +1334,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Approved.
+        '''   Looks up a localized string similar to Approved.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMAPPROVED() As String
             Get
@@ -1343,7 +1343,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim No..
+        '''   Looks up a localized string similar to Claim No..
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMCODE() As String
             Get
@@ -1352,7 +1352,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date Claimed.
+        '''   Looks up a localized string similar to Date Claimed.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMDATE() As String
             Get
@@ -1361,7 +1361,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Date From.
+        '''   Looks up a localized string similar to Claim Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMDATEFROM() As String
             Get
@@ -1370,7 +1370,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Date.
+        '''   Looks up a localized string similar to Claim Date.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMDATELABEL() As String
             Get
@@ -1379,7 +1379,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Details.
+        '''   Looks up a localized string similar to Claim Details.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMDETAILS() As String
             Get
@@ -1388,7 +1388,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claimed.
+        '''   Looks up a localized string similar to Claimed.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMED() As String
             Get
@@ -1397,7 +1397,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback.
+        '''   Looks up a localized string similar to Feedback.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMFEEDBACK() As String
             Get
@@ -1406,7 +1406,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim From.
+        '''   Looks up a localized string similar to Claim From.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMFROM() As String
             Get
@@ -1415,7 +1415,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim History Report.
+        '''   Looks up a localized string similar to Claim History Report.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMHISTORYREPORT() As String
             Get
@@ -1424,7 +1424,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim ID.
+        '''   Looks up a localized string similar to Claim ID.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMID() As String
             Get
@@ -1433,7 +1433,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Overview.
+        '''   Looks up a localized string similar to Claim Overview.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMOVERVIEW() As String
             Get
@@ -1442,7 +1442,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim.
+        '''   Looks up a localized string similar to Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMPAGETITLE() As String
             Get
@@ -1451,7 +1451,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review.
+        '''   Looks up a localized string similar to Review.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMREVIEW() As String
             Get
@@ -1460,7 +1460,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Review.
+        '''   Looks up a localized string similar to Claim Review.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMREVIEWPAGETITLE() As String
             Get
@@ -1469,7 +1469,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review.
+        '''   Looks up a localized string similar to Review.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMREVIEWSATUS() As String
             Get
@@ -1478,7 +1478,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review Status.
+        '''   Looks up a localized string similar to Review Status.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMREVIEWSTATUS() As String
             Get
@@ -1487,7 +1487,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Selection Update.
+        '''   Looks up a localized string similar to Claim Selection Update.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSELECTIONUPDATE() As String
             Get
@@ -1496,7 +1496,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ClaimSettlement Ratio.
+        '''   Looks up a localized string similar to ClaimSettlement Ratio.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSETTLEMENTRATIO() As String
             Get
@@ -1505,7 +1505,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims for Feedback.
+        '''   Looks up a localized string similar to Claims for Feedback.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSFEEDBACK() As String
             Get
@@ -1514,7 +1514,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims Found.
+        '''   Looks up a localized string similar to Claims Found.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSFOUND() As String
             Get
@@ -1523,7 +1523,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims Per Insuree.
+        '''   Looks up a localized string similar to Claims Per Insuree.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSPERINSUREE() As String
             Get
@@ -1532,7 +1532,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims Selected.
+        '''   Looks up a localized string similar to Claims Selected.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSSELECTED() As String
             Get
@@ -1541,7 +1541,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Status.
+        '''   Looks up a localized string similar to Claim Status.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSTATUS() As String
             Get
@@ -1550,7 +1550,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Status.
+        '''   Looks up a localized string similar to Claim Status.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMSTATUSLABEL() As String
             Get
@@ -1559,7 +1559,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim To.
+        '''   Looks up a localized string similar to Claim To.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMTO() As String
             Get
@@ -1568,7 +1568,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claimed.
+        '''   Looks up a localized string similar to Claimed.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMTOTAL() As String
             Get
@@ -1577,7 +1577,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Type.
+        '''   Looks up a localized string similar to Claim Type.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMTYPE() As String
             Get
@@ -1586,7 +1586,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Value.
+        '''   Looks up a localized string similar to Claim Value.
         '''</summary>
         Friend Shared ReadOnly Property L_CLAIMVALUE() As String
             Get
@@ -1595,7 +1595,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Code.
+        '''   Looks up a localized string similar to Code.
         '''</summary>
         Friend Shared ReadOnly Property L_CODE() As String
             Get
@@ -1604,7 +1604,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Collection.
+        '''   Looks up a localized string similar to Collection.
         '''</summary>
         Friend Shared ReadOnly Property L_COLLECTION() As String
             Get
@@ -1613,7 +1613,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Comments.
+        '''   Looks up a localized string similar to Comments.
         '''</summary>
         Friend Shared ReadOnly Property L_COMMENTS() As String
             Get
@@ -1622,7 +1622,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Commission Rate (%).
+        '''   Looks up a localized string similar to Commission Rate (%).
         '''</summary>
         Friend Shared ReadOnly Property L_COMMISSIONRATE() As String
             Get
@@ -1631,7 +1631,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Communicate.
+        '''   Looks up a localized string similar to Communicate.
         '''</summary>
         Friend Shared ReadOnly Property L_COMMUNICATE() As String
             Get
@@ -1640,7 +1640,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Conflict.
+        '''   Looks up a localized string similar to Conflict.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFILCT() As String
             Get
@@ -1649,7 +1649,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Conflicts.
+        '''   Looks up a localized string similar to Conflicts.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFILCTS() As String
             Get
@@ -1658,7 +1658,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Confirmation.
+        '''   Looks up a localized string similar to Confirmation.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFIRMATION() As String
             Get
@@ -1667,7 +1667,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Confirmation No..
+        '''   Looks up a localized string similar to Confirmation No..
         '''</summary>
         Friend Shared ReadOnly Property L_CONFIRMATIONNO() As String
             Get
@@ -1676,7 +1676,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Confirmation Type.
+        '''   Looks up a localized string similar to Confirmation Type.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFIRMATIONTYPE() As String
             Get
@@ -1685,7 +1685,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter username and confirm new password.
+        '''   Looks up a localized string similar to Enter username and confirm new password.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFIRMEMAILANDPASSWORD() As String
             Get
@@ -1694,7 +1694,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Confirm Password.
+        '''   Looks up a localized string similar to Confirm Password.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFIRMPASSWORD() As String
             Get
@@ -1703,7 +1703,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IMIS.
+        '''   Looks up a localized string similar to IMIS.
         '''</summary>
         Friend Shared ReadOnly Property L_CONFIRMPOPUPTITLE() As String
             Get
@@ -1712,7 +1712,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Consultation Amount/Claim.
+        '''   Looks up a localized string similar to Consultation Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_CONSULTATIONAMOUNTLEFT() As String
             Get
@@ -1721,7 +1721,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Consultations.
+        '''   Looks up a localized string similar to Consultations.
         '''</summary>
         Friend Shared ReadOnly Property L_CONSULTATIONS() As String
             Get
@@ -1730,7 +1730,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Category.
+        '''   Looks up a localized string similar to Contribution Category.
         '''</summary>
         Friend Shared ReadOnly Property L_CONTRIBUTIONCATEGORY() As String
             Get
@@ -1739,7 +1739,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Payment.
+        '''   Looks up a localized string similar to Contribution Payment.
         '''</summary>
         Friend Shared ReadOnly Property L_CONTRIBUTIONPAYMENT() As String
             Get
@@ -1748,7 +1748,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution.
+        '''   Looks up a localized string similar to Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_CONTRIBUTIONPREMIUM() As String
             Get
@@ -1757,7 +1757,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Control No..
+        '''   Looks up a localized string similar to Control No..
         '''</summary>
         Friend Shared ReadOnly Property L_CONTROLNUMBER() As String
             Get
@@ -1766,7 +1766,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Control Number Assignment.
+        '''   Looks up a localized string similar to Control Number Assignment.
         '''</summary>
         Friend Shared ReadOnly Property L_CONTROLNUMBERASSIGNMENT() As String
             Get
@@ -1775,7 +1775,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Conversion.
+        '''   Looks up a localized string similar to Conversion.
         '''</summary>
         Friend Shared ReadOnly Property L_CONVERSION() As String
             Get
@@ -1784,7 +1784,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Click button to load.
+        '''   Looks up a localized string similar to Click button to load.
         '''</summary>
         Friend Shared ReadOnly Property L_CONVERSIONCLICKTOLOAD() As String
             Get
@@ -1793,7 +1793,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cost Centre.
+        '''   Looks up a localized string similar to Cost Centre.
         '''</summary>
         Friend Shared ReadOnly Property L_COSTCENTRE() As String
             Get
@@ -1802,7 +1802,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Current Region.
+        '''   Looks up a localized string similar to Current Region.
         '''</summary>
         Friend Shared ReadOnly Property L_CREGION() As String
             Get
@@ -1811,7 +1811,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Criteria Details.
+        '''   Looks up a localized string similar to Criteria Details.
         '''</summary>
         Friend Shared ReadOnly Property L_CRITERIADETAILS() As String
             Get
@@ -1820,7 +1820,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Current Address Details.
+        '''   Looks up a localized string similar to Current Address Details.
         '''</summary>
         Friend Shared ReadOnly Property L_CURRENTADDRESS() As String
             Get
@@ -1829,7 +1829,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Current Password.
+        '''   Looks up a localized string similar to Current Password.
         '''</summary>
         Friend Shared ReadOnly Property L_CURRENTPASSWORD() As String
             Get
@@ -1838,7 +1838,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Current User.
+        '''   Looks up a localized string similar to Current User.
         '''</summary>
         Friend Shared ReadOnly Property L_CURRENTUSER() As String
             Get
@@ -1847,7 +1847,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Current Municipality.
+        '''   Looks up a localized string similar to Current Municipality.
         '''</summary>
         Friend Shared ReadOnly Property L_CVDC() As String
             Get
@@ -1856,7 +1856,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Current Village.
+        '''   Looks up a localized string similar to Current Village.
         '''</summary>
         Friend Shared ReadOnly Property L_CWARD() As String
             Get
@@ -1865,7 +1865,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date.
+        '''   Looks up a localized string similar to Date.
         '''</summary>
         Friend Shared ReadOnly Property L_DATE() As String
             Get
@@ -1874,7 +1874,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date Claimed.
+        '''   Looks up a localized string similar to Date Claimed.
         '''</summary>
         Friend Shared ReadOnly Property L_DATECLAIMED() As String
             Get
@@ -1883,7 +1883,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date From.
+        '''   Looks up a localized string similar to Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_DATEFROM() As String
             Get
@@ -1892,7 +1892,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date Processed.
+        '''   Looks up a localized string similar to Date Processed.
         '''</summary>
         Friend Shared ReadOnly Property L_DATEPROCESSED() As String
             Get
@@ -1901,7 +1901,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date Reviewed.
+        '''   Looks up a localized string similar to Date Reviewed.
         '''</summary>
         Friend Shared ReadOnly Property L_DATEREVIEWED() As String
             Get
@@ -1910,7 +1910,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date To.
+        '''   Looks up a localized string similar to Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_DATETO() As String
             Get
@@ -1919,7 +1919,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deductible.
+        '''   Looks up a localized string similar to Deductible.
         '''</summary>
         Friend Shared ReadOnly Property L_DEDUCTABLE() As String
             Get
@@ -1928,7 +1928,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deductable (General) Ceiling.
+        '''   Looks up a localized string similar to Deductable (General) Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_DEDUCTABLEGENCEILING() As String
             Get
@@ -1937,7 +1937,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deductable (Hospital) Ceiling.
+        '''   Looks up a localized string similar to Deductable (Hospital) Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_DEDUCTABLEINCEILING() As String
             Get
@@ -1946,7 +1946,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deductable (Non-Hospital) Ceiling.
+        '''   Looks up a localized string similar to Deductable (Non-Hospital) Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_DEDUCTABLEOUTCIELING() As String
             Get
@@ -1955,7 +1955,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deleted.
+        '''   Looks up a localized string similar to Deleted.
         '''</summary>
         Friend Shared ReadOnly Property L_DELETED() As String
             Get
@@ -1964,7 +1964,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deliveries.
+        '''   Looks up a localized string similar to Deliveries.
         '''</summary>
         Friend Shared ReadOnly Property L_DELIVERIES() As String
             Get
@@ -1973,7 +1973,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delivery Amount/Claim.
+        '''   Looks up a localized string similar to Delivery Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_DELIVERYAMOUNTLEFT() As String
             Get
@@ -1982,7 +1982,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product - Derived Indicators Report.
+        '''   Looks up a localized string similar to Product - Derived Indicators Report.
         '''</summary>
         Friend Shared ReadOnly Property L_DERIVEDINDICATORSREPORT() As String
             Get
@@ -1991,7 +1991,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Details .
+        '''   Looks up a localized string similar to Details .
         '''</summary>
         Friend Shared ReadOnly Property L_DETAILS() As String
             Get
@@ -2000,7 +2000,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Diagnosis.
+        '''   Looks up a localized string similar to Diagnosis.
         '''</summary>
         Friend Shared ReadOnly Property L_DIAGNOSIS() As String
             Get
@@ -2009,7 +2009,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Disease Code.
+        '''   Looks up a localized string similar to Disease Code.
         '''</summary>
         Friend Shared ReadOnly Property L_DISEASECODE() As String
             Get
@@ -2018,7 +2018,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Relative Indexes.
+        '''   Looks up a localized string similar to Relative Indexes.
         '''</summary>
         Friend Shared ReadOnly Property L_DISPLAY() As String
             Get
@@ -2027,7 +2027,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Distribution.
+        '''   Looks up a localized string similar to Distribution.
         '''</summary>
         Friend Shared ReadOnly Property L_DISTRIBUTION() As String
             Get
@@ -2036,7 +2036,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District.
+        '''   Looks up a localized string similar to District.
         '''</summary>
         Friend Shared ReadOnly Property L_DISTRICT() As String
             Get
@@ -2045,7 +2045,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Code.
+        '''   Looks up a localized string similar to District Code.
         '''</summary>
         Friend Shared ReadOnly Property L_DISTRICTCODE() As String
             Get
@@ -2054,7 +2054,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Name.
+        '''   Looks up a localized string similar to District Name.
         '''</summary>
         Friend Shared ReadOnly Property L_DistrictName() As String
             Get
@@ -2063,7 +2063,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Total.
+        '''   Looks up a localized string similar to District Total.
         '''</summary>
         Friend Shared ReadOnly Property L_DISTRICTTOTAL() As String
             Get
@@ -2072,7 +2072,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date of Birth.
+        '''   Looks up a localized string similar to Date of Birth.
         '''</summary>
         Friend Shared ReadOnly Property L_DOB() As String
             Get
@@ -2081,7 +2081,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Click here to download.
+        '''   Looks up a localized string similar to Click here to download.
         '''</summary>
         Friend Shared ReadOnly Property L_DOWNLOADCLICK() As String
             Get
@@ -2090,7 +2090,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Click the link to download extracts.
+        '''   Looks up a localized string similar to Click the link to download extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_DOWNLOADEXRACTSINFO() As String
             Get
@@ -2099,7 +2099,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Health Facilities.
+        '''   Looks up a localized string similar to Download Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property L_DOWNLOADHEALTHFACILITIES() As String
             Get
@@ -2108,7 +2108,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Diagnoses.
+        '''   Looks up a localized string similar to Download Diagnoses.
         '''</summary>
         Friend Shared ReadOnly Property L_DOWNLOADICD() As String
             Get
@@ -2117,7 +2117,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Locations.
+        '''   Looks up a localized string similar to Download Locations.
         '''</summary>
         Friend Shared ReadOnly Property L_DOWNLOADLOCATIONS() As String
             Get
@@ -2126,7 +2126,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Master Data.
+        '''   Looks up a localized string similar to Download Master Data.
         '''</summary>
         Friend Shared ReadOnly Property L_DOWNLOADMASTERDATA() As String
             Get
@@ -2135,7 +2135,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Drugs Prescribed.
+        '''   Looks up a localized string similar to Drugs Prescribed.
         '''</summary>
         Friend Shared ReadOnly Property L_DRUGSPRESCRIBED() As String
             Get
@@ -2144,7 +2144,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Drugs Received.
+        '''   Looks up a localized string similar to Drugs Received.
         '''</summary>
         Friend Shared ReadOnly Property L_DRUGSRECEIVED() As String
             Get
@@ -2153,7 +2153,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Dry Run.
+        '''   Looks up a localized string similar to Dry Run.
         '''</summary>
         Friend Shared ReadOnly Property L_DRYRUN() As String
             Get
@@ -2162,7 +2162,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Edit Payment Details.
+        '''   Looks up a localized string similar to Edit Payment Details.
         '''</summary>
         Friend Shared ReadOnly Property L_EDITPAYMENTDETAILS() As String
             Get
@@ -2171,7 +2171,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Education.
+        '''   Looks up a localized string similar to Education.
         '''</summary>
         Friend Shared ReadOnly Property L_EDUCATION() As String
             Get
@@ -2180,7 +2180,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Effective Date.
+        '''   Looks up a localized string similar to Effective Date.
         '''</summary>
         Friend Shared ReadOnly Property L_EFFECTIVEDATE() As String
             Get
@@ -2189,7 +2189,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Effective Date From.
+        '''   Looks up a localized string similar to Effective Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_EFFECTIVEDATEFROM() As String
             Get
@@ -2198,7 +2198,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Effective Date To.
+        '''   Looks up a localized string similar to Effective Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_EFFECTIVEDATETO() As String
             Get
@@ -2207,7 +2207,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Email.
+        '''   Looks up a localized string similar to Email.
         '''</summary>
         Friend Shared ReadOnly Property L_EMAIL() As String
             Get
@@ -2216,7 +2216,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Email id is required.
+        '''   Looks up a localized string similar to Email id is required.
         '''</summary>
         Friend Shared ReadOnly Property L_EMAILREQUIRED() As String
             Get
@@ -2225,7 +2225,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Email Settings.
+        '''   Looks up a localized string similar to Email Settings.
         '''</summary>
         Friend Shared ReadOnly Property L_EMAILSETTING() As String
             Get
@@ -2234,7 +2234,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Email.
+        '''   Looks up a localized string similar to Email.
         '''</summary>
         Friend Shared ReadOnly Property L_EMAILSETTINGS() As String
             Get
@@ -2243,7 +2243,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Employee.
+        '''   Looks up a localized string similar to Employee.
         '''</summary>
         Friend Shared ReadOnly Property L_EMPLOYEE() As String
             Get
@@ -2252,7 +2252,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Employee ID.
+        '''   Looks up a localized string similar to Employee ID.
         '''</summary>
         Friend Shared ReadOnly Property L_EMPLOYEEID() As String
             Get
@@ -2261,7 +2261,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enable SSL.
+        '''   Looks up a localized string similar to Enable SSL.
         '''</summary>
         Friend Shared ReadOnly Property L_ENABLESSL() As String
             Get
@@ -2270,7 +2270,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit Date To.
+        '''   Looks up a localized string similar to Visit Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_END() As String
             Get
@@ -2279,7 +2279,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to End Date.
+        '''   Looks up a localized string similar to End Date.
         '''</summary>
         Friend Shared ReadOnly Property L_ENDDATE() As String
             Get
@@ -2288,7 +2288,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enforce.
+        '''   Looks up a localized string similar to Enforce.
         '''</summary>
         Friend Shared ReadOnly Property L_ENFORCE() As String
             Get
@@ -2297,7 +2297,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrol Date.
+        '''   Looks up a localized string similar to Enrol Date.
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLDATE() As String
             Get
@@ -2306,7 +2306,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Date.
+        '''   Looks up a localized string similar to Enrolment Date.
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTDATE() As String
             Get
@@ -2315,7 +2315,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Date From.
+        '''   Looks up a localized string similar to Enrolment Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTDATEFROM() As String
             Get
@@ -2324,7 +2324,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Date To.
+        '''   Looks up a localized string similar to Enrolment Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTDATETO() As String
             Get
@@ -2333,7 +2333,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Disc. %.
+        '''   Looks up a localized string similar to Enrolment Disc. %.
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTDISCOUNTPERC() As String
             Get
@@ -2342,7 +2342,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Disc. Period (months).
+        '''   Looks up a localized string similar to Enrolment Disc. Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTDISCOUNTPERIOD() As String
             Get
@@ -2351,7 +2351,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officer.
+        '''   Looks up a localized string similar to Enrolment Officer.
         '''</summary>
         Friend Shared ReadOnly Property L_ENROLMENTOFFICERS() As String
             Get
@@ -2360,7 +2360,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter the Insurance Number of Insuree to move.
+        '''   Looks up a localized string similar to Enter the Insurance Number of Insuree to move.
         '''</summary>
         Friend Shared ReadOnly Property L_ENTERCHFIDOFINSUREE() As String
             Get
@@ -2369,7 +2369,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter the new Head of Family/Group Insurance Number.
+        '''   Looks up a localized string similar to Enter the new Head of Family/Group Insurance Number.
         '''</summary>
         Friend Shared ReadOnly Property L_ENTERNEWHEADCHFID() As String
             Get
@@ -2378,7 +2378,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Entity.
+        '''   Looks up a localized string similar to Entity.
         '''</summary>
         Friend Shared ReadOnly Property L_ENTITY() As String
             Get
@@ -2387,7 +2387,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Error.
+        '''   Looks up a localized string similar to Error.
         '''</summary>
         Friend Shared ReadOnly Property L_ERROR() As String
             Get
@@ -2396,7 +2396,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Errors.
+        '''   Looks up a localized string similar to Errors.
         '''</summary>
         Friend Shared ReadOnly Property L_ERRORS() As String
             Get
@@ -2405,7 +2405,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ethnicity.
+        '''   Looks up a localized string similar to Ethnicity.
         '''</summary>
         Friend Shared ReadOnly Property L_ETHNICITY() As String
             Get
@@ -2414,7 +2414,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to EXECUTE SCRIPT.
+        '''   Looks up a localized string similar to EXECUTE SCRIPT.
         '''</summary>
         Friend Shared ReadOnly Property L_EXECUTESCRIPT() As String
             Get
@@ -2423,7 +2423,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Exists.
+        '''   Looks up a localized string similar to Exists.
         '''</summary>
         Friend Shared ReadOnly Property L_EXISTS() As String
             Get
@@ -2432,7 +2432,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expected Amount.
+        '''   Looks up a localized string similar to Expected Amount.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPECTEDAMOUNT() As String
             Get
@@ -2441,7 +2441,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expire Date.
+        '''   Looks up a localized string similar to Expire Date.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPIREDATE() As String
             Get
@@ -2450,7 +2450,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expired Policy.
+        '''   Looks up a localized string similar to Expired Policy.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPIREDPOLICY() As String
             Get
@@ -2459,7 +2459,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expiry Date.
+        '''   Looks up a localized string similar to Expiry Date.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPIRYDATE() As String
             Get
@@ -2468,7 +2468,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expiry Date From.
+        '''   Looks up a localized string similar to Expiry Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPIRYDATEFROM() As String
             Get
@@ -2477,7 +2477,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expiry Date To.
+        '''   Looks up a localized string similar to Expiry Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPIRYDATETO() As String
             Get
@@ -2486,7 +2486,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Explanation.
+        '''   Looks up a localized string similar to Explanation.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPLANATION() As String
             Get
@@ -2495,7 +2495,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Export to EPICOR.
+        '''   Looks up a localized string similar to Export to EPICOR.
         '''</summary>
         Friend Shared ReadOnly Property L_EXPORTEPICOR() As String
             Get
@@ -2504,7 +2504,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy XML Extracts.
+        '''   Looks up a localized string similar to Policy XML Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACT1() As String
             Get
@@ -2513,7 +2513,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy XML Extracts.
+        '''   Looks up a localized string similar to Policy XML Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACT11() As String
             Get
@@ -2522,7 +2522,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items/Service XML Extracts.
+        '''   Looks up a localized string similar to Items/Service XML Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACT2() As String
             Get
@@ -2531,7 +2531,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items/Service XML Extracts.
+        '''   Looks up a localized string similar to Items/Service XML Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACT21() As String
             Get
@@ -2540,7 +2540,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extracts.
+        '''   Looks up a localized string similar to Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACTS() As String
             Get
@@ -2549,7 +2549,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IMIS Extracts.
+        '''   Looks up a localized string similar to IMIS Extracts.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRACTS1() As String
             Get
@@ -2558,7 +2558,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extra Member Ceiling.
+        '''   Looks up a localized string similar to Extra Member Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTRAMEMBERCEILING() As String
             Get
@@ -2567,7 +2567,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Claims.
+        '''   Looks up a localized string similar to Download Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_DOWNLOADCLAIMS() As String
             Get
@@ -2576,7 +2576,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Import Extract.
+        '''   Looks up a localized string similar to Import Extract.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_IMPORTEXTRACT() As String
             Get
@@ -2585,7 +2585,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to .
+        '''   Looks up a localized string similar to .
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_IMPORTEXTRACT1() As String
             Get
@@ -2594,7 +2594,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Import Photos.
+        '''   Looks up a localized string similar to Import Photos.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_IMPORTPHOTOS() As String
             Get
@@ -2603,7 +2603,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Import photos.
+        '''   Looks up a localized string similar to Import photos.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_IMPORTPHOTOS1() As String
             Get
@@ -2612,7 +2612,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Create Offline Extract.
+        '''   Looks up a localized string similar to Create Offline Extract.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_OFFLINEEXTRACT() As String
             Get
@@ -2621,7 +2621,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to .
+        '''   Looks up a localized string similar to .
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_OFFLINEEXTRACT1() As String
             Get
@@ -2630,7 +2630,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download Enrolments.
+        '''   Looks up a localized string similar to Download Enrolments.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_OFFLINENROLMENT() As String
             Get
@@ -2639,7 +2639,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Create Phone Extract.
+        '''   Looks up a localized string similar to Create Phone Extract.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_PHONEEXTRACT() As String
             Get
@@ -2648,7 +2648,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to .
+        '''   Looks up a localized string similar to .
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_PHONEEXTRACT1() As String
             Get
@@ -2657,7 +2657,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Claims.
+        '''   Looks up a localized string similar to Upload Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_UPLOADCLAIMS() As String
             Get
@@ -2666,7 +2666,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Enrolments.
+        '''   Looks up a localized string similar to Upload Enrolments.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_UPLOADENROLMENT() As String
             Get
@@ -2675,7 +2675,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Photos.
+        '''   Looks up a localized string similar to Upload Photos.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_UPLOADPHOTO() As String
             Get
@@ -2684,7 +2684,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Zipped Pictures.
+        '''   Looks up a localized string similar to Zipped Pictures.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_ZIPPEDPHOTOS() As String
             Get
@@ -2693,7 +2693,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to zipped photos.
+        '''   Looks up a localized string similar to zipped photos.
         '''</summary>
         Friend Shared ReadOnly Property L_EXTR_ZIPPEDPHOTOS1() As String
             Get
@@ -2702,7 +2702,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Failed.
+        '''   Looks up a localized string similar to Failed.
         '''</summary>
         Friend Shared ReadOnly Property L_FAILED() As String
             Get
@@ -2711,7 +2711,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Families/Groups.
+        '''   Looks up a localized string similar to Families/Groups.
         '''</summary>
         Friend Shared ReadOnly Property L_FAMILY() As String
             Get
@@ -2720,7 +2720,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Fam..
+        '''   Looks up a localized string similar to Fam..
         '''</summary>
         Friend Shared ReadOnly Property L_FAMILYABRREVIATION() As String
             Get
@@ -2729,7 +2729,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family/Group Details.
+        '''   Looks up a localized string similar to Family/Group Details.
         '''</summary>
         Friend Shared ReadOnly Property L_FAMILYPANEL() As String
             Get
@@ -2738,7 +2738,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Fatal Error.
+        '''   Looks up a localized string similar to Fatal Error.
         '''</summary>
         Friend Shared ReadOnly Property L_FATALERROR() As String
             Get
@@ -2747,7 +2747,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Fax.
+        '''   Looks up a localized string similar to Fax.
         '''</summary>
         Friend Shared ReadOnly Property L_FAX() As String
             Get
@@ -2756,7 +2756,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Status.
+        '''   Looks up a localized string similar to Feedback Status.
         '''</summary>
         Friend Shared ReadOnly Property L_FBSTATUS() As String
             Get
@@ -2765,7 +2765,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback.
+        '''   Looks up a localized string similar to Feedback.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACK() As String
             Get
@@ -2774,7 +2774,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Date.
+        '''   Looks up a localized string similar to Feedback Date.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACKDATE() As String
             Get
@@ -2783,7 +2783,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback.
+        '''   Looks up a localized string similar to Feedback.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACKPAGETITLE() As String
             Get
@@ -2792,7 +2792,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Prompts.
+        '''   Looks up a localized string similar to Feedback Prompts.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACKPROMPT() As String
             Get
@@ -2801,7 +2801,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Prompt Journal.
+        '''   Looks up a localized string similar to Feedback Prompt Journal.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACKPROMPTJ() As String
             Get
@@ -2810,7 +2810,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Response Ratio.
+        '''   Looks up a localized string similar to Feedback Response Ratio.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACKRESPONSERATIO() As String
             Get
@@ -2819,7 +2819,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Feedback Selection.
+        '''   Looks up a localized string similar to Batch Feedback Selection.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACKSELECTION() As String
             Get
@@ -2828,7 +2828,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Status.
+        '''   Looks up a localized string similar to Feedback Status.
         '''</summary>
         Friend Shared ReadOnly Property L_FEEDBACKSTATUS() As String
             Get
@@ -2837,7 +2837,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to F.
+        '''   Looks up a localized string similar to F.
         '''</summary>
         Friend Shared ReadOnly Property L_FEMALEABRREVIATION() As String
             Get
@@ -2846,7 +2846,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to File Name.
+        '''   Looks up a localized string similar to File Name.
         '''</summary>
         Friend Shared ReadOnly Property L_FILENAME() As String
             Get
@@ -2855,7 +2855,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Filter.
+        '''   Looks up a localized string similar to Filter.
         '''</summary>
         Friend Shared ReadOnly Property L_FILTER() As String
             Get
@@ -2864,7 +2864,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Filter for Accounts.
+        '''   Looks up a localized string similar to Filter for Accounts.
         '''</summary>
         Friend Shared ReadOnly Property L_FILTERACCOUNTS() As String
             Get
@@ -2873,7 +2873,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Filter Criteria.
+        '''   Looks up a localized string similar to Filter Criteria.
         '''</summary>
         Friend Shared ReadOnly Property L_FILTERCRITERIA() As String
             Get
@@ -2882,7 +2882,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Details.
+        '''   Looks up a localized string similar to Batch Details.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDBATCHFORM() As String
             Get
@@ -2891,7 +2891,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Claim.
+        '''   Looks up a localized string similar to Find Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDCLAIM() As String
             Get
@@ -2900,7 +2900,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Claim Administrators.
+        '''   Looks up a localized string similar to Find Claim Administrators.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDCLAIMADMINISTRATORS() As String
             Get
@@ -2909,7 +2909,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Insuree.
+        '''   Looks up a localized string similar to Find Insuree.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDINSUREE() As String
             Get
@@ -2918,7 +2918,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Medical Items.
+        '''   Looks up a localized string similar to Find Medical Items.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDMEDICALITEM() As String
             Get
@@ -2927,7 +2927,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Medical Services.
+        '''   Looks up a localized string similar to Find Medical Services.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDMEDICALSERVICES() As String
             Get
@@ -2936,7 +2936,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Enrolment Officers.
+        '''   Looks up a localized string similar to Find Enrolment Officers.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDOFFICER() As String
             Get
@@ -2945,7 +2945,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Payer.
+        '''   Looks up a localized string similar to Find Payer.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDPAYER() As String
             Get
@@ -2954,7 +2954,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Payments.
+        '''   Looks up a localized string similar to Find Payments.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDPAYMENT() As String
             Get
@@ -2963,7 +2963,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Contributions.
+        '''   Looks up a localized string similar to Find Contributions.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDPREMIUM() As String
             Get
@@ -2972,7 +2972,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Price Lists MI.
+        '''   Looks up a localized string similar to Find Price Lists MI.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDPRICELISTSMI() As String
             Get
@@ -2981,7 +2981,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Price Lists MS.
+        '''   Looks up a localized string similar to Find Price Lists MS.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDPRICELISTSMS() As String
             Get
@@ -2990,7 +2990,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Role.
+        '''   Looks up a localized string similar to Find Role.
         '''</summary>
         Friend Shared ReadOnly Property L_FINDROLE() As String
             Get
@@ -2999,7 +2999,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Forgot password?.
+        '''   Looks up a localized string similar to Forgot password?.
         '''</summary>
         Friend Shared ReadOnly Property L_FORGOTPASSWORD() As String
             Get
@@ -3008,7 +3008,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter username and new password to reset password.
+        '''   Looks up a localized string similar to Enter username and new password to reset password.
         '''</summary>
         Friend Shared ReadOnly Property L_FOROGOTPASSWORDHEADING() As String
             Get
@@ -3017,7 +3017,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batches Found.
+        '''   Looks up a localized string similar to Batches Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDBATCH() As String
             Get
@@ -3026,7 +3026,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batches Found.
+        '''   Looks up a localized string similar to Batches Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDBATCHES() As String
             Get
@@ -3035,7 +3035,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Administrators Found.
+        '''   Looks up a localized string similar to Claim Administrators Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDCLAIMADMINISTRATORS() As String
             Get
@@ -3044,7 +3044,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Families/Groups Found.
+        '''   Looks up a localized string similar to Families/Groups Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDFAMILY() As String
             Get
@@ -3053,7 +3053,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Facilities Found.
+        '''   Looks up a localized string similar to Facilities Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDHFACILITIES() As String
             Get
@@ -3062,7 +3062,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees Found.
+        '''   Looks up a localized string similar to Insurees Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDINSUREE() As String
             Get
@@ -3071,7 +3071,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items Found.
+        '''   Looks up a localized string similar to Items Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDITEMS() As String
             Get
@@ -3080,7 +3080,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers Found.
+        '''   Looks up a localized string similar to Enrolment Officers Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDOFFICERS() As String
             Get
@@ -3089,7 +3089,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payers Found.
+        '''   Looks up a localized string similar to Payers Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDPAYERS() As String
             Get
@@ -3098,7 +3098,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payments Found.
+        '''   Looks up a localized string similar to Payments Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDPAYMENTS() As String
             Get
@@ -3107,7 +3107,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contributions Found.
+        '''   Looks up a localized string similar to Contributions Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDPREMIUMS() As String
             Get
@@ -3116,7 +3116,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pricelists Found.
+        '''   Looks up a localized string similar to Pricelists Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDPRICELISTS() As String
             Get
@@ -3125,7 +3125,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Products Found.
+        '''   Looks up a localized string similar to Products Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDPRODUCTS() As String
             Get
@@ -3134,7 +3134,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services Found.
+        '''   Looks up a localized string similar to Services Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDSERVICES() As String
             Get
@@ -3143,7 +3143,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Users Found.
+        '''   Looks up a localized string similar to Users Found.
         '''</summary>
         Friend Shared ReadOnly Property L_FOUNDUSERS() As String
             Get
@@ -3152,7 +3152,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Free item price.
+        '''   Looks up a localized string similar to Free item price.
         '''</summary>
         Friend Shared ReadOnly Property L_FREEITEMPRICE() As String
             Get
@@ -3161,7 +3161,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Free service price.
+        '''   Looks up a localized string similar to Free service price.
         '''</summary>
         Friend Shared ReadOnly Property L_FREESERVICEPRICE() As String
             Get
@@ -3170,7 +3170,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Frequency (days).
+        '''   Looks up a localized string similar to Frequency (days).
         '''</summary>
         Friend Shared ReadOnly Property L_FREQUENCY() As String
             Get
@@ -3179,7 +3179,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to From.
+        '''   Looks up a localized string similar to From.
         '''</summary>
         Friend Shared ReadOnly Property L_FROM() As String
             Get
@@ -3188,7 +3188,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to First Service Point.
+        '''   Looks up a localized string similar to First Service Point.
         '''</summary>
         Friend Shared ReadOnly Property L_FSP() As String
             Get
@@ -3197,7 +3197,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level of FSP.
+        '''   Looks up a localized string similar to Level of FSP.
         '''</summary>
         Friend Shared ReadOnly Property L_FSPCATEGORY() As String
             Get
@@ -3206,7 +3206,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District of FSP.
+        '''   Looks up a localized string similar to District of FSP.
         '''</summary>
         Friend Shared ReadOnly Property L_FSPDISTRICT() As String
             Get
@@ -3215,7 +3215,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level of FSP.
+        '''   Looks up a localized string similar to Level of FSP.
         '''</summary>
         Friend Shared ReadOnly Property L_FSPLEVEL() As String
             Get
@@ -3224,7 +3224,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region of FSP.
+        '''   Looks up a localized string similar to Region of FSP.
         '''</summary>
         Friend Shared ReadOnly Property L_FSPREGION() As String
             Get
@@ -3233,7 +3233,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Full extract.
+        '''   Looks up a localized string similar to Full extract.
         '''</summary>
         Friend Shared ReadOnly Property L_FULLEXTRACT() As String
             Get
@@ -3242,7 +3242,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Full Name.
+        '''   Looks up a localized string similar to Full Name.
         '''</summary>
         Friend Shared ReadOnly Property L_FULLNAME() As String
             Get
@@ -3251,7 +3251,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Funding.
+        '''   Looks up a localized string similar to Funding.
         '''</summary>
         Friend Shared ReadOnly Property L_FUNDING() As String
             Get
@@ -3260,7 +3260,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Gender.
+        '''   Looks up a localized string similar to Gender.
         '''</summary>
         Friend Shared ReadOnly Property L_GENDER() As String
             Get
@@ -3269,7 +3269,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Gender.
+        '''   Looks up a localized string similar to Gender.
         '''</summary>
         Friend Shared ReadOnly Property L_GENDER1() As String
             Get
@@ -3278,7 +3278,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to General.
+        '''   Looks up a localized string similar to General.
         '''</summary>
         Friend Shared ReadOnly Property L_GENERAL() As String
             Get
@@ -3287,7 +3287,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Assembly Fee.
+        '''   Looks up a localized string similar to Assembly Fee.
         '''</summary>
         Friend Shared ReadOnly Property L_GENERALASSEMBLYFEE() As String
             Get
@@ -3296,7 +3296,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Assembly Lump Sum.
+        '''   Looks up a localized string similar to Assembly Lump Sum.
         '''</summary>
         Friend Shared ReadOnly Property L_GENERALASSEMBLYLUMPSUM() As String
             Get
@@ -3305,7 +3305,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Go back to selector..
+        '''   Looks up a localized string similar to Go back to selector..
         '''</summary>
         Friend Shared ReadOnly Property L_GOBACKTOSELECTOR() As String
             Get
@@ -3314,7 +3314,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Enrolment (months).
+        '''   Looks up a localized string similar to Grace Period Enrolment (months).
         '''</summary>
         Friend Shared ReadOnly Property L_GRACEPERIOD() As String
             Get
@@ -3323,7 +3323,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Renewal (months).
+        '''   Looks up a localized string similar to Grace Period Renewal (months).
         '''</summary>
         Friend Shared ReadOnly Property L_GRACEPERIODRENEWAL() As String
             Get
@@ -3332,7 +3332,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family / Group Type.
+        '''   Looks up a localized string similar to Family / Group Type.
         '''</summary>
         Friend Shared ReadOnly Property L_GROUPTYPE() As String
             Get
@@ -3341,7 +3341,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Growth Ratio.
+        '''   Looks up a localized string similar to Growth Ratio.
         '''</summary>
         Friend Shared ReadOnly Property L_GROWTHRATIO() As String
             Get
@@ -3350,7 +3350,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Guarantee No.
+        '''   Looks up a localized string similar to Guarantee No.
         '''</summary>
         Friend Shared ReadOnly Property L_GUARANTEE() As String
             Get
@@ -3359,7 +3359,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Has Login.
+        '''   Looks up a localized string similar to Has Login.
         '''</summary>
         Friend Shared ReadOnly Property L_HASLOGIN() As String
             Get
@@ -3368,7 +3368,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hospital Ceiling.
+        '''   Looks up a localized string similar to Hospital Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_HCEILING() As String
             Get
@@ -3377,7 +3377,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hospital Deduction.
+        '''   Looks up a localized string similar to Hospital Deduction.
         '''</summary>
         Friend Shared ReadOnly Property L_HDEDUCTION() As String
             Get
@@ -3386,7 +3386,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Health Facilities.
+        '''   Looks up a localized string similar to Find Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property L_HealthFacilities() As String
             Get
@@ -3395,7 +3395,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to HF.
+        '''   Looks up a localized string similar to HF.
         '''</summary>
         Friend Shared ReadOnly Property L_HF() As String
             Get
@@ -3404,7 +3404,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facilities.
+        '''   Looks up a localized string similar to Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property L_HFACILITIES() As String
             Get
@@ -3413,7 +3413,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Heath Facility.
+        '''   Looks up a localized string similar to Heath Facility.
         '''</summary>
         Friend Shared ReadOnly Property L_HFACILITY() As String
             Get
@@ -3422,7 +3422,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Catchment.
+        '''   Looks up a localized string similar to Catchment.
         '''</summary>
         Friend Shared ReadOnly Property L_HFCATCHMENT() As String
             Get
@@ -3431,7 +3431,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facility Claims.
+        '''   Looks up a localized string similar to Health Facility Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_HFCLAIM() As String
             Get
@@ -3440,7 +3440,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to HF Code.
+        '''   Looks up a localized string similar to HF Code.
         '''</summary>
         Friend Shared ReadOnly Property L_HFCODE() As String
             Get
@@ -3449,7 +3449,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Category.
+        '''   Looks up a localized string similar to Category.
         '''</summary>
         Friend Shared ReadOnly Property L_HFLEVEL() As String
             Get
@@ -3458,7 +3458,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to HF Name.
+        '''   Looks up a localized string similar to HF Name.
         '''</summary>
         Friend Shared ReadOnly Property L_HFNAME() As String
             Get
@@ -3467,7 +3467,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Remuneration.
+        '''   Looks up a localized string similar to Claim Remuneration.
         '''</summary>
         Friend Shared ReadOnly Property L_HFWISEPROCESSBATCH() As String
             Get
@@ -3476,7 +3476,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Home.
+        '''   Looks up a localized string similar to Home.
         '''</summary>
         Friend Shared ReadOnly Property L_HOME() As String
             Get
@@ -3485,7 +3485,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hospital.
+        '''   Looks up a localized string similar to Hospital.
         '''</summary>
         Friend Shared ReadOnly Property L_HOSPITAL() As String
             Get
@@ -3494,7 +3494,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Admission Amount/Claim.
+        '''   Looks up a localized string similar to Admission Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_HOSPITALIZATIONAMOUNTLEFT() As String
             Get
@@ -3503,7 +3503,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hospitalizations.
+        '''   Looks up a localized string similar to Hospitalizations.
         '''</summary>
         Friend Shared ReadOnly Property L_HOSPITALIZATIONS() As String
             Get
@@ -3512,7 +3512,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Main Dg..
+        '''   Looks up a localized string similar to Main Dg..
         '''</summary>
         Friend Shared ReadOnly Property L_ICD() As String
             Get
@@ -3521,7 +3521,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Main Dg1.
+        '''   Looks up a localized string similar to Main Dg1.
         '''</summary>
         Friend Shared ReadOnly Property L_ICD1() As String
             Get
@@ -3530,7 +3530,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Main Dg2.
+        '''   Looks up a localized string similar to Main Dg2.
         '''</summary>
         Friend Shared ReadOnly Property L_ICD2() As String
             Get
@@ -3539,7 +3539,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Main Dg3.
+        '''   Looks up a localized string similar to Main Dg3.
         '''</summary>
         Friend Shared ReadOnly Property L_ICD3() As String
             Get
@@ -3548,7 +3548,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Main Dg4.
+        '''   Looks up a localized string similar to Main Dg4.
         '''</summary>
         Friend Shared ReadOnly Property L_ICD4() As String
             Get
@@ -3557,7 +3557,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ICD Code.
+        '''   Looks up a localized string similar to ICD Code.
         '''</summary>
         Friend Shared ReadOnly Property L_ICDCODE() As String
             Get
@@ -3566,7 +3566,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Strategy.
+        '''   Looks up a localized string similar to Strategy.
         '''</summary>
         Friend Shared ReadOnly Property L_ICDUPLOADSTRATEGY() As String
             Get
@@ -3575,7 +3575,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Identification Type.
+        '''   Looks up a localized string similar to Identification Type.
         '''</summary>
         Friend Shared ReadOnly Property L_IDTYPE() As String
             Get
@@ -3584,7 +3584,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IMEI.
+        '''   Looks up a localized string similar to IMEI.
         '''</summary>
         Friend Shared ReadOnly Property L_IMEI() As String
             Get
@@ -3593,7 +3593,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IMIS-Utilities.
+        '''   Looks up a localized string similar to IMIS-Utilities.
         '''</summary>
         Friend Shared ReadOnly Property L_IMISUTILITIES() As String
             Get
@@ -3602,7 +3602,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Inactive Insurees.
+        '''   Looks up a localized string similar to Inactive Insurees.
         '''</summary>
         Friend Shared ReadOnly Property L_INACTIVEADHERENTS() As String
             Get
@@ -3611,7 +3611,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to In background.
+        '''   Looks up a localized string similar to In background.
         '''</summary>
         Friend Shared ReadOnly Property L_INBACKGROUND() As String
             Get
@@ -3620,7 +3620,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Include Login.
+        '''   Looks up a localized string similar to Include Login.
         '''</summary>
         Friend Shared ReadOnly Property L_INCLUDELOGIN() As String
             Get
@@ -3629,7 +3629,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Incurred Claim Ratio.
+        '''   Looks up a localized string similar to Incurred Claim Ratio.
         '''</summary>
         Friend Shared ReadOnly Property L_INCURREDCLAIMRATIO() As String
             Get
@@ -3638,7 +3638,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Index.
+        '''   Looks up a localized string similar to Index.
         '''</summary>
         Friend Shared ReadOnly Property L_INDEX() As String
             Get
@@ -3647,7 +3647,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to In-Patient.
+        '''   Looks up a localized string similar to In-Patient.
         '''</summary>
         Friend Shared ReadOnly Property L_INPATIENT() As String
             Get
@@ -3656,7 +3656,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insert and Update.
+        '''   Looks up a localized string similar to Insert and Update.
         '''</summary>
         Friend Shared ReadOnly Property L_INSERTANDUPDATE() As String
             Get
@@ -3665,7 +3665,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Inserted.
+        '''   Looks up a localized string similar to Inserted.
         '''</summary>
         Friend Shared ReadOnly Property L_INSERTED() As String
             Get
@@ -3674,7 +3674,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insert Only.
+        '''   Looks up a localized string similar to Insert Only.
         '''</summary>
         Friend Shared ReadOnly Property L_INSERTONLY() As String
             Get
@@ -3683,7 +3683,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insert, Update and Delete.
+        '''   Looks up a localized string similar to Insert, Update and Delete.
         '''</summary>
         Friend Shared ReadOnly Property L_INSERTUPDATEDELETE() As String
             Get
@@ -3692,7 +3692,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance number not found.
+        '''   Looks up a localized string similar to Insurance number not found.
         '''</summary>
         Friend Shared ReadOnly Property L_INSURANCENUMBERNOTFOUND() As String
             Get
@@ -3701,7 +3701,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance Period (months).
+        '''   Looks up a localized string similar to Insurance Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_INSURANCEPERIOD() As String
             Get
@@ -3710,7 +3710,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree.
+        '''   Looks up a localized string similar to Insuree.
         '''</summary>
         Friend Shared ReadOnly Property L_INSUREE() As String
             Get
@@ -3719,7 +3719,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree ID.
+        '''   Looks up a localized string similar to Insuree ID.
         '''</summary>
         Friend Shared ReadOnly Property L_INSUREEID() As String
             Get
@@ -3728,7 +3728,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees.
+        '''   Looks up a localized string similar to Insurees.
         '''</summary>
         Friend Shared ReadOnly Property L_INSUREES() As String
             Get
@@ -3737,7 +3737,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees and Policies.
+        '''   Looks up a localized string similar to Insurees and Policies.
         '''</summary>
         Friend Shared ReadOnly Property L_INSUREESANDPOLICIES() As String
             Get
@@ -3746,7 +3746,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Internal ID.
+        '''   Looks up a localized string similar to Internal ID.
         '''</summary>
         Friend Shared ReadOnly Property L_INTERNALID() As String
             Get
@@ -3755,7 +3755,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid email id.
+        '''   Looks up a localized string similar to Invalid email id.
         '''</summary>
         Friend Shared ReadOnly Property L_INVALIDEMAIL() As String
             Get
@@ -3764,7 +3764,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IP Ceiling.
+        '''   Looks up a localized string similar to IP Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_IPCEILING() As String
             Get
@@ -3773,7 +3773,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IPDeduction.
+        '''   Looks up a localized string similar to IPDeduction.
         '''</summary>
         Friend Shared ReadOnly Property L_IPDEDUCTION() As String
             Get
@@ -3782,7 +3782,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IsHead .
+        '''   Looks up a localized string similar to IsHead .
         '''</summary>
         Friend Shared ReadOnly Property L_ISHEAD() As String
             Get
@@ -3791,7 +3791,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item.
+        '''   Looks up a localized string similar to Item.
         '''</summary>
         Friend Shared ReadOnly Property L_ITEM() As String
             Get
@@ -3800,7 +3800,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item Code.
+        '''   Looks up a localized string similar to Item Code.
         '''</summary>
         Friend Shared ReadOnly Property L_ITEMCODE() As String
             Get
@@ -3809,7 +3809,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item Left.
+        '''   Looks up a localized string similar to Item Left.
         '''</summary>
         Friend Shared ReadOnly Property L_ITEMLEFT() As String
             Get
@@ -3818,7 +3818,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item MinDate.
+        '''   Looks up a localized string similar to Item MinDate.
         '''</summary>
         Friend Shared ReadOnly Property L_ITEMMINDATE() As String
             Get
@@ -3827,7 +3827,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item Name.
+        '''   Looks up a localized string similar to Item Name.
         '''</summary>
         Friend Shared ReadOnly Property L_ITEMNAME() As String
             Get
@@ -3836,7 +3836,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items.
+        '''   Looks up a localized string similar to Items.
         '''</summary>
         Friend Shared ReadOnly Property L_ITEMS() As String
             Get
@@ -3845,7 +3845,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Journal on.
+        '''   Looks up a localized string similar to Journal on.
         '''</summary>
         Friend Shared ReadOnly Property L_JOURNALON() As String
             Get
@@ -3854,7 +3854,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Justification.
+        '''   Looks up a localized string similar to Justification.
         '''</summary>
         Friend Shared ReadOnly Property L_JUSTIFICATION() As String
             Get
@@ -3863,7 +3863,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Language.
+        '''   Looks up a localized string similar to Language.
         '''</summary>
         Friend Shared ReadOnly Property L_LANGUAGE() As String
             Get
@@ -3872,7 +3872,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Last Name.
+        '''   Looks up a localized string similar to Last Name.
         '''</summary>
         Friend Shared ReadOnly Property L_LASTNAME() As String
             Get
@@ -3881,7 +3881,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Last uploaded file Name.
+        '''   Looks up a localized string similar to Last uploaded file Name.
         '''</summary>
         Friend Shared ReadOnly Property L_LASTUPLOADEDFILENAME() As String
             Get
@@ -3890,7 +3890,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Last Upload Log.
+        '''   Looks up a localized string similar to Last Upload Log.
         '''</summary>
         Friend Shared ReadOnly Property L_LASTUPLOADLOG() As String
             Get
@@ -3899,7 +3899,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Left.
+        '''   Looks up a localized string similar to Left.
         '''</summary>
         Friend Shared ReadOnly Property L_LEFT() As String
             Get
@@ -3908,7 +3908,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Legal Form.
+        '''   Looks up a localized string similar to Legal Form.
         '''</summary>
         Friend Shared ReadOnly Property L_LEGALFORM() As String
             Get
@@ -3917,7 +3917,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level.
+        '''   Looks up a localized string similar to Level.
         '''</summary>
         Friend Shared ReadOnly Property L_LEVEL() As String
             Get
@@ -3926,7 +3926,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level 1.
+        '''   Looks up a localized string similar to Level 1.
         '''</summary>
         Friend Shared ReadOnly Property L_LEVEL1() As String
             Get
@@ -3935,7 +3935,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level 2.
+        '''   Looks up a localized string similar to Level 2.
         '''</summary>
         Friend Shared ReadOnly Property L_LEVEL2() As String
             Get
@@ -3944,7 +3944,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level 3.
+        '''   Looks up a localized string similar to Level 3.
         '''</summary>
         Friend Shared ReadOnly Property L_LEVEL3() As String
             Get
@@ -3953,7 +3953,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level 4.
+        '''   Looks up a localized string similar to Level 4.
         '''</summary>
         Friend Shared ReadOnly Property L_LEVEL4() As String
             Get
@@ -3962,7 +3962,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adult O.
+        '''   Looks up a localized string similar to Adult O.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITADULT() As String
             Get
@@ -3971,7 +3971,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adult E.
+        '''   Looks up a localized string similar to Adult E.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITADULTE() As String
             Get
@@ -3980,7 +3980,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adult R.
+        '''   Looks up a localized string similar to Adult R.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITADULTR() As String
             Get
@@ -3989,7 +3989,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Limit O.
+        '''   Looks up a localized string similar to Limit O.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITATIONTYPE() As String
             Get
@@ -3998,7 +3998,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Limit E.
+        '''   Looks up a localized string similar to Limit E.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITATIONTYPEE() As String
             Get
@@ -4007,7 +4007,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Limit R.
+        '''   Looks up a localized string similar to Limit R.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITATIONTYPER() As String
             Get
@@ -4016,7 +4016,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Child O.
+        '''   Looks up a localized string similar to Child O.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITCHILD() As String
             Get
@@ -4025,7 +4025,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Child E.
+        '''   Looks up a localized string similar to Child E.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITCHILDE() As String
             Get
@@ -4034,7 +4034,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Child R.
+        '''   Looks up a localized string similar to Child R.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITCHILDR() As String
             Get
@@ -4043,7 +4043,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to NO ADULT.
+        '''   Looks up a localized string similar to NO ADULT.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITNOADULT() As String
             Get
@@ -4052,7 +4052,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to NO CHILD.
+        '''   Looks up a localized string similar to NO CHILD.
         '''</summary>
         Friend Shared ReadOnly Property L_LIMITNOCHILD() As String
             Get
@@ -4061,7 +4061,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Click here to load medical items.
+        '''   Looks up a localized string similar to Click here to load medical items.
         '''</summary>
         Friend Shared ReadOnly Property L_LOADMEDICALITEMS() As String
             Get
@@ -4070,7 +4070,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Click here to load medical services.
+        '''   Looks up a localized string similar to Click here to load medical services.
         '''</summary>
         Friend Shared ReadOnly Property L_LOADMEDICALSERVICES() As String
             Get
@@ -4079,7 +4079,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Address.
+        '''   Looks up a localized string similar to Address.
         '''</summary>
         Friend Shared ReadOnly Property L_LOCATIONADDRESS() As String
             Get
@@ -4088,7 +4088,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Locations.
+        '''   Looks up a localized string similar to Locations.
         '''</summary>
         Friend Shared ReadOnly Property L_Locations() As String
             Get
@@ -4097,7 +4097,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Logout.
+        '''   Looks up a localized string similar to Logout.
         '''</summary>
         Friend Shared ReadOnly Property L_LOGOUT() As String
             Get
@@ -4106,7 +4106,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Lump Sum (Amount).
+        '''   Looks up a localized string similar to Lump Sum (Amount).
         '''</summary>
         Friend Shared ReadOnly Property L_LUMPSUM() As String
             Get
@@ -4115,7 +4115,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to M.
+        '''   Looks up a localized string similar to M.
         '''</summary>
         Friend Shared ReadOnly Property L_MALEABRREVIATION() As String
             Get
@@ -4124,7 +4124,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Marital Status.
+        '''   Looks up a localized string similar to Marital Status.
         '''</summary>
         Friend Shared ReadOnly Property L_MARITAL() As String
             Get
@@ -4133,7 +4133,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matched Amount.
+        '''   Looks up a localized string similar to Matched Amount.
         '''</summary>
         Friend Shared ReadOnly Property L_MATCHEDAMOUNT() As String
             Get
@@ -4142,7 +4142,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matched Date.
+        '''   Looks up a localized string similar to Matched Date.
         '''</summary>
         Friend Shared ReadOnly Property L_MATCHEDDATED() As String
             Get
@@ -4151,7 +4151,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matching Date.
+        '''   Looks up a localized string similar to Matching Date.
         '''</summary>
         Friend Shared ReadOnly Property L_MATCHINGDATE() As String
             Get
@@ -4160,7 +4160,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matching Date From.
+        '''   Looks up a localized string similar to Matching Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_MATCHINGDATEFROM() As String
             Get
@@ -4169,7 +4169,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matching Date To.
+        '''   Looks up a localized string similar to Matching Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_MATCHINGDATETO() As String
             Get
@@ -4178,7 +4178,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum Ceiling.
+        '''   Looks up a localized string similar to Maximum Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_MAXIMUMCEILING() As String
             Get
@@ -4187,7 +4187,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Max Installments.
+        '''   Looks up a localized string similar to Max Installments.
         '''</summary>
         Friend Shared ReadOnly Property L_MAXINSTALLMENTS() As String
             Get
@@ -4196,7 +4196,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Items.
+        '''   Looks up a localized string similar to Medical Items.
         '''</summary>
         Friend Shared ReadOnly Property L_MEDICALITEMS() As String
             Get
@@ -4205,7 +4205,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Services.
+        '''   Looks up a localized string similar to Medical Services.
         '''</summary>
         Friend Shared ReadOnly Property L_MEDICALSERVICES() As String
             Get
@@ -4214,7 +4214,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Member Count.
+        '''   Looks up a localized string similar to Member Count.
         '''</summary>
         Friend Shared ReadOnly Property L_MEMBERCOUNT() As String
             Get
@@ -4223,7 +4223,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum Members.
+        '''   Looks up a localized string similar to Maximum Members.
         '''</summary>
         Friend Shared ReadOnly Property L_MEMBERS() As String
             Get
@@ -4232,7 +4232,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Min Date.
+        '''   Looks up a localized string similar to Min Date.
         '''</summary>
         Friend Shared ReadOnly Property L_MINDATE() As String
             Get
@@ -4241,7 +4241,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Mode.
+        '''   Looks up a localized string similar to Mode.
         '''</summary>
         Friend Shared ReadOnly Property L_MODE() As String
             Get
@@ -4250,7 +4250,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Month.
+        '''   Looks up a localized string similar to Month.
         '''</summary>
         Friend Shared ReadOnly Property L_MONTH() As String
             Get
@@ -4259,7 +4259,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Monthly.
+        '''   Looks up a localized string similar to Monthly.
         '''</summary>
         Friend Shared ReadOnly Property L_MONTHLY() As String
             Get
@@ -4268,7 +4268,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Move Insurees.
+        '''   Looks up a localized string similar to Move Insurees.
         '''</summary>
         Friend Shared ReadOnly Property L_MOVEINSUREE() As String
             Get
@@ -4277,7 +4277,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Move locations.
+        '''   Looks up a localized string similar to Move locations.
         '''</summary>
         Friend Shared ReadOnly Property L_MOVELOCATIONS() As String
             Get
@@ -4286,7 +4286,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to My profile.
+        '''   Looks up a localized string similar to My profile.
         '''</summary>
         Friend Shared ReadOnly Property L_MYPROFILE() As String
             Get
@@ -4295,7 +4295,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to N/A.
+        '''   Looks up a localized string similar to N/A.
         '''</summary>
         Friend Shared ReadOnly Property L_NA() As String
             Get
@@ -4304,7 +4304,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Name.
+        '''   Looks up a localized string similar to Name.
         '''</summary>
         Friend Shared ReadOnly Property L_NAME() As String
             Get
@@ -4313,7 +4313,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New Insuree.
+        '''   Looks up a localized string similar to New Insuree.
         '''</summary>
         Friend Shared ReadOnly Property L_NEWINSUREE() As String
             Get
@@ -4322,7 +4322,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New Password.
+        '''   Looks up a localized string similar to New Password.
         '''</summary>
         Friend Shared ReadOnly Property L_NEWPASSWORD() As String
             Get
@@ -4331,7 +4331,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New Policy.
+        '''   Looks up a localized string similar to New Policy.
         '''</summary>
         Friend Shared ReadOnly Property L_NEWPOLICY() As String
             Get
@@ -4340,7 +4340,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Non-Hospital Ceiling.
+        '''   Looks up a localized string similar to Non-Hospital Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_NHCEILING() As String
             Get
@@ -4349,7 +4349,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Non-Hospital Deduction.
+        '''   Looks up a localized string similar to Non-Hospital Deduction.
         '''</summary>
         Friend Shared ReadOnly Property L_NHDEDUCTION() As String
             Get
@@ -4358,7 +4358,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No.
+        '''   Looks up a localized string similar to No.
         '''</summary>
         Friend Shared ReadOnly Property L_NO() As String
             Get
@@ -4367,7 +4367,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to NONE.
+        '''   Looks up a localized string similar to NONE.
         '''</summary>
         Friend Shared ReadOnly Property L_NONE() As String
             Get
@@ -4376,7 +4376,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Non-Hospital.
+        '''   Looks up a localized string similar to Non-Hospital.
         '''</summary>
         Friend Shared ReadOnly Property L_NONHOSPITAL() As String
             Get
@@ -4385,7 +4385,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Number of Claims.
+        '''   Looks up a localized string similar to Number of Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFCLAIMS() As String
             Get
@@ -4394,7 +4394,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Enrolment Officers.
+        '''   Looks up a localized string similar to No of Enrolment Officers.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFENROLMENTOFFICERS() As String
             Get
@@ -4403,7 +4403,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Number of Families.
+        '''   Looks up a localized string similar to Number of Families.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFFAMILIES() As String
             Get
@@ -4412,7 +4412,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Health Facilities.
+        '''   Looks up a localized string similar to No of Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFHEALTHFACILITIES() As String
             Get
@@ -4421,7 +4421,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Insurance Products.
+        '''   Looks up a localized string similar to No of Insurance Products.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFINSURANCEPRODUCTS() As String
             Get
@@ -4430,7 +4430,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Number of Insured Population.
+        '''   Looks up a localized string similar to Number of Insured Population.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFINSUREDPOPULATION() As String
             Get
@@ -4439,7 +4439,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Number of Insured Families.
+        '''   Looks up a localized string similar to Number of Insured Families.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFINSURESFAMILY() As String
             Get
@@ -4448,7 +4448,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Item Pricelists.
+        '''   Looks up a localized string similar to No of Item Pricelists.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFITEMPRICELIST() As String
             Get
@@ -4457,7 +4457,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Medical Items.
+        '''   Looks up a localized string similar to No of Medical Items.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFMEDICALITEMS() As String
             Get
@@ -4466,7 +4466,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Payers.
+        '''   Looks up a localized string similar to No of Payers.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFPAYERS() As String
             Get
@@ -4475,7 +4475,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Service Pricelists.
+        '''   Looks up a localized string similar to No of Service Pricelists.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFSERVICEPRICELIST() As String
             Get
@@ -4484,7 +4484,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Services.
+        '''   Looks up a localized string similar to No of Services.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFSERVICES() As String
             Get
@@ -4493,7 +4493,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No of Users.
+        '''   Looks up a localized string similar to No of Users.
         '''</summary>
         Friend Shared ReadOnly Property L_NOOFUSERS() As String
             Get
@@ -4502,7 +4502,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No records found.
+        '''   Looks up a localized string similar to No records found.
         '''</summary>
         Friend Shared ReadOnly Property L_NORECORDS() As String
             Get
@@ -4511,7 +4511,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Not Allocated.
+        '''   Looks up a localized string similar to Not Allocated.
         '''</summary>
         Friend Shared ReadOnly Property L_NOTALLOCATED() As String
             Get
@@ -4520,7 +4520,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Number.
+        '''   Looks up a localized string similar to Number.
         '''</summary>
         Friend Shared ReadOnly Property L_NUMBER() As String
             Get
@@ -4529,7 +4529,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers.
+        '''   Looks up a localized string similar to Enrolment Officers.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFICER() As String
             Get
@@ -4538,7 +4538,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers Code.
+        '''   Looks up a localized string similar to Enrolment Officers Code.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFICERCODE() As String
             Get
@@ -4547,7 +4547,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers Last Name.
+        '''   Looks up a localized string similar to Enrolment Officers Last Name.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFICERLASTNAME() As String
             Get
@@ -4556,7 +4556,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Include User Login.
+        '''   Looks up a localized string similar to Include User Login.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFICERLOGIN() As String
             Get
@@ -4565,7 +4565,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers First Name.
+        '''   Looks up a localized string similar to Enrolment Officers First Name.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFICEROTHERNAMES() As String
             Get
@@ -4574,7 +4574,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers.
+        '''   Looks up a localized string similar to Enrolment Officers.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFICERS() As String
             Get
@@ -4583,7 +4583,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Offline Only.
+        '''   Looks up a localized string similar to Offline Only.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFLINE() As String
             Get
@@ -4592,7 +4592,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facility.
+        '''   Looks up a localized string similar to Health Facility.
         '''</summary>
         Friend Shared ReadOnly Property L_OFFLINEHFID() As String
             Get
@@ -4601,7 +4601,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to OK.
+        '''   Looks up a localized string similar to OK.
         '''</summary>
         Friend Shared ReadOnly Property L_OK() As String
             Get
@@ -4610,7 +4610,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to On.
+        '''   Looks up a localized string similar to On.
         '''</summary>
         Friend Shared ReadOnly Property L_ON() As String
             Get
@@ -4619,7 +4619,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to OP Ceiling.
+        '''   Looks up a localized string similar to OP Ceiling.
         '''</summary>
         Friend Shared ReadOnly Property L_OPCEILING() As String
             Get
@@ -4628,7 +4628,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to OP Deduction.
+        '''   Looks up a localized string similar to OP Deduction.
         '''</summary>
         Friend Shared ReadOnly Property L_OPDEDUCTION() As String
             Get
@@ -4637,7 +4637,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to O.
+        '''   Looks up a localized string similar to O.
         '''</summary>
         Friend Shared ReadOnly Property L_OTHERABRREVIATION() As String
             Get
@@ -4646,7 +4646,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Given Name.
+        '''   Looks up a localized string similar to Given Name.
         '''</summary>
         Friend Shared ReadOnly Property L_OTHERNAME() As String
             Get
@@ -4655,7 +4655,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Given names.
+        '''   Looks up a localized string similar to Given names.
         '''</summary>
         Friend Shared ReadOnly Property L_OTHERNAMES() As String
             Get
@@ -4664,7 +4664,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Out-Patient.
+        '''   Looks up a localized string similar to Out-Patient.
         '''</summary>
         Friend Shared ReadOnly Property L_OUTPATIENT() As String
             Get
@@ -4673,7 +4673,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overall Asessment.
+        '''   Looks up a localized string similar to Overall Asessment.
         '''</summary>
         Friend Shared ReadOnly Property L_OVERALLASESSMENT() As String
             Get
@@ -4682,7 +4682,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overall Total.
+        '''   Looks up a localized string similar to Overall Total.
         '''</summary>
         Friend Shared ReadOnly Property L_OVERALLTOTAL() As String
             Get
@@ -4691,7 +4691,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overrule.
+        '''   Looks up a localized string similar to Overrule.
         '''</summary>
         Friend Shared ReadOnly Property L_OVERRULEPRICE() As String
             Get
@@ -4700,7 +4700,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overview of Commissions.
+        '''   Looks up a localized string similar to Overview of Commissions.
         '''</summary>
         Friend Shared ReadOnly Property L_OVERVIEWOFCOMMISSIONS() As String
             Get
@@ -4709,7 +4709,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Package.
+        '''   Looks up a localized string similar to Package.
         '''</summary>
         Friend Shared ReadOnly Property L_PACKAGE() As String
             Get
@@ -4718,7 +4718,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Paid.
+        '''   Looks up a localized string similar to Paid.
         '''</summary>
         Friend Shared ReadOnly Property L_PAID() As String
             Get
@@ -4727,7 +4727,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Paid By.
+        '''   Looks up a localized string similar to Paid By.
         '''</summary>
         Friend Shared ReadOnly Property L_PAIDBY() As String
             Get
@@ -4736,7 +4736,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Permanent Address Details.
+        '''   Looks up a localized string similar to Permanent Address Details.
         '''</summary>
         Friend Shared ReadOnly Property L_PARMANENTADDRESS() As String
             Get
@@ -4745,7 +4745,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Patient ID.
+        '''   Looks up a localized string similar to Patient ID.
         '''</summary>
         Friend Shared ReadOnly Property L_PARTIENTID() As String
             Get
@@ -4754,7 +4754,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Partient Name.
+        '''   Looks up a localized string similar to Partient Name.
         '''</summary>
         Friend Shared ReadOnly Property L_PARTIENTNAME() As String
             Get
@@ -4763,7 +4763,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Identification Number.
+        '''   Looks up a localized string similar to Identification Number.
         '''</summary>
         Friend Shared ReadOnly Property L_PASSPORT() As String
             Get
@@ -4772,7 +4772,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Password.
+        '''   Looks up a localized string similar to Password.
         '''</summary>
         Friend Shared ReadOnly Property L_PASSWORD() As String
             Get
@@ -4781,7 +4781,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Password changed successfully.
+        '''   Looks up a localized string similar to Password changed successfully.
         '''</summary>
         Friend Shared ReadOnly Property L_PASSWORDCHANGED() As String
             Get
@@ -4790,7 +4790,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to A link has been sent to your email, click on link to confirm new password.
+        '''   Looks up a localized string similar to A link has been sent to your email, click on link to confirm new password.
         '''</summary>
         Friend Shared ReadOnly Property L_PASSWORDSENT() As String
             Get
@@ -4799,7 +4799,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Patient.
+        '''   Looks up a localized string similar to Patient.
         '''</summary>
         Friend Shared ReadOnly Property L_PATIENT() As String
             Get
@@ -4808,7 +4808,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Patient Name.
+        '''   Looks up a localized string similar to Patient Name.
         '''</summary>
         Friend Shared ReadOnly Property L_PATIENTNAME() As String
             Get
@@ -4817,7 +4817,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pay Category.
+        '''   Looks up a localized string similar to Pay Category.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYCATEGORY() As String
             Get
@@ -4826,7 +4826,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pay Category.
+        '''   Looks up a localized string similar to Pay Category.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYCATEGORY1() As String
             Get
@@ -4835,7 +4835,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date.
+        '''   Looks up a localized string similar to Payment Date.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYDATE() As String
             Get
@@ -4844,7 +4844,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date.
+        '''   Looks up a localized string similar to Payment Date.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYDATE1() As String
             Get
@@ -4853,7 +4853,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date From.
+        '''   Looks up a localized string similar to Payment Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYDATEFROM() As String
             Get
@@ -4862,7 +4862,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date From.
+        '''   Looks up a localized string similar to Payment Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYDATEFROM1() As String
             Get
@@ -4871,7 +4871,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date To.
+        '''   Looks up a localized string similar to Payment Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYDATETO() As String
             Get
@@ -4880,7 +4880,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date To.
+        '''   Looks up a localized string similar to Payment Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYDATETO1() As String
             Get
@@ -4889,7 +4889,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payer.
+        '''   Looks up a localized string similar to Payer.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYER() As String
             Get
@@ -4898,7 +4898,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payers.
+        '''   Looks up a localized string similar to Payers.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYERS() As String
             Get
@@ -4907,7 +4907,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment.
+        '''   Looks up a localized string similar to Payment.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENT() As String
             Get
@@ -4916,7 +4916,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment.
+        '''   Looks up a localized string similar to Payment.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENT1() As String
             Get
@@ -4925,7 +4925,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Amount.
+        '''   Looks up a localized string similar to Amount.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTAMOUNT() As String
             Get
@@ -4934,7 +4934,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Asked.
+        '''   Looks up a localized string similar to Payment Asked.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTASKED() As String
             Get
@@ -4943,7 +4943,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Asked.
+        '''   Looks up a localized string similar to Payment Asked.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTASKED1() As String
             Get
@@ -4952,7 +4952,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date.
+        '''   Looks up a localized string similar to Payment Date.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTDATE() As String
             Get
@@ -4961,7 +4961,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date.
+        '''   Looks up a localized string similar to Payment Date.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTDATE1() As String
             Get
@@ -4970,7 +4970,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date From.
+        '''   Looks up a localized string similar to Payment Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTDATEFROM() As String
             Get
@@ -4979,7 +4979,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Date To.
+        '''   Looks up a localized string similar to Payment Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTDATETO() As String
             Get
@@ -4988,7 +4988,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Details.
+        '''   Looks up a localized string similar to Payment Details.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTDETAILS() As String
             Get
@@ -4997,7 +4997,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matched Payments.
+        '''   Looks up a localized string similar to Matched Payments.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTGRIDVIEW() As String
             Get
@@ -5006,7 +5006,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment ID.
+        '''   Looks up a localized string similar to Payment ID.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTID() As String
             Get
@@ -5015,7 +5015,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Origin.
+        '''   Looks up a localized string similar to Payment Origin.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTORIGIN() As String
             Get
@@ -5024,7 +5024,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Overview.
+        '''   Looks up a localized string similar to Payment Overview.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTOVERVIEW() As String
             Get
@@ -5033,7 +5033,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payments.
+        '''   Looks up a localized string similar to Payments.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTS() As String
             Get
@@ -5042,7 +5042,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Status.
+        '''   Looks up a localized string similar to Payment Status.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTSTATUS() As String
             Get
@@ -5051,7 +5051,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Type.
+        '''   Looks up a localized string similar to Payment Type.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTTYPE() As String
             Get
@@ -5060,7 +5060,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Type.
+        '''   Looks up a localized string similar to Payment Type.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMENTTYPE1() As String
             Get
@@ -5069,7 +5069,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pay Method.
+        '''   Looks up a localized string similar to Pay Method.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMETHOD() As String
             Get
@@ -5078,7 +5078,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pay Method.
+        '''   Looks up a localized string similar to Pay Method.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYMETHOD1() As String
             Get
@@ -5087,7 +5087,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pay Type.
+        '''   Looks up a localized string similar to Pay Type.
         '''</summary>
         Friend Shared ReadOnly Property L_PAYTYPE() As String
             Get
@@ -5096,7 +5096,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to PC.
+        '''   Looks up a localized string similar to PC.
         '''</summary>
         Friend Shared ReadOnly Property L_PC() As String
             Get
@@ -5105,7 +5105,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Percent.
+        '''   Looks up a localized string similar to Percent.
         '''</summary>
         Friend Shared ReadOnly Property L_PERCENT() As String
             Get
@@ -5114,7 +5114,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete existing codes, if the code is not in the source (upload) file?.
+        '''   Looks up a localized string similar to Delete existing codes, if the code is not in the source (upload) file?.
         '''</summary>
         Friend Shared ReadOnly Property L_PERFORMDELETION() As String
             Get
@@ -5123,7 +5123,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Period.
+        '''   Looks up a localized string similar to Period.
         '''</summary>
         Friend Shared ReadOnly Property L_PERIOD() As String
             Get
@@ -5132,7 +5132,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Period From.
+        '''   Looks up a localized string similar to Period From.
         '''</summary>
         Friend Shared ReadOnly Property L_PERIODFROM() As String
             Get
@@ -5141,7 +5141,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Period To.
+        '''   Looks up a localized string similar to Period To.
         '''</summary>
         Friend Shared ReadOnly Property L_PERIODTO() As String
             Get
@@ -5150,7 +5150,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Permanent address details.
+        '''   Looks up a localized string similar to Permanent address details.
         '''</summary>
         Friend Shared ReadOnly Property L_PERMADDERESS() As String
             Get
@@ -5159,7 +5159,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Phone.
+        '''   Looks up a localized string similar to Phone.
         '''</summary>
         Friend Shared ReadOnly Property L_PHONE() As String
             Get
@@ -5168,7 +5168,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Photo Assigned.
+        '''   Looks up a localized string similar to Photo Assigned.
         '''</summary>
         Friend Shared ReadOnly Property L_PHOTOASSIGNED() As String
             Get
@@ -5177,7 +5177,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Photos.
+        '''   Looks up a localized string similar to Photos.
         '''</summary>
         Friend Shared ReadOnly Property L_PHOTOS() As String
             Get
@@ -5186,7 +5186,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter insurance number.
+        '''   Looks up a localized string similar to Please enter insurance number.
         '''</summary>
         Friend Shared ReadOnly Property L_PLEASEENTERINSURANCENUMBER() As String
             Get
@@ -5195,7 +5195,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select scope.
+        '''   Looks up a localized string similar to Please select scope.
         '''</summary>
         Friend Shared ReadOnly Property L_PLEASESELECTSCOPE() As String
             Get
@@ -5204,7 +5204,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies.
+        '''   Looks up a localized string similar to Policies.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICIES() As String
             Get
@@ -5213,7 +5213,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies Found.
+        '''   Looks up a localized string similar to Policies Found.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICIESFOUND() As String
             Get
@@ -5222,7 +5222,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy.
+        '''   Looks up a localized string similar to Policy.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICY() As String
             Get
@@ -5231,7 +5231,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Details.
+        '''   Looks up a localized string similar to Policy Details.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYDETAILS() As String
             Get
@@ -5240,7 +5240,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family/Group.
+        '''   Looks up a localized string similar to Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYHOLDER() As String
             Get
@@ -5249,7 +5249,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Holder.
+        '''   Looks up a localized string similar to Policy Holder.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYHOLDER_() As String
             Get
@@ -5258,7 +5258,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Renewal.
+        '''   Looks up a localized string similar to Policy Renewal.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYRENEWAL() As String
             Get
@@ -5267,7 +5267,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Renewal Prompt Journal.
+        '''   Looks up a localized string similar to Policy Renewal Prompt Journal.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYRENEWALPROMPTJ() As String
             Get
@@ -5276,7 +5276,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Renewals.
+        '''   Looks up a localized string similar to Policy Renewals.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYRENEWALS() As String
             Get
@@ -5285,7 +5285,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Stage.
+        '''   Looks up a localized string similar to Policy Stage.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYSTAGE() As String
             Get
@@ -5294,7 +5294,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Status.
+        '''   Looks up a localized string similar to Policy Status.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYSTATUS() As String
             Get
@@ -5303,7 +5303,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Status Overview.
+        '''   Looks up a localized string similar to Policy Status Overview.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYSTATUSOVERV() As String
             Get
@@ -5312,7 +5312,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Value.
+        '''   Looks up a localized string similar to Policy Value.
         '''</summary>
         Friend Shared ReadOnly Property L_POLICYVALUE() As String
             Get
@@ -5321,7 +5321,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Population.
+        '''   Looks up a localized string similar to Population.
         '''</summary>
         Friend Shared ReadOnly Property L_POPULATION() As String
             Get
@@ -5330,7 +5330,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Port.
+        '''   Looks up a localized string similar to Port.
         '''</summary>
         Friend Shared ReadOnly Property L_PORT() As String
             Get
@@ -5339,7 +5339,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Posting Status.
+        '''   Looks up a localized string similar to Posting Status.
         '''</summary>
         Friend Shared ReadOnly Property L_POSTINGSTATUS() As String
             Get
@@ -5348,7 +5348,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Poverty Status.
+        '''   Looks up a localized string similar to Poverty Status.
         '''</summary>
         Friend Shared ReadOnly Property L_POVERTY() As String
             Get
@@ -5357,7 +5357,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Poverty.
+        '''   Looks up a localized string similar to Poverty.
         '''</summary>
         Friend Shared ReadOnly Property L_POVERTY_() As String
             Get
@@ -5366,7 +5366,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution.
+        '''   Looks up a localized string similar to Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUM() As String
             Get
@@ -5375,7 +5375,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Adult.
+        '''   Looks up a localized string similar to Contribution Adult.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMADULT() As String
             Get
@@ -5384,7 +5384,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Child.
+        '''   Looks up a localized string similar to Contribution Child.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMCHILD() As String
             Get
@@ -5393,7 +5393,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Collected.
+        '''   Looks up a localized string similar to Contribution Collected.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMCOLLECTED() As String
             Get
@@ -5402,7 +5402,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Collection.
+        '''   Looks up a localized string similar to Contribution Collection.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMCOLLECTION() As String
             Get
@@ -5411,7 +5411,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Collection Report.
+        '''   Looks up a localized string similar to Contribution Collection Report.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMCOLLECTIONREPORT() As String
             Get
@@ -5420,7 +5420,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution.
+        '''   Looks up a localized string similar to Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMCONTRIBUTION() As String
             Get
@@ -5429,7 +5429,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Distribution.
+        '''   Looks up a localized string similar to Contribution Distribution.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMDISTRIBUTION() As String
             Get
@@ -5438,7 +5438,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Paid.
+        '''   Looks up a localized string similar to Contribution Paid.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMPAID() As String
             Get
@@ -5447,7 +5447,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contributions.
+        '''   Looks up a localized string similar to Contributions.
         '''</summary>
         Friend Shared ReadOnly Property L_PREMIUMS() As String
             Get
@@ -5456,7 +5456,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Previous.
+        '''   Looks up a localized string similar to Previous.
         '''</summary>
         Friend Shared ReadOnly Property L_PREVIOUS() As String
             Get
@@ -5465,7 +5465,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price.
+        '''   Looks up a localized string similar to Price.
         '''</summary>
         Friend Shared ReadOnly Property L_PRICE() As String
             Get
@@ -5474,7 +5474,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price Lists.
+        '''   Looks up a localized string similar to Price Lists.
         '''</summary>
         Friend Shared ReadOnly Property L_PRICELISTS() As String
             Get
@@ -5483,7 +5483,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Origin.
+        '''   Looks up a localized string similar to Origin.
         '''</summary>
         Friend Shared ReadOnly Property L_PRICEORIGIN() As String
             Get
@@ -5492,7 +5492,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Valuated.
+        '''   Looks up a localized string similar to Valuated.
         '''</summary>
         Friend Shared ReadOnly Property L_PRICEVALUATED() As String
             Get
@@ -5501,7 +5501,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators.
+        '''   Looks up a localized string similar to Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property L_PRIMARYOPERATIONALINDICATORS() As String
             Get
@@ -5510,7 +5510,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims - Primary Operational Indicators.
+        '''   Looks up a localized string similar to Claims - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property L_PRIMARYOPERATIONALINDICATORS_CLAIMS() As String
             Get
@@ -5519,7 +5519,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies - Primary Operational Indicators.
+        '''   Looks up a localized string similar to Policies - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property L_PRIMARYOPERATIONALINDICATORS_POLICIES() As String
             Get
@@ -5528,7 +5528,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Printed on.
+        '''   Looks up a localized string similar to Printed on.
         '''</summary>
         Friend Shared ReadOnly Property L_PRINTEDON() As String
             Get
@@ -5537,7 +5537,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Processing.
+        '''   Looks up a localized string similar to Batch Processing.
         '''</summary>
         Friend Shared ReadOnly Property L_PROCESS() As String
             Get
@@ -5546,7 +5546,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Processing.
+        '''   Looks up a localized string similar to Batch Processing.
         '''</summary>
         Friend Shared ReadOnly Property L_PROCESSPAGETITLE() As String
             Get
@@ -5555,7 +5555,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product.
+        '''   Looks up a localized string similar to Product.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCT() As String
             Get
@@ -5564,7 +5564,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Code.
+        '''   Looks up a localized string similar to Code.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTCODE() As String
             Get
@@ -5573,7 +5573,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance Product details.
+        '''   Looks up a localized string similar to Insurance Product details.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTDETAILS() As String
             Get
@@ -5582,7 +5582,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product ID.
+        '''   Looks up a localized string similar to Product ID.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTID() As String
             Get
@@ -5591,7 +5591,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Name.
+        '''   Looks up a localized string similar to Name.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTNAME() As String
             Get
@@ -5600,7 +5600,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Products.
+        '''   Looks up a localized string similar to Products.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTS() As String
             Get
@@ -5609,7 +5609,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product Sales.
+        '''   Looks up a localized string similar to Product Sales.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTSALES() As String
             Get
@@ -5618,7 +5618,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product Value.
+        '''   Looks up a localized string similar to Product Value.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTVALUE() As String
             Get
@@ -5627,7 +5627,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Remuneration.
+        '''   Looks up a localized string similar to Claim Remuneration.
         '''</summary>
         Friend Shared ReadOnly Property L_PRODUCTWISEPROCESSBATCH() As String
             Get
@@ -5636,7 +5636,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Profession.
+        '''   Looks up a localized string similar to Profession.
         '''</summary>
         Friend Shared ReadOnly Property L_PROFESSION() As String
             Get
@@ -5645,7 +5645,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enquiry in progress. Please wait..
+        '''   Looks up a localized string similar to Enquiry in progress. Please wait..
         '''</summary>
         Friend Shared ReadOnly Property L_ProgressEnquire() As String
             Get
@@ -5654,7 +5654,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Project Centre.
+        '''   Looks up a localized string similar to Project Centre.
         '''</summary>
         Friend Shared ReadOnly Property L_PROJECTCENTRE() As String
             Get
@@ -5663,7 +5663,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Project(s) Found.
+        '''   Looks up a localized string similar to Project(s) Found.
         '''</summary>
         Friend Shared ReadOnly Property L_PROJECTDETAILSFOUND() As String
             Get
@@ -5672,7 +5672,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to policy value.
+        '''   Looks up a localized string similar to policy value.
         '''</summary>
         Friend Shared ReadOnly Property L_PROLICYVALUE() As String
             Get
@@ -5681,7 +5681,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Prompt Date.
+        '''   Looks up a localized string similar to Prompt Date.
         '''</summary>
         Friend Shared ReadOnly Property L_PROMPTDATE() As String
             Get
@@ -5690,7 +5690,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Promptness of claim settlement.
+        '''   Looks up a localized string similar to Promptness of claim settlement.
         '''</summary>
         Friend Shared ReadOnly Property L_PROMPTNESSOFCLMSETTLEMENT() As String
             Get
@@ -5699,7 +5699,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Qty.
+        '''   Looks up a localized string similar to Qty.
         '''</summary>
         Friend Shared ReadOnly Property L_QTY() As String
             Get
@@ -5708,7 +5708,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Quantity.
+        '''   Looks up a localized string similar to Quantity.
         '''</summary>
         Friend Shared ReadOnly Property L_QUANTITY() As String
             Get
@@ -5717,7 +5717,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Quarterly.
+        '''   Looks up a localized string similar to Quarterly.
         '''</summary>
         Friend Shared ReadOnly Property L_QUARTERLY() As String
             Get
@@ -5726,7 +5726,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Random.
+        '''   Looks up a localized string similar to Random.
         '''</summary>
         Friend Shared ReadOnly Property L_RANDOM() As String
             Get
@@ -5735,7 +5735,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receipt No..
+        '''   Looks up a localized string similar to Receipt No..
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIPT() As String
             Get
@@ -5744,7 +5744,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receipt code.
+        '''   Looks up a localized string similar to Receipt code.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIPTCODE() As String
             Get
@@ -5753,7 +5753,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receipt No..
+        '''   Looks up a localized string similar to Receipt No..
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIPTNO() As String
             Get
@@ -5762,7 +5762,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receipt Number.
+        '''   Looks up a localized string similar to Receipt Number.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIPTNUMBER() As String
             Get
@@ -5771,7 +5771,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receipt.
+        '''   Looks up a localized string similar to Receipt.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIPT_() As String
             Get
@@ -5780,7 +5780,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Received Amount.
+        '''   Looks up a localized string similar to Received Amount.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIVEDAMOUNT() As String
             Get
@@ -5789,7 +5789,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Received Amount From.
+        '''   Looks up a localized string similar to Received Amount From.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIVEDAMOUNTFROM() As String
             Get
@@ -5798,7 +5798,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Received Amount To.
+        '''   Looks up a localized string similar to Received Amount To.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIVEDAMOUNTTO() As String
             Get
@@ -5807,7 +5807,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receiving Date.
+        '''   Looks up a localized string similar to Receiving Date.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIVEDATE() As String
             Get
@@ -5816,7 +5816,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Received Date.
+        '''   Looks up a localized string similar to Received Date.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIVEDDATE() As String
             Get
@@ -5825,7 +5825,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receiving Date From.
+        '''   Looks up a localized string similar to Receiving Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIVINGDATEFROM() As String
             Get
@@ -5834,7 +5834,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receiving Date To.
+        '''   Looks up a localized string similar to Receiving Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_RECEIVINGDATETO() As String
             Get
@@ -5843,7 +5843,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Record Identity.
+        '''   Looks up a localized string similar to Record Identity.
         '''</summary>
         Friend Shared ReadOnly Property L_RECORDIDENTITY() As String
             Get
@@ -5852,7 +5852,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Record Type.
+        '''   Looks up a localized string similar to Record Type.
         '''</summary>
         Friend Shared ReadOnly Property L_RECORDTYPE() As String
             Get
@@ -5861,7 +5861,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Recurrence (Months).
+        '''   Looks up a localized string similar to Recurrence (Months).
         '''</summary>
         Friend Shared ReadOnly Property L_RECURRENCE() As String
             Get
@@ -5870,7 +5870,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Redirect.
+        '''   Looks up a localized string similar to Redirect.
         '''</summary>
         Friend Shared ReadOnly Property L_REDIRECT() As String
             Get
@@ -5879,7 +5879,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Referrals.
+        '''   Looks up a localized string similar to Referrals.
         '''</summary>
         Friend Shared ReadOnly Property L_REFERRALS() As String
             Get
@@ -5888,7 +5888,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Referral(IP).
+        '''   Looks up a localized string similar to Referral(IP).
         '''</summary>
         Friend Shared ReadOnly Property L_REFIP() As String
             Get
@@ -5897,7 +5897,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Referral(OP).
+        '''   Looks up a localized string similar to Referral(OP).
         '''</summary>
         Friend Shared ReadOnly Property L_REFOP() As String
             Get
@@ -5906,7 +5906,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region.
+        '''   Looks up a localized string similar to Region.
         '''</summary>
         Friend Shared ReadOnly Property L_REGION() As String
             Get
@@ -5915,7 +5915,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region Code.
+        '''   Looks up a localized string similar to Region Code.
         '''</summary>
         Friend Shared ReadOnly Property L_REGIONCODE() As String
             Get
@@ -5924,7 +5924,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region Name.
+        '''   Looks up a localized string similar to Region Name.
         '''</summary>
         Friend Shared ReadOnly Property L_REGIONNAME() As String
             Get
@@ -5933,7 +5933,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region Total.
+        '''   Looks up a localized string similar to Region Total.
         '''</summary>
         Friend Shared ReadOnly Property L_REGIONTOTAL() As String
             Get
@@ -5942,7 +5942,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Register.
+        '''   Looks up a localized string similar to Register.
         '''</summary>
         Friend Shared ReadOnly Property L_REGISTER() As String
             Get
@@ -5951,7 +5951,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Registration Fee.
+        '''   Looks up a localized string similar to Registration Fee.
         '''</summary>
         Friend Shared ReadOnly Property L_REGISTRATIONFEE() As String
             Get
@@ -5960,7 +5960,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Registration Lump Sum.
+        '''   Looks up a localized string similar to Registration Lump Sum.
         '''</summary>
         Friend Shared ReadOnly Property L_REGISTRATIONLUMPSUM() As String
             Get
@@ -5969,7 +5969,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected.
+        '''   Looks up a localized string similar to Rejected.
         '''</summary>
         Friend Shared ReadOnly Property L_REJECTED() As String
             Get
@@ -5978,7 +5978,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected Claims.
+        '''   Looks up a localized string similar to Rejected Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_REJECTEDCLAIMS() As String
             Get
@@ -5987,7 +5987,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejection reason.
+        '''   Looks up a localized string similar to Rejection reason.
         '''</summary>
         Friend Shared ReadOnly Property L_REJECTEDREASON() As String
             Get
@@ -5996,7 +5996,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Relationship.
+        '''   Looks up a localized string similar to Relationship.
         '''</summary>
         Friend Shared ReadOnly Property L_RELATION() As String
             Get
@@ -6005,7 +6005,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Remunerated.
+        '''   Looks up a localized string similar to Remunerated.
         '''</summary>
         Friend Shared ReadOnly Property L_REMUNERATED() As String
             Get
@@ -6014,7 +6014,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Remunerated Health Care.
+        '''   Looks up a localized string similar to Remunerated Health Care.
         '''</summary>
         Friend Shared ReadOnly Property L_REMUNERATEDHEALTHCARE() As String
             Get
@@ -6023,7 +6023,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal Date.
+        '''   Looks up a localized string similar to Renewal Date.
         '''</summary>
         Friend Shared ReadOnly Property L_RENEWALDATE() As String
             Get
@@ -6032,7 +6032,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal Disc. %.
+        '''   Looks up a localized string similar to Renewal Disc. %.
         '''</summary>
         Friend Shared ReadOnly Property L_RENEWALDISCOUNTPERCENTAGE() As String
             Get
@@ -6041,7 +6041,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal Disc. Period (months).
+        '''   Looks up a localized string similar to Renewal Disc. Period (months).
         '''</summary>
         Friend Shared ReadOnly Property L_RENEWALDISCOUNTPERIOD() As String
             Get
@@ -6050,7 +6050,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal ID.
+        '''   Looks up a localized string similar to Renewal ID.
         '''</summary>
         Friend Shared ReadOnly Property L_RENEWALID() As String
             Get
@@ -6059,7 +6059,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal Ratio.
+        '''   Looks up a localized string similar to Renewal Ratio.
         '''</summary>
         Friend Shared ReadOnly Property L_RENEWALRATIO() As String
             Get
@@ -6068,7 +6068,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Report Indicators.
+        '''   Looks up a localized string similar to Report Indicators.
         '''</summary>
         Friend Shared ReadOnly Property L_REPORTINDICATORS() As String
             Get
@@ -6077,7 +6077,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Reports.
+        '''   Looks up a localized string similar to Reports.
         '''</summary>
         Friend Shared ReadOnly Property L_REPORTS() As String
             Get
@@ -6086,7 +6086,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to RESTORE.
+        '''   Looks up a localized string similar to RESTORE.
         '''</summary>
         Friend Shared ReadOnly Property L_RESTORE() As String
             Get
@@ -6095,7 +6095,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Reviews.
+        '''   Looks up a localized string similar to Reviews.
         '''</summary>
         Friend Shared ReadOnly Property L_REVIEWLINK() As String
             Get
@@ -6104,7 +6104,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Reviews.
+        '''   Looks up a localized string similar to Reviews.
         '''</summary>
         Friend Shared ReadOnly Property L_REVIEWPAGETITLE() As String
             Get
@@ -6113,7 +6113,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Review Selection.
+        '''   Looks up a localized string similar to Batch Review Selection.
         '''</summary>
         Friend Shared ReadOnly Property L_REVIEWSELECTION() As String
             Get
@@ -6122,7 +6122,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review Status.
+        '''   Looks up a localized string similar to Review Status.
         '''</summary>
         Friend Shared ReadOnly Property L_REVIEWSTATUS() As String
             Get
@@ -6131,7 +6131,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Role.
+        '''   Looks up a localized string similar to Role.
         '''</summary>
         Friend Shared ReadOnly Property L_ROLE() As String
             Get
@@ -6140,7 +6140,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Roles Found.
+        '''   Looks up a localized string similar to Roles Found.
         '''</summary>
         Friend Shared ReadOnly Property L_ROLEFOUNDS() As String
             Get
@@ -6149,7 +6149,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Role name.
+        '''   Looks up a localized string similar to Role name.
         '''</summary>
         Friend Shared ReadOnly Property L_ROLENAME() As String
             Get
@@ -6158,7 +6158,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Roles.
+        '''   Looks up a localized string similar to Roles.
         '''</summary>
         Friend Shared ReadOnly Property L_ROLES() As String
             Get
@@ -6167,7 +6167,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Run ID.
+        '''   Looks up a localized string similar to Run ID.
         '''</summary>
         Friend Shared ReadOnly Property L_RUNID() As String
             Get
@@ -6176,7 +6176,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Satisfaction Level.
+        '''   Looks up a localized string similar to Satisfaction Level.
         '''</summary>
         Friend Shared ReadOnly Property L_SATISFACTIONLEVEL() As String
             Get
@@ -6185,7 +6185,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Save path.
+        '''   Looks up a localized string similar to Save path.
         '''</summary>
         Friend Shared ReadOnly Property L_SAVEPATH() As String
             Get
@@ -6194,7 +6194,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Scope.
+        '''   Looks up a localized string similar to Scope.
         '''</summary>
         Friend Shared ReadOnly Property L_SCOPE() As String
             Get
@@ -6203,7 +6203,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Search.
+        '''   Looks up a localized string similar to Search.
         '''</summary>
         Friend Shared ReadOnly Property L_SEARCH() As String
             Get
@@ -6212,7 +6212,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enquiry.
+        '''   Looks up a localized string similar to Enquiry.
         '''</summary>
         Friend Shared ReadOnly Property L_SEARCHCHFNUMBER() As String
             Get
@@ -6221,7 +6221,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Search  Insurance Number.
+        '''   Looks up a localized string similar to Search  Insurance Number.
         '''</summary>
         Friend Shared ReadOnly Property L_SEARCHFORCHFNUMBER() As String
             Get
@@ -6230,7 +6230,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Search.
+        '''   Looks up a localized string similar to Search.
         '''</summary>
         Friend Shared ReadOnly Property L_SEARCHS() As String
             Get
@@ -6239,7 +6239,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sec Dg1.
+        '''   Looks up a localized string similar to Sec Dg1.
         '''</summary>
         Friend Shared ReadOnly Property L_SECONDARYDG1() As String
             Get
@@ -6248,7 +6248,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sec Dg2.
+        '''   Looks up a localized string similar to Sec Dg2.
         '''</summary>
         Friend Shared ReadOnly Property L_SECONDARYDG2() As String
             Get
@@ -6257,7 +6257,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sec  Dg3.
+        '''   Looks up a localized string similar to Sec  Dg3.
         '''</summary>
         Friend Shared ReadOnly Property L_SECONDARYDG3() As String
             Get
@@ -6266,7 +6266,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sec Dg4.
+        '''   Looks up a localized string similar to Sec Dg4.
         '''</summary>
         Friend Shared ReadOnly Property L_SECONDARYDG4() As String
             Get
@@ -6275,7 +6275,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Category --.
+        '''   Looks up a localized string similar to -- Select Category --.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTCATEGORY() As String
             Get
@@ -6284,7 +6284,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select Criteria.
+        '''   Looks up a localized string similar to Select Criteria.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTCRITERIA() As String
             Get
@@ -6293,7 +6293,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selection Criteria.
+        '''   Looks up a localized string similar to Selection Criteria.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTIONCRITERIA() As String
             Get
@@ -6302,7 +6302,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Status--.
+        '''   Looks up a localized string similar to --Select Status--.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTPAYMENTSTATUS() As String
             Get
@@ -6311,7 +6311,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Strategy--.
+        '''   Looks up a localized string similar to --Select Strategy--.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTSTRATEGY() As String
             Get
@@ -6320,7 +6320,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select To Process.
+        '''   Looks up a localized string similar to Select To Process.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTTOPROCESS() As String
             Get
@@ -6329,7 +6329,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select To Submit.
+        '''   Looks up a localized string similar to Select To Submit.
         '''</summary>
         Friend Shared ReadOnly Property L_SELECTTOSUBMIT() As String
             Get
@@ -6338,7 +6338,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sent.
+        '''   Looks up a localized string similar to Sent.
         '''</summary>
         Friend Shared ReadOnly Property L_SENT() As String
             Get
@@ -6347,7 +6347,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Service.
+        '''   Looks up a localized string similar to Service.
         '''</summary>
         Friend Shared ReadOnly Property L_SERVICE() As String
             Get
@@ -6356,7 +6356,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Service Code.
+        '''   Looks up a localized string similar to Service Code.
         '''</summary>
         Friend Shared ReadOnly Property L_SERVICECODE() As String
             Get
@@ -6365,7 +6365,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Service Left.
+        '''   Looks up a localized string similar to Service Left.
         '''</summary>
         Friend Shared ReadOnly Property L_SERVICELEFT() As String
             Get
@@ -6374,7 +6374,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Minimum duration of the service ?.
+        '''   Looks up a localized string similar to Minimum duration of the service ?.
         '''</summary>
         Friend Shared ReadOnly Property L_SERVICEMINDATE() As String
             Get
@@ -6383,7 +6383,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services.
+        '''   Looks up a localized string similar to Services.
         '''</summary>
         Friend Shared ReadOnly Property L_SERVICES() As String
             Get
@@ -6392,7 +6392,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Share of Contribution.
+        '''   Looks up a localized string similar to Share of Contribution.
         '''</summary>
         Friend Shared ReadOnly Property L_SHAREOFCONTRIBUTION() As String
             Get
@@ -6401,7 +6401,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Show all.
+        '''   Looks up a localized string similar to Show all.
         '''</summary>
         Friend Shared ReadOnly Property L_SHOWALL() As String
             Get
@@ -6410,7 +6410,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Show Claims.
+        '''   Looks up a localized string similar to Show Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_SHOWCLAIM() As String
             Get
@@ -6419,7 +6419,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to SMS Status.
+        '''   Looks up a localized string similar to SMS Status.
         '''</summary>
         Friend Shared ReadOnly Property L_SMSSTATUS() As String
             Get
@@ -6428,7 +6428,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to SMTP Host.
+        '''   Looks up a localized string similar to SMTP Host.
         '''</summary>
         Friend Shared ReadOnly Property L_SMTPHOST() As String
             Get
@@ -6437,7 +6437,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sorting.
+        '''   Looks up a localized string similar to Sorting.
         '''</summary>
         Friend Shared ReadOnly Property L_SORTING() As String
             Get
@@ -6446,7 +6446,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit Date From.
+        '''   Looks up a localized string similar to Visit Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_START() As String
             Get
@@ -6455,7 +6455,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start Cycle 1.
+        '''   Looks up a localized string similar to Start Cycle 1.
         '''</summary>
         Friend Shared ReadOnly Property L_STARTCYCLE1() As String
             Get
@@ -6464,7 +6464,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start Cycle 2.
+        '''   Looks up a localized string similar to Start Cycle 2.
         '''</summary>
         Friend Shared ReadOnly Property L_STARTCYCLE2() As String
             Get
@@ -6473,7 +6473,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start Cycle 3.
+        '''   Looks up a localized string similar to Start Cycle 3.
         '''</summary>
         Friend Shared ReadOnly Property L_STARTCYCLE3() As String
             Get
@@ -6482,7 +6482,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start Cyle 4.
+        '''   Looks up a localized string similar to Start Cyle 4.
         '''</summary>
         Friend Shared ReadOnly Property L_STARTCYCLE4() As String
             Get
@@ -6491,7 +6491,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start Date.
+        '''   Looks up a localized string similar to Start Date.
         '''</summary>
         Friend Shared ReadOnly Property L_STARTDATE() As String
             Get
@@ -6500,7 +6500,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start Date From.
+        '''   Looks up a localized string similar to Start Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_STARTDATEFROM() As String
             Get
@@ -6509,7 +6509,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start Date To.
+        '''   Looks up a localized string similar to Start Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_STARTDATETO() As String
             Get
@@ -6518,7 +6518,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Status.
+        '''   Looks up a localized string similar to Status.
         '''</summary>
         Friend Shared ReadOnly Property L_STATUS() As String
             Get
@@ -6527,7 +6527,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sub Level.
+        '''   Looks up a localized string similar to Sub Level.
         '''</summary>
         Friend Shared ReadOnly Property L_SUBLEVEL() As String
             Get
@@ -6536,7 +6536,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sub Level 1.
+        '''   Looks up a localized string similar to Sub Level 1.
         '''</summary>
         Friend Shared ReadOnly Property L_SUBLEVEL1() As String
             Get
@@ -6545,7 +6545,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sub Level 2.
+        '''   Looks up a localized string similar to Sub Level 2.
         '''</summary>
         Friend Shared ReadOnly Property L_SUBLEVEL2() As String
             Get
@@ -6554,7 +6554,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sub Level 3.
+        '''   Looks up a localized string similar to Sub Level 3.
         '''</summary>
         Friend Shared ReadOnly Property L_SUBLEVEL3() As String
             Get
@@ -6563,7 +6563,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sub Level 4.
+        '''   Looks up a localized string similar to Sub Level 4.
         '''</summary>
         Friend Shared ReadOnly Property L_SUBLEVEL4() As String
             Get
@@ -6572,7 +6572,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Substitution.
+        '''   Looks up a localized string similar to Substitution.
         '''</summary>
         Friend Shared ReadOnly Property L_SUBSTITUTION() As String
             Get
@@ -6581,7 +6581,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Surgeries.
+        '''   Looks up a localized string similar to Surgeries.
         '''</summary>
         Friend Shared ReadOnly Property L_SURGERIES() As String
             Get
@@ -6590,7 +6590,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Surgery Amount/Claim.
+        '''   Looks up a localized string similar to Surgery Amount/Claim.
         '''</summary>
         Friend Shared ReadOnly Property L_SURGERYAMOUNTLEFT() As String
             Get
@@ -6599,7 +6599,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Suspend.
+        '''   Looks up a localized string similar to Suspend.
         '''</summary>
         Friend Shared ReadOnly Property L_SUSPEND() As String
             Get
@@ -6608,7 +6608,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Suspended Policy.
+        '''   Looks up a localized string similar to Suspended Policy.
         '''</summary>
         Friend Shared ReadOnly Property L_SUSPENDEDPOLICY() As String
             Get
@@ -6617,7 +6617,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to System.
+        '''   Looks up a localized string similar to System.
         '''</summary>
         Friend Shared ReadOnly Property L_SYSTEM() As String
             Get
@@ -6626,7 +6626,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Threshold Members (Nbr).
+        '''   Looks up a localized string similar to Threshold Members (Nbr).
         '''</summary>
         Friend Shared ReadOnly Property L_THRESHOLDMEMBERS() As String
             Get
@@ -6635,7 +6635,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to To.
+        '''   Looks up a localized string similar to To.
         '''</summary>
         Friend Shared ReadOnly Property L_TO() As String
             Get
@@ -6644,7 +6644,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Tools.
+        '''   Looks up a localized string similar to Tools.
         '''</summary>
         Friend Shared ReadOnly Property L_TOOLS() As String
             Get
@@ -6653,7 +6653,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total.
+        '''   Looks up a localized string similar to Total.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTAL() As String
             Get
@@ -6662,7 +6662,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total actual payments.
+        '''   Looks up a localized string similar to Total actual payments.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALACTUALPAYMENT() As String
             Get
@@ -6671,7 +6671,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Admissions Left.
+        '''   Looks up a localized string similar to Admissions Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALADMISSIONSLEFT() As String
             Get
@@ -6680,7 +6680,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Antenatal left.
+        '''   Looks up a localized string similar to Antenatal left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALANTENATALLEFT() As String
             Get
@@ -6689,7 +6689,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Claims.
+        '''   Looks up a localized string similar to Total Claims.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALCLAIMS() As String
             Get
@@ -6698,7 +6698,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Consultations Left.
+        '''   Looks up a localized string similar to Consultations Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALCONSULTATIONSLEFT() As String
             Get
@@ -6707,7 +6707,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deliveries Left.
+        '''   Looks up a localized string similar to Deliveries Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALDELIVERIESLEFT() As String
             Get
@@ -6716,7 +6716,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Family.
+        '''   Looks up a localized string similar to Total Family.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALFAMILY() As String
             Get
@@ -6725,7 +6725,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total for.
+        '''   Looks up a localized string similar to Total for.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALFOR() As String
             Get
@@ -6734,7 +6734,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Insuree.
+        '''   Looks up a localized string similar to Total Insuree.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALINSUREE() As String
             Get
@@ -6743,7 +6743,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total number of policies.
+        '''   Looks up a localized string similar to Total number of policies.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALNUMBEROFPOLICIES() As String
             Get
@@ -6752,7 +6752,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total number of policies for.
+        '''   Looks up a localized string similar to Total number of policies for.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALNUMBEROFPOLICIESFOR() As String
             Get
@@ -6761,7 +6761,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Prescribed Contributions.
+        '''   Looks up a localized string similar to Total Prescribed Contributions.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALPRESCRIBEDCONTRIBUTION() As String
             Get
@@ -6770,7 +6770,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Sales.
+        '''   Looks up a localized string similar to Total Sales.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALSALES() As String
             Get
@@ -6779,7 +6779,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Surgeries Left.
+        '''   Looks up a localized string similar to Surgeries Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALSURGERIESLEFT() As String
             Get
@@ -6788,7 +6788,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Value.
+        '''   Looks up a localized string similar to Total Value.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALVALUE() As String
             Get
@@ -6797,7 +6797,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visits Left.
+        '''   Looks up a localized string similar to Visits Left.
         '''</summary>
         Friend Shared ReadOnly Property L_TOTALVISITSLEFT() As String
             Get
@@ -6806,7 +6806,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Transaction No..
+        '''   Looks up a localized string similar to Transaction No..
         '''</summary>
         Friend Shared ReadOnly Property L_TRANSACTIONNUMBER() As String
             Get
@@ -6815,7 +6815,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Treatment.
+        '''   Looks up a localized string similar to Treatment.
         '''</summary>
         Friend Shared ReadOnly Property L_TREATMENT() As String
             Get
@@ -6824,7 +6824,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Type.
+        '''   Looks up a localized string similar to Type.
         '''</summary>
         Friend Shared ReadOnly Property L_TYPE() As String
             Get
@@ -6833,7 +6833,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Type.
+        '''   Looks up a localized string similar to Payment Type.
         '''</summary>
         Friend Shared ReadOnly Property L_TYPEOFPAYMENT() As String
             Get
@@ -6842,7 +6842,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Unit Price.
+        '''   Looks up a localized string similar to Unit Price.
         '''</summary>
         Friend Shared ReadOnly Property L_UNITPRICE() As String
             Get
@@ -6851,7 +6851,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Units.
+        '''   Looks up a localized string similar to Units.
         '''</summary>
         Friend Shared ReadOnly Property L_UNITS() As String
             Get
@@ -6860,7 +6860,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Units2.
+        '''   Looks up a localized string similar to Units2.
         '''</summary>
         Friend Shared ReadOnly Property L_UNITS2() As String
             Get
@@ -6869,7 +6869,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Updated.
+        '''   Looks up a localized string similar to Updated.
         '''</summary>
         Friend Shared ReadOnly Property L_UPDATED() As String
             Get
@@ -6878,7 +6878,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Update Only.
+        '''   Looks up a localized string similar to Update Only.
         '''</summary>
         Friend Shared ReadOnly Property L_UPDATEONLY() As String
             Get
@@ -6887,7 +6887,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Uploaded.
+        '''   Looks up a localized string similar to Uploaded.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADED() As String
             Get
@@ -6896,7 +6896,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Feedback.
+        '''   Looks up a localized string similar to Upload Feedback.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADFEEDBACK() As String
             Get
@@ -6905,7 +6905,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Feedbacks.
+        '''   Looks up a localized string similar to Upload Feedbacks.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADFEEDBACKS() As String
             Get
@@ -6914,7 +6914,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Health Facilities.
+        '''   Looks up a localized string similar to Upload Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADHEALTHFACILITIES() As String
             Get
@@ -6923,7 +6923,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Diagnoses.
+        '''   Looks up a localized string similar to Upload Diagnoses.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADICD() As String
             Get
@@ -6932,7 +6932,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Locations.
+        '''   Looks up a localized string similar to Upload Locations.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADLOCATIONS() As String
             Get
@@ -6941,7 +6941,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Registers.
+        '''   Looks up a localized string similar to Registers.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADREGISTERS() As String
             Get
@@ -6950,7 +6950,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Renewal.
+        '''   Looks up a localized string similar to Upload Renewal.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADRENEWAL() As String
             Get
@@ -6959,7 +6959,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload Renewals.
+        '''   Looks up a localized string similar to Upload Renewals.
         '''</summary>
         Friend Shared ReadOnly Property L_UPLOADRENEWALS() As String
             Get
@@ -6968,7 +6968,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Name.
+        '''   Looks up a localized string similar to User Name.
         '''</summary>
         Friend Shared ReadOnly Property L_USERNAME() As String
             Get
@@ -6977,7 +6977,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Roles.
+        '''   Looks up a localized string similar to User Roles.
         '''</summary>
         Friend Shared ReadOnly Property L_USERPROFILES() As String
             Get
@@ -6986,7 +6986,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Users.
+        '''   Looks up a localized string similar to Users.
         '''</summary>
         Friend Shared ReadOnly Property L_USERS() As String
             Get
@@ -6995,7 +6995,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Utilities.
+        '''   Looks up a localized string similar to Utilities.
         '''</summary>
         Friend Shared ReadOnly Property L_UTILITIES() As String
             Get
@@ -7004,7 +7004,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Valid From.
+        '''   Looks up a localized string similar to Valid From.
         '''</summary>
         Friend Shared ReadOnly Property L_VALIDFROM() As String
             Get
@@ -7013,7 +7013,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Valid To.
+        '''   Looks up a localized string similar to Valid To.
         '''</summary>
         Friend Shared ReadOnly Property L_VALIDTO() As String
             Get
@@ -7022,7 +7022,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Valuated.
+        '''   Looks up a localized string similar to Valuated.
         '''</summary>
         Friend Shared ReadOnly Property L_VALUATED() As String
             Get
@@ -7031,7 +7031,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Value.
+        '''   Looks up a localized string similar to Value.
         '''</summary>
         Friend Shared ReadOnly Property L_VALUE() As String
             Get
@@ -7040,7 +7040,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Variance.
+        '''   Looks up a localized string similar to Variance.
         '''</summary>
         Friend Shared ReadOnly Property L_VARIANCE() As String
             Get
@@ -7049,7 +7049,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Village.
+        '''   Looks up a localized string similar to Village.
         '''</summary>
         Friend Shared ReadOnly Property L_VILLAGE() As String
             Get
@@ -7058,7 +7058,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Village Code.
+        '''   Looks up a localized string similar to Village Code.
         '''</summary>
         Friend Shared ReadOnly Property L_VILLAGECODE() As String
             Get
@@ -7067,7 +7067,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Village Name.
+        '''   Looks up a localized string similar to Village Name.
         '''</summary>
         Friend Shared ReadOnly Property L_VillageName() As String
             Get
@@ -7076,7 +7076,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Collector Details.
+        '''   Looks up a localized string similar to Feedback Collector Details.
         '''</summary>
         Friend Shared ReadOnly Property L_VILLAGEOFFICER() As String
             Get
@@ -7085,7 +7085,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit Date From.
+        '''   Looks up a localized string similar to Visit Date From.
         '''</summary>
         Friend Shared ReadOnly Property L_VISITDATEFROM() As String
             Get
@@ -7094,7 +7094,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit Date To.
+        '''   Looks up a localized string similar to Visit Date To.
         '''</summary>
         Friend Shared ReadOnly Property L_VISITDATETO() As String
             Get
@@ -7103,7 +7103,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visits.
+        '''   Looks up a localized string similar to Visits.
         '''</summary>
         Friend Shared ReadOnly Property L_VISITS() As String
             Get
@@ -7112,7 +7112,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit Type.
+        '''   Looks up a localized string similar to Visit Type.
         '''</summary>
         Friend Shared ReadOnly Property L_VISITTYPE() As String
             Get
@@ -7121,7 +7121,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Vulnerability.
+        '''   Looks up a localized string similar to Vulnerability.
         '''</summary>
         Friend Shared ReadOnly Property L_VULNERABILITY() As String
             Get
@@ -7130,7 +7130,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Wait.
+        '''   Looks up a localized string similar to Wait.
         '''</summary>
         Friend Shared ReadOnly Property L_WAIT() As String
             Get
@@ -7139,7 +7139,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Grace Period Payment (months).
+        '''   Looks up a localized string similar to Grace Period Payment (months).
         '''</summary>
         Friend Shared ReadOnly Property L_WAITINGPERIOD() As String
             Get
@@ -7148,7 +7148,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Waiting Adult.
+        '''   Looks up a localized string similar to Waiting Adult.
         '''</summary>
         Friend Shared ReadOnly Property L_WAITINGPERIODADULT() As String
             Get
@@ -7157,7 +7157,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Waiting Child.
+        '''   Looks up a localized string similar to Waiting Child.
         '''</summary>
         Friend Shared ReadOnly Property L_WAITINGPERIODCHILD() As String
             Get
@@ -7166,7 +7166,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Municipality.
+        '''   Looks up a localized string similar to Municipality.
         '''</summary>
         Friend Shared ReadOnly Property L_WARD() As String
             Get
@@ -7175,7 +7175,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Municipality Code.
+        '''   Looks up a localized string similar to Municipality Code.
         '''</summary>
         Friend Shared ReadOnly Property L_WARDCODE() As String
             Get
@@ -7184,7 +7184,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Municipality Name.
+        '''   Looks up a localized string similar to Municipality Name.
         '''</summary>
         Friend Shared ReadOnly Property L_WardName() As String
             Get
@@ -7193,7 +7193,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Weight of Number of Families.
+        '''   Looks up a localized string similar to Weight of Number of Families.
         '''</summary>
         Friend Shared ReadOnly Property L_WEGHTOFNUMBERFAMILIES() As String
             Get
@@ -7202,7 +7202,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Weight of Adjusted Amount.
+        '''   Looks up a localized string similar to Weight of Adjusted Amount.
         '''</summary>
         Friend Shared ReadOnly Property L_WEIGHTOFADJUSTEDAMOUT() As String
             Get
@@ -7211,7 +7211,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Weight of Insured Population.
+        '''   Looks up a localized string similar to Weight of Insured Population.
         '''</summary>
         Friend Shared ReadOnly Property L_WEIGHTOFINSUREDPOPULATION() As String
             Get
@@ -7220,7 +7220,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Weight of Number of Insured Families.
+        '''   Looks up a localized string similar to Weight of Number of Insured Families.
         '''</summary>
         Friend Shared ReadOnly Property L_WEIGHTOFNUMBERINSUREDFAMILIES() As String
             Get
@@ -7229,7 +7229,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Weight of Number of Visits.
+        '''   Looks up a localized string similar to Weight of Number of Visits.
         '''</summary>
         Friend Shared ReadOnly Property L_WEIGHTOFNUMBERVISITS() As String
             Get
@@ -7238,7 +7238,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Weight of Population.
+        '''   Looks up a localized string similar to Weight of Population.
         '''</summary>
         Friend Shared ReadOnly Property L_WEIGHTOFPOPUATION() As String
             Get
@@ -7247,7 +7247,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Welcome.
+        '''   Looks up a localized string similar to Welcome.
         '''</summary>
         Friend Shared ReadOnly Property L_WELCOME() As String
             Get
@@ -7256,7 +7256,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to With Insuree.
+        '''   Looks up a localized string similar to With Insuree.
         '''</summary>
         Friend Shared ReadOnly Property L_WITHINSUREE() As String
             Get
@@ -7265,7 +7265,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Works To.
+        '''   Looks up a localized string similar to Works To.
         '''</summary>
         Friend Shared ReadOnly Property L_WORKSTO() As String
             Get
@@ -7274,7 +7274,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Year.
+        '''   Looks up a localized string similar to Year.
         '''</summary>
         Friend Shared ReadOnly Property L_YEAR() As String
             Get
@@ -7283,7 +7283,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Yearly.
+        '''   Looks up a localized string similar to Yearly.
         '''</summary>
         Friend Shared ReadOnly Property L_YEARLY() As String
             Get
@@ -7292,7 +7292,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Yes.
+        '''   Looks up a localized string similar to Yes.
         '''</summary>
         Friend Shared ReadOnly Property L_YES() As String
             Get
@@ -7301,7 +7301,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Accountant.
+        '''   Looks up a localized string similar to Accountant.
         '''</summary>
         Friend Shared ReadOnly Property M_ACCOUNTANT() As String
             Get
@@ -7310,7 +7310,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please add at least one Item or Service to proceed.
+        '''   Looks up a localized string similar to Please add at least one Item or Service to proceed.
         '''</summary>
         Friend Shared ReadOnly Property M_ADDATLEASTONEITEMORSERVICE() As String
             Get
@@ -7319,7 +7319,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adult.
+        '''   Looks up a localized string similar to Adult.
         '''</summary>
         Friend Shared ReadOnly Property M_ADULT() As String
             Get
@@ -7328,7 +7328,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to An unexpected error occurred, please try again after a few moments.
+        '''   Looks up a localized string similar to An unexpected error occurred, please try again after a few moments.
         '''</summary>
         Friend Shared ReadOnly Property M_AJAXERROR() As String
             Get
@@ -7337,7 +7337,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to and.
+        '''   Looks up a localized string similar to and.
         '''</summary>
         Friend Shared ReadOnly Property M_AND() As String
             Get
@@ -7346,7 +7346,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to process Batches for the current selection.
+        '''   Looks up a localized string similar to Are you sure you want to process Batches for the current selection.
         '''</summary>
         Friend Shared ReadOnly Property M_ARESURETOPROCESSBATCH() As String
             Get
@@ -7355,7 +7355,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Would you like to apply the following criteria for .
+        '''   Looks up a localized string similar to Would you like to apply the following criteria for .
         '''</summary>
         Friend Shared ReadOnly Property M_ARESURETOUPDATE_() As String
             Get
@@ -7364,7 +7364,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to upload a new list of HF?.
+        '''   Looks up a localized string similar to Are you sure you want to upload a new list of HF?.
         '''</summary>
         Friend Shared ReadOnly Property M_AREYOUSUREUPLOADHF() As String
             Get
@@ -7373,7 +7373,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to upload a new list of diagnoses?.
+        '''   Looks up a localized string similar to Are you sure you want to upload a new list of diagnoses?.
         '''</summary>
         Friend Shared ReadOnly Property M_AREYOUSUREUPLOADICDLIST() As String
             Get
@@ -7382,7 +7382,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to upload a new list of locations?.
+        '''   Looks up a localized string similar to Are you sure you want to upload a new list of locations?.
         '''</summary>
         Friend Shared ReadOnly Property M_AREYOUSUREUPLOADLOCATIONS() As String
             Get
@@ -7391,7 +7391,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Allow assignement of Role.
+        '''   Looks up a localized string similar to Allow assignement of Role.
         '''</summary>
         Friend Shared ReadOnly Property M_ASSIGNROLE() As String
             Get
@@ -7400,7 +7400,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch Process has already been run for the current selection.
+        '''   Looks up a localized string similar to Batch Process has already been run for the current selection.
         '''</summary>
         Friend Shared ReadOnly Property M_BATCHPROCESSRUNDONETHISSELECTION() As String
             Get
@@ -7409,7 +7409,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch not selected.
+        '''   Looks up a localized string similar to Batch not selected.
         '''</summary>
         Friend Shared ReadOnly Property M_BATCH_RUN_NOT_SELECTED() As String
             Get
@@ -7418,7 +7418,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to already belongs to.
+        '''   Looks up a localized string similar to already belongs to.
         '''</summary>
         Friend Shared ReadOnly Property M_BELONGSTO() As String
             Get
@@ -7427,7 +7427,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Your request is submitted and the requested extract is being created now. Once the task is completed, you will receive an email with the download link. Meanwhile you can leave this page and continue with other work..
+        '''   Looks up a localized string similar to Your request is submitted and the requested extract is being created now. Once the task is completed, you will receive an email with the download link. Meanwhile you can leave this page and continue with other work..
         '''</summary>
         Friend Shared ReadOnly Property M_BGEXTRACTCOMPLETED() As String
             Get
@@ -7436,7 +7436,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Can not change, selected Insurance Number is already Head of Family/Group.
+        '''   Looks up a localized string similar to Can not change, selected Insurance Number is already Head of Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property M_CANNOTCHANGECHFNOISHEADFMLY() As String
             Get
@@ -7445,7 +7445,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected  Insurance Number is already a Head of Family can not change Head of Family/Group.
+        '''   Looks up a localized string similar to Selected  Insurance Number is already a Head of Family can not change Head of Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property M_CANNOTCHANGEFAMILYHEAD() As String
             Get
@@ -7454,7 +7454,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cannot set status to passed for system rejected Items.
+        '''   Looks up a localized string similar to Cannot set status to passed for system rejected Items.
         '''</summary>
         Friend Shared ReadOnly Property M_CANNOTPASSITEMREJECTED() As String
             Get
@@ -7463,7 +7463,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cannot set status to passed for system rejected Services.
+        '''   Looks up a localized string similar to Cannot set status to passed for system rejected Services.
         '''</summary>
         Friend Shared ReadOnly Property M_CANNOTPASSSERVICEREJECTED() As String
             Get
@@ -7472,7 +7472,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch run for given location and period was not executed.
+        '''   Looks up a localized string similar to Batch run for given location and period was not executed.
         '''</summary>
         Friend Shared ReadOnly Property M_CAPITATION_PAYMENT_NO_BATCH_RUN() As String
             Get
@@ -7481,7 +7481,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Catchment can not be 0%.
+        '''   Looks up a localized string similar to Catchment can not be 0%.
         '''</summary>
         Friend Shared ReadOnly Property M_CATCHMENTZERO() As String
             Get
@@ -7490,7 +7490,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to H for Exclusion Hospital N for Exclusion Non-hospital B for Exclusion Both.
+        '''   Looks up a localized string similar to H for Exclusion Hospital N for Exclusion Non-hospital B for Exclusion Both.
         '''</summary>
         Friend Shared ReadOnly Property M_CEILING() As String
             Get
@@ -7499,7 +7499,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Changed.
+        '''   Looks up a localized string similar to Changed.
         '''</summary>
         Friend Shared ReadOnly Property M_CHANGE() As String
             Get
@@ -7508,7 +7508,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Changed:.
+        '''   Looks up a localized string similar to Changed:.
         '''</summary>
         Friend Shared ReadOnly Property M_CHANGED() As String
             Get
@@ -7517,7 +7517,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  successfully changed to Head of Family/Group.
+        '''   Looks up a localized string similar to  successfully changed to Head of Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property M_CHANGEHEAD() As String
             Get
@@ -7526,7 +7526,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Checked:.
+        '''   Looks up a localized string similar to Checked:.
         '''</summary>
         Friend Shared ReadOnly Property M_CHECKED() As String
             Get
@@ -7535,7 +7535,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance  Number not Found!.
+        '''   Looks up a localized string similar to Insurance  Number not Found!.
         '''</summary>
         Friend Shared ReadOnly Property M_CHFIDNOTFOUND() As String
             Get
@@ -7544,7 +7544,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance  Number is short, should be 9 characters.
+        '''   Looks up a localized string similar to Insurance  Number is short, should be 9 characters.
         '''</summary>
         Friend Shared ReadOnly Property M_CHFNUMBERFEWCHARACTERS() As String
             Get
@@ -7553,7 +7553,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Head of Family/Group with that  Insurance Number already exists in system.
+        '''   Looks up a localized string similar to Head of Family/Group with that  Insurance Number already exists in system.
         '''</summary>
         Friend Shared ReadOnly Property M_CHFNUMBERMEMBEREXISTS() As String
             Get
@@ -7562,7 +7562,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected Insurance Number does not exist !.
+        '''   Looks up a localized string similar to Selected Insurance Number does not exist !.
         '''</summary>
         Friend Shared ReadOnly Property M_CHFNUMBERNOTEXISTS() As String
             Get
@@ -7571,7 +7571,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Child.
+        '''   Looks up a localized string similar to Child.
         '''</summary>
         Friend Shared ReadOnly Property M_CHILD() As String
             Get
@@ -7580,7 +7580,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Code Already exists.
+        '''   Looks up a localized string similar to Claim Code Already exists.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMCODEEXISTS() As String
             Get
@@ -7589,7 +7589,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Contributor.
+        '''   Looks up a localized string similar to Claim Contributor.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMCONTRIBUTOR() As String
             Get
@@ -7598,7 +7598,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claimed date can not be after today.
+        '''   Looks up a localized string similar to Claimed date can not be after today.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMDATENOTAFTERTODAY() As String
             Get
@@ -7607,7 +7607,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claimed date can not be before visit date from.
+        '''   Looks up a localized string similar to Claimed date can not be before visit date from.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMDATENOTBEFOREVISITDATE() As String
             Get
@@ -7616,7 +7616,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claimed date cannot be in future.
+        '''   Looks up a localized string similar to Claimed date cannot be in future.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMDATENOTINFUTURE() As String
             Get
@@ -7625,7 +7625,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim was deleted successfully.
+        '''   Looks up a localized string similar to The claim was deleted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMDELETED() As String
             Get
@@ -7634,7 +7634,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim details were Updated successfully.
+        '''   Looks up a localized string similar to Claim details were Updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMDETAILSUPDATED() As String
             Get
@@ -7643,7 +7643,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items on this Claim were Updated successfully.
+        '''   Looks up a localized string similar to Items on this Claim were Updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMITEMUPDATED() As String
             Get
@@ -7652,7 +7652,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The status of this Claim is not ENTERED and thus can not be deleted.
+        '''   Looks up a localized string similar to The status of this Claim is not ENTERED and thus can not be deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMNOTENTEREDNODELETE() As String
             Get
@@ -7661,7 +7661,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim does not exist.
+        '''   Looks up a localized string similar to Claim does not exist.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMNOTEXIST() As String
             Get
@@ -7670,7 +7670,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim status does not allow it to be viewed for feedback process.
+        '''   Looks up a localized string similar to The claim status does not allow it to be viewed for feedback process.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMNOTFORFEEDBACKPROCESS() As String
             Get
@@ -7679,7 +7679,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim status does not allow it to be viewed for review process.
+        '''   Looks up a localized string similar to The claim status does not allow it to be viewed for review process.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMNOTFORREVIEWPROCESS() As String
             Get
@@ -7688,7 +7688,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim detail was updated successfully with a change in item details only.
+        '''   Looks up a localized string similar to The claim detail was updated successfully with a change in item details only.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMPASSEDWITHITEMCHANGE() As String
             Get
@@ -7697,7 +7697,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim detail was updated successfully without a change in item and service details.
+        '''   Looks up a localized string similar to The claim detail was updated successfully without a change in item and service details.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMPASSEDWITHOUTCHANGE() As String
             Get
@@ -7706,7 +7706,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim detail was updated successfully with a change in service details only.
+        '''   Looks up a localized string similar to The claim detail was updated successfully with a change in service details only.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMPASSEDWITHSERVICECHANGE() As String
             Get
@@ -7715,7 +7715,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim detail was updated successfully with a change in both item and service details.
+        '''   Looks up a localized string similar to The claim detail was updated successfully with a change in both item and service details.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMPASSEDWITHSERVICEITEMCHANGES() As String
             Get
@@ -7724,7 +7724,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Saved OK.
+        '''   Looks up a localized string similar to Claim Saved OK.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMSAVED() As String
             Get
@@ -7733,7 +7733,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services on this Claim were Updated successfully.
+        '''   Looks up a localized string similar to Services on this Claim were Updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMSERVICESUPDATED() As String
             Get
@@ -7742,7 +7742,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The number of claims exceed the limit allowed to be loaded in one go, Please use the filter criteria to narrow your selection.
+        '''   Looks up a localized string similar to The number of claims exceed the limit allowed to be loaded in one go, Please use the filter criteria to narrow your selection.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMSEXCEEDLIMIT() As String
             Get
@@ -7751,7 +7751,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The status of this Claim has been changed from entered by another user.
+        '''   Looks up a localized string similar to The status of this Claim has been changed from entered by another user.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMSTATUSCHANGEDFROMENTERED() As String
             Get
@@ -7760,7 +7760,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims submitted .
+        '''   Looks up a localized string similar to Claims submitted .
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMSUBMITTED_() As String
             Get
@@ -7769,7 +7769,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims uploaded successfully.
+        '''   Looks up a localized string similar to Claims uploaded successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLAIMUPLOADED() As String
             Get
@@ -7778,7 +7778,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Clerk.
+        '''   Looks up a localized string similar to Clerk.
         '''</summary>
         Friend Shared ReadOnly Property M_CLERK() As String
             Get
@@ -7787,7 +7787,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to This claim has already been reviewed by another user.
+        '''   Looks up a localized string similar to This claim has already been reviewed by another user.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMALREADYREVIEWEDBYUSER() As String
             Get
@@ -7796,7 +7796,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim details,Services and Items were Updated successfully.
+        '''   Looks up a localized string similar to Claim details,Services and Items were Updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMDETAILSERVICEITEM() As String
             Get
@@ -7805,7 +7805,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim details and Items were Saved successfully.
+        '''   Looks up a localized string similar to Claim details and Items were Saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMDITEMSAVED() As String
             Get
@@ -7814,7 +7814,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim details,Services and Items were Saved successfully.
+        '''   Looks up a localized string similar to Claim details,Services and Items were Saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMDSERVICEITEMSAVED() As String
             Get
@@ -7823,7 +7823,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim details and Services were Saved successfully.
+        '''   Looks up a localized string similar to Claim details and Services were Saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMDSERVICESSAVED() As String
             Get
@@ -7832,7 +7832,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim service details were changed successfully.
+        '''   Looks up a localized string similar to The claim service details were changed successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMITEMNOCHANGESERVICEYES() As String
             Get
@@ -7841,7 +7841,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim details and Items were Updated successfully.
+        '''   Looks up a localized string similar to Claim details and Items were Updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMITEMUPDATED() As String
             Get
@@ -7850,7 +7850,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim item and service details were changed successfully.
+        '''   Looks up a localized string similar to The claim item and service details were changed successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMNOCHANGEITEMSERVICEYES() As String
             Get
@@ -7859,7 +7859,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim item details were changed successfully.
+        '''   Looks up a localized string similar to The claim item details were changed successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMSERVICENOCHANGEITEMYES() As String
             Get
@@ -7868,7 +7868,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services and Items on this Claim were Updated successfully.
+        '''   Looks up a localized string similar to Services and Items on this Claim were Updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMSERVICESITEMSUPDATED() As String
             Get
@@ -7877,7 +7877,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim details and Services were Updated successfully.
+        '''   Looks up a localized string similar to Claim details and Services were Updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMSERVICESUPDATED() As String
             Get
@@ -7886,7 +7886,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The claim status of this claim has already been changed by another user.
+        '''   Looks up a localized string similar to The claim status of this claim has already been changed by another user.
         '''</summary>
         Friend Shared ReadOnly Property M_CLMSTATUSALREADYCHANGEDBYUSER() As String
             Get
@@ -7895,7 +7895,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete this claim.
+        '''   Looks up a localized string similar to Are you sure you want to delete this claim.
         '''</summary>
         Friend Shared ReadOnly Property M_CONFIRMCLAIMDELETE() As String
             Get
@@ -7904,7 +7904,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to clear this row?.
+        '''   Looks up a localized string similar to Are you sure you want to clear this row?.
         '''</summary>
         Friend Shared ReadOnly Property M_CONFIRMROWCLEARING() As String
             Get
@@ -7913,7 +7913,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Would you like to submit the claims?.
+        '''   Looks up a localized string similar to Would you like to submit the claims?.
         '''</summary>
         Friend Shared ReadOnly Property M_CONFIRMSUBMITCLAIMS() As String
             Get
@@ -7922,7 +7922,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Do you want to continue?.
+        '''   Looks up a localized string similar to Do you want to continue?.
         '''</summary>
         Friend Shared ReadOnly Property M_CONTINUEPROMPT() As String
             Get
@@ -7931,7 +7931,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to &lt;/BR&gt;&lt;/BR&gt;You have not selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region..
+        '''   Looks up a localized string similar to &lt;/BR&gt;&lt;/BR&gt;You have not selected any Region.&lt;/BR&gt;&lt;/BR&gt;Are you sure you want to create an extract on NATION LEVEL?&lt;/BR&gt;&lt;/BR&gt;Click YES to proceed or click NO to go back and select a  Region..
         '''</summary>
         Friend Shared ReadOnly Property M_CREATEOFFLINEEXTRACTPROMPT() As String
             Get
@@ -7940,7 +7940,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment date can not be after Effective date.
+        '''   Looks up a localized string similar to Enrolment date can not be after Effective date.
         '''</summary>
         Friend Shared ReadOnly Property M_DATEERROR1() As String
             Get
@@ -7949,7 +7949,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment date can not be after Expiry date.
+        '''   Looks up a localized string similar to Enrolment date can not be after Expiry date.
         '''</summary>
         Friend Shared ReadOnly Property M_DATEERROR2() As String
             Get
@@ -7958,7 +7958,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expiry date can not be before Enrolment date.
+        '''   Looks up a localized string similar to Expiry date can not be before Enrolment date.
         '''</summary>
         Friend Shared ReadOnly Property M_DATEERROR4() As String
             Get
@@ -7967,7 +7967,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expiry date can not be before Effective date.
+        '''   Looks up a localized string similar to Expiry date can not be before Effective date.
         '''</summary>
         Friend Shared ReadOnly Property M_DATEERROR5() As String
             Get
@@ -7976,7 +7976,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expiry date can not be before Start date.
+        '''   Looks up a localized string similar to Expiry date can not be before Start date.
         '''</summary>
         Friend Shared ReadOnly Property M_DATEERROR6() As String
             Get
@@ -7985,7 +7985,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date must be in dd/MM/yyyy format.
+        '''   Looks up a localized string similar to Date must be in dd/MM/yyyy format.
         '''</summary>
         Friend Shared ReadOnly Property M_DATEFORMAT() As String
             Get
@@ -7994,7 +7994,25 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to deleted successfully.
+        '''   Looks up a localized string similar to The following secret keys were left at a default value. For security reasons, please change them in Web.config file. Make sure secret keys are also updated in mobile applications..
+        '''</summary>
+        Friend Shared ReadOnly Property M_DEFAULTPASSWORDWARNING() As String
+            Get
+                Return ResourceManager.GetString("M_DEFAULTPASSWORDWARNING", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Looks up a localized string similar to Security Warning.
+        '''</summary>
+        Friend Shared ReadOnly Property M_DEFAULTPASSWORDWARNINGLABEL() As String
+            Get
+                Return ResourceManager.GetString("M_DEFAULTPASSWORDWARNINGLABEL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Looks up a localized string similar to deleted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETED() As String
             Get
@@ -8003,7 +8021,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Deleted.
+        '''   Looks up a localized string similar to Deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEDDIAGNOSES() As String
             Get
@@ -8012,7 +8030,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete District.
+        '''   Looks up a localized string similar to Are you sure you want to delete District.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEDISTRICTPROMPT() As String
             Get
@@ -8021,7 +8039,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete the Family/Group ?.
+        '''   Looks up a localized string similar to Are you sure you want to delete the Family/Group ?.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEFAMILYPROMPT() As String
             Get
@@ -8030,7 +8048,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete the Insuree ?.
+        '''   Looks up a localized string similar to Are you sure you want to delete the Insuree ?.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEINSUREEPROMPT() As String
             Get
@@ -8039,7 +8057,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete the policy ?.
+        '''   Looks up a localized string similar to Are you sure you want to delete the policy ?.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEPOLICYPROMPT() As String
             Get
@@ -8048,7 +8066,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete the Contribution ?.
+        '''   Looks up a localized string similar to Are you sure you want to delete the Contribution ?.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEPREMIUMPROMPT() As String
             Get
@@ -8057,7 +8075,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete?.
+        '''   Looks up a localized string similar to Are you sure you want to delete?.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEPROMPT() As String
             Get
@@ -8066,7 +8084,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete Region?.
+        '''   Looks up a localized string similar to Are you sure you want to delete Region?.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEREGIONPROMPT() As String
             Get
@@ -8075,7 +8093,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete the User Login?.
+        '''   Looks up a localized string similar to Are you sure you want to delete the User Login?.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEUSERLOGIN() As String
             Get
@@ -8084,7 +8102,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete village.
+        '''   Looks up a localized string similar to Are you sure you want to delete village.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEVILLAGEPROMPT() As String
             Get
@@ -8093,7 +8111,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Are you sure you want to delete Municipality.
+        '''   Looks up a localized string similar to Are you sure you want to delete Municipality.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETEWARDPROMPT() As String
             Get
@@ -8102,7 +8120,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sent.
+        '''   Looks up a localized string similar to Sent.
         '''</summary>
         Friend Shared ReadOnly Property M_DIAGNOSESSENT() As String
             Get
@@ -8111,7 +8129,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Diagnoses uploaded successfully..
+        '''   Looks up a localized string similar to Diagnoses uploaded successfully..
         '''</summary>
         Friend Shared ReadOnly Property M_DIAGNOSESUPLOADED() As String
             Get
@@ -8120,7 +8138,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Code in excel Already Exists in Database.
+        '''   Looks up a localized string similar to District Code in excel Already Exists in Database.
         '''</summary>
         Friend Shared ReadOnly Property M_DISTRICTCODEEXISTSINDB() As String
             Get
@@ -8129,7 +8147,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Code specified in Municipality does not exists in Either Database or District Excel.
+        '''   Looks up a localized string similar to District Code specified in Municipality does not exists in Either Database or District Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_DISTRICTCODENOTEXISTSINEXCELORDB() As String
             Get
@@ -8138,7 +8156,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please delete District in region first.
+        '''   Looks up a localized string similar to Please delete District in region first.
         '''</summary>
         Friend Shared ReadOnly Property M_DISTRICTINREGION() As String
             Get
@@ -8147,7 +8165,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District saved successfully.
+        '''   Looks up a localized string similar to District saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_DISTRICTSAVED() As String
             Get
@@ -8156,7 +8174,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate distict found. Import cancelled..
+        '''   Looks up a localized string similar to Duplicate distict found. Import cancelled..
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEDISCTRICT() As String
             Get
@@ -8165,7 +8183,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate District Code in excel.
+        '''   Looks up a localized string similar to Duplicate District Code in excel.
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEDISTRICTCODEINEXCEL() As String
             Get
@@ -8174,7 +8192,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate receipt found.
+        '''   Looks up a localized string similar to Duplicate receipt found.
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEDRECEIPTFOUND() As String
             Get
@@ -8183,7 +8201,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate Municipality Code in excel.
+        '''   Looks up a localized string similar to Duplicate Municipality Code in excel.
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEMUNICIPALITYCODEINEXCEL() As String
             Get
@@ -8192,7 +8210,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to This receipt is already issued..
+        '''   Looks up a localized string similar to This receipt is already issued..
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATERECEIPT() As String
             Get
@@ -8201,7 +8219,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate Region Code in excel.
+        '''   Looks up a localized string similar to Duplicate Region Code in excel.
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEREGIONCODEINEXCEL() As String
             Get
@@ -8210,7 +8228,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate village found. Import cancelled..
+        '''   Looks up a localized string similar to Duplicate village found. Import cancelled..
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEVILLAGE() As String
             Get
@@ -8219,7 +8237,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate Village Code in excel.
+        '''   Looks up a localized string similar to Duplicate Village Code in excel.
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEVILLAGECODEINEXCEL() As String
             Get
@@ -8228,7 +8246,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate Municipality found. Import cancelled..
+        '''   Looks up a localized string similar to Duplicate Municipality found. Import cancelled..
         '''</summary>
         Friend Shared ReadOnly Property M_DUPLICATEWARD() As String
             Get
@@ -8237,7 +8255,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Email settings updated succssfully.
+        '''   Looks up a localized string similar to Email settings updated succssfully.
         '''</summary>
         Friend Shared ReadOnly Property M_EMAILUPDATED() As String
             Get
@@ -8246,7 +8264,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Emergency.
+        '''   Looks up a localized string similar to Emergency.
         '''</summary>
         Friend Shared ReadOnly Property M_EMERGENCY() As String
             Get
@@ -8255,7 +8273,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Location code can not be empty.
+        '''   Looks up a localized string similar to Location code can not be empty.
         '''</summary>
         Friend Shared ReadOnly Property M_EMPTYLOCATIONCODE() As String
             Get
@@ -8264,7 +8282,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Location name can not be empty.
+        '''   Looks up a localized string similar to Location name can not be empty.
         '''</summary>
         Friend Shared ReadOnly Property M_EMPTYLOCATIONNAME() As String
             Get
@@ -8273,7 +8291,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment discount percentage should be less than or equal to hundred.
+        '''   Looks up a localized string similar to Enrolment discount percentage should be less than or equal to hundred.
         '''</summary>
         Friend Shared ReadOnly Property M_ENROLDISCOUNTPERCEXCEEDPERC() As String
             Get
@@ -8282,7 +8300,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload failed on following records.
+        '''   Looks up a localized string similar to Upload failed on following records.
         '''</summary>
         Friend Shared ReadOnly Property M_ENROLLOG() As String
             Get
@@ -8291,7 +8309,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Extracted:.
+        '''   Looks up a localized string similar to Enrolment Extracted:.
         '''</summary>
         Friend Shared ReadOnly Property M_ENROLMENTEXTRACTED() As String
             Get
@@ -8300,7 +8318,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Uploaded:.
+        '''   Looks up a localized string similar to Enrolment Uploaded:.
         '''</summary>
         Friend Shared ReadOnly Property M_ENROLMENTUPLOADED() As String
             Get
@@ -8309,7 +8327,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter backup path.
+        '''   Looks up a localized string similar to Enter backup path.
         '''</summary>
         Friend Shared ReadOnly Property M_ENTERBACKUPPATH() As String
             Get
@@ -8318,7 +8336,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter a Insurance  Number.
+        '''   Looks up a localized string similar to Please enter a Insurance  Number.
         '''</summary>
         Friend Shared ReadOnly Property M_ENTERCHFNUMBER() As String
             Get
@@ -8327,7 +8345,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select month.
+        '''   Looks up a localized string similar to Please select month.
         '''</summary>
         Friend Shared ReadOnly Property M_ENTERMONTH() As String
             Get
@@ -8336,7 +8354,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enter restore path.
+        '''   Looks up a localized string similar to Enter restore path.
         '''</summary>
         Friend Shared ReadOnly Property M_ENTERRESTOREPATH() As String
             Get
@@ -8345,7 +8363,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter a valid price.
+        '''   Looks up a localized string similar to Please enter a valid price.
         '''</summary>
         Friend Shared ReadOnly Property M_ENTERVALIDPRICEVALUE() As String
             Get
@@ -8354,7 +8372,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter a valid quantity.
+        '''   Looks up a localized string similar to Please enter a valid quantity.
         '''</summary>
         Friend Shared ReadOnly Property M_ENTERVALIDQUANTITY() As String
             Get
@@ -8363,7 +8381,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Action could not be completed. Please call your help desk for further information..
+        '''   Looks up a localized string similar to Action could not be completed. Please call your help desk for further information..
         '''</summary>
         Friend Shared ReadOnly Property M_ERRORMESSAGE() As String
             Get
@@ -8372,7 +8390,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Error occured while executing the script.
+        '''   Looks up a localized string similar to Error occured while executing the script.
         '''</summary>
         Friend Shared ReadOnly Property M_ERROROCCURED() As String
             Get
@@ -8381,7 +8399,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Error occured while processing.
+        '''   Looks up a localized string similar to Error occured while processing.
         '''</summary>
         Friend Shared ReadOnly Property M_ERRORWHILEPROCESSING() As String
             Get
@@ -8390,7 +8408,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Ethnicity--.
+        '''   Looks up a localized string similar to --Select Ethnicity--.
         '''</summary>
         Friend Shared ReadOnly Property M_ETHNICITY() As String
             Get
@@ -8399,7 +8417,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Value can not exceed 100%.
+        '''   Looks up a localized string similar to Value can not exceed 100%.
         '''</summary>
         Friend Shared ReadOnly Property M_EXEEDPAECENTAGE() As String
             Get
@@ -8408,7 +8426,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  already exists.
+        '''   Looks up a localized string similar to  already exists.
         '''</summary>
         Friend Shared ReadOnly Property M_EXISTS() As String
             Get
@@ -8417,7 +8435,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment on expired policy is not allowed..
+        '''   Looks up a localized string similar to Payment on expired policy is not allowed..
         '''</summary>
         Friend Shared ReadOnly Property M_EXPIRYPOLICYNOPAY() As String
             Get
@@ -8426,7 +8444,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Another user is currently operating on extracts. Please try later. .
+        '''   Looks up a localized string similar to Another user is currently operating on extracts. Please try later. .
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_BUSY() As String
             Get
@@ -8435,7 +8453,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Last extract sequence : .
+        '''   Looks up a localized string similar to Last extract sequence : .
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_EXTRACTSEQUENCE() As String
             Get
@@ -8444,7 +8462,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  hours.
+        '''   Looks up a localized string similar to  hours.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_HOURS() As String
             Get
@@ -8453,7 +8471,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to HF ID NOT set in defaults.
+        '''   Looks up a localized string similar to HF ID NOT set in defaults.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR1() As String
             Get
@@ -8462,7 +8480,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extract Header not Valid.
+        '''   Looks up a localized string similar to Extract Header not Valid.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR2() As String
             Get
@@ -8471,7 +8489,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extract from other District.
+        '''   Looks up a localized string similar to Extract from other District.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR3() As String
             Get
@@ -8480,7 +8498,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extract has a different database version. Please consult the IMIS help desk..
+        '''   Looks up a localized string similar to Extract has a different database version. Please consult the IMIS help desk..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR4() As String
             Get
@@ -8489,7 +8507,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to First extract to be loaded has to be a FULL extract. Please consult the IMIS help desk. .
+        '''   Looks up a localized string similar to First extract to be loaded has to be a FULL extract. Please consult the IMIS help desk. .
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR5() As String
             Get
@@ -8498,7 +8516,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The data in this extract is already uploaded.
+        '''   Looks up a localized string similar to The data in this extract is already uploaded.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR6() As String
             Get
@@ -8507,7 +8525,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to You are missing one or more extract sequences. Please consult the IMIS helpdesk.
+        '''   Looks up a localized string similar to You are missing one or more extract sequences. Please consult the IMIS helpdesk.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR7() As String
             Get
@@ -8516,7 +8534,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Unexpected import failure encountered..
+        '''   Looks up a localized string similar to Unexpected import failure encountered..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPERR8() As String
             Get
@@ -8525,7 +8543,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Import successfully completed..
+        '''   Looks up a localized string similar to Import successfully completed..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_IMPOK() As String
             Get
@@ -8534,7 +8552,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No download file selected OR download file has already been deleted from the server. .
+        '''   Looks up a localized string similar to No download file selected OR download file has already been deleted from the server. .
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_NODOWNLOADFILE() As String
             Get
@@ -8543,7 +8561,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No previous extracts found!.
+        '''   Looks up a localized string similar to No previous extracts found!.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_NOEXTRACTSFOUND() As String
             Get
@@ -8552,7 +8570,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Photos available for export..
+        '''   Looks up a localized string similar to No Photos available for export..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_NOPHOTOFILE() As String
             Get
@@ -8561,7 +8579,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No valid Upload file selected .
+        '''   Looks up a localized string similar to No valid Upload file selected .
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_NOUPLOADLOADFILE() As String
             Get
@@ -8570,7 +8588,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The FULL extract is selected. The next message will provide the result of the FULL extract..
+        '''   Looks up a localized string similar to The FULL extract is selected. The next message will provide the result of the FULL extract..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_OFFLINEFULL() As String
             Get
@@ -8579,7 +8597,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Offline extract could NOT be created at this time. Please consult the helpdesk..
+        '''   Looks up a localized string similar to Offline extract could NOT be created at this time. Please consult the helpdesk..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_OFFLINENOK() As String
             Get
@@ -8588,7 +8606,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Offline extract created. Please click the DOWNLOAD link..
+        '''   Looks up a localized string similar to Offline extract created. Please click the DOWNLOAD link..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_OFFLINEOK() As String
             Get
@@ -8597,7 +8615,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Phone extract could NOT be created at this time. Please consult the helpdesk..
+        '''   Looks up a localized string similar to Phone extract could NOT be created at this time. Please consult the helpdesk..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_PHONENOK() As String
             Get
@@ -8606,7 +8624,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Phone extract could NOT be created at this time. Please consult the helpdesk..
+        '''   Looks up a localized string similar to Phone extract could NOT be created at this time. Please consult the helpdesk..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_PHONENOK1() As String
             Get
@@ -8615,7 +8633,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Phone extract created. Please click the DOWNLOAD link..
+        '''   Looks up a localized string similar to Phone extract created. Please click the DOWNLOAD link..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_PHONEOK() As String
             Get
@@ -8624,7 +8642,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Phone extract created. Please click the DOWNLOAD link..
+        '''   Looks up a localized string similar to Phone extract created. Please click the DOWNLOAD link..
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_PHONEOK1() As String
             Get
@@ -8633,7 +8651,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Photos successfully imported into IMIS.
+        '''   Looks up a localized string similar to Photos successfully imported into IMIS.
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_PHOTOIMPOK() As String
             Get
@@ -8642,7 +8660,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Task completed in .
+        '''   Looks up a localized string similar to Task completed in .
         '''</summary>
         Friend Shared ReadOnly Property M_EXTR_TASKCOMPLETED() As String
             Get
@@ -8651,7 +8669,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Failed:.
+        '''   Looks up a localized string similar to Failed:.
         '''</summary>
         Friend Shared ReadOnly Property M_FAILED() As String
             Get
@@ -8660,7 +8678,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to families/group affected.
+        '''   Looks up a localized string similar to families/group affected.
         '''</summary>
         Friend Shared ReadOnly Property M_FAMILYAFFECTED() As String
             Get
@@ -8669,7 +8687,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family/Group and the Head of Family/Group.
+        '''   Looks up a localized string similar to Family/Group and the Head of Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property M_FAMILYANDHEADOFFLY_() As String
             Get
@@ -8678,7 +8696,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family/Group Extracted.
+        '''   Looks up a localized string similar to Family/Group Extracted.
         '''</summary>
         Friend Shared ReadOnly Property M_FAMILYEXTRACTED() As String
             Get
@@ -8687,7 +8705,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family/Group not deleted.
+        '''   Looks up a localized string similar to Family/Group not deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_FAMILYNOTDELETED() As String
             Get
@@ -8696,7 +8714,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family/Group to be deleted still has some dependants.
+        '''   Looks up a localized string similar to Family/Group to be deleted still has some dependants.
         '''</summary>
         Friend Shared ReadOnly Property M_FAMILYSTILLHASDEPENDANTS() As String
             Get
@@ -8705,7 +8723,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family/Group Uploaded.
+        '''   Looks up a localized string similar to Family/Group Uploaded.
         '''</summary>
         Friend Shared ReadOnly Property M_FAMILYUPLOADED() As String
             Get
@@ -8714,7 +8732,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to feedback.
+        '''   Looks up a localized string similar to feedback.
         '''</summary>
         Friend Shared ReadOnly Property M_FEEDBACK() As String
             Get
@@ -8723,7 +8741,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The feedback was saved successfully and the status of the claim updated to delivered.
+        '''   Looks up a localized string similar to The feedback was saved successfully and the status of the claim updated to delivered.
         '''</summary>
         Friend Shared ReadOnly Property M_FEEDBACKSAVEDSUCCESSFULLY() As String
             Get
@@ -8732,7 +8750,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Would you like to apply the following criteria for feedback selection &lt;br /&gt;.
+        '''   Looks up a localized string similar to Would you like to apply the following criteria for feedback selection &lt;br /&gt;.
         '''</summary>
         Friend Shared ReadOnly Property M_FEEDBACKSELECTION() As String
             Get
@@ -8741,7 +8759,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback status were updated successfully.
+        '''   Looks up a localized string similar to Feedback status were updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_FEEDBACKSTATUSUPDATED() As String
             Get
@@ -8750,7 +8768,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The feedback was updated successfully.
+        '''   Looks up a localized string similar to The feedback was updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_FEEDBACKUPDATEDSUCCESSFULLY() As String
             Get
@@ -8759,7 +8777,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to FeedBack  upload summary.
+        '''   Looks up a localized string similar to FeedBack  upload summary.
         '''</summary>
         Friend Shared ReadOnly Property M_FEEDFILEACCEPTED() As String
             Get
@@ -8768,7 +8786,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please fill in the Item Quantity.
+        '''   Looks up a localized string similar to Please fill in the Item Quantity.
         '''</summary>
         Friend Shared ReadOnly Property M_FILLITEMQUANTITY() As String
             Get
@@ -8777,7 +8795,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please fill in the Item Value.
+        '''   Looks up a localized string similar to Please fill in the Item Value.
         '''</summary>
         Friend Shared ReadOnly Property M_FILLITEMVALUE() As String
             Get
@@ -8786,7 +8804,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please fill in the service quantity.
+        '''   Looks up a localized string similar to Please fill in the service quantity.
         '''</summary>
         Friend Shared ReadOnly Property M_FILLSERVICEQUANTITY() As String
             Get
@@ -8795,7 +8813,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please fill in the service value.
+        '''   Looks up a localized string similar to Please fill in the service value.
         '''</summary>
         Friend Shared ReadOnly Property M_FILLSERVICEVALUE() As String
             Get
@@ -8804,7 +8822,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to For.
+        '''   Looks up a localized string similar to For.
         '''</summary>
         Friend Shared ReadOnly Property M_FOR() As String
             Get
@@ -8813,7 +8831,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Fund added successfully.
+        '''   Looks up a localized string similar to Fund added successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_FUNDADDED() As String
             Get
@@ -8822,7 +8840,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Good Afternoon.
+        '''   Looks up a localized string similar to Good Afternoon.
         '''</summary>
         Friend Shared ReadOnly Property M_GOODAFTERNOON() As String
             Get
@@ -8831,7 +8849,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Good Evening.
+        '''   Looks up a localized string similar to Good Evening.
         '''</summary>
         Friend Shared ReadOnly Property M_GOODEVENING() As String
             Get
@@ -8840,7 +8858,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Good Morning.
+        '''   Looks up a localized string similar to Good Morning.
         '''</summary>
         Friend Shared ReadOnly Property M_GOODMORNING() As String
             Get
@@ -8849,7 +8867,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The grace period of the given policy is over.
+        '''   Looks up a localized string similar to The grace period of the given policy is over.
         '''</summary>
         Friend Shared ReadOnly Property M_GRACEPERIODISOVER() As String
             Get
@@ -8858,7 +8876,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Health Facility--.
+        '''   Looks up a localized string similar to --Select Health Facility--.
         '''</summary>
         Friend Shared ReadOnly Property M_HealthFacility() As String
             Get
@@ -8867,7 +8885,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to HF Administrator.
+        '''   Looks up a localized string similar to HF Administrator.
         '''</summary>
         Friend Shared ReadOnly Property M_HFADMINISTRATOR() As String
             Get
@@ -8876,7 +8894,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health facilite(s) uploaded successfully..
+        '''   Looks up a localized string similar to Health facilite(s) uploaded successfully..
         '''</summary>
         Friend Shared ReadOnly Property M_HFUPLOADED() As String
             Get
@@ -8885,7 +8903,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New list of diagnoses uploaded successfully.
+        '''   Looks up a localized string similar to New list of diagnoses uploaded successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_ICDUPLOADED() As String
             Get
@@ -8894,7 +8912,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to IMIS Administrator.
+        '''   Looks up a localized string similar to IMIS Administrator.
         '''</summary>
         Friend Shared ReadOnly Property M_IMISADMINISTRATOR() As String
             Get
@@ -8903,7 +8921,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Incorrect current password.
+        '''   Looks up a localized string similar to Incorrect current password.
         '''</summary>
         Friend Shared ReadOnly Property M_INCORRECTCURRENTPASSWORD() As String
             Get
@@ -8912,7 +8930,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to In Progress.
+        '''   Looks up a localized string similar to In Progress.
         '''</summary>
         Friend Shared ReadOnly Property M_INPROGRESS() As String
             Get
@@ -8921,7 +8939,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  added successfully.
+        '''   Looks up a localized string similar to  added successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_INSERTED() As String
             Get
@@ -8930,7 +8948,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Inserted.
+        '''   Looks up a localized string similar to Inserted.
         '''</summary>
         Friend Shared ReadOnly Property M_INSERTEDDIAGNOSES() As String
             Get
@@ -8939,7 +8957,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree is already in this Family/Group.
+        '''   Looks up a localized string similar to Insuree is already in this Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property M_INSUREEALREADYINFAMILY() As String
             Get
@@ -8948,7 +8966,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree  Number.
+        '''   Looks up a localized string similar to Insuree  Number.
         '''</summary>
         Friend Shared ReadOnly Property M_InsureeCHF() As String
             Get
@@ -8957,7 +8975,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree Extracted.
+        '''   Looks up a localized string similar to Insuree Extracted.
         '''</summary>
         Friend Shared ReadOnly Property M_INSUREEEXTRACTED() As String
             Get
@@ -8966,7 +8984,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree is Head of Family/Group, ca not be deleted.
+        '''   Looks up a localized string similar to Insuree is Head of Family/Group, ca not be deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_INSUREEHEADFMLYDELETENOT() As String
             Get
@@ -8975,7 +8993,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree not deleted.
+        '''   Looks up a localized string similar to Insuree not deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_INSUREENOTDELETED() As String
             Get
@@ -8984,7 +9002,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree Imported.
+        '''   Looks up a localized string similar to Insuree Imported.
         '''</summary>
         Friend Shared ReadOnly Property M_INSUREEUPLOADED() As String
             Get
@@ -8993,7 +9011,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to is still in use elsewhere in the application and can therefore not be deleted..
+        '''   Looks up a localized string similar to is still in use elsewhere in the application and can therefore not be deleted..
         '''</summary>
         Friend Shared ReadOnly Property M_INUSE() As String
             Get
@@ -9002,7 +9020,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The path does not exist or you do not have enough permission to access the path.
+        '''   Looks up a localized string similar to The path does not exist or you do not have enough permission to access the path.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDBACKPATH() As String
             Get
@@ -9011,7 +9029,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid CHFID.
+        '''   Looks up a localized string similar to Invalid CHFID.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDCHFID() As String
             Get
@@ -9020,7 +9038,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected Insurance Number is not valid !.
+        '''   Looks up a localized string similar to Selected Insurance Number is not valid !.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDCHFNUMBER() As String
             Get
@@ -9029,7 +9047,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid cycle 1 date.
+        '''   Looks up a localized string similar to Invalid cycle 1 date.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDCYCLE1DATE() As String
             Get
@@ -9038,7 +9056,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid cycle 2 date.
+        '''   Looks up a localized string similar to Invalid cycle 2 date.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDCYCLE2DATE() As String
             Get
@@ -9047,7 +9065,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid Date!.
+        '''   Looks up a localized string similar to Invalid Date!.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDDATE() As String
             Get
@@ -9056,7 +9074,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Combination of Deductable Ceiling Value Filling is not Correct.
+        '''   Looks up a localized string similar to Combination of Deductable Ceiling Value Filling is not Correct.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDDEDUCTABLEVALUES() As String
             Get
@@ -9065,7 +9083,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid District File(Either Tab name or Column names or inputs are invalid).
+        '''   Looks up a localized string similar to Invalid District File(Either Tab name or Column names or inputs are invalid).
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDDISTRICTFILEINEXCEL() As String
             Get
@@ -9074,7 +9092,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid feedBack file.
+        '''   Looks up a localized string similar to Invalid feedBack file.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDFEEDBACKFILE() As String
             Get
@@ -9083,7 +9101,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid Main Dg Code.
+        '''   Looks up a localized string similar to Invalid Main Dg Code.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDICDCODE() As String
             Get
@@ -9092,7 +9110,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalidy location type.
+        '''   Looks up a localized string similar to Invalidy location type.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDLOCATIONTYPE() As String
             Get
@@ -9101,7 +9119,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid Municipality File(Either Tab name or Column names or inputs are invalid).
+        '''   Looks up a localized string similar to Invalid Municipality File(Either Tab name or Column names or inputs are invalid).
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDMUNICIPALITYFILEINEXCEL() As String
             Get
@@ -9110,7 +9128,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid officer code.
+        '''   Looks up a localized string similar to Invalid officer code.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDOFFICERCODE() As String
             Get
@@ -9119,7 +9137,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid Region File(Either Tab name or Column names or inputs are invalid)!.
+        '''   Looks up a localized string similar to Invalid Region File(Either Tab name or Column names or inputs are invalid)!.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDREGIONFILEINEXCEL() As String
             Get
@@ -9128,7 +9146,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid renewal file.
+        '''   Looks up a localized string similar to Invalid renewal file.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDRENEWALFILE() As String
             Get
@@ -9137,7 +9155,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid Village File(Either Tab name or Column names or inputs are invalid).
+        '''   Looks up a localized string similar to Invalid Village File(Either Tab name or Column names or inputs are invalid).
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDVILLAGEFILEINEXCEL() As String
             Get
@@ -9146,7 +9164,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Village population must be numeric in excel.
+        '''   Looks up a localized string similar to Village population must be numeric in excel.
         '''</summary>
         Friend Shared ReadOnly Property M_INVALIDVILLAGEPOPULATIONINEXCEL() As String
             Get
@@ -9155,7 +9173,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Price List --.
+        '''   Looks up a localized string similar to -- Select Price List --.
         '''</summary>
         Friend Shared ReadOnly Property M_ITEMNAME() As String
             Get
@@ -9164,7 +9182,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items were Deleted successfully.
+        '''   Looks up a localized string similar to Items were Deleted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_ITEMSDELETED() As String
             Get
@@ -9173,7 +9191,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ItemsPassed:.
+        '''   Looks up a localized string similar to ItemsPassed:.
         '''</summary>
         Friend Shared ReadOnly Property M_ITEMSPASSED() As String
             Get
@@ -9182,7 +9200,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ItemsRejected:.
+        '''   Looks up a localized string similar to ItemsRejected:.
         '''</summary>
         Friend Shared ReadOnly Property M_ITEMSREJECTED() As String
             Get
@@ -9191,7 +9209,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Items were Saved successfully.
+        '''   Looks up a localized string similar to Items were Saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_ITEMSSAVED() As String
             Get
@@ -9200,7 +9218,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to This is the last installment according to the product definition..
+        '''   Looks up a localized string similar to This is the last installment according to the product definition..
         '''</summary>
         Friend Shared ReadOnly Property M_LASTINSTALLMENT() As String
             Get
@@ -9209,7 +9227,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The payment date falls outside the policy wait period.
+        '''   Looks up a localized string similar to The payment date falls outside the policy wait period.
         '''</summary>
         Friend Shared ReadOnly Property M_LATEPAYMENT() As String
             Get
@@ -9218,7 +9236,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy renewal is outside the grace period. Do you still want to continue with this renewal ?.
+        '''   Looks up a localized string similar to Policy renewal is outside the grace period. Do you still want to continue with this renewal ?.
         '''</summary>
         Friend Shared ReadOnly Property M_LATEPOLICYRENEWAL() As String
             Get
@@ -9227,7 +9245,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Limit.
+        '''   Looks up a localized string similar to Limit.
         '''</summary>
         Friend Shared ReadOnly Property M_LIMIT() As String
             Get
@@ -9236,7 +9254,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to F for Fixed C for Co-insurance (Other).
+        '''   Looks up a localized string similar to F for Fixed C for Co-insurance (Other).
         '''</summary>
         Friend Shared ReadOnly Property M_LIMITATION() As String
             Get
@@ -9245,7 +9263,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to F for Fixed C for Co-insurance (Emergency).
+        '''   Looks up a localized string similar to F for Fixed C for Co-insurance (Emergency).
         '''</summary>
         Friend Shared ReadOnly Property M_LIMITATIONE() As String
             Get
@@ -9254,7 +9272,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to F for Fixed C for Co-insurance (Referal).
+        '''   Looks up a localized string similar to F for Fixed C for Co-insurance (Referal).
         '''</summary>
         Friend Shared ReadOnly Property M_LIMITATIONR() As String
             Get
@@ -9263,7 +9281,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Link sent to email.
+        '''   Looks up a localized string similar to Link sent to email.
         '''</summary>
         Friend Shared ReadOnly Property M_LINKSENT() As String
             Get
@@ -9272,7 +9290,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Locations uploaded successfully..
+        '''   Looks up a localized string similar to Locations uploaded successfully..
         '''</summary>
         Friend Shared ReadOnly Property M_LOCATIONUPLOADED() As String
             Get
@@ -9281,7 +9299,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Manager.
+        '''   Looks up a localized string similar to Manager.
         '''</summary>
         Friend Shared ReadOnly Property M_MANAGER() As String
             Get
@@ -9290,7 +9308,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to There were no changes made to the claim.
+        '''   Looks up a localized string similar to There were no changes made to the claim.
         '''</summary>
         Friend Shared ReadOnly Property M_MANNUALNOUPDATE() As String
             Get
@@ -9299,7 +9317,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Installments have exceeded the maximum number of installments..
+        '''   Looks up a localized string similar to Installments have exceeded the maximum number of installments..
         '''</summary>
         Friend Shared ReadOnly Property M_MAXINSTALLMENTEXCEED() As String
             Get
@@ -9308,7 +9326,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies with the following enrolment dates have reached to their maximum number of members count and therefore this insuree will not be covered by these policies however the insuree will be added to the family :.
+        '''   Looks up a localized string similar to Policies with the following enrolment dates have reached to their maximum number of members count and therefore this insuree will not be covered by these policies however the insuree will be added to the family :.
         '''</summary>
         Friend Shared ReadOnly Property M_MAXMEMBERCOUNTREACHED() As String
             Get
@@ -9317,7 +9335,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Following policies with enrolment date will exceed the maximum number of threshold Insurees. &lt;br /&gt; Do you want to activate this insuree?.
+        '''   Looks up a localized string similar to Following policies with enrolment date will exceed the maximum number of threshold Insurees. &lt;br /&gt; Do you want to activate this insuree?.
         '''</summary>
         Friend Shared ReadOnly Property M_MAXTHRESHOLDCOUNTREACHED() As String
             Get
@@ -9326,7 +9344,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Officer.
+        '''   Looks up a localized string similar to Medical Officer.
         '''</summary>
         Friend Shared ReadOnly Property M_MEDICALOFFICER() As String
             Get
@@ -9335,7 +9353,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Missing District name or Code in Excel.
+        '''   Looks up a localized string similar to Missing District name or Code in Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_MISSINGDISTRICTCODEORNAMEINEXCEL() As String
             Get
@@ -9344,7 +9362,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Missing Municipality name or Code in Excel.
+        '''   Looks up a localized string similar to Missing Municipality name or Code in Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_MISSINGMUNICIPALITYCODEORNAMEINEXCEL() As String
             Get
@@ -9353,7 +9371,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Missing Region name or Code in Excel.
+        '''   Looks up a localized string similar to Missing Region name or Code in Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_MISSINGREGIONCODEORNAMEINEXCEL() As String
             Get
@@ -9362,7 +9380,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Missing Village name or Code in Excel.
+        '''   Looks up a localized string similar to Missing Village name or Code in Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_MISSINGVILLAGECODEORNAMEINEXCEL() As String
             Get
@@ -9371,7 +9389,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  successfully moved to Family/Group.
+        '''   Looks up a localized string similar to  successfully moved to Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property M_MOVEINSUREE() As String
             Get
@@ -9380,7 +9398,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Municipality Code in excel Already Exist in Database.
+        '''   Looks up a localized string similar to Municipality Code in excel Already Exist in Database.
         '''</summary>
         Friend Shared ReadOnly Property M_MUNICIPALITYCODEEXISTSINDB() As String
             Get
@@ -9389,7 +9407,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to WardCode in Village Excel does not exist in Either Database or Municipality Excel.
+        '''   Looks up a localized string similar to WardCode in Village Excel does not exist in Either Database or Municipality Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_MUNICIPALITYCODENOTEXISTSINEXCELORDB() As String
             Get
@@ -9398,7 +9416,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter a product.
+        '''   Looks up a localized string similar to Please enter a product.
         '''</summary>
         Friend Shared ReadOnly Property M_MUSTFILLPRODUCT() As String
             Get
@@ -9407,7 +9425,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please fill a Role name.
+        '''   Looks up a localized string similar to Please fill a Role name.
         '''</summary>
         Friend Shared ReadOnly Property M_MUSTFILLROLE() As String
             Get
@@ -9416,7 +9434,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to National.
+        '''   Looks up a localized string similar to National.
         '''</summary>
         Friend Shared ReadOnly Property M_NATIONAL() As String
             Get
@@ -9425,7 +9443,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No product details for this Insuree..
+        '''   Looks up a localized string similar to No product details for this Insuree..
         '''</summary>
         Friend Shared ReadOnly Property M_NOADVSEARCHPRODUCTDETAILS() As String
             Get
@@ -9434,7 +9452,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Batches found.
+        '''   Looks up a localized string similar to No Batches found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOBATCHES() As String
             Get
@@ -9443,7 +9461,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to There was no change made to the Claim.
+        '''   Looks up a localized string similar to There was no change made to the Claim.
         '''</summary>
         Friend Shared ReadOnly Property M_NOCHANGEMADETOCLAIM() As String
             Get
@@ -9452,7 +9470,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Claims found.
+        '''   Looks up a localized string similar to No Claims found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOCLAIMS() As String
             Get
@@ -9461,7 +9479,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to There are no claims selected to be processed.
+        '''   Looks up a localized string similar to There are no claims selected to be processed.
         '''</summary>
         Friend Shared ReadOnly Property M_NOCLMTOBEPROCESSED() As String
             Get
@@ -9470,7 +9488,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Data for Report.
+        '''   Looks up a localized string similar to No Data for Report.
         '''</summary>
         Friend Shared ReadOnly Property M_NODATAFORREPORT() As String
             Get
@@ -9479,7 +9497,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Data.
+        '''   Looks up a localized string similar to No Data.
         '''</summary>
         Friend Shared ReadOnly Property M_NODATAFOUND() As String
             Get
@@ -9488,7 +9506,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No distribution has been defined yet!.
+        '''   Looks up a localized string similar to No distribution has been defined yet!.
         '''</summary>
         Friend Shared ReadOnly Property M_NODISTRIBUTION() As String
             Get
@@ -9497,7 +9515,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Districts found.
+        '''   Looks up a localized string similar to No Districts found.
         '''</summary>
         Friend Shared ReadOnly Property M_NODISTRICTS() As String
             Get
@@ -9506,7 +9524,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Enrollment Found.
+        '''   Looks up a localized string similar to No Enrollment Found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOENROLLMENTFOUND() As String
             Get
@@ -9515,7 +9533,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No new enrolment found..
+        '''   Looks up a localized string similar to No new enrolment found..
         '''</summary>
         Friend Shared ReadOnly Property M_NOENROLMENTFOUND() As String
             Get
@@ -9524,7 +9542,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No enrolments found..
+        '''   Looks up a localized string similar to No enrolments found..
         '''</summary>
         Friend Shared ReadOnly Property M_NOENROLMENTSFOUND() As String
             Get
@@ -9533,7 +9551,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Families/Groups found.
+        '''   Looks up a localized string similar to No Families/Groups found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOFAMILIES() As String
             Get
@@ -9542,7 +9560,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree not found!.
+        '''   Looks up a localized string similar to Insuree not found!.
         '''</summary>
         Friend Shared ReadOnly Property M_NOINSUREEFOUND() As String
             Get
@@ -9551,7 +9569,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Items Found.
+        '''   Looks up a localized string similar to No Items Found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOITEMS() As String
             Get
@@ -9560,7 +9578,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Medical Items.
+        '''   Looks up a localized string similar to No Medical Items.
         '''</summary>
         Friend Shared ReadOnly Property M_NOMEDICALITEMS() As String
             Get
@@ -9569,7 +9587,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Medical Services.
+        '''   Looks up a localized string similar to No Medical Services.
         '''</summary>
         Friend Shared ReadOnly Property M_NOMEDICALSERVICES() As String
             Get
@@ -9578,7 +9596,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Message to be displayed.
+        '''   Looks up a localized string similar to No Message to be displayed.
         '''</summary>
         Friend Shared ReadOnly Property M_NOMESSAGETOBEDESPLAYED() As String
             Get
@@ -9587,7 +9605,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to You do not have enough permission to access the page.
+        '''   Looks up a localized string similar to You do not have enough permission to access the page.
         '''</summary>
         Friend Shared ReadOnly Property M_NOPAGEACCESSPERMISSION() As String
             Get
@@ -9596,7 +9614,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Current Policies..
+        '''   Looks up a localized string similar to No Current Policies..
         '''</summary>
         Friend Shared ReadOnly Property M_NOPOLICIES() As String
             Get
@@ -9605,7 +9623,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No policy enrolled with this Insuree..
+        '''   Looks up a localized string similar to No policy enrolled with this Insuree..
         '''</summary>
         Friend Shared ReadOnly Property M_NOPOLICYENROLLEDFORADHERENT() As String
             Get
@@ -9614,7 +9632,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Contributions found for selected policy.
+        '''   Looks up a localized string similar to No Contributions found for selected policy.
         '''</summary>
         Friend Shared ReadOnly Property M_NOPREMIUMS() As String
             Get
@@ -9623,7 +9641,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Products found.
+        '''   Looks up a localized string similar to No Products found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOPRODUCTS() As String
             Get
@@ -9632,7 +9650,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No regions found.
+        '''   Looks up a localized string similar to No regions found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOREGIONS() As String
             Get
@@ -9641,7 +9659,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Results found.
+        '''   Looks up a localized string similar to No Results found.
         '''</summary>
         Friend Shared ReadOnly Property M_NORESULTSFOUND() As String
             Get
@@ -9650,7 +9668,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select at least one security right.
+        '''   Looks up a localized string similar to Please select at least one security right.
         '''</summary>
         Friend Shared ReadOnly Property M_NORIGHTSSELECTED() As String
             Get
@@ -9659,7 +9677,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Services found.
+        '''   Looks up a localized string similar to No Services found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOSERVICES() As String
             Get
@@ -9668,7 +9686,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Could not be deleted because is associated.
+        '''   Looks up a localized string similar to Could not be deleted because is associated.
         '''</summary>
         Friend Shared ReadOnly Property M_NOTDELETEASSOCIATEDROLE() As String
             Get
@@ -9677,7 +9695,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The role can not be deleted, while it is used by users..
+        '''   Looks up a localized string similar to The role can not be deleted, while it is used by users..
         '''</summary>
         Friend Shared ReadOnly Property M_NOTDELETEASSOCIATEDROLM_NOTDELETEASSOCIATEDROLE() As String
             Get
@@ -9686,7 +9704,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to could not be deleted because is associated.
+        '''   Looks up a localized string similar to could not be deleted because is associated.
         '''</summary>
         Friend Shared ReadOnly Property M_NOTDELETEASSOCIATEDUSER() As String
             Get
@@ -9695,7 +9713,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Not Matched.
+        '''   Looks up a localized string similar to Payment Not Matched.
         '''</summary>
         Friend Shared ReadOnly Property M_NOTPAYMENTMATCHED() As String
             Get
@@ -9704,7 +9722,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Not selected:.
+        '''   Looks up a localized string similar to Not selected:.
         '''</summary>
         Friend Shared ReadOnly Property M_NOTSELECTED() As String
             Get
@@ -9713,7 +9731,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  is not a valid Insurance Number.
+        '''   Looks up a localized string similar to  is not a valid Insurance Number.
         '''</summary>
         Friend Shared ReadOnly Property M_NOTVALIDCHFNUMBER() As String
             Get
@@ -9722,7 +9740,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Users found.
+        '''   Looks up a localized string similar to No Users found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOUSERS() As String
             Get
@@ -9731,7 +9749,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No user found with this username.
+        '''   Looks up a localized string similar to No user found with this username.
         '''</summary>
         Friend Shared ReadOnly Property M_NOUSERSLOGIN() As String
             Get
@@ -9740,7 +9758,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No village found.
+        '''   Looks up a localized string similar to No village found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOVILLAGES() As String
             Get
@@ -9749,7 +9767,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No municipalities found.
+        '''   Looks up a localized string similar to No municipalities found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOWARD() As String
             Get
@@ -9758,7 +9776,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Municipality found.
+        '''   Looks up a localized string similar to No Municipality found.
         '''</summary>
         Friend Shared ReadOnly Property M_NOWARDS() As String
             Get
@@ -9767,7 +9785,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Municipality specified.
+        '''   Looks up a localized string similar to No Municipality specified.
         '''</summary>
         Friend Shared ReadOnly Property M_NOWARDSPECIFIED() As String
             Get
@@ -9776,7 +9794,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Number.
+        '''   Looks up a localized string similar to Number.
         '''</summary>
         Friend Shared ReadOnly Property M_NUMBER() As String
             Get
@@ -9785,7 +9803,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to already exists and associated in the login.
+        '''   Looks up a localized string similar to already exists and associated in the login.
         '''</summary>
         Friend Shared ReadOnly Property M_OFFICEREXISTS() As String
             Get
@@ -9794,7 +9812,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Officer Not Found.
+        '''   Looks up a localized string similar to Officer Not Found.
         '''</summary>
         Friend Shared ReadOnly Property M_OFFICERNOTFOUND() As String
             Get
@@ -9803,7 +9821,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter an identifier number.
+        '''   Looks up a localized string similar to Please enter an identifier number.
         '''</summary>
         Friend Shared ReadOnly Property M_OFFLINECHFID() As String
             Get
@@ -9812,7 +9830,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter the Health Facility ID, provided to you by the administrator.
+        '''   Looks up a localized string similar to Please enter the Health Facility ID, provided to you by the administrator.
         '''</summary>
         Friend Shared ReadOnly Property M_OFFLINEHFID() As String
             Get
@@ -9821,7 +9839,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Offline Scheme Administrator.
+        '''   Looks up a localized string similar to Offline Scheme Administrator.
         '''</summary>
         Friend Shared ReadOnly Property M_OFFLINESCHEMEADMIN() As String
             Get
@@ -9830,7 +9848,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to One or more claims have feedback pending..
+        '''   Looks up a localized string similar to One or more claims have feedback pending..
         '''</summary>
         Friend Shared ReadOnly Property M_ONEMORECLMFDPENDING() As String
             Get
@@ -9839,7 +9857,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to One or more claims have not been reviewed..
+        '''   Looks up a localized string similar to One or more claims have not been reviewed..
         '''</summary>
         Friend Shared ReadOnly Property M_ONEMORECLMNOTREVIEWED() As String
             Get
@@ -9848,7 +9866,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to One or more claims have not been reviewed and their feedback is pending..
+        '''   Looks up a localized string similar to One or more claims have not been reviewed and their feedback is pending..
         '''</summary>
         Friend Shared ReadOnly Property M_ONEMORENOTREVIEWEDFDPENDS() As String
             Get
@@ -9857,7 +9875,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Other.
+        '''   Looks up a localized string similar to Other.
         '''</summary>
         Friend Shared ReadOnly Property M_OTHER() As String
             Get
@@ -9866,7 +9884,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User name or password did not match..
+        '''   Looks up a localized string similar to User name or password did not match..
         '''</summary>
         Friend Shared ReadOnly Property M_PASSWOERDMATCH() As String
             Get
@@ -9875,7 +9893,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Error occured. Please try again after sometime..
+        '''   Looks up a localized string similar to Error occured. Please try again after sometime..
         '''</summary>
         Friend Shared ReadOnly Property M_PASSWORDERROR() As String
             Get
@@ -9884,7 +9902,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The request could not be validated, please try again using the same password used while making the request.
+        '''   Looks up a localized string similar to The request could not be validated, please try again using the same password used while making the request.
         '''</summary>
         Friend Shared ReadOnly Property M_PASSWORDINVALID() As String
             Get
@@ -9893,7 +9911,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment date should not exceed current date.
+        '''   Looks up a localized string similar to Payment date should not exceed current date.
         '''</summary>
         Friend Shared ReadOnly Property M_PAYDATETOEXCEEDCURRENDATE() As String
             Get
@@ -9902,7 +9920,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Matched.
+        '''   Looks up a localized string similar to Payment Matched.
         '''</summary>
         Friend Shared ReadOnly Property M_PAYMENTMATCHED() As String
             Get
@@ -9911,7 +9929,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter a Main Dg. code.
+        '''   Looks up a localized string similar to Please enter a Main Dg. code.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASEENTERANMDGCODE() As String
             Get
@@ -9920,7 +9938,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please fill in the date.
+        '''   Looks up a localized string similar to Please fill in the date.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASEFILLINTHEDATE() As String
             Get
@@ -9929,7 +9947,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select.
+        '''   Looks up a localized string similar to Please select.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECT() As String
             Get
@@ -9938,7 +9956,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select action to perform..
+        '''   Looks up a localized string similar to Please select action to perform..
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTACTION() As String
             Get
@@ -9947,7 +9965,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a District.
+        '''   Looks up a localized string similar to Please select a District.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTADISTRICT() As String
             Get
@@ -9956,7 +9974,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a product.
+        '''   Looks up a localized string similar to Please select a product.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTAPRODUCT() As String
             Get
@@ -9965,7 +9983,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a Region.
+        '''   Looks up a localized string similar to Please select a Region.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTAREGION() As String
             Get
@@ -9974,7 +9992,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a user.
+        '''   Looks up a localized string similar to Please select a user.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTAUSER() As String
             Get
@@ -9983,7 +10001,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a year.
+        '''   Looks up a localized string similar to Please select a year.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTAYEAR() As String
             Get
@@ -9992,7 +10010,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select commission rate.
+        '''   Looks up a localized string similar to Please select commission rate.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTCOMMISSIONRATE() As String
             Get
@@ -10001,7 +10019,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select health facility.
+        '''   Looks up a localized string similar to Please select health facility.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTHEALTHFACILITY() As String
             Get
@@ -10010,7 +10028,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select mode.
+        '''   Looks up a localized string similar to Please select mode.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTMODE() As String
             Get
@@ -10019,7 +10037,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select an enrolment officer.
+        '''   Looks up a localized string similar to Please select an enrolment officer.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTOFFICER() As String
             Get
@@ -10028,7 +10046,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select the file.
+        '''   Looks up a localized string similar to Please select the file.
         '''</summary>
         Friend Shared ReadOnly Property M_PLEASESELECTTHEFILE() As String
             Get
@@ -10037,7 +10055,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy ceiling must be less than Maximum ceiling.
+        '''   Looks up a localized string similar to Policy ceiling must be less than Maximum ceiling.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYCEILINGEXCEEDMAXCEILING() As String
             Get
@@ -10046,7 +10064,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Should the policy come into force.
+        '''   Looks up a localized string similar to Should the policy come into force.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYCOMEINFORCEPROMPT() As String
             Get
@@ -10055,7 +10073,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy: enroll date .
+        '''   Looks up a localized string similar to Policy: enroll date .
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYENROLEDATE() As String
             Get
@@ -10064,7 +10082,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Extracted.
+        '''   Looks up a localized string similar to Policy Extracted.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYEXTRACTED() As String
             Get
@@ -10073,7 +10091,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy has Contribution(s), Can not be deleted.
+        '''   Looks up a localized string similar to Policy has Contribution(s), Can not be deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYHASPREMIUMNODELETE() As String
             Get
@@ -10082,7 +10100,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Inpatient Policy ceiling must be less than Inpatient Maximum ceiling.
+        '''   Looks up a localized string similar to Inpatient Policy ceiling must be less than Inpatient Maximum ceiling.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYIPCEILINGEXCEEDMAXIPCEILING() As String
             Get
@@ -10091,7 +10109,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Can not add Contribution. No Policy found.
+        '''   Looks up a localized string similar to Can not add Contribution. No Policy found.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYNOTADDED() As String
             Get
@@ -10100,7 +10118,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price of the policy not covered yet.
+        '''   Looks up a localized string similar to Price of the policy not covered yet.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYNOTCOVERED() As String
             Get
@@ -10109,7 +10127,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy not deleted.
+        '''   Looks up a localized string similar to Policy not deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYNOTDELETED() As String
             Get
@@ -10118,7 +10136,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Outpatient Policy ceiling must be less than Outpatient Maximum ceiling.
+        '''   Looks up a localized string similar to Outpatient Policy ceiling must be less than Outpatient Maximum ceiling.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYOPCEILINGEXCEEDMAXOPCEILING() As String
             Get
@@ -10127,7 +10145,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy Uploaded.
+        '''   Looks up a localized string similar to Policy Uploaded.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYUPLOADED() As String
             Get
@@ -10136,7 +10154,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Value of policy with the enrolment date:.
+        '''   Looks up a localized string similar to Value of policy with the enrolment date:.
         '''</summary>
         Friend Shared ReadOnly Property M_POLICYVALUECHANGE() As String
             Get
@@ -10145,7 +10163,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution?.
+        '''   Looks up a localized string similar to Price of the policy is covered&lt;br/&gt;Do you still want to add Contribution?.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMCOVEREDPROMPT() As String
             Get
@@ -10154,7 +10172,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution exceeds the price of the policy.
+        '''   Looks up a localized string similar to Contribution exceeds the price of the policy.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMEXCEEDSPOLICY() As String
             Get
@@ -10163,7 +10181,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Extracted.
+        '''   Looks up a localized string similar to Contribution Extracted.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMEXTRACTED() As String
             Get
@@ -10172,7 +10190,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution is in use.
+        '''   Looks up a localized string similar to Contribution is in use.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMISINUSE() As String
             Get
@@ -10181,7 +10199,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution matches the price of the policy.
+        '''   Looks up a localized string similar to Contribution matches the price of the policy.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMMATCHESPOLICY() As String
             Get
@@ -10190,7 +10208,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution not deleted.
+        '''   Looks up a localized string similar to Contribution not deleted.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMNOTDELETED() As String
             Get
@@ -10199,7 +10217,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Uploaded.
+        '''   Looks up a localized string similar to Contribution Uploaded.
         '''</summary>
         Friend Shared ReadOnly Property M_PREMIUMUPLOADED() As String
             Get
@@ -10208,7 +10226,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Generating of the report from past perspective may result in duplication of request for Overview of commissions. &lt;br/&gt; Do you want to continue?.
+        '''   Looks up a localized string similar to Generating of the report from past perspective may result in duplication of request for Overview of commissions. &lt;br/&gt; Do you want to continue?.
         '''</summary>
         Friend Shared ReadOnly Property M_PREVIOUSCOMMISSIONREPORT() As String
             Get
@@ -10217,7 +10235,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to [P] = Scheme price [O]= Providers Own price [R]= Relative price.
+        '''   Looks up a localized string similar to [P] = Scheme price [O]= Providers Own price [R]= Relative price.
         '''</summary>
         Friend Shared ReadOnly Property M_PRICEORIGIN() As String
             Get
@@ -10226,7 +10244,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Processed:.
+        '''   Looks up a localized string similar to Processed:.
         '''</summary>
         Friend Shared ReadOnly Property M_PROCESSED() As String
             Get
@@ -10235,7 +10253,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Processed successfully.
+        '''   Looks up a localized string similar to Processed successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_PROCESSEDSUCCESSFULLY() As String
             Get
@@ -10244,7 +10262,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  process.
+        '''   Looks up a localized string similar to  process.
         '''</summary>
         Friend Shared ReadOnly Property M_PROCESS_() As String
             Get
@@ -10253,7 +10271,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Project Details have been inserted successfully.
+        '''   Looks up a localized string similar to Project Details have been inserted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_PROJECTDEAILSSAVEDSUCCESSFULLY() As String
             Get
@@ -10262,7 +10280,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Project Details have been updated successfully.
+        '''   Looks up a localized string similar to Project Details have been updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_PROJECTDEAILSUPDATEDSUCCESSFULLY() As String
             Get
@@ -10271,7 +10289,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The family has more Insurees than the maximum number &lt;br/&gt; of members allowed in the  selected product.&lt;br/&gt;Do you want to continue?.
+        '''   Looks up a localized string similar to The family has more Insurees than the maximum number &lt;br/&gt; of members allowed in the  selected product.&lt;br/&gt;Do you want to continue?.
         '''</summary>
         Friend Shared ReadOnly Property M_PROMPTPOLICYADD() As String
             Get
@@ -10280,7 +10298,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please provide atleast one start cycle.
+        '''   Looks up a localized string similar to Please provide atleast one start cycle.
         '''</summary>
         Friend Shared ReadOnly Property M_PROVIDECYCLEPROMPT() As String
             Get
@@ -10289,7 +10307,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Q1.
+        '''   Looks up a localized string similar to Q1.
         '''</summary>
         Friend Shared ReadOnly Property M_Q1() As String
             Get
@@ -10298,7 +10316,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Q2.
+        '''   Looks up a localized string similar to Q2.
         '''</summary>
         Friend Shared ReadOnly Property M_Q2() As String
             Get
@@ -10307,7 +10325,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Q3.
+        '''   Looks up a localized string similar to Q3.
         '''</summary>
         Friend Shared ReadOnly Property M_Q3() As String
             Get
@@ -10316,7 +10334,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Q4.
+        '''   Looks up a localized string similar to Q4.
         '''</summary>
         Friend Shared ReadOnly Property M_Q4() As String
             Get
@@ -10325,7 +10343,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Quarter 1.
+        '''   Looks up a localized string similar to Quarter 1.
         '''</summary>
         Friend Shared ReadOnly Property M_QUARTER1() As String
             Get
@@ -10334,7 +10352,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Quarter 2.
+        '''   Looks up a localized string similar to Quarter 2.
         '''</summary>
         Friend Shared ReadOnly Property M_QUARTER2() As String
             Get
@@ -10343,7 +10361,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Quarter 3.
+        '''   Looks up a localized string similar to Quarter 3.
         '''</summary>
         Friend Shared ReadOnly Property M_QUARTER3() As String
             Get
@@ -10352,7 +10370,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Quarter 4.
+        '''   Looks up a localized string similar to Quarter 4.
         '''</summary>
         Friend Shared ReadOnly Property M_QUARTER4() As String
             Get
@@ -10361,7 +10379,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Receptionist.
+        '''   Looks up a localized string similar to Receptionist.
         '''</summary>
         Friend Shared ReadOnly Property M_RECEPTIONIST() As String
             Get
@@ -10370,7 +10388,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Referal.
+        '''   Looks up a localized string similar to Referal.
         '''</summary>
         Friend Shared ReadOnly Property M_REFERAL() As String
             Get
@@ -10379,7 +10397,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Regional.
+        '''   Looks up a localized string similar to Regional.
         '''</summary>
         Friend Shared ReadOnly Property M_REGION() As String
             Get
@@ -10388,7 +10406,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region Code in excel Already Exists in Database.
+        '''   Looks up a localized string similar to Region Code in excel Already Exists in Database.
         '''</summary>
         Friend Shared ReadOnly Property M_REGIONCODEEXISTSINDB() As String
             Get
@@ -10397,7 +10415,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region Code specified in District Does not exist in Either  Database or Region Excel.
+        '''   Looks up a localized string similar to Region Code specified in District Does not exist in Either  Database or Region Excel.
         '''</summary>
         Friend Shared ReadOnly Property M_REGIONCODENOTEXISTSINEXCELORDB() As String
             Get
@@ -10406,7 +10424,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region saved successfully.
+        '''   Looks up a localized string similar to Region saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_REGIONSAVED() As String
             Get
@@ -10415,7 +10433,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Region not selected.
+        '''   Looks up a localized string similar to Region not selected.
         '''</summary>
         Friend Shared ReadOnly Property M_REGION_NOT_SELECTED() As String
             Get
@@ -10424,7 +10442,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected:.
+        '''   Looks up a localized string similar to Rejected:.
         '''</summary>
         Friend Shared ReadOnly Property M_REJECTED() As String
             Get
@@ -10433,7 +10451,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal upload summary.
+        '''   Looks up a localized string similar to Renewal upload summary.
         '''</summary>
         Friend Shared ReadOnly Property M_RENEWALUPLOADED() As String
             Get
@@ -10442,7 +10460,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renew discount percentage should be less than or equal to hundred.
+        '''   Looks up a localized string similar to Renew discount percentage should be less than or equal to hundred.
         '''</summary>
         Friend Shared ReadOnly Property M_RENEWDISCOUNTPERCEXCEEDPERC() As String
             Get
@@ -10451,7 +10469,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Do you want to renew the selected policy?.
+        '''   Looks up a localized string similar to Do you want to renew the selected policy?.
         '''</summary>
         Friend Shared ReadOnly Property M_RENEWPOLICY() As String
             Get
@@ -10460,7 +10478,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Generating of the report from past perspective may result in duplication of request for matching funds. &lt;br/&gt; Do you want to continue?.
+        '''   Looks up a localized string similar to Generating of the report from past perspective may result in duplication of request for matching funds. &lt;br/&gt; Do you want to continue?.
         '''</summary>
         Friend Shared ReadOnly Property M_REPORTINGDATECHANGED() As String
             Get
@@ -10469,7 +10487,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Result filtered successfully.
+        '''   Looks up a localized string similar to Result filtered successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_RESULTFILTEREDSUCCESSFULLY() As String
             Get
@@ -10478,7 +10496,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to review.
+        '''   Looks up a localized string similar to review.
         '''</summary>
         Friend Shared ReadOnly Property M_REVIEW() As String
             Get
@@ -10487,7 +10505,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review status and Feedback status were updated successfully.
+        '''   Looks up a localized string similar to Review status and Feedback status were updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_REVIEWFEEDBACKSTATUSUPDATED() As String
             Get
@@ -10496,7 +10514,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Would you like to apply the following criteria for review selection &lt;br /&gt;.
+        '''   Looks up a localized string similar to Would you like to apply the following criteria for review selection &lt;br /&gt;.
         '''</summary>
         Friend Shared ReadOnly Property M_REVIEWSELECTION() As String
             Get
@@ -10505,7 +10523,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review status were updated successfully.
+        '''   Looks up a localized string similar to Review status were updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_REVIEWSTATUSUPDATED() As String
             Get
@@ -10514,7 +10532,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Scheme Administrator.
+        '''   Looks up a localized string similar to Scheme Administrator.
         '''</summary>
         Friend Shared ReadOnly Property M_SCHEMEADMINISTRATOR() As String
             Get
@@ -10523,7 +10541,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Script executed successfully..
+        '''   Looks up a localized string similar to Script executed successfully..
         '''</summary>
         Friend Shared ReadOnly Property M_SCRIPTEXECUTED() As String
             Get
@@ -10532,7 +10550,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select--.
+        '''   Looks up a localized string similar to --Select--.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTCEILINGINT() As String
             Get
@@ -10541,7 +10559,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected:.
+        '''   Looks up a localized string similar to Selected:.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTED() As String
             Get
@@ -10550,7 +10568,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected Insurance Number does not exist !.
+        '''   Looks up a localized string similar to Selected Insurance Number does not exist !.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTEDCHFNONOTEXIT() As String
             Get
@@ -10559,7 +10577,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Education--.
+        '''   Looks up a localized string similar to --Select Education--.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTEDUCATION() As String
             Get
@@ -10568,7 +10586,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select the from date..
+        '''   Looks up a localized string similar to Please select the from date..
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTFRMDATE() As String
             Get
@@ -10577,7 +10595,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a health facility code.
+        '''   Looks up a localized string similar to Please select a health facility code.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTHFCODE() As String
             Get
@@ -10586,7 +10604,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select  an Main Dg code.
+        '''   Looks up a localized string similar to Please select  an Main Dg code.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTICDCODE() As String
             Get
@@ -10595,7 +10613,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select identity type--.
+        '''   Looks up a localized string similar to --Select identity type--.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTIDENTITY() As String
             Get
@@ -10604,7 +10622,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select the Item code.
+        '''   Looks up a localized string similar to Please select the Item code.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTITEMCODE() As String
             Get
@@ -10613,7 +10631,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select all the files to import data..
+        '''   Looks up a localized string similar to Please select all the files to import data..
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTLOCATIONFILES() As String
             Get
@@ -10622,7 +10640,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select month.
+        '''   Looks up a localized string similar to Please select month.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTMONTH() As String
             Get
@@ -10631,7 +10649,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select only excel File.
+        '''   Looks up a localized string similar to Select only excel File.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTONLYEXCELFILE() As String
             Get
@@ -10640,7 +10658,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select only .isf File.
+        '''   Looks up a localized string similar to Select only .isf File.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTONLYISFFILE() As String
             Get
@@ -10649,7 +10667,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select only .txt File.
+        '''   Looks up a localized string similar to Select only .txt File.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTONLYTXTFILE() As String
             Get
@@ -10658,7 +10676,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select only .xml File.
+        '''   Looks up a localized string similar to Select only .xml File.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTONLYXMLFILE() As String
             Get
@@ -10667,7 +10685,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please Select Payment Detail to edit.
+        '''   Looks up a localized string similar to Please Select Payment Detail to edit.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTPAYMENTDETAIL() As String
             Get
@@ -10676,7 +10694,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Profession--.
+        '''   Looks up a localized string similar to --Select Profession--.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTPROFESSION() As String
             Get
@@ -10685,7 +10703,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Relation--.
+        '''   Looks up a localized string similar to --Select Relation--.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTRELATION() As String
             Get
@@ -10694,7 +10712,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select either Review or Feedback to proceed.
+        '''   Looks up a localized string similar to Please select either Review or Feedback to proceed.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTREVIEWFEEDBACK() As String
             Get
@@ -10703,7 +10721,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select the service code.
+        '''   Looks up a localized string similar to Please select the service code.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTSERVICECODE() As String
             Get
@@ -10712,7 +10730,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select strategy.
+        '''   Looks up a localized string similar to Please select strategy.
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTSTRATEGY() As String
             Get
@@ -10721,7 +10739,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select the to date..
+        '''   Looks up a localized string similar to Please select the to date..
         '''</summary>
         Friend Shared ReadOnly Property M_SELECTTODATE() As String
             Get
@@ -10730,7 +10748,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Send SMS.
+        '''   Looks up a localized string similar to Send SMS.
         '''</summary>
         Friend Shared ReadOnly Property M_SENDSMS() As String
             Get
@@ -10739,7 +10757,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Service.
+        '''   Looks up a localized string similar to Service.
         '''</summary>
         Friend Shared ReadOnly Property M_SERVICE() As String
             Get
@@ -10748,7 +10766,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services were Deleted successfully.
+        '''   Looks up a localized string similar to Services were Deleted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_SERVICESDELETED() As String
             Get
@@ -10757,7 +10775,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services and Items were Deleted successfully.
+        '''   Looks up a localized string similar to Services and Items were Deleted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_SERVICESITEMDELETED() As String
             Get
@@ -10766,7 +10784,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services and Items were Saved successfully.
+        '''   Looks up a localized string similar to Services and Items were Saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_SERVICESITEMSSAVED() As String
             Get
@@ -10775,7 +10793,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ServicesPassed:.
+        '''   Looks up a localized string similar to ServicesPassed:.
         '''</summary>
         Friend Shared ReadOnly Property M_SERVICESPASSED() As String
             Get
@@ -10784,7 +10802,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ServicesRejected:.
+        '''   Looks up a localized string similar to ServicesRejected:.
         '''</summary>
         Friend Shared ReadOnly Property M_SERVICESREJECTED() As String
             Get
@@ -10793,7 +10811,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Services were Saved successfully.
+        '''   Looks up a localized string similar to Services were Saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_SERVICESSAVED() As String
             Get
@@ -10802,7 +10820,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Shared contribution  can not exceed 100%.
+        '''   Looks up a localized string similar to Shared contribution  can not exceed 100%.
         '''</summary>
         Friend Shared ReadOnly Property M_SHAREDCONTRIBUTIONPARCENT() As String
             Get
@@ -10811,7 +10829,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Share of Contribution must be greater than 0% and  less or equal to 100%.
+        '''   Looks up a localized string similar to Share of Contribution must be greater than 0% and  less or equal to 100%.
         '''</summary>
         Friend Shared ReadOnly Property M_SHAREOFCONTRIBUTIONRANGE() As String
             Get
@@ -10820,7 +10838,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Start date should be less than end date.
+        '''   Looks up a localized string similar to Start date should be less than end date.
         '''</summary>
         Friend Shared ReadOnly Property M_STARTDATESHOULDBELESSTHANENDDATE() As String
             Get
@@ -10829,7 +10847,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  selection.
+        '''   Looks up a localized string similar to  selection.
         '''</summary>
         Friend Shared ReadOnly Property M_STATUSOFTHESECLM() As String
             Get
@@ -10838,7 +10856,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Submitted:.
+        '''   Looks up a localized string similar to Submitted:.
         '''</summary>
         Friend Shared ReadOnly Property M_SUBMITTED() As String
             Get
@@ -10847,7 +10865,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Submitted to process .
+        '''   Looks up a localized string similar to Submitted to process .
         '''</summary>
         Friend Shared ReadOnly Property M_SUBMITTEDTOPROCESS() As String
             Get
@@ -10856,7 +10874,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims submitted to the selection process .
+        '''   Looks up a localized string similar to Claims submitted to the selection process .
         '''</summary>
         Friend Shared ReadOnly Property M_SUBMITTEDTOUPDATE() As String
             Get
@@ -10865,7 +10883,16 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to successfully moved to .
+        '''   Looks up a localized string similar to Please select substitute officer.
+        '''</summary>
+        Friend Shared ReadOnly Property M_SUBSTITUTE() As String
+            Get
+                Return ResourceManager.GetString("M_SUBSTITUTE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Looks up a localized string similar to successfully moved to .
         '''</summary>
         Friend Shared ReadOnly Property M_SUCCESSFULLYMOVED() As String
             Get
@@ -10874,7 +10901,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to TestA.
+        '''   Looks up a localized string similar to TestA.
         '''</summary>
         Friend Shared ReadOnly Property M_TESTA() As String
             Get
@@ -10883,7 +10910,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to TestB.
+        '''   Looks up a localized string similar to TestB.
         '''</summary>
         Friend Shared ReadOnly Property M_TESTB() As String
             Get
@@ -10892,7 +10919,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to TestC.
+        '''   Looks up a localized string similar to TestC.
         '''</summary>
         Friend Shared ReadOnly Property M_TESTC() As String
             Get
@@ -10901,7 +10928,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Threshold members should be less than maximum members.
+        '''   Looks up a localized string similar to Threshold members should be less than maximum members.
         '''</summary>
         Friend Shared ReadOnly Property M_THRESHOLDMEMBERSEXCEEDMAXMEMBERS() As String
             Get
@@ -10910,7 +10937,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to To date must be greater than From date.
+        '''   Looks up a localized string similar to To date must be greater than From date.
         '''</summary>
         Friend Shared ReadOnly Property M_TODATEGREATER() As String
             Get
@@ -10919,7 +10946,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Unexpected Error when Importing Locations.
+        '''   Looks up a localized string similar to Unexpected Error when Importing Locations.
         '''</summary>
         Friend Shared ReadOnly Property M_UNEXPECTEDERRORONIMPORTLOCATIONS() As String
             Get
@@ -10928,7 +10955,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Unexpected Error when Uploading Health facities.
+        '''   Looks up a localized string similar to Unexpected Error when Uploading Health facities.
         '''</summary>
         Friend Shared ReadOnly Property M_UNEXPECTEDERRORONUPLOADHF() As String
             Get
@@ -10937,7 +10964,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Unexpected Error when Uploading Diagnoses.
+        '''   Looks up a localized string similar to Unexpected Error when Uploading Diagnoses.
         '''</summary>
         Friend Shared ReadOnly Property M_UNEXPECTEDERRORONUPLOADICD() As String
             Get
@@ -10946,7 +10973,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to This code has aready been used, please use different code.
+        '''   Looks up a localized string similar to This code has aready been used, please use different code.
         '''</summary>
         Friend Shared ReadOnly Property M_UNIQUECODELOCATION() As String
             Get
@@ -10955,7 +10982,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to This role name has already been used, please use different name..
+        '''   Looks up a localized string similar to This role name has already been used, please use different name..
         '''</summary>
         Friend Shared ReadOnly Property M_UNIQUEROLENAME() As String
             Get
@@ -10964,7 +10991,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  updated successfully.
+        '''   Looks up a localized string similar to  updated successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_UPDATED() As String
             Get
@@ -10973,7 +11000,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Updated.
+        '''   Looks up a localized string similar to Updated.
         '''</summary>
         Friend Shared ReadOnly Property M_UPDETEDDIAGNOSES() As String
             Get
@@ -10982,7 +11009,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Uploaded Diagnoses.
+        '''   Looks up a localized string similar to Uploaded Diagnoses.
         '''</summary>
         Friend Shared ReadOnly Property M_UPLOADEDDIAGNOSES() As String
             Get
@@ -10991,7 +11018,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Uploaded Health facilities.
+        '''   Looks up a localized string similar to Uploaded Health facilities.
         '''</summary>
         Friend Shared ReadOnly Property M_UPLOADEDHF() As String
             Get
@@ -11000,7 +11027,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Uploaded Locations.
+        '''   Looks up a localized string similar to Uploaded Locations.
         '''</summary>
         Friend Shared ReadOnly Property M_UPLOADEDLOCATIONS() As String
             Get
@@ -11009,7 +11036,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to This action will overwrite all the changes made since last extracts were uploaded. Please make sure that you already have uploaded the last offline enrolment to the live server. &lt;/BR&gt; Do you want to continue?.
+        '''   Looks up a localized string similar to This action will overwrite all the changes made since last extracts were uploaded. Please make sure that you already have uploaded the last offline enrolment to the live server. &lt;/BR&gt; Do you want to continue?.
         '''</summary>
         Friend Shared ReadOnly Property M_UPLOADENROLALERT() As String
             Get
@@ -11018,7 +11045,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to You have no authority to edit the selected user..
+        '''   Looks up a localized string similar to You have no authority to edit the selected user..
         '''</summary>
         Friend Shared ReadOnly Property M_USERCANNOTBEEDITED() As String
             Get
@@ -11027,7 +11054,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a District, a health facility code and claim administrator to be able to add a claim.
+        '''   Looks up a localized string similar to Please select a District, a health facility code and claim administrator to be able to add a claim.
         '''</summary>
         Friend Shared ReadOnly Property M_VALIDATEADDBUTTON() As String
             Get
@@ -11036,7 +11063,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a Claim Administrator first.
+        '''   Looks up a localized string similar to Please select a Claim Administrator first.
         '''</summary>
         Friend Shared ReadOnly Property M_VALIDATEADDBUTTONCLAIMADMIN() As String
             Get
@@ -11045,7 +11072,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a District first.
+        '''   Looks up a localized string similar to Please select a District first.
         '''</summary>
         Friend Shared ReadOnly Property M_VALIDATEADDBUTTONDISTRICT() As String
             Get
@@ -11054,7 +11081,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a Health Facility Code first.
+        '''   Looks up a localized string similar to Please select a Health Facility Code first.
         '''</summary>
         Friend Shared ReadOnly Property M_VALIDATEADDBUTTONHFCode() As String
             Get
@@ -11063,7 +11090,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to There are no feedback changes made to this claim, please do some changes to save or press the cancel button.
+        '''   Looks up a localized string similar to There are no feedback changes made to this claim, please do some changes to save or press the cancel button.
         '''</summary>
         Friend Shared ReadOnly Property M_VALIDATEFEEDBACKSAVE() As String
             Get
@@ -11072,7 +11099,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to There are no claims selected to be submitted.
+        '''   Looks up a localized string similar to There are no claims selected to be submitted.
         '''</summary>
         Friend Shared ReadOnly Property M_VALIDATESUBMITCLAIMS() As String
             Get
@@ -11081,7 +11108,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to There are no reset password requests within the valid request period.
+        '''   Looks up a localized string similar to There are no reset password requests within the valid request period.
         '''</summary>
         Friend Shared ReadOnly Property M_VALIDITYEXPIRED() As String
             Get
@@ -11090,7 +11117,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Valuated:.
+        '''   Looks up a localized string similar to Valuated:.
         '''</summary>
         Friend Shared ReadOnly Property M_VALUATED() As String
             Get
@@ -11099,7 +11126,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Your backend version is higher than the script version.
+        '''   Looks up a localized string similar to Your backend version is higher than the script version.
         '''</summary>
         Friend Shared ReadOnly Property M_VERSION() As String
             Get
@@ -11108,7 +11135,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Village Code in excel Already Exists in Database.
+        '''   Looks up a localized string similar to Village Code in excel Already Exists in Database.
         '''</summary>
         Friend Shared ReadOnly Property M_VILLAGECODEEXISTSINDB() As String
             Get
@@ -11117,7 +11144,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Village saved successfully.
+        '''   Looks up a localized string similar to Village saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_VILLAGESAVED() As String
             Get
@@ -11126,7 +11153,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please delete Villages in Municipality first.
+        '''   Looks up a localized string similar to Please delete Villages in Municipality first.
         '''</summary>
         Friend Shared ReadOnly Property M_VILLAGESINWARD() As String
             Get
@@ -11135,7 +11162,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit date from can not be after claimed date.
+        '''   Looks up a localized string similar to Visit date from can not be after claimed date.
         '''</summary>
         Friend Shared ReadOnly Property M_VISITDATENOTAFTERCLAIMDATE() As String
             Get
@@ -11144,7 +11171,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit date from can not be after today.
+        '''   Looks up a localized string similar to Visit date from can not be after today.
         '''</summary>
         Friend Shared ReadOnly Property M_VISITDATENOTAFTERTODAY() As String
             Get
@@ -11153,7 +11180,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit date to can not be before visit date from.
+        '''   Looks up a localized string similar to Visit date to can not be before visit date from.
         '''</summary>
         Friend Shared ReadOnly Property M_VISITDATETONOTBEFOREVISITDATEFROM() As String
             Get
@@ -11162,7 +11189,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Waiting Period.
+        '''   Looks up a localized string similar to Waiting Period.
         '''</summary>
         Friend Shared ReadOnly Property M_WAITINGPERIOD() As String
             Get
@@ -11171,7 +11198,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Municipality saved successfully.
+        '''   Looks up a localized string similar to Municipality saved successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_WARDSAVED() As String
             Get
@@ -11180,7 +11207,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please delete Municipality in District first.
+        '''   Looks up a localized string similar to Please delete Municipality in District first.
         '''</summary>
         Friend Shared ReadOnly Property M_WARDSINDISTRICT() As String
             Get
@@ -11189,7 +11216,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Password must contain at least 8 characters including at  least one number.
+        '''   Looks up a localized string similar to Password must contain at least 8 characters including at  least one number.
         '''</summary>
         Friend Shared ReadOnly Property M_WEAKPASSWORD() As String
             Get
@@ -11198,7 +11225,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sum of the weights must be 100%.
+        '''   Looks up a localized string similar to Sum of the weights must be 100%.
         '''</summary>
         Friend Shared ReadOnly Property M_WEIGHTMUSTBE100() As String
             Get
@@ -11207,7 +11234,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Would you like to continue with the .
+        '''   Looks up a localized string similar to Would you like to continue with the .
         '''</summary>
         Friend Shared ReadOnly Property M_WLDLIKECONTINUEWITH() As String
             Get
@@ -11216,7 +11243,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Would you like to continue with the feedback selection process?.
+        '''   Looks up a localized string similar to Would you like to continue with the feedback selection process?.
         '''</summary>
         Friend Shared ReadOnly Property M_WLDLIKEFEEDBACKELECTION() As String
             Get
@@ -11225,7 +11252,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Would you like to continue with the review selection process?.
+        '''   Looks up a localized string similar to Would you like to continue with the review selection process?.
         '''</summary>
         Friend Shared ReadOnly Property M_WLDLIKEREVIEWSELECTION() As String
             Get
@@ -11234,7 +11261,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to  Would you like to process the claims?.
+        '''   Looks up a localized string similar to  Would you like to process the claims?.
         '''</summary>
         Friend Shared ReadOnly Property M_WLDLIKETOPROCESSCLAIMS() As String
             Get
@@ -11243,7 +11270,16 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Conversion product can not be the same as the current product.
+        '''   Looks up a localized string similar to Please select works to date.
+        '''</summary>
+        Friend Shared ReadOnly Property M_WORKSTO() As String
+            Get
+                Return ResourceManager.GetString("M_WORKSTO", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Looks up a localized string similar to Conversion product can not be the same as the current product.
         '''</summary>
         Friend Shared ReadOnly Property M_WRONGCONVERSIONPRODUCTCODE() As String
             Get
@@ -11252,7 +11288,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Incorrect date format!.
+        '''   Looks up a localized string similar to Incorrect date format!.
         '''</summary>
         Friend Shared ReadOnly Property M_WRONGDATEFORMAT() As String
             Get
@@ -11261,7 +11297,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Combination of deductables/ceilings configured wrongly.
+        '''   Looks up a localized string similar to Combination of deductables/ceilings configured wrongly.
         '''</summary>
         Friend Shared ReadOnly Property M_WRONGDEDUCTABLECEILINGCOMBINATION() As String
             Get
@@ -11270,7 +11306,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The combination of the item code and its name in one or more items does not exit.
+        '''   Looks up a localized string similar to The combination of the item code and its name in one or more items does not exit.
         '''</summary>
         Friend Shared ReadOnly Property M_WRONGITEMCODENAME() As String
             Get
@@ -11279,7 +11315,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to The combination of the service code and its name in one or more services does not exit.
+        '''   Looks up a localized string similar to The combination of the service code and its name in one or more services does not exit.
         '''</summary>
         Friend Shared ReadOnly Property M_WRONGSERVICECODENAME() As String
             Get
@@ -11288,7 +11324,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No region specified.
+        '''   Looks up a localized string similar to No region specified.
         '''</summary>
         Friend Shared ReadOnly Property NOREGIONSPECIFIED() As String
             Get
@@ -11297,7 +11333,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No village specified.
+        '''   Looks up a localized string similar to No village specified.
         '''</summary>
         Friend Shared ReadOnly Property NOVILLAGESPECIFIED() As String
             Get
@@ -11306,7 +11342,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Acc Code :.
+        '''   Looks up a localized string similar to Acc Code :.
         '''</summary>
         Friend Shared ReadOnly Property P_ACCCODE() As String
             Get
@@ -11315,7 +11351,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Collection :.
+        '''   Looks up a localized string similar to Collection :.
         '''</summary>
         Friend Shared ReadOnly Property P_COLLECTION() As String
             Get
@@ -11324,7 +11360,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Family/Group.
+        '''   Looks up a localized string similar to Find Family/Group.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDFAMILY() As String
             Get
@@ -11333,7 +11369,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facility Control Panel.
+        '''   Looks up a localized string similar to Health Facility Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDHF() As String
             Get
@@ -11342,7 +11378,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Items Control Panel.
+        '''   Looks up a localized string similar to Medical Items Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDMI() As String
             Get
@@ -11351,7 +11387,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Services Control Panel.
+        '''   Looks up a localized string similar to Medical Services Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDMS() As String
             Get
@@ -11360,7 +11396,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Officers Control Panel.
+        '''   Looks up a localized string similar to Enrolment Officers Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDOFFICER() As String
             Get
@@ -11369,7 +11405,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payer Control Panel.
+        '''   Looks up a localized string similar to Payer Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDPAYER() As String
             Get
@@ -11378,7 +11414,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price List Medical Items Control Panel.
+        '''   Looks up a localized string similar to Price List Medical Items Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDPLMI() As String
             Get
@@ -11387,7 +11423,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price List Medical Services Control Panel.
+        '''   Looks up a localized string similar to Price List Medical Services Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDPLMS() As String
             Get
@@ -11396,7 +11432,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Find Policy.
+        '''   Looks up a localized string similar to Find Policy.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDPOLICY() As String
             Get
@@ -11405,7 +11441,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product Control Panel.
+        '''   Looks up a localized string similar to Product Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDPRODUCT() As String
             Get
@@ -11414,7 +11450,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Control Panel.
+        '''   Looks up a localized string similar to User Control Panel.
         '''</summary>
         Friend Shared ReadOnly Property P_FINDUSERS() As String
             Get
@@ -11423,7 +11459,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product.
+        '''   Looks up a localized string similar to Product.
         '''</summary>
         Friend Shared ReadOnly Property P_PRODUCT() As String
             Get
@@ -11432,7 +11468,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Role.
+        '''   Looks up a localized string similar to Role.
         '''</summary>
         Friend Shared ReadOnly Property P_ROLE() As String
             Get
@@ -11441,7 +11477,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Collection in :.
+        '''   Looks up a localized string similar to Total Collection in :.
         '''</summary>
         Friend Shared ReadOnly Property P_TOTALCOLLECTION() As String
             Get
@@ -11450,7 +11486,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total In.
+        '''   Looks up a localized string similar to Total In.
         '''</summary>
         Friend Shared ReadOnly Property P_TOTALIN() As String
             Get
@@ -11459,7 +11495,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total paid Contributions for.
+        '''   Looks up a localized string similar to Total paid Contributions for.
         '''</summary>
         Friend Shared ReadOnly Property R_ACTUALPAIDCONTRIBUTIONSFOR() As String
             Get
@@ -11468,7 +11504,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Add.
+        '''   Looks up a localized string similar to Add.
         '''</summary>
         Friend Shared ReadOnly Property R_ADD() As String
             Get
@@ -11477,7 +11513,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Covered Amount.
+        '''   Looks up a localized string similar to Covered Amount.
         '''</summary>
         Friend Shared ReadOnly Property R_ADJUSTEDAMOUNT() As String
             Get
@@ -11486,7 +11522,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adj.Qty.
+        '''   Looks up a localized string similar to Adj.Qty.
         '''</summary>
         Friend Shared ReadOnly Property R_ADJUSTEDITEMS() As String
             Get
@@ -11495,7 +11531,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adj.Qty.
+        '''   Looks up a localized string similar to Adj.Qty.
         '''</summary>
         Friend Shared ReadOnly Property R_ADJUSTEDSERVICES() As String
             Get
@@ -11504,7 +11540,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Administration.
+        '''   Looks up a localized string similar to Administration.
         '''</summary>
         Friend Shared ReadOnly Property R_ADMINISTRATION() As String
             Get
@@ -11513,7 +11549,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Agent.
+        '''   Looks up a localized string similar to Agent.
         '''</summary>
         Friend Shared ReadOnly Property R_AGENT() As String
             Get
@@ -11522,7 +11558,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --All Actions--.
+        '''   Looks up a localized string similar to --All Actions--.
         '''</summary>
         Friend Shared ReadOnly Property R_ALLACTION() As String
             Get
@@ -11531,7 +11567,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to All Claims.
+        '''   Looks up a localized string similar to All Claims.
         '''</summary>
         Friend Shared ReadOnly Property R_ALLCLAIMS() As String
             Get
@@ -11540,7 +11576,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Backup.
+        '''   Looks up a localized string similar to Backup.
         '''</summary>
         Friend Shared ReadOnly Property R_BACKUP() As String
             Get
@@ -11549,7 +11585,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Batch.
+        '''   Looks up a localized string similar to Batch.
         '''</summary>
         Friend Shared ReadOnly Property R_BATCH() As String
             Get
@@ -11558,7 +11594,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Calculated Commission.
+        '''   Looks up a localized string similar to Calculated Commission.
         '''</summary>
         Friend Shared ReadOnly Property R_CALCULATEDCOMMISSION() As String
             Get
@@ -11567,7 +11603,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Calculated Commission for.
+        '''   Looks up a localized string similar to Calculated Commission for.
         '''</summary>
         Friend Shared ReadOnly Property R_CALCULATEDCOMMISSIONFOR() As String
             Get
@@ -11576,7 +11612,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Capitation.
+        '''   Looks up a localized string similar to Capitation.
         '''</summary>
         Friend Shared ReadOnly Property R_CAPITATION() As String
             Get
@@ -11585,7 +11621,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product - Capitation Payment.
+        '''   Looks up a localized string similar to Product - Capitation Payment.
         '''</summary>
         Friend Shared ReadOnly Property R_CAPITATIONPAYMENT() As String
             Get
@@ -11594,7 +11630,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance Number.
+        '''   Looks up a localized string similar to Insurance Number.
         '''</summary>
         Friend Shared ReadOnly Property R_CHFID() As String
             Get
@@ -11603,7 +11639,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim.
+        '''   Looks up a localized string similar to Claim.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIM() As String
             Get
@@ -11612,7 +11648,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Administrators.
+        '''   Looks up a localized string similar to Claim Administrators.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMADMINISTRATOR() As String
             Get
@@ -11621,7 +11657,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Admin.
+        '''   Looks up a localized string similar to Claim Admin.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMADMINNAME() As String
             Get
@@ -11630,7 +11666,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Code.
+        '''   Looks up a localized string similar to Code.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMCODE() As String
             Get
@@ -11639,7 +11675,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Date.
+        '''   Looks up a localized string similar to Date.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMDATE() As String
             Get
@@ -11648,7 +11684,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims - History Report.
+        '''   Looks up a localized string similar to Claims - History Report.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMHISTORYREPORT() As String
             Get
@@ -11657,7 +11693,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims - Overview.
+        '''   Looks up a localized string similar to Claims - Overview.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMOVERVIEW() As String
             Get
@@ -11666,7 +11702,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rej. Reason.
+        '''   Looks up a localized string similar to Rej. Reason.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMREJECTIONREASONCODE() As String
             Get
@@ -11675,7 +11711,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review.
+        '''   Looks up a localized string similar to Review.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMREVIEW() As String
             Get
@@ -11684,7 +11720,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims.
+        '''   Looks up a localized string similar to Claims.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMS() As String
             Get
@@ -11693,7 +11729,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Status.
+        '''   Looks up a localized string similar to Status.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMSTATUS() As String
             Get
@@ -11702,7 +11738,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims Upload.
+        '''   Looks up a localized string similar to Claims Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMSUPLOAD() As String
             Get
@@ -11711,7 +11747,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adjusted Amount.
+        '''   Looks up a localized string similar to Adjusted Amount.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMTOTALFINAL() As String
             Get
@@ -11720,7 +11756,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claimed Amount.
+        '''   Looks up a localized string similar to Claimed Amount.
         '''</summary>
         Friend Shared ReadOnly Property R_CLAIMTOTALINITIAL() As String
             Get
@@ -11729,7 +11765,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution.
+        '''   Looks up a localized string similar to Contribution.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTRIBUTION() As String
             Get
@@ -11738,7 +11774,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contributions - Collection.
+        '''   Looks up a localized string similar to Contributions - Collection.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTRIBUTIONCOLLECTION() As String
             Get
@@ -11747,7 +11783,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contributions -  Distribution.
+        '''   Looks up a localized string similar to Contributions -  Distribution.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTRIBUTIONDISTRIBUTION() As String
             Get
@@ -11756,7 +11792,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contributions - Payment.
+        '''   Looks up a localized string similar to Contributions - Payment.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTRIBUTIONPAYMENT() As String
             Get
@@ -11765,7 +11801,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payments - Control Number Assignment.
+        '''   Looks up a localized string similar to Payments - Control Number Assignment.
         '''</summary>
         Friend Shared ReadOnly Property R_CONTROLNUMBERASSIGNMENT() As String
             Get
@@ -11774,7 +11810,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Create.
+        '''   Looks up a localized string similar to Create.
         '''</summary>
         Friend Shared ReadOnly Property R_CREATE() As String
             Get
@@ -11783,7 +11819,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delete.
+        '''   Looks up a localized string similar to Delete.
         '''</summary>
         Friend Shared ReadOnly Property R_DELETE() As String
             Get
@@ -11792,7 +11828,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product - Derived Operational Indicators.
+        '''   Looks up a localized string similar to Product - Derived Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_DERIVEDOPERATIONALI() As String
             Get
@@ -11801,7 +11837,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Diagnoses.
+        '''   Looks up a localized string similar to Diagnoses.
         '''</summary>
         Friend Shared ReadOnly Property R_DIAGNOSES() As String
             Get
@@ -11810,7 +11846,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Diagnoses Download.
+        '''   Looks up a localized string similar to Diagnoses Download.
         '''</summary>
         Friend Shared ReadOnly Property R_DIAGNOSESDOWNLOAD() As String
             Get
@@ -11819,7 +11855,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Diagnoses Upload.
+        '''   Looks up a localized string similar to Diagnoses Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_DIAGNOSESUPLOAD() As String
             Get
@@ -11828,7 +11864,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Download.
+        '''   Looks up a localized string similar to Download.
         '''</summary>
         Friend Shared ReadOnly Property R_DOWNLOAD() As String
             Get
@@ -11837,7 +11873,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Duplicate.
+        '''   Looks up a localized string similar to Duplicate.
         '''</summary>
         Friend Shared ReadOnly Property R_DUPLICATE() As String
             Get
@@ -11846,7 +11882,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Edit.
+        '''   Looks up a localized string similar to Edit.
         '''</summary>
         Friend Shared ReadOnly Property R_EDIT() As String
             Get
@@ -11855,7 +11891,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Email Setting.
+        '''   Looks up a localized string similar to Email Setting.
         '''</summary>
         Friend Shared ReadOnly Property R_EMAILSETTING() As String
             Get
@@ -11864,7 +11900,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Inquire.
+        '''   Looks up a localized string similar to Inquire.
         '''</summary>
         Friend Shared ReadOnly Property R_ENQUIRE() As String
             Get
@@ -11873,7 +11909,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrollment Officer.
+        '''   Looks up a localized string similar to Enrollment Officer.
         '''</summary>
         Friend Shared ReadOnly Property R_ENROLLMENTOFFICER() As String
             Get
@@ -11882,7 +11918,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrollment Officers.
+        '''   Looks up a localized string similar to Enrollment Officers.
         '''</summary>
         Friend Shared ReadOnly Property R_ENROLMENTOFFICER() As String
             Get
@@ -11891,7 +11927,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees - Enrolments Performance Indicators.
+        '''   Looks up a localized string similar to Insurees - Enrolments Performance Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_ENROLMENTPERFORMANCEI() As String
             Get
@@ -11900,7 +11936,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrollments.
+        '''   Looks up a localized string similar to Enrollments.
         '''</summary>
         Friend Shared ReadOnly Property R_ENROLMENTS() As String
             Get
@@ -11909,7 +11945,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrollment Upload.
+        '''   Looks up a localized string similar to Enrollment Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_ENROLMENTSUPLOAD() As String
             Get
@@ -11918,7 +11954,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Execute Script.
+        '''   Looks up a localized string similar to Execute Script.
         '''</summary>
         Friend Shared ReadOnly Property R_EXCUTESCRIPT() As String
             Get
@@ -11927,7 +11963,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extract.
+        '''   Looks up a localized string similar to Extract.
         '''</summary>
         Friend Shared ReadOnly Property R_EXTRACT() As String
             Get
@@ -11936,7 +11972,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Extracts.
+        '''   Looks up a localized string similar to Extracts.
         '''</summary>
         Friend Shared ReadOnly Property R_EXTRACTS() As String
             Get
@@ -11945,7 +11981,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees - Overview with Families.
+        '''   Looks up a localized string similar to Insurees - Overview with Families.
         '''</summary>
         Friend Shared ReadOnly Property R_FAMILIESANDINSUREESOVERVIEW() As String
             Get
@@ -11954,7 +11990,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Family.
+        '''   Looks up a localized string similar to Family.
         '''</summary>
         Friend Shared ReadOnly Property R_FAMILY() As String
             Get
@@ -11963,7 +11999,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback.
+        '''   Looks up a localized string similar to Feedback.
         '''</summary>
         Friend Shared ReadOnly Property R_FEEDBACK() As String
             Get
@@ -11972,7 +12008,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Upload.
+        '''   Looks up a localized string similar to Feedback Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_FEEDBACKUPLOAD() As String
             Get
@@ -11981,7 +12017,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Filter.
+        '''   Looks up a localized string similar to Filter.
         '''</summary>
         Friend Shared ReadOnly Property R_FILTER() As String
             Get
@@ -11990,7 +12026,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Funding.
+        '''   Looks up a localized string similar to Funding.
         '''</summary>
         Friend Shared ReadOnly Property R_FUNDING() As String
             Get
@@ -11999,7 +12035,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facilities.
+        '''   Looks up a localized string similar to Health Facilities.
         '''</summary>
         Friend Shared ReadOnly Property R_HEALTHFACILITIES() As String
             Get
@@ -12008,7 +12044,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facilities Download.
+        '''   Looks up a localized string similar to Health Facilities Download.
         '''</summary>
         Friend Shared ReadOnly Property R_HEALTHFACILITIESDOWNLOAD() As String
             Get
@@ -12017,7 +12053,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Facilities Upload.
+        '''   Looks up a localized string similar to Health Facilities Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_HEALTHFACILITIESUPLOAD() As String
             Get
@@ -12026,7 +12062,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insert.
+        '''   Looks up a localized string similar to Insert.
         '''</summary>
         Friend Shared ReadOnly Property R_INSERT() As String
             Get
@@ -12035,7 +12071,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurance Product.
+        '''   Looks up a localized string similar to Insurance Product.
         '''</summary>
         Friend Shared ReadOnly Property R_INSURANCEPRODUCT() As String
             Get
@@ -12044,7 +12080,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree.
+        '''   Looks up a localized string similar to Insuree.
         '''</summary>
         Friend Shared ReadOnly Property R_INSUREE() As String
             Get
@@ -12053,7 +12089,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees and Policies.
+        '''   Looks up a localized string similar to Insurees and Policies.
         '''</summary>
         Friend Shared ReadOnly Property R_INSUREEANDPOLICIES() As String
             Get
@@ -12062,7 +12098,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree.
+        '''   Looks up a localized string similar to Insuree.
         '''</summary>
         Friend Shared ReadOnly Property R_INSUREENAME() As String
             Get
@@ -12071,7 +12107,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees - Missing Photos.
+        '''   Looks up a localized string similar to Insurees - Missing Photos.
         '''</summary>
         Friend Shared ReadOnly Property R_INSUREESWITHOUTPHOTOS() As String
             Get
@@ -12080,7 +12116,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item Code.
+        '''   Looks up a localized string similar to Item Code.
         '''</summary>
         Friend Shared ReadOnly Property R_ITEMCODE() As String
             Get
@@ -12089,7 +12125,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rej. Reason.
+        '''   Looks up a localized string similar to Rej. Reason.
         '''</summary>
         Friend Shared ReadOnly Property R_ITEMREJECTIONREASONCODE() As String
             Get
@@ -12098,7 +12134,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Level.
+        '''   Looks up a localized string similar to Level.
         '''</summary>
         Friend Shared ReadOnly Property R_LEVEL() As String
             Get
@@ -12107,7 +12143,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Load.
+        '''   Looks up a localized string similar to Load.
         '''</summary>
         Friend Shared ReadOnly Property R_LOAD() As String
             Get
@@ -12116,7 +12152,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Locations.
+        '''   Looks up a localized string similar to Locations.
         '''</summary>
         Friend Shared ReadOnly Property R_LOCATIONS() As String
             Get
@@ -12125,7 +12161,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Location download.
+        '''   Looks up a localized string similar to Location download.
         '''</summary>
         Friend Shared ReadOnly Property R_LOCATIONSDOWNLOAD() As String
             Get
@@ -12134,7 +12170,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Location Upload.
+        '''   Looks up a localized string similar to Location Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_LOCATIONSUPLOAD() As String
             Get
@@ -12143,7 +12179,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Login.
+        '''   Looks up a localized string similar to Login.
         '''</summary>
         Friend Shared ReadOnly Property R_LOGIN() As String
             Get
@@ -12152,7 +12188,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Master Data.
+        '''   Looks up a localized string similar to Master Data.
         '''</summary>
         Friend Shared ReadOnly Property R_MASTERDATA() As String
             Get
@@ -12161,7 +12197,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Master Download.
+        '''   Looks up a localized string similar to Master Download.
         '''</summary>
         Friend Shared ReadOnly Property R_MASTERDATADOWNLOAD() As String
             Get
@@ -12170,7 +12206,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contributions - Matching Funds.
+        '''   Looks up a localized string similar to Contributions - Matching Funds.
         '''</summary>
         Friend Shared ReadOnly Property R_MATCHINGFUNDS() As String
             Get
@@ -12179,7 +12215,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Item.
+        '''   Looks up a localized string similar to Medical Item.
         '''</summary>
         Friend Shared ReadOnly Property R_MEDICALITEM() As String
             Get
@@ -12188,7 +12224,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Items.
+        '''   Looks up a localized string similar to Medical Items.
         '''</summary>
         Friend Shared ReadOnly Property R_MEDICALITEMS() As String
             Get
@@ -12197,7 +12233,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Services.
+        '''   Looks up a localized string similar to Medical Services.
         '''</summary>
         Friend Shared ReadOnly Property R_MEDICALSERVICES() As String
             Get
@@ -12206,7 +12242,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Modify.
+        '''   Looks up a localized string similar to Modify.
         '''</summary>
         Friend Shared ReadOnly Property R_MODIFY() As String
             Get
@@ -12215,7 +12251,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Move.
+        '''   Looks up a localized string similar to Move.
         '''</summary>
         Friend Shared ReadOnly Property R_MOVE() As String
             Get
@@ -12224,7 +12260,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Offline Extracts.
+        '''   Looks up a localized string similar to Offline Extracts.
         '''</summary>
         Friend Shared ReadOnly Property R_OFFLINEEXTRACTS() As String
             Get
@@ -12233,7 +12269,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Create offline extract.
+        '''   Looks up a localized string similar to Create offline extract.
         '''</summary>
         Friend Shared ReadOnly Property R_OFFLINEEXTRACTSCREATE() As String
             Get
@@ -12242,7 +12278,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Org.Qty.
+        '''   Looks up a localized string similar to Org.Qty.
         '''</summary>
         Friend Shared ReadOnly Property R_ORIGINALITEMS() As String
             Get
@@ -12251,7 +12287,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Org.Qty.
+        '''   Looks up a localized string similar to Org.Qty.
         '''</summary>
         Friend Shared ReadOnly Property R_ORIGINALSERVICES() As String
             Get
@@ -12260,7 +12296,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contributions - Overview Of Commissions.
+        '''   Looks up a localized string similar to Contributions - Overview Of Commissions.
         '''</summary>
         Friend Shared ReadOnly Property R_OVERVIEWOFCOMMISSIONS() As String
             Get
@@ -12269,7 +12305,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payers.
+        '''   Looks up a localized string similar to Payers.
         '''</summary>
         Friend Shared ReadOnly Property R_PAYERS() As String
             Get
@@ -12278,7 +12314,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment.
+        '''   Looks up a localized string similar to Payment.
         '''</summary>
         Friend Shared ReadOnly Property R_PAYMENT() As String
             Get
@@ -12287,7 +12323,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payments - Category Overview.
+        '''   Looks up a localized string similar to Payments - Category Overview.
         '''</summary>
         Friend Shared ReadOnly Property R_PAYMENTCATEGORYOVERVIEW() As String
             Get
@@ -12296,7 +12332,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees - Pending enrolment.
+        '''   Looks up a localized string similar to Insurees - Pending enrolment.
         '''</summary>
         Friend Shared ReadOnly Property R_PENDINGINSUREES() As String
             Get
@@ -12305,7 +12341,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies - Percentage of Referrals.
+        '''   Looks up a localized string similar to Policies - Percentage of Referrals.
         '''</summary>
         Friend Shared ReadOnly Property R_PERCENTAGEOFREFERRALS() As String
             Get
@@ -12314,7 +12350,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Phone Extracts.
+        '''   Looks up a localized string similar to Phone Extracts.
         '''</summary>
         Friend Shared ReadOnly Property R_PHONEEXTRACTS() As String
             Get
@@ -12323,7 +12359,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Create Phone extract.
+        '''   Looks up a localized string similar to Create Phone extract.
         '''</summary>
         Friend Shared ReadOnly Property R_PHONEEXTRACTSCREATE() As String
             Get
@@ -12332,7 +12368,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Photo Date.
+        '''   Looks up a localized string similar to Photo Date.
         '''</summary>
         Friend Shared ReadOnly Property R_PHOTODATE() As String
             Get
@@ -12341,7 +12377,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policy.
+        '''   Looks up a localized string similar to Policy.
         '''</summary>
         Friend Shared ReadOnly Property R_Policy() As String
             Get
@@ -12350,7 +12386,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Premium Distribution Report.
+        '''   Looks up a localized string similar to Premium Distribution Report.
         '''</summary>
         Friend Shared ReadOnly Property R_PREMIUMDISTRIBUTION() As String
             Get
@@ -12359,7 +12395,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Preview.
+        '''   Looks up a localized string similar to Preview.
         '''</summary>
         Friend Shared ReadOnly Property R_PREVIEW() As String
             Get
@@ -12368,7 +12404,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price list Item.
+        '''   Looks up a localized string similar to Price list Item.
         '''</summary>
         Friend Shared ReadOnly Property R_PRICELISTITEM() As String
             Get
@@ -12377,7 +12413,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price lists - Medical Items.
+        '''   Looks up a localized string similar to Price lists - Medical Items.
         '''</summary>
         Friend Shared ReadOnly Property R_PRICELISTMI() As String
             Get
@@ -12386,7 +12422,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price lists - Medical Services.
+        '''   Looks up a localized string similar to Price lists - Medical Services.
         '''</summary>
         Friend Shared ReadOnly Property R_PRICELISTMS() As String
             Get
@@ -12395,7 +12431,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Price list Service.
+        '''   Looks up a localized string similar to Price list Service.
         '''</summary>
         Friend Shared ReadOnly Property R_PRICELISTSERVICE() As String
             Get
@@ -12404,7 +12440,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims - Primary Operational Indicators.
+        '''   Looks up a localized string similar to Claims - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_PRIMARYOPERATIONALIC() As String
             Get
@@ -12413,7 +12449,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies - Primary Operational Indicators.
+        '''   Looks up a localized string similar to Policies - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property R_PRIMARYOPERATIONALIP() As String
             Get
@@ -12422,7 +12458,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Print.
+        '''   Looks up a localized string similar to Print.
         '''</summary>
         Friend Shared ReadOnly Property R_PRINT() As String
             Get
@@ -12431,7 +12467,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Process.
+        '''   Looks up a localized string similar to Process.
         '''</summary>
         Friend Shared ReadOnly Property R_PROCESS() As String
             Get
@@ -12440,7 +12476,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Products.
+        '''   Looks up a localized string similar to Products.
         '''</summary>
         Friend Shared ReadOnly Property R_PRODUCTS() As String
             Get
@@ -12449,7 +12485,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Products - Sales.
+        '''   Looks up a localized string similar to Products - Sales.
         '''</summary>
         Friend Shared ReadOnly Property R_PRODUCTSALES() As String
             Get
@@ -12458,7 +12494,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Registers.
+        '''   Looks up a localized string similar to Registers.
         '''</summary>
         Friend Shared ReadOnly Property R_REGISTERS() As String
             Get
@@ -12467,7 +12503,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rej. Item.
+        '''   Looks up a localized string similar to Rej. Item.
         '''</summary>
         Friend Shared ReadOnly Property R_REJECTEDITEMCODE() As String
             Get
@@ -12476,7 +12512,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insuree - Rejected Photos.
+        '''   Looks up a localized string similar to Insuree - Rejected Photos.
         '''</summary>
         Friend Shared ReadOnly Property R_REJECTEDPHOTOS() As String
             Get
@@ -12485,7 +12521,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rej. Service.
+        '''   Looks up a localized string similar to Rej. Service.
         '''</summary>
         Friend Shared ReadOnly Property R_REJECTEDSERVICECODE() As String
             Get
@@ -12494,7 +12530,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renew.
+        '''   Looks up a localized string similar to Renew.
         '''</summary>
         Friend Shared ReadOnly Property R_RENEW() As String
             Get
@@ -12503,7 +12539,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies - Renewals.
+        '''   Looks up a localized string similar to Policies - Renewals.
         '''</summary>
         Friend Shared ReadOnly Property R_RENEWALS() As String
             Get
@@ -12512,7 +12548,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal Upload.
+        '''   Looks up a localized string similar to Renewal Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_RENEWALUPLOAD() As String
             Get
@@ -12521,7 +12557,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Reports.
+        '''   Looks up a localized string similar to Reports.
         '''</summary>
         Friend Shared ReadOnly Property R_REPORTS() As String
             Get
@@ -12530,7 +12566,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Restore.
+        '''   Looks up a localized string similar to Restore.
         '''</summary>
         Friend Shared ReadOnly Property R_RESTORE() As String
             Get
@@ -12539,7 +12575,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review Claim.
+        '''   Looks up a localized string similar to Review Claim.
         '''</summary>
         Friend Shared ReadOnly Property R_REVIEW() As String
             Get
@@ -12548,7 +12584,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Save.
+        '''   Looks up a localized string similar to Save.
         '''</summary>
         Friend Shared ReadOnly Property R_SAVE() As String
             Get
@@ -12557,7 +12593,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Search.
+        '''   Looks up a localized string similar to Search.
         '''</summary>
         Friend Shared ReadOnly Property R_SEARCH() As String
             Get
@@ -12566,7 +12602,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --All entities--.
+        '''   Looks up a localized string similar to --All entities--.
         '''</summary>
         Friend Shared ReadOnly Property R_SELECTENTITY() As String
             Get
@@ -12575,7 +12611,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Service Code.
+        '''   Looks up a localized string similar to Service Code.
         '''</summary>
         Friend Shared ReadOnly Property R_SERVICECODE() As String
             Get
@@ -12584,7 +12620,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rej. Reason.
+        '''   Looks up a localized string similar to Rej. Reason.
         '''</summary>
         Friend Shared ReadOnly Property R_SERVICEREJECTIONREASONCODE() As String
             Get
@@ -12593,7 +12629,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Admin - Status of Registers.
+        '''   Looks up a localized string similar to Admin - Status of Registers.
         '''</summary>
         Friend Shared ReadOnly Property R_STATUSOFREGISTERS() As String
             Get
@@ -12602,7 +12638,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Submit.
+        '''   Looks up a localized string similar to Submit.
         '''</summary>
         Friend Shared ReadOnly Property R_SUBMIT() As String
             Get
@@ -12611,7 +12647,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Tools.
+        '''   Looks up a localized string similar to Tools.
         '''</summary>
         Friend Shared ReadOnly Property R_TOOLS() As String
             Get
@@ -12620,7 +12656,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Actual Payment Contribution for.
+        '''   Looks up a localized string similar to Total Actual Payment Contribution for.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALACTUALPAYMENTSFOR() As String
             Get
@@ -12629,7 +12665,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Adjusted Amount.
+        '''   Looks up a localized string similar to Total Adjusted Amount.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALADJUSTEDAMOUINT() As String
             Get
@@ -12638,7 +12674,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Covered.
+        '''   Looks up a localized string similar to Total Covered.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALADJUSTEDAMOUNT() As String
             Get
@@ -12647,7 +12683,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Approved.
+        '''   Looks up a localized string similar to Total Approved.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALAPPROVED() As String
             Get
@@ -12656,7 +12692,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Claimed.
+        '''   Looks up a localized string similar to Total Claimed.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALCLAIMED() As String
             Get
@@ -12665,7 +12701,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Claims.
+        '''   Looks up a localized string similar to Total Claims.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALCLAIMS() As String
             Get
@@ -12674,7 +12710,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Insurees.
+        '''   Looks up a localized string similar to Total Insurees.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALINSUREES() As String
             Get
@@ -12683,7 +12719,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total of all Actual Payment Contributions.
+        '''   Looks up a localized string similar to Total of all Actual Payment Contributions.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALOFALLACTUALPAYMENTS() As String
             Get
@@ -12692,7 +12728,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total of all Prescribed Contributions.
+        '''   Looks up a localized string similar to Total of all Prescribed Contributions.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALOFALLPRESCRIBEDCONTRIBUTION() As String
             Get
@@ -12701,7 +12737,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Paid Amount.
+        '''   Looks up a localized string similar to Total Paid Amount.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALPAIDAMOUNT() As String
             Get
@@ -12710,7 +12746,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Prescribed Contribution for.
+        '''   Looks up a localized string similar to Total Prescribed Contribution for.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALPRESCRIBEDCONTRIBUTIONFOR() As String
             Get
@@ -12719,7 +12755,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Prescribed Contributions for.
+        '''   Looks up a localized string similar to Total Prescribed Contributions for.
         '''</summary>
         Friend Shared ReadOnly Property R_TOTALPRESCRIBEDCONTRIBUTIONSFOR() As String
             Get
@@ -12728,7 +12764,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Update.
+        '''   Looks up a localized string similar to Update.
         '''</summary>
         Friend Shared ReadOnly Property R_UPDATE() As String
             Get
@@ -12737,7 +12773,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload.
+        '''   Looks up a localized string similar to Upload.
         '''</summary>
         Friend Shared ReadOnly Property R_UPLOAD() As String
             Get
@@ -12746,7 +12782,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User.
+        '''   Looks up a localized string similar to User.
         '''</summary>
         Friend Shared ReadOnly Property R_USER() As String
             Get
@@ -12755,7 +12791,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Admin - User Activity Report.
+        '''   Looks up a localized string similar to Admin - User Activity Report.
         '''</summary>
         Friend Shared ReadOnly Property R_USERACTIVITYREPORT() As String
             Get
@@ -12764,7 +12800,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Roles.
+        '''   Looks up a localized string similar to User Roles.
         '''</summary>
         Friend Shared ReadOnly Property R_USERPROFILES() As String
             Get
@@ -12773,7 +12809,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Users.
+        '''   Looks up a localized string similar to Users.
         '''</summary>
         Friend Shared ReadOnly Property R_USERS() As String
             Get
@@ -12782,7 +12818,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Utilities/Email settings.
+        '''   Looks up a localized string similar to Utilities/Email settings.
         '''</summary>
         Friend Shared ReadOnly Property R_UTILITIES() As String
             Get
@@ -12791,7 +12827,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit From.
+        '''   Looks up a localized string similar to Visit From.
         '''</summary>
         Friend Shared ReadOnly Property R_VISITFROM() As String
             Get
@@ -12800,7 +12836,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit To.
+        '''   Looks up a localized string similar to Visit To.
         '''</summary>
         Friend Shared ReadOnly Property R_VISITTO() As String
             Get
@@ -12809,7 +12845,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Accepted.
+        '''   Looks up a localized string similar to Accepted.
         '''</summary>
         Friend Shared ReadOnly Property T_ACCEPTED() As String
             Get
@@ -12818,7 +12854,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Active.
+        '''   Looks up a localized string similar to Active.
         '''</summary>
         Friend Shared ReadOnly Property T_ACTIVE() As String
             Get
@@ -12827,7 +12863,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Actually Paid Contributions.
+        '''   Looks up a localized string similar to Actually Paid Contributions.
         '''</summary>
         Friend Shared ReadOnly Property T_ACTUALPAIDCONTRIBUTIONS() As String
             Get
@@ -12836,7 +12872,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Adult.
+        '''   Looks up a localized string similar to Adult.
         '''</summary>
         Friend Shared ReadOnly Property T_ADULT() As String
             Get
@@ -12845,7 +12881,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to All.
+        '''   Looks up a localized string similar to All.
         '''</summary>
         Friend Shared ReadOnly Property T_ALL() As String
             Get
@@ -12854,7 +12890,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to All details.
+        '''   Looks up a localized string similar to All details.
         '''</summary>
         Friend Shared ReadOnly Property T_ALLDETAILS() As String
             Get
@@ -12863,7 +12899,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Antenatal.
+        '''   Looks up a localized string similar to Antenatal.
         '''</summary>
         Friend Shared ReadOnly Property T_ANTENATAL() As String
             Get
@@ -12872,7 +12908,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to April.
+        '''   Looks up a localized string similar to April.
         '''</summary>
         Friend Shared ReadOnly Property T_APRIL() As String
             Get
@@ -12881,7 +12917,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Assigned.
+        '''   Looks up a localized string similar to Assigned.
         '''</summary>
         Friend Shared ReadOnly Property T_ASSIGNED() As String
             Get
@@ -12890,7 +12926,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Autonomous.
+        '''   Looks up a localized string similar to Autonomous.
         '''</summary>
         Friend Shared ReadOnly Property T_ATONOMOUS() As String
             Get
@@ -12899,7 +12935,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to August.
+        '''   Looks up a localized string similar to August.
         '''</summary>
         Friend Shared ReadOnly Property T_AUGUST() As String
             Get
@@ -12908,7 +12944,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Bank.
+        '''   Looks up a localized string similar to Bank.
         '''</summary>
         Friend Shared ReadOnly Property T_BANK() As String
             Get
@@ -12917,7 +12953,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Bank Transfer.
+        '''   Looks up a localized string similar to Bank Transfer.
         '''</summary>
         Friend Shared ReadOnly Property T_BANKTRANSFER() As String
             Get
@@ -12926,7 +12962,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Both.
+        '''   Looks up a localized string similar to Both.
         '''</summary>
         Friend Shared ReadOnly Property T_BOTH() As String
             Get
@@ -12935,7 +12971,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ByPassed.
+        '''   Looks up a localized string similar to ByPassed.
         '''</summary>
         Friend Shared ReadOnly Property T_BYPASSED() As String
             Get
@@ -12944,7 +12980,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Capitation Payment.
+        '''   Looks up a localized string similar to Capitation Payment.
         '''</summary>
         Friend Shared ReadOnly Property T_CAPITATIONPAYMENT() As String
             Get
@@ -12953,7 +12989,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Cash.
+        '''   Looks up a localized string similar to Cash.
         '''</summary>
         Friend Shared ReadOnly Property T_CASH() As String
             Get
@@ -12962,7 +12998,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Catholic.
+        '''   Looks up a localized string similar to Catholic.
         '''</summary>
         Friend Shared ReadOnly Property T_CATHOLIC() As String
             Get
@@ -12971,7 +13007,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Charity.
+        '''   Looks up a localized string similar to Charity.
         '''</summary>
         Friend Shared ReadOnly Property T_CHARITY() As String
             Get
@@ -12980,7 +13016,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Checked.
+        '''   Looks up a localized string similar to Checked.
         '''</summary>
         Friend Shared ReadOnly Property T_CHECKED() As String
             Get
@@ -12989,7 +13025,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Child.
+        '''   Looks up a localized string similar to Child.
         '''</summary>
         Friend Shared ReadOnly Property T_CHILD() As String
             Get
@@ -12998,7 +13034,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim.
+        '''   Looks up a localized string similar to Claim.
         '''</summary>
         Friend Shared ReadOnly Property T_CLAIM() As String
             Get
@@ -13007,7 +13043,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim History Report.
+        '''   Looks up a localized string similar to Claim History Report.
         '''</summary>
         Friend Shared ReadOnly Property T_CLAIMHISTORYREPORT() As String
             Get
@@ -13016,7 +13052,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claim Overview.
+        '''   Looks up a localized string similar to Claim Overview.
         '''</summary>
         Friend Shared ReadOnly Property T_CLAIMOVERVIEW() As String
             Get
@@ -13025,7 +13061,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims and All Details.
+        '''   Looks up a localized string similar to Claims and All Details.
         '''</summary>
         Friend Shared ReadOnly Property T_CLAIMSANDALLDETAILS() As String
             Get
@@ -13034,7 +13070,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims and Rejection Details.
+        '''   Looks up a localized string similar to Claims and Rejection Details.
         '''</summary>
         Friend Shared ReadOnly Property T_CLAIMSANDREJECTIONDETAILS() As String
             Get
@@ -13043,7 +13079,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims Only.
+        '''   Looks up a localized string similar to Claims Only.
         '''</summary>
         Friend Shared ReadOnly Property T_CLAIMSONLY() As String
             Get
@@ -13052,7 +13088,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Community/NGO.
+        '''   Looks up a localized string similar to Community/NGO.
         '''</summary>
         Friend Shared ReadOnly Property T_COMMUNITY_NGO() As String
             Get
@@ -13061,7 +13097,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution and Others.
+        '''   Looks up a localized string similar to Contribution and Others.
         '''</summary>
         Friend Shared ReadOnly Property T_CONTRIBUTION() As String
             Get
@@ -13070,7 +13106,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Payment.
+        '''   Looks up a localized string similar to Contribution Payment.
         '''</summary>
         Friend Shared ReadOnly Property T_CONTRIBUTIONPAYMENT() As String
             Get
@@ -13079,7 +13115,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Control Number Assignment.
+        '''   Looks up a localized string similar to Control Number Assignment.
         '''</summary>
         Friend Shared ReadOnly Property T_CONTROLNUMBERASSIGNMENT() As String
             Get
@@ -13088,7 +13124,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Co-operative.
+        '''   Looks up a localized string similar to Co-operative.
         '''</summary>
         Friend Shared ReadOnly Property T_COOPERATIVE() As String
             Get
@@ -13097,7 +13133,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Curative.
+        '''   Looks up a localized string similar to Curative.
         '''</summary>
         Friend Shared ReadOnly Property T_CURATIVE() As String
             Get
@@ -13106,7 +13142,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Day.
+        '''   Looks up a localized string similar to Day.
         '''</summary>
         Friend Shared ReadOnly Property T_DAY() As String
             Get
@@ -13115,7 +13151,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Day of stay.
+        '''   Looks up a localized string similar to Day of stay.
         '''</summary>
         Friend Shared ReadOnly Property T_DAYOFSTAY() As String
             Get
@@ -13124,7 +13160,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to December.
+        '''   Looks up a localized string similar to December.
         '''</summary>
         Friend Shared ReadOnly Property T_DECEMBER() As String
             Get
@@ -13133,7 +13169,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delivered.
+        '''   Looks up a localized string similar to Delivered.
         '''</summary>
         Friend Shared ReadOnly Property T_DELIVERED() As String
             Get
@@ -13142,7 +13178,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Delivery.
+        '''   Looks up a localized string similar to Delivery.
         '''</summary>
         Friend Shared ReadOnly Property T_DELIVERY() As String
             Get
@@ -13151,7 +13187,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Derived Operational Indicators.
+        '''   Looks up a localized string similar to Derived Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property T_DERIVEDOPERATIONALINDICATORS() As String
             Get
@@ -13160,7 +13196,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Diagnosis code not in the current list of diagnoses.
+        '''   Looks up a localized string similar to Diagnosis code not in the current list of diagnoses.
         '''</summary>
         Friend Shared ReadOnly Property T_DIAGNOSISCODENOTINTHECURRENTLIST() As String
             Get
@@ -13169,7 +13205,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Dispensary.
+        '''   Looks up a localized string similar to Dispensary.
         '''</summary>
         Friend Shared ReadOnly Property T_DISPENSARY() As String
             Get
@@ -13178,7 +13214,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to District Organization.
+        '''   Looks up a localized string similar to District Organization.
         '''</summary>
         Friend Shared ReadOnly Property T_DISTRICTORGANIZATION() As String
             Get
@@ -13187,7 +13223,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Divorced.
+        '''   Looks up a localized string similar to Divorced.
         '''</summary>
         Friend Shared ReadOnly Property T_DIVORCED() As String
             Get
@@ -13196,7 +13232,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Donor.
+        '''   Looks up a localized string similar to Donor.
         '''</summary>
         Friend Shared ReadOnly Property T_DONOR() As String
             Get
@@ -13205,7 +13241,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Drug.
+        '''   Looks up a localized string similar to Drug.
         '''</summary>
         Friend Shared ReadOnly Property T_DRUG() As String
             Get
@@ -13214,7 +13250,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enrolment Performance Indicators.
+        '''   Looks up a localized string similar to Enrolment Performance Indicators.
         '''</summary>
         Friend Shared ReadOnly Property T_ENROLMENTPERFORMANCEINDICATORS() As String
             Get
@@ -13223,7 +13259,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Entered.
+        '''   Looks up a localized string similar to Entered.
         '''</summary>
         Friend Shared ReadOnly Property T_ENTERED() As String
             Get
@@ -13232,7 +13268,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expired.
+        '''   Looks up a localized string similar to Expired.
         '''</summary>
         Friend Shared ReadOnly Property T_EXPIRED() As String
             Get
@@ -13241,7 +13277,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Expiry.
+        '''   Looks up a localized string similar to Expiry.
         '''</summary>
         Friend Shared ReadOnly Property T_EXPIRY() As String
             Get
@@ -13250,7 +13286,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Failed.
+        '''   Looks up a localized string similar to Failed.
         '''</summary>
         Friend Shared ReadOnly Property T_FAILED() As String
             Get
@@ -13259,7 +13295,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Failed.
+        '''   Looks up a localized string similar to Failed.
         '''</summary>
         Friend Shared ReadOnly Property T_FAILEDSTATUS() As String
             Get
@@ -13268,7 +13304,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Families and Insurees Overview.
+        '''   Looks up a localized string similar to Families and Insurees Overview.
         '''</summary>
         Friend Shared ReadOnly Property T_FAMILIESINSUREESOVERVIEW() As String
             Get
@@ -13277,7 +13313,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to February.
+        '''   Looks up a localized string similar to February.
         '''</summary>
         Friend Shared ReadOnly Property T_FEBRUARY() As String
             Get
@@ -13286,7 +13322,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Feedback Select.
+        '''   Looks up a localized string similar to Feedback Select.
         '''</summary>
         Friend Shared ReadOnly Property T_FEEDBACKSELECT() As String
             Get
@@ -13295,7 +13331,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Female.
+        '''   Looks up a localized string similar to Female.
         '''</summary>
         Friend Shared ReadOnly Property T_FEMALE() As String
             Get
@@ -13304,7 +13340,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Forgot password.
+        '''   Looks up a localized string similar to Forgot password.
         '''</summary>
         Friend Shared ReadOnly Property T_FORGOTPASSWORD() As String
             Get
@@ -13313,7 +13349,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Government.
+        '''   Looks up a localized string similar to Government.
         '''</summary>
         Friend Shared ReadOnly Property T_GOVERNMENT() As String
             Get
@@ -13322,7 +13358,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Centre.
+        '''   Looks up a localized string similar to Health Centre.
         '''</summary>
         Friend Shared ReadOnly Property T_HEALTHCENTRE() As String
             Get
@@ -13331,7 +13367,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Health Post.
+        '''   Looks up a localized string similar to Health Post.
         '''</summary>
         Friend Shared ReadOnly Property T_HEALTHPOST() As String
             Get
@@ -13340,7 +13376,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hospital.
+        '''   Looks up a localized string similar to Hospital.
         '''</summary>
         Friend Shared ReadOnly Property T_HOSPITAL() As String
             Get
@@ -13349,7 +13385,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hospital case.
+        '''   Looks up a localized string similar to Hospital case.
         '''</summary>
         Friend Shared ReadOnly Property T_HOSPITALCASE() As String
             Get
@@ -13358,7 +13394,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Dg. --.
+        '''   Looks up a localized string similar to --Select Dg. --.
         '''</summary>
         Friend Shared ReadOnly Property T_ICDCODE() As String
             Get
@@ -13367,7 +13403,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Idle.
+        '''   Looks up a localized string similar to Idle.
         '''</summary>
         Friend Shared ReadOnly Property T_IDLE() As String
             Get
@@ -13376,7 +13412,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to In-Patient.
+        '''   Looks up a localized string similar to In-Patient.
         '''</summary>
         Friend Shared ReadOnly Property T_INPATIENT() As String
             Get
@@ -13385,7 +13421,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Insurees without Photos.
+        '''   Looks up a localized string similar to Insurees without Photos.
         '''</summary>
         Friend Shared ReadOnly Property T_INSUREESWITHOUTPHOTOS() As String
             Get
@@ -13394,7 +13430,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Integrated.
+        '''   Looks up a localized string similar to Integrated.
         '''</summary>
         Friend Shared ReadOnly Property T_INTEGRATED() As String
             Get
@@ -13403,7 +13439,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/service cannot be covered within waiting period.
+        '''   Looks up a localized string similar to Item/service cannot be covered within waiting period.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICECANNOTBECOVEREDWITHWAITINGPERIOD() As String
             Get
@@ -13412,7 +13448,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/Service doesn’t comply with type of care constraint.
+        '''   Looks up a localized string similar to Item/Service doesn’t comply with type of care constraint.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICEDOESNOTCOMPLYWITHCARECONSTRAINT() As String
             Get
@@ -13421,7 +13457,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/Service doesn’t comply with frequency constraint.
+        '''   Looks up a localized string similar to Item/Service doesn’t comply with frequency constraint.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICEDOESNTCOMPLYWITHFREQUENCY() As String
             Get
@@ -13430,7 +13466,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/Service doesn’t comply with limitations on patients (men/women,
+        '''   Looks up a localized string similar to Item/Service doesn’t comply with limitations on patients (men/women,
         '''adults/children)
         '''		.
         '''</summary>
@@ -13441,7 +13477,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/Service duplicated.
+        '''   Looks up a localized string similar to Item/Service duplicated.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICEDUPLICATED() As String
             Get
@@ -13450,7 +13486,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/Service is not covered by an active policy of the patient.
+        '''   Looks up a localized string similar to Item/Service is not covered by an active policy of the patient.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICENOTCOVEREDBYPOLICY() As String
             Get
@@ -13459,7 +13495,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/Service not in the price lists associated with the health facility.
+        '''   Looks up a localized string similar to Item/Service not in the price lists associated with the health facility.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICENOTINTHEPRICELIST() As String
             Get
@@ -13468,7 +13504,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Item/Service not in the registers of medical items/services.
+        '''   Looks up a localized string similar to Item/Service not in the registers of medical items/services.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICENOTINTHEREGISTER() As String
             Get
@@ -13477,7 +13513,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Not valid insurance number.
+        '''   Looks up a localized string similar to Not valid insurance number.
         '''</summary>
         Friend Shared ReadOnly Property T_ITEMSERVICENOTVALIDINSURANCENUMBER() As String
             Get
@@ -13486,7 +13522,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to January.
+        '''   Looks up a localized string similar to January.
         '''</summary>
         Friend Shared ReadOnly Property T_JANUARY() As String
             Get
@@ -13495,7 +13531,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to July.
+        '''   Looks up a localized string similar to July.
         '''</summary>
         Friend Shared ReadOnly Property T_JULY() As String
             Get
@@ -13504,7 +13540,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to June.
+        '''   Looks up a localized string similar to June.
         '''</summary>
         Friend Shared ReadOnly Property T_JUNE() As String
             Get
@@ -13513,7 +13549,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Local Authority.
+        '''   Looks up a localized string similar to Local Authority.
         '''</summary>
         Friend Shared ReadOnly Property T_LOCALAUTHORITY() As String
             Get
@@ -13522,7 +13558,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Male.
+        '''   Looks up a localized string similar to Male.
         '''</summary>
         Friend Shared ReadOnly Property T_MALE() As String
             Get
@@ -13531,7 +13567,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Man.
+        '''   Looks up a localized string similar to Man.
         '''</summary>
         Friend Shared ReadOnly Property T_MAN() As String
             Get
@@ -13540,7 +13576,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to March.
+        '''   Looks up a localized string similar to March.
         '''</summary>
         Friend Shared ReadOnly Property T_MARCH() As String
             Get
@@ -13549,7 +13585,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Married.
+        '''   Looks up a localized string similar to Married.
         '''</summary>
         Friend Shared ReadOnly Property T_MARRIED() As String
             Get
@@ -13558,7 +13594,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matching Funds.
+        '''   Looks up a localized string similar to Matching Funds.
         '''</summary>
         Friend Shared ReadOnly Property T_MATCHINGFUNDS() As String
             Get
@@ -13567,7 +13603,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum number of antenatal contacts exceeded.
+        '''   Looks up a localized string similar to Maximum number of antenatal contacts exceeded.
         '''</summary>
         Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFANTENETALEXCEEDED() As String
             Get
@@ -13576,7 +13612,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum number of consultations exceeded.
+        '''   Looks up a localized string similar to Maximum number of consultations exceeded.
         '''</summary>
         Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED() As String
             Get
@@ -13585,7 +13621,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum number of deliveries exceeded.
+        '''   Looks up a localized string similar to Maximum number of deliveries exceeded.
         '''</summary>
         Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED() As String
             Get
@@ -13594,7 +13630,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum number of in-patient admissions exceeded.
+        '''   Looks up a localized string similar to Maximum number of in-patient admissions exceeded.
         '''</summary>
         Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFINPATIENTEXCEEDED() As String
             Get
@@ -13603,7 +13639,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum number of out-patient visits exceeded.
+        '''   Looks up a localized string similar to Maximum number of out-patient visits exceeded.
         '''</summary>
         Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED() As String
             Get
@@ -13612,7 +13648,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum number of provisions of item/service exceeded.
+        '''   Looks up a localized string similar to Maximum number of provisions of item/service exceeded.
         '''</summary>
         Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED() As String
             Get
@@ -13621,7 +13657,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Maximum number of surgeries exceeded.
+        '''   Looks up a localized string similar to Maximum number of surgeries exceeded.
         '''</summary>
         Friend Shared ReadOnly Property T_MAXIMUMNUMBEROFSURGERIESEXCEEDED() As String
             Get
@@ -13630,7 +13666,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to May.
+        '''   Looks up a localized string similar to May.
         '''</summary>
         Friend Shared ReadOnly Property T_MAY() As String
             Get
@@ -13639,7 +13675,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical consumable.
+        '''   Looks up a localized string similar to Medical consumable.
         '''</summary>
         Friend Shared ReadOnly Property T_MEDICALCONSUMABLE() As String
             Get
@@ -13648,7 +13684,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Medical Prostheses.
+        '''   Looks up a localized string similar to Medical Prostheses.
         '''</summary>
         Friend Shared ReadOnly Property T_MEDICALPROSTHESES() As String
             Get
@@ -13657,7 +13693,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Mobile.
+        '''   Looks up a localized string similar to Mobile.
         '''</summary>
         Friend Shared ReadOnly Property T_MOBILE() As String
             Get
@@ -13666,7 +13702,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Mobile Phone.
+        '''   Looks up a localized string similar to Mobile Phone.
         '''</summary>
         Friend Shared ReadOnly Property T_MOBILEPHONE() As String
             Get
@@ -13675,7 +13711,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Month--.
+        '''   Looks up a localized string similar to --Month--.
         '''</summary>
         Friend Shared ReadOnly Property T_MONTH() As String
             Get
@@ -13684,7 +13720,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Month.
+        '''   Looks up a localized string similar to Month.
         '''</summary>
         Friend Shared ReadOnly Property T_MONTHS() As String
             Get
@@ -13693,7 +13729,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to N/A.
+        '''   Looks up a localized string similar to N/A.
         '''</summary>
         Friend Shared ReadOnly Property T_NA() As String
             Get
@@ -13702,7 +13738,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New Password.
+        '''   Looks up a localized string similar to New Password.
         '''</summary>
         Friend Shared ReadOnly Property T_NEWPASSWORD() As String
             Get
@@ -13711,7 +13747,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New policies.
+        '''   Looks up a localized string similar to New policies.
         '''</summary>
         Friend Shared ReadOnly Property T_NEWPOLICIES() As String
             Get
@@ -13720,7 +13756,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New Policy.
+        '''   Looks up a localized string similar to New Policy.
         '''</summary>
         Friend Shared ReadOnly Property T_NEWPOLICY() As String
             Get
@@ -13729,7 +13765,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No.
+        '''   Looks up a localized string similar to No.
         '''</summary>
         Friend Shared ReadOnly Property T_NO() As String
             Get
@@ -13738,7 +13774,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Non Hospital.
+        '''   Looks up a localized string similar to Non Hospital.
         '''</summary>
         Friend Shared ReadOnly Property T_NONHOSPITAL() As String
             Get
@@ -13747,7 +13783,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No policy.
+        '''   Looks up a localized string similar to No policy.
         '''</summary>
         Friend Shared ReadOnly Property T_NOPOLICY() As String
             Get
@@ -13756,7 +13792,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to No Sublevel.
+        '''   Looks up a localized string similar to No Sublevel.
         '''</summary>
         Friend Shared ReadOnly Property T_NOSUBLEVEL() As String
             Get
@@ -13765,7 +13801,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Not Selected.
+        '''   Looks up a localized string similar to Not Selected.
         '''</summary>
         Friend Shared ReadOnly Property T_NOTSELECTED() As String
             Get
@@ -13774,7 +13810,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Not specified.
+        '''   Looks up a localized string similar to Not specified.
         '''</summary>
         Friend Shared ReadOnly Property T_NOTSPECIFIED() As String
             Get
@@ -13783,7 +13819,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Not yet assigned.
+        '''   Looks up a localized string similar to Not yet assigned.
         '''</summary>
         Friend Shared ReadOnly Property T_NOTYETASSIGNED() As String
             Get
@@ -13792,7 +13828,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Not yet confirmed.
+        '''   Looks up a localized string similar to Not yet confirmed.
         '''</summary>
         Friend Shared ReadOnly Property T_NOTYETCONFIRMED() As String
             Get
@@ -13801,7 +13837,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to November.
+        '''   Looks up a localized string similar to November.
         '''</summary>
         Friend Shared ReadOnly Property T_NOVEMBER() As String
             Get
@@ -13810,7 +13846,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to October.
+        '''   Looks up a localized string similar to October.
         '''</summary>
         Friend Shared ReadOnly Property T_OCTOBER() As String
             Get
@@ -13819,7 +13855,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Other.
+        '''   Looks up a localized string similar to Other.
         '''</summary>
         Friend Shared ReadOnly Property T_OTHER() As String
             Get
@@ -13828,7 +13864,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Out-Patient.
+        '''   Looks up a localized string similar to Out-Patient.
         '''</summary>
         Friend Shared ReadOnly Property T_OUTPATIENT() As String
             Get
@@ -13837,7 +13873,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overview.
+        '''   Looks up a localized string similar to Overview.
         '''</summary>
         Friend Shared ReadOnly Property T_OVERVIEW() As String
             Get
@@ -13846,7 +13882,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overview of commissions.
+        '''   Looks up a localized string similar to Overview of commissions.
         '''</summary>
         Friend Shared ReadOnly Property T_OVERVIEWOFCOMMISSIONS() As String
             Get
@@ -13855,7 +13891,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overview of Commissions (Detailed).
+        '''   Looks up a localized string similar to Overview of Commissions (Detailed).
         '''</summary>
         Friend Shared ReadOnly Property T_OVERVIEWOFCOMMISSIONS_D() As String
             Get
@@ -13864,7 +13900,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Overview of Commissions (Overview).
+        '''   Looks up a localized string similar to Overview of Commissions (Overview).
         '''</summary>
         Friend Shared ReadOnly Property T_OVERVIEWOFCOMMISSIONS_O() As String
             Get
@@ -13873,7 +13909,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Passed.
+        '''   Looks up a localized string similar to Passed.
         '''</summary>
         Friend Shared ReadOnly Property T_PASSED() As String
             Get
@@ -13882,7 +13918,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to cancelled.
+        '''   Looks up a localized string similar to cancelled.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTCANCELLED() As String
             Get
@@ -13891,7 +13927,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Payment Category Overview.
+        '''   Looks up a localized string similar to Payment Category Overview.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTCATEGORYOVERVIEW() As String
             Get
@@ -13900,7 +13936,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ctr No. Received.
+        '''   Looks up a localized string similar to Ctr No. Received.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTCNNUMBERRECEIVED() As String
             Get
@@ -13909,7 +13945,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ctr No. Requested.
+        '''   Looks up a localized string similar to Ctr No. Requested.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTCNUMBERREQUESTED() As String
             Get
@@ -13918,7 +13954,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Created.
+        '''   Looks up a localized string similar to Created.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTCREATED() As String
             Get
@@ -13927,7 +13963,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Matched.
+        '''   Looks up a localized string similar to Matched.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTMATCHED() As String
             Get
@@ -13936,7 +13972,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pay. Received.
+        '''   Looks up a localized string similar to Pay. Received.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTRECEIVED() As String
             Get
@@ -13945,7 +13981,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pay. Reconciliated.
+        '''   Looks up a localized string similar to Pay. Reconciliated.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTRECONCILIATED() As String
             Get
@@ -13954,7 +13990,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Requested.
+        '''   Looks up a localized string similar to Requested.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTREQUESTED() As String
             Get
@@ -13963,7 +13999,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Paid.
+        '''   Looks up a localized string similar to Paid.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTRPAID() As String
             Get
@@ -13972,7 +14008,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Payment Type --.
+        '''   Looks up a localized string similar to -- Payment Type --.
         '''</summary>
         Friend Shared ReadOnly Property T_PAYMENTTYPE() As String
             Get
@@ -13981,7 +14017,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pending Insurees.
+        '''   Looks up a localized string similar to Pending Insurees.
         '''</summary>
         Friend Shared ReadOnly Property T_PENDINGINSUREES() As String
             Get
@@ -13990,7 +14026,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Percentage of Referrals.
+        '''   Looks up a localized string similar to Percentage of Referrals.
         '''</summary>
         Friend Shared ReadOnly Property T_PERCENTAGEOFREFERRALS() As String
             Get
@@ -13999,7 +14035,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Photo Fee.
+        '''   Looks up a localized string similar to Photo Fee.
         '''</summary>
         Friend Shared ReadOnly Property T_PHOTOFEE() As String
             Get
@@ -14008,7 +14044,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Posted.
+        '''   Looks up a localized string similar to Posted.
         '''</summary>
         Friend Shared ReadOnly Property T_POSTED() As String
             Get
@@ -14017,7 +14053,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Collection.
+        '''   Looks up a localized string similar to Contribution Collection.
         '''</summary>
         Friend Shared ReadOnly Property T_PREMIUMCOLLECTION() As String
             Get
@@ -14026,7 +14062,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Contribution Distribution.
+        '''   Looks up a localized string similar to Contribution Distribution.
         '''</summary>
         Friend Shared ReadOnly Property T_PREMIUMDISTRIBUTION() As String
             Get
@@ -14035,7 +14071,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Prescribed Contributions.
+        '''   Looks up a localized string similar to Prescribed Contributions.
         '''</summary>
         Friend Shared ReadOnly Property T_PRESCRIBEDCONTRIBUTIONS() As String
             Get
@@ -14044,7 +14080,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Preventive.
+        '''   Looks up a localized string similar to Preventive.
         '''</summary>
         Friend Shared ReadOnly Property T_PREVENTIVE() As String
             Get
@@ -14053,7 +14089,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Health Centre.
+        '''   Looks up a localized string similar to Primary Health Centre.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIMARYHEALTHCENTRE() As String
             Get
@@ -14062,7 +14098,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Primary Operational Indicators.
+        '''   Looks up a localized string similar to Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIMARYOPERATIONALINDICATORS() As String
             Get
@@ -14071,7 +14107,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Claims - Primary Operational Indicators.
+        '''   Looks up a localized string similar to Claims - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIMARYOPERATIONALINDICATORS_CLAIMS() As String
             Get
@@ -14080,7 +14116,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Policies - Primary Operational Indicators.
+        '''   Looks up a localized string similar to Policies - Primary Operational Indicators.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIMARYOPERATIONALINDICATORS_POLICIES() As String
             Get
@@ -14089,7 +14125,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Private.
+        '''   Looks up a localized string similar to Private.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIVATE() As String
             Get
@@ -14098,7 +14134,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Private Organization.
+        '''   Looks up a localized string similar to Private Organization.
         '''</summary>
         Friend Shared ReadOnly Property T_PRIVATEORGANIZATION() As String
             Get
@@ -14107,7 +14143,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Processed.
+        '''   Looks up a localized string similar to Processed.
         '''</summary>
         Friend Shared ReadOnly Property T_PROCESSED() As String
             Get
@@ -14116,7 +14152,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Product Sales.
+        '''   Looks up a localized string similar to Product Sales.
         '''</summary>
         Friend Shared ReadOnly Property T_PRODUCTSALES() As String
             Get
@@ -14125,7 +14161,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Prompt.
+        '''   Looks up a localized string similar to Prompt.
         '''</summary>
         Friend Shared ReadOnly Property T_PROMPT() As String
             Get
@@ -14134,7 +14170,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Protestant.
+        '''   Looks up a localized string similar to Protestant.
         '''</summary>
         Friend Shared ReadOnly Property T_PROTESTANT() As String
             Get
@@ -14143,7 +14179,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Quarter.
+        '''   Looks up a localized string similar to Quarter.
         '''</summary>
         Friend Shared ReadOnly Property T_QUARTER() As String
             Get
@@ -14152,7 +14188,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ready.
+        '''   Looks up a localized string similar to Ready.
         '''</summary>
         Friend Shared ReadOnly Property T_READY() As String
             Get
@@ -14161,7 +14197,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Received.
+        '''   Looks up a localized string similar to Received.
         '''</summary>
         Friend Shared ReadOnly Property T_RECEIVED() As String
             Get
@@ -14170,7 +14206,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Reference.
+        '''   Looks up a localized string similar to Reference.
         '''</summary>
         Friend Shared ReadOnly Property T_REFERENCE() As String
             Get
@@ -14179,7 +14215,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected.
+        '''   Looks up a localized string similar to Rejected.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTED() As String
             Get
@@ -14188,7 +14224,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected A.
+        '''   Looks up a localized string similar to Rejected A.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDA() As String
             Get
@@ -14197,7 +14233,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected.
+        '''   Looks up a localized string similar to Rejected.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDASSIGNMENTS() As String
             Get
@@ -14206,7 +14242,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected B.
+        '''   Looks up a localized string similar to Rejected B.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDB() As String
             Get
@@ -14215,7 +14251,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected by a medical officer.
+        '''   Looks up a localized string similar to Rejected by a medical officer.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDBYMEDICALOFFICER() As String
             Get
@@ -14224,7 +14260,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected C.
+        '''   Looks up a localized string similar to Rejected C.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDC() As String
             Get
@@ -14233,7 +14269,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected Date.
+        '''   Looks up a localized string similar to Rejected Date.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDDATE() As String
             Get
@@ -14242,7 +14278,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected Photos.
+        '''   Looks up a localized string similar to Rejected Photos.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDPHOTOS() As String
             Get
@@ -14251,7 +14287,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Rejected.
+        '''   Looks up a localized string similar to Rejected.
         '''</summary>
         Friend Shared ReadOnly Property T_REJECTEDPOSTED() As String
             Get
@@ -14260,7 +14296,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please remove the pricelist from the following hospitals before changing the location:.
+        '''   Looks up a localized string similar to Please remove the pricelist from the following hospitals before changing the location:.
         '''</summary>
         Friend Shared ReadOnly Property T_REMOVEHOSPITALS() As String
             Get
@@ -14269,7 +14305,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewal.
+        '''   Looks up a localized string similar to Renewal.
         '''</summary>
         Friend Shared ReadOnly Property T_RENEWAL() As String
             Get
@@ -14278,7 +14314,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Renewals.
+        '''   Looks up a localized string similar to Renewals.
         '''</summary>
         Friend Shared ReadOnly Property T_RENEWALS() As String
             Get
@@ -14287,7 +14323,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Reviewed.
+        '''   Looks up a localized string similar to Reviewed.
         '''</summary>
         Friend Shared ReadOnly Property T_REVIEWED() As String
             Get
@@ -14296,7 +14332,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review Not.
+        '''   Looks up a localized string similar to Review Not.
         '''</summary>
         Friend Shared ReadOnly Property T_REVIEWNOT() As String
             Get
@@ -14305,7 +14341,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Review Select.
+        '''   Looks up a localized string similar to Review Select.
         '''</summary>
         Friend Shared ReadOnly Property T_REVIEWSELECT() As String
             Get
@@ -14314,7 +14350,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Region--.
+        '''   Looks up a localized string similar to --Select Region--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECREGION() As String
             Get
@@ -14323,7 +14359,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select--.
+        '''   Looks up a localized string similar to --Select--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECT() As String
             Get
@@ -14332,7 +14368,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select Activity Centre.
+        '''   Looks up a localized string similar to Select Activity Centre.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTACTIVITYCENTRE() As String
             Get
@@ -14341,7 +14377,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select a Payer --.
+        '''   Looks up a localized string similar to -- Select a Payer --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTAPAYER() As String
             Get
@@ -14350,7 +14386,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Status--.
+        '''   Looks up a localized string similar to --Select Status--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTASSIGNMENTSTATUS() As String
             Get
@@ -14359,7 +14395,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select a Village --.
+        '''   Looks up a localized string similar to -- Select a Village --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTAVILLAGE() As String
             Get
@@ -14368,7 +14404,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select a Municipality--.
+        '''   Looks up a localized string similar to -- Select a Municipality--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTAWARD() As String
             Get
@@ -14377,7 +14413,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select batch--.
+        '''   Looks up a localized string similar to --Select batch--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTBATCH() As String
             Get
@@ -14386,7 +14422,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Batch Run--.
+        '''   Looks up a localized string similar to --Select Batch Run--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTBATCHRUN() As String
             Get
@@ -14395,7 +14431,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select category--.
+        '''   Looks up a localized string similar to --Select category--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTCATEGORY() As String
             Get
@@ -14404,7 +14440,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select Claim Admin.
+        '''   Looks up a localized string similar to Select Claim Admin.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTCLAIMADMIN() As String
             Get
@@ -14413,7 +14449,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Claim Code--.
+        '''   Looks up a localized string similar to --Select Claim Code--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTCLAIMCODE() As String
             Get
@@ -14422,7 +14458,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select Cost Centre.
+        '''   Looks up a localized string similar to Select Cost Centre.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTCOSTCENTRE() As String
             Get
@@ -14431,7 +14467,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select a District --.
+        '''   Looks up a localized string similar to -- Select a District --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTDISTRICT() As String
             Get
@@ -14440,7 +14476,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected.
+        '''   Looks up a localized string similar to Selected.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTED() As String
             Get
@@ -14449,7 +14485,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected for Feedback.
+        '''   Looks up a localized string similar to Selected for Feedback.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTEDFORFEEDBACK() As String
             Get
@@ -14458,7 +14494,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Selected for Review.
+        '''   Looks up a localized string similar to Selected for Review.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTEDFORREVIEW() As String
             Get
@@ -14467,7 +14503,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select Employee.
+        '''   Looks up a localized string similar to Select Employee.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTEMPLOYEE() As String
             Get
@@ -14476,7 +14512,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Gender --.
+        '''   Looks up a localized string similar to -- Select Gender --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTGENDER() As String
             Get
@@ -14485,7 +14521,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --- Select HF Code ---.
+        '''   Looks up a localized string similar to --- Select HF Code ---.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTHFCODE() As String
             Get
@@ -14494,7 +14530,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Item Type --.
+        '''   Looks up a localized string similar to -- Select Item Type --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTITEMTYPE() As String
             Get
@@ -14503,7 +14539,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Language --.
+        '''   Looks up a localized string similar to -- Select Language --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTLANGUAGE() As String
             Get
@@ -14512,7 +14548,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Legal Form --.
+        '''   Looks up a localized string similar to -- Select Legal Form --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTLEGALFORM() As String
             Get
@@ -14521,7 +14557,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Level--.
+        '''   Looks up a localized string similar to -- Select Level--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTLEVEL() As String
             Get
@@ -14530,7 +14566,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Main Dg.--.
+        '''   Looks up a localized string similar to --Select Main Dg.--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTMAINDG() As String
             Get
@@ -14539,7 +14575,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Mode--.
+        '''   Looks up a localized string similar to --Select Mode--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTMODE() As String
             Get
@@ -14548,7 +14584,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Enrolment Officer --.
+        '''   Looks up a localized string similar to -- Select Enrolment Officer --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTOFFICER() As String
             Get
@@ -14557,7 +14593,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Patient --.
+        '''   Looks up a localized string similar to -- Select Patient --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTPATIENT() As String
             Get
@@ -14566,7 +14602,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Payer Type --.
+        '''   Looks up a localized string similar to -- Select Payer Type --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTPAYERTYPE() As String
             Get
@@ -14575,7 +14611,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select  Status--.
+        '''   Looks up a localized string similar to --Select  Status--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTPOSTINGSTATUS() As String
             Get
@@ -14584,7 +14620,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Price List --.
+        '''   Looks up a localized string similar to -- Select Price List --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTPRICELIST() As String
             Get
@@ -14593,7 +14629,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Product--.
+        '''   Looks up a localized string similar to --Select Product--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTPRODUCT() As String
             Get
@@ -14602,7 +14638,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select Project Centre.
+        '''   Looks up a localized string similar to Select Project Centre.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTPROJECTCENTRE() As String
             Get
@@ -14611,7 +14647,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Role --.
+        '''   Looks up a localized string similar to -- Select Role --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTROLE() As String
             Get
@@ -14620,7 +14656,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select Scope--.
+        '''   Looks up a localized string similar to --Select Scope--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTSCOPE() As String
             Get
@@ -14629,7 +14665,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Service Type --.
+        '''   Looks up a localized string similar to -- Select Service Type --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTSERVICETYPE() As String
             Get
@@ -14638,7 +14674,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Status --.
+        '''   Looks up a localized string similar to -- Select Status --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTSTATUS() As String
             Get
@@ -14647,7 +14683,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Subcategory --.
+        '''   Looks up a localized string similar to -- Select Subcategory --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTSUBCATEGORY() As String
             Get
@@ -14656,7 +14692,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select SubLevel --.
+        '''   Looks up a localized string similar to -- Select SubLevel --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTSUBLEVEL() As String
             Get
@@ -14665,7 +14701,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Type --.
+        '''   Looks up a localized string similar to -- Select Type --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTTYPE() As String
             Get
@@ -14674,7 +14710,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Select UserName--.
+        '''   Looks up a localized string similar to --Select UserName--.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTUSERNAME() As String
             Get
@@ -14683,7 +14719,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Select Yes/No --.
+        '''   Looks up a localized string similar to -- Select Yes/No --.
         '''</summary>
         Friend Shared ReadOnly Property T_SELECTYESNO() As String
             Get
@@ -14692,7 +14728,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to September.
+        '''   Looks up a localized string similar to September.
         '''</summary>
         Friend Shared ReadOnly Property T_SEPTEMBER() As String
             Get
@@ -14701,7 +14737,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Simple Service.
+        '''   Looks up a localized string similar to Simple Service.
         '''</summary>
         Friend Shared ReadOnly Property T_SIMPLESERVICE() As String
             Get
@@ -14710,7 +14746,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Single.
+        '''   Looks up a localized string similar to Single.
         '''</summary>
         Friend Shared ReadOnly Property T_SINGLE() As String
             Get
@@ -14719,7 +14755,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -- Status --.
+        '''   Looks up a localized string similar to -- Status --.
         '''</summary>
         Friend Shared ReadOnly Property T_STATUS() As String
             Get
@@ -14728,7 +14764,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Status of Registers.
+        '''   Looks up a localized string similar to Status of Registers.
         '''</summary>
         Friend Shared ReadOnly Property T_STATUSOFREGISTERS() As String
             Get
@@ -14737,7 +14773,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to SubcategoryA.
+        '''   Looks up a localized string similar to SubcategoryA.
         '''</summary>
         Friend Shared ReadOnly Property T_SUBCATEGORYA() As String
             Get
@@ -14746,7 +14782,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to SubcategoryB.
+        '''   Looks up a localized string similar to SubcategoryB.
         '''</summary>
         Friend Shared ReadOnly Property T_SUBCATEGORYB() As String
             Get
@@ -14755,7 +14791,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to SubcategoryC.
+        '''   Looks up a localized string similar to SubcategoryC.
         '''</summary>
         Friend Shared ReadOnly Property T_SUBCATEGORYC() As String
             Get
@@ -14764,7 +14800,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to SubcategoryD.
+        '''   Looks up a localized string similar to SubcategoryD.
         '''</summary>
         Friend Shared ReadOnly Property T_SUBCATEGORYD() As String
             Get
@@ -14773,7 +14809,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Sub Health Post.
+        '''   Looks up a localized string similar to Sub Health Post.
         '''</summary>
         Friend Shared ReadOnly Property T_SUBHEALTPOST() As String
             Get
@@ -14782,7 +14818,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Surgery.
+        '''   Looks up a localized string similar to Surgery.
         '''</summary>
         Friend Shared ReadOnly Property T_SURGERY() As String
             Get
@@ -14791,7 +14827,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Suspended.
+        '''   Looks up a localized string similar to Suspended.
         '''</summary>
         Friend Shared ReadOnly Property T_SUSPENDED() As String
             Get
@@ -14800,7 +14836,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Target date of provision of health care invalid.
+        '''   Looks up a localized string similar to Target date of provision of health care invalid.
         '''</summary>
         Friend Shared ReadOnly Property T_TARGETDATEOFPROVISIONHEALTHCAREINVALID() As String
             Get
@@ -14809,7 +14845,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Total Rejected Photos.
+        '''   Looks up a localized string similar to Total Rejected Photos.
         '''</summary>
         Friend Shared ReadOnly Property T_TOTALREJECTEDPHOTOS() As String
             Get
@@ -14818,7 +14854,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Unmatched.
+        '''   Looks up a localized string similar to Unmatched.
         '''</summary>
         Friend Shared ReadOnly Property T_UNMATCHED() As String
             Get
@@ -14827,7 +14863,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Upload/Download Registers.
+        '''   Looks up a localized string similar to Upload/Download Registers.
         '''</summary>
         Friend Shared ReadOnly Property T_UPLOADDOWNLOADREGISTERS() As String
             Get
@@ -14836,7 +14872,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Activity Report.
+        '''   Looks up a localized string similar to User Activity Report.
         '''</summary>
         Friend Shared ReadOnly Property T_USERACTIVITYREPORT() As String
             Get
@@ -14845,7 +14881,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to User Name.
+        '''   Looks up a localized string similar to User Name.
         '''</summary>
         Friend Shared ReadOnly Property T_USERNAME() As String
             Get
@@ -14854,7 +14890,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Valuated.
+        '''   Looks up a localized string similar to Valuated.
         '''</summary>
         Friend Shared ReadOnly Property T_VALUATED() As String
             Get
@@ -14863,7 +14899,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Visit.
+        '''   Looks up a localized string similar to Visit.
         '''</summary>
         Friend Shared ReadOnly Property T_VISIT() As String
             Get
@@ -14872,7 +14908,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Widowed.
+        '''   Looks up a localized string similar to Widowed.
         '''</summary>
         Friend Shared ReadOnly Property T_WIDOWED() As String
             Get
@@ -14881,7 +14917,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Woman.
+        '''   Looks up a localized string similar to Woman.
         '''</summary>
         Friend Shared ReadOnly Property T_WOMAN() As String
             Get
@@ -14890,7 +14926,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to --Year--.
+        '''   Looks up a localized string similar to --Year--.
         '''</summary>
         Friend Shared ReadOnly Property T_YEAR() As String
             Get
@@ -14899,7 +14935,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Yes.
+        '''   Looks up a localized string similar to Yes.
         '''</summary>
         Friend Shared ReadOnly Property T_YES() As String
             Get
@@ -14908,7 +14944,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select the Birth date..
+        '''   Looks up a localized string similar to Please select the Birth date..
         '''</summary>
         Friend Shared ReadOnly Property V_BIRTHDATE() As String
             Get
@@ -14917,7 +14953,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please state if a Beneficiary Card has been issued..
+        '''   Looks up a localized string similar to Please state if a Beneficiary Card has been issued..
         '''</summary>
         Friend Shared ReadOnly Property V_CARD() As String
             Get
@@ -14926,7 +14962,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select Insurance Number..
+        '''   Looks up a localized string similar to Please select Insurance Number..
         '''</summary>
         Friend Shared ReadOnly Property V_CHFID() As String
             Get
@@ -14935,7 +14971,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Confirm password does not match.
+        '''   Looks up a localized string similar to Confirm password does not match.
         '''</summary>
         Friend Shared ReadOnly Property V_CONFIRMPASSWORD() As String
             Get
@@ -14944,7 +14980,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a District..
+        '''   Looks up a localized string similar to Please select a District..
         '''</summary>
         Friend Shared ReadOnly Property V_DISTRICT() As String
             Get
@@ -14953,7 +14989,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select Gender..
+        '''   Looks up a localized string similar to Please select Gender..
         '''</summary>
         Friend Shared ReadOnly Property V_GENDER() As String
             Get
@@ -14962,7 +14998,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter Last Name.
+        '''   Looks up a localized string similar to Please enter Last Name.
         '''</summary>
         Friend Shared ReadOnly Property V_LASTNAME() As String
             Get
@@ -14971,7 +15007,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select Marital Status.
+        '''   Looks up a localized string similar to Please select Marital Status.
         '''</summary>
         Friend Shared ReadOnly Property V_MARITAL() As String
             Get
@@ -14980,7 +15016,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please enter Given Names..
+        '''   Looks up a localized string similar to Please enter Given Names..
         '''</summary>
         Friend Shared ReadOnly Property V_OTHERNAMES() As String
             Get
@@ -14989,7 +15025,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Password is required.
+        '''   Looks up a localized string similar to Password is required.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORDREQUIRED() As String
             Get
@@ -14998,7 +15034,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to including.
+        '''   Looks up a localized string similar to including.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_INCLUDING() As String
             Get
@@ -15007,7 +15043,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to at least one lower case letter.
+        '''   Looks up a localized string similar to at least one lower case letter.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_LOWER_CASE() As String
             Get
@@ -15016,7 +15052,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to at least.
+        '''   Looks up a localized string similar to at least.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_MIN_LENGTH_PREFIX() As String
             Get
@@ -15025,7 +15061,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to characters.
+        '''   Looks up a localized string similar to characters.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_MIN_LENGTH_SUFFIX() As String
             Get
@@ -15034,7 +15070,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to at least one number.
+        '''   Looks up a localized string similar to at least one number.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_NUMBER() As String
             Get
@@ -15043,7 +15079,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Password must contain.
+        '''   Looks up a localized string similar to Password must contain.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_PREFIX() As String
             Get
@@ -15052,7 +15088,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to at least one special symbol.
+        '''   Looks up a localized string similar to at least one special symbol.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_SPECIAL_SYMBOL() As String
             Get
@@ -15061,7 +15097,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to at least one upper case letter.
+        '''   Looks up a localized string similar to at least one upper case letter.
         '''</summary>
         Friend Shared ReadOnly Property V_PASSWORD_UPPER_CASE() As String
             Get
@@ -15070,7 +15106,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select if the Family/Group has poverty Status..
+        '''   Looks up a localized string similar to Please select if the Family/Group has poverty Status..
         '''</summary>
         Friend Shared ReadOnly Property V_POVERTY() As String
             Get
@@ -15079,7 +15115,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a Product Code.
+        '''   Looks up a localized string similar to Please select a Product Code.
         '''</summary>
         Friend Shared ReadOnly Property V_PRODUCTCODE() As String
             Get
@@ -15088,7 +15124,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a Product Name.
+        '''   Looks up a localized string similar to Please select a Product Name.
         '''</summary>
         Friend Shared ReadOnly Property V_PRODUCTNAME() As String
             Get
@@ -15097,7 +15133,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select at least one care type.
+        '''   Looks up a localized string similar to Please select at least one care type.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTCARETYPE() As String
             Get
@@ -15106,7 +15142,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select at least one District.
+        '''   Looks up a localized string similar to Please select at least one District.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTDISTRICT() As String
             Get
@@ -15115,7 +15151,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select at least one patient.
+        '''   Looks up a localized string similar to Please select at least one patient.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTPATIENT() As String
             Get
@@ -15124,7 +15160,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select at least one role.
+        '''   Looks up a localized string similar to Please select at least one role.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTROLE() As String
             Get
@@ -15133,7 +15169,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Select Type.
+        '''   Looks up a localized string similar to Select Type.
         '''</summary>
         Friend Shared ReadOnly Property V_SELECTTYPE() As String
             Get
@@ -15142,7 +15178,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please check fields marked with an asterisk (*)..
+        '''   Looks up a localized string similar to Please check fields marked with an asterisk (*)..
         '''</summary>
         Friend Shared ReadOnly Property V_SUMMARY() As String
             Get
@@ -15151,7 +15187,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a Village.
+        '''   Looks up a localized string similar to Please select a Village.
         '''</summary>
         Friend Shared ReadOnly Property V_VILLAGE() As String
             Get
@@ -15160,7 +15196,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Please select a Municipality..
+        '''   Looks up a localized string similar to Please select a Municipality..
         '''</summary>
         Friend Shared ReadOnly Property V_WARD() As String
             Get
@@ -15169,7 +15205,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to We could not send email. Please try again later..
+        '''   Looks up a localized string similar to We could not send email. Please try again later..
         '''</summary>
         Friend Shared ReadOnly Property X_EMAILSENTFAIL() As String
             Get
@@ -15178,7 +15214,7 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Manual/IMIS_manual.pdf.
+        '''   Looks up a localized string similar to Manual/IMIS_manual.pdf.
         '''</summary>
         Friend Shared ReadOnly Property X_MANUAL() As String
             Get
