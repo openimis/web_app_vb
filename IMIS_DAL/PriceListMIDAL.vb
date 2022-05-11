@@ -79,25 +79,43 @@ Public Class PriceListMIDAL
         Return data.Filldata
     End Function
 
-    Public Function GetPriceListDistrictMI(ByVal userid As Integer, ByVal DistrictId As Integer) As DataTable
+    Public Function GetPriceListDistrictMI(ByVal userid As Integer, ByVal DistrictName As String) As DataTable
         Dim data As New ExactSQL
 
-        'data.setSQLCommand("select PLItemID,PLItemName from tblPLItems left join  tblUsersDistricts on tblUsersDistricts.LocationId = tblPLItems.Locationid and @UserId = tblUsersDistricts.userid where (tblplitems.LocationId = @LocationId or tblplitems.LocationId is null) and tblusersdistricts.validityto is null and tblplitems.validityto is null order by PLItemName", CommandType.Text)
         Dim sSQL As String = String.Empty
         sSQL += " SELECT PLItemID,PLItemName FROM tblPLItems  PL"
-        sSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(PL.LocationId, 0)"
+        sSQL += " INNER JOIN uvwLocations L ON L.DistrictName=@DistrictName"
         sSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
         sSQL += " WHERE PL.ValidityTo IS NULL"
         sSQL += " AND UD.ValidityTo IS NULL"
-        sSQL += " AND L.DistrictId = @DistrictId"
-        sSQL += " ORDER BY L.ParentLocationId"
+        sSQL += " AND L.WardName is NULL"
 
         data.setSQLCommand(sSQL, CommandType.Text)
 
         data.params("@UserID", SqlDbType.Int, userid)
-        data.params("@DistrictId", SqlDbType.Int, DistrictId)
+        data.params("@DistrictName", SqlDbType.VarChar, 50, CType(DistrictName, String))
         Return data.Filldata
     End Function
+
+
+    ' Detached district pricelist from HF's
+    Public Sub DetachLocalItemPriceListFromHF(ByVal UserId As Integer, ByVal DistrictName As String)
+        Dim data As New ExactSQL
+        Dim SSQL As String = String.Empty
+
+        SSQL = " UPDATE tblHF SET PLItemID=NULL WHERE PLItemID In ("
+        SSQL += " SELECT PLItemID FROM tblPLItems  PL"
+        SSQL += " INNER JOIN uvwLocations L ON L.DistrictName=@DistrictName"
+        SSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
+        SSQL += " WHERE PL.ValidityTo IS NULL"
+        SSQL += " AND UD.ValidityTo IS NULL"
+        SSQL += " AND L.WardName is NULL)"
+
+        data.setSQLCommand(SSQL, CommandType.Text)
+        data.params("@UserID", SqlDbType.Int, UserId)
+        data.params("@DistrictName", SqlDbType.VarChar, 50, CType(DistrictName, String))
+        data.Filldata()
+    End Sub
 
     'Corrected
     Public Function GetPLItems(ByVal ePL As IMIS_EN.tblPLItems, ByVal All As Boolean) As DataTable

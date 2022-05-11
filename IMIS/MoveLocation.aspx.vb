@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Net
+Imports Newtonsoft.Json
 Public Class MoveLocation
     Inherits System.Web.UI.Page
     Protected imisgen As New IMIS_Gen
@@ -60,6 +62,23 @@ Public Class MoveLocation
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
+            If IsPostBack = True Then
+                If Request.Params.Get("__EVENTARGUMENT").ToString = "MoveDelete" Then
+                    Try
+                        Dim deserializedArgs = JsonConvert.DeserializeObject(Request.Params.Get("__EVENTARGUMENT").ToString)
+                    Catch ex As Exception
+                        Debug.WriteLine(ex.ToString)
+                    End Try
+                    'Debug.WriteLine(deserializedArgs)
+                    'Dim bolID = deserializedArgs.bolID
+                    'Dim controlID = deserializedArgs.controlID
+                    Debug.WriteLine(Request.Params)
+                    Debug.WriteLine(Request.Params)
+                    Debug.WriteLine(Request.Params)
+                    removeDistrictPricelist()
+                    MoveDistrict(Request.Params.Get("__EVENTARGUMENT").ToString, Request.Params.Get("__EVENTARGUMENT").ToString)
+                End If
+            End If
             AuditUserId = imisgen.getUserId(Session("User"))
             lblMsg.Text = ""
             If IsPostBack = True Then Return
@@ -242,17 +261,46 @@ Public Class MoveLocation
         LoadGrids(1)
         LoadGrids(2)
     End Sub
-    Private Sub ImgBtnMoveDistrict_Click(sender As Object, e As ImageClickEventArgs) Handles ImgBtnMoveDistrict.Click
+
+    Private Function isDistrictsPricelistConflict() As Boolean
+        Dim temp = gvDistricts.SelectedDataKey.Values("DistrictName")
+        Dim dtPricelistsItems As DataTable = PricelistsItems.GetPriceListDistrictMI(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"), False)
+        Dim dtPricelistsServices As DataTable = PricelistsServices.GetPriceListDistrictMS(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"), False)
+
+        If dtPricelistsItems.Rows.Count > 0 Or dtPricelistsServices.Rows.Count > 0 Then
+            'imisgen.Alert(imisgen.getMessage("M_MOVEDISTRICTSPLWARNING"), pnlRegions, alertPopupTitle:=imisgen.getMessage("M_MOVEDISTRICTSPLWARNINGLABEL"))
+            Return True
+        End If
+        Return False
+    End Function
+
+    Private Function removeDistrictPricelist() As Boolean
+        If isDistrictsPricelistConflict() = True Then
+            PricelistsServices.DetachPriceListDistrictMS(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"))
+            PricelistsItems.DetachPriceListDistrictMI(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"))
+        End If
+    End Function
+    Private Sub MoveDistrict(ByVal RegionID, ByVal DistrictID) Handles ImgBtnMoveDistrict.Click
         Dim ErrorMessage As Integer = 0
         Dim Msg As String = ""
         ' Check for local pricelist - if there is pricelist defined on a district level, block the move.
-        Dim dtPricelistsItems As DataTable = PricelistsItems.GetPriceListDistrictMI(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"), False)
-        Dim dtPricelistsServices As DataTable = PricelistsServices.GetPriceListDistrictMS(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"), False)
+        'Dim dtPricelistsItems As DataTable = PricelistsItems.GetPriceListDistrictMI(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"), False)
+        'Dim dtPricelistsServices As DataTable = PricelistsServices.GetPriceListDistrictMS(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"), False)
 
-        If dtPricelistsItems.Rows.Count > 0 Or dtPricelistsServices.Rows.Count > 0 Then
-            imisgen.Alert(imisgen.getMessage("M_MOVEDISTRICTSPLWARNING"), pnlRegions, alertPopupTitle:=imisgen.getMessage("M_MOVEDISTRICTSPLWARNINGLABEL"))
-            Exit Sub
-        End If
+        'If dtPricelistsItems.Rows.Count > 0 Or dtPricelistsServices.Rows.Count > 0 Then
+        'imisgen.Alert(imisgen.getMessage("M_MOVEDISTRICTSPLWARNING"), pnlRegions, alertPopupTitle:=imisgen.getMessage("M_MOVEDISTRICTSPLWARNINGLABEL"))
+        'PricelistsServices.DetachPriceListDistrictMS(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"))
+        'PricelistsItems.DetachPriceListDistrictMI(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"))
+        'Exit Sub
+        'End If
+        'If Post = True Then
+        'PricelistsServices.DetachPriceListDistrictMS(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"))
+        'PricelistsItems.DetachPriceListDistrictMI(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"))
+        'End If
+        'If isDistrictsPricelistConflict() = True Then
+        ' PricelistsServices.DetachPriceListDistrictMS(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"))
+        ' PricelistsItems.DetachPriceListDistrictMI(imisgen.getUserId(Session("User")), ViewState("SelectedDistrict"))
+        ' End If
         If ViewState("SelectedRegion") Is Nothing AndAlso ViewState("SelectedDistrict") Is Nothing Then
             Msg = imisgen.getMessage("M_PLEASESELECT") & " " & imisgen.getMessage("L_DISTRICT") & " " & imisgen.getMessage("m_AND") & " " & imisgen.getMessage("L_REGION")
             lblMsg.Text = Msg

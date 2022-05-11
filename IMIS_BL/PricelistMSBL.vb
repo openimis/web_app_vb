@@ -72,9 +72,9 @@ Public Class PricelistMSBL
 
     End Function
 
-    Public Function GetPriceListDistrictMS(ByVal UserId As Integer, ByVal DistrictId As Integer, ByVal ShowSelectRow As Boolean) As DataTable
+    Public Function GetPriceListDistrictMS(ByVal UserId As Integer, ByVal DistrictName As String, ByVal ShowSelectRow As Boolean) As DataTable
         Dim GetDataTable As New IMIS_DAL.PricelistMSDAL
-        Dim dtbl As DataTable = GetDataTable.GetPriceListDistrictMS(UserId, DistrictId)
+        Dim dtbl As DataTable = GetDataTable.GetPriceListDistrictMS(UserId, DistrictName)
         If ShowSelectRow = True Then
             Dim dr As DataRow = dtbl.NewRow
             dr("PLServiceId") = 0
@@ -82,8 +82,12 @@ Public Class PricelistMSBL
             dtbl.Rows.InsertAt(dr, 0)
         End If
         Return dtbl
-
     End Function
+
+    Public Sub DetachPriceListDistrictMS(ByVal UserId As Integer, ByVal DistrictName As String)
+        Dim PLMS As New IMIS_DAL.PricelistMSDAL
+        PLMS.DetachLocalServicePriceListFromHF(UserId, DistrictName)
+    End Sub
     Public Sub SavePLServicesDetail(ByVal ePLServicesDetail As IMIS_EN.tblPLServicesDetail, ByVal action As Integer)
         Dim Item As New IMIS_DAL.PricelistMSDAL
         If action = 0 Then

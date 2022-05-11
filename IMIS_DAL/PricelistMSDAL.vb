@@ -61,24 +61,41 @@ Public Class PricelistMSDAL
         Return data.Filldata
     End Function
 
-    Public Function GetPriceListDistrictMS(ByVal UserId As Integer, ByVal DistrictId As Integer) As DataTable
+    Public Function GetPriceListDistrictMS(ByVal UserId As Integer, ByVal DistrictName As String) As DataTable
         Dim data As New ExactSQL
         Dim SSQL As String = String.Empty
-        'data.setSQLCommand("select PLServiceID,PLServName from tblPLServices left join  tblUsersDistricts on tblUsersDistricts.LocationId = tblPLServices.LocationId and @UserId = tblUsersDistricts.userid where (tblplservices.LocationId = @LocationId or tblplservices.LocationId IS NULL) and tblusersdistricts.validityto is null and tblplservices.validityto is null order by PLServName", CommandType.Text)
 
         SSQL = " SELECT PLServiceID,PLServName FROM tblPLServices PL"
-        SSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(PL.LocationId, 0)"
+        SSQL += " INNER JOIN uvwLocations L ON L.DistrictName=@DistrictName"
         SSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
         SSQL += " WHERE PL.ValidityTo IS NULL"
         SSQL += " AND UD.ValidityTo IS NULL"
-        SSQL += " AND L.LocationId = @DistrictId"
-        SSQL += " ORDER BY L.ParentLocationId"
+        SSQL += " AND L.WardName is NULL"
 
         data.setSQLCommand(SSQL, CommandType.Text)
         data.params("@UserID", SqlDbType.Int, UserId)
-        data.params("@DistrictId", SqlDbType.Int, DistrictId)
+        data.params("@DistrictName", SqlDbType.VarChar, 50, CType(DistrictName, String))
         Return data.Filldata
     End Function
+
+    ' Detached district pricelist from HF's
+    Public Sub DetachLocalServicePriceListFromHF(ByVal UserId As Integer, ByVal DistrictName As String)
+        Dim data As New ExactSQL
+        Dim SSQL As String = String.Empty
+
+        SSQL = " UPDATE tblHF SET PLServiceID=NULL WHERE PLItemID In ("
+        SSQL += " SELECT PLServiceID FROM tblPLServices PL"
+        SSQL += " INNER JOIN uvwLocations L ON L.DistrictName=@DistrictName"
+        SSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
+        SSQL += " WHERE PL.ValidityTo IS NULL"
+        SSQL += " AND UD.ValidityTo IS NULL"
+        SSQL += " AND L.WardName is NULL)"
+
+        data.setSQLCommand(SSQL, CommandType.Text)
+        data.params("@UserID", SqlDbType.Int, UserId)
+        data.params("@DistrictName", SqlDbType.VarChar, 50, CType(DistrictName, String))
+        data.Filldata()
+    End Sub
 
     'Corrected  
     Public Function GetPriceListMS(ByVal UserId As Integer, Optional ByVal All As Boolean = True) As DataTable
