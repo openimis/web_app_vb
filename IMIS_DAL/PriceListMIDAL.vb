@@ -105,9 +105,10 @@ Public Class PriceListMIDAL
 
         SSQL = " UPDATE tblHF SET PLItemID=NULL WHERE PLItemID In ("
         SSQL += " SELECT PLItemID FROM tblPLItems  PL"
-        SSQL += " INNER JOIN uvwLocations L ON L.DistrictName=@DistrictName"
-        SSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
+        SSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(PL.LocationId, 0)"
+        SSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId"
         SSQL += " WHERE PL.ValidityTo IS NULL"
+        SSQL += " AND L.DistrictName=@DistrictName"
         SSQL += " AND UD.ValidityTo IS NULL"
         SSQL += " AND L.WardName is NULL)"
 

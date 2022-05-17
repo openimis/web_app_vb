@@ -104,7 +104,7 @@
         function showMoveDistrictPopup() {
             popup.acceptBTN_Text = '<%#imisgen.getMessage("L_YES", True)%>';
             popup.rejectBTN_Text = '<%#imisgen.getMessage("L_NO", True)%>';
-            popup.confirm('Do you want to move district and delete all local pricelists?', DoMoveDistrictPostBack);
+            popup.confirm('<%#imisgen.getMessage("M_MOVEDISTRICTSPLWARNING", True)%>', DoMoveDistrictPostBack);
             return false;
         }
 
@@ -115,7 +115,7 @@
 
         function DoMoveDistrictPostBack(btn, args) {
             if (btn == "ok") {
-                __doPostBack('MoveDelete', JSON.stringify({ SelectedDistrictName: bolID, SelectedRegionName: controlID }));
+                __doPostBack('', 'MoveDelete');
             }
         }
 

@@ -5172,10 +5172,7 @@ adults/children)
     <value>Security Warning</value>
   </data>
   <data name="M_MOVEDISTRICTSPLWARNING" xml:space="preserve">
-    <value>Moving a district is not possible - there are pricelists connected to this district. Please remove them first.</value>
-  </data>
-  <data name="M_MOVEDISTRICTSPLWARNINGLABEL" xml:space="preserve">
-    <value>Local pricelists detected.</value>
+    <value>Do you want to move district and detach all local pricelists from health facilities?</value>
   </data>
 </root>
 

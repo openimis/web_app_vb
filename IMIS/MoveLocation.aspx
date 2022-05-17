@@ -61,12 +61,12 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                 
 
-            $("body").click(function (eve) {
-                if ($(eve.target).is(".LocationsButton,#LocationEditPanel,#LocationEditPanel input")) return;
-                $("#LocationEditPanel").slideUp(0);
-            });
+                $("body").click(function (eve) {
+                    if ($(eve.target).is(".LocationsButton,#LocationEditPanel,#LocationEditPanel input")) return;
+                    $("#LocationEditPanel").slideUp(0);
+                });
 
-            //});
+            });
 
             function pageLoadExtend() {
                 selectAppropriateRow();
@@ -128,7 +128,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
     } else
         $row = $gv.find("tr.srs").eq(0);
 }
-       </script>
+</script>
 
 <style type="text/css">
 #LocationEditPanel{display:none;position:relative;width:100%;padding:10px;padding-top:10px;padding-top:10px;}
