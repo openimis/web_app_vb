@@ -61,13 +61,14 @@ Public Class MoveLocation
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             lblMsg.Text = ""
+            AuditUserId = imisgen.getUserId(Session("User"))
             If IsPostBack = True Then
                 If Request.Params.Get("__EVENTARGUMENT").ToString = "MoveDelete" Then
-                    MoveDistrict(Request.Params.Get("__EVENTARGUMENT").ToString, Request.Params.Get("__EVENTARGUMENT").ToString)
+                    MoveDistrict()
                 End If
+                Return
             End If
-            AuditUserId = imisgen.getUserId(Session("User"))
-            If IsPostBack = True Then Return
+            'If IsPostBack = True Then Return
             GetRegions()
             LoadGrids(0)
         Catch ex As Exception
@@ -265,7 +266,7 @@ Public Class MoveLocation
             PricelistsItems.DetachPriceListDistrictMI(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"))
         End If
     End Function
-    Private Sub MoveDistrict(ByVal RegionID, ByVal DistrictID) Handles ImgBtnMoveDistrict.Click
+    Private Sub MoveDistrict() Handles ImgBtnMoveDistrict.Click
         Dim ErrorMessage As Integer = 0
         Dim Msg As String = ""
         removeDistrictPricelist()
