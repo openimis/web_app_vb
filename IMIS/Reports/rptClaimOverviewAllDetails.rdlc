@@ -1503,8 +1503,8 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Parameters!paramItemQty.Value</Value>
-                                                    <Style>
+                                                    <Value>=Fields!OrgQtyItem.Value</Value>
+													  <Style>
                                                       <FontSize>6pt</FontSize>
                                                     </Style>
                                                   </TextRun>
@@ -1533,7 +1533,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!OrgQtyItem.Value)</Value>
+                                                    <Value>=Fields!ItemQtyApproved.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                     </Style>
@@ -2107,7 +2107,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Parameters!paramServiceQty.Value</Value>
+                                                    <Value>=Fields!OrgQtyService.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                     </Style>
@@ -2137,7 +2137,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!ServiceQtyApproved.Value)</Value>
+                                                    <Value>=Fields!ServiceQtyApproved.Value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
