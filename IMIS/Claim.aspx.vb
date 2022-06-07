@@ -537,7 +537,9 @@ Partial Public Class Claim
         Return "Continue"
     End Function
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
+        Dim eClaimBeforeRestore As New IMIS_EN.tblClaim
         Dim chkSaveClaimItems, chkSaveClaim, chkSaveClaimServices As Integer
+        Dim oldClaimId As Integer
         eClaim.ClaimID = hfClaimID.Value
         If CType(Me.Master.FindControl("hfDirty"), HiddenField).Value = True Then
 
@@ -550,6 +552,10 @@ Partial Public Class Claim
                     'Added by Salumu 05092019 setting claim status to entered, review and feedback to idle for rejected claims
                     'Starts
                     If CInt(Session("RestoreMode")) = True Then
+                        'In all cases for restoring claims the initial claim must be unchanged'
+                        'eClaimBeforeRestore = eClaim'
+                        oldClaimId = eClaim.ClaimID
+                        eClaim.ClaimID = 0
                         If Not eClaim.ClaimStatus = 1 Then
                             eClaim.ClaimStatus = 2
                             eClaim.ReviewStatus = 1
@@ -762,6 +768,43 @@ Partial Public Class Claim
                     End If
                 End If
             Next
+
+            'get items/services - copy to new restored claim'
+            If CInt(Session("RestoreMode")) = True Then
+                Dim eClaimItemsCopied As New IMIS_EN.tblClaimItems
+                Dim eClaimServicesCopied As New IMIS_EN.tblClaimServices
+                Dim eItemCopied As New IMIS_EN.tblItems
+                Dim eServiceCopied As New IMIS_EN.tblServices
+
+                Dim ds As New DataSet
+                Dim dt As DataTable
+
+                ds = claim.getClaimServiceAndItems(oldClaimId)
+                dt = ds.Tables("ClaimedServices")
+                For Each row As DataRow In dt.Rows
+                    eClaimServicesCopied.tblClaim = eClaim
+                    eClaimServicesCopied.tblServices = eServiceCopied
+                    eClaimServicesCopied.tblServices.ServiceID = row.Item("ServiceID")
+                    eClaimServicesCopied.QtyProvided = row.Item("QtyProvided")
+                    eClaimServicesCopied.PriceAsked = row.Item("PriceAsked")
+                    eClaimServicesCopied.Explanation = row.Item("Explanation")
+                    eClaimServicesCopied.AuditUserID = eClaim.AuditUserID
+                    chkSaveClaimServices = claim.SaveClaimServices(eClaimServicesCopied)
+                Next row
+
+                dt = ds.Tables("ClaimedItems")
+                For Each row As DataRow In dt.Rows
+                    eClaimItemsCopied.tblClaim = eClaim
+                    eClaimItemsCopied.tblItems = eItemCopied
+                    eClaimItemsCopied.tblItems.ItemID = row.Item("ItemID")
+                    eClaimItemsCopied.QtyProvided = row.Item("QtyProvided")
+                    eClaimItemsCopied.PriceAsked = row.Item("PriceAsked")
+                    eClaimItemsCopied.Explanation = row.Item("Explanation")
+                    eClaimItemsCopied.AuditUserID = eClaim.AuditUserID
+                    chkSaveClaimItems = claim.SaveClaimItems(eClaimItemsCopied)
+                Next row
+
+            End If
 
             ServiceItemGridBinding()
             AfterSaveMessages(chkSaveClaim, chkSaveClaimItems, chkSaveClaimServices)
@@ -980,12 +1023,16 @@ Partial Public Class Claim
             Session("RestoreMode") = RestoreMode
             If Session("RestoreMode") = True Then
                 Dim claimCodePrefix As String = IMIS_EN.AppConfiguration.ClaimCodePrefix
-                If Not claimCodePrefix Is Nothing Then
-                    txtCLAIMCODEData.Text = claimCodePrefix + eClaim.ClaimCode
+                If eClaim.ClaimStatus = 1 Then
+                    If Not claimCodePrefix Is Nothing Then
+                        txtCLAIMCODEData.Text = claimCodePrefix + eClaim.ClaimCode
+                    Else
+                        txtCLAIMCODEData.Text = "@" + eClaim.ClaimCode
+                    End If
+                    btnRestore.Visible = False
                 Else
-                    txtCLAIMCODEData.Text = "@" + eClaim.ClaimCode
+                    txtCLAIMCODEData.Text = ""
                 End If
-                btnRestore.Visible = False
             End If
         Catch ex As Exception
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
