@@ -537,7 +537,6 @@ Partial Public Class Claim
         Return "Continue"
     End Function
     Private Sub B_SAVE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_SAVE.Click
-        Dim eClaimBeforeRestore As New IMIS_EN.tblClaim
         Dim chkSaveClaimItems, chkSaveClaim, chkSaveClaimServices As Integer
         Dim oldClaimId As Integer
         eClaim.ClaimID = hfClaimID.Value
@@ -553,7 +552,6 @@ Partial Public Class Claim
                     'Starts
                     If CInt(Session("RestoreMode")) = True Then
                         'In all cases for restoring claims the initial claim must be unchanged'
-                        'eClaimBeforeRestore = eClaim'
                         oldClaimId = eClaim.ClaimID
                         eClaim.ClaimID = 0
                         If Not eClaim.ClaimStatus = 1 Then
