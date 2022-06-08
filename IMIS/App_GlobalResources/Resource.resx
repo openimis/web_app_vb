@@ -5171,5 +5171,8 @@ adults/children)
   <data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
     <value>Security Warning</value>
   </data>
+  <data name="M_MOVEDISTRICTSPLWARNING" xml:space="preserve">
+    <value>Do you want to move district and detach all local pricelists from health facilities?</value>
+  </data>
 </root>
 

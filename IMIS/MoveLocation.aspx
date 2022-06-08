@@ -389,7 +389,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 
                                </td>
                                <td style='width: 30px !important'>
-                                   <asp:ImageButton ID="ImgBtnMoveDistrict" ImageUrl="~/Images/GoLtr.bmp" runat="server" /></td>
+                                   <asp:ImageButton ID="ImgBtnMoveDistrict" ImageUrl="~/Images/GoLtr.bmp" runat="server" OnClientClick="return showMoveDistrictPopup();"/></td>
                                <td>
                                    <asp:Panel ID="pnlRegions" runat="server" ScrollBars="Auto" CssClass="panel" Height="495px"  Width="200px" style="overflow-x: hidden !important;">
 
