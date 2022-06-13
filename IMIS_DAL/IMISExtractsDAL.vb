@@ -548,7 +548,7 @@ Public Class IMISExtractsDAL
     End Function
     Public Sub SubmitClaimFromXML(ByVal Xml As XmlDocument)
         Dim data As New ExactSQL
-        Dim sSQL As String = "uspUpdateClaimFromPhone"
+        Dim sSQL As String = "uspRestApiUpdateClaimFromPhone"
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@XML", Xml.InnerXml)
