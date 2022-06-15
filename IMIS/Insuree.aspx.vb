@@ -27,6 +27,7 @@
 '
 
 Imports System.IO
+Imports System.Reflection
 
 Partial Public Class Insuree
     Inherits System.Web.UI.Page
@@ -63,7 +64,7 @@ Partial Public Class Insuree
         'Current District
         Adjustibility = General.getControlSetting("CurrentDistrict")
         trCurrentDistrict.Visible = Not (Adjustibility = "N")
-        trCurrentRegion.visible = Not (Adjustibility = "N")
+        trCurrentRegion.Visible = Not (Adjustibility = "N")
         rfCurrentDistrict.Enabled = (Adjustibility = "M")
         rfCurrentRegion.Enabled = (Adjustibility = "M")
 
@@ -545,6 +546,9 @@ Partial Public Class Insuree
             End If
             hfCheckMaxInsureeCount.Value = 0
             hfOK.Value = 0
+
+            eInsuree.Source = "Legacy"
+            eInsuree.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
             Dim Activate As Boolean = If(hfActivate.Value = 0, False, True)
 
