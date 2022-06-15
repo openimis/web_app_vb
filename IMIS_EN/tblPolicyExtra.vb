@@ -35,4 +35,8 @@ Partial Public Class tblPolicy
     Public Property StartDateTo As Date?
     Public Property EffectiveDateFrom As Date?
     Public Property EffectiveDateTo As Date?
+    Public Property Source As String
+
+    Public Property SourceVersion As String
+
 End Class
