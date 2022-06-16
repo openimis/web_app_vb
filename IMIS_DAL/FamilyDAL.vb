@@ -435,11 +435,13 @@ Public Class FamilyDAL
         Dim str As String = "insert into tblFamilies ([insureeid],LocationId, [Poverty], [ConfirmationType],isOffline,[ValidityFrom],[ValidityTo]," &
                             "[LegacyID],[AuditUserID],[Ethnicity], [ConfirmationNo], Source, SourceVersion)select [insureeid],LocationId,[Poverty], [ConfirmationType],isOffline,[ValidityFrom],getdate()," &
                             " @FamilyID, [AuditUserID],Ethnicity, [ConfirmationNo], Source, SourceVersion from tblFamilies where FamilyID = @FamilyID AND ValidityTo IS NULL;" &
-                            " update [tblFamilies] set [ValidityFrom]=GETDATE(),[ValidityTo]=GETDATE(),[AuditUserID] = @AuditUserID where FamilyID = @FamilyID AND ValidityTo IS NULL"
+                            " update [tblFamilies] set [ValidityFrom]=GETDATE(),[ValidityTo]=GETDATE(),[AuditUserID] = @AuditUserID, Source = @Source, SourceVersion = @SourceVersion where FamilyID = @FamilyID AND ValidityTo IS NULL"
 
         data.setSQLCommand(str, CommandType.Text)
         data.params("@FamilyID", SqlDbType.Int, eFamily.FamilyID)
         data.params("@AuditUserID", SqlDbType.Int, eFamily.AuditUserID)
+        data.params("@Source", SqlDbType.NVarChar, 50, eFamily.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eFamily.SourceVersion)
         data.ExecuteCommand()
         Return True
     End Function

@@ -349,6 +349,9 @@ Partial Public Class Premium
                 ePremium.Source = "Legacy"
                 ePremium.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
+                ePremium.tblPolicy.Source = ePremium.Source
+                ePremium.tblPolicy.SourceVersion = ePremium.SourceVersion
+
                 Dim chk As Integer = Premium.SavePremium(ePremium, IMIS_Gen.offlineHF)
                 If chk = 0 Then
                     Session("msg") = imisgen.getMessage("L_PREMIUM") & " " & imisgen.getMessage("M_Inserted")

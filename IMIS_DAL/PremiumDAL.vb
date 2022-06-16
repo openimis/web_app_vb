@@ -280,8 +280,8 @@ Public Class PremiumDAL
     End Function
     Public Function InsertPremium(ByRef ePremium As IMIS_EN.tblPremium) As Boolean
         Dim data As New ExactSQL
-        Dim sSQL As String = "INSERT INTO tblPremium (PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, AuditUserID,isPhotoFee)" & _
-                    " VALUES (@PolicyID, @PayerID, @Amount, @Receipt, @PayDate, @PayType,@isOffline, @AuditUserID,@isPhotoFee);SET @PremiumID = SCOPE_IDENTITY()"
+        Dim sSQL As String = "INSERT INTO tblPremium (PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, AuditUserID,isPhotoFee, Source, SourceVersion)" &
+                    " VALUES (@PolicyID, @PayerID, @Amount, @Receipt, @PayDate, @PayType,@isOffline, @AuditUserID,@isPhotoFee, @Source, @SourceVersion);SET @PremiumID = SCOPE_IDENTITY()"
         data.setSQLCommand(sSQL, CommandType.Text)
 
         data.params("PolicyID", SqlDbType.Int, ePremium.tblPolicy.PolicyID)
@@ -294,7 +294,8 @@ Public Class PremiumDAL
         data.params("AuditUserID", SqlDbType.Int, ePremium.AuditUserID)
         data.params("@PremiumID", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@isPhotoFee", SqlDbType.Bit, ePremium.isPhotoFee)
-
+        data.params("@Source", SqlDbType.NVarChar, 50, ePremium.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, ePremium.SourceVersion)
         data.ExecuteCommand()
 
         ePremium.PremiumId = data.sqlParameters("@PremiumID")
@@ -303,10 +304,10 @@ Public Class PremiumDAL
     End Function
     Public Function UpdatePremium(ByRef ePremium As IMIS_EN.tblPremium)
         Dim data As New ExactSQL
-        Dim str As String = "INSERT INTO tblPremium (PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, ValidityTo, LegacyID, AuditUserID,isPhotoFee)" _
-                   & " SELECT PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, getDate(), @PremiumID, AuditUserID,isPhotoFee from tblPremium where PremiumID = @PremiumID;" _
+        Dim str As String = "INSERT INTO tblPremium (PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, ValidityTo, LegacyID, AuditUserID,isPhotoFee, Source, SourceVersion)" _
+                   & " SELECT PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, getDate(), @PremiumID, AuditUserID,isPhotoFee, Source, SourceVersion from tblPremium where PremiumID = @PremiumID;" _
                 & "UPDATE tblPremium set PolicyID=@PolicyID, PayerID=@PayerID, Amount=@Amount, Receipt=@Receipt, PayDate=@PayDate, PayType=@PayType" _
-                & ",isOffline=@isOffline,ValidityFrom=GetDate(), LegacyID = @LegacyID, AuditUserID = @AuditUserID,isPhotoFee = @isPhotoFee where PremiumID=@PremiumID"
+                & ",isOffline=@isOffline,ValidityFrom=GetDate(), LegacyID = @LegacyID, AuditUserID = @AuditUserID,isPhotoFee = @isPhotoFee, Source = @Source, SourceVersion = @SourceVersion where PremiumID=@PremiumID"
 
         data.setSQLCommand(str, CommandType.Text)
 
@@ -322,6 +323,8 @@ Public Class PremiumDAL
         data.params("@LegacyID", SqlDbType.Int, 1, ParameterDirection.Output)
         data.params("AuditUserID", SqlDbType.Int, ePremium.AuditUserID)
         data.params("@isPhotoFee", SqlDbType.Bit, ePremium.isPhotoFee)
+        data.params("@Source", SqlDbType.NVarChar, 50, ePremium.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, ePremium.SourceVersion)
 
         data.ExecuteCommand()
         Return True
@@ -347,14 +350,17 @@ Public Class PremiumDAL
     End Function
     Public Function DeletePremium(ByVal epremium As IMIS_EN.tblPremium) As Boolean
         Dim data As New ExactSQL
-        Dim str As String = "INSERT INTO tblPremium (PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, ValidityTo, LegacyID, AuditUserID,isPhotoFee)" _
-                   & "SELECT PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, getDate(), @PremiumID, AuditUserID,isPhotoFee from tblPremium where PremiumID = @PremiumID AND ValidityTo IS NULL;" _
-               & "UPDATE tblPremium SET [ValidityFrom] = GetDate(),[ValidityTo] = GetDate(),[AuditUserID] = @AuditUserID where PremiumID=@PremiumID AND ValidityTo IS NULL"
+        Dim str As String = "INSERT INTO tblPremium (PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, ValidityTo, LegacyID, AuditUserID,isPhotoFee, Source, SourceVersion)" _
+                   & "SELECT PolicyID, PayerID, Amount, Receipt, PayDate, PayType,isOffline, getDate(), @PremiumID, AuditUserID,isPhotoFee, Source, SourceVersion from tblPremium where PremiumID = @PremiumID AND ValidityTo IS NULL;" _
+               & "UPDATE tblPremium SET [ValidityFrom] = GetDate(),[ValidityTo] = GetDate(),[AuditUserID] = @AuditUserID, Source = @Source, SourceVersion = @SourceVersion where PremiumID=@PremiumID AND ValidityTo IS NULL"
 
         data.setSQLCommand(str, CommandType.Text)
 
         data.params("@PremiumID", SqlDbType.Int, epremium.PremiumId)
         data.params("@AuditUserID", SqlDbType.Int, epremium.AuditUserID)
+        data.params("@Source", SqlDbType.NVarChar, 50, epremium.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, epremium.SourceVersion)
+
         data.ExecuteCommand()
         Return True
     End Function
