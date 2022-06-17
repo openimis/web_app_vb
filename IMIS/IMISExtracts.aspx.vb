@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Reflection
 
 Partial Public Class IMISExtracts
     Inherits System.Web.UI.Page
@@ -919,8 +920,10 @@ Partial Public Class IMISExtracts
             Output.Add("PhotoAccepted", 0)
             Output.Add("PhotoRejected", 0)
 
+            Dim source As String = "Legacy Upload"
+            Dim sourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
-            Dim dt As DataTable = Extracts.UploadEnrolments(FileName, Output)
+            Dim dt As DataTable = Extracts.UploadEnrolments(FileName, source, sourceVersion, Output)
             ResultType = Output("ResultTyple")
             Dim Msg As String = "<h4><u>" & imisgen.getMessage("M_ENROLMENTUPLOADED") & "</u></h4>" & "<br>"
             If ResultType = 1 Then
