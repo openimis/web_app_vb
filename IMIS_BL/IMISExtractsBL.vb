@@ -1395,7 +1395,7 @@ Public Class IMISExtractsBL
 
     End Sub
 
-    Public Function UploadEnrolments(ByVal FileName As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
+    Public Function UploadEnrolments(ByVal FileName As String, source As String, sourceVersion As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
         Dim Defaults As New IMIS_EN.tblIMISDefaults
         Dim def As New IMIS_BL.IMISDefaultsBL
         def.GetDefaults(Defaults)
@@ -1438,14 +1438,14 @@ Public Class IMISExtractsBL
                     UserId = Int32.Parse(node.SelectSingleNode("UserId").InnerText)
                 Next
                 If UserId = -2 Then
-                    Result = Extracts.ConsumeEnrollment(xmlDoc, Output)
+                    Result = Extracts.ConsumeEnrollment(xmlDoc, source, sourceVersion, Output)
                     Dim Sent, Accepted, Rejected As Integer
                     UploadPhotosFromPhone(WorkingDirectoryPath, Sent, Accepted, Rejected)
                     Output("PhotoSent") = Sent
                     Output("PhotoAccepted") = Accepted
                     Output("PhotoRejected") = Rejected
                 Else
-                    Result = Extracts.UploadEnrolments(xmlDoc, Output)
+                    Result = Extracts.UploadEnrolments(xmlDoc, source, sourceVersion, Output)
                 End If
 
             Catch ex As Exception

@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Reflection
+
 Public Class Family
     Inherits System.Web.UI.Page
     Private Family As New IMIS_BI.FamilyBI
@@ -256,9 +258,9 @@ Public Class Family
             If Not eFamily.FamilyID = 0 Then
                 Family.LoadFamily(eFamily)
                 ddlRegion.SelectedValue = eFamily.RegionId
-                ddlDistrict.SelectedValue = eFamily.DistrictID
+                ddlDistrict.SelectedValue = eFamily.DistrictId
                 ddlVillage.SelectedValue = eFamily.LocationId
-                ddlWard.SelectedValue = eFamily.WardID
+                ddlWard.SelectedValue = eFamily.WardId
                 'ddlDistrict.SelectedValue = eFamily.tblDistricts.DistrictID
                 ddlPoverty.SelectedValue = eFamily.Poverty
                 ddlConfirmationType.SelectedValue = eFamily.ConfirmationType
@@ -578,7 +580,14 @@ Public Class Family
             eFamily.AuditUserID = dt.Rows(0)("UserID")
             eFamily.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
             eInsuree.tblPhotos = ePhotos
+
+            eInsuree.Source = "Legacy"
+            eInsuree.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
+
             eFamily.tblInsuree = eInsuree
+
+            eFamily.Source = eInsuree.Source
+            eFamily.SourceVersion = eInsuree.SourceVersion
 
             Family.SaveFamily(eFamily)
 
@@ -687,7 +696,7 @@ Public Class Family
         ddlCurDistrict.DataBind()
 
         If dtCurDistrict.Rows.Count = 1 Then
-            getWards()
+            GetWards()
         End If
 
     End Sub

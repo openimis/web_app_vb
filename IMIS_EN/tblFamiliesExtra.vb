@@ -37,5 +37,9 @@ Partial Public Class tblFamilies
     Public Property VillageName As String
     Public Property ConfirmationTypeCode As String
 
+    Public Property Source As String
+
+    Public Property SourceVersion As String
+
 
 End Class
