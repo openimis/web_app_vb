@@ -476,7 +476,7 @@ Public Class ClaimsBL
         'Return BLGeneral.ReadSMSDatatable(clm.getFeedbackSMSData(DateFrom, DateTo))
 
         Dim Esc As New EscapeBL
-        Dim Message As String = clm.getFeedbackSMSData(DateFrom, DateTo)(0)(0).ToString
+        Dim Message As String = clm.getFeedbackSMSData(DateFrom, DateTo).Rows(0)(0).ToString
         Return Esc.SendSMS(Message)
 
     End Function

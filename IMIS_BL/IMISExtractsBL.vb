@@ -1081,7 +1081,7 @@ Public Class IMISExtractsBL
                 Exit Function    'error occured
             End If
 
-            If (dtExtractHeader(0)("ExtractType") <> 2) And Not Extract.isFullExtractExists Then
+            If (dtExtractHeader.Rows(0)("ExtractType") <> 2) And Not Extract.isFullExtractExists Then
                 eExtractInfo.ExtractStatus = -5  'extract should be full as the first extract !! 
                 FlushWorkFolder()
                 Exit Function    'error occured
@@ -1097,7 +1097,7 @@ Public Class IMISExtractsBL
 
             End If
 
-            If eExtract.ExtractSequence <> 0 And (dtExtractHeader(0)("ExtractType") <> 2) Then
+            If eExtract.ExtractSequence <> 0 And (dtExtractHeader.Rows(0)("ExtractType") <> 2) Then
                 'CHECK IF SEQUENCE IS CORRECT TO IMPORT
                 If dtExtractHeader.Rows(0)("ExtractSequence") <= eExtract.ExtractSequence Then
                     eExtractInfo.ExtractStatus = -6  'data already uploaded 
@@ -1105,7 +1105,7 @@ Public Class IMISExtractsBL
                     Exit Function    'error occured
                 End If
 
-                If (dtExtractHeader.Rows(0)("ExtractSequence") > eExtract.ExtractSequence + 1) And (dtExtractHeader(0)("ExtractType") = 4) Then
+                If (dtExtractHeader.Rows(0)("ExtractSequence") > eExtract.ExtractSequence + 1) And (dtExtractHeader.Rows(0)("ExtractType") = 4) Then
                     eExtractInfo.ExtractStatus = -7  'You have missed one or more sequences
                     FlushWorkFolder()
                     Exit Function    'error occured
@@ -1169,12 +1169,12 @@ Public Class IMISExtractsBL
             eExtract.AuditUserID = eExtractInfo.AuditUserID
             eExtract.ExtractDirection = 1
             eExtract.LocationId = eExtractInfo.LocationId
-            eExtract.ExtractDate = dtExtractHeader(0)("ExtractDate")
+            eExtract.ExtractDate = dtExtractHeader.Rows(0)("ExtractDate")
             eExtract.HFID = eExtractInfo.HFID
-            eExtract.ExtractSequence = dtExtractHeader(0)("ExtractSequence")
-            eExtract.AppVersionBackend = dtExtractHeader(0)("AppVersionBackend")
+            eExtract.ExtractSequence = dtExtractHeader.Rows(0)("ExtractSequence")
+            eExtract.AppVersionBackend = dtExtractHeader.Rows(0)("AppVersionBackend")
             eExtract.ExtractFolder = eDefaults.FTPOffLineExtractFolder
-            eExtract.ExtractType = dtExtractHeader(0)("ExtractType")
+            eExtract.ExtractType = dtExtractHeader.Rows(0)("ExtractType")
             eExtract.ExtractFileName = eExtractInfo.ExtractFileName
 
             'determine if we are going back to an old 'FULL' extract  --> if so ... first delete all entries from extact table

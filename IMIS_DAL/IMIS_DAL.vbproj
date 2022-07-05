@@ -13,7 +13,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>IMIS_DAL</RootNamespace>
     <AssemblyName>IMIS_DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
