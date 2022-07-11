@@ -96,7 +96,7 @@ Public Class PolicyRenewalBL
         'Return BLGeneral.ReadSMSDatatable(Policy.getPolicyRenewalSMSData(DateFrom, DateTo))
 
         Dim Esc As New EscapeBL
-        Dim Message As String = Policy.getPolicyRenewalSMSData(DateFrom, DateTo)(0)(0).ToString
+        Dim Message As String = Policy.getPolicyRenewalSMSData(DateFrom, DateTo).Rows(0)(0).ToString
         Return Esc.SendSMS(Message)
 
     End Function

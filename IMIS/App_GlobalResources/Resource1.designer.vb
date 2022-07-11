@@ -22,7 +22,7 @@ Namespace Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Class Resource
@@ -9389,20 +9389,11 @@ Namespace Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Moving a district is not possible - there are pricelists connected to this district. Please remove them first..
+        '''  Looks up a localized string similar to Do you want to move district and detach all local pricelists from health facilities?.
         '''</summary>
         Friend Shared ReadOnly Property M_MOVEDISTRICTSPLWARNING() As String
             Get
                 Return ResourceManager.GetString("M_MOVEDISTRICTSPLWARNING", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Local pricelists detected..
-        '''</summary>
-        Friend Shared ReadOnly Property M_MOVEDISTRICTSPLWARNINGLABEL() As String
-            Get
-                Return ResourceManager.GetString("M_MOVEDISTRICTSPLWARNINGLABEL", resourceCulture)
             End Get
         End Property
         
