@@ -508,24 +508,22 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style32">
+                                <td class="FormLabel">
                                     <asp:Label ID="L_SUBSTITUTION" runat="server" Text='<%$ Resources:Resource,L_SUBSTITUTION %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry">
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                         <ContentTemplate>
-                                            <asp:DropDownList ID="ddlSubstitution" runat="server">
+                                            <asp:DropDownList ID="ddlSubstitution" runat="server" AutoPostBack="true">
                                             </asp:DropDownList>
                                             <asp:Label ID="Label2" runat="server" Text="*" ForeColor="Red" Visible="false" Display="Dynamic"></asp:Label>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlSubstitution" InitialValue="0" ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                            Text='*'></asp:RequiredFieldValidator>
+                                            <asp:CustomValidator ControlToValidate="ddlSubstitution" ValidationGroup="check" ForeColor="Red" Display="Dynamic" InitialValue="0" runat="server" OnServerValidate="SubstitutionValidator" Text='*'></asp:CustomValidator>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </td>
-                                <td class="auto-style36"></td>
                             </tr>
                             <tr>
-                                <td class="FormLabel" valign="top">
+                                <td class="FormLabel">
                                     <asp:Label ID="L_WorksTo" runat="server" Text='<%$ Resources:Resource,L_WORKSTO %>'></asp:Label>
                                 </td>
                                 <td class="DataEntry" colspan="1">
@@ -536,14 +534,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         UserDateFormat="DayMonthYear">
                                     </asp:MaskedEditExtender>
                                     <asp:Button ID="Button2" runat="server" Class="dateButton" />
-
-
                                     <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtWorksTo" PopupButtonID="Button2" Format="dd/MM/yyyy"></asp:CalendarExtender>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatortxtWorksTo" runat="server"
-                                        ControlToValidate="txtWorksTo" SetFocusOnError="True"
-                                        ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$"
-                                        ValidationGroup="check" ForeColor="Red" Display="Dynamic"
-                                        Text='*'></asp:RegularExpressionValidator>
+                                    <asp:CustomValidator ControlToValidate="txtWorksTo" ValidationGroup="check" ForeColor="Red" Display="Dynamic" InitialValue="0" runat="server" OnServerValidate="WorksToValidator" Text='*'></asp:CustomValidator>
                                 </td>
                                 <td>
                                 </td>
