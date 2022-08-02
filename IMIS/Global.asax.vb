@@ -27,6 +27,7 @@
 '
 
 Imports System.Web.SessionState
+Imports IMIS_BI
 
 Public Class Global_asax
     Inherits System.Web.HttpApplication
@@ -34,6 +35,7 @@ Public Class Global_asax
 
     Public Const ServiceCacheItemKey As String = "ASP.NET_Service"
     Private Shared IsServiceOn As Boolean = False
+    Private MasterBI As New IMIS_BI.MasterBI
     Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
 
         If Not (EventLog.SourceExists("IMIS")) Then
@@ -50,14 +52,26 @@ Public Class Global_asax
 
     Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
         ' Fires when the session is started
-       
+
     End Sub
 
     Sub Application_BeginRequest(ByVal sender As Object, ByVal e As EventArgs)
         ' Fires at the beginning of each request
         Dim cookie As HttpCookie = Request.Cookies.Get("CultureInfo")
         If Not cookie Is Nothing Then
-            Dim culture_info As New System.Globalization.CultureInfo(cookie("SelectedLanguage"))
+            Dim selected_language As String = cookie("SelectedLanguage")
+            Dim dt As DataTable = MasterBI.GetLanguages
+            Dim dv As DataView = dt.DefaultView
+
+            Dim Rows() As DataRow
+            Dim x As String = "en"
+
+            Rows = dt.Select("LanguageCode ='" & selected_language & "'")
+            dv.Sort = "CountryCode"
+            If Rows.Length > 0 Then
+                x = Rows(0).ItemArray(2)
+            End If
+            Dim culture_info As New System.Globalization.CultureInfo(x)
 
             System.Threading.Thread.CurrentThread.CurrentUICulture = culture_info
         Else
@@ -106,7 +120,7 @@ Public Class Global_asax
 
     Sub Application_Error(ByVal sender As Object, ByVal e As EventArgs)
         ' Fires when an error occurs
-       
+
     End Sub
 
     Sub Session_End(ByVal sender As Object, ByVal e As EventArgs)
@@ -140,7 +154,7 @@ Public Class Global_asax
     End Sub
     Public Sub CacheItemRemovedCallback(key As String, value As Object, reason As CacheItemRemovedReason)
         Try
-                If value = "Start" Then Exit Sub
+            If value = "Start" Then Exit Sub
             ' If Not IsServiceOn Then Exit Sub
             HitPage(value)
             Debug.Print(Date.Now)
