@@ -392,15 +392,6 @@ Partial Public Class Officer
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''RequiredFieldValidator2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
     '''L_WorksTo control.
     '''</summary>
     '''<remarks>
@@ -444,15 +435,6 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
-
-    '''<summary>
-    '''RegularExpressionValidatortxtWorksTo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidatortxtWorksTo As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''chkCheckAllWards control.
