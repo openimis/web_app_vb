@@ -26,7 +26,8 @@ In case of dispute arising out or in relation to the use of the program, it is s
     title='<%$ Resources:Resource,L_REPORTS %>'%>
 
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
-
+<% @Import Namespace="System.Globalization" %> 
+<% @Import Namespace="System.Threading" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">
 
@@ -38,7 +39,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
 <h2><a href="#" runat="server" id="Back"><asp:label ID="lblGoBack" runat="server" Text='<%$ Resources:Resource,L_GOBACKTOSELECTOR%>'></asp:label></a></h2>
    
     
-    <rsweb:ReportViewer ID="rptViewer" runat="server" class="reportViewer" SizeToReportContent="True" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+    <rsweb:ReportViewer ID="rptViewer" OnPreRender="rptViewer_PreRender" runat="server" class="reportViewer" SizeToReportContent="True" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
         
     </rsweb:ReportViewer>
 
