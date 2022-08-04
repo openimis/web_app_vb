@@ -59,20 +59,7 @@ Public Class Global_asax
         ' Fires at the beginning of each request
         Dim cookie As HttpCookie = Request.Cookies.Get("CultureInfo")
         If Not cookie Is Nothing Then
-            Dim selected_language As String = cookie("SelectedLanguage")
-            Dim dt As DataTable = MasterBI.GetLanguages
-            Dim dv As DataView = dt.DefaultView
-
-            Dim Rows() As DataRow
-            Dim x As String = "en"
-
-            Rows = dt.Select("LanguageCode ='" & selected_language & "'")
-            dv.Sort = "CountryCode"
-            If Rows.Length > 0 Then
-                x = Rows(0).ItemArray(2)
-            End If
-            Dim culture_info As New System.Globalization.CultureInfo(x)
-
+            Dim culture_info As New System.Globalization.CultureInfo(cookie("SelectedLanguage"))
             System.Threading.Thread.CurrentThread.CurrentUICulture = culture_info
         Else
             Dim culture_info As New System.Globalization.CultureInfo("en")
