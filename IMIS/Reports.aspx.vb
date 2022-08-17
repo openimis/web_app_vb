@@ -711,12 +711,12 @@ Partial Public Class Reports
         Else
             LocationId = Val(ddlRegion.SelectedValue)
         End If
-        If Val(ddlRegion.SelectedValue) > 0 Or Val(ddlRegion.SelectedValue) = -1 Or ddlProduct.SelectedValue > 0 Then
+        If Val(ddlRegion.SelectedValue) > 0 Or Val(ddlRegion.SelectedValue) = -1 Or ddlProductStrict.SelectedValue > 0 Then
             If Not Val(ddlRegion.SelectedValue) = 0 Then
                 If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
                 sSubTitle += LocationName
             End If
-            If Not ddlProduct.SelectedValue = 0 Then
+            If Not ddlProductStrict.SelectedValue = 0 Then
                 If Not sSubTitle.EndsWith(" ") Then sSubTitle += ", "
                 sSubTitle += imisgen.getMessage("L_PRODUCT") & ": " & ddlProductStrict.SelectedItem.Text
             End If
