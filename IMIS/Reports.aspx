@@ -50,7 +50,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
             getVisibleRegion();
         });
 
-            alert($('#<%=ddlMode.ClientID %>').val());
         $('#<%=ddlMode.ClientID %>').val(1);
 
         $("#<%=btnPreview.ClientID %>").click(function () {
