@@ -64,17 +64,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                 cacheCriteria();
                 return false;
             }
-            if (lstBoxID == 22 && $("#<%=ddlPreviousReportDateCommission.ClientID %>").val() > 0) {
-                popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
-                popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True)%>';
-                popup.confirm('<%=imisgen.getMessage("M_PREVIOUSCOMMISSIONREPORT", True) %>', function (btn) {
-                    if (btn == "ok") {
-                        reDoPostBack("<%=btnPreview.UniqueID %>");
-                                }
-                            });
-                cacheCriteria();
-                return false;
-            }
             var flag = true;
             $criterias.find("select, input[type=text]").each(function () {
 
@@ -670,13 +659,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <div style="position: absolute; right: 109px; top: 0px;">
                                     <asp:Label ID="lblPreviousReport" class="FormLabel mf" runat="server" Text='<%$ Resources:Resource,L_PREVIOUS %>'></asp:Label>
                                     <asp:DropDownList ID="ddlPreviousReportDate" class="mf" runat="server"></asp:DropDownList>
-                                </div>
-                            </div>
-
-                            <div class="oc " style="position: relative; display: none; margin-left: 200px">
-                                <div style="position: absolute; top: 0px; right: 100px;">
-                                    <asp:Label ID="lblPreviousReportCommission" class="FormLabel oc" runat="server" Text='<%$ Resources:Resource,L_PREVIOUS %>'></asp:Label>
-                                    <asp:DropDownList ID="ddlPreviousReportDateCommission" class="oc" runat="server" AutoPostBack="True" Width="450px"></asp:DropDownList>
                                 </div>
                             </div>
                         </ContentTemplate>
