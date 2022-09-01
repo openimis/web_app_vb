@@ -43,11 +43,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
         var EndDate;
 
         $(document).ready(function () { //execute first before pageLoadExtend...
+            
             $lstBox = $("#<%=lstboxReportSelector.ClientID %>");
         $lstBox.change(function () {
             filterCriteria("change", "slow");
             getVisibleRegion();
         });
+
+        $('#<%=ddlMode.ClientID %>').val(1);
 
         $("#<%=btnPreview.ClientID %>").click(function () {
             var lstBoxID = $lstBox.val();
@@ -630,7 +633,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <asp:Label ID="lblAssignmentSatus" runat="server" Text='<%$ Resources:Resource,L_ASSIGNMENTSTATUS%>' CssClass="FormLabel"></asp:Label>
                                         <asp:DropDownList ID="ddlAssignmentStatus" runat="server"></asp:DropDownList>
                                     </li>
-                                    <li class="oc">
+                                    <li>
                                         <asp:Label ID="lblMode" runat="server" Text='<%$ Resources:Resource,L_MODE%>' CssClass="FormLabel"></asp:Label>
                                         <asp:DropDownList ID="ddlMode" runat="server"></asp:DropDownList>
                                     </li>
