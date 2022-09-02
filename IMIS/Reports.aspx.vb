@@ -102,7 +102,6 @@ Partial Public Class Reports
         FillEnrolmentOfficer(ddlDistrictWoNational)
         FillPayer(ddlRegionWoNational, ddlDistrictWoNational)
         FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
         FillClaimStatus()
         FillPolicyStatus()
         FillEntities()
@@ -134,7 +133,6 @@ Partial Public Class Reports
         ddlPayer.SelectedValue = SelectedValue
         SelectedValue = ddlPreviousReportDate.SelectedValue
         FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
         ddlPreviousReportDate.SelectedValue = SelectedValue
         QuarterSelector()
         HideCriteriaControls()
@@ -290,7 +288,6 @@ Partial Public Class Reports
         FillHF(ddlDistrict)
         FillPayer(ddlRegion, ddlDistrict)
         FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
         ' FillWards()
         ' End If
 
@@ -560,17 +557,6 @@ Partial Public Class Reports
             ddlPreviousReportDate.DataValueField = "ReportingId"
             ddlPreviousReportDate.DataTextField = "Display"
             ddlPreviousReportDate.DataBind()
-        End If
-    End Sub
-    Private Sub FillPreviousReportsDateForOverviewOfCommissions()
-        If Val(lstboxReportSelector.SelectedValue) = ReportName.OverviewOfCommissions Then
-            Dim dt As DataTable = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), If(Val(ddlDistrictWoNational.SelectedValue) = 0, ddlRegionWoNational.SelectedValue, ddlDistrictWoNational.SelectedValue), Nothing, ddlYear.SelectedValue, ddlMonth.SelectedValue)
-            If dt IsNot Nothing Then
-                ddlPreviousReportDateCommission.DataSource = dt
-                ddlPreviousReportDateCommission.DataValueField = "ReportingId"
-                ddlPreviousReportDateCommission.DataTextField = "Display"
-                ddlPreviousReportDateCommission.DataBind()
-            End If
         End If
     End Sub
     Private Sub FillClaimStatus()
@@ -1301,15 +1287,9 @@ Partial Public Class Reports
         Dim LocationId As Integer?
         Dim Mode As Integer
         Dim OfficerID As Integer?
-        Dim ReportingID As Integer?
         Dim CommissionRate As Decimal
         Dim Scope As Integer
 
-        If ddlPreviousReportDateCommission.SelectedValue > 0 Then
-            ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
-        Else
-            ReportingID = Nothing
-        End If
         If ddlMonth.SelectedIndex > 0 Then
             Month = ddlMonth.SelectedValue
         Else
@@ -1323,8 +1303,6 @@ Partial Public Class Reports
 
         If ddlMode.SelectedIndex > 0 Then
             Mode = ddlMode.SelectedValue
-        ElseIf ReportingID > 0 Then
-            Mode = -1
         End If
         If ddlYear.SelectedIndex > 0 Then
             Year = ddlYear.SelectedValue
@@ -1335,24 +1313,22 @@ Partial Public Class Reports
         If Val(ddlDistrictWoNational.SelectedValue) > 0 Then DistrictID = CInt(Val(ddlDistrictWoNational.SelectedValue))
 
         CommissionRate = Val(txtCommissionRate.Text.Trim)
-        If ReportingID Is Nothing Then
 
-            If Val(ddlProduct.SelectedValue) > 0 Then
-                ProdID = CInt(ddlProduct.SelectedValue)
-            Else
-                ProdID = Nothing
+        If Val(ddlProduct.SelectedValue) > 0 Then
+            ProdID = CInt(ddlProduct.SelectedValue)
+        Else
+            ProdID = Nothing
 
-            End If
-
-            If ddlPayer.SelectedIndex > 0 Then
-                PayerID = ddlPayer.SelectedValue
-            End If
-
-
-            If ddlEnrolmentOfficer.SelectedIndex > 0 Then OfficerID = ddlEnrolmentOfficer.SelectedValue
-
-            If ddlPayer.SelectedIndex > 0 Then PayerID = ddlPayer.SelectedValue
         End If
+
+        If ddlPayer.SelectedIndex > 0 Then
+            PayerID = ddlPayer.SelectedValue
+        End If
+
+
+        If ddlEnrolmentOfficer.SelectedIndex > 0 Then OfficerID = ddlEnrolmentOfficer.SelectedValue
+        If ddlPayer.SelectedIndex > 0 Then PayerID = ddlPayer.SelectedValue
+
         Dim ErrorMessage As String = ""
         Dim oReturn As Integer = -1
 
@@ -1378,21 +1354,19 @@ Partial Public Class Reports
 
         IMIS_EN.eReports.SubTitle = sSubTitle
 
-        dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, Scope, ReportingID, ErrorMessage, oReturn)
+        dt = reports.GetOverviewOfCommissions(LocationId, ProdID, Month, Year, PayerID, OfficerID, Mode, CommissionRate, Scope, Nothing, ErrorMessage, oReturn)
 
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 AndAlso dt.Rows(0) IsNot Nothing Then
             Dim RepportMonth As String = ""
             Dim Product As String = ""
             Dim ReportMode As String = ""
             Dim Commission As String = ""
-            If ReportingID > 0 Then
-                Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID, ddlYear.SelectedValue, ddlMonth.SelectedValue)
-                If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
+            Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, Nothing, ddlYear.SelectedValue, ddlMonth.SelectedValue)
+            If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
 
                     Product = If(dtRep.Rows(0)("ProductCode") Is DBNull.Value, "", dtRep.Rows(0)("ProductCode"))
                     Commission = If(dtRep.Rows(0)("CommissionRate") Is DBNull.Value, "", dtRep.Rows(0)("CommissionRate"))
                 End If
-            End If
             'Return True
 
             Dim mnt As Integer = CInt(Month)
@@ -1593,15 +1567,13 @@ Partial Public Class Reports
                     lblMsg.Text = imisgen.getMessage("L_PLEASESELECTSCOPE")
                     Return
                 End If
-                If ddlPreviousReportDateCommission.SelectedValue <= 0 Then
-                    If ddlMode.SelectedIndex = 0 Then
-                        lblMsg.Text = imisgen.getMessage("M_PLEASESELECTMODE")
-                        Return
-                    End If
-                    If txtCommissionRate.Text.Trim = "" Then
-                        lblMsg.Text = imisgen.getMessage("M_PLEASESELECTCOMMISSIONRATE")
-                        Return
-                    End If
+                If ddlMode.SelectedIndex = 0 Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTMODE")
+                    Return
+                End If
+                If txtCommissionRate.Text.Trim = "" Then
+                    lblMsg.Text = imisgen.getMessage("M_PLEASESELECTCOMMISSIONRATE")
+                    Return
                 End If
             End If
 
@@ -1732,7 +1704,6 @@ Partial Public Class Reports
         FillEnrolmentOfficer(sender)
         FillPayer(ddlRegion, ddlDistrict)
         FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
         HideCriteriaControls()
         '  FillWards()
     End Sub
@@ -1744,12 +1715,6 @@ Partial Public Class Reports
             'EventLog.WriteEntry("IMIS", imisgen.getUserId(Session("User")) & " : " & ex.Message, EventLogEntryType.Information, 5, 3)
             imisgen.Alert(imisgen.getMessage("M_ERRORMESSAGE"), pnlButtons, alertPopupTitle:="IMIS")
         End Try
-    End Sub
-    Private Sub ddlMonth_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlMonth.SelectedIndexChanged
-        FillPreviousReportsDateForOverviewOfCommissions()
-    End Sub
-    Private Sub ddlYear_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlYear.SelectedIndexChanged
-        FillPreviousReportsDateForOverviewOfCommissions()
     End Sub
     Private Sub QuarterSelector()
         If ddlQuarter.SelectedValue = 1 Then
@@ -1812,13 +1777,11 @@ Partial Public Class Reports
 
     Private Sub ddlRegionWoNational_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRegionWoNational.SelectedIndexChanged
         FillDistrictsWoNational()
-        FillPreviousReportsDateForOverviewOfCommissions()
         FillHF(sender)
     End Sub
 
     Private Sub ddlDistrictWoNational_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlDistrictWoNational.SelectedIndexChanged
         FillPreviousReportsDate()
-        FillPreviousReportsDateForOverviewOfCommissions()
         FillEnrolmentOfficer(sender)
         FillWards()
         FillHF(sender)
@@ -1828,55 +1791,6 @@ Partial Public Class Reports
     Private Sub ddlProductStrict_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlProductStrict.SelectedIndexChanged
         Try
             'getCapitationDetails()
-        Catch ex As Exception
-
-        End Try
-    End Sub
-    Private Sub ddlPreviousReportDateCommission_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlPreviousReportDateCommission.SelectedIndexChanged
-        Try
-            Dim ReportingID As Integer?
-
-            ReportingID = CInt(ddlPreviousReportDateCommission.SelectedValue)
-
-            If ReportingID > 0 Then
-                Dim dtRep = reports.GetPreviousOverviewOfCommissionsReportDates(imisgen.getUserId(Session("User")), 0, ReportingID, ddlYear.SelectedValue, ddlMonth.SelectedValue)
-                If dtRep IsNot Nothing AndAlso dtRep.Rows.Count > 0 Then
-                    ddlMode.SelectedIndex = If(dtRep.Rows(0)("ReportMode") Is DBNull.Value, 0, dtRep.Rows(0)("ReportMode") + 1)
-
-                    ddlYear.SelectedValue = If(dtRep.Rows(0)("Year") Is DBNull.Value, 0, dtRep.Rows(0)("Year"))
-                    ddlMonth.SelectedValue = If(dtRep.Rows(0)("Month") Is DBNull.Value, 0, dtRep.Rows(0)("Month"))
-
-                    ddlRegionWoNational.SelectedValue = If(dtRep.Rows(0)("RegionId") Is DBNull.Value, 0, dtRep.Rows(0)("RegionId"))
-                    FillDistrictsWoNational()
-                    ddlDistrictWoNational.SelectedValue = If(dtRep.Rows(0)("DistrictId") Is DBNull.Value, 0, dtRep.Rows(0)("DistrictId"))
-
-                    ddlPayer.SelectedIndex = If(dtRep.Rows(0)("PayerId") Is DBNull.Value, 0, dtRep.Rows(0)("PayerId"))
-                    ddlEnrolmentOfficer.SelectedValue = If(dtRep.Rows(0)("OfficerID") Is DBNull.Value, 0, dtRep.Rows(0)("OfficerID"))
-
-                    ddlProduct.SelectedIndex = dtRep.Rows(0)("ProdId")
-                    txtCommissionRate.Text = (100 * dtRep.Rows(0)("CommissionRate"))
-
-                    txtCommissionRate.Enabled = False
-                    ddlMode.Enabled = False
-                    ddlMonth.Enabled = False
-                    ddlYear.Enabled = False
-                    ddlRegionWoNational.Enabled = False
-                    ddlDistrictWoNational.Enabled = False
-                    ddlProduct.Enabled = False
-                    ddlEnrolmentOfficer.Enabled = False
-                    ddlPayer.Enabled = False
-                End If
-            Else
-                txtCommissionRate.Enabled = True
-                ddlMode.Enabled = True
-                ddlMonth.Enabled = True
-                ddlYear.Enabled = True
-                ddlRegionWoNational.Enabled = True
-                ddlDistrictWoNational.Enabled = True
-                ddlProduct.Enabled = True
-                ddlEnrolmentOfficer.Enabled = True
-                ddlPayer.Enabled = True
-            End If
         Catch ex As Exception
 
         End Try
