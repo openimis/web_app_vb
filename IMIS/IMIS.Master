@@ -1,390 +1,454 @@
 ﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="IMIS.master.vb" Inherits="IMIS.IMIS" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Untitled Page</title>
-  
-       <noscript>
-  <meta http-equiv="refresh" content="1;url=nojs.htm" />
-           
-  </noscript>
+
+    <noscript>
+        <meta http-equiv="refresh" content="1;url=nojs.htm" />
+
+    </noscript>
 
     <link href="StyleSheets/select2.min.css" rel="Stylesheet" />
     <link href="styleSheets/Imis.css" rel="stylesheet" type="text/css" />
     <link href="styleSheets/MainMenu.css" rel="stylesheet" type="text/css" />
     <link href="StyleSheets/jquery-ui.css" rel="stylesheet" />
     <link href="StyleSheets/jquery.ui.autocomplete.css" rel="stylesheet" />
-  
+
     <script src="Javascripts/jquery-1.8.2.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="Javascripts/select2.min.js"></script>
     <script src="Javascripts/jquery.cookie.js" type="text/javascript"></script>
     <script type="text/javascript" src="Javascripts/ExactDropDown.js"></script>
-    <script type="text/javascript" src="Javascripts/jquery.ui.widget.js" ></script>
+    <script type="text/javascript" src="Javascripts/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="Javascripts/jquery.ui.autocomplete.js"></script>
     <script type="text/javascript" src="Javascripts/autocomplete.js"></script>
     <script type="text/javascript" src="Javascripts/jquery-ui.js"></script>
     <script type="text/javascript" src="Javascripts/simpletip.js"></script>
     <script src="Javascripts/Exact.js?c=<%#(New Random()).Next%>" type="text/javascript"></script>
 
-   <%-- <script type="text/javascript" language="javascript">
+    <%-- <script type="text/javascript" language="javascript">
         setTimeout(function() {
             $('.footer').text('');
         }, 10000);
     </script>--%>
-    
-   <script type="text/javascript">
 
-
-       
-
-       var isDirty = false;
-       var originalVal = "";
-       var searchCHF = '<%#imisgen.getMessage("L_SEARCHCHFNUMBER", True)%>';
-       var enterCHF = '<%#imisgen.getMessage("M_ENTERCHFNUMBER", True)%>';
-       var noInsuree = '<%#imisgen.getMessage("M_NOINSUREEFOUND", True)%>';
-       var hfPanelHasData = '<%#hfPanelHasData.ClientID %>';
-       var txtSearch = '<%#txtSearch.ClientID %>';
-       var manual = '<%#imisgen.getMessage("X_MANUAL", True)%>';
-       /* setting popup boxes titles and buttons names universally */
-       popup.alertTitle = '<%#imisgen.getMessage("L_ALERTPOPUPTITLE", True)%>';
-       popup.confirmTitle = '<%#imisgen.getMessage("L_CONFIRMPOPUPTITLE", True)%>';
-       popup.acceptBTN_Text = '<%#imisgen.getMessage("L_OK", True)%>';
-       popup.rejectBTN_Text = '<%#imisgen.getMessage("L_CANCEL", True) %>';
-
-       $(document).ready(function () {
-           
-           //        $('#ctl00_hfDirty').val(false)
-
-
-           
-           if ('<%#If(IsPostBack, 1, 0) %>' == 0) {
-
-               $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
-                   if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio")
-                       $(this).data("originalVal", $(this).attr("checked"));
-                   else
-                       $(this).data("originalVal", $(this).val());
-               });
-           }
-
-           $('#Body_B_SAVE').click(function () {
-               $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
-                   if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio") {
-                       if ($(this).attr("checked") != $(this).data("originalVal")) {
-                           //alert("new: " + $(this).attr("checked") + " old: " + $(this).data("originalVal"));
-                           $('#<%#hfDirty.ClientID%>').val(true); // alert("dirt");
-                       }
-                   } else {
-
-                       if ($(this).val() != $(this).data("originalVal")) {
-                           //alert("new: " + $(this).val() + " old: " + $(this).data("originalVal"));
-                           $('#<%#hfDirty.ClientID%>').val(true); //alert("dirt");
-                       }
-                   }
-               });
-           });
-
-           //$('#PleaseWait').hide();
-
-
-           HighlightMandatoryFields();
-       });
-
-       function showmodalPopup() {
-           //$find('modalPopup').show();
-           popup.acceptBTN_Text = '<%#imisgen.getMessage("L_YES", True)%>';
-           popup.rejectBTN_Text = '<%#imisgen.getMessage("L_NO", True)%>';
-           popup.confirm('<%#imisgen.getMessage("M_DELETEPROMPT", True)%>', DoPostBack);
-           return false;
-       }
-
-       function DoPostBack(btn, args) {
-           if (btn == "ok")
-               __doPostBack('', 'Delete');
-       }
+    <script type="text/javascript">
 
 
 
-       $(document).ready(function () {
-           $("#<%#txtSearch.ClientID %>").val("");
-           $(".candisable").each(function (i) {
-               if ($(this).find("span:disabled").length > 0) {
 
-                   $(this).attr("href", "javascript:void 0");
-               }
-           });
-           $("#manual").attr("href", manual);
+        var isDirty = false;
+        var originalVal = "";
+        var searchCHF = '<%#imisgen.getMessage("L_SEARCHCHFNUMBER", True)%>';
+        var enterCHF = '<%#imisgen.getMessage("M_ENTERCHFNUMBER", True)%>';
+        var noInsuree = '<%#imisgen.getMessage("M_NOINSUREEFOUND", True)%>';
+        var hfPanelHasData = '<%#hfPanelHasData.ClientID %>';
+        var txtSearch = '<%#txtSearch.ClientID %>';
+        var manual = '<%#imisgen.getMessage("X_MANUAL", True)%>';
+        /* setting popup boxes titles and buttons names universally */
+        popup.alertTitle = '<%#imisgen.getMessage("L_ALERTPOPUPTITLE", True)%>';
+        popup.confirmTitle = '<%#imisgen.getMessage("L_CONFIRMPOPUPTITLE", True)%>';
+        popup.acceptBTN_Text = '<%#imisgen.getMessage("L_OK", True)%>';
+        popup.rejectBTN_Text = '<%#imisgen.getMessage("L_CANCEL", True) %>';
 
-           //** Focus first editable textbox on the page >>> Start
-           try {
-               $txtbx = $("input[type=text]").not("[readonly],[disabled],#<%#txtSearch.ClientID %>");
-               if ($txtbx.length > 0)
-                   $txtbx.eq(0).focus();
-           } catch (ex) { }
-           //** Focus first editable textbox on the page >>> End
+        $(document).ready(function () {
 
-       });
-
+            //        $('#ctl00_hfDirty').val(false)
 
 
-       function pageLoad() {
 
-           //ajax start & stop handler
-           var intrvl = 0;
-           Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(function () {
-               $("#AjaxMsgDiv").remove();
-               $(".scriptServerPopup").remove();
-               
-               $msgDiv = $('<div id="AjaxMsgDiv"><span id="text"><%#imisgen.getMessage("M_INPROGRESS", True ) %></span><span id="dots"></span></div>');
-               $msgDiv.css({
-                   "background": "none",
-                   "padding": "2px",
-                   "position": "relative",
-                   /*"display":"inline",*/
-                   "font-size": "12px",
-                   "color": "#333333",
-                   "border": "0px solid #FFFFFF",
-                   /*"top": $("#aspnetForm").height() / 2 - $msgDiv.height() / 2  + "px",
-                   "left": $(window).width() / 2 - $msgDiv.width() / 2 + "px",*/
-                   "z-index": 1000
-               });
-               $msgDiv.find("span#text").css({
-                   "padding": "3px 0px 3px 6px",
-                   "position": "relative"
-               });
-               $msgDiv.find("span#dots").css({
-                   "padding": "3px 6px 3px 0px",
-                   "position": "relative"
-               });
-               $msgDiv.appendTo($("#<%#FooterID.ClientID%>"));
-               timer();
+            if ('<%#If(IsPostBack, 1, 0) %>' == 0) {
+
+                $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
+                    if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio")
+                        $(this).data("originalVal", $(this).attr("checked"));
+                    else
+                        $(this).data("originalVal", $(this).val());
+                });
+            }
+
+            $('#Body_B_SAVE').click(function () {
+                $('input:not(#ctl00_Header_txtSearch,input[type=hidden]),select,textarea').each(function (i) {
+                    if ($(this).attr("type") == "checkbox" || $(this).attr("type") == "radio") {
+                        if ($(this).attr("checked") != $(this).data("originalVal")) {
+                            //alert("new: " + $(this).attr("checked") + " old: " + $(this).data("originalVal"));
+                            $('#<%#hfDirty.ClientID%>').val(true); // alert("dirt");
+                        }
+                    } else {
+
+                        if ($(this).val() != $(this).data("originalVal")) {
+                            //alert("new: " + $(this).val() + " old: " + $(this).data("originalVal"));
+                            $('#<%#hfDirty.ClientID%>').val(true); //alert("dirt");
+                        }
+                    }
+                });
             });
-           var toggle = 0;
-           function timer() {
-               var $dots = $("span#dots");
-               intrvl = setTimeout(function () {
 
-                   if (toggle == 0) {
-                       $dots.append($("<span>.</span>"));
-                       if ($dots.find("span").length == 50)
-                           toggle = 1;
-                   } else {
-                       $dots.find("span").last().remove();
-                       if ($dots.find("span").length == 0)
-                           toggle = 0;
-                   }
+            //$('#PleaseWait').hide();
 
-                   if ($("#AjaxMsgDiv").length > 0)
-                       timer();
-               }, 500);
-           }
-           Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function (sender, args) {
 
-               ///alert("error script: " + $("#scriptServerPopup").html() + " --- args.get_error: " + args.get_error());
-               if (args.get_error() != undefined) {
-                   //alert('error --: ' + args.get_error());
-                   //alert(sender.val());
-                   popup.alert('<%#imisgen.getMessage("M_AJAXERROR", True)%>', '', '', false);
-                       args.set_errorHandled(true);
-               } else {
-                       if ($(".scriptServerPopup").length > 0) {
-                           $(".scriptServerPopup").each(function () {
-                               
-                               eval($(this).html());
-                           });
-                       }
-                   }
-                   $("#AjaxMsgDiv").remove();
-                   clearInterval(intrvl);
-               });
-           //....end of ajax start & stop handler
-               if (typeof (pageLoadExtend) == "function") // calls pageLoad(i.e pageLoadExtend) in pages ...
-                   pageLoadExtend();
+            HighlightMandatoryFields();
+        });
 
-             
-               //context menu manipulation and delete on right click
-               var pageUrl = window.location;
-               if ((/Find|Reports|ProcessBatch|FeedbackPrompt|PolicyRenewal/i).test(pageUrl)) {
-                   $("input[type=text],select").each(function () {
-                       if ($(this).is("select")) {
-                           $(this).data("prevVal", $(this).val());
-                           $(this).change(function () { $(this).data("prevVal", $(this).val()); });
-                       } else {
-                           //$(this).attr("autocomplete", "off");
+        function showmodalPopup() {
+            //$find('modalPopup').show();
+            popup.acceptBTN_Text = '<%#imisgen.getMessage("L_YES", True)%>';
+            popup.rejectBTN_Text = '<%#imisgen.getMessage("L_NO", True)%>';
+            popup.confirm('<%#imisgen.getMessage("M_DELETEPROMPT", True)%>', DoPostBack);
+            return false;
+        }
 
-                       }
+        function showMoveDistrictPopup() {
+            popup.acceptBTN_Text = '<%#imisgen.getMessage("L_YES", True)%>';
+            popup.rejectBTN_Text = '<%#imisgen.getMessage("L_NO", True)%>';
+            popup.confirm('<%#imisgen.getMessage("M_MOVEDISTRICTSPLWARNING", True)%>', DoMoveDistrictPostBack);
+            return false;
+        }
 
-                       $(this).removeAttr("oncontextmenu");
-                       $(this).attr("oncontextmenu", "RightClickReset($(this));return false;");
-                   });
-               } else {
-                   $("select,input[type=text]").each(function () {
-                       if ($(this).is("select")) {
-                           $(this).data("prevVal", $(this).val());
-                           $(this).removeAttr("oncontextmenu");
-                           $(this).attr("oncontextmenu", "RightClickReset($(this));return false;");
-                           $(this).change(function () { $(this).data("prevVal", $(this).val()); });
-                       } else {
-                           //$(this).attr("autocomplete", false);
-                       }
-                   });
-               }
-               //end of context menu manipulation and delete on right clickenu manipulation and delete on right click
-               if ($('#ctl00_Header_txtSearch').val() == '') {
-                   AddWaterMark('#ctl00_Header_txtSearch', searchCHF);
-               }
+        function DoPostBack(btn, args) {
+            if (btn == "ok")
+                __doPostBack('', 'Delete');
+        }
 
-               $('#btnSearch').click(function () {
-                   if ($('#ctl00_Header_txtSearch').val() == searchCHF) {
-                       popup.alert(enterCHF);
-                   }
-               });
-
-               $('#btnCancel').click(function () {
-                   $('#SelectPic').hide();
-               });
-
-               showInsureePopupSearchResult();
-               HighlightMandatoryFields();
-           }
-
-           function showInsureePopupSearchResult() {
-               if ($("#" + hfPanelHasData).val() == "Yes")
-                   $('#SelectPic').show();
-               else if ($('#ctl00_Header_txtSearch').val() == searchCHF) {
-                   //popup.alert(enterCHF);
-                       ;
-               }
-               else if ($("#" + hfPanelHasData).val() == "No")
-                   popup.alert(noInsuree, "", "", false);
-
-               $("#" + hfPanelHasData).val("");
-           }
-
-           $(document).ready(function () {
-               $(".candisable").each(function (index, value) {
-                   //if ($(this).children().first().attr("disabled") == 'disabled') {
-                   //    $(this).attr("href", "javascript:void 0");
-                   //}
-                   if ($(this).children().first().is(".aspNetDisabled")) {
-                           $(this).attr("href", "javascript:void 0");
-                      }
-               });
-               //This function allows only alphabates in the input
-               //set the cssClass property of the input to .alphaOnly to attach this function
+        function DoMoveDistrictPostBack(btn, args) {
+            if (btn == "ok") {
+                __doPostBack('', 'MoveDelete');
+            }
+        }
 
 
 
-               $("#<%#txtSearch.ClientID %>").keyup(function () {
-               if ($(this).val() != '') {
-                   $(this).css('background', 'white');
-               } else {
-                   $(this).css('background', 'none');
-               }
-           });
+        $(document).ready(function () {
+            $("#<%#txtSearch.ClientID %>").val("");
+            $(".candisable").each(function (i) {
+                if ($(this).find("span:disabled").length > 0) {
 
-           //            $(".numbersOnly").live("paste",function(e) {
-           //                e.preventDefault();
-           //            });
+                    $(this).attr("href", "javascript:void 0");
+                }
+            });
+            $("#manual").attr("href", manual);
 
-           $(".search").click(function () {
-               $("#<%#txtSearch.ClientID %>").focus();
-           });
+            //** Focus first editable textbox on the page >>> Start
+            try {
+                $txtbx = $("input[type=text]").not("[readonly],[disabled],#<%#txtSearch.ClientID %>");
+                if ($txtbx.length > 0)
+                    $txtbx.eq(0).focus();
+            } catch (ex) { }
+            //** Focus first editable textbox on the page >>> End
 
-       });
-
-
-       $(document).ready(function () {
-           $("#btnAdvance").click(function (e) {
-               e.stopPropagation();
-               if ($(".AdvancedSearch div").is(':hidden')) {
-                   $(".AdvancedSearch div").show();
-                   $("#<%#txtItemCode.ClientID %>").focus();
-                   $(this).html('▲');
-               } else {
-                   $(".AdvancedSearch div").hide();
-                   $(this).html('▼');
-               }
-           });
-
-           $(".AdvancedSearch div table input").click(function (e) {
-               e.stopPropagation();
-           });
-           $(".AdvancedSearch div").parents().click(function () {
-               $(".AdvancedSearch div").hide();
-               $("#btnAdvance").html('▼');
-           });
-           advSearch.init();
-       });
+        });
 
 
-       $(window).load(function () {
-           $('#PleaseWait').hide();
-         
-       });
 
-       function AutoCompletedataSource(data) {
-           this.data = data;
-           this.filter = function (term) {
-               var keys = Object.keys(data[0]);
-               var arr = [];
-               for (var i = 0; i < this.data.length; i++) {
-                   var keys = Object.keys(data[i]);
-                   for (var j = 0; j < keys.length; j++) {
-                       if (isNaN(data[i][keys[j]]) && data[i][keys[j]].toLowerCase().includes(term.term.toLowerCase())) {
-                           if (arr.length < 50) {
-                               arr.push(data[i]);
-                               break;
-                           }
-                       }
-                       else if (!isNaN(data[i][keys[j]]) && data[i][keys[j]] == term.term) {
-                           if (arr.length < 50) {
-                               arr.push(data[i]);
-                               break;
-                           }
-                       }
-                   }
-               }
-               return arr;
-           }
-       }
+        function pageLoad() {
+
+            //ajax start & stop handler
+            var intrvl = 0;
+            Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(function () {
+                $("#AjaxMsgDiv").remove();
+                $(".scriptServerPopup").remove();
+
+                $msgDiv = $('<div id="AjaxMsgDiv"><span id="text"><%#imisgen.getMessage("M_INPROGRESS", True ) %></span><span id="dots"></span></div>');
+                $msgDiv.css({
+                    "background": "none",
+                    "padding": "2px",
+                    "position": "relative",
+                    /*"display":"inline",*/
+                    "font-size": "12px",
+                    "color": "#333333",
+                    "border": "0px solid #FFFFFF",
+                    /*"top": $("#aspnetForm").height() / 2 - $msgDiv.height() / 2  + "px",
+                    "left": $(window).width() / 2 - $msgDiv.width() / 2 + "px",*/
+                    "z-index": 1000
+                });
+                $msgDiv.find("span#text").css({
+                    "padding": "3px 0px 3px 6px",
+                    "position": "relative"
+                });
+                $msgDiv.find("span#dots").css({
+                    "padding": "3px 6px 3px 0px",
+                    "position": "relative"
+                });
+                $msgDiv.appendTo($("#<%#FooterID.ClientID%>"));
+                timer();
+            });
+            var toggle = 0;
+            function timer() {
+                var $dots = $("span#dots");
+                intrvl = setTimeout(function () {
+
+                    if (toggle == 0) {
+                        $dots.append($("<span>.</span>"));
+                        if ($dots.find("span").length == 50)
+                            toggle = 1;
+                    } else {
+                        $dots.find("span").last().remove();
+                        if ($dots.find("span").length == 0)
+                            toggle = 0;
+                    }
+
+                    if ($("#AjaxMsgDiv").length > 0)
+                        timer();
+                }, 500);
+            }
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function (sender, args) {
+
+                ///alert("error script: " + $("#scriptServerPopup").html() + " --- args.get_error: " + args.get_error());
+                if (args.get_error() != undefined) {
+                    //alert('error --: ' + args.get_error());
+                    //alert(sender.val());
+                    popup.alert('<%#imisgen.getMessage("M_AJAXERROR", True)%>', '', '', false);
+                    args.set_errorHandled(true);
+                } else {
+                    if ($(".scriptServerPopup").length > 0) {
+                        $(".scriptServerPopup").each(function () {
+
+                            eval($(this).html());
+                        });
+                    }
+                }
+                $("#AjaxMsgDiv").remove();
+                clearInterval(intrvl);
+            });
+            //....end of ajax start & stop handler
+            if (typeof (pageLoadExtend) == "function") // calls pageLoad(i.e pageLoadExtend) in pages ...
+                pageLoadExtend();
+
+
+            //context menu manipulation and delete on right click
+            var pageUrl = window.location;
+            if ((/Find|Reports|ProcessBatch|FeedbackPrompt|PolicyRenewal/i).test(pageUrl)) {
+                $("input[type=text],select").each(function () {
+                    if ($(this).is("select")) {
+                        $(this).data("prevVal", $(this).val());
+                        $(this).change(function () { $(this).data("prevVal", $(this).val()); });
+                    } else {
+                        //$(this).attr("autocomplete", "off");
+
+                    }
+
+                    $(this).removeAttr("oncontextmenu");
+                    $(this).attr("oncontextmenu", "RightClickReset($(this));return false;");
+                });
+            } else {
+                $("select,input[type=text]").each(function () {
+                    if ($(this).is("select")) {
+                        $(this).data("prevVal", $(this).val());
+                        $(this).removeAttr("oncontextmenu");
+                        $(this).attr("oncontextmenu", "RightClickReset($(this));return false;");
+                        $(this).change(function () { $(this).data("prevVal", $(this).val()); });
+                    } else {
+                        //$(this).attr("autocomplete", false);
+                    }
+                });
+            }
+            //end of context menu manipulation and delete on right clickenu manipulation and delete on right click
+            if ($('#ctl00_Header_txtSearch').val() == '') {
+                AddWaterMark('#ctl00_Header_txtSearch', searchCHF);
+            }
+
+            $('#btnSearch').click(function () {
+                if ($('#ctl00_Header_txtSearch').val() == searchCHF) {
+                    popup.alert(enterCHF);
+                }
+            });
+
+            $('#btnCancel').click(function () {
+                $('#SelectPic').hide();
+            });
+
+            showInsureePopupSearchResult();
+            HighlightMandatoryFields();
+        }
+
+        function showInsureePopupSearchResult() {
+            if ($("#" + hfPanelHasData).val() == "Yes")
+                $('#SelectPic').show();
+            else if ($('#ctl00_Header_txtSearch').val() == searchCHF) {
+                //popup.alert(enterCHF);
+                ;
+            }
+            else if ($("#" + hfPanelHasData).val() == "No")
+                popup.alert(noInsuree, "", "", false);
+
+            $("#" + hfPanelHasData).val("");
+        }
+
+        $(document).ready(function () {
+            $(".candisable").each(function (index, value) {
+                //if ($(this).children().first().attr("disabled") == 'disabled') {
+                //    $(this).attr("href", "javascript:void 0");
+                //}
+                if ($(this).children().first().is(".aspNetDisabled")) {
+                    $(this).attr("href", "javascript:void 0");
+                }
+            });
+            //This function allows only alphabates in the input
+            //set the cssClass property of the input to .alphaOnly to attach this function
+
+
+
+            $("#<%#txtSearch.ClientID %>").keyup(function () {
+                if ($(this).val() != '') {
+                    $(this).css('background', 'white');
+                } else {
+                    $(this).css('background', 'none');
+                }
+            });
+
+            //            $(".numbersOnly").live("paste",function(e) {
+            //                e.preventDefault();
+            //            });
+
+            $(".search").click(function () {
+                $("#<%#txtSearch.ClientID %>").focus();
+            });
+
+        });
+
+
+        $(document).ready(function () {
+            $("#btnAdvance").click(function (e) {
+                e.stopPropagation();
+                if ($(".AdvancedSearch div").is(':hidden')) {
+                    $(".AdvancedSearch div").show();
+                    $("#<%#txtItemCode.ClientID %>").focus();
+                    $(this).html('▲');
+                } else {
+                    $(".AdvancedSearch div").hide();
+                    $(this).html('▼');
+                }
+            });
+
+            $(".AdvancedSearch div table input").click(function (e) {
+                e.stopPropagation();
+            });
+            $(".AdvancedSearch div").parents().click(function () {
+                $(".AdvancedSearch div").hide();
+                $("#btnAdvance").html('▼');
+            });
+            advSearch.init();
+        });
+
+
+        $(window).load(function () {
+            $('#PleaseWait').hide();
+
+        });
+
+        function AutoCompletedataSource(data) {
+            this.data = data;
+            this.filter = function (term) {
+                var keys = Object.keys(data[0]);
+                var arr = [];
+                for (var i = 0; i < this.data.length; i++) {
+                    var keys = Object.keys(data[i]);
+                    for (var j = 0; j < keys.length; j++) {
+                        if (isNaN(data[i][keys[j]]) && data[i][keys[j]].toLowerCase().includes(term.term.toLowerCase())) {
+                            if (arr.length < 50) {
+                                arr.push(data[i]);
+                                break;
+                            }
+                        }
+                        else if (!isNaN(data[i][keys[j]]) && data[i][keys[j]] == term.term) {
+                            if (arr.length < 50) {
+                                arr.push(data[i]);
+                                break;
+                            }
+                        }
+                    }
+                }
+                return arr;
+            }
+        }
+
+        function ChangeLanguage(lang) {
+            if ($.cookie("CultureInfo") != null) {
+                var cultureInfo = $.cookie("CultureInfo").split("&");
+
+                cultureInfo = $.map(cultureInfo, function (value, i) {
+                    if (value.split("=")[0] == "SelectedLanguage") {
+                        return value.split("=")[0] + '=' + lang;
+                    } else {
+                        return value;
+                    }
+                })
+            }
+            
+            cultureInfo = cultureInfo.toString().replace(',','&');
+            $.cookie.raw = true;
+            $.cookie("CultureInfo", cultureInfo);
+
+            
+        }
     </script>
 
-     <style type="text/css">
-     
-	    .pnlDisablePage
-	    {
-	      padding: 10px;
+    <style type="text/css">
+        .pnlDisablePage {
+            padding: 10px;
             width: 100%;
-            height:100%;
-         	text-align:center;
-        	position:fixed;
-	        top:0px;
-	        left:0px;
-	        bottom:0px;
-	        right:0px;
-	        z-index:1001;
-	        background-color:#EEEEEE;
-	        opacity:0.3;
-	        filter:alpha(opacity=30);
-	    }
-	    #nav{position:relative;z-index:900;}
-	    
-         span.aspNetDisabled
-         {
-             color: #888888;
-         }
+            height: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            z-index: 1001;
+            background-color: #EEEEEE;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        }
 
+        #nav {
+            position: relative;
+            z-index: 900;
+        }
+
+        span.aspNetDisabled {
+            color: #888888;
+        }
+
+        .language {
+            padding: 5px 5px;
+            border-radius: 4px;
+            border-color: #46b8da;
+            display: block;
+            margin: 4px;
+        }
+
+            .language img {
+                width: 30px;
+                height: 25px;
+            }
+
+        #mybutton {
+            position: fixed;
+            top: 40%;
+            right: 10px;
+        }
     </style>
-      <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <div id="mybutton">
+        <a class="language" runat="server" id="aFirstLanguage" style="cursor: pointer" onclick='ChangeLanguage($(this).attr("name"))'>
+            <asp:Label ID="lblFirstLanguage" runat="server" Text=''></asp:Label>
+            <img runat="server" id="imgFirstLanguage" src="" />
+        </a>
+        <a class="language" runat="server" id="aAltLanguage" style="cursor: pointer" onclick='ChangeLanguage($(this).attr("name"))'>
+            <asp:Label ID="lblAltLanguage" runat="server" Text=''></asp:Label>
+            <img runat="server" id="imgAltLanguage" src="" />
+        </a>
+
+    </div>
 
     <%--<span id="PleaseWait" style="font-size:16px; color:black; display:block; direction: ltr; position:absolute; left:0">Please wait...</span>--%>
-     <img id="PleaseWait" src="Images/progress.gif" alt="Please wait..." style="width:50px; font-size:16px; position:absolute; top:0; right:0; bottom:0; left:0; margin:auto; z-index:1000;"/>
+    <img id="PleaseWait" src="Images/progress.gif" alt="Please wait..." style="width: 50px; font-size: 16px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; z-index: 1000;" />
 
     <form id="form1" runat="server">
 
@@ -411,144 +475,144 @@
                     <ul id="nav">
                         <li><a href="Home.aspx">
                             <asp:Label ID="lblHome" runat="server" Text='<%$ Resources:Resource,L_HOME %>'></asp:Label>
-                            </a></li>
+                        </a></li>
                         <li><a href="javascript:void 0">
                             <asp:Label ID="Menu2" runat="server" Text='<%$ Resources:Resource,L_INSUREESANDPOLICIES %>'></asp:Label>
-                            </a>
+                        </a>
                             <ul>
                                 <li><a id="Family" class="candisable" href="Family.aspx">
                                     <asp:Label ID="SubAddFamily" runat="server" Text='<%$ Resources:Resource,L_ADDFAMILY %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><cite></cite></li>
                                 <li><a id="FindFamily" class="candisable" href="FindFamily.aspx">
                                     <asp:Label ID="SubFindfamily" runat="server" Text='<%$ Resources:Resource,L_FAMILY %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindInsuree" class="candisable" href="FindInsuree.aspx">
                                     <asp:Label ID="SubFindInsuree" runat="server" Text='<%$ Resources:Resource,L_INSUREES %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindPolicy" class="candisable" href="FindPolicy.aspx">
                                     <asp:Label ID="SubFindPolicy" runat="server" Text='<%$ Resources:Resource,L_POLICIES %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindPremium" class="candisable" href="FindPremium.aspx">
                                     <asp:Label ID="SubFindPremium" runat="server" Text='<%$ Resources:Resource,L_PREMIUMS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindPayment" class="candisable" href="FindPayment.aspx">
                                     <asp:Label ID="SubFindPayment" runat="server" Text='<%$ Resources:Resource,L_PAYMENTS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void 0">
                             <asp:Label ID="lblClaimsLink" runat="server" Text='<%$ Resources:Resource,B_CLAIM %>'></asp:Label>
-                            </a>
+                        </a>
                             <ul>
                                 <li><a class="candisable" href="FindClaims.aspx">
                                     <asp:Label ID="SubClaimOverview" runat="server" Text='<%$ Resources:Resource,L_HFCLAIM %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><cite></cite></li>
                                 <li><a class="candisable" href="ClaimOverview.aspx">
                                     <asp:Label ID="SubReview" runat="server" Text='<%$ Resources:Resource,L_CLAIMREVIEW %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><cite></cite></li>
                                 <li><a class="candisable" href="ProcessBatches.aspx">
                                     <asp:Label ID="SubBatchRun" runat="server" Text='<%$ Resources:Resource,L_BATCHRUN %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><cite></cite></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void 0">
                             <asp:Label ID="Label4" runat="server" Text='<%$ Resources:Resource,L_ADMINISTRATION %>'></asp:Label>
-                            </a>
+                        </a>
                             <ul>
                                 <li><a class="candisable" href="FindProduct.aspx">
                                     <asp:Label ID="SubProducts" runat="server" Text='<%$ Resources:Resource,L_PRODUCTS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a class="candisable" href="FindHealthFacility.aspx">
                                     <asp:Label ID="SubHF" runat="server" Text='<%$ Resources:Resource,L_HFACILITIES %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><cite></cite></li>
                                 <li><a href="#">
                                     <asp:Label ID="SubPriceList" runat="server" Text='<%$ Resources:Resource,L_PRICELISTS %>'></asp:Label>
-                                    </a>
+                                </a>
                                     <ul>
                                         <li><a class="candisable" href="FindPriceListMS.aspx">
                                             <asp:Label ID="SubPLMS" runat="server" Text='<%$ Resources:Resource,L_MEDICALSERVICES %>'></asp:Label>
-                                            </a></li>
+                                        </a></li>
                                         <li><a class="candisable" href="FindPriceListMI.aspx">
                                             <asp:Label ID="SubPLMI" runat="server" Text='<%$ Resources:Resource,L_MEDICALITEMS %>'></asp:Label>
-                                            </a></li>
+                                        </a></li>
                                     </ul>
                                 </li>
                                 <li><cite></cite></li>
                                 <li><a class="candisable" href="FindMedicalService.aspx">
                                     <asp:Label ID="SubMS" runat="server" Text='<%$ Resources:Resource,L_MEDICALSERVICES %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a class="candisable" href="FindMedicalItem.aspx">
                                     <asp:Label ID="SUBMI" runat="server" Text='<%$ Resources:Resource,L_MEDICALITEMS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><cite></cite></li>
                                 <li><a id="FindUser" class="candisable" href="FindUser.aspx">
                                     <asp:Label ID="SubUser" runat="server" Text='<%$ Resources:Resource,L_USERS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindUserProfile" class="candisable" href="FindProfile.aspx">
                                     <asp:Label ID="SubUserProfile" runat="server" Text='<%$ Resources:Resource,L_USERPROFILES %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindOfficer" class="candisable" href="FindOfficer.aspx">
                                     <asp:Label ID="subOfficer" runat="server" Text='<%$ Resources:Resource,L_OFFICERS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindClaimAdministrator" class="candisable" href="FindClaimAdministrator.aspx">
                                     <asp:Label ID="SubClaimAdministrator" runat="server" Text='<%$ Resources:Resource,L_CLAIMADMINISTRATORS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="FindPayer" class="candisable" href="FindPayer.aspx">
                                     <asp:Label ID="subPayer" runat="server" Text='<%$ Resources:Resource,L_PAYERS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="Locations" class="candisable" href="Locations.aspx">
                                     <asp:Label ID="subLocation" runat="server" Text='<%$ Resources:Resource,L_LOCATIONS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void 0">
                             <asp:Label ID="lblTools" runat="server" Text='<%$ Resources:Resource,L_TOOLS %>'></asp:Label>
-                            </a>
+                        </a>
                             <ul>
                                 <li><a class="candisable" href="Registers.aspx">
                                     <asp:Label ID="UploadICD" runat="server" Text='<%$ Resources:Resource,L_UPLOADREGISTERS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a class="candisable" href="PolicyRenewal.aspx">
                                     <asp:Label ID="subPolicyRenewal" runat="server" Text='<%$ Resources:Resource,L_POLICYRENEWALS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a class="candisable" href="FeedbackPrompt.aspx">
                                     <asp:Label ID="subFeedbackPrompt" runat="server" Text='<%$ Resources:Resource,L_FEEDBACKPROMPT %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a class="candisable" href="IMISExtracts.aspx">
                                     <asp:Label ID="subIMISExtracts" runat="server" Text='<%$ Resources:Resource,L_EXTRACTS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <%--	<li><a class="candisable"   style="color:gray;" href="javascript:void 0" url="ProcessBatches.aspx"><asp:Label  ID="subProcessMonth" runat="server" Text='<%$ Resources:Resource,L_PROCESS %>'></asp:Label></a></li>--%>
                                 <li><a class="candisable" href="Reports.aspx">
                                     <asp:Label ID="subReports" runat="server" Text='<%$ Resources:Resource,L_REPORTS %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a class="candisable" href="Utilities.aspx">
                                     <asp:Label ID="subUtilities" runat="server" Text='<%$ Resources:Resource,L_UTILITIES %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a class="candisable" href="AddFunding.aspx">
                                     <asp:Label ID="subFunding" runat="server" Text='<%$ Resources:Resource,L_FUNDING %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                                 <li><a id="EmailSetting" class="candisable" href="EmailSettings.aspx">
                                     <asp:Label ID="subEmailSetting" runat="server" Text='<%$ Resources:Resource,L_EMAILSETTING %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                             </ul>
                         </li>
                         <li><a href="#">
                             <asp:Label ID="lblMyProfile" runat="server" Text='<%$ Resources:Resource, L_MYPROFILE %>'></asp:Label>
-                            </a>
+                        </a>
                             <ul>
                                 <li><a href="ChangePassword.aspx">
                                     <asp:Label ID="lblChangePassword" runat="server" Text='<%$ Resources:Resource, L_CHANGEPASSWORD %>'></asp:Label>
-                                    </a></li>
+                                </a></li>
                             </ul>
                         </li>
                         <li><a href="Logout.aspx">
                             <asp:Label ID="lblLogout" runat="server" Text='<%$ Resources:Resource,L_LOGOUT %>'></asp:Label>
-                            </a></li>
+                        </a></li>
                         <li><a style="width: 200px" class="search">
                             <div style="position: relative; background-color: White; overflow: hidden; width: 155px; float: left; font-weight: normal;">
                                 <asp:Label ID="lblWaterMark" runat="server" Text='<%$ Resources:Resource,L_SEARCHCHFNUMBER %>' CssClass="WaterMark"></asp:Label>
@@ -596,10 +660,10 @@
                                         Style="background: #339933; color: #FFFFFF; font-size: 12px; vertical-align: top; font-weight: bold; padding: 0px; margin: 0px; border: 1px solid #FFFFFF; width: 25px; height: auto; min-width: initial" />
                                 </ContentTemplate>
                             </asp:UpdatePanel>
-                            </a></li>
+                        </a></li>
                         <li><a id="manual" href="Manual/IMIS_manual.pdf" target="_new">
                             <img src="Images/Help book.bmp" alt="" />
-                            </a></li>
+                        </a></li>
                         <%--<li><span id="version">v16.3.0</span></li>--%>
                     </ul>
                 </asp:Panel>
@@ -612,23 +676,19 @@
                     <NodeStyle Font-Bold="True" ForeColor="#666666" />
                     <RootNodeStyle Font-Bold="True" ForeColor="#1C5E55"  />
                 </asp:SiteMapPath>--%>
-                <div class="contentBox" style="min-height:650px">
-                <asp:ContentPlaceHolder ID="Body" runat="server">
-                    
-                        
-                    
-                </asp:ContentPlaceHolder>
-                    </div>
+                <div class="contentBox" style="min-height: 650px">
+                    <asp:ContentPlaceHolder ID="Body" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
                 <div class="footer" runat="server" id="FooterID">
                     <asp:Label runat="server" ID="lblinfo"
-                        Style="float: right; font-size: 10px; font-style: normal; padding-right: 5px; padding-top: 3px; text-align: right;"
-                        ></asp:Label>
+                        Style="float: right; font-size: 10px; font-style: normal; padding-right: 5px; padding-top: 3px; text-align: right;"></asp:Label>
                     <asp:ContentPlaceHolder ID="footer" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
 
-            
+
         </div>
         <asp:UpdatePanel ID="upDL" runat="server">
             <ContentTemplate>
@@ -638,7 +698,7 @@
                     <tr>
                         <td align="center">
                             <div style="display: inline-block; position: relative;">
-                                <img alt="Close" id="btnCancel" src="Images/Erase.png" style="position: absolute; top: 0px; right: -15px;"/>
+                                <img alt="Close" id="btnCancel" src="Images/Erase.png" style="position: absolute; top: 0px; right: -15px;" />
                                 <table class="InsureeByCHFID">
                                     <tr>
                                         <td>
@@ -652,7 +712,7 @@
                                                         <tr>
                                                             <td valign="top" width="150px">
                                                                 <div style="border: 1px solid #AAAAAA; width: 150px; height: 150px; overflow: hidden; text-align: center">
-                                                                    <img id="img1" style="max-width:100%; max-height:100%;" alt="" src='<%#Eval("PhotoPath") %>' onerror="NoImage(this);" />
+                                                                    <img id="img1" style="max-width: 100%; max-height: 100%;" alt="" src='<%#Eval("PhotoPath") %>' onerror="NoImage(this);" />
                                                                 </div>
                                                             </td>
                                                             <td align="left">
@@ -669,7 +729,7 @@
                                                                             <asp:Label
                                                                                 ID="L_LASTNAME"
                                                                                 runat="server"
-                                                                                width="100"
+                                                                                Width="100"
                                                                                 Text='<%$ Resources:Resource,L_LASTNAME %>'>
                                                                             </asp:Label>
                                                                         </td>
@@ -680,23 +740,23 @@
                                                                             <asp:Label
                                                                                 ID="Label2"
                                                                                 runat="server"
-                                                                          visible="false"
-                                                                             Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                                Visible="false"
+                                                                                Text='<%$ Resources:Resource,L_AGE %>'>
                                                                             </asp:Label>
                                                                         </td>
                                                                         <td class="FormLabel">
                                                                             <asp:Label
                                                                                 ID="Label6"
                                                                                 runat="server"
-                                                                          visible="false"
-                                                                              Text='<%$ Resources:Resource,L_AGE %>'>
+                                                                                Visible="false"
+                                                                                Text='<%$ Resources:Resource,L_AGE %>'>
                                                                             </asp:Label>
-                                                                           </td>
+                                                                        </td>
                                                                         <td class="SearchLabel">
                                                                             <asp:Label
                                                                                 ID="L_FSPREGION"
                                                                                 runat="server"
-                                                                                width="100"
+                                                                                Width="100"
                                                                                 Text='<%$ Resources:Resource,L_FSPREGION %>'>
                                                                             </asp:Label>
                                                                         </td>
@@ -719,7 +779,7 @@
                                                                             <asp:Label
                                                                                 ID="Label3"
                                                                                 runat="server"
-                                                                                visible="false"
+                                                                                Visible="false"
                                                                                 Text='<%$ Resources:Resource,L_AGE %>'>
                                                                             </asp:Label>
                                                                         </td>
@@ -727,7 +787,7 @@
                                                                             <asp:Label
                                                                                 ID="Label7"
                                                                                 runat="server"
-                                                                                visible="false"
+                                                                                Visible="false"
                                                                                 Text='<%$ Resources:Resource,L_AGE %>'>
                                                                             </asp:Label>
                                                                         </td>
@@ -735,7 +795,7 @@
                                                                             <asp:Label
                                                                                 ID="L_FSPDISTRICT"
                                                                                 runat="server"
-                                                                                width="100"
+                                                                                Width="100"
                                                                                 Text='<%$ Resources:Resource,L_FSPDISTRICT %>'>
                                                                             </asp:Label>
                                                                         </td>
@@ -762,17 +822,17 @@
                                                                             </asp:Label>
                                                                         </td>
                                                                         <td class="ReadOnlyText" align="left">
-                                                                           <asp:Label ID="age" Text='<%#Eval("Age")%>' runat="server"></asp:Label>
-                                                                         <td class="SearchLabel">
-                                                                            <asp:Label
-                                                                                ID="L_FSPLEVEL"
-                                                                                runat="server"
-                                                                                Text='<%$ Resources:Resource,L_FSPLEVEL %>'>
-                                                                            </asp:Label>
-                                                                        </td>
-                                                                        <td class="ReadOnlyText">
-                                                                             <asp:Label ID="hfLevel" Text='<%#Eval("HFLevel")%>' runat="server"></asp:Label>
-                                                                        </td>
+                                                                            <asp:Label ID="age" Text='<%#Eval("Age")%>' runat="server"></asp:Label>
+                                                                            <td class="SearchLabel">
+                                                                                <asp:Label
+                                                                                    ID="L_FSPLEVEL"
+                                                                                    runat="server"
+                                                                                    Text='<%$ Resources:Resource,L_FSPLEVEL %>'>
+                                                                                </asp:Label>
+                                                                            </td>
+                                                                            <td class="ReadOnlyText">
+                                                                                <asp:Label ID="hfLevel" Text='<%#Eval("HFLevel")%>' runat="server"></asp:Label>
+                                                                            </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="SearchLabel">
@@ -785,11 +845,11 @@
                                                                         <td class="SearchDetails">
                                                                             <asp:Label ID="gender" Text='<%#Eval("Gender")%>' runat="server"></asp:Label>
                                                                         </td>
-                                                                         <td class="SearchLabel">
+                                                                        <td class="SearchLabel">
                                                                             <asp:Label
                                                                                 ID="Label5"
                                                                                 runat="server"
-                                                                                visible="false"
+                                                                                Visible="false"
                                                                                 Text='<%$ Resources:Resource,L_AGE %>'>
                                                                             </asp:Label>
                                                                         </td>
@@ -802,7 +862,7 @@
                                                                             </asp:Label>
                                                                         </td>
                                                                         <td class="SearchDetails">
-                                                                             <asp:Label ID="fsp" Text='<%#Eval("FirstServicePoint")%>' runat="server"></asp:Label>
+                                                                            <asp:Label ID="fsp" Text='<%#Eval("FirstServicePoint")%>' runat="server"></asp:Label>
                                                                         </td>
                                                                     </tr>
 
@@ -930,6 +990,8 @@
         <asp:ContentPlaceHolder ID="HiddenContainer" runat="server">
         </asp:ContentPlaceHolder>
     </form>
+
+
 
 </body>
 

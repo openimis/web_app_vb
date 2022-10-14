@@ -30,7 +30,7 @@ Public Class LanguagesDAL
     Public Function GetLanguages() As DataTable
         Dim sSQL As String = String.Empty
         Dim data As New ExactSQL
-        sSQL = "SELECT [LanguageCode],[LanguageName]  FROM tblLanguages ORDER BY SortOrder"
+        sSQL = "SELECT [LanguageCode],[LanguageName], [CountryCode]  FROM tblLanguages ORDER BY SortOrder"
         data.setSQLCommand(sSQL, CommandType.Text)
         Return data.Filldata
 

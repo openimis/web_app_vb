@@ -28,6 +28,8 @@
 
 
 Imports Microsoft.Reporting.WebForms
+Imports System.Threading
+Imports System.Globalization
 Partial Public Class Report
     Inherits System.Web.UI.Page
     Dim imisgen As New IMIS_Gen
@@ -41,6 +43,12 @@ Partial Public Class Report
         If Not userBI.RunPageSecurity(IMIS_EN.Enums.Pages.Report, Page) Then
             Server.Transfer("Redirect.aspx?perm=0&page=" & IMIS_EN.Enums.Pages.Report.ToString & "&retUrl=" & RefUrl)
         End If
+    End Sub
+
+    Public Sub rptViewer_PreRender(sender As Object, e As EventArgs)
+        Dim ci As CultureInfo = New CultureInfo("en-US")
+        Thread.CurrentThread.CurrentCulture = ci
+        Thread.CurrentThread.CurrentUICulture = ci
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then

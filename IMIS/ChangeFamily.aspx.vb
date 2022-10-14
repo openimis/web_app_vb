@@ -27,6 +27,8 @@
 '
 
 
+Imports System.Reflection
+
 Partial Public Class ChangeFamily
     Inherits System.Web.UI.Page
     Private eFamily As New IMIS_EN.tblFamilies
@@ -65,7 +67,7 @@ Partial Public Class ChangeFamily
         Adjustibility = General.getControlSetting("PermanentAddress")
         L_ADDRESS0.Visible = Not (Adjustibility = "N")
         txtPermanentAddress.Visible = Not (Adjustibility = "N")
-        trAddress.visible = Not (Adjustibility = "N")
+        trAddress.Visible = Not (Adjustibility = "N")
         rfAddress.Enabled = (Adjustibility = "M")
 
         'Poverty
@@ -106,7 +108,7 @@ Partial Public Class ChangeFamily
 
             ddlType.DataSource = ChangeFamily.GetTypes
             ddlType.DataValueField = "FamilyTypeCode"
-            ddlType.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "FamilyType", "AltLanguage")
+            ddlType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "FamilyType", "AltLanguage")
             ddlType.DataBind()
 
             ddlEthnicity.DataSource = ChangeFamily.GetEthnicity
@@ -133,11 +135,11 @@ Partial Public Class ChangeFamily
                 txtConfirmationNo1.Text = eFamily.ConfirmationNo
                 txtConfirmationType.Text = eFamily.ConfirmationType
                 ddlRegion.SelectedValue = eFamily.RegionId
-                ddlDistrict.SelectedValue = eFamily.DistrictID
+                ddlDistrict.SelectedValue = eFamily.DistrictId
                 If dtRegions.Rows.Count > 0 Then
                     FillDistrict()
                 End If
-                ddlWard.SelectedValue = eFamily.WardID
+                ddlWard.SelectedValue = eFamily.WardId
                 ddlVillage.SelectedValue = eFamily.LocationId
 
                 ddlPoverty.DataSource = ChangeFamily.GetYesNO
@@ -148,7 +150,7 @@ Partial Public Class ChangeFamily
 
                 ddlConfirmationType.DataSource = ChangeFamily.GetSubsidy
                 ddlConfirmationType.DataValueField = "ConfirmationTypeCode"
-                ddlConfirmationType.DataTextField = If(Request.Cookies("CultureInfo").Value = "en", "ConfirmationType", "AltLanguage")
+                ddlConfirmationType.DataTextField = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "ConfirmationType", "AltLanguage")
                 ddlConfirmationType.DataBind()
                 ddlConfirmationType.SelectedValue = eFamily.ConfirmationType
                 ddlEthnicity.SelectedValue = eFamily.Ethnicity
@@ -219,7 +221,7 @@ Partial Public Class ChangeFamily
             ddlWard.DataTextField = "WardName"
             ddlWard.DataBind()
             'If Not eFamily.tblWards Is Nothing Then
-            If eFamily.WardID > 0 Then ddlWard.SelectedValue = eFamily.WardID
+            If eFamily.WardId > 0 Then ddlWard.SelectedValue = eFamily.WardId
             'End If
 
         Else
@@ -269,6 +271,9 @@ Partial Public Class ChangeFamily
             eFamily.FamilyAddress = txtAddress.Text.Trim
             If ddlEthnicity.SelectedValue.Length > 0 Then eFamily.Ethnicity = ddlEthnicity.SelectedValue
             eFamily.ConfirmationNo = txtConfirmationNo.Text.Trim
+
+            eFamily.Source = "Legacy"
+            eFamily.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
             Dim chk As Boolean = ChangeFamily.UpdateChangeFamily(eFamily)
             If chk = True Then
@@ -326,6 +331,13 @@ Partial Public Class ChangeFamily
             eIinsureeNEW.InsureeID = txtCHFIDToChange.Attributes("NewInsureeID")
             eIinsureeNEW.AuditUserID = imisgen.getUserId(Session("User"))
             eIinsureeNEW.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
+
+            eIinsureeNEW.Source = "Legacy"
+            eIinsureeNEW.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
+
+            eFamily.Source = "Legacy"
+            eFamily.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
+
             Dim CHFNumber As String = eIinsureeNEW.CHFID
             If ChangeFamily.ChangeHead(eInsureeold, eIinsureeNEW) = True Then
                 Session("Msg") = CHFNumber & imisgen.getMessage("M_CHANGEHEAD")
@@ -435,9 +447,15 @@ Partial Public Class ChangeFamily
             eIinsureeNEW.InsureeID = txtCHFIDToMove.Attributes("NewInsureeID")
             eIinsureeNEW.AuditUserID = imisgen.getUserId(Session("User"))
             eIinsureeNEW.isOffline = IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF
+
+
+
             Dim CHFNumber As String = eIinsureeNEW.CHFID
 
             Dim Activate As Boolean = If(hfActivate.Value = 0, False, True)
+
+            eIinsureeNEW.Source = "Legacy"
+            eIinsureeNEW.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
             If ChangeFamily.MoveInsuree(eIinsureeNEW, Activate) = True Then
                 Session("Msg") = CHFNumber & imisgen.getMessage("M_MOVEINSUREE", True) & " " & txtHeadLastName.Text

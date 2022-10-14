@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Reflection
+
 Partial Public Class OverviewFamily
     Inherits System.Web.UI.Page
     Private FamilyId As Integer = 0
@@ -44,7 +46,7 @@ Partial Public Class OverviewFamily
     Private productBI As New IMIS_BI.ProductBI
     Private Sub FormatForm()
         Dim Adjustibility As String = ""
-     
+
 
         'Confirmation
         Adjustibility = General.getControlSetting("Confirmation")
@@ -159,11 +161,11 @@ Partial Public Class OverviewFamily
             End If
             txtPoverty.Text = If(eFamily.Poverty Is Nothing, "", If(eFamily.Poverty = True, "Yes", "No"))
             txtConfirmationType.Text = eFamily.ConfirmationType
-          
+
 
             ''txtHeadPhone.Text = eFamily.tblInsuree.Phone
             '' txtEthnicity.Text = eFamily.Ethnicity
-            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo").Value = "en", eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
+            txtHeadGroupType.Text = If(Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), eFamily.tblFamilyTypes.FamilyType, eFamily.tblFamilyTypes.AltLanguage)
             txtConfirmationNo.Text = eFamily.ConfirmationNo
             txtPermanentAddress.Text = eFamily.FamilyAddress
         Catch ex As Exception
@@ -264,7 +266,11 @@ Partial Public Class OverviewFamily
                 epolicy = New IMIS_EN.tblPolicy
                 policyValueCurrent = 0
                 epolicy.PolicyStatus = dr("PolicyStatusID")
-                epolicy.ExpiryDate = dr("ExpiryDate")
+                If dr("ExpiryDate") Is Nothing Then
+                    epolicy.ExpiryDate = dr("ExpiryDate")
+                Else
+                    epolicy.ExpiryDate = Nothing
+                End If
                 If epolicy.PolicyStatus > 1 Then
                     Continue For
                 End If
@@ -542,8 +548,13 @@ Partial Public Class OverviewFamily
 
             eFamily.FamilyID = FamilyId
             eFamily.AuditUserID = dt.Rows(0)("UserID")
+            eFamily.Source = "Legacy"
+            eFamily.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
             eInsuree.AuditUserID = dt.Rows(0)("UserID")
+            eInsuree.Source = eFamily.Source
+            eInsuree.SourceVersion = eFamily.SourceVersion
+
             If Not gvInsurees.SelectedDataKey Is Nothing Then
                 eInsuree.InsureeID = CInt(gvInsurees.SelectedDataKey.Values("InsureeID"))
             End If
@@ -595,6 +606,8 @@ Partial Public Class OverviewFamily
             End If
 
             eInsuree.AuditUserID = dt.Rows(0)("UserID")
+            eInsuree.Source = "Legacy"
+            eInsuree.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
             chk = OverviewFamily.DeleteInsuree(eInsuree)
 
@@ -664,6 +677,8 @@ Partial Public Class OverviewFamily
             End If
 
             epolicy.AuditUserID = dt.Rows(0)("UserID")
+            epolicy.Source = "Legacy"
+            epolicy.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
             chk = OverviewFamily.DeletePolicy(epolicy)
 
@@ -716,6 +731,9 @@ Partial Public Class OverviewFamily
 
             epremium.AuditUserID = dt.Rows(0)("UserID")
 
+            epremium.Source = "Legacy"
+            epremium.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
+
             chk = OverviewFamily.DeletePremium(epremium)
 
             If chk = 0 Then
@@ -743,7 +761,7 @@ Partial Public Class OverviewFamily
     End Sub
     Private Sub B_CANCEL_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles B_CANCEL.Click
 
-        
+
         Response.Redirect(Session("parentUrl"))
 
     End Sub

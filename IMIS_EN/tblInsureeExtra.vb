@@ -37,4 +37,9 @@ Partial Public Class tblInsuree
     Public Property DOBTo As Date
     Public Property Vulnerability As Boolean
 
+    Public Property Source As String
+
+    Public Property SourceVersion As String
+
+
 End Class

@@ -548,7 +548,7 @@ Public Class IMISExtractsDAL
     End Function
     Public Sub SubmitClaimFromXML(ByVal Xml As XmlDocument)
         Dim data As New ExactSQL
-        Dim sSQL As String = "uspUpdateClaimFromPhone"
+        Dim sSQL As String = "uspRestApiUpdateClaimFromPhone"
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@XML", Xml.InnerXml)
@@ -585,7 +585,7 @@ Public Class IMISExtractsDAL
         data.ExecuteCommand()
     End Sub
 
-    Public Function UploadEnrolments(ByVal Xml As XmlDocument, ByVal Output As Dictionary(Of String, Integer)) As DataTable
+    Public Function UploadEnrolments(ByVal Xml As XmlDocument, source As String, sourceVersion As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = String.Empty
         sSQL = "uspUploadEnrolments"
@@ -593,6 +593,8 @@ Public Class IMISExtractsDAL
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@XML", Xml.InnerXml)
+        data.params("@Source", SqlDbType.NVarChar, 50, source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, sourceVersion)
         data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         data.params("@FamilySent", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@InsureeSent", SqlDbType.Int, 0, ParameterDirection.Output)
@@ -620,7 +622,7 @@ Public Class IMISExtractsDAL
         Return dt
     End Function
 
-    Public Function ConsumeEnrollment(ByVal Xml As XmlDocument, ByVal Output As Dictionary(Of String, Integer)) As DataTable
+    Public Function ConsumeEnrollment(ByVal Xml As XmlDocument, source As String, sourceVersion As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
         Dim data As New ExactSQL
         Dim sSQL As String = String.Empty
         sSQL = "uspConsumeEnrollments"
@@ -628,6 +630,8 @@ Public Class IMISExtractsDAL
 
         data.setSQLCommand(sSQL, CommandType.StoredProcedure)
         data.params("@XML", Xml.InnerXml)
+        data.params("@Source", SqlDbType.NVarChar, 50, source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, sourceVersion)
         data.params("@RV", SqlDbType.Int, 0, ParameterDirection.ReturnValue)
         data.params("@FamilySent", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@FamilyImported", SqlDbType.Int, 0, ParameterDirection.Output)
@@ -643,6 +647,7 @@ Public Class IMISExtractsDAL
         data.params("@PremiumSent", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@PremiumImported", SqlDbType.Int, 0, ParameterDirection.Output)
         data.params("@PremiumRejected", SqlDbType.Int, 0, ParameterDirection.Output)
+
         'get the last datatable which is result table
         Dim ds As DataSet = data.FilldataSet()
         Dim dt As DataTable = ds.Tables(ds.Tables.Count - 1)

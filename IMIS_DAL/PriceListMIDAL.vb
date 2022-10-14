@@ -79,6 +79,45 @@ Public Class PriceListMIDAL
         Return data.Filldata
     End Function
 
+    Public Function GetPriceListDistrictMI(ByVal userid As Integer, ByVal DistrictName As String) As DataTable
+        Dim data As New ExactSQL
+
+        Dim sSQL As String = String.Empty
+        sSQL += " SELECT PLItemID,PLItemName FROM tblPLItems  PL"
+        sSQL += " INNER JOIN uvwLocations L ON L.DistrictName=@DistrictName"
+        sSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId AND UD.ValidityTo IS NULL"
+        sSQL += " WHERE PL.ValidityTo IS NULL"
+        sSQL += " AND UD.ValidityTo IS NULL"
+        sSQL += " AND L.WardName is NULL"
+
+        data.setSQLCommand(sSQL, CommandType.Text)
+
+        data.params("@UserID", SqlDbType.Int, userid)
+        data.params("@DistrictName", SqlDbType.VarChar, 50, CType(DistrictName, String))
+        Return data.Filldata
+    End Function
+
+
+    ' Detached district pricelist from HF's
+    Public Sub DetachLocalItemPriceListFromHF(ByVal UserId As Integer, ByVal DistrictName As String)
+        Dim data As New ExactSQL
+        Dim SSQL As String = String.Empty
+
+        SSQL = " UPDATE tblHF SET PLItemID=NULL WHERE PLItemID In ("
+        SSQL += " SELECT PLItemID FROM tblPLItems  PL"
+        SSQL += " INNER JOIN uvwLocations L ON ISNULL(L.LocationId, 0) = ISNULL(PL.LocationId, 0)"
+        SSQL += " LEFT OUTER JOIN tblUsersDistricts UD ON PL.LocationId = UD.LocationId AND UD.UserId = @UserId"
+        SSQL += " WHERE PL.ValidityTo IS NULL"
+        SSQL += " AND L.DistrictName=@DistrictName"
+        SSQL += " AND UD.ValidityTo IS NULL"
+        SSQL += " AND L.WardName is NULL)"
+
+        data.setSQLCommand(SSQL, CommandType.Text)
+        data.params("@UserID", SqlDbType.Int, UserId)
+        data.params("@DistrictName", SqlDbType.VarChar, 50, CType(DistrictName, String))
+        data.Filldata()
+    End Sub
+
     'Corrected
     Public Function GetPLItems(ByVal ePL As IMIS_EN.tblPLItems, ByVal All As Boolean) As DataTable
         Dim data As New ExactSQL

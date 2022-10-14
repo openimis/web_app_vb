@@ -22,7 +22,7 @@ Namespace Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Class Resource
@@ -7994,6 +7994,24 @@ Namespace Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to The following secret keys were left at a default value. For security reasons, please change them in Web.config file. Make sure secret keys are also updated in mobile applications..
+        '''</summary>
+        Friend Shared ReadOnly Property M_DEFAULTPASSWORDWARNING() As String
+            Get
+                Return ResourceManager.GetString("M_DEFAULTPASSWORDWARNING", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Security Warning.
+        '''</summary>
+        Friend Shared ReadOnly Property M_DEFAULTPASSWORDWARNINGLABEL() As String
+            Get
+                Return ResourceManager.GetString("M_DEFAULTPASSWORDWARNINGLABEL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to deleted successfully.
         '''</summary>
         Friend Shared ReadOnly Property M_DELETED() As String
@@ -9367,6 +9385,15 @@ Namespace Resources
         Friend Shared ReadOnly Property M_MISSINGVILLAGECODEORNAMEINEXCEL() As String
             Get
                 Return ResourceManager.GetString("M_MISSINGVILLAGECODEORNAMEINEXCEL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Do you want to move district and detach all local pricelists from health facilities?.
+        '''</summary>
+        Friend Shared ReadOnly Property M_MOVEDISTRICTSPLWARNING() As String
+            Get
+                Return ResourceManager.GetString("M_MOVEDISTRICTSPLWARNING", resourceCulture)
             End Get
         End Property
         

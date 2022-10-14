@@ -64,6 +64,7 @@ Partial Public Class Officer
                 FillDistrict()
             End If
             FillLanguage()
+            changeEnabledValidatorFieldsInIncludeLogin(False)
 
             If Not eOfficer.OfficerID = 0 Then
                 Officer.LoadOfficer(eOfficer)
@@ -97,6 +98,7 @@ Partial Public Class Officer
                     ddlLanguage.SelectedValue = eUsers.LanguageID
                     RequiredFieldConfirmPassword.Visible = False
                     RequiredFieldPassword.Visible = False
+                    changeEnabledValidatorFieldsInIncludeLogin(True)
                 End If
             Else
 
@@ -120,13 +122,32 @@ Partial Public Class Officer
 #End Region
 #Region "Buttons"
     Protected Sub B_SAVE_Click(ByVal sender As Object, ByVal e As EventArgs) Handles B_SAVE.Click
-        Dim Valid As Boolean = SaveOfficer()
-
-        If Not Valid Then
-            Exit Sub
+        If Page.IsValid Then
+            Dim Valid As Boolean = SaveOfficer()
+            If Valid Then
+                Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text.Trim)
+            End If
         End If
+    End Sub
 
-        Response.Redirect("FindOfficer.aspx?o=" & txtCode.Text.Trim)
+    Protected Sub SubstitutionValidator(ByVal Sender As Object, ByVal args As ServerValidateEventArgs)
+        If Not (String.IsNullOrEmpty(ddlSubstitution.SelectedValue) Or ddlSubstitution.SelectedValue = "0") And Not IsDate(txtWorksTo.Text) Then
+            lblmsg.Text = imisgen.getMessage("M_WORKSTO")
+            args.IsValid = False
+        Else
+            args.IsValid = True
+        End If
+    End Sub
+
+    Protected Sub WorksToValidator(ByVal Sender As Object, ByVal args As ServerValidateEventArgs)
+        If Not String.IsNullOrEmpty(txtWorksTo.Text) And Not IsDate(txtWorksTo.Text) Then
+            args.IsValid = False
+        ElseIf IsDate(txtWorksTo.Text) And (String.IsNullOrEmpty(ddlSubstitution.SelectedValue) Or ddlSubstitution.SelectedValue = "0") Then
+            lblmsg.Text = imisgen.getMessage("M_SUBSTITUTE")
+            args.IsValid = False
+        Else
+            args.IsValid = True
+        End If
     End Sub
 
     Protected Sub chkOfficerIncludeLogin_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
@@ -150,17 +171,6 @@ Partial Public Class Officer
         Try
             Dim dt As New DataTable
             dt = DirectCast(Session("User"), DataTable)
-
-            If IsDate(txtWorksTo.Text) And ddlSubstitution.SelectedValue = 0 Then
-                Session("msg") = imisgen.getMessage("M_SUBSTITUTE")
-                Return False
-            End If
-
-
-            If ddlSubstitution.SelectedValue > 0 And Not IsDate(txtWorksTo.Text) Then
-                Session("msg") = imisgen.getMessage("M_WORKSTO")
-                Return False
-            End If
 
             Dim eLocations As New IMIS_EN.tblLocations
 

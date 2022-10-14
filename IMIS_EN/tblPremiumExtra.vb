@@ -42,4 +42,9 @@ Partial Public Class tblPremium
     Public Property ProductCode As Global.System.String
 
     Public Property InsuranceNumber As Global.System.String
+
+    Public Property Source As String
+
+    Public Property SourceVersion As String
+
 End Class

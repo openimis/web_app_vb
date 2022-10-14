@@ -93,4 +93,13 @@ Partial Public Class Home
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvDistrict As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''DEFAULTPASSWORDWARNINGFIELD control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DEFAULTPASSWORDWARNINGFIELD As Global.System.Web.UI.WebControls.Label
 End Class

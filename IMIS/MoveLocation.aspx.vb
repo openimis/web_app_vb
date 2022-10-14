@@ -29,6 +29,8 @@
 Public Class MoveLocation
     Inherits System.Web.UI.Page
     Protected imisgen As New IMIS_Gen
+    Private PricelistsItems As New IMIS_BL.PriceListMIBL
+    Private PricelistsServices As New IMIS_BL.PricelistMSBL
     Private MoveLocationBI As New IMIS_BI.MoveLocationBI
     Private AffectedFamilies As Integer = 0
     Private DistrictId As Integer
@@ -58,9 +60,15 @@ Public Class MoveLocation
     End Sub
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
-            AuditUserId = imisgen.getUserId(Session("User"))
             lblMsg.Text = ""
-            If IsPostBack = True Then Return
+            AuditUserId = imisgen.getUserId(Session("User"))
+            If IsPostBack = True Then
+                If Request.Params.Get("__EVENTARGUMENT").ToString = "MoveDelete" Then
+                    MoveDistrict()
+                End If
+                Return
+            End If
+            'If IsPostBack = True Then Return
             GetRegions()
             LoadGrids(0)
         Catch ex As Exception
@@ -101,7 +109,7 @@ Public Class MoveLocation
             End If
             gvVillages.DataSource = Nothing
             gvVillages.DataBind()
-          
+
         Catch ex As Exception
             lblMsg.Text = imisgen.getMessage("M_ERRORMESSAGE").ToString
             imisgen.Log(Page.Title & " : " & imisgen.getLoginName(Session("User")), ex)
@@ -112,7 +120,7 @@ Public Class MoveLocation
     Private Sub ddlVDistrict_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlVDistrict.SelectedIndexChanged
         Try
             If ddlVDistrict.SelectedValue > 0 Then GetWard()
-           
+
             gvVillages.DataSource = Nothing
             gvVillages.DataBind()
         Catch ex As Exception
@@ -240,9 +248,29 @@ Public Class MoveLocation
         LoadGrids(1)
         LoadGrids(2)
     End Sub
-    Private Sub ImgBtnMoveDistrict_Click(sender As Object, e As ImageClickEventArgs) Handles ImgBtnMoveDistrict.Click
+
+    Private Function isDistrictsPricelistConflict() As Boolean
+        Dim temp = gvDistricts.SelectedDataKey.Values("DistrictName")
+        Dim dtPricelistsItems As DataTable = PricelistsItems.GetPriceListDistrictMI(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"), False)
+        Dim dtPricelistsServices As DataTable = PricelistsServices.GetPriceListDistrictMS(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"), False)
+
+        If dtPricelistsItems.Rows.Count > 0 Or dtPricelistsServices.Rows.Count > 0 Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Private Function removeDistrictPricelist() As Boolean
+        If isDistrictsPricelistConflict() = True Then
+            PricelistsServices.DetachPriceListDistrictMS(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"))
+            PricelistsItems.DetachPriceListDistrictMI(imisgen.getUserId(Session("User")), gvDistricts.SelectedDataKey.Values("DistrictName"))
+        End If
+    End Function
+    Private Sub MoveDistrict() Handles ImgBtnMoveDistrict.Click
         Dim ErrorMessage As Integer = 0
         Dim Msg As String = ""
+        removeDistrictPricelist()
+
         If ViewState("SelectedRegion") Is Nothing AndAlso ViewState("SelectedDistrict") Is Nothing Then
             Msg = imisgen.getMessage("M_PLEASESELECT") & " " & imisgen.getMessage("L_DISTRICT") & " " & imisgen.getMessage("m_AND") & " " & imisgen.getMessage("L_REGION")
             lblMsg.Text = Msg
@@ -284,7 +312,7 @@ Public Class MoveLocation
         ddlVRegion.DataValueField = "RegionId"
         ddlVRegion.DataTextField = "RegionName"
         ddlVRegion.DataBind()
-       
+
         'Select Region to get Ward
         ddlWRegion.DataSource = dtRegions
         ddlWRegion.DataValueField = "RegionId"
@@ -397,6 +425,6 @@ Public Class MoveLocation
 
     End Sub
 
-   
+
 
 End Class

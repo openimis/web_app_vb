@@ -32,7 +32,7 @@ Public Class InsureeDAL
         Dim data As New ExactSQL
         Dim sSQL As String = ""
         sSQL += "SELECT TB.FamilyID, F.FamilyUUID, TB.InsureeId, TB.InsureeUUID, TB.CHFID, TB.LastName, TB.OtherNames, TB.DOB,"
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
         sSQL += ", TB.Marital,TB.cardIssued, TB.isOffline, TB.validityFrom, TB.ValidityTo,TB.RowID from tblInsuree TB"
         sSQL += " LEFT JOIN tblGender GE On GE.Code = TB.Gender"
         sSQL += " INNER JOIN tblFamilies F On F.FamilyID = TB.FamilyID"
@@ -98,7 +98,7 @@ Public Class InsureeDAL
         sSQL += " GROUP BY L.DistrictId, L.Region ) "
         sSQL += " SELECT " + UtilitiesDAL.GetEnvMaxRows()
         sSQL += " I.isOffline,I.FamilyID,I.InsureeID,I.InsureeUUID,RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,"
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)") & " Gender"
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)") & " Gender"
         sSQL += ",dtMarital.Name Marital, phone, DOB, I.validityfrom, I.validityTo, F.FamilyUUID  "
         sSQL += " FROM tblInsuree I  "
         sSQL += " INNER JOIN tblFamilies F On F.FamilyID = I.FamilyID  "
@@ -106,7 +106,7 @@ Public Class InsureeDAL
         sSQL += " LEFT JOIN tblPhotos On I.PhotoID = tblPhotos.PhotoID And tblPhotos.ValidityTo Is null  "
         sSQL += " LEFT JOIN tblGender GE On GE.Code = I.Gender"
         sSQL += " LEFT JOIN @dtMarital dtMarital ON I.Marital = dtMarital.Code"
-        'If (Request.Cookies("CultureInfo").Value = "en", "Education", "AltLanguage") Then
+        'If (Request.Cookies("CultureInfo")("SelectedLanguage") = Request.Cookies("CultureInfo")("Language1"), "Education", "AltLanguage") Then
 
         'End If
 
@@ -177,7 +177,7 @@ Public Class InsureeDAL
 
         sSQL += " GROUP BY  I.isOffline,I.FamilyID,I.InsureeID, RegionName,DistrictName,WardName,VillageName,LastName,Othernames, I.CHFID,I.Gender, I.InsureeUUID, F.FamilyUUID,"
 
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)")
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender)")
         sSQL += ",dtMarital.Name,phone,DOB,  I.validityfrom,I.validityTo"
         strWhere += " order by LastName,I.ValidityFrom desc ,I.ValidityTo desc"
         Dim data As New ExactSQL
@@ -287,8 +287,8 @@ Public Class InsureeDAL
     Public Sub InsertInsuree(ByRef eInsuree As IMIS_EN.tblInsuree)
         Dim data As New ExactSQL         '"DECLARE @InsureeID INT;" & _
         Dim sSQL As String = ""
-        sSQL = " INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[Relationship],[Profession],[Education],[Email],[TypeOfId],[HFID],[CurrentAddress],[CurrentVillage],[GeoLocation], [Vulnerability])" &
-               " VALUES (@FamilyID,@CHFID,@LastName,@OtherNames,@DOB,@Gender,@Marital,@IsHead,@passport,@Phone,@PhotoID, @PhotoDate,@CardIssued,@isOffline,@AuditUserID,@Relationship,@Profession,@Education,@Email, @TypeOfId, @HFID, @CurrentAddress, @CurrentVillage, @GeoLocation, @Vulnerability);" &
+        sSQL = " INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[Relationship],[Profession],[Education],[Email],[TypeOfId],[HFID],[CurrentAddress],[CurrentVillage],[GeoLocation], [Vulnerability], [Source], [SourceVersion])" &
+               " VALUES (@FamilyID,@CHFID,@LastName,@OtherNames,@DOB,@Gender,@Marital,@IsHead,@passport,@Phone,@PhotoID, @PhotoDate,@CardIssued,@isOffline,@AuditUserID,@Relationship,@Profession,@Education,@Email, @TypeOfId, @HFID, @CurrentAddress, @CurrentVillage, @GeoLocation, @Vulnerability, @Source, @SourceVersion);" &
                " SET @InsureeID = (SELECT SCOPE_IDENTITY());" &
                " INSERT INTO tblPhotos(InsureeID,CHFID,PhotoFolder,PhotoFileName,OfficerID,PhotoDate,ValidityFrom,AuditUserID)" &
                " SELECT InsureeID,CHFID,'','',0,GETDATE(),ValidityFrom,AuditUserID from tblInsuree WHERE InsureeID = @InsureeID; " &
@@ -321,6 +321,8 @@ Public Class InsureeDAL
         data.params("@CurrentVillage", SqlDbType.Int, eInsuree.CurrentVillage, ParameterDirection.Input)
         data.params("@GeoLocation", SqlDbType.NVarChar, 50, eInsuree.GeoLocation)
         data.params("@Vulnerability", SqlDbType.Bit, eInsuree.Vulnerability)
+        data.params("@Source", SqlDbType.NVarChar, 50, eInsuree.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eInsuree.SourceVersion)
 
 
         data.ExecuteCommand()
@@ -329,10 +331,10 @@ Public Class InsureeDAL
     End Sub
     Public Sub ModifyInsuree(ByVal eInsuree As IMIS_EN.tblInsuree)
         Dim data As New ExactSQL
-        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,[Relationship],[Profession],[Education],[Email],[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability]) " &
-                           " select	[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId,[Relationship],[Profession],[Education],[Email] ,[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability]" &
+        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,[Relationship],[Profession],[Education],[Email],[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability], [Source], [SourceVersion]) " &
+                           " select	[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId,[Relationship],[Profession],[Education],[Email] ,[TypeOfId],[HFID], [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability], [Source], [SourceVersion]" &
                            " from tblInsuree where InsureeID = @InsureeID;" &
-                           " UPDATE [tblInsuree] SET [CHFID] = @CHFID,[LastName] = @LastName,[OtherNames] = @OtherNames,[DOB] = @DOB,[Gender] = @Gender ,[Marital] = @Marital,[passport] = @passport,[Phone] = @Phone,[PhotoDate] = @PhotoDate,[CardIssued] = @CardIssued,isOffline=@isOffline,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID ,[Relationship] = @Relationship, [Profession] = @Profession, [Education] = @Education,[Email] = @Email ,TypeOfId = @TypeOfId,HFID = @HFID, CurrentAddress = @CurrentAddress, CurrentVillage = @CurrentVillage, GeoLocation = @GeoLocation, Vulnerability = @Vulnerability" &
+                           " UPDATE [tblInsuree] SET [CHFID] = @CHFID,[LastName] = @LastName,[OtherNames] = @OtherNames,[DOB] = @DOB,[Gender] = @Gender ,[Marital] = @Marital,[passport] = @passport,[Phone] = @Phone,[PhotoDate] = @PhotoDate,[CardIssued] = @CardIssued,isOffline=@isOffline,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID ,[Relationship] = @Relationship, [Profession] = @Profession, [Education] = @Education,[Email] = @Email ,TypeOfId = @TypeOfId,HFID = @HFID, CurrentAddress = @CurrentAddress, CurrentVillage = @CurrentVillage, GeoLocation = @GeoLocation, Vulnerability = @Vulnerability, Source = @Source, SourceVersion = @SourceVersion " &
                            " WHERE InsureeId = @InsureeId", CommandType.Text)
         data.params("@InsureeID", SqlDbType.Int, eInsuree.InsureeID)
         data.params("@CHFID", SqlDbType.NVarChar, 12, eInsuree.CHFID)
@@ -362,19 +364,24 @@ Public Class InsureeDAL
         data.params("@GeoLocation", SqlDbType.NVarChar, 50, eInsuree.GeoLocation)
         data.params("@Vulnerability", SqlDbType.Bit, eInsuree.Vulnerability)
 
+        data.params("@Source", SqlDbType.NVarChar, 50, eInsuree.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eInsuree.SourceVersion)
+
         data.ExecuteCommand()
 
     End Sub
     Public Function MoveInsuree(ByVal eInsuree As IMIS_EN.tblInsuree) As Boolean
         Dim data As New ExactSQL
-        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId, TypeOfId, HFID, [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability]) " &
-                           " select					[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId, TypeOfId, HFID, [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability] " &
+        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId, TypeOfId, HFID, [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability], Source, SourceVersion) " &
+                           " select					[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId, TypeOfId, HFID, [CurrentAddress], [GeoLocation], [CurrentVillage], [Vulnerability], Source, SourceVersion " &
                            " from tblInsuree where InsureeID = @InsureeID;" &
-                           " UPDATE [tblInsuree] SET [FamilyID]=@FamilyID,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID " &
+                           " UPDATE [tblInsuree] SET [FamilyID]=@FamilyID,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID, Source = @Source, SourceVersion = @SourceVersion " &
                            " WHERE InsureeId = @InsureeId", CommandType.Text)
         data.params("@FamilyID", SqlDbType.Int, eInsuree.tblFamilies1.FamilyID)
         data.params("@InsureeId", SqlDbType.Int, eInsuree.InsureeID)
         data.params("@AuditUserID", SqlDbType.Int, eInsuree.AuditUserID)
+        data.params("@Source", SqlDbType.NVarChar, 50, eInsuree.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eInsuree.SourceVersion)
 
         Return data.ExecuteCommand
 
@@ -442,7 +449,7 @@ Public Class InsureeDAL
         Dim UpdatedFolder As String
         UpdatedFolder = System.Web.Configuration.WebConfigurationManager.AppSettings("UpdatedFolder").ToString()
         Dim sSQL As String = " SELECT HF.HFCode+' ' +HF.HFName AS FirstServicePoint, CASE HF.HFLevel WHEN 'D' THEN 'Dispensary' WHEN 'C' THEN 'Health Centre' WHEN 'H' THEN 'Hospital' END HFLevel, R.LocationName RegionOfFSP,D.LocationName DistrictOfFSP, I.CHFID,I.LastName,I.OtherNames,CONVERT(VARCHAR,I.DOB,103)DOB, (YEAR(GETDATE()) - YEAR(I.DOB)) AS Age,"
-        sSQL += "" & IIf(Language = "en", "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
+        sSQL += "" & IIf(Language = HttpContext.Current.Request.Cookies("CultureInfo")("Language1"), "GE.Gender", "ISNULL(GE.AltLanguage,GE.Gender) Gender")
         sSQL += ", P.PhotoFolder + P.PhotoFileName AS PhotoPath FROM tblInsuree I"
         sSQL += " INNER JOIN tblFamilies F On I.FamilyID = F.FamilyID"
         sSQL += " LEFT OUTER JOIN tblPhotos P On I.PhotoID = P.PhotoID"
@@ -465,24 +472,26 @@ Public Class InsureeDAL
     Public Function ChangeHead(ByVal eInsureeOLD As IMIS_EN.tblInsuree, ByVal eInsureeNew As IMIS_EN.tblInsuree) As Boolean
 
         Dim data As New ExactSQL
-        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,TypeOfId, HFID, CurrentAddress, GeoLocation, CurrentVillage ) " & _
-                           " select					[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeIdOLD ,TypeOfId, HFID, CurrentAddress, GeoLocation, CurrentVillage " & _
-                           " from tblInsuree where InsureeID = @InsureeIDOLD;" & _
-                           " UPDATE [tblInsuree] SET [isHead] = 0,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID " & _
-                           " WHERE InsureeId = @InsureeIDOLD;" & _
-                            "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,TypeOfId, HFID ) " & _
-                           " select					[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeIdnew ,TypeOfId, HFID " & _
-                           " from tblInsuree where InsureeID = @InsureeIDNEW;" & _
-                           " UPDATE [tblInsuree] SET [isHead] = 1,[FamilyID] = @FamilyID,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID " & _
-                           " WHERE InsureeId = @InsureeIDNEW;" & _
-                           "insert into tblFamilies ([insureeid],LocationId,[Poverty],isOffline,[ValidityFrom],[ValidityTo]," & _
-                            "[LegacyID],[AuditUserID])select [insureeid],LocationId,[Poverty],isOffline,[ValidityFrom],getdate()," & _
-                            " @FamilyID, [AuditUserID] from tblFamilies where FamilyID = @FamilyID;" & _
-                            " Update tblFamilies set InsureeId = @InsureeidNew,validityfrom = getdate(),AudituserId =@AuditUserId where FamilyId = @FamilyId;", CommandType.Text)
+        data.setSQLCommand("INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,TypeOfId, HFID, CurrentAddress, GeoLocation, CurrentVillage, Source, SourceVersion ) " &
+                           " select					[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeIdOLD ,TypeOfId, HFID, CurrentAddress, GeoLocation, CurrentVillage, Source, SourceVersion " &
+                           " from tblInsuree where InsureeID = @InsureeIDOLD;" &
+                           " UPDATE [tblInsuree] SET [isHead] = 0,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID, Source = @Source, SourceVersion = @SourceVersion " &
+                           " WHERE InsureeId = @InsureeIDOLD;" &
+                            "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,TypeOfId, HFID, Source, SourceVersion ) " &
+                           " select					[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeIdnew ,TypeOfId, HFID, Source, SourceVersion " &
+                           " from tblInsuree where InsureeID = @InsureeIDNEW;" &
+                           " UPDATE [tblInsuree] SET [isHead] = 1,[FamilyID] = @FamilyID,[ValidityFrom] = GetDate(),[AuditUserID] = @AuditUserID, Source = @Source, SourceVersion = @SourceVersion " &
+                           " WHERE InsureeId = @InsureeIDNEW;" &
+                           "insert into tblFamilies ([insureeid],LocationId,[Poverty],isOffline,[ValidityFrom],[ValidityTo]," &
+                            "[LegacyID],[AuditUserID], Source, SourceVersion)select [insureeid],LocationId,[Poverty],isOffline,[ValidityFrom],getdate()," &
+                            " @FamilyID, [AuditUserID], Source, SourceVersion from tblFamilies where FamilyID = @FamilyID;" &
+                            " Update tblFamilies set InsureeId = @InsureeidNew,validityfrom = getdate(),AudituserId =@AuditUserId, Source = @Source, SourceVersion = @SourceVersion where FamilyId = @FamilyId;", CommandType.Text)
         data.params("@InsureeIDOLD", SqlDbType.Int, eInsureeOLD.InsureeID)
         data.params("@InsureeIDNew", SqlDbType.Int, eInsureeNew.InsureeID)
         data.params("@FamilyID", SqlDbType.Int, eInsureeOLD.tblFamilies1.FamilyID)
         data.params("@AuditUserID", SqlDbType.Int, eInsureeNew.AuditUserID)
+        data.params("@Source", SqlDbType.NVarChar, 50, eInsureeNew.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eInsureeNew.SourceVersion)
 
         Return data.ExecuteCommand
 
@@ -510,15 +519,17 @@ Public Class InsureeDAL
         Return data.Filldata()
     End Function
     Public Function DeleteInsuree(ByVal eInsuree As IMIS_EN.tblInsuree) As Boolean
-        Dim str As String = "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,TypeOfId, HFID, CurrentAddress, CurrentVillage,GeoLocation, Vulnerability ) " &
-                           " select	[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId ,TypeOfId, HFID, CurrentAddress, CurrentVillage, GeoLocation, Vulnerability " &
+        Dim str As String = "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,[ValidityTo],legacyId,TypeOfId, HFID, CurrentAddress, CurrentVillage,GeoLocation, Vulnerability, Source, SourceVersion ) " &
+                           " select	[FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[ValidityFrom] ,getdate(),@insureeId ,TypeOfId, HFID, CurrentAddress, CurrentVillage, GeoLocation, Vulnerability, Source, SourceVersion " &
                            " from tblInsuree where InsureeID = @InsureeID AND ValidityTo IS NULL;" &
-                           " UPDATE [tblInsuree] SET [ValidityFrom] = GetDate(),[ValidityTo] = GetDate(),[AuditUserID] = @AuditUserID " &
+                           " UPDATE [tblInsuree] SET [ValidityFrom] = GetDate(),[ValidityTo] = GetDate(),[AuditUserID] = @AuditUserID, Source = @Source, SourceVersion = @SourceVersion  " &
                            " WHERE InsureeId = @InsureeID AND ValidityTo IS NULL"
 
         data.setSQLCommand(str, CommandType.Text)
         data.params("@InsureeID", SqlDbType.Int, eInsuree.InsureeID)
         data.params("@AuditUserID", SqlDbType.Int, eInsuree.AuditUserID)
+        data.params("@Source", SqlDbType.NVarChar, 50, eInsuree.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eInsuree.SourceVersion)
         data.ExecuteCommand()
         Return True
     End Function

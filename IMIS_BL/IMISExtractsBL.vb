@@ -424,14 +424,24 @@ Public Class IMISExtractsBL
         con.ConnectionString = "Data source = " & DB_NAME
         con.Open()
         'con.ChangePassword(DB_PWD)
-        cmd = con.CreateCommand
 
         Dim sSQL As String = ""
         Dim strPhoto As String = ""
-        sSQL = "CREATE TABLE tblPolicyInquiry(CHFID text,Photo BLOB, InsureeName Text, DOB Text, Gender Text, ProductCode Text, ProductName Text, ExpiryDate Text, Status Text, DedType Int, Ded1 Int, Ded2 Int, Ceiling1 Int, Ceiling2 Int)"
-        cmd.CommandText = sSQL
-        cmd.ExecuteNonQuery()
 
+        Dim createTablesSql As String =
+            "CREATE TABLE tblPolicyInquiry(InsureeNumber text,Photo BLOB, InsureeName Text, DOB Text, Gender Text, ProductCode Text, ProductName Text, ExpiryDate Text, Status Text, DedType Int, Ded1 Int, Ded2 Int, Ceiling1 Int, Ceiling2 Int);" +
+            "CREATE TABLE tblReferences([Code] Text, [Name] Text, [Type] Text, [Price] INT);" +
+            "CREATE TABLE tblControls([FieldName] Text, [Adjustability] Text, [Usage] Text);" +
+            "CREATE TABLE tblClaimAdmins([Code] Text, [Name] Text)" +
+            "CREATE TABLE tblClaimDetails(ClaimUUID TEXT, ClaimDate TEXT, HFCode TEXT, ClaimAdmin TEXT, ClaimCode TEXT, InsureeNumber TEXT, StartDate TEXT, EndDate TEXT, ICDCode TEXT, Comment TEXT, Total TEXT, ICDCode1 TEXT, ICDCode2 TEXT, ICDCode3 TEXT, ICDCode4 TEXT, VisitType TEXT);" +
+            "CREATE TABLE tblClaimItems(ClaimUUID TEXT, ItemCode TEXT, ItemPrice TEXT, ItemQuantity TEXT);" +
+            "CREATE TABLE tblClaimServices(ClaimUUID TEXT, ServiceCode TEXT, ServicePrice TEXT, ServiceQuantity TEXT);" +
+            "CREATE TABLE tblClaimUploadStatus(ClaimUUID TEXT, UploadDate TEXT, UploadStatus TEXT, UploadMessage TEXT);"
+
+        cmd = con.CreateCommand
+        cmd.CommandText = createTablesSql
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
 
         If WithInsuree = True Then
             '  dtExtractSource = ExtractDAL.GetPhoneExtractSource(eExtractInfo.DistrictID)
@@ -441,7 +451,7 @@ Public Class IMISExtractsBL
             Using InsertCmd = New SQLiteCommand(con)
                 Using transaction = con.BeginTransaction
                     For Each row In dtExtractSource.Rows
-                        sSQL = "INSERT INTO tblPolicyInquiry(CHFID ,Photo , InsureeName, DOB, Gender, ProductCode, ProductName, ExpiryDate, Status, DedType, Ded1, Ded2, Ceiling1, Ceiling2)" &
+                        sSQL = "INSERT INTO tblPolicyInquiry(InsureeNumber ,Photo , InsureeName, DOB, Gender, ProductCode, ProductName, ExpiryDate, Status, DedType, Ded1, Ded2, Ceiling1, Ceiling2)" &
                        " VALUES(@CHFID,@image,@InsureeName,@DOB,@Gender,@ProductCode,@ProductName,@ExpiryDate,@Status,@DedType,@Ded1,@Ded2,@Ceiling1,@Ceiling2)"
                         InsertCmd.CommandText = sSQL
 
@@ -469,18 +479,9 @@ Public Class IMISExtractsBL
             End Using
 
         End If
-        cmd.Dispose()
-
-        cmd = New SQLite.SQLiteCommand
-        cmd = con.CreateCommand
-        sSQL = "CREATE TABLE tblReferences([Code] Text, [Name] Text, [Type] Text, [Price] INT)"
-        cmd.CommandText = sSQL
-        cmd.ExecuteNonQuery()
 
         Dim dtReference As New DataTable
         dtReference = ExtractDAL.getReferences()
-
-
 
         Using InsertCmd = New SQLiteCommand(con)
             Using transaction = con.BeginTransaction
@@ -502,14 +503,6 @@ Public Class IMISExtractsBL
             End Using
         End Using
 
-        cmd.Dispose()
-
-        cmd = New SQLite.SQLiteCommand
-        cmd = con.CreateCommand
-        sSQL = "CREATE TABLE tblControls([FieldName] Text, [Adjustibility] Text, [Usage] Text)"
-        cmd.CommandText = sSQL
-        cmd.ExecuteNonQuery()
-
         Dim dtControls As New DataTable
         Dim ControlsDAL As New IMIS_DAL.ControlsDAL
         dtControls = ControlsDAL.getControlsSettings()
@@ -517,13 +510,13 @@ Public Class IMISExtractsBL
         Using InsertCmd = New SQLiteCommand(con)
             Using transaction = con.BeginTransaction
                 For Each row In dtControls.Rows
-                    sSQL = "INSERT INTO tblControls([FieldName],[Adjustibility],[Usage])" &
-                           " VALUES(@FieldName,@Adjustibility,@Usage)"
+                    sSQL = "INSERT INTO tblControls([FieldName],[Adjustability],[Usage])" &
+                           " VALUES(@FieldName,@Adjustability,@Usage)"
 
                     InsertCmd.CommandText = sSQL
 
                     InsertCmd.Parameters.AddWithValue("@FieldName", row("FieldName").ToString)
-                    InsertCmd.Parameters.AddWithValue("@Adjustibility", row("Adjustibility").ToString)
+                    InsertCmd.Parameters.AddWithValue("@Adjustability", row("Adjustibility").ToString)
                     InsertCmd.Parameters.AddWithValue("@Usage", row("Usage").ToString)
 
                     InsertCmd.ExecuteNonQuery()
@@ -533,14 +526,7 @@ Public Class IMISExtractsBL
             End Using
         End Using
 
-        cmd.Dispose()
-
         Dim locationId = eExtractInfo.LocationId
-        cmd = con.CreateCommand
-        sSQL = "CREATE TABLE tblClaimAdmins([Code] Text, [Name] Text)"
-        cmd.CommandText = sSQL
-        cmd.ExecuteNonQuery()
-
         Dim dtClaimAdmins As New DataTable
         Dim ExtractsDAL As New IMIS_DAL.IMISExtractsDAL
         dtClaimAdmins = ExtractsDAL.GetPhoneExtractsClaimAdmins(locationId)
@@ -557,13 +543,10 @@ Public Class IMISExtractsBL
                     InsertCmd.Parameters.AddWithValue("@Name", (row("LastName") + " " + row("OtherNames")).ToString)
 
                     InsertCmd.ExecuteNonQuery()
-
                 Next
                 transaction.Commit()
             End Using
         End Using
-
-        cmd.Dispose()
 
         con.Close()
 
@@ -1081,7 +1064,7 @@ Public Class IMISExtractsBL
                 Exit Function    'error occured
             End If
 
-            If (dtExtractHeader(0)("ExtractType") <> 2) And Not Extract.isFullExtractExists Then
+            If (dtExtractHeader.Rows(0)("ExtractType") <> 2) And Not Extract.isFullExtractExists Then
                 eExtractInfo.ExtractStatus = -5  'extract should be full as the first extract !! 
                 FlushWorkFolder()
                 Exit Function    'error occured
@@ -1097,7 +1080,7 @@ Public Class IMISExtractsBL
 
             End If
 
-            If eExtract.ExtractSequence <> 0 And (dtExtractHeader(0)("ExtractType") <> 2) Then
+            If eExtract.ExtractSequence <> 0 And (dtExtractHeader.Rows(0)("ExtractType") <> 2) Then
                 'CHECK IF SEQUENCE IS CORRECT TO IMPORT
                 If dtExtractHeader.Rows(0)("ExtractSequence") <= eExtract.ExtractSequence Then
                     eExtractInfo.ExtractStatus = -6  'data already uploaded 
@@ -1105,7 +1088,7 @@ Public Class IMISExtractsBL
                     Exit Function    'error occured
                 End If
 
-                If (dtExtractHeader.Rows(0)("ExtractSequence") > eExtract.ExtractSequence + 1) And (dtExtractHeader(0)("ExtractType") = 4) Then
+                If (dtExtractHeader.Rows(0)("ExtractSequence") > eExtract.ExtractSequence + 1) And (dtExtractHeader.Rows(0)("ExtractType") = 4) Then
                     eExtractInfo.ExtractStatus = -7  'You have missed one or more sequences
                     FlushWorkFolder()
                     Exit Function    'error occured
@@ -1169,12 +1152,12 @@ Public Class IMISExtractsBL
             eExtract.AuditUserID = eExtractInfo.AuditUserID
             eExtract.ExtractDirection = 1
             eExtract.LocationId = eExtractInfo.LocationId
-            eExtract.ExtractDate = dtExtractHeader(0)("ExtractDate")
+            eExtract.ExtractDate = dtExtractHeader.Rows(0)("ExtractDate")
             eExtract.HFID = eExtractInfo.HFID
-            eExtract.ExtractSequence = dtExtractHeader(0)("ExtractSequence")
-            eExtract.AppVersionBackend = dtExtractHeader(0)("AppVersionBackend")
+            eExtract.ExtractSequence = dtExtractHeader.Rows(0)("ExtractSequence")
+            eExtract.AppVersionBackend = dtExtractHeader.Rows(0)("AppVersionBackend")
             eExtract.ExtractFolder = eDefaults.FTPOffLineExtractFolder
-            eExtract.ExtractType = dtExtractHeader(0)("ExtractType")
+            eExtract.ExtractType = dtExtractHeader.Rows(0)("ExtractType")
             eExtract.ExtractFileName = eExtractInfo.ExtractFileName
 
             'determine if we are going back to an old 'FULL' extract  --> if so ... first delete all entries from extact table
@@ -1395,7 +1378,7 @@ Public Class IMISExtractsBL
 
     End Sub
 
-    Public Function UploadEnrolments(ByVal FileName As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
+    Public Function UploadEnrolments(ByVal FileName As String, source As String, sourceVersion As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
         Dim Defaults As New IMIS_EN.tblIMISDefaults
         Dim def As New IMIS_BL.IMISDefaultsBL
         def.GetDefaults(Defaults)
@@ -1438,14 +1421,14 @@ Public Class IMISExtractsBL
                     UserId = Int32.Parse(node.SelectSingleNode("UserId").InnerText)
                 Next
                 If UserId = -2 Then
-                    Result = Extracts.ConsumeEnrollment(xmlDoc, Output)
+                    Result = Extracts.ConsumeEnrollment(xmlDoc, source, sourceVersion, Output)
                     Dim Sent, Accepted, Rejected As Integer
                     UploadPhotosFromPhone(WorkingDirectoryPath, Sent, Accepted, Rejected)
                     Output("PhotoSent") = Sent
                     Output("PhotoAccepted") = Accepted
                     Output("PhotoRejected") = Rejected
                 Else
-                    Result = Extracts.UploadEnrolments(xmlDoc, Output)
+                    Result = Extracts.UploadEnrolments(xmlDoc, source, sourceVersion, Output)
                 End If
 
             Catch ex As Exception
@@ -1480,6 +1463,7 @@ Public Class IMISExtractsBL
                 Dim i As Integer = 0
                 For Each row In dt.Rows
                     R(i) = New Renewal()
+                    R(i).RenewalUUID = row("RenewalUUID")
                     R(i).RenewalId = row("RenewalId")
                     R(i).PolicyId = row("PolicyId")
                     R(i).OfficerId = row("OfficerId")

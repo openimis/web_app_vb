@@ -846,7 +846,10 @@ Public Class UsersBL
             users.UpdateUser(eUser)
             'End If
 
-            users.SaveUserRoles(dtRoles, eUser)
+            If dtRoles IsNot Nothing Then
+                users.SaveUserRoles(dtRoles, eUser)
+            End If
+
             Return 2
         End If
     End Function

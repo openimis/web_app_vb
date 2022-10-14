@@ -365,6 +365,15 @@ Partial Public Class Officer
     Protected WithEvents L_SUBSTITUTION As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''ddlSubstitution control.
     '''</summary>
     '''<remarks>
@@ -372,6 +381,15 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlSubstitution As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Label2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''L_WorksTo control.
@@ -417,15 +435,6 @@ Partial Public Class Officer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CalendarExtender2 As Global.AjaxControlToolkit.CalendarExtender
-
-    '''<summary>
-    '''RegularExpressionValidatortxtWorksTo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidatortxtWorksTo As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''chkCheckAllWards control.
