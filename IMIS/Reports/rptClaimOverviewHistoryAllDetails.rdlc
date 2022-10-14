@@ -288,7 +288,7 @@
                   <Width>1.87169cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.68262cm</Width>
+                  <Width>3.27529cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.076cm</Width>
@@ -3292,10 +3292,10 @@
                                     <Width>1.50298cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.39593cm</Width>
+                                    <Width>1.64993cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>0.92654cm</Width>
+                                    <Width>1.26521cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>2.31624cm</Width>
@@ -3869,7 +3869,7 @@
                               <DataSetName>ds_dtGetClaimOverview</DataSetName>
                               <Left>13.29023cm</Left>
                               <Height>0.8cm</Height>
-                              <Width>12.54181cm</Width>
+                              <Width>13.13448cm</Width>
                               <ZIndex>1</ZIndex>
                               <Visibility>
                                 <Hidden>=SUM(if(Trim(Fields!AdjustedItem.Value) = "",0,1)) = 0</Hidden>
@@ -5077,7 +5077,7 @@
             </TablixRowHierarchy>
             <DataSetName>ds_dtGetClaimOverview</DataSetName>
             <Height>4.946cm</Height>
-            <Width>26.90804cm</Width>
+            <Width>27.50071cm</Width>
             <Style>
               <FontSize>6pt</FontSize>
             </Style>
@@ -5813,7 +5813,7 @@
         <Height>22.01764cm</Height>
         <Style />
       </Body>
-      <Width>26.95404cm</Width>
+      <Width>27.50071cm</Width>
       <Page>
         <PageHeader>
           <Height>1.5cm</Height>
