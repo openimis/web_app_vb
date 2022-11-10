@@ -273,7 +273,7 @@ AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,256, 128,16,32,64,512,524288))) )"
         data.params("@OtherNames", SqlDbType.NVarChar, 100, eUser.OtherNames)
         data.params("@Phone", SqlDbType.NVarChar, 50, eUser.Phone)
         data.params("@LoginName", SqlDbType.NVarChar, 100, eUser.LoginName)
-        data.params("@LanguageID", SqlDbType.NVarChar, 2, eUser.LanguageID)
+        data.params("@LanguageID", SqlDbType.NVarChar, 5, eUser.LanguageID)
         data.params("@RoleId", SqlDbType.Int, eUser.RoleID)
         data.params("@AuditUserID", SqlDbType.Int, eUser.AuditUserID)
         data.params("@HFID", SqlDbType.Int, eUser.HFID)
