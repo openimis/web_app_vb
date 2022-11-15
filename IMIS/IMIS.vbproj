@@ -811,6 +811,7 @@
       <DependentUpon>IMISDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Manual\IMIS_manual_fr.pdf" />
+    <None Include="My Project\PublishProfiles\CHF-PROD.pubxml" />
     <None Include="My Project\PublishProfiles\Debug.pubxml" />
     <None Include="My Project\PublishProfiles\IMIS.pubxml" />
     <None Include="My Project\PublishProfiles\Mauritania Release.pubxml" />
