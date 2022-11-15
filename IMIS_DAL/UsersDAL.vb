@@ -177,7 +177,7 @@ AND (isSystem <> 0 AND isSystem NOT IN (1,2,4,256, 128,16,32,64,512,524288))) )"
         data.params("@Phone", SqlDbType.NVarChar, 50, eUser.Phone)
         data.params("@RoleID", SqlDbType.Int, eUser.RoleID)
         data.params("@LoginName", SqlDbType.NVarChar, 100, eUser.LoginName)
-        data.params("@LanguageID", SqlDbType.NVarChar, 2, eUser.LanguageID)
+        data.params("@LanguageID", SqlDbType.NVarChar, 5, eUser.LanguageID)
         data.params("@RegionId", SqlDbType.Int, eUser.tblLocations.RegionId)
         data.params("@DistrictId", SqlDbType.Int, eUser.tblLocations.DistrictId)
         data.params("@HFID", SqlDbType.Int, If(eUser.HFID Is Nothing, 0, eUser.HFID))
