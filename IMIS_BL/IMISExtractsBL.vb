@@ -432,7 +432,7 @@ Public Class IMISExtractsBL
             "CREATE TABLE tblPolicyInquiry(InsureeNumber text,Photo BLOB, InsureeName Text, DOB Text, Gender Text, ProductCode Text, ProductName Text, ExpiryDate Text, Status Text, DedType Int, Ded1 Int, Ded2 Int, Ceiling1 Int, Ceiling2 Int);" +
             "CREATE TABLE tblReferences([Code] Text, [Name] Text, [Type] Text, [Price] INT);" +
             "CREATE TABLE tblControls([FieldName] Text, [Adjustability] Text, [Usage] Text);" +
-            "CREATE TABLE tblClaimAdmins([Code] Text, [Name] Text)" +
+            "CREATE TABLE tblClaimAdmins([Code] Text, [Name] Text);" +
             "CREATE TABLE tblClaimDetails(ClaimUUID TEXT, ClaimDate TEXT, HFCode TEXT, ClaimAdmin TEXT, ClaimCode TEXT, InsureeNumber TEXT, StartDate TEXT, EndDate TEXT, ICDCode TEXT, Comment TEXT, Total TEXT, ICDCode1 TEXT, ICDCode2 TEXT, ICDCode3 TEXT, ICDCode4 TEXT, VisitType TEXT);" +
             "CREATE TABLE tblClaimItems(ClaimUUID TEXT, ItemCode TEXT, ItemPrice TEXT, ItemQuantity TEXT);" +
             "CREATE TABLE tblClaimServices(ClaimUUID TEXT, ServiceCode TEXT, ServicePrice TEXT, ServiceQuantity TEXT);" +
