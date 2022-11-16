@@ -4413,10 +4413,10 @@ Blocked</value>
 		<value>Claim History Report</value>
 	</data>
 	<data name="L_INSURANCENUMBERNOTFOUND" xml:space="preserve">
-		<value>Insurance number not found</value>
+		<value>CHF number not found</value>
 	</data>
 	<data name="L_PLEASEENTERINSURANCENUMBER" xml:space="preserve">
-		<value>Please enter insurance number</value>
+		<value>Please enter CHF number</value>
 	</data>
 	<data name="G_OFFICERLOGIN" xml:space="preserve">
 		<value>Include Login</value>
@@ -4763,7 +4763,7 @@ adults/children)
 		<value>Item/Service not in the registers of medical items/services</value>
 	</data>
 	<data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
-		<value>Not valid insurance number</value>
+		<value>Not valid CHF number</value>
 	</data>
 	<data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
 		<value>Maximum number of antenatal contacts exceeded</value>
@@ -4892,7 +4892,7 @@ adults/children)
 		<value>Gender</value>
 	</data>
 	<data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
-		<value>Search  Insurance Number</value>
+		<value>Search  CHF number</value>
 	</data>
 	<data name="T_CHARITY" xml:space="preserve">
 		<value>Charity</value>
@@ -5088,5 +5088,29 @@ adults/children)
 	</data>
 	<data name="L_UPLOADRENEWALS" xml:space="preserve">
 		<value>Upload Renewals</value>
+	</data>
+	<data name="L_VULNERABILITY" xml:space="preserve">
+		<value>Vulnerability</value>
+	</data>
+	<data name="T_REMOVEHOSPITALS" xml:space="preserve">
+		<value>Please remove the pricelist from the following hospitals before changing the location:</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
+		<value>Overview of Commissions (Detailed)</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
+		<value>Overview of Commissions (Overview)</value>
+	</data>
+	<data name="M_SUBSTITUTE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_WORKSTO" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
+		<value></value>
 	</data>
 </root>
