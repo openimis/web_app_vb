@@ -89,12 +89,12 @@ Public Class EmailHandler
             Dim smtpServer As New SmtpClient
             Dim eMail As New MailMessage
 
-            Dim smtpHost As String = dtEmailSettings(0)("SMTPHost")
-            Dim port As Integer = dtEmailSettings(0)("Port")
-            Dim FromEmail As String = dtEmailSettings(0)("EmailId")
-            Dim EmailPassword As String = dtEmailSettings(0)("EmailPassword")
-            Dim EnableSSL As Boolean = dtEmailSettings(0)("EnableSSL")
-            Dim SenderDisplayname As String = dtEmailSettings(0)("SenderDisplayName")
+            Dim smtpHost As String = dtEmailSettings.Rows(0)("SMTPHost")
+            Dim port As Integer = dtEmailSettings.Rows(0)("Port")
+            Dim FromEmail As String = dtEmailSettings.Rows(0)("EmailId")
+            Dim EmailPassword As String = dtEmailSettings.Rows(0)("EmailPassword")
+            Dim EnableSSL As Boolean = dtEmailSettings.Rows(0)("EnableSSL")
+            Dim SenderDisplayname As String = dtEmailSettings.Rows(0)("SenderDisplayName")
 
             'eMail = ToMailMessage(Message)
 

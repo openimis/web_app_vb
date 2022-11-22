@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Reflection
+
 Partial Public Class Policy
     Inherits System.Web.UI.Page
     Private efamily As New IMIS_EN.tblFamilies
@@ -44,7 +46,7 @@ Partial Public Class Policy
 
         Dim Adjustibility As String = ""
 
-       
+
         'Confirmation
         Adjustibility = General.getControlSetting("Confirmation")
         L_CONFIRMATIONNO0.Visible = Not (Adjustibility = "N")
@@ -100,7 +102,7 @@ Partial Public Class Policy
             txtRegion.Text = efamily.RegionName
             txtDistrict.Text = efamily.DistrictName
             hfLocationId.Value = efamily.LocationId
-            hfDistrictID.Value = efamily.DistrictID
+            hfDistrictID.Value = efamily.DistrictId
             hfRegionId.Value = efamily.RegionId
             txtVillage.Text = efamily.VillageName
             txtWard.Text = efamily.WardName
@@ -208,7 +210,7 @@ Partial Public Class Policy
                 SetProductForRenewal()
                 ddlProduct.Enabled = False
                 getPolicyValue(sender, e)
-               
+
 
             End If
 
@@ -538,6 +540,9 @@ Partial Public Class Policy
                 End If
 
                 hfCheckMaxInsureeCount.Value = 0
+
+                ePolicy.Source = "Legacy"
+                ePolicy.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 
                 Dim chk As Integer = Policy.SavePolicy(ePolicy, IMIS_Gen.OfflineCHF)
                 If chk = 0 Then

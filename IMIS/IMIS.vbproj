@@ -13,7 +13,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>IMIS</RootNamespace>
     <AssemblyName>IMIS</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,15 +86,13 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SQLite, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.110.0\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -103,6 +102,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -111,6 +111,7 @@
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
     <Import Include="System.Linq" />
+    <Import Include="System.Web.Script" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Collections.Specialized" />
@@ -297,38 +298,73 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>AddFunding.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.en_cm.designer.vb">
+    <Compile Include="App_GlobalResources\Resource.en-cm.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.en_cm.resx</DependentUpon>
+      <DependentUpon>Resource.en-cm.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.en_tz.designer.vb">
+    <Compile Include="App_GlobalResources\Resource.en-GM.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.en_tz.resx</DependentUpon>
+      <DependentUpon>Resource.en-GM.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.es_es.designer.vb">
+    <Compile Include="App_GlobalResources\Resource.en-tz.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.es_es.resx</DependentUpon>
+      <DependentUpon>Resource.en-tz.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.es-es.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.es-es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.es.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr-cd.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr-cd.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr-CM.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr-CM.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr-dj.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr-dj.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr-MR.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr-MR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.fr-td.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr-td.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Resource.fr.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.fr.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.fr_cd.designer.vb">
+    <Compile Include="App_GlobalResources\Resource.ne-NP.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.fr_cd.resx</DependentUpon>
+      <DependentUpon>Resource.ne-NP.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.fr_dj.designer.vb">
+    <Compile Include="App_GlobalResources\Resource.sw.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.fr_dj.resx</DependentUpon>
+      <DependentUpon>Resource.sw.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.fr_td.designer.vb">
-      <AutoGen>True</AutoGen>
+    <Compile Include="App_GlobalResources\Resource1.designer.vb">
+      <DependentUpon>Resource.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.fr_td.resx</DependentUpon>
     </Compile>
@@ -655,6 +691,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
       <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
@@ -835,33 +872,53 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.fr.designer.vb</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\Resource.en_cm.resx">
+    <Content Include="App_GlobalResources\Resource.en-tz.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.en_cm.designer.vb</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Resource.en_tz.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.en_tz.designer.vb</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Resource.es_es.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.es_es.designer.vb</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Resource.fr_cd.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.fr_cd.designer.vb</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Resource.fr_dj.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.fr_dj.designer.vb</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Resource.fr_td.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.fr_td.designer.vb</LastGenOutput>
+      <LastGenOutput>Resource.en-tz.designer.vb</LastGenOutput>
     </Content>
     <Content Include="App_GlobalResources\Resource.sw.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.sw.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en-cm.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en-cm.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.en-GM.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.en-GM.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.es-es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.es-es.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.es.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr-cd.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr-cd.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr-CM.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr-CM.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr-dj.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr-dj.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr-MR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr-MR.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.fr-td.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.fr-td.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.ne-NP.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.ne-NP.designer.vb</LastGenOutput>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -1138,7 +1195,8 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_AssemblyInfoFilename="My Project\AssemblyInfo.vb" BuildVersion_BuildVersioningStyle="YearStamp.MonthStamp.DayStamp.Increment" BuildVersion_StartDate="2012/1/1" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UseGlobalSettings="True" BuildVersion_DetectChanges="False" />
+      <UserProperties BuildVersion_DetectChanges="True" BuildVersion_UseGlobalSettings="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2012/1/1" />
+
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

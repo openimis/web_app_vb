@@ -770,24 +770,6 @@ Partial Public Class Reports
     Protected WithEvents ddlPreviousReportDate As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''lblPreviousReportCommission control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblPreviousReportCommission As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ddlPreviousReportDateCommission control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlPreviousReportDateCommission As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''lstboxReportSelector control.
     '''</summary>
     '''<remarks>

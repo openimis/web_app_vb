@@ -90,9 +90,9 @@ Public Class IMISExtractsBI
         Dim Ext As New IMIS_BL.IMISExtractsBL
         Ext.CreateEnrolmentXML(Output, isBackp)
     End Sub
-    Public Function UploadEnrolments(ByVal FileName As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
+    Public Function UploadEnrolments(ByVal FileName As String, source As String, sourceVersion As String, ByVal Output As Dictionary(Of String, Integer)) As DataTable
         Dim Ext As New IMIS_BL.IMISExtractsBL
-        Return Ext.UploadEnrolments(FileName, Output)
+        Return Ext.UploadEnrolments(FileName, source, sourceVersion, Output)
     End Function
     Public Sub UpdateOfflineUserDistrict(HFID As Integer)
         Dim UD As New IMIS_BL.UsersDistrictsBL

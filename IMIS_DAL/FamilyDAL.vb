@@ -120,9 +120,9 @@ Public Class FamilyDAL
     'Corrected
     Public Sub InsertInsuredFamily(ByRef eFamily As IMIS_EN.tblFamilies)
         Dim data As New ExactSQL
-        data.setSQLCommand("Insert into tblFamilies (LocationId,Poverty,ConfirmationType,isOffline,AuditUserID,FamilyType,FamilyAddress,Ethnicity,ConfirmationNo) VALUES (@LocationId,@Poverty,@ConfirmationType, @isOffline,@AuditUserID,@FamilyType,@FamilyAddress,@Ethnicity,@ConfirmationNo ); select @FamilyId = scope_identity();" _
-                           & "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[Email],Education,Profession, TypeOfId, HFID,CurrentAddress,CurrentVillage, GeoLocation, Vulnerability)" _
-     & " VALUES (@FamilyID,@CHFID,@LastName,@OtherNames,@DOB,@Gender,@Marital,@IsHead,@passport,@Phone,@PhotoID, @PhotoDate,@CardIssued,@isOffline,@AuditUserID,@Email,@Education,@Profession, @TypeOfId, @HFID,@CurrentAddress, @CurrentVillage, @GeoLocation, @Vulnerability);select @InsureeID = scope_identity()" _
+        data.setSQLCommand("Insert into tblFamilies (LocationId,Poverty,ConfirmationType,isOffline,AuditUserID,FamilyType,FamilyAddress,Ethnicity,ConfirmationNo, Source, SourceVersion) VALUES (@LocationId,@Poverty,@ConfirmationType, @isOffline,@AuditUserID,@FamilyType,@FamilyAddress,@Ethnicity,@ConfirmationNo, @Source, @SourceVersion ); select @FamilyId = scope_identity();" _
+                           & "INSERT INTO tblInsuree ([FamilyID],[CHFID],[LastName],[OtherNames],[DOB],[Gender],[Marital],[IsHead],[passport],[Phone],[PhotoID],[PhotoDate],[CardIssued],isOffline,[AuditUserID],[Email],Education,Profession, TypeOfId, HFID,CurrentAddress,CurrentVillage, GeoLocation, Vulnerability, Source, SourceVersion)" _
+     & " VALUES (@FamilyID,@CHFID,@LastName,@OtherNames,@DOB,@Gender,@Marital,@IsHead,@passport,@Phone,@PhotoID, @PhotoDate,@CardIssued,@isOffline,@AuditUserID,@Email,@Education,@Profession, @TypeOfId, @HFID,@CurrentAddress, @CurrentVillage, @GeoLocation, @Vulnerability, @Source, @SourceVersion);select @InsureeID = scope_identity()" _
      & "Update tblFamilies set InsureeId = @Insureeid where FamilyId = @FamilyId;" &
      " INSERT INTO tblPhotos (InsureeID,CHFID,PhotoDate,PhotoFolder,PhotoFileName,OfficerID,ValidityFrom,AuditUserID)" &
      " VALUES(@InsureeID,@CHFID,@PhotoDate,@PhotoFolder,@PhotoFileName,@OfficerID,@ValidityFrom,@AuditUserID);" &
@@ -135,7 +135,8 @@ Public Class FamilyDAL
         data.params("@ConfirmationType", SqlDbType.NVarChar, 3, eFamily.ConfirmationType)
         data.params("@Ethnicity", SqlDbType.NVarChar, 1, eFamily.Ethnicity)
         data.params("@ConfirmationNo", SqlDbType.NVarChar, 12, eFamily.ConfirmationNo)
-
+        data.params("@Source", SqlDbType.NVarChar, 50, eFamily.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eFamily.SourceVersion)
 
         data.params("@CHFID", SqlDbType.NVarChar, 12, eFamily.tblInsuree.CHFID)
         data.params("@LastName", SqlDbType.NVarChar, 100, eFamily.tblInsuree.LastName)
@@ -183,12 +184,12 @@ Public Class FamilyDAL
     'Corrected
     Public Sub UpdateFamily(ByRef eFamily As IMIS_EN.tblFamilies)
         Dim data As New ExactSQL
-        Dim str As String = "insert into tblFamilies ([insureeid],[Poverty],[ConfirmationType],isOffline" & _
-              ",[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID],FamilyType, FamilyAddress,Ethnicity,ConfirmationNo, LocationId) select [insureeid]" & _
-              ",[Poverty],[ConfirmationType],isOffline,[ValidityFrom],getdate(),@FamilyID, @AuditUserID,FamilyType, FamilyAddress,Ethnicity,ConfirmationNo,LocationId" & _
-              " from tblFamilies where FamilyID = @FamilyID; update [tblFamilies] set " & _
-              "[Poverty] = @Poverty, [ConfirmationType] = @ConfirmationType, isOffline=@isOffline,[ValidityFrom]=GETDATE()" & _
-              ",[AuditUserID] = @AuditUserID,FamilyType = @FamilyType, FamilyAddress = @FamilyAddress, Ethnicity = @Ethnicity, ConfirmationNo = @ConfirmationNo, LocationId = @LocationId where FamilyID = @FamilyID"
+        Dim str As String = "insert into tblFamilies ([insureeid],[Poverty],[ConfirmationType],isOffline" &
+              ",[ValidityFrom],[ValidityTo],[LegacyID],[AuditUserID],FamilyType, FamilyAddress,Ethnicity,ConfirmationNo, LocationId, Source, SourceVersion) select [insureeid]" &
+              ",[Poverty],[ConfirmationType],isOffline,[ValidityFrom],getdate(),@FamilyID, @AuditUserID,FamilyType, FamilyAddress,Ethnicity,ConfirmationNo,LocationId, Source, SourceVersion" &
+              " from tblFamilies where FamilyID = @FamilyID; update [tblFamilies] set " &
+              "[Poverty] = @Poverty, [ConfirmationType] = @ConfirmationType, isOffline=@isOffline,[ValidityFrom]=GETDATE()" &
+              ",[AuditUserID] = @AuditUserID,FamilyType = @FamilyType, FamilyAddress = @FamilyAddress, Ethnicity = @Ethnicity, ConfirmationNo = @ConfirmationNo, LocationId = @LocationId, Source = @Source, SourceVersion = @SourceVersion where FamilyID = @FamilyID"
         data.setSQLCommand(str, CommandType.Text)
         data.params("@FamilyID", SqlDbType.Int, eFamily.FamilyID)
         data.params("@Poverty", SqlDbType.Bit, eFamily.Poverty, ParameterDirection.Input)
@@ -200,6 +201,8 @@ Public Class FamilyDAL
         data.params("@FamilyAddress", SqlDbType.NVarChar, 200, eFamily.FamilyAddress)
         data.params("@ConfirmationNo", SqlDbType.NVarChar, 12, eFamily.ConfirmationNo)
         data.params("@LocationId", SqlDbType.Int, eFamily.LocationId)
+        data.params("@Source", SqlDbType.NVarChar, 50, eFamily.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eFamily.SourceVersion)
 
         data.ExecuteCommand()
     End Sub
@@ -429,14 +432,16 @@ Public Class FamilyDAL
     End Function
     'Corrected
     Public Function DeleteFamily(ByVal eFamily As IMIS_EN.tblFamilies) As Boolean
-        Dim str As String = "insert into tblFamilies ([insureeid],LocationId, [Poverty], [ConfirmationType],isOffline,[ValidityFrom],[ValidityTo]," & _
-                            "[LegacyID],[AuditUserID],[Ethnicity], [ConfirmationNo])select [insureeid],LocationId,[Poverty], [ConfirmationType],isOffline,[ValidityFrom],getdate()," & _
-                            " @FamilyID, [AuditUserID],Ethnicity, [ConfirmationNo] from tblFamilies where FamilyID = @FamilyID AND ValidityTo IS NULL;" & _
-                            " update [tblFamilies] set [ValidityFrom]=GETDATE(),[ValidityTo]=GETDATE(),[AuditUserID] = @AuditUserID where FamilyID = @FamilyID AND ValidityTo IS NULL"
+        Dim str As String = "insert into tblFamilies ([insureeid],LocationId, [Poverty], [ConfirmationType],isOffline,[ValidityFrom],[ValidityTo]," &
+                            "[LegacyID],[AuditUserID],[Ethnicity], [ConfirmationNo], Source, SourceVersion)select [insureeid],LocationId,[Poverty], [ConfirmationType],isOffline,[ValidityFrom],getdate()," &
+                            " @FamilyID, [AuditUserID],Ethnicity, [ConfirmationNo], Source, SourceVersion from tblFamilies where FamilyID = @FamilyID AND ValidityTo IS NULL;" &
+                            " update [tblFamilies] set [ValidityFrom]=GETDATE(),[ValidityTo]=GETDATE(),[AuditUserID] = @AuditUserID, Source = @Source, SourceVersion = @SourceVersion where FamilyID = @FamilyID AND ValidityTo IS NULL"
 
         data.setSQLCommand(str, CommandType.Text)
         data.params("@FamilyID", SqlDbType.Int, eFamily.FamilyID)
         data.params("@AuditUserID", SqlDbType.Int, eFamily.AuditUserID)
+        data.params("@Source", SqlDbType.NVarChar, 50, eFamily.Source)
+        data.params("@SourceVersion", SqlDbType.NVarChar, 15, eFamily.SourceVersion)
         data.ExecuteCommand()
         Return True
     End Function

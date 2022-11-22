@@ -4748,368 +4748,371 @@
 		<value>Item/Service doesn’t comply with limitations on patients (men/women,
 adults/children)
 		</value>
-	</data>
-	<data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
-		<value>Item/Service duplicated</value>
-	</data>
-	<data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
-		<value>Item/Service is not covered by an active policy of the patient</value>
-	</data>
-	<data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
-		<value>Item/Service not in the price lists associated with the health facility</value>
-	</data>
-	<data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
-		<value>Item/Service not in the registers of medical items/services</value>
-	</data>
-	<data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
-		<value>Not valid insurance number</value>
-	</data>
-	<data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
-		<value>Maximum number of antenatal contacts exceeded</value>
-	</data>
-	<data name="T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED" xml:space="preserve">
-		<value>Maximum number of consultations exceeded</value>
-	</data>
-	<data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
-		<value>Maximum number of deliveries exceeded</value>
-	</data>
-	<data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
-		<value>Maximum number of in-patient admissions exceeded</value>
-	</data>
-	<data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
-		<value>Maximum number of out-patient visits exceeded</value>
-	</data>
-	<data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
-		<value>Maximum number of provisions of item/service exceeded</value>
-	</data>
-	<data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
-		<value>Maximum number of surgeries exceeded</value>
-	</data>
-	<data name="T_NA" xml:space="preserve">
-		<value>N/A</value>
-	</data>
-	<data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
-		<value>Rejected by a medical officer</value>
-	</data>
-	<data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
-		<value>Target date of provision of health care invalid</value>
-	</data>
-	<data name="L_PLEASESELECTSCOPE" xml:space="preserve">
-		<value>Please select scope</value>
-	</data>
-	<data name="L_PROLICYVALUE" xml:space="preserve">
-		<value>policy value</value>
-	</data>
-	<data name="M_SELECTSERVICECODE" xml:space="preserve">
-		<value>Please select the service code</value>
-	</data>
-	<data name="T_NEWPOLICIES" xml:space="preserve">
-		<value>New policies</value>
-	</data>
-	<data name="G_ROLE_DETAILS" xml:space="preserve">
-		<value>Role Details</value>
-	</data>
-	<data name="M_UNIQUEROLENAME" xml:space="preserve">
-		<value>This role name has already been used, please use different name.</value>
-	</data>
-	<data name="V_PASSWORD_PREFIX" xml:space="preserve">
-		<value>Password must contain</value>
-	</data>
-	<data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
-		<value>at least</value>
-	</data>
-	<data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
-		<value>characters</value>
-	</data>
-	<data name="V_PASSWORD_INCLUDING" xml:space="preserve">
-		<value>including</value>
-	</data>
-	<data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
-		<value>at least one lower case letter</value>
-	</data>
-	<data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
-		<value>at least one upper case letter</value>
-	</data>
-	<data name="V_PASSWORD_NUMBER" xml:space="preserve">
-		<value>at least one number</value>
-	</data>
-	<data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
-		<value>at least one special symbol</value>
-	</data>
-	<data name="V_PASSWORDREQUIRED" xml:space="preserve">
-		<value>Password is required</value>
-	</data>
-	<data name="L_PAYCATEGORY1" xml:space="preserve">
-		<value>Pay Category</value>
-	</data>
-	<data name="L_PAYDATE1" xml:space="preserve">
-		<value>Payment Date</value>
-	</data>
-	<data name="L_PAYDATEFROM1" xml:space="preserve">
-		<value>Payment Date From</value>
-	</data>
-	<data name="L_PAYDATETO1" xml:space="preserve">
-		<value>Payment Date To</value>
-	</data>
-	<data name="L_PAYMENT1" xml:space="preserve">
-		<value>Payment</value>
-	</data>
-	<data name="L_PAYMENTASKED1" xml:space="preserve">
-		<value>Payment Asked</value>
-	</data>
-	<data name="L_PAYMENTDATE1" xml:space="preserve">
-		<value>Payment Date</value>
-	</data>
-	<data name="L_PAYMETHOD1" xml:space="preserve">
-		<value>Pay Method</value>
-	</data>
-	<data name="T_MEDICALPROSTHESES" xml:space="preserve">
-		<value>Medical Prostheses</value>
-	</data>
-	<data name="L_RECURRENCE" xml:space="preserve">
-		<value>Recurrence (Months)</value>
-	</data>
-	<data name="M_NORIGHTSSELECTED" xml:space="preserve">
-		<value>Please select at least one security right</value>
-	</data>
-	<data name="M_USERCANNOTBEEDITED" xml:space="preserve">
-		<value>You have no authority to edit the selected user.</value>
-	</data>
-	<data name="M_ASSIGNROLE" xml:space="preserve">
-		<value>Allow assignement of Role</value>
-	</data>
-	<data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
-		<value>Claimed date cannot be in future</value>
-	</data>
-	<data name="B_RESTORE" xml:space="preserve">
-		<value>Restore</value>
-	</data>
-	<data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
-		<value>No Message to be displayed</value>
-	</data>
-	<data name="L_GENDER1" xml:space="preserve">
-		<value>Gender</value>
-	</data>
-	<data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
-		<value>Search  Insurance Number</value>
-	</data>
-	<data name="T_CHARITY" xml:space="preserve">
-		<value>Charity</value>
-	</data>
-	<data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
-		<value>Import photos</value>
-	</data>
-	<data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
-		<value>zipped photos</value>
-	</data>
-	<data name="L_FULLNAME" xml:space="preserve">
-		<value>Full Name</value>
-	</data>
-	<data name="L_PAYMENTAMOUNT" xml:space="preserve">
-		<value>Amount</value>
-	</data>
-	<data name="L_RECEIPTCODE" xml:space="preserve">
-		<value>Receipt code</value>
-	</data>
-	<data name="L_IMEI" xml:space="preserve">
-		<value>IMEI</value>
-	</data>
-	<data name="L_EMAILSETTINGS" xml:space="preserve">
-		<value>Email</value>
-	</data>
-	<data name="T_READY" xml:space="preserve">
-		<value>Ready</value>
-	</data>
-	<data name="M_PLEASESELECTMODE" xml:space="preserve">
-		<value>Please select mode</value>
-	</data>
-	<data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
-		<value>Calculated commission</value>
-	</data>
-	<data name="G_PROJECTDETAILS" xml:space="preserve">
-		<value>Project Details</value>
-	</data>
-	<data name="L_COMMENTS" xml:space="preserve">
-		<value>Comments</value>
-	</data>
-	<data name="L_COSTCENTRE" xml:space="preserve">
-		<value>Cost Centre</value>
-	</data>
-	<data name="L_PROJECTCENTRE" xml:space="preserve">
-		<value>Project Centre</value>
-	</data>
-	<data name="L_ACTIVITYCENTRE" xml:space="preserve">
-		<value>Activity Centre</value>
-	</data>
-	<data name="L_CC" xml:space="preserve">
-		<value>CC</value>
-	</data>
-	<data name="L_PC" xml:space="preserve">
-		<value>PC</value>
-	</data>
-	<data name="L_AC" xml:space="preserve">
-		<value>AC</value>
-	</data>
-	<data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
-		<value>Project(s) Found</value>
-	</data>
-	<data name="L_UNITS" xml:space="preserve">
-		<value>Units</value>
-	</data>
-	<data name="L_EMPLOYEE" xml:space="preserve">
-		<value>Employee</value>
-	</data>
-	<data name="L_EMPLOYEEID" xml:space="preserve">
-		<value>Employee ID</value>
-	</data>
-	<data name="L_UNITS2" xml:space="preserve">
-		<value>Units2</value>
-	</data>
-	<data name="T_SELECTCOSTCENTRE" xml:space="preserve">
-		<value>Select Cost Centre</value>
-	</data>
-	<data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
-		<value>Select Project Centre</value>
-	</data>
-	<data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
-		<value>Select Activity Centre</value>
-	</data>
-	<data name="T_SELECTEMPLOYEE" xml:space="preserve">
-		<value>Select Employee</value>
-	</data>
-	<data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
-		<value>Project Details have been inserted successfully</value>
-	</data>
-	<data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
-		<value>Project Details have been updated successfully</value>
-	</data>
-	<data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
-		<value>Total paid Contributions for</value>
-	</data>
-	<data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
-		<value>Calculated Commission</value>
-	</data>
-	<data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
-		<value>Calculated Commission for</value>
-	</data>
-	<data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
-		<value>Total Actual Payment Contribution for</value>
-	</data>
-	<data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
-		<value>Total of all Actual Payment Contributions</value>
-	</data>
-	<data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
-		<value>Total of all Prescribed Contributions</value>
-	</data>
-	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
-		<value>Total Prescribed Contributions for</value>
-	</data>
-	<data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
-		<value>Total number of policies for</value>
-	</data>
-	<data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
-		<value>Total Prescribed Contribution for</value>
-	</data>
-	<data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
-		<value>Please select commission rate</value>
-	</data>
-	<data name="R_TOTALAPPROVED" xml:space="preserve">
-		<value>Total Approved</value>
-	</data>
-	<data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
-		<value>Total Adjusted Amount</value>
-	</data>
-	<data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
-		<value>Total Paid Amount</value>
-	</data>
-	<data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
-		<value>Task completed in </value>
-	</data>
-	<data name="M_EXTR_HOURS" xml:space="preserve">
-		<value> hours</value>
-	</data>
-	<data name="T_OVERVIEW" xml:space="preserve">
-		<value>Overview</value>
-	</data>
-	<data name="T_ALLDETAILS" xml:space="preserve">
-		<value>All details</value>
-	</data>
-	<data name="L_PAYMENTTYPE1" xml:space="preserve">
-		<value>Payment Type</value>
-	</data>
-	<data name="R_RENEWALUPLOAD" xml:space="preserve">
-		<value>Renewal Upload</value>
-	</data>
-	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
-		<value></value>
-	</data>
-	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
-		<value>Batch run for given location and period was not executed</value>
-	</data>
-	<data name="R_CAPITATION" xml:space="preserve">
-		<value>Capitation</value>
-	</data>
-	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
-		<value>Batch not selected</value>
-	</data>
-	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
-		<value>Region not selected</value>
-	</data>
-	<data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
-		<value>Ctr No. Requested</value>
-	</data>
-	<data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
-		<value>Ctr No. Received</value>
-	</data>
-	<data name="T_PAYMENTRECEIVED" xml:space="preserve">
-		<value>Pay. Received</value>
-	</data>
-	<data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
-		<value>Pay. Reconciliated</value>
-	</data>
-	<data name="L_REJECTEDREASON" xml:space="preserve">
-		<value>Rejection reason</value>
-	</data>
-	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
-		<value>cancelled</value>
-	</data>
-	<data name="T_PAYMENTCREATED" xml:space="preserve">
-		<value>Created</value>
-	</data>
-	<data name="L_UPLOADFEEDBACKS" xml:space="preserve">
-		<value>Upload Feedbacks</value>
-	</data>
-	<data name="L_UPLOADRENEWALS" xml:space="preserve">
-		<value>Upload Renewals</value>
-	</data>
-	<data name="L_VULNERABILITY" xml:space="preserve">
-		<value>Vulnerability</value>
-	</data>
-	<data name="T_REMOVEHOSPITALS" xml:space="preserve">
-		<value>Please remove the pricelist from the following hospitals before changing the location:</value>
-	</data>
-	<data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
-		<value>Overview of Commissions (Detailed)</value>
-	</data>
-	<data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
-		<value>Overview of Commissions (Overview)</value>
-	</data>
-	<data name="M_SUBSTITUTE" xml:space="preserve">
-		<value>Please select substitute officer</value>
-	</data>
-	<data name="M_WORKSTO" xml:space="preserve">
-		<value>Please select works to date</value>
-	</data>
-	<data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
-		<value>The following secret keys were left at a default value. For security reasons, please change them in Web.config file. Make sure secret keys are also updated in mobile applications.</value>
-	</data>
-	<data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
-		<value>Security Warning</value>
-	</data>
+  </data>
+  <data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
+    <value>Item/Service duplicated</value>
+  </data>
+  <data name="T_ITEMSERVICENOTCOVEREDBYPOLICY" xml:space="preserve">
+    <value>Item/Service is not covered by an active policy of the patient</value>
+  </data>
+  <data name="T_ITEMSERVICENOTINTHEPRICELIST" xml:space="preserve">
+    <value>Item/Service not in the price lists associated with the health facility</value>
+  </data>
+  <data name="T_ITEMSERVICENOTINTHEREGISTER" xml:space="preserve">
+    <value>Item/Service not in the registers of medical items/services</value>
+  </data>
+  <data name="T_ITEMSERVICENOTVALIDINSURANCENUMBER" xml:space="preserve">
+    <value>Not valid insurance number</value>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFANTENETALEXCEEDED" xml:space="preserve">
+    <value>Maximum number of antenatal contacts exceeded</value>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFCONSULTATIONSEXCEEDED" xml:space="preserve">
+    <value>Maximum number of consultations exceeded</value>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFDELIVERIESEXCEEDED" xml:space="preserve">
+    <value>Maximum number of deliveries exceeded</value>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFINPATIENTEXCEEDED" xml:space="preserve">
+    <value>Maximum number of in-patient admissions exceeded</value>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFOUTPATIENTEXCEEDED" xml:space="preserve">
+    <value>Maximum number of out-patient visits exceeded</value>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFPROVISIONSEXCEEDED" xml:space="preserve">
+    <value>Maximum number of provisions of item/service exceeded</value>
+  </data>
+  <data name="T_MAXIMUMNUMBEROFSURGERIESEXCEEDED" xml:space="preserve">
+    <value>Maximum number of surgeries exceeded</value>
+  </data>
+  <data name="T_NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="T_REJECTEDBYMEDICALOFFICER" xml:space="preserve">
+    <value>Rejected by a medical officer</value>
+  </data>
+  <data name="T_TARGETDATEOFPROVISIONHEALTHCAREINVALID" xml:space="preserve">
+    <value>Target date of provision of health care invalid</value>
+  </data>
+  <data name="L_PLEASESELECTSCOPE" xml:space="preserve">
+    <value>Please select scope</value>
+  </data>
+  <data name="L_PROLICYVALUE" xml:space="preserve">
+    <value>policy value</value>
+  </data>
+  <data name="M_SELECTSERVICECODE" xml:space="preserve">
+    <value>Please select the service code</value>
+  </data>
+  <data name="T_NEWPOLICIES" xml:space="preserve">
+    <value>New policies</value>
+  </data>
+  <data name="G_ROLE_DETAILS" xml:space="preserve">
+    <value>Role Details</value>
+  </data>
+  <data name="M_UNIQUEROLENAME" xml:space="preserve">
+    <value>This role name has already been used, please use different name.</value>
+  </data>
+  <data name="V_PASSWORD_PREFIX" xml:space="preserve">
+    <value>Password must contain</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_PREFIX" xml:space="preserve">
+    <value>at least</value>
+  </data>
+  <data name="V_PASSWORD_MIN_LENGTH_SUFFIX" xml:space="preserve">
+    <value>characters</value>
+  </data>
+  <data name="V_PASSWORD_INCLUDING" xml:space="preserve">
+    <value>including</value>
+  </data>
+  <data name="V_PASSWORD_LOWER_CASE" xml:space="preserve">
+    <value>at least one lower case letter</value>
+  </data>
+  <data name="V_PASSWORD_UPPER_CASE" xml:space="preserve">
+    <value>at least one upper case letter</value>
+  </data>
+  <data name="V_PASSWORD_NUMBER" xml:space="preserve">
+    <value>at least one number</value>
+  </data>
+  <data name="V_PASSWORD_SPECIAL_SYMBOL" xml:space="preserve">
+    <value>at least one special symbol</value>
+  </data>
+  <data name="V_PASSWORDREQUIRED" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="L_PAYCATEGORY1" xml:space="preserve">
+    <value>Pay Category</value>
+  </data>
+  <data name="L_PAYDATE1" xml:space="preserve">
+    <value>Payment Date</value>
+  </data>
+  <data name="L_PAYDATEFROM1" xml:space="preserve">
+    <value>Payment Date From</value>
+  </data>
+  <data name="L_PAYDATETO1" xml:space="preserve">
+    <value>Payment Date To</value>
+  </data>
+  <data name="L_PAYMENT1" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="L_PAYMENTASKED1" xml:space="preserve">
+    <value>Payment Asked</value>
+  </data>
+  <data name="L_PAYMENTDATE1" xml:space="preserve">
+    <value>Payment Date</value>
+  </data>
+  <data name="L_PAYMETHOD1" xml:space="preserve">
+    <value>Pay Method</value>
+  </data>
+  <data name="T_MEDICALPROSTHESES" xml:space="preserve">
+    <value>Medical Prostheses</value>
+  </data>
+  <data name="L_RECURRENCE" xml:space="preserve">
+    <value>Recurrence (Months)</value>
+  </data>
+  <data name="M_NORIGHTSSELECTED" xml:space="preserve">
+    <value>Please select at least one security right</value>
+  </data>
+  <data name="M_USERCANNOTBEEDITED" xml:space="preserve">
+    <value>You have no authority to edit the selected user.</value>
+  </data>
+  <data name="M_ASSIGNROLE" xml:space="preserve">
+    <value>Allow assignement of Role</value>
+  </data>
+  <data name="M_CLAIMDATENOTINFUTURE" xml:space="preserve">
+    <value>Claimed date cannot be in future</value>
+  </data>
+  <data name="B_RESTORE" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="M_NOMESSAGETOBEDESPLAYED" xml:space="preserve">
+    <value>No Message to be displayed</value>
+  </data>
+  <data name="L_GENDER1" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="L_SEARCHFORCHFNUMBER" xml:space="preserve">
+    <value>Search  Insurance Number</value>
+  </data>
+  <data name="T_CHARITY" xml:space="preserve">
+    <value>Charity</value>
+  </data>
+  <data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
+    <value>Import photos</value>
+  </data>
+  <data name="L_EXTR_ZIPPEDPHOTOS1" xml:space="preserve">
+    <value>zipped photos</value>
+  </data>
+  <data name="L_FULLNAME" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="L_PAYMENTAMOUNT" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="L_RECEIPTCODE" xml:space="preserve">
+    <value>Receipt code</value>
+  </data>
+  <data name="L_IMEI" xml:space="preserve">
+    <value>IMEI</value>
+  </data>
+  <data name="L_EMAILSETTINGS" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="T_READY" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="M_PLEASESELECTMODE" xml:space="preserve">
+    <value>Please select mode</value>
+  </data>
+  <data name="L_CALCULATEDCOMMISSION" xml:space="preserve">
+    <value>Calculated commission</value>
+  </data>
+  <data name="G_PROJECTDETAILS" xml:space="preserve">
+    <value>Project Details</value>
+  </data>
+  <data name="L_COMMENTS" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="L_COSTCENTRE" xml:space="preserve">
+    <value>Cost Centre</value>
+  </data>
+  <data name="L_PROJECTCENTRE" xml:space="preserve">
+    <value>Project Centre</value>
+  </data>
+  <data name="L_ACTIVITYCENTRE" xml:space="preserve">
+    <value>Activity Centre</value>
+  </data>
+  <data name="L_CC" xml:space="preserve">
+    <value>CC</value>
+  </data>
+  <data name="L_PC" xml:space="preserve">
+    <value>PC</value>
+  </data>
+  <data name="L_AC" xml:space="preserve">
+    <value>AC</value>
+  </data>
+  <data name="L_PROJECTDETAILSFOUND" xml:space="preserve">
+    <value>Project(s) Found</value>
+  </data>
+  <data name="L_UNITS" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="L_EMPLOYEE" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="L_EMPLOYEEID" xml:space="preserve">
+    <value>Employee ID</value>
+  </data>
+  <data name="L_UNITS2" xml:space="preserve">
+    <value>Units2</value>
+  </data>
+  <data name="T_SELECTCOSTCENTRE" xml:space="preserve">
+    <value>Select Cost Centre</value>
+  </data>
+  <data name="T_SELECTPROJECTCENTRE" xml:space="preserve">
+    <value>Select Project Centre</value>
+  </data>
+  <data name="T_SELECTACTIVITYCENTRE" xml:space="preserve">
+    <value>Select Activity Centre</value>
+  </data>
+  <data name="T_SELECTEMPLOYEE" xml:space="preserve">
+    <value>Select Employee</value>
+  </data>
+  <data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
+    <value>Project Details have been inserted successfully</value>
+  </data>
+  <data name="M_PROJECTDEAILSUPDATEDSUCCESSFULLY" xml:space="preserve">
+    <value>Project Details have been updated successfully</value>
+  </data>
+  <data name="R_ACTUALPAIDCONTRIBUTIONSFOR" xml:space="preserve">
+    <value>Total paid Contributions for</value>
+  </data>
+  <data name="R_CALCULATEDCOMMISSION" xml:space="preserve">
+    <value>Calculated Commission</value>
+  </data>
+  <data name="R_CALCULATEDCOMMISSIONFOR" xml:space="preserve">
+    <value>Calculated Commission for</value>
+  </data>
+  <data name="R_TOTALACTUALPAYMENTSFOR" xml:space="preserve">
+    <value>Total Actual Payment Contribution for</value>
+  </data>
+  <data name="R_TOTALOFALLACTUALPAYMENTS" xml:space="preserve">
+    <value>Total of all Actual Payment Contributions</value>
+  </data>
+  <data name="R_TOTALOFALLPRESCRIBEDCONTRIBUTION" xml:space="preserve">
+    <value>Total of all Prescribed Contributions</value>
+  </data>
+  <data name="R_TOTALPRESCRIBEDCONTRIBUTIONSFOR" xml:space="preserve">
+    <value>Total Prescribed Contributions for</value>
+  </data>
+  <data name="L_TOTALNUMBEROFPOLICIESFOR" xml:space="preserve">
+    <value>Total number of policies for</value>
+  </data>
+  <data name="R_TOTALPRESCRIBEDCONTRIBUTIONFOR" xml:space="preserve">
+    <value>Total Prescribed Contribution for</value>
+  </data>
+  <data name="M_PLEASESELECTCOMMISSIONRATE" xml:space="preserve">
+    <value>Please select commission rate</value>
+  </data>
+  <data name="R_TOTALAPPROVED" xml:space="preserve">
+    <value>Total Approved</value>
+  </data>
+  <data name="R_TOTALADJUSTEDAMOUINT" xml:space="preserve">
+    <value>Total Adjusted Amount</value>
+  </data>
+  <data name="R_TOTALPAIDAMOUNT" xml:space="preserve">
+    <value>Total Paid Amount</value>
+  </data>
+  <data name="M_EXTR_TASKCOMPLETED" xml:space="preserve">
+    <value>Task completed in </value>
+  </data>
+  <data name="M_EXTR_HOURS" xml:space="preserve">
+    <value> hours</value>
+  </data>
+  <data name="T_OVERVIEW" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="T_ALLDETAILS" xml:space="preserve">
+    <value>All details</value>
+  </data>
+  <data name="L_PAYMENTTYPE1" xml:space="preserve">
+    <value>Payment Type</value>
+  </data>
+  <data name="R_RENEWALUPLOAD" xml:space="preserve">
+    <value>Renewal Upload</value>
+  </data>
+  <data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="L_EXTR_OFFLINEEXTRACT1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="L_EXTR_PHONEEXTRACT1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
+    <value>Batch run for given location and period was not executed</value>
+  </data>
+  <data name="R_CAPITATION" xml:space="preserve">
+    <value>Capitation</value>
+  </data>
+  <data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
+    <value>Batch not selected</value>
+  </data>
+  <data name="M_REGION_NOT_SELECTED" xml:space="preserve">
+    <value>Region not selected</value>
+  </data>
+  <data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
+    <value>Ctr No. Requested</value>
+  </data>
+  <data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
+    <value>Ctr No. Received</value>
+  </data>
+  <data name="T_PAYMENTRECEIVED" xml:space="preserve">
+    <value>Pay. Received</value>
+  </data>
+  <data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
+    <value>Pay. Reconciliated</value>
+  </data>
+  <data name="L_REJECTEDREASON" xml:space="preserve">
+    <value>Rejection reason</value>
+  </data>
+  <data name="T_PAYMENTCANCELLED" xml:space="preserve">
+    <value>cancelled</value>
+  </data>
+  <data name="T_PAYMENTCREATED" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="L_UPLOADFEEDBACKS" xml:space="preserve">
+    <value>Upload Feedbacks</value>
+  </data>
+  <data name="L_UPLOADRENEWALS" xml:space="preserve">
+    <value>Upload Renewals</value>
+  </data>
+  <data name="L_VULNERABILITY" xml:space="preserve">
+    <value>Vulnerability</value>
+  </data>
+  <data name="T_REMOVEHOSPITALS" xml:space="preserve">
+    <value>Please remove the pricelist from the following hospitals before changing the location:</value>
+  </data>
+  <data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
+    <value>Overview of Commissions (Detailed)</value>
+  </data>
+  <data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
+    <value>Overview of Commissions (Overview)</value>
+  </data>
+  <data name="M_SUBSTITUTE" xml:space="preserve">
+    <value>Please select substitute officer</value>
+  </data>
+  <data name="M_WORKSTO" xml:space="preserve">
+    <value>Please select works to date</value>
+  </data>
+  <data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
+    <value>The following secret keys were left at a default value. For security reasons, please change them in Web.config file. Make sure secret keys are also updated in mobile applications.</value>
+  </data>
+  <data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
+    <value>Security Warning</value>
+  </data>
+  <data name="M_MOVEDISTRICTSPLWARNING" xml:space="preserve">
+    <value>Do you want to move district and detach all local pricelists from health facilities?</value>
+  </data>
 </root>

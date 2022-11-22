@@ -26,6 +26,8 @@
 ' 
 '
 
+Imports System.Reflection
+
 Partial Public Class Premium
     Inherits System.Web.UI.Page
     Dim eFamily As New IMIS_EN.tblFamilies
@@ -44,7 +46,7 @@ Partial Public Class Premium
 
         Dim Adjustibility As String = ""
 
-       
+
         'Confirmation
         Adjustibility = General.getControlSetting("Confirmation")
         L_CONFIRMATIONNO0.Visible = Not (Adjustibility = "N")
@@ -54,7 +56,7 @@ Partial Public Class Premium
         L_CONFIRMATIONNO.Visible = Not (Adjustibility = "N")
         txtConfirmationNo1.Visible = Not (Adjustibility = "N")
 
-      
+
         'Permanent Address
         Adjustibility = General.getControlSetting("PermanentAddress")
         L_ADDRESS0.Visible = Not (Adjustibility = "N")
@@ -170,10 +172,10 @@ Partial Public Class Premium
                 If Not ePremium.tblPolicy.PolicyStatus Is Nothing Then
                     hfPolicyStatus.Value = ePremium.tblPolicy.PolicyStatus
                 End If
-                hfPolicyIsOffline.Value = if(ePremium.tblPolicy.isOffline Is Nothing, False, ePremium.tblPolicy.isOffline)
-                hfPremiumIsOffline.Value = if(ePremium.isOffline Is Nothing, False, ePremium.isOffline)
+                hfPolicyIsOffline.Value = If(ePremium.tblPolicy.isOffline Is Nothing, False, ePremium.tblPolicy.isOffline)
+                hfPremiumIsOffline.Value = If(ePremium.isOffline Is Nothing, False, ePremium.isOffline)
 
-                If ePremium.ValidityTo.HasValue Or ((IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) And Not if(ePremium.isOffline Is Nothing, False, ePremium.isOffline)) Then
+                If ePremium.ValidityTo.HasValue Or ((IMIS_Gen.offlineHF Or IMIS_Gen.OfflineCHF) And Not If(ePremium.isOffline Is Nothing, False, ePremium.isOffline)) Then
                     pnlBody.Enabled = False
                     B_SAVE.Visible = False
                 End If
@@ -249,7 +251,7 @@ Partial Public Class Premium
     End Sub
 
     Private Sub FillPayers()
-        ddlPayer.DataSource = Premium.GetPayers(eFamily.RegionId, eFamily.DistrictID, imisgen.getUserId(Session("User")), True)
+        ddlPayer.DataSource = Premium.GetPayers(eFamily.RegionId, eFamily.DistrictId, imisgen.getUserId(Session("User")), True)
         ddlPayer.DataValueField = "PayerID"
         ddlPayer.DataTextField = "PayerName"
         ddlPayer.DataBind()
@@ -281,7 +283,7 @@ Partial Public Class Premium
 
                 Dim PayDate As Date = Date.ParseExact(txtPaymentDate.Text.Trim, "dd/MM/yyyy", Nothing)
                 Dim StartDate As Date = Date.ParseExact(hfPolicyStartDate.Value, "dd/MM/yyyy", Nothing)
-                Dim EffectiveDate As Date = if(PayDate < StartDate, StartDate, PayDate)
+                Dim EffectiveDate As Date = If(PayDate < StartDate, StartDate, PayDate)
                 If ePremium.PayDate > System.DateTime.Now Then
                     lblMsg.Text = imisgen.getMessage("M_PAYDATETOEXCEEDCURRENDATE")
                     Return
@@ -343,6 +345,12 @@ Partial Public Class Premium
                     imisgen.Alert(imisgen.getMessage("M_DUPLICATERECEIPT"), pnlBody, alertPopupTitle:="IMIS")
                     Return
                 End If
+
+                ePremium.Source = "Legacy"
+                ePremium.SourceVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()
+
+                ePremium.tblPolicy.Source = ePremium.Source
+                ePremium.tblPolicy.SourceVersion = ePremium.SourceVersion
 
                 Dim chk As Integer = Premium.SavePremium(ePremium, IMIS_Gen.offlineHF)
                 If chk = 0 Then

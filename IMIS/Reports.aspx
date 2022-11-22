@@ -43,11 +43,14 @@ In case of dispute arising out or in relation to the use of the program, it is s
         var EndDate;
 
         $(document).ready(function () { //execute first before pageLoadExtend...
+            
             $lstBox = $("#<%=lstboxReportSelector.ClientID %>");
         $lstBox.change(function () {
             filterCriteria("change", "slow");
             getVisibleRegion();
         });
+
+        $('#<%=ddlMode.ClientID %>').val(1);
 
         $("#<%=btnPreview.ClientID %>").click(function () {
             var lstBoxID = $lstBox.val();
@@ -61,17 +64,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                         reDoPostBack("<%=btnPreview.UniqueID %>");
                     }
                 });
-                cacheCriteria();
-                return false;
-            }
-            if (lstBoxID == 22 && $("#<%=ddlPreviousReportDateCommission.ClientID %>").val() > 0) {
-                popup.acceptBTN_Text = '<%=imisgen.getMessage("L_YES", True)%>';
-                popup.rejectBTN_Text = '<%=imisgen.getMessage("L_NO", True)%>';
-                popup.confirm('<%=imisgen.getMessage("M_PREVIOUSCOMMISSIONREPORT", True) %>', function (btn) {
-                    if (btn == "ok") {
-                        reDoPostBack("<%=btnPreview.UniqueID %>");
-                                }
-                            });
                 cacheCriteria();
                 return false;
             }
@@ -630,7 +622,7 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                         <asp:Label ID="lblAssignmentSatus" runat="server" Text='<%$ Resources:Resource,L_ASSIGNMENTSTATUS%>' CssClass="FormLabel"></asp:Label>
                                         <asp:DropDownList ID="ddlAssignmentStatus" runat="server"></asp:DropDownList>
                                     </li>
-                                    <li class="oc">
+                                    <li>
                                         <asp:Label ID="lblMode" runat="server" Text='<%$ Resources:Resource,L_MODE%>' CssClass="FormLabel"></asp:Label>
                                         <asp:DropDownList ID="ddlMode" runat="server"></asp:DropDownList>
                                     </li>
@@ -670,13 +662,6 @@ In case of dispute arising out or in relation to the use of the program, it is s
                                 <div style="position: absolute; right: 109px; top: 0px;">
                                     <asp:Label ID="lblPreviousReport" class="FormLabel mf" runat="server" Text='<%$ Resources:Resource,L_PREVIOUS %>'></asp:Label>
                                     <asp:DropDownList ID="ddlPreviousReportDate" class="mf" runat="server"></asp:DropDownList>
-                                </div>
-                            </div>
-
-                            <div class="oc " style="position: relative; display: none; margin-left: 200px">
-                                <div style="position: absolute; top: 0px; right: 100px;">
-                                    <asp:Label ID="lblPreviousReportCommission" class="FormLabel oc" runat="server" Text='<%$ Resources:Resource,L_PREVIOUS %>'></asp:Label>
-                                    <asp:DropDownList ID="ddlPreviousReportDateCommission" class="oc" runat="server" AutoPostBack="True" Width="450px"></asp:DropDownList>
                                 </div>
                             </div>
                         </ContentTemplate>

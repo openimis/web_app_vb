@@ -101,9 +101,22 @@
             return false;
         }
 
+        function showMoveDistrictPopup() {
+            popup.acceptBTN_Text = '<%#imisgen.getMessage("L_YES", True)%>';
+            popup.rejectBTN_Text = '<%#imisgen.getMessage("L_NO", True)%>';
+            popup.confirm('<%#imisgen.getMessage("M_MOVEDISTRICTSPLWARNING", True)%>', DoMoveDistrictPostBack);
+            return false;
+        }
+
         function DoPostBack(btn, args) {
             if (btn == "ok")
                 __doPostBack('', 'Delete');
+        }
+
+        function DoMoveDistrictPostBack(btn, args) {
+            if (btn == "ok") {
+                __doPostBack('', 'MoveDelete');
+            }
         }
 
 
