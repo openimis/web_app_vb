@@ -4790,8 +4790,7 @@ Bidhaa / Huduma haizingatii aina ya shida ya utunzaji</value>
 Bidhaa / Huduma haizingatii kizuizi cha masafa</value>
 	</data>
 	<data name="T_ITEMSERVICEDOESNTCOMPLYWITHLIMITATION" xml:space="preserve">
-		<value>
-Bidhaa / Huduma haizingatii ukomo kwa wagonjwa (wanaume / wanawake,
+		<value>Bidhaa / Huduma haizingatii ukomo kwa wagonjwa (wanaume / wanawake,
 watu wazima / watoto)</value>
 	</data>
 	<data name="T_ITEMSERVICEDUPLICATED" xml:space="preserve">
@@ -5116,7 +5115,7 @@ watu wazima / watoto)</value>
 		<value>Lipa. Imepokelewa</value>
 	</data>
 	<data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
-		<value>Pay. Reconciliated</value>
+		<value>Lipa. Imepatanishwa</value>
 	</data>
 	<data name="L_REJECTEDREASON" xml:space="preserve">
 		<value>Sababu za katazo</value>
@@ -5132,5 +5131,29 @@ watu wazima / watoto)</value>
 	</data>
 	<data name="L_UPLOADRENEWALS" xml:space="preserve">
 		<value>Pakia uhuishaji</value>
+	</data>
+	<data name="L_VULNERABILITY" xml:space="preserve">
+		<value>Mazingira magumu</value>
+	</data>
+	<data name="T_REMOVEHOSPITALS" xml:space="preserve">
+		<value>Tafadhali ondoa orodha ya bei kwenye hospitali zifuatazo kabla ya kubadilisha eneo:</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
+		<value>Muhtasari wa Kamisheni(kina)</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
+		<value>Muhtasari wa Kamisheni</value>
+	</data>
+	<data name="M_SUBSTITUTE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_WORKSTO" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
+		<value></value>
 	</data>
 </root>

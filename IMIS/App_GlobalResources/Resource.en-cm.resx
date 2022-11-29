@@ -5037,7 +5037,7 @@ adults/children)</value>
 		<value>Payment Type</value>
 	</data>
 	<data name="R_RENEWALUPLOAD" xml:space="preserve">
-		<value>Renewal Upload</value>
+		<value></value>
 	</data>
 	<data name="L_EXTR_IMPORTEXTRACT1" xml:space="preserve">
 		<value></value>
@@ -5049,42 +5049,66 @@ adults/children)</value>
 		<value></value>
 	</data>
 	<data name="M_CAPITATION_PAYMENT_NO_BATCH_RUN" xml:space="preserve">
-		<value>Batch run for given location and period was not executed</value>
+		<value></value>
 	</data>
 	<data name="R_CAPITATION" xml:space="preserve">
-		<value>Capitation</value>
+		<value></value>
 	</data>
 	<data name="M_BATCH_RUN_NOT_SELECTED" xml:space="preserve">
-		<value>Batch not selected</value>
+		<value></value>
 	</data>
 	<data name="M_REGION_NOT_SELECTED" xml:space="preserve">
-		<value>Region not selected</value>
+		<value></value>
 	</data>
 	<data name="T_PAYMENTCNUMBERREQUESTED" xml:space="preserve">
-		<value>Ctr No. Requested</value>
+		<value></value>
 	</data>
 	<data name="T_PAYMENTCNNUMBERRECEIVED" xml:space="preserve">
-		<value>Ctr No. Received</value>
+		<value></value>
 	</data>
 	<data name="T_PAYMENTRECEIVED" xml:space="preserve">
-		<value>Pay. Received</value>
+		<value></value>
 	</data>
 	<data name="T_PAYMENTRECONCILIATED" xml:space="preserve">
-		<value>Pay. Reconciliated</value>
+		<value></value>
 	</data>
 	<data name="L_REJECTEDREASON" xml:space="preserve">
-		<value>Rejection reason</value>
+		<value></value>
 	</data>
 	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
-		<value>cancelled</value>
+		<value></value>
 	</data>
 	<data name="T_PAYMENTCREATED" xml:space="preserve">
-		<value>Created</value>
+		<value></value>
 	</data>
 	<data name="L_UPLOADFEEDBACKS" xml:space="preserve">
-		<value>Upload Feedbacks</value>
+		<value></value>
 	</data>
 	<data name="L_UPLOADRENEWALS" xml:space="preserve">
-		<value>Upload Renewals</value>
+		<value></value>
+	</data>
+	<data name="L_VULNERABILITY" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="T_REMOVEHOSPITALS" xml:space="preserve">
+		<value>Please remove the pricelist from the following hospitals before changing the location:</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_SUBSTITUTE" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_WORKSTO" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
+		<value></value>
 	</data>
 </root>

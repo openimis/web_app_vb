@@ -92,10 +92,10 @@
 		<value>Village</value>
 	</data>
 	<data name="L_WARD" xml:space="preserve">
-		<value>Municipalité</value>
+		<value>Commune</value>
 	</data>
 	<data name="L_DISTRICT" xml:space="preserve">
-		<value>District</value>
+		<value>Mougataa</value>
 	</data>
 	<data name="L_CHFID" xml:space="preserve">
 		<value>Numéro d'assurance</value>
@@ -104,7 +104,7 @@
 		<value>Niveau de pauvreté</value>
 	</data>
 	<data name="L_CARD" xml:space="preserve">
-		<value>Carte de bénéficiaire</value>
+		<value>Carte d'adérent</value>
 	</data>
 	<data name="L_SELECTCRITERIA" xml:space="preserve">
 		<value>Sélectionner les critères</value>
@@ -155,13 +155,13 @@
 		<value>Veuillez sélectionner la date de naissance</value>
 	</data>
 	<data name="V_CARD" xml:space="preserve">
-		<value>Veuillez mentionner si une carte de bénéficiaire a été délivrée</value>
+		<value>Veuillez mentionner si une carte d'adhésion a été délivrée</value>
 	</data>
 	<data name="V_CHFID" xml:space="preserve">
 		<value>Veuillez sélectionner un numéro d'assurance</value>
 	</data>
 	<data name="V_DISTRICT" xml:space="preserve">
-		<value>Veuillez sélectionner un district</value>
+		<value>Veuillez sélectionner une mougataa</value>
 	</data>
 	<data name="V_GENDER" xml:space="preserve">
 		<value>Sél. genre</value>
@@ -179,10 +179,10 @@
 		<value>Veuillez sélectionner si la(le) famille/groupe a un niveau de pauvreté</value>
 	</data>
 	<data name="V_VILLAGE" xml:space="preserve">
-		<value>Veuillez sélectionner un village</value>
+		<value>Veuillez sélectionner une localité</value>
 	</data>
 	<data name="V_WARD" xml:space="preserve">
-		<value>Veuillez sélectionner une municipalité</value>
+		<value>Veuillez sélectionner une commune</value>
 	</data>
 	<data name="B_ADDPREMIUM" xml:space="preserve">
 		<value>Ajouter une cotisation</value>
@@ -263,7 +263,7 @@
 		<value>Système</value>
 	</data>
 	<data name="L_FOUNDPRODUCTS" xml:space="preserve">
-		<value>Paquets de bénéfices trouvés</value>
+		<value>Garanties trouvées</value>
 	</data>
 	<data name="L_PRODUCTCODE" xml:space="preserve">
 		<value>Code</value>
@@ -1856,7 +1856,7 @@
 		<value> sélectionner</value>
 	</data>
 	<data name="M_VALIDATEADDBUTTON" xml:space="preserve">
-		<value>Veuillez sélectionner un district, un code de établissement de santé et un gestionnaire de prestation pour pouvoir ajouter un prestation</value>
+		<value>Veuillez sélectionner une mougataa, un code d'établissement de santé et un gestionnaire de prestation pour pouvoir ajouter une prestation</value>
 	</data>
 	<data name="M_VALIDATEFEEDBACKSAVE" xml:space="preserve">
 		<value>Aucune modification n'a été apportée au retour d'information de cette prestation, veuillez apporter des modifications pour enregistrer ou appuyer sur le bouton annuler</value>
@@ -2417,7 +2417,7 @@
 		<value>Total</value>
 	</data>
 	<data name="G_CLAIMADMINISTRATOR" xml:space="preserve">
-		<value>Info Gestionnaire Prestation</value>
+		<value>Détails du gestionnaire  de prestation</value>
 	</data>
 	<data name="L_CLAIMADMINISTRATOR" xml:space="preserve">
 		<value>Gest. rbsmt</value>
@@ -2900,7 +2900,7 @@
 		<value>N° de confirmation</value>
 	</data>
 	<data name="L_ADMINISTRATIONPERIOD" xml:space="preserve">
-		<value>Période d'administration</value>
+		<value>Période de carence</value>
 	</data>
 	<data name="L_RENEWALDISCOUNTPERCENTAGE" xml:space="preserve">
 		<value>Remise suite au renouvellement en %</value>
@@ -3425,7 +3425,7 @@
 		<value>Manager</value>
 	</data>
 	<data name="M_MEDICALOFFICER" xml:space="preserve">
-		<value>Médecin</value>
+		<value>Médecin Conseil</value>
 	</data>
 	<data name="M_OFFLINESCHEMEADMIN" xml:space="preserve">
 		<value>Administrateur du régime d'assurance hors ligne</value>
@@ -3674,16 +3674,16 @@
 		<value>Agent</value>
 	</data>
 	<data name="L_DISTRICTCODE" xml:space="preserve">
-		<value>Code district</value>
+		<value>Code Mougataa</value>
 	</data>
 	<data name="L_REGIONCODE" xml:space="preserve">
-		<value>Code région</value>
+		<value>Code Région</value>
 	</data>
 	<data name="L_VILLAGECODE" xml:space="preserve">
-		<value>Code Village</value>
+		<value>Code Localité</value>
 	</data>
 	<data name="L_WARDCODE" xml:space="preserve">
-		<value>Code Municipalité</value>
+		<value>Code Commune</value>
 	</data>
 	<data name="M_EMPTYLOCATIONCODE" xml:space="preserve">
 		<value>Le code location ne peut être vide</value>
@@ -3731,7 +3731,7 @@
 		<value>La valeur ne peut pas excéder 100%</value>
 	</data>
 	<data name="M_NOWARD" xml:space="preserve">
-		<value>Aucune Municipalité trouvée</value>
+		<value>Aucune Commune trouvée</value>
 	</data>
 	<data name="L_FSPREGION" xml:space="preserve">
 		<value>Région du PPS</value>
@@ -3830,7 +3830,7 @@
 		<value>Contribution allouée</value>
 	</data>
 	<data name="L_DISTRICTTOTAL" xml:space="preserve">
-		<value>Total District </value>
+		<value>TotalMougataa</value>
 	</data>
 	<data name="L_REGIONTOTAL" xml:space="preserve">
 		<value>Total région </value>
@@ -3887,13 +3887,13 @@
 		<value>Ficher de village invalide (soit le nom de l'onglet, soit le nom des colonnes soit les entrées sont invalides)</value>
 	</data>
 	<data name="M_INVALIDVILLAGEPOPULATIONINEXCEL" xml:space="preserve">
-		<value>La population du village doit être un entier dans le fichier Excel</value>
+		<value>La population de la localité doit être un entier dans le fichier Excel</value>
 	</data>
 	<data name="M_MISSINGDISTRICTCODEORNAMEINEXCEL" xml:space="preserve">
-		<value>Nom ou code de district manquant dans le fichier Excel</value>
+		<value>Nom ou code de mougataa manquant dans le fichier Excel</value>
 	</data>
 	<data name="M_MISSINGMUNICIPALITYCODEORNAMEINEXCEL" xml:space="preserve">
-		<value>Nom ou Code de municipalité manquant dans le fichier Excel</value>
+		<value>Nom ou Code de  commune manquant dans le fichier Excel</value>
 	</data>
 	<data name="M_MISSINGREGIONCODEORNAMEINEXCEL" xml:space="preserve">
 		<value>Nom ou Code de région manquant dans le fichier</value>
@@ -4296,7 +4296,7 @@
 		<value>Il n'y a pas de demande de réinitialisation de mot de passe pendant la période de validité de la demande.</value>
 	</data>
 	<data name="M_MUSTFILLPRODUCT" xml:space="preserve">
-		<value>Veuillez entrer un paquet de bénéfices</value>
+		<value>Veuillez entrer une garantie</value>
 	</data>
 	<data name="L_FINDROLE" xml:space="preserve">
 		<value>Rechercher rôles</value>
@@ -4608,7 +4608,7 @@
 		<value>Traitement</value>
 	</data>
 	<data name="R_PRODUCTS" xml:space="preserve">
-		<value>Paquet de bénéfices</value>
+		<value>Garantie</value>
 	</data>
 	<data name="R_PRODUCTSALES" xml:space="preserve">
 		<value>Vente par paquet de bénéfices</value>
@@ -4893,7 +4893,7 @@
 		<value>Recherche du numéro d'assurance</value>
 	</data>
 	<data name="T_CHARITY" xml:space="preserve">
-		<value>Charity</value>
+		<value>Aide sociale</value>
 	</data>
 	<data name="L_EXTR_IMPORTPHOTOS1" xml:space="preserve">
 		<value>Importation photos</value>
@@ -4974,7 +4974,7 @@
 		<value>Sélectionnez le centre d'activités</value>
 	</data>
 	<data name="T_SELECTEMPLOYEE" xml:space="preserve">
-		<value>Sélectionner un employé</value>
+		<value>Sélectionnez un employé</value>
 	</data>
 	<data name="M_PROJECTDEAILSSAVEDSUCCESSFULLY" xml:space="preserve">
 		<value>Les détails du projet ont été insérés avec succès</value>
@@ -5073,18 +5073,42 @@
 		<value>Pay. Reconciliated</value>
 	</data>
 	<data name="L_REJECTEDREASON" xml:space="preserve">
-		<value>Rejection reason</value>
+		<value>Motif de rejet</value>
 	</data>
 	<data name="T_PAYMENTCANCELLED" xml:space="preserve">
-		<value>cancelled</value>
+		<value>Annuler</value>
 	</data>
 	<data name="T_PAYMENTCREATED" xml:space="preserve">
-		<value>Created</value>
+		<value>Créé</value>
 	</data>
 	<data name="L_UPLOADFEEDBACKS" xml:space="preserve">
-		<value>Upload Feedbacks</value>
+		<value>Mise à jour des Feedbacks</value>
 	</data>
 	<data name="L_UPLOADRENEWALS" xml:space="preserve">
-		<value>Upload Renewals</value>
+		<value>Mise à jour des renouvellements</value>
+	</data>
+	<data name="L_VULNERABILITY" xml:space="preserve">
+		<value>Vulnérabilité</value>
+	</data>
+	<data name="T_REMOVEHOSPITALS" xml:space="preserve">
+		<value>Veuillez retirer la liste de prix des hôpitaux suivants avant de changer de lieu</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_D" xml:space="preserve">
+		<value>Synthèse des Commissions (Détaillé)</value>
+	</data>
+	<data name="T_OVERVIEWOFCOMMISSIONS_O" xml:space="preserve">
+		<value>Synthèse des Commissions (Aperçu)</value>
+	</data>
+	<data name="M_SUBSTITUTE" xml:space="preserve">
+		<value>Veuillez sélectionner un officier suppléantr</value>
+	</data>
+	<data name="M_WORKSTO" xml:space="preserve">
+		<value>Veuillez sélectionner les travaux à ce jour</value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNING" xml:space="preserve">
+		<value></value>
+	</data>
+	<data name="M_DEFAULTPASSWORDWARNINGLABEL" xml:space="preserve">
+		<value></value>
 	</data>
 </root>
