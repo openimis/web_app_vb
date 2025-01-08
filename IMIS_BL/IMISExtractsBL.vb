@@ -1438,7 +1438,13 @@ Public Class IMISExtractsBL
         Next
 
         'File.Delete(IO.Path.Combine(WorkingDirectoryPath, IO.Path.GetFileName(FileName)))
-        If My.Computer.FileSystem.DirectoryExists(WorkingDirectoryPath) Then My.Computer.FileSystem.DeleteDirectory(WorkingDirectoryPath, FileIO.DeleteDirectoryOption.DeleteAllContents)
+        If My.Computer.FileSystem.DirectoryExists(WorkingDirectoryPath) Then
+            Try
+                My.Computer.FileSystem.DeleteDirectory(WorkingDirectoryPath, FileIO.DeleteDirectoryOption.DeleteAllContents)
+            Catch ex As Exception
+
+            End Try
+        End If
         Return Result
 
     End Function
